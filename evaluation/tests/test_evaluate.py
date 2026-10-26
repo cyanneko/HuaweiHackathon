@@ -1,6 +1,7 @@
 import hashlib
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -77,18 +78,93 @@ class EvaluationTests(unittest.TestCase):
         _, after = self.run_eval()
         self.assertNotEqual(before['suite_id'], after['suite_id'])
 
-    def test_empty_or_missing_version_cannot_produce_score(self):
-        for missing in ['one.txt', 'VERSION']:
-            with self.subTest(missing=missing):
-                target = self.data / 'member2/eval' / missing
-                content = target.read_bytes()
-                target.unlink()
-                process, report = self.run_eval()
-                self.assertNotEqual(process.returncode, 0)
-                self.assertIsNotNone(report, process.stderr)
-                self.assertEqual(report['status'], 'failed')
-                self.assertIsNone(report['aggregate'])
-                target.write_bytes(content)
+    def test_nonempty_dataset_without_version_cannot_produce_score(self):
+        (self.data / 'member2/eval/VERSION').unlink()
+        process, report = self.run_eval()
+        self.assertNotEqual(process.returncode, 0)
+        self.assertIsNotNone(report, process.stderr)
+        self.assertEqual(report['status'], 'failed')
+        self.assertIsNone(report['aggregate'])
+        self.assertEqual(report['cases'], [])
+
+    def test_only_available_member_is_evaluated_and_skips_are_reported(self):
+        (self.data / 'member2/eval/one.txt').unlink()
+        shutil.rmtree(self.data / 'member3')
+        process, report = self.run_eval()
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertEqual(report['status'], 'complete')
+        self.assertEqual(report['aggregate']['case_count'], 1)
+        self.assertEqual(report['aggregate']['total_cost'], 0.5)
+        self.assertEqual([(d['member'], d['version']) for d in report['datasets']], [('cyanneko', '1.0.1')])
+        self.assertEqual({row['member'] for row in report['skipped_members']}, {'member2', 'member3'})
+        self.assertTrue(report['suite_id'])
+        self.assertIn('member2', process.stdout)
+        self.assertIn('member3', process.stdout)
+
+    def test_two_available_members_are_evaluated(self):
+        (self.data / 'member3/eval/one.txt').unlink()
+        process, report = self.run_eval()
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertEqual(report['aggregate']['case_count'], 2)
+        self.assertEqual(report['aggregate']['total_cost'], 1.0)
+
+    def test_empty_dataset_does_not_need_version_and_cannot_make_fake_empty_score(self):
+        for member in MEMBERS:
+            (self.data / member / 'eval/one.txt').unlink()
+            (self.data / member / 'eval/VERSION').unlink()
+        process, report = self.run_eval()
+        self.assertNotEqual(process.returncode, 0)
+        self.assertIsNone(report['aggregate'])
+        self.assertIsNone(report['suite_id'])
+        self.assertEqual(report['cases'], [])
+        self.assertEqual(len(report['skipped_members']), 3)
+
+    def test_missing_root_is_a_failure(self):
+        shutil.rmtree(self.data)
+        process, report = self.run_eval()
+        self.assertNotEqual(process.returncode, 0)
+        self.assertIsNone(report['aggregate'])
+        self.assertEqual(report['cases'], [])
+
+    def test_explicit_single_member_selection_ignores_unselected_bad_data(self):
+        (self.data / 'member2/eval/one.txt').write_text('invalid', encoding='utf-8')
+        process, report = self.run_eval(['--members', 'cyanneko'])
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertEqual(report['requested_members'], ['cyanneko'])
+        self.assertEqual(report['aggregate']['case_count'], 1)
+        self.assertEqual(report['skipped_members'], [])
+
+    def test_skipped_version_does_not_change_suite_but_new_data_does(self):
+        for member in ['member2', 'member3']:
+            (self.data / member / 'eval/one.txt').unlink()
+        process, before = self.run_eval()
+        self.assertEqual(process.returncode, 0, process.stderr)
+        (self.data / 'member2/eval/VERSION').write_text('9.9.9', encoding='utf-8')
+        _, after = self.run_eval()
+        self.assertEqual(before['suite_id'], after['suite_id'])
+        (self.data / 'member2/eval/one.txt').write_bytes(CASE.encode())
+        process, added = self.run_eval()
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertNotEqual(before['suite_id'], added['suite_id'])
+
+    def test_file_instead_of_eval_directory_is_not_silently_skipped(self):
+        shutil.rmtree(self.data / 'member2/eval')
+        (self.data / 'member2/eval').write_text('wrong path type', encoding='utf-8')
+        process, report = self.run_eval()
+        self.assertNotEqual(process.returncode, 0)
+        self.assertEqual(report['cases'], [])
+
+    def test_normalization_uses_only_the_available_dataset(self):
+        for member in ['member2', 'member3']:
+            (self.data / member / 'eval/one.txt').unlink()
+        baseline = self.root / 'naive.py'
+        baseline.write_text(f'print({OUTPUT.replace("0.50", "1.00")!r})', encoding='utf-8')
+        config = self.root / 'baseline.json'
+        config.write_text(json.dumps([sys.executable, str(baseline), '{input}']), encoding='utf-8')
+        process, report = self.run_eval(['--baseline-command-file', str(config), '--baseline-kind', 'official-naive'])
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertEqual(report['normalization']['level1_estimate'], 5.0)
+        self.assertEqual(len(report['normalization']['cases']), 1)
 
     def test_invalid_input_is_rejected_before_candidate_runs(self):
         (self.data / 'member3/eval/one.txt').write_text('invalid', encoding='utf-8')

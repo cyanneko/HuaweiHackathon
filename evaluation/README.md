@@ -1,6 +1,6 @@
 # 评测工具与数据规范
 
-本目录是团队公共工具区。`evaluate.py` 提供三人数据集的批量评测；`scripts/` 复用本地 `hashjoin_lab/tools/` 中的数据校验与旧版动作核算工具。仅依赖标准库，需要 Python 3.10 及以上。
+本目录是团队公共工具区。`evaluate.py` 对已上传的非空评测集进行批量评测；`scripts/` 复用本地 `hashjoin_lab/tools/` 中的数据校验与旧版动作核算工具。仅依赖标准库，需要 Python 3.10 及以上。
 
 ## 提交与部署基线
 
@@ -23,11 +23,15 @@ g++ -std=c++14 -O2 src/solution.cpp -o build/solver
 
 ## 批量评测
 
-先编译好候选程序，并填充三人的 `eval/*.txt` 与 `eval/VERSION`。在仓库根目录运行：
+先编译好候选程序，至少一个成员提供非空的 `eval/*.txt` 与合法的 `eval/VERSION` 即可。在仓库根目录运行：
 
 ```sh
 python evaluation/evaluate.py --datasets-root datasets --timeout 60 --repeats 3 --out results/run-001.json --command ./build/solver "{input}"
 ```
+
+默认依次检查 `cyanneko`、`member2`、`member3`，自动跳过不存在或没有 `.txt` 输入的成员评测目录。只有一个或两个成员上传了测试集，也可以完成本次评测。显式选择一人可用 `--members cyanneko`，选择两人可用 `--members cyanneko alice`；其余选项仍放在 `--command` 前。
+
+只有缺失/空目录可以跳过；已存在数据却没有合法 VERSION、数据损坏、路径类型错误、无法读取等问题仍会报错，不能把坏数据静默当作未上传。
 
 `--command` 及其后所有参数原样传给候选程序，因此其他选项必须在它之前。`{input}` 替换成快照文件的绝对路径；程序从标准输入读取时去掉 `{input}` 即可。可传程序自身的选项，例如 `--command ./build/solver "{input}" --policy largest`。程序在调用评测脚本时的当前工作目录运行。最终提交程序的模型权重须内嵌，不接受通过模型路径加载外部权重。
 
@@ -51,17 +55,18 @@ Total_Score: 33.00
 
 ## 版本与报告
 
-- 每位成员在 `eval/VERSION` 写入版本号，如 `0.1.0`；修改评测数据后升级版本。
-- 脚本对实际执行快照的每个 `.txt` 与相邻 `.meta.json` 记录完整 SHA-256，再计算每人集合指纹与三人合并 `suite_id`。新增、删除、重命名、内容修改和版本号变化都会影响标识。
+- 非空评测集必须在 `eval/VERSION` 写入版本号，如 `0.2.0`；修改评测数据后升级版本。只有 VERSION、没有任何 `.txt` 的空集合不会参与评测。
+- 脚本对实际执行快照的每个 `.txt` 与相邻 `.meta.json` 记录完整 SHA-256，再计算每人集合指纹与本次实际参与数据的合并 `suite_id`。新增参与成员、删除参与集合、重命名、内容修改和参与版本号变化都会影响标识；被跳过的空集合占位版本不影响标识。
 - 即使忘记修改 VERSION，数据变化仍会改变指纹；`train/` 变化不会改变评测版本。
-- 报告中包含三人版本、逐案例逐次测量、逐成员汇总、整体原始代价与决策耗时、协议、超时、运行命令、完整 stdout/stderr、机器信息和评测器/输入校验器代码指纹。
+- 报告 schema_version 为 2：`requested_members` 记录请求检查的成员，`datasets` 记录实际参与集合的版本/指纹，`skipped_members` 记录被跳过成员及原因。汇总和 suite_id 只覆盖 datasets，不能把一人数据成绩称为三人全套成绩。
+- 报告还包括逐案例逐次测量、逐成员汇总、参与数据的整体原始代价与决策耗时、协议、超时、运行命令、完整 stdout/stderr、机器信息和评测器/输入校验器代码指纹。
 - 默认 `--repeats 1`、每案例 `--timeout 60` 秒。重复测量全部保留，汇总先按案例取重复均值再对案例求和，不会重复次数翻倍就把成绩翻倍。墙钟总时间则累计全部运行。
 - 报告的 `aggregation` 字段明确标记为 `sum of per-case arithmetic mean over repeats`。这是公共评测的算术均值口径；R49 使用的重复测量中位数属于另一种聚合口径，两者不能混称或直接作为同口径成绩比较。
 - `wall_seconds` 是整个候选进程的墙钟时间，含启动和输入处理，不能作为调度器单次决策耗时。
 - 原始代价汇总越小越好，不等于官方归一化比赛总分。比较结果需要相同数据 suite_id、相同评测规则和一致环境。
-- 任一集合缺失、为空、无版本、数据非法、候选失败、超时或输出异常：退出非零，`status=failed`，`aggregate=null`；部分成功案例不能冒充整套成绩。
+- 不存在或为空的成员集合标为 skipped；至少一个合法非空集合全部执行成功即可 `status=complete`。完全没有可用数据，或任何被选择的非空集合无版本、数据非法、候选失败、超时或输出异常：退出非零，`status=failed`，`aggregate=null`；失败集合不能被丢弃后只汇总成功案例。
 - `--out` 必须为数据目录以外的新文件，防止覆盖数据或既有成绩。
-- 成员改名后用 `--members cyanneko alice bob` 指定三个目录；仍须放在 `--command` 前。
+- 成员改名或只需部分成员时，用 `--members` 指定一个或多个不重复的目录名；仍须放在 `--command` 前。
 - `--allow-small-memory` 仅用于手算诊断，报告会记录此设置。
 
 ## 程序与构建身份

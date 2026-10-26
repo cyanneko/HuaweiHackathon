@@ -39,6 +39,14 @@ Files: evaluation/evaluate.py, evaluation/tests/test_evaluate.py.
 Files: README.md, evaluation/README.md, evaluation/DATA_SPEC.md, branch-specific dataset placeholders and src/README.md.
 
 - [x] Document command syntax, cost meaning, VERSION maintenance and fingerprint comparison.
-- [ ] Commit main; create datasets with three train/eval pairs and VERSION files; create source/cyanneko from main.
-- [ ] Create private cyanneko/HuaweiHackathon and push the three branches.
-- [ ] Verify remote visibility, branches, common files and dataset directory tree.
+- [x] Commit main; create datasets with three train/eval pairs and VERSION files; create source/cyanneko from main.
+- [x] Create private cyanneko/HuaweiHackathon and push the three branches.
+- [x] Verify remote visibility, branches, common files and dataset directory tree.
+
+## Verification record
+
+- 22 unittest cases passed on Windows / Python 3.13; no research workload was timed.
+- Three remote branches verified; repository PRIVATE and default main.
+- Three empty train/eval directory pairs created, eval VERSION initialized to 0.1.0.
+- Default protocol is official-2026-10-26; explicit legacy mode remains available.
+- Read-only review findings for per-invocation input/program identity and timeout cleanup were reproduced and fixed.

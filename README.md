@@ -22,7 +22,7 @@
 evaluation/
   README.md                  # 使用方式与版本边界
   DATA_SPEC.md               # 数据格式与团队提交规范
-  evaluate.py                # 批量评测三人测试集，成绩绑定数据版本
+  evaluate.py                # 批量评测已有测试集，成绩绑定实际参与版本
   scripts/
     audit_datasets.py        # 输入数据校验
     legacy_checker.py        # 旧版本地动作核算器
@@ -77,7 +77,7 @@ git push -u origin source/GITHUB_USERNAME
 
 ## 批量评测与成绩版本
 
-在拥有三人数据的工作目录中运行（所有评测选项放在 `--command` 前）：
+在拥有至少一份非空评测集的工作目录中运行（所有评测选项放在 `--command` 前）：
 
 ```sh
 python evaluation/evaluate.py --datasets-root datasets --out results/run-001.json --command ./build/solver "{input}"
@@ -85,6 +85,6 @@ python evaluation/evaluate.py --datasets-root datasets --out results/run-001.jso
 
 如果程序从标准输入读取，去掉 `"{input}"`。输入参数路径支持空格。
 
-成绩 JSON 与终端摘要包含三人的 `VERSION`、SHA-256 和整套数据的 `suite_id`。比较成绩时应核对 `suite_id` 及评测脚本版本，不能只看人工版本号。脚本先复制数据快照再执行，原始数据后续修改不会混入本次结果。
+成绩 JSON 与终端摘要包含本次实际参与成员的 `VERSION`、SHA-256 和这些数据合并后的 `suite_id`，并列出被跳过的空目录或未上传成员。比较成绩时应核对 `suite_id` 及评测脚本版本，不能只看人工版本号。脚本先复制数据快照再执行，原始数据后续修改不会混入本次结果。
 
-另外两位成员的数据目录仍为空，须填入三人的数据才能完成全套批量运行。任一集合为空、缺少版本、程序失败或超时，都不会产生有效总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
+目前可直接评测 cyanneko 已上传的 `0.2.0` 版评测集，另外两人的空目录会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。

@@ -1,4 +1,4 @@
-"""Batch evaluation bound to three exact dataset versions (Python 3.10+)."""
+"""Evaluate available nonempty datasets, bound to their exact versions (Python 3.10+)."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -10,6 +10,7 @@ import platform
 import re
 import shutil
 import signal
+import stat
 import subprocess
 import sys
 import tempfile
@@ -31,16 +32,24 @@ def object_hash(value):
     return hashlib.sha256(raw.encode('utf-8')).hexdigest()
 
 
+class DatasetUnavailable(ValueError):
+    """A requested member has not supplied evaluation inputs yet."""
+
+
 def snapshot_dataset(root, member, snapshot, allow_small):
     source = root / member / 'eval'
-    if not source.is_dir():
-        raise ValueError(f'{member}: missing eval directory')
+    try:
+        mode = source.stat().st_mode
+    except FileNotFoundError as error:
+        raise DatasetUnavailable('missing evaluation directory') from error
+    if not stat.S_ISDIR(mode):
+        raise ValueError('eval path must be a directory')
+    cases = sorted(source.rglob('*.txt'))
+    if not cases:
+        raise DatasetUnavailable('empty evaluation set')
     version = (source / 'VERSION').read_text(encoding='utf-8-sig').strip()
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,63}', version):
         raise ValueError(f'{member}: VERSION must be 1-64 letters/digits/dots/dashes/underscores')
-    cases = sorted(source.rglob('*.txt'))
-    if not cases:
-        raise ValueError(f'{member}: empty evaluation set')
     files, pending = [], []
     for case in cases:
         if case.is_symlink() or not case.resolve().is_relative_to(source.resolve()):
@@ -238,7 +247,8 @@ def normalize(candidate, baseline):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--datasets-root', type=Path, default=Path('datasets'))
-    parser.add_argument('--members', nargs=3, default=['cyanneko', 'member2', 'member3'])
+    parser.add_argument('--members', nargs='+', default=['cyanneko', 'member2', 'member3'],
+                        help='one or more members; absent or empty evaluation sets are skipped')
     parser.add_argument('--out', type=Path, required=True, help='new JSON report path')
     parser.add_argument('--timeout', type=float, default=60, help='wall seconds per case')
     parser.add_argument('--repeats', type=int, default=1)
@@ -256,8 +266,8 @@ def main(argv=None):
         parser.error('--timeout must be a positive finite number')
     if args.repeats < 1:
         parser.error('--repeats must be at least 1')
-    if len(set(args.members)) != 3 or any(not re.fullmatch(r'[A-Za-z0-9_-]+', m) for m in args.members):
-        parser.error('--members requires three distinct directory names using letters/digits/_/-')
+    if len(set(args.members)) != len(args.members) or any(not re.fullmatch(r'[A-Za-z0-9_-]+', m) for m in args.members):
+        parser.error('--members requires distinct directory names using letters/digits/_/-')
     root, output = args.datasets_root.resolve(), args.out.resolve()
     if output.exists() or output.is_relative_to(root):
         parser.error('--out must be a new file outside the dataset directory')
@@ -275,7 +285,7 @@ def main(argv=None):
     except (OSError, ValueError) as error:
         parser.error(str(error))
     report = {
-        'schema_version': 1, 'created_at': datetime.now(timezone.utc).isoformat(),
+        'schema_version': 2, 'created_at': datetime.now(timezone.utc).isoformat(),
         'protocol': args.protocol, 'repeats': args.repeats,
         'identity': identity, 'baseline_identity': baseline_identity,
         'machine': {'platform': platform.platform(), 'hostname': platform.node(),
@@ -288,19 +298,27 @@ def main(argv=None):
         'timeout_seconds': args.timeout, 'allow_small_memory': args.allow_small_memory,
         'evaluator_sha256': file_hash(__file__),
         'input_auditor_sha256': file_hash(Path(__file__).parent / 'scripts/audit_datasets.py'),
-        'datasets_root': str(root), 'datasets': [], 'suite_id': None,
+        'datasets_root': str(root), 'requested_members': args.members,
+        'datasets': [], 'skipped_members': [], 'suite_id': None,
         'cases': [], 'baseline_cases': [], 'errors': [], 'aggregate': None,
         'normalization': {'status': 'unavailable', 'reason': 'requires valid official-naive baseline and current protocol'},
     }
     with tempfile.TemporaryDirectory(prefix='hashjoin-evaluation-') as temporary:
         snapshot, pending = Path(temporary), []
-        for member in args.members:
+        members_to_check = args.members if root.is_dir() else []
+        if not members_to_check:
+            report['errors'].append('datasets root must be an existing directory')
+        for member in members_to_check:
             try:
                 dataset, cases = snapshot_dataset(root, member, snapshot, args.allow_small_memory)
                 report['datasets'].append(dataset)
                 pending.extend(cases)
+            except DatasetUnavailable as error:
+                report['skipped_members'].append({'member': member, 'reason': str(error)})
             except (OSError, ValueError, OverflowError) as error:
                 report['errors'].append(f'{member}: {error}')
+        if not report['datasets'] and not report['errors']:
+            report['errors'].append('no nonempty evaluation datasets are available')
         if not report['errors']:
             report['suite_id'] = object_hash([
                 {'member': d['member'], 'version': d['version'], 'sha256': d['sha256']}
@@ -336,6 +354,8 @@ def main(argv=None):
     print(f"Status: {report['status']}")
     for dataset in report['datasets']:
         print(f"{dataset['member']}: version={dataset['version']} sha256={dataset['sha256']}")
+    for skipped in report['skipped_members']:
+        print(f"Skipped {skipped['member']}: {skipped['reason']}")
     print(f"Suite ID: {report['suite_id']}")
     if report['aggregate'] is not None:
         print(f"Total raw cost (lower is better): {report['aggregate']['total_cost']:.6f}")

@@ -1,0 +1,53 @@
+{
+  "scenario": "partition_zipf",
+  "seed": 2043104800,
+  "k": 1,
+  "p": 2,
+  "memory": 67108864,
+  "pressure": 1.05,
+  "actual_build_bytes": 70464307,
+  "max_partition_bytes": 67108864,
+  "operations": 602,
+  "per_operator_counts": [
+    [
+      89,
+      512
+    ]
+  ],
+  "partition_sizes": [
+    67108864,
+    3355443
+  ],
+  "probes": 512,
+  "period": 31,
+  "write": 100,
+  "read": 100,
+  "penalty": 100,
+  "generator_source": {
+    "implementation": "Independently authored Python standard-library generator; upstream programs were not executed.",
+    "inspiration": [
+      {
+        "project": "YCSB",
+        "url": "https://github.com/brianfrankcooper/YCSB",
+        "ideas": "Zipf, scrambled key ranks, hotspot and latest-style locality concepts."
+      },
+      {
+        "project": "JSON Wisconsin Data Generator",
+        "url": "https://github.com/shivajah/JSON-Wisconsin-Data-Generator",
+        "ideas": "Independent adaptation of configurable distribution and Bernoulli mixture ideas."
+      }
+    ],
+    "mapping": "Official fixed mapping pid = key % P; keys are never hashed by the simulator.",
+    "size_models": "Bernoulli mixture, lognormal and gamma are independent local implementations. Tuple draws are clipped to [1024, 1048576]; final residuals may be smaller."
+  },
+  "partition_shape": "lognormal_skew",
+  "distribution": "Direct Zipf exponent 1.8 sampling of partition ranks, with varying keys per partition. Partition byte budgets use lognormal sigma=1.6 weights, with an amplified maximum and suppressed minimum per operator; all partitions are positive and capped at M.",
+  "partition_order": [
+    [
+      1,
+      0
+    ]
+  ],
+  "bernoulli_large_classes": null,
+  "tuple_size_model": "uniform integer 512 KiB..1 MiB"
+}

@@ -46,7 +46,9 @@ datasets/
       VERSION
 ```
 
-`source/cyanneko` 分支另有 `src/`，用于个人源码。初始化不上传原有实验、模型或训练数据。
+`source/cyanneko` 分支另有 `src/`，用于个人源码。已上传 [R49 三种 CPU/C++14 方法及 Naive 基线](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r49)：仅包含 `MySpillScheduler` 定义，无 `main`，须接入官方 2026-10-26 框架。
+
+`datasets` 分支已上传 [cyanneko 的 R48 数据子集](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)：16 份输入及原始元数据，train/eval 各 8 份，个人评测版本 `0.2.0`。全部输入均已参与历史开发，eval 是开发回归集，不是独立未见测试集；`coverage_06..11` 为均衡分布诊断，其余为偏斜分布。来源、划分和原始字节哈希见各分支清单。
 
 ## 提交与部署基线
 
@@ -85,4 +87,4 @@ python evaluation/evaluate.py --datasets-root datasets --out results/run-001.jso
 
 成绩 JSON 与终端摘要包含三人的 `VERSION`、SHA-256 和整套数据的 `suite_id`。比较成绩时应核对 `suite_id` 及评测脚本版本，不能只看人工版本号。脚本先复制数据快照再执行，原始数据后续修改不会混入本次结果。
 
-三人集合目前为空，须填入数据才能完成正式批量运行。任一集合为空、缺少版本、程序失败或超时，都不会产生有效总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
+另外两位成员的数据目录仍为空，须填入三人的数据才能完成全套批量运行。任一集合为空、缺少版本、程序失败或超时，都不会产生有效总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。

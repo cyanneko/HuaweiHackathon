@@ -1,5 +1,7 @@
 # Versioned Evaluation Implementation Plan
 
+Historical implementation plan. On 2026-10-27 the user removed the requirement for all three datasets: evaluate only available nonempty sets, record their exact versions, and list skipped members. The current spec and evaluator supersede the original three-member availability constraint below.
+
 > **For agentic workers:** Use superpowers:executing-plans to implement the following tasks inline.
 
 **Goal:** Run three members' evaluation sets and bind every report to their exact versions.

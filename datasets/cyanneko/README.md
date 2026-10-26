@@ -32,7 +32,7 @@
 81276eff559df82f62fb49d1221ec3841a9a0d637eac1d165f5e756ce1024510
 ```
 
-这不是三人的合并 `suite_id`。另外两位成员的目录尚为空，不得据此声称三人全套评测通过。
+这不是评测器本次参与集合的合并 `suite_id`。另外两位成员的目录尚为空，会标为跳过；现在即可评测本人的已有版本，报告只覆盖实际参与的数据。
 
 ## 验证范围
 
@@ -44,4 +44,4 @@
 python evaluation/scripts/audit_datasets.py --root datasets/cyanneko --out results/cyanneko-data-audit.json
 ```
 
-三人目录均填充后再运行 [公共批量评测](../../evaluation/README.md)。本次不提供新性能成绩，也不上传历史大结果、模型或其他成员数据。
+现在即可运行 [公共批量评测](../../evaluation/README.md)，默认只使用已有非空集合；也可加 `--members cyanneko` 显式选择本人。本次不提供新性能成绩，也不上传历史大结果、模型或其他成员数据。

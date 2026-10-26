@@ -37,6 +37,7 @@ Total_Score: 33.00
 - 即使忘记修改 VERSION，数据变化仍会改变指纹；`train/` 变化不会改变评测版本。
 - 报告中包含三人版本、逐案例逐次测量、逐成员汇总、整体原始代价与决策耗时、协议、超时、运行命令、完整 stdout/stderr、机器信息和评测器/输入校验器代码指纹。
 - 默认 `--repeats 1`、每案例 `--timeout 60` 秒。重复测量全部保留，汇总先按案例取重复均值再对案例求和，不会重复次数翻倍就把成绩翻倍。墙钟总时间则累计全部运行。
+- 报告的 `aggregation` 字段明确标记为 `sum of per-case arithmetic mean over repeats`。这是公共评测的算术均值口径；R49 使用的重复测量中位数属于另一种聚合口径，两者不能混称或直接作为同口径成绩比较。
 - `wall_seconds` 是整个候选进程的墙钟时间，含启动和输入处理，不能作为调度器单次决策耗时。
 - 原始代价汇总越小越好，不等于官方归一化比赛总分。比较结果需要相同数据 suite_id、相同评测规则和一致环境。
 - 任一集合缺失、为空、无版本、数据非法、候选失败、超时或输出异常：退出非零，`status=failed`，`aggregate=null`；部分成功案例不能冒充整套成绩。
@@ -53,12 +54,12 @@ Total_Score: 33.00
   "candidate": {
     "source_files": ["src/main.cpp"],
     "compiler": "g++ 13.2.0",
-    "compiler_flags": ["-O2", "-std=c++17"]
+    "compiler_flags": ["-O2", "-std=c++14"]
   },
   "baseline": {
     "source_files": ["baseline/official_naive.cpp"],
     "compiler": "g++ 13.2.0",
-    "compiler_flags": ["-O2", "-std=c++17"]
+    "compiler_flags": ["-O2", "-std=c++14"]
   }
 }
 ```

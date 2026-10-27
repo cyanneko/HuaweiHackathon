@@ -29,7 +29,9 @@ g++ -std=c++14 -O2 src/solution.cpp -o build/solver
 python evaluation/evaluate.py --datasets-root datasets --timeout 60 --repeats 3 --out results/run-001.json --command ./build/solver "{input}"
 ```
 
-默认依次检查 `cyanneko`、`member2`、`member3`，自动跳过不存在或没有 `.txt` 输入的成员评测目录。只有一个或两个成员上传了测试集，也可以完成本次评测。显式选择一人可用 `--members cyanneko`，选择两人可用 `--members cyanneko alice`；其余选项仍放在 `--command` 前。
+默认自动发现 `--datasets-root` 下所有成员目录，检查其中的 `eval/`，包括新加入的第四位或更多成员；没有 `.txt` 输入的集合会跳过。只有一个或两个成员上传了测试集，也可以完成评测。显式选择一人可用 `--members cyanneko`，选择两人可用 `--members cyanneko alice`；其余选项仍放在 `--command` 前。显式选择始终标为 `partial=true`，默认自动发现标为 `partial=false`。
+
+自动发现只能列出已存在的成员目录；尚不存在的成员不会凭空加入名单。显式请求尚未上传的成员时，会在跳过名单中记录缺失原因。
 
 只有缺失/空目录可以跳过；已存在数据却没有合法 VERSION、数据损坏、路径类型错误、无法读取等问题仍会报错，不能把坏数据静默当作未上传。
 
@@ -58,10 +60,10 @@ Total_Score: 33.00
 - 非空评测集必须在 `eval/VERSION` 写入版本号，如 `0.2.0`；修改评测数据后升级版本。只有 VERSION、没有任何 `.txt` 的空集合不会参与评测。
 - 脚本对实际执行快照的每个 `.txt` 与相邻 `.meta.json` 记录完整 SHA-256，再计算每人集合指纹与本次实际参与数据的合并 `suite_id`。新增参与成员、删除参与集合、重命名、内容修改和参与版本号变化都会影响标识；被跳过的空集合占位版本不影响标识。
 - 即使忘记修改 VERSION，数据变化仍会改变指纹；`train/` 变化不会改变评测版本。
-- 报告 schema_version 为 2：`requested_members` 记录请求检查的成员，`datasets` 记录实际参与集合的版本/指纹，`skipped_members` 记录被跳过成员及原因。汇总和 suite_id 只覆盖 datasets，不能把一人数据成绩称为三人全套成绩。
+- 报告 schema_version 为 3：`requested_members` 记录自动发现或显式请求检查的成员，`selection_mode`/`partial` 记录选择方式，`datasets` 记录实际参与集合的版本/指纹，`skipped_members` 记录被跳过成员及原因。汇总和 suite_id 只覆盖 datasets，显式子集不能称为全库成绩。
 - 报告还包括逐案例逐次测量、逐成员汇总、参与数据的整体原始代价与决策耗时、协议、超时、运行命令、完整 stdout/stderr、机器信息和评测器/输入校验器代码指纹。
 - 默认 `--repeats 1`、每案例 `--timeout 60` 秒。重复测量全部保留，汇总先按案例取重复均值再对案例求和，不会重复次数翻倍就把成绩翻倍。墙钟总时间则累计全部运行。
-- 报告的 `aggregation` 字段明确标记为 `sum of per-case arithmetic mean over repeats`。这是公共评测的算术均值口径；R49 使用的重复测量中位数属于另一种聚合口径，两者不能混称或直接作为同口径成绩比较。
+- `aggregate.aggregation` 明确标记原始成本口径为 `sum of per-case arithmetic mean over repeats`；归一化评分另以 `normalization.aggregation` 标记逐集等权平均。R49/R53 研究报告的重复中位数属于不同口径，不能混称。
 - `wall_seconds` 是整个候选进程的墙钟时间，含启动和输入处理，不能作为调度器单次决策耗时。
 - 原始代价汇总越小越好，不等于官方归一化比赛总分。比较结果需要相同数据 suite_id、相同评测规则和一致环境。
 - 不存在或为空的成员集合标为 skipped；至少一个合法非空集合全部执行成功即可 `status=complete`。完全没有可用数据，或任何被选择的非空集合无版本、数据非法、候选失败、超时或输出异常：退出非零，`status=failed`，`aggregate=null`；失败集合不能被丢弃后只汇总成功案例。
@@ -102,7 +104,19 @@ Total_Score: 33.00
 
 然后添加 `--baseline-command-file baseline-command.json --baseline-kind official-naive`。候选与基线在本机、同一输入快照上逐次串行运行，并保留各自输出和身份。`official-naive` 是调用者对基线来源的声明，脚本不自动认证二进制；未明确标识的基线不会产生官方公式估分。
 
-全部成功且使用新版协议时，按每案例 `clamp(10 * (1 - VAL/BASE), 0, 10)` 计算；VAL=0 或 BASE=0 记 0，各次 Level 1 合计上限 50，再对重复测量的分数取均值。该值是**本地数据上的 Level 1 估计**，不是官方比赛最终成绩，不含专家评分。失败或超时会使本轮整体成绩无效，也不返回有效归一化分数。
+全部成功且使用新版协议时，沿 `datasets/<member>/eval` 与其 VERSION 的集合边界计算：
+
+1. 每案例、每重复先按 `clamp(10 * (1 - VAL/BASE), 0, 10)` 计分；VAL=0 或 BASE=0 记 0，未优于基线记 0。
+2. 每个集合内部，对每次重复的案例分求和并封顶 50，再对这些重复分取算术平均，得到该集合的 Level 1 估分 `S_j`。
+3. 最终平均分 `F = sum(S_j) / 参与集合数`，每集权重相同，与该集案例数无关。空/缺失集合不进入分母；只有一集时 F 就是该集分数。
+
+例如 A 集一例得 5 分，B 集六例各得 9 分，则 B 封顶后为 50，最终平均是 `(5+50)/2=27.5`。不能先合并全库案例再封顶，也不能按案例数量加权。
+
+`normalization.cases` 保存每案例每重复分数，`normalization.datasets` 保存各集成员/版本/指纹、每重复分数与 `level1_estimate`，`normalization.average_score` 是最终等权平均。旧 schema 的顶层 `normalization.level1_estimate` 已替换，避免与逐集分数混淆。终端也会逐集列分并打印最终平均。
+
+原始成本继续单独保存在 `aggregate.total_cost` 与各集的 `datasets[].aggregate` 中，越低越好；它不是这里的归一化平均分。无基线、未标识官方基线或旧协议时，归一化字段为 `unavailable`、`average_score=null`，各集同样标为不可用。任何非空集合失败都会使全轮归一化无效，不能剔除失败集后重新平均。
+
+上述结果是**本地数据上的团队评分**，不是官方隐藏集成绩，也不包含专家评分。每个集合的基础公式沿用 Level 1，跨集合等权平均是团队报告的汇总约定。
 
 计时实验应与其他研究任务协调，避免同时运行重负载；脚本记录机器信息但不会隔离系统后台负载。
 

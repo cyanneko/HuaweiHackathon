@@ -14,6 +14,9 @@ CASE = '1 2 67108864 100 100 10\n3 10\n0 1 1\nINSERT 0 0 1\nSWITCH 0\nPROBE 0 0\
 OUTPUT = 'Total_IO_Time: 0\nTotal_Decision_Time: 0.50\nHit_Count: 1\nMiss_Count: 0\nTotal_Score: 0.50\n'
 MEMBERS = ['cyanneko', 'member2', 'member3']
 
+sys.path.insert(0, str(ENTRY.parent))
+import evaluate as evaluator
+
 
 class EvaluationTests(unittest.TestCase):
     def setUp(self):
@@ -96,10 +99,10 @@ class EvaluationTests(unittest.TestCase):
         self.assertEqual(report['aggregate']['case_count'], 1)
         self.assertEqual(report['aggregate']['total_cost'], 0.5)
         self.assertEqual([(d['member'], d['version']) for d in report['datasets']], [('cyanneko', '1.0.1')])
-        self.assertEqual({row['member'] for row in report['skipped_members']}, {'member2', 'member3'})
+        self.assertEqual({row['member'] for row in report['skipped_members']}, {'member2'})
         self.assertTrue(report['suite_id'])
         self.assertIn('member2', process.stdout)
-        self.assertIn('member3', process.stdout)
+        self.assertNotIn('member3', report['requested_members'])
 
     def test_two_available_members_are_evaluated(self):
         (self.data / 'member3/eval/one.txt').unlink()
@@ -131,6 +134,7 @@ class EvaluationTests(unittest.TestCase):
         process, report = self.run_eval(['--members', 'cyanneko'])
         self.assertEqual(process.returncode, 0, process.stderr)
         self.assertEqual(report['requested_members'], ['cyanneko'])
+        self.assertTrue(report['partial'])
         self.assertEqual(report['aggregate']['case_count'], 1)
         self.assertEqual(report['skipped_members'], [])
 
@@ -163,7 +167,7 @@ class EvaluationTests(unittest.TestCase):
         config.write_text(json.dumps([sys.executable, str(baseline), '{input}']), encoding='utf-8')
         process, report = self.run_eval(['--baseline-command-file', str(config), '--baseline-kind', 'official-naive'])
         self.assertEqual(process.returncode, 0, process.stderr)
-        self.assertEqual(report['normalization']['level1_estimate'], 5.0)
+        self.assertEqual(report['normalization']['average_score'], 5.0)
         self.assertEqual(len(report['normalization']['cases']), 1)
 
     def test_invalid_input_is_rejected_before_candidate_runs(self):
@@ -260,8 +264,96 @@ class EvaluationTests(unittest.TestCase):
         process, report = self.run_eval(['--baseline-command-file', str(configuration), '--baseline-kind', 'official-naive'])
         self.assertEqual(process.returncode, 0, process.stderr)
         self.assertEqual(report['normalization']['status'], 'available')
-        self.assertEqual(report['normalization']['level1_estimate'], 15.0)
+        self.assertEqual(report['normalization']['average_score'], 5.0)
+        self.assertEqual([row['level1_estimate'] for row in report['normalization']['datasets']], [5.0, 5.0, 5.0])
         self.assertEqual(len(report['baseline_cases']), 3)
+
+    def test_auto_discovers_more_than_three_members(self):
+        folder = self.data / 'newcomer/eval'
+        folder.mkdir(parents=True)
+        (folder / 'VERSION').write_text('3.1.0', encoding='utf-8')
+        (folder / 'one.txt').write_bytes(CASE.encode())
+        process, report = self.run_eval()
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertEqual(report['schema_version'], 3)
+        self.assertEqual(report['aggregate']['case_count'], 4)
+        self.assertEqual(report['requested_members'], [*MEMBERS, 'newcomer'])
+        self.assertFalse(report['partial'])
+        self.assertEqual(report['datasets'][-1]['version'], '3.1.0')
+
+    def test_explicit_absent_member_is_reported_as_skipped(self):
+        process, report = self.run_eval(['--members', 'cyanneko', 'not_uploaded'])
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertTrue(report['partial'])
+        self.assertEqual([row['member'] for row in report['skipped_members']], ['not_uploaded'])
+        self.assertEqual(report['aggregate']['case_count'], 1)
+
+    def test_new_discovered_bad_member_cannot_be_dropped(self):
+        folder = self.data / 'newcomer/eval'
+        folder.mkdir(parents=True)
+        (folder / 'one.txt').write_bytes(CASE.encode())
+        process, report = self.run_eval()
+        self.assertNotEqual(process.returncode, 0)
+        self.assertIsNone(report['aggregate'])
+        self.assertEqual(report['cases'], [])
+        self.assertEqual(report['normalization']['status'], 'unavailable')
+
+    def test_unequal_case_counts_still_get_equal_dataset_weight(self):
+        (self.data / 'member3/eval/one.txt').unlink()
+        for i in range(1, 6):
+            (self.data / 'member2/eval' / f'case{i}.txt').write_bytes(CASE.encode())
+        self.solver.write_text('import sys\nfrom pathlib import Path\n'
+            'val=5 if Path(sys.argv[1]).parent.name=="cyanneko" else 1\n'
+            'print("Total_IO_Time: 0\\nTotal_Decision_Time: %s\\nHit_Count: 1\\nMiss_Count: 0\\nTotal_Score: %s"%(val,val))', encoding='utf-8')
+        baseline = self.root / 'naive.py'
+        baseline.write_text(f'print({OUTPUT.replace("0.50", "10.00")!r})', encoding='utf-8')
+        config = self.root / 'baseline.json'
+        config.write_text(json.dumps([sys.executable, str(baseline), '{input}']), encoding='utf-8')
+        process, report = self.run_eval(['--baseline-command-file', str(config), '--baseline-kind', 'official-naive'])
+        self.assertEqual(process.returncode, 0, process.stderr)
+        scores = report['normalization']
+        self.assertEqual(scores['dataset_count'], 2)
+        self.assertEqual([row['level1_estimate'] for row in scores['datasets']], [5.0, 50.0])
+        self.assertEqual(scores['average_score'], 27.5)
+        self.assertEqual(report['aggregate']['total_cost'], 11.0)
+        self.assertEqual(len(scores['cases']), 7)
+        self.assertIn('27.500000', process.stdout)
+
+    def test_case_repeat_and_clip_order_has_literal_expected_score(self):
+        candidate, baseline = [], []
+        for repeat in [1, 2]:
+            for member, count in [('large', 6), ('small', 1)]:
+                for i in range(count):
+                    val = (1 if repeat == 1 else 10) if member == 'large' else (0 if repeat == 1 else 5)
+                    identity = {'member': member, 'case': f'{i}.txt', 'repeat': repeat}
+                    candidate.append({**identity, 'metrics': {'Total_Score': val}})
+                    baseline.append({**identity, 'metrics': {'Total_Score': 10}})
+        datasets = [{'member': member, 'version': '1.0', 'sha256': member} for member in ['large', 'small']]
+        scores = evaluator.normalize(candidate, baseline, datasets)
+        self.assertEqual(scores['datasets'][0]['per_repeat'], [
+            {'repeat': 1, 'level1_estimate': 50.0}, {'repeat': 2, 'level1_estimate': 0.0}])
+        self.assertEqual([row['level1_estimate'] for row in scores['datasets']], [25.0, 2.5])
+        self.assertEqual(scores['average_score'], 13.75)
+
+    def test_zero_cost_and_no_improvement_cases_score_zero(self):
+        candidate, baseline = [], []
+        for i, (val, base) in enumerate([(0, 10), (1, 0), (20, 10)]):
+            identity = {'member': 'one', 'case': str(i), 'repeat': 1}
+            candidate.append({**identity, 'metrics': {'Total_Score': val}})
+            baseline.append({**identity, 'metrics': {'Total_Score': base}})
+        scores = evaluator.normalize(candidate, baseline, [{'member': 'one', 'version': '1', 'sha256': 'x'}])
+        self.assertEqual(scores['average_score'], 0.0)
+        self.assertEqual([row['single_score'] for row in scores['cases']], [0.0, 0.0, 0.0])
+
+    def test_legacy_with_baseline_still_has_no_normalized_average(self):
+        legacy = OUTPUT.replace('Total_Decision_Time: 0.50\n', '').replace('Total_Score: 0.50', 'Total_Score: 0')
+        self.solver.write_text(f'print({legacy!r})', encoding='utf-8')
+        config = self.root / 'baseline.json'
+        config.write_text(json.dumps([sys.executable, str(self.solver), '{input}']), encoding='utf-8')
+        process, report = self.run_eval(['--protocol', 'legacy', '--baseline-command-file', str(config), '--baseline-kind', 'official-naive'])
+        self.assertEqual(process.returncode, 0, process.stderr)
+        self.assertEqual(report['normalization']['status'], 'unavailable')
+        self.assertIsNone(report['normalization']['average_score'])
 
     def test_unidentified_baseline_is_not_official_normalization(self):
         configuration = self.root / 'baseline.json'

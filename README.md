@@ -22,9 +22,24 @@
 - 可选扫描优化：[MySpillScheduler_scan_fused.cpp](design/MySpillScheduler_scan_fused.cpp)。与推荐版动作等价，运行速度的收益依负载而变。
 - 当前入口与版本说明：[CURRENT_SOLUTION.txt](design/CURRENT_SOLUTION.txt)。历史实验版本不代表当前推荐方案。
 - 最新中文报告：[跨算子、自适应与在线计算成本联合迭代](design/topic20_holistic_iteration_report.pdf)。
-- 实验方法、结果摘要与限制：[本轮实验说明](design/holistic_20261026/README.txt)。
+- 编译运行与项目文件说明：[design/README.txt](design/README.txt)。
+- 本地实验结果摘要：[results_summary.json](design/results_summary.json)。
 
-源码分支保留源码、生成脚本、输入清单、结果摘要和设计报告。自动生成的大量测试输入、逐次运行日志、编译产物及页面预览保留在本地，不包含在本次源码提交中。清单内的绝对路径需在其他机器上重定位；原始输入和日志未随本分支上传，不能直接运行依赖它们的审计脚本。正式共享数据按下方约定另行提交到 `datasets` 分支。
+源码分支仅保留主要算法、官方参考框架、编译运行入口、项目说明、最新设计报告及必要结果摘要。截图、网页缓存、历史实验副本、生成数据、完整运行日志和编译产物保留在本地。正式共享数据按下方约定另行提交到 `datasets` 分支。
+
+在安装 Python 3 与 g++ 的环境中，编译推荐版：
+
+```sh
+python design/tools/run.py --policy recommended
+```
+
+编译并运行已有输入：
+
+```sh
+python design/tools/run.py --policy recommended --input /path/to/input.txt
+```
+
+其他配置为 `scan-fused`（等价扫描优化）、`experimental`（研究组合）、`cross-feedback`（跨算子反馈实验）和 `baseline`（官方朴素基线）。编译产物写入已忽略的 `design/build/`；构建只添加调度器引用并替换实例，保留参考框架的执行与计时。
 
 ## 目录
 

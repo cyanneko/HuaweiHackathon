@@ -14,18 +14,26 @@ results/
 .DS_Store
 Thumbs.db
 
-# Generated local experiments. Keep source, reports, manifests and summaries.
-design/**/cases/
-design/**/*.jsonl
-design/**/*.png
-design/**/qa/
-design/**/bin_*
-design/**/gcc_*
-design/**/budget_bin_*
-design/**/strict_replay
-design/**/strict_fused
-design/**/budget_strict_replay
-design/**/default_constructor_check
-design/**/submission_check_gcc
-design/**/*_paths.txt
-design/chaspark_app.js
+# Original screenshots remain local.
+/屏幕截图*.png
+
+# Publish only the key project files; keep the local research archive intact.
+/design/*
+!/design/CURRENT_SOLUTION.txt
+!/design/README.txt
+!/design/MySpillScheduler_final.cpp
+!/design/MySpillScheduler_scan_fused.cpp
+!/design/MySpillScheduler_holistic.cpp
+!/design/topic20_holistic_iteration_report.pdf
+!/design/project_manifest.json
+!/design/results_summary.json
+!/design/holistic_20261026/
+/design/holistic_20261026/*
+!/design/holistic_20261026/reference_current.cpp
+!/design/holistic_20261026/pressure.cpp
+!/design/holistic_20261026/research_sources.json
+!/design/holistic_20261026/requirements_coverage.json
+!/design/holistic_20261026/fetch_provenance.json
+!/design/tools/
+/design/tools/*
+!/design/tools/run.py

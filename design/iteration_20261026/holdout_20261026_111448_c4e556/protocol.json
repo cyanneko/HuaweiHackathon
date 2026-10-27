@@ -1,0 +1,67 @@
+{
+  "master": "e4d7eb7eea8235a2ef12cc0ca0231359554a08628e8b3c741a5067bd9b654222",
+  "freeze": {
+    "date": "2026-10-26",
+    "model": {
+      "risk": 0.02,
+      "depth": 2,
+      "min_leaf": 48,
+      "nodes": 7,
+      "validation_reward": 0.21528864814750678,
+      "validation_clipped_regret": 0.03785722139670485,
+      "objective": 0.21010292600783628,
+      "tree": {
+        "mode": 3,
+        "count": 757,
+        "cost": 599.3110913531259,
+        "feature": 8,
+        "threshold": 0.12500000186264515,
+        "left": {
+          "mode": 4,
+          "count": 286,
+          "cost": 213.22422820486992,
+          "feature": 11,
+          "threshold": 0.0013453512706539845,
+          "left": {
+            "mode": 3,
+            "count": 60,
+            "cost": 50.42438039861727
+          },
+          "right": {
+            "mode": 4,
+            "count": 226,
+            "cost": 161.34133056159243
+          }
+        },
+        "right": {
+          "mode": 3,
+          "count": 471,
+          "cost": 382.35321976171844,
+          "feature": 14,
+          "threshold": 1.5,
+          "left": {
+            "mode": 4,
+            "count": 188,
+            "cost": 153.50564849166196
+          },
+          "right": {
+            "mode": 3,
+            "count": 283,
+            "cost": 227.38110860378558
+          }
+        }
+      }
+    },
+    "source_sha256": "da54af569d07f3ba80127716210e30b8f788f9aa4465630244a416dd7fea52b7",
+    "training_manifest_sha256": "31a3346bde2d86761a6ff683705f49a9a5317838a38f39d00e726aee4636fddc",
+    "benchmark_sha256": "f6dbe4aa31afafc9705b488df758e7013870bab6f6c09f23280f0b9d8c2c6841",
+    "features_only_from_SystemState": true,
+    "actual_penalty_not_available": true,
+    "no_future_read_at_inference": true,
+    "deployment_mode": "expert4: largest BUILD, observed cost PROBE, fast-return feedback, free prefetch",
+    "source_score_first_sha256": "a8dfcbae437ce96739954b82dd24e77811fecaf0f0719514755e1977a7363c44",
+    "selection_basis": "historical development and rounds 1-3, before a fresh final holdout"
+  },
+  "generated_after_model_freeze": true,
+  "description": "480 fresh workloads + 128 new-seed corners; 50% of family inputs and all corners randomly relabel IDs."
+}

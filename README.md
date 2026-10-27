@@ -9,10 +9,22 @@
 | `main` | 公共说明、评测工具、数据规范；后续集成方案 | 已创建 |
 | `datasets` | 三名成员的训练集与评测集 | 已创建 |
 | `source/cyanneko` | cyanneko 的算法源码 | 已创建 |
-| `source/<成员2>` | 第二位成员的算法源码 | 成员加入后创建 |
+| `source/liunianwww` | liunianwww 的算法源码与设计文档 | 已关联 |
 | `source/<成员3>` | 第三位成员的算法源码 | 成员加入后创建 |
 
 最终共五个长期分支；初始化阶段只创建前三个。
+
+## liunianwww 的方案
+
+本分支的项目代码与研究文档位于 `design/`：
+
+- 当前推荐提交：[MySpillScheduler_final.cpp](design/MySpillScheduler_final.cpp)。单文件 C++14，定义 `MySpillScheduler`，无 `main`，接入官方框架使用。
+- 可选扫描优化：[MySpillScheduler_scan_fused.cpp](design/MySpillScheduler_scan_fused.cpp)。与推荐版动作等价，运行速度的收益依负载而变。
+- 当前入口与版本说明：[CURRENT_SOLUTION.txt](design/CURRENT_SOLUTION.txt)。历史实验版本不代表当前推荐方案。
+- 最新中文报告：[跨算子、自适应与在线计算成本联合迭代](design/topic20_holistic_iteration_report.pdf)。
+- 实验方法、结果摘要与限制：[本轮实验说明](design/holistic_20261026/README.txt)。
+
+源码分支保留源码、生成脚本、输入清单、结果摘要和设计报告。自动生成的大量测试输入、逐次运行日志、编译产物及页面预览保留在本地，不包含在本次源码提交中。清单内的绝对路径需在其他机器上重定位；原始输入和日志未随本分支上传，不能直接运行依赖它们的审计脚本。正式共享数据按下方约定另行提交到 `datasets` 分支。
 
 ## 目录
 

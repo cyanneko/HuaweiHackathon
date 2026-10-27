@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-19",
+  "memory_MiB": 75,
+  "partition_sizes_MiB": {
+    "A_p0": 30,
+    "B_p1": 25,
+    "C_p2": 15,
+    "D_p3": 40,
+    "E_p4": 45
+  },
+  "W_bytes_per_us": 10000,
+  "R_bytes_per_us": 10000,
+  "miss_penalty_us": 1000,
+  "B": 10000,
+  "probe_sequence": [
+    "A",
+    "B",
+    "D",
+    "D",
+    "D",
+    "B",
+    "B",
+    "B"
+  ],
+  "policies": [
+    {
+      "policy": "naive",
+      "ok": true,
+      "error": "",
+      "step": 165,
+      "score": 41224.448,
+      "io": 37224.448,
+      "hit": 4,
+      "miss": 4,
+      "write_bytes": 246415360,
+      "read_bytes": 125829120,
+      "peak": 78643200,
+      "spills": 7,
+      "loads": 4,
+      "callbacks": 7,
+      "action_digest": "8833795307293938484",
+      "max_partition": 47185920,
+      "run_ms": 0.0187,
+      "peak_process_working_set": 3846144
+    },
+    {
+      "policy": "prefix",
+      "ok": true,
+      "error": "",
+      "step": 165,
+      "score": 40224.448,
+      "io": 37224.448,
+      "hit": 5,
+      "miss": 3,
+      "write_bytes": 246415360,
+      "read_bytes": 125829120,
+      "peak": 78643200,
+      "spills": 7,
+      "loads": 4,
+      "callbacks": 6,
+      "action_digest": "6513382378779995290",
+      "max_partition": 47185920,
+      "run_ms": 0.01,
+      "peak_process_working_set": 3891200
+    }
+  ],
+  "verified": {
+    "same_read_and_write_bytes": true,
+    "one_fewer_miss": true,
+    "score_saved_us": 1000
+  }
+}

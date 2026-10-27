@@ -1,0 +1,131 @@
+{
+  "standard": "C++14",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "frozen_sources_verified": true,
+  "standard_library_only": true,
+  "framework_only_permitted_substitution": true,
+  "no_argument_constructors_compiled": true,
+  "no_input_or_hidden_penalty_access": true,
+  "stage1_fresh_cases": 576,
+  "stage2_fresh_cases": 300,
+  "independent_repetitions": 3,
+  "stage1_engine_runs": 8640,
+  "stage2_engine_runs": 4500,
+  "strict_audits": {
+    "development": {
+      "replays": 1344,
+      "all_legal": true
+    },
+    "validation": {
+      "replays": 2304,
+      "all_legal": true
+    },
+    "anchor": {
+      "replays": 64,
+      "all_legal": true
+    },
+    "refined": {
+      "replays": 1500,
+      "all_legal": true
+    },
+    "previous576": {
+      "replays": 2880,
+      "all_legal": true
+    }
+  },
+  "all_actions_legal": true,
+  "exact_prefix2_action_io_equivalence": true,
+  "final_scale_runs": 54,
+  "sort_ablation_runs": 9,
+  "all_wall_times_under_60s": true,
+  "mixed_callback_counts": [
+    {
+      "input": "/mnt/c/Users/liunian/Desktop/Hackathon20/design/stress20/run_20261018_183316_5cf96e/cases/maxN_mixed_maxQ.txt",
+      "policy": "base",
+      "ok": true,
+      "error": "",
+      "io": 3923080330.824803,
+      "decision_us": 3125336.531999988,
+      "score": 5395666667.356802,
+      "hit": 3530019,
+      "miss": 1469461,
+      "write_bytes": 388491278005,
+      "read_bytes": 388423120304,
+      "peak": 66847015,
+      "callbacks": 1474717,
+      "spills": 1474618,
+      "loads": 1474358,
+      "wall_s": 3.419669127,
+      "rss": 0,
+      "overflow_callbacks": 257,
+      "miss_callbacks": 1469461,
+      "periodic_callbacks": 4999,
+      "observation_hash": "1469598103934665603",
+      "action_hash": "15188241905874952351"
+    },
+    {
+      "input": "/mnt/c/Users/liunian/Desktop/Hackathon20/design/stress20/run_20261018_183316_5cf96e/cases/maxN_mixed_maxQ.txt",
+      "policy": "gated",
+      "ok": true,
+      "error": "",
+      "io": 3920469734.062087,
+      "decision_us": 2869562.734000233,
+      "score": 5103731296.796087,
+      "hit": 3819088,
+      "miss": 1180392,
+      "write_bytes": 388232803077,
+      "read_bytes": 388164645377,
+      "peak": 66847016,
+      "callbacks": 1185648,
+      "spills": 1473623,
+      "loads": 1473363,
+      "wall_s": 3.153388534,
+      "rss": 0,
+      "joint_loads": 290519,
+      "joint_rejections": 2451,
+      "prefix2_plans": 288070,
+      "overflow_callbacks": 257,
+      "miss_callbacks": 1180392,
+      "periodic_callbacks": 4999,
+      "observation_hash": "1469598103934665603",
+      "action_hash": "3491660168738337286"
+    },
+    {
+      "input": "/mnt/c/Users/liunian/Desktop/Hackathon20/design/stress20/run_20261018_183316_5cf96e/cases/maxN_mixed_maxQ.txt",
+      "policy": "p41",
+      "ok": true,
+      "error": "",
+      "io": 3921126355.5450745,
+      "decision_us": 2453801.344000134,
+      "score": 4772319156.889074,
+      "hit": 4150741,
+      "miss": 848739,
+      "write_bytes": 388297815107,
+      "read_bytes": 388229657405,
+      "peak": 66847026,
+      "callbacks": 853995,
+      "spills": 1473859,
+      "loads": 1473599,
+      "wall_s": 2.715642126,
+      "rss": 0,
+      "switches": 156119,
+      "epochs": 322092,
+      "joint_loads": 622407,
+      "joint_rejections": 2454,
+      "prefix2_plans": 617508,
+      "overflow_callbacks": 257,
+      "miss_callbacks": 848739,
+      "periodic_callbacks": 4999,
+      "observation_hash": "1469598103934665603",
+      "action_hash": "12130446053948544415"
+    }
+  ],
+  "source_sha256": {
+    "MySpillScheduler_gated.cpp": "af324f65c8f5e294621eab178b700731e959f5f53c98f92af370490566c1e4a5",
+    "SafeBase.cpp": "5a7a6d768bb5d23fff82602ed1077cd3e33dc6581fec44c00a405e847c091ed6",
+    "BaseScheduler.cpp": "d4242468bcec0ff4e00fb7c0e6fa36dbe75f32eb5d7455e15ee387e765f7da8c",
+    "MySpillScheduler.cpp": "5dd61709f4a33762e7287ce801be82220a0ce89308671915d8c66cab84da4334"
+  },
+  "validation_note": "The first 576 inputs became development evidence for the restricted admission. Only the later 300 were drawn after the restricted policy was frozen.",
+  "limitation": "Local generated workloads and timings, not official hidden tests or a universal Score improvement proof."
+}

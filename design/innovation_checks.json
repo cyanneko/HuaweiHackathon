@@ -1,0 +1,178 @@
+{
+  "adjacent_probe_example": {
+    "sequential": {
+      "io": 2.88,
+      "hit": 0,
+      "miss": 2,
+      "score": 22.88,
+      "resident": [
+        0,
+        1
+      ],
+      "actions": [
+        [
+          "SPILL",
+          3
+        ],
+        [
+          "LOAD",
+          0
+        ],
+        [
+          "SPILL",
+          2
+        ],
+        [
+          "LOAD",
+          1
+        ]
+      ]
+    },
+    "fused": {
+      "io": 2.88,
+      "hit": 1,
+      "miss": 1,
+      "score": 12.88,
+      "resident": [
+        0,
+        1
+      ],
+      "actions": [
+        [
+          "SPILL",
+          2
+        ],
+        [
+          "SPILL",
+          3
+        ],
+        [
+          "LOAD",
+          1
+        ],
+        [
+          "LOAD",
+          0
+        ]
+      ]
+    },
+    "claim_scope": "One constructed two-Probe prefix; no global performance guarantee."
+  },
+  "build_write_invariant": [
+    {
+      "spill_after": 1,
+      "written_bytes": 100,
+      "write_time": 1.0
+    },
+    {
+      "spill_after": 2,
+      "written_bytes": 100,
+      "write_time": 1.0
+    },
+    {
+      "spill_after": 3,
+      "written_bytes": 100,
+      "write_time": 1.0
+    },
+    {
+      "spill_after": 4,
+      "written_bytes": 100,
+      "write_time": 1.0
+    }
+  ],
+  "free_space_prefetch": {
+    "prefetch": {
+      "io": 0.8,
+      "hit": 1,
+      "miss": 0,
+      "score": 0.8,
+      "resident": [
+        0,
+        1
+      ],
+      "actions": [
+        [
+          "LOAD",
+          1
+        ]
+      ]
+    },
+    "wait": {
+      "io": 0.8,
+      "hit": 0,
+      "miss": 1,
+      "score": 10.8,
+      "resident": [
+        0,
+        1
+      ],
+      "actions": [
+        [
+          "LOAD",
+          1
+        ]
+      ]
+    }
+  },
+  "partial_observation_example": {
+    "histories": 2,
+    "probe_count_each": 200,
+    "hits_each": 200,
+    "same_last_partition": 1,
+    "hidden_histories": [
+      "100*A then 100*B",
+      "(A,B)*100"
+    ]
+  },
+  "prefetch_information_counterexample": {
+    "eager_spills_C": {
+      "io": 2.88,
+      "hit": 1,
+      "miss": 1,
+      "score": 12.88,
+      "resident": [
+        0,
+        2
+      ],
+      "actions": [
+        [
+          "SPILL",
+          2
+        ],
+        [
+          "LOAD",
+          0
+        ],
+        [
+          "SPILL",
+          3
+        ],
+        [
+          "LOAD",
+          2
+        ]
+      ]
+    },
+    "wait_sees_C": {
+      "io": 1.44,
+      "hit": 1,
+      "miss": 1,
+      "score": 11.44,
+      "resident": [
+        0,
+        2
+      ],
+      "actions": [
+        [
+          "SPILL",
+          3
+        ],
+        [
+          "LOAD",
+          0
+        ]
+      ]
+    }
+  },
+  "status": "Constructive model checks only; no C++ implementation or new benchmark results."
+}

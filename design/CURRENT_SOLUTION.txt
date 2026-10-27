@@ -1,0 +1,30 @@
+第20题当前入口：2026-10-26
+
+最新报告：topic20_holistic_iteration_report.pdf（13页）。
+逐项覆盖跨算子、计算成本、回调优化、next_op、文献借鉴、自适应与自主贡献。
+本轮详细说明、可复现结果和局限：holistic_20261026/README.txt。
+
+建议主版：MySpillScheduler_final.cpp。
+保守联合加载、被预取替代miss的压力反馈补偿、跨算子软配额、动态规则、精确双候选快速路径。
+本轮保留这个主版，没有用局部改善替换成未证明稳定获益的复杂组合。
+
+可选等价CPU优化：MySpillScheduler_scan_fused.cpp。
+1716条完整输入及6个规模输入动作一致；500万混合负载决策时间降低3.60%。
+但新388例累计CPU增加0.28%，全驻留500万负载慢0.393%，没有全输入速度保证。
+
+研究候选：MySpillScheduler_holistic.cpp。
+加入阶段保护、预算小n子集搜索、强制落盘集合证书；有局部正确性证明和收益/退化实测。
+新420例相对主版几何Score比0.9999567，改善很小、CPU增加4.61%，未作为默认。
+跨算子回读债务独立候选：holistic_20261026/pressure.cpp，未默认启用。
+
+所有候选都定义MySpillScheduler，只选择一个文件提交或编译，无main，C++14标准库。
+MySpillScheduler.cpp是历史学习选择器，存在严重尾部退化，不是当前推荐入口。
+
+历史报告与对照保留：
+- topic20_joint_iteration_report.pdf：联合规划、反馈补偿、双候选快速路径。
+- topic20_decision_cpu_report.pdf：回调微优化及失败对照。
+- topic20_original_contributions_20261026.pdf：原始贡献方向及提前BUILD落盘反例。
+- topic20_updated_solution_20261026.pdf：旧学习选择器与平衡版结果。
+较早未包含决策耗时的报告不能直接作为新版成绩。
+
+没有官方隐藏测试成绩，也没有全输入最优证明。最新全部计时包含决策时间。

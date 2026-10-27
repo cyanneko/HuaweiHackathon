@@ -1,0 +1,64 @@
+[
+  {
+    "id":"R1",
+    "title":"Saving Private Hash Join",
+    "authors":"Laurens Kuiper, Paul Groß, Peter Boncz, Hannes Mühleisen",
+    "venue":"PVLDB 18(8):2748-2760, 2025",
+    "url":"https://www.vldb.org/pvldb/vol18/p2748-kuiper.pdf",
+    "borrow":"统一内存视角、并存算子的运行时容量管理；在明确时点做较重的调整。",
+    "boundary":"题目固定哈希分区与整分区动作，不能复现论文的压缩、缓冲页设计或重分区。",
+    "accessed":"2026-10-26"
+  },
+  {
+    "id":"R2",
+    "title":"Velox Memory Management",
+    "url":"https://facebookincubator.github.io/velox/develop/memory.html",
+    "borrow":"随使用量变化的容量仲裁，可回收其他池的内存。借鉴为全局候选与算子软配额。",
+    "boundary":"本题没有可修改容量、线程或独立查询池的接口；软配额不改变题目的全局M。",
+    "accessed":"2026-10-26"
+  },
+  {
+    "id":"R3",
+    "title":"Velox Spilling",
+    "url":"https://facebookincubator.github.io/velox/develop/spilling.html",
+    "borrow":"区分写出与恢复，按分区选择、协调多个Build实例；借鉴为读写代价分账和跨算子候选。",
+    "boundary":"本题不允许改动文件布局、压缩或执行器；每次SPILL均按题面收费。",
+    "accessed":"2026-10-26"
+  },
+  {
+    "id":"R4",
+    "title":"LHD: Improving Cache Hit Rate by Maximizing Hit Density",
+    "authors":"Nathan Beckmann, Haoxian Chen, Asaf Cidon",
+    "venue":"NSDI 2018",
+    "url":"https://www.usenix.org/conference/nsdi18/presentation/beckmann",
+    "borrow":"用单位空间的预期复用价值选victim，并关注统计维护成本。",
+    "boundary":"这里没有逐次hit回调，热度是偏采样观测；未复现LHD条件概率模型。",
+    "accessed":"2026-10-26"
+  },
+  {
+    "id":"R5",
+    "title":"FIFO queues are all you need for cache eviction / S3-FIFO",
+    "venue":"SOSP 2023; author project",
+    "url":"https://s3fifo.com/",
+    "borrow":"低维护开销、ghost辨认再次访问、惰性维护。",
+    "boundary":"不能照搬依赖所有hit更新的缓存策略；不引用其缓存命中收益作为本题结果。",
+    "accessed":"2026-10-26"
+  },
+  {
+    "id":"R6",
+    "title":"Driving Cache Replacement with ML-based LeCaR",
+    "venue":"USENIX HotStorage 2018",
+    "url":"https://www.usenix.org/conference/hotstorage18/presentation/vietri",
+    "borrow":"利用驱逐后的反馈在替换规则之间调整。",
+    "boundary":"当前实现为带滞回的经验控制器，不声称复现强化学习或有无遗憾界。",
+    "accessed":"2026-10-26"
+  },
+  {
+    "id":"R7",
+    "title":"Velox MemoryArbitration Fuzzer",
+    "url":"https://facebookincubator.github.io/velox/develop/testing/memory-arbitration-fuzzer.html",
+    "borrow":"内存压力下的多算子随机和压力验证。",
+    "boundary":"只借鉴测试思想；本题M保持固定，没有添加并发线程。搜索索引可读，直接打开曾失败。",
+    "accessed":"2026-10-26"
+  }
+]

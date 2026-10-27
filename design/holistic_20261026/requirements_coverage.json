@@ -1,0 +1,37 @@
+[
+  {
+    "requirement": "1 跨算子落盘",
+    "implementation": "全局victim集合；算子软配额；新增按真实读回成本累计的债务",
+    "status": "主版保留；债务模块单独实验，未默认开启"
+  },
+  {
+    "requirement": "2 决策时间tradeoff",
+    "implementation": "统一用I/O+罚时+决策时间评估；仅在收益上界值得搜索时求精",
+    "status": "精细搜索实测有正有负，保留完整数据"
+  },
+  {
+    "requirement": "3 回调代码优化",
+    "implementation": "预留动作容量、精确单/双候选快路径；新增融合驻留统计与候选收集",
+    "status": "1,716例动作等价；6个规模输入5轮计时"
+  },
+  {
+    "requirement": "4 next_op提前决策",
+    "implementation": "当前miss联合下一PROBE；周期性准备下一INSERT；无额外落盘预取与强制集合预取",
+    "status": "只见一条next_op；LOAD顺序合法；新增BUILD保护"
+  },
+  {
+    "requirement": "5 学术/业界搜索",
+    "implementation": "DuckDB、Velox、LHD、S3-FIFO、LeCaR及内存仲裁压力测试",
+    "status": "一手来源与适配边界见第3页和来源JSON"
+  },
+  {
+    "requirement": "6 动态感知与自适应",
+    "implementation": "阶段、累计miss增量、短间隔读回、衰减热度；事件触发重评与滞回",
+    "status": "首次miss初始化；后续低成本观察和按条件重评"
+  },
+  {
+    "requirement": "7 自主创新",
+    "implementation": "预取反馈补偿、阶段非放大门槛、强制集合证书、计算预算与回读债务",
+    "status": "区分已证明的局部性质、工程改进与未证实的设想"
+  }
+]

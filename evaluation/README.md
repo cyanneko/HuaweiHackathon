@@ -2,28 +2,26 @@
 
 本目录是团队公共工具区。`evaluate.py` 对已上传的非空评测集进行批量评测；`scripts/` 复用本地 `hashjoin_lab/tools/` 中的数据校验与旧版动作核算工具。仅依赖标准库，需要 Python 3.10 及以上。
 
+首次接手请先读 [Agent 上手指南](../docs/AGENT_GUIDE.md)。本说明基于保存的 2026-10-26 协议和当前脚本，未为文档重新在线核验官网。
+
 ## 提交与部署基线
 
 最后评测可能没有 GPU，团队统一按以下部署条件准备提交程序：
 
-- 纯 CPU 推理，最终为单个 `.cpp` 文件，使用 C++14 标准库。
+- 正式提交物为单个 `.cpp`，只定义 MySpillScheduler，无 main/engine；纯 CPU、C++14 标准库。
 - 不依赖 CUDA、第三方推理运行时或外部模型文件；训练得到的权重内嵌源码。
 - GPU 仅可用于离线训练；提交程序的推理、决策耗时和性能计时全部在 CPU 上执行。
 - 构建基线为 `g++ -std=c++14 -O2`。不擅自添加 `-march=native`，也不假定 AVX 等额外指令集可用。
 - 提交评测结果时保留报告已有的机器/CPU、程序指纹和编译身份信息，并在随附运行说明中记录实际推理线程数；未知项写 `unknown`。当前 runner 不自动检测实际推理线程数。
 - 可在随附部署说明中声明 `gpu_required=false`，但声明本身不构成认证；需结合源码、构建依赖及无 GPU 环境的实际运行证据核对。
 
-例如，先创建构建目录，再编译单文件：
+本地可测程序需要把该类接官方兼容完整框架后另行构建，仅替换 Scheduler，不修改状态、动作、计数或计时语义。完整框架和可直接编译的完整 solution.cpp 未随仓库发布；不能对 methods 中仅含类定义的 cpp 直接编译成 exe。[接入与接口边界](../docs/AGENT_GUIDE.md#参赛提交物与本地可测程序)见指南。
 
-```sh
-g++ -std=c++14 -O2 src/solution.cpp -o build/solver
-```
-
-这些是团队提交约定。当前公共 runner 负责运行与结果记录，不自动认证标准库依赖、单文件要求、CPU 专用推理或权重内嵌。
+当前公共 runner 负责运行与结果记录，不自动认证标准库依赖、提交格式、CPU 专用推理或权重内嵌。
 
 ## 批量评测
 
-先编译好候选程序，至少一个成员提供非空的 `eval/*.txt` 与合法的 `eval/VERSION` 即可。在仓库根目录运行：
+先编译好候选程序，至少一个成员提供非空的 `eval/*.txt` 与合法的 `eval/VERSION` 即可。下例在 datasets 工作树根目录运行；main/source 工作树须把 `--datasets-root` 换成独立数据快照路径，见 [指南](../docs/AGENT_GUIDE.md#最短上手流程)：
 
 ```sh
 python evaluation/evaluate.py --datasets-root datasets --timeout 60 --repeats 3 --out results/run-001.json --command ./build/solver "{input}"
@@ -57,7 +55,7 @@ Total_Score: 33.00
 
 ## 版本与报告
 
-- 非空评测集必须在 `eval/VERSION` 写入版本号，如 `0.2.0`；修改评测数据后升级版本。只有 VERSION、没有任何 `.txt` 的空集合不会参与评测。
+- 非空评测集必须在 `eval/VERSION` 写入版本号，如 `0.3.0`；修改评测数据后升级版本。只有 VERSION、没有任何 `.txt` 的空集合不会参与评测。
 - 脚本对实际执行快照的每个 `.txt` 与相邻 `.meta.json` 记录完整 SHA-256，再计算每人集合指纹与本次实际参与数据的合并 `suite_id`。新增参与成员、删除参与集合、重命名、内容修改和参与版本号变化都会影响标识；被跳过的空集合占位版本不影响标识。
 - 即使忘记修改 VERSION，数据变化仍会改变指纹；`train/` 变化不会改变评测版本。
 - 报告 schema_version 为 3：`requested_members` 记录自动发现或显式请求检查的成员，`selection_mode`/`partial` 记录选择方式，`datasets` 记录实际参与集合的版本/指纹，`skipped_members` 记录被跳过成员及原因。汇总和 suite_id 只覆盖 datasets，显式子集不能称为全库成绩。
@@ -73,7 +71,7 @@ Total_Score: 33.00
 
 ## 程序与构建身份
 
-自动记录命令中现有文件与可执行程序的 SHA-256。源码、编译器和编译参数不可得时写 `unknown`，不要猜测。可用 `--identity-file build-info.json` 补充，例如：
+自动记录命令中现有文件与可执行程序的 SHA-256。源码、编译器和编译参数不可得时写 `unknown`，不要猜测。可用 `--identity-file build-info.json` 补充；下例路径须替换为实际完整程序及基线源码，不代表仓库已提供这些文件：
 
 ```json
 {
@@ -137,7 +135,7 @@ python evaluation/scripts/audit_datasets.py --root datasets --out results/data_a
 也可指定单个文件：
 
 ```sh
-python evaluation/scripts/audit_datasets.py datasets/cyanneko/train/example.txt --out results/data_audit.json
+python evaluation/scripts/audit_datasets.py datasets/cyanneko/train/coverage_00.txt --out results/data_audit.json
 ```
 
 脚本检查字段、范围、阶段、计数、单分区容量，并记录文件和操作流 SHA-256；存在同名 `.meta.json` 时检查其中可核对的统计。目录模式会跳过首行不像数据头的 `.txt`，因此应检查报告中的 `cases`、`errors`、`skipped`，不能仅凭退出码判断所有文件都被校验。空目录没有测试案例。
@@ -152,4 +150,4 @@ python evaluation/scripts/legacy_checker.py case.txt actions.trace.jsonl output.
 
 **版本边界：本脚本是旧版本地实验核算器，不是新版官方评测器。** 它允许溢出回调落盘当前 INSERT 目标后将新元组追加到磁盘；本地保存的 2026-10-26 题面则禁止落盘当前 INSERT 目标。当前脚本没有适配该差异，也没有实现官方归一化比赛总分。团队统一正式评测前，需要按最终官方规则更新执行器和核算器。
 
-本次只初始化协作结构，不复制旧实验执行器、模型、训练数据或实验报告。数据格式与提交约定见 [DATA_SPEC.md](DATA_SPEC.md)。
+实际数据在 datasets 分支，Scheduler 源码在对应 source 分支；完整官方框架和 NN/融合器未随这些文件发布。数据格式见 [DATA_SPEC.md](DATA_SPEC.md)，跨分支工作流见 [Agent 指南](../docs/AGENT_GUIDE.md)。

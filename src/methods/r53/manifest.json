@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "origin_round": "R53",
+  "method": "best_fit_fast",
+  "role": "candidate",
+  "adopted_as_default": false,
+  "path": "src/methods/r53/best_fit_fast.cpp",
+  "source_relative": "hashjoin_lab/reports/collaboration_20261020/round53_best_fit_fast/submissions/best_fit_fast.cpp",
+  "sha256": "c080764785e049e35903020204d84bbad17150fec6b0fb7c33d212d12348965c",
+  "bytes": 2710,
+  "content": "MySpillScheduler only; no main; integrate with official-2026-10-26 framework",
+  "build_flags": [
+    "-std=c++14",
+    "-O2"
+  ],
+  "gpu_required": false,
+  "external_model_files_required": false,
+  "historical_built_translation_unit_sha256": "4faf15ed8bd2018f1d37cc7604fcf79a129bea00f7c3499988a539213ddfb91f",
+  "historical_binary_sha256": "723fe0a26232dd32b7226b8f351b9a8575e6e77c8166b25245d5ece833e9612d",
+  "historical_evidence_manifest": {
+    "source_relative": "hashjoin_lab/reports/collaboration_20261020/round53_best_fit_fast/evidence_sha256.json",
+    "sha256": "13269120de4821a687333e70619dc323ef84de2d84afe6b74944e62cb0581a33"
+  },
+  "historical_formal_build_gate": {
+    "source_relative": "hashjoin_lab/reports/collaboration_20261020/round53_best_fit_fast/formal_build_gate.json",
+    "sha256": "818f09315075749c7e6eaccae1439a8f3b86c348045859560f2095c4ccb2064f"
+  },
+  "historical_equivalence_gate": {
+    "source_relative": "hashjoin_lab/reports/collaboration_20261020/round53_best_fit_fast/equivalence_gate.json",
+    "sha256": "d03443d472b4ad183fe78fb3d49d56bbae7af6e31ddb5c0a7f7a9cc2c7b512bb"
+  },
+  "root_verification": {
+    "source_relative": "hashjoin_lab/reports/collaboration_20261020/review_round53/verification.json",
+    "sha256": "aa5ce57ebaa082580a33c1da9d5ce19c4425113beeb585ecf2dc02b36927bce3"
+  },
+  "root_report": {
+    "source_relative": "docs/R53_best_fit快路径效果_20261027.md",
+    "sha256": "737128d02519cde840ef3d95d9c95a86127289e2e094370f1d968598d2aa899f"
+  },
+  "historical_validation": {
+    "formal_valid_runs": 48,
+    "seen_development_inputs": 6,
+    "repeats_per_method_per_input": 4,
+    "diagnostic_equivalent_traces": 6,
+    "literal_state_checks": 12,
+    "decision_median_improved_inputs": 5
+  },
+  "historical_results": {
+    "long_A": {
+      "operations": 5000000,
+      "decision_seconds_median_old": 16.110938275,
+      "decision_seconds_median_new": 6.976861525,
+      "wall_seconds_median_old": 18.9926,
+      "wall_seconds_median_new": 10.2763,
+      "total_cost_ratio_new_over_old": 0.999727923
+    },
+    "long_B": {
+      "operations": 5000000,
+      "total_cost_ratio_new_over_old": 0.834312173,
+      "paired_decision_regressions": 1,
+      "paired_repeats": 4
+    },
+    "coverage_00": {
+      "decision_microseconds_median_delta": 3.5
+    }
+  },
+  "result_boundary": "seen constructed development inputs; same observed actions, IO/Hit/Miss; timing implementation improvement, not proof of strategy quality or hidden-set/global superiority",
+  "upload_verification": {
+    "original_frozen_hash_match": true,
+    "built_translation_unit_hash_and_source_inclusion_rechecked": true,
+    "scheduler_callbacks_and_no_main_checked": true,
+    "fresh_builds": 0,
+    "fresh_performance_runs": 0
+  }
+}

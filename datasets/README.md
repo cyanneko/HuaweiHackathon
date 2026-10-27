@@ -1,6 +1,8 @@
-# 三人数据集
+# 团队数据集
 
-本分支集中管理三位成员的数据；`cyanneko` 为已确认成员，`member2`、`member3` 为待重命名占位。
+先读 [Agent 指南的数据流程](../docs/AGENT_GUIDE.md#数据与新增数据的流程)，按当前 manifest/VERSION 维护数据与发布记录。
+
+本分支按成员维护数据；当前 `cyanneko` 有数据，`member2`、`member3` 为待重命名的空占位，新增成员可按规范加入。
 
 每人目录包含 `train/` 和 `eval/`。`cyanneko` 保留 R48 的 16 份并新增 R54 v1.1 的 32 份合成组合/对照输入，合计 48 份及原始元数据，train/eval 各 24，评测集版本为 `0.3.0`。划分与来源见 [cyanneko/README.md](cyanneko/README.md)。
 

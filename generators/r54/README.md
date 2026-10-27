@@ -2,6 +2,8 @@
 
 Python 标准库实现，不依赖固定工作区路径、GPU 或第三方包。使用一个尚不存在的新目录：
 
+首次接手可先看 [Agent 指南中的数据流程](../../docs/AGENT_GUIDE.md#数据与新增数据的流程)，区分复现这一批数据与新增独立数据。
+
 ```sh
 python generators/r54/generate.py --out NEWDIR
 ```

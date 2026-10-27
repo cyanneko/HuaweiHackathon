@@ -2,21 +2,23 @@
 
 团队协作仓库，研究内存受限下 Hash Join 算子的 Spill-to-Disk 动态调度。
 
+Agent 先读 [AGENTS.md](AGENTS.md)，再按 [中文上手指南](docs/AGENT_GUIDE.md) 开始工作；评测细节见 [evaluation/README.md](evaluation/README.md)。协议说明基于保存的 2026-10-26 版本，不代表本次在线核验官网。
+
 ## 分支约定
 
 | 分支 | 用途 | 当前状态 |
 | --- | --- | --- |
 | `main` | 公共说明、评测工具、数据规范；后续集成方案 | 已创建 |
-| `datasets` | 三名成员的训练集与评测集 | 已创建 |
+| `datasets` | 按成员存放训练集与评测集 | 已创建 |
 | `source/cyanneko` | cyanneko 的算法源码 | 已创建 |
-| `source/<成员2>` | 第二位成员的算法源码 | 成员加入后创建 |
-| `source/<成员3>` | 第三位成员的算法源码 | 成员加入后创建 |
+| `source/liunianwww` | 另一成员维护的源码分支 | 已存在，由该成员协调维护 |
+| `source/<用户名>` | 其他成员的算法源码 | 按需创建 |
 
-最终共五个长期分支；初始化阶段只创建前三个。
+这是 2026-10-27 的分支快照，实际以 `git branch -r` 为准，不限制固定成员数。公共更新不会未经协调改写其他成员的源码分支。
 
 ## 目录
 
-公共目录在三个现有分支均可见：
+公共目录同步维护于 main、datasets、source/cyanneko；其他成员分支的同步由其维护者协调：
 
 ```text
 evaluation/
@@ -48,17 +50,29 @@ datasets/
 
 `source/cyanneko` 分支另有 `src/`，用于个人源码。已上传 [R49 三种 CPU/C++14 方法及 Naive 基线](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r49)：仅包含 `MySpillScheduler` 定义，无 `main`，须接入官方 2026-10-26 框架。
 
-`datasets` 分支已上传 [cyanneko 的 R48＋R54 数据](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)：48 份输入及原始元数据，train/eval 各 24 份，个人评测版本 `0.3.0`。R54 新增 32 例，其中 24 例为组合场景；保留原 R48 的 16 例。数据用于合成开发/回归，不是独立盲测集；R48 的 `coverage_06..11` 为均衡分布诊断。来源、划分和原始字节哈希见该分支清单。
+另有 [R53 best_fit_fast 候选](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r53)：保留原版，对保存轨迹验证动作等价的实现优化；不是全局冠军或唯一默认。仓库没有发布可用 NN/融合器。
+
+2026-10-27 数据快照：[cyanneko 的 R48＋R54 数据](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)共 48 份输入及 48 份原始元数据，train/eval 各 24 份，个人评测版本 `0.3.0`。R54 新增 32 例，其中 24 例为组合场景；保留原 R48 的 16 例。数据用于合成开发/回归，不是独立盲测集；R48 的 `coverage_06..11` 为均衡分布诊断。后续以 datasets 的 manifest、VERSION 和文件指纹为准。
 
 **实际数据文件只在 datasets 分支。** main 保存公共工具、规范和 [R54 生成器](generators/r54/README.md)，source 分支保存方法源码与公共工具。评测时使用 datasets 分支的数据目录，或将 `--datasets-root` 指向其独立工作目录。
 
 ## 提交与部署基线
 
-最终提交以无 GPU 的评测环境为基线：纯 CPU 推理，单个 `.cpp` 文件，C++14 标准库。模型权重须内嵌源码，提交程序不依赖 CUDA、第三方推理运行时或外部模型文件。
+正式提交物是**只定义 MySpillScheduler 的单个 `.cpp`，无 main/engine**。本地评测要将该类接入官方兼容完整框架后才编译可执行程序；完整框架未随本仓库发布，不能直接将 methods 中的 cpp 当成完整程序编译。
+
+部署按无 GPU 环境准备：纯 CPU、C++14 标准库，模型权重须内嵌源码，不依赖 CUDA、第三方推理运行时或外部模型文件。
 
 GPU 可以用于离线训练；提交程序的推理和计时均使用 CPU。构建基线为 `g++ -std=c++14 -O2`；未经统一环境确认，不添加 `-march=native` 或假定支持 AVX 等指令集。完整约定见 [评测说明](evaluation/README.md#提交与部署基线)。
 
 ## 协作方式
+
+| 要做的事 | 工作流入口 |
+| --- | --- |
+| 了解接口、获取数据、构建本地程序 | [Agent 上手指南](docs/AGENT_GUIDE.md) |
+| 修改方法 | 自己的 source 分支；只改 Scheduler，保留框架语义 |
+| 新增数据 | datasets 成员目录；去重、审核、更新 manifest，eval 变更再升 VERSION，train-only 不升评测版本 |
+| 改公共文档、生成器或评测工具 | main 修改，再按协调范围同步 |
+| 交接或暂停 | [指南中的协作与交接](docs/AGENT_GUIDE.md#时间比较与交接) |
 
 - 数据提交到 `datasets` 分支下自己的目录；`member2`、`member3` 为待重命名占位。
 - 算法提交到各自 `source/<GitHub用户名>` 分支。
@@ -66,23 +80,23 @@ GPU 可以用于离线训练；提交程序的推理和计时均使用 CPU。构
 - 训练集与评测集分开维护，避免同一操作流同时出现在两者中。
 - 数据和算法分支不需要整体合并到 `main`；只合并明确需要的公共内容或集成方案。
 
-新增成员示例：
+新增成员可从 main 创建自己的 source 分支，按最新用户授权进行创建和推送；共享工作树切分支前先协调写入所有权。
+
+源码工作树读取数据优先用独立的 detached worktree，下面只是操作示例，路径须尚不存在：
 
 ```sh
-git switch main
-git pull --ff-only
-git switch -c source/GITHUB_USERNAME
-git push -u origin source/GITHUB_USERNAME
+git fetch origin
+git worktree add --detach ../HuaweiHackathon-datasets origin/datasets
 ```
 
-从源码分支临时读取数据，可使用 `git restore --source=origin/datasets -- datasets`；不要把取出的数据顺手提交进源码分支。
+数据更新由协调好的 datasets 工作树处理；不要把整份数据恢复到源码索引中。详细前提见 [最短上手流程](docs/AGENT_GUIDE.md#最短上手流程)。
 
 ## 批量评测与成绩版本
 
-在拥有至少一份非空评测集的工作目录中运行（所有评测选项放在 `--command` 前）：
+先接官方兼容框架构建完整本地程序；仓库没有现成 solver。随后从源码工作树读取数据快照运行（所有评测选项放在 `--command` 前）：
 
 ```sh
-python evaluation/evaluate.py --datasets-root datasets --out results/run-001.json --command ./build/solver "{input}"
+python evaluation/evaluate.py --datasets-root ../HuaweiHackathon-datasets/datasets --out results/run-001.json --command ./build/solver "{input}"
 ```
 
 如果程序从标准输入读取，去掉 `"{input}"`。输入参数路径支持空格。

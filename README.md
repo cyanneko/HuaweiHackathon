@@ -48,7 +48,9 @@ datasets/
 
 `source/cyanneko` 分支另有 `src/`，用于个人源码。已上传 [R49 三种 CPU/C++14 方法及 Naive 基线](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r49)：仅包含 `MySpillScheduler` 定义，无 `main`，须接入官方 2026-10-26 框架。
 
-`datasets` 分支已上传 [cyanneko 的 R48 数据子集](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)：16 份输入及原始元数据，train/eval 各 8 份，个人评测版本 `0.2.0`。全部输入均已参与历史开发，eval 是开发回归集，不是独立未见测试集；`coverage_06..11` 为均衡分布诊断，其余为偏斜分布。来源、划分和原始字节哈希见各分支清单。
+`datasets` 分支已上传 [cyanneko 的 R48＋R54 数据](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)：48 份输入及原始元数据，train/eval 各 24 份，个人评测版本 `0.3.0`。R54 新增 32 例，其中 24 例为组合场景；保留原 R48 的 16 例。数据用于合成开发/回归，不是独立盲测集；R48 的 `coverage_06..11` 为均衡分布诊断。来源、划分和原始字节哈希见该分支清单。
+
+**实际数据文件只在 datasets 分支。** main 保存公共工具、规范和 [R54 生成器](generators/r54/README.md)，source 分支保存方法源码与公共工具。评测时使用 datasets 分支的数据目录，或将 `--datasets-root` 指向其独立工作目录。
 
 ## 提交与部署基线
 
@@ -89,4 +91,4 @@ python evaluation/evaluate.py --datasets-root datasets --out results/run-001.jso
 
 有当前协议的官方 Naive 基线时，先对每个测试集独立计算每案例分数、每重复求和封顶 50、再取重复均值；最终成绩为所有参与测试集分数的**等权算术平均**，与案例数无关。报告保留逐例、逐集及最终平均分。没有基线时归一化分显示 `unavailable`；原始成本另行记录，不作为最终平均分。
 
-目前可直接评测 cyanneko 已上传的 `0.2.0` 版评测集，另外两人的空目录会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
+目前可直接评测 cyanneko 已上传的 `0.3.0` 版评测集，另外两人的空目录会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。

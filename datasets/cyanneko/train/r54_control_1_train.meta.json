@@ -1,0 +1,90 @@
+{
+  "case_id": "r54_control_1_train",
+  "category": "control",
+  "variant": 1,
+  "split": "train",
+  "seed": 2054273010,
+  "k": 2,
+  "p": 2,
+  "memory": 67108864,
+  "pressure_requested": 1.040030517578125,
+  "probes": 30000,
+  "period": 31,
+  "write": 1,
+  "read": 10000,
+  "penalty": 1000,
+  "generator": "r54-mixture-v1.1",
+  "generator_seed_runtime": "Python random.Random",
+  "provenance": "synthetic; no private or external trace",
+  "usage": "training",
+  "official_representative_claim": false,
+  "operations": 30095,
+  "partition_sizes": [
+    34896609,
+    1024,
+    34896609,
+    1024
+  ],
+  "realized_pressure": 1.0400305092334747,
+  "phase_overlap": true,
+  "operators_detail": [
+    {
+      "op_id": 0,
+      "build_shape": "explicit_partition_sizes",
+      "partition_sizes": [
+        34896609,
+        1024
+      ],
+      "segments": [
+        {
+          "mode": "hot_low",
+          "requested_share": 1.0,
+          "count": 15000,
+          "realized_share": 1.0,
+          "probe_start": 0,
+          "probe_end": 15000,
+          "global_first_operation": 55,
+          "global_last_operation": 17010,
+          "actual_pid_counts": {
+            "0": 14557,
+            "1": 443
+          }
+        }
+      ]
+    },
+    {
+      "op_id": 1,
+      "build_shape": "explicit_partition_sizes",
+      "partition_sizes": [
+        34896609,
+        1024
+      ],
+      "segments": [
+        {
+          "mode": "hot_low",
+          "requested_share": 1.0,
+          "count": 15000,
+          "realized_share": 1.0,
+          "probe_start": 0,
+          "probe_end": 15000,
+          "global_first_operation": 452,
+          "global_last_operation": 30095,
+          "actual_pid_counts": {
+            "0": 14549,
+            "1": 451
+          }
+        }
+      ]
+    }
+  ],
+  "actual_mode_counts": {
+    "hot_low": 30000
+  },
+  "actual_mode_shares": {
+    "hot_low": 1.0
+  },
+  "switch_index_convention": "probe_start inclusive/probe_end exclusive: zero-based per-operator PROBE index; global positions one-based excluding headers; segments may interleave across operators",
+  "interleaving": "operator 0 weight 8, others weight 1",
+  "sha256": "f45adb8cddad77c8b5066d4e926ffcd042acf8db52a30bc8daf645def5709ab0",
+  "operation_stream_sha256": "fc180fd980646d17284b85c075392746d52d9d250430e629cbb6dfd73850eb6f"
+}

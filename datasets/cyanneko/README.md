@@ -1,6 +1,6 @@
-# cyanneko · R48＋R54＋R58 候选数据，eval 0.4.0
+# cyanneko · 已发布R48＋R54＋R58数据，eval 0.4.0
 
-**本地已验证候选：3项测试、两次CLI复现和全64例公共审核通过，独立发布复核也已通过，尚未推送。** 当前候选共64份输入和64份同名meta，train/eval各32；R58增加8/8。原48输入与48元数据逐文件保留原字节，原0.3.0审核记录不覆盖。
+**已发布0.4.0：3项测试、两次CLI复现和全64例数据审核、独立发布复核通过。** 共64份输入和64份同名meta，train/eval各32；R58增加8/8。原48输入与48元数据逐文件保留原字节，原0.3.0审核记录不覆盖。
 
 | 来源 | train | eval | 边界 |
 | --- | ---: | ---: | --- |
@@ -15,13 +15,13 @@
 
 [manifest.json](manifest.json)保存64例路径、来源、input/meta SHA、划分、原0.3.0来源和R58新增来源。旧48条case来源/哈希保留；原48输入和meta逐文件SHA与旧manifest相同。R58的txt/meta按冻结原件复制；新输入raw及modulo-P语义SHA与独立审核相符。
 
-eval/VERSION拟升0.4.0，候选个人eval指纹为`d686842e79b18cc4e8351c8d5bfd571c34ad961de470b6d4edd84868ba302f94`。该值由实际32txt＋32meta及VERSION计算，是静态身份，不表示审核通过或已发布；最终以审核后的清单为准。仅train改变时不改eval版本或suite_id。各轮数据不能当多个成员重复算分。
+eval/VERSION已发布为0.4.0，个人eval指纹为`d686842e79b18cc4e8351c8d5bfd571c34ad961de470b6d4edd84868ba302f94`。该值由实际32txt＋32meta及VERSION计算，[不可变已发布版本](https://github.com/cyanneko/HuaweiHackathon/blob/875b6b0b99ec1b63ac37c11a99ea7f1a349b83a3/datasets/cyanneko/eval/VERSION)与[当前发布说明](../../docs/R58_PUBLICATION_STATUS.md)给出定位；文件指纹不表示已完成新版本评分。仅train改变时不改eval版本或suite_id。各轮数据不能当多个成员重复算分。
 
 R58生成前spec的planned标签保留历史含义，当前原16例的实际独立审核见 [生成器来源](../../generators/r58/README.md)。原meta的q_observed=null表示生成时未诊断；不从之后结果回填meta或改写源数据。
 
 ## 审核状态与复现
 
-[验证汇总](provenance/validation_0.4.0.json)、[全64例公共审核](provenance/public_audit_0.4.0.json)和[去重/头顺序](provenance/dedup_0.4.0.json)记录实际验证范围。原0.3.0的 [公共审核](provenance/public_audit_0.3.0.json) 和 [汇总](provenance/validation_0.3.0.json) 只覆盖原48例，不能代表本候选64例全部通过。
+[验证汇总](provenance/validation_0.4.0.json)、[全64例公共审核](provenance/public_audit_0.4.0.json)和[去重/头顺序](provenance/dedup_0.4.0.json)记录实际验证范围。原0.3.0的 [公共审核](provenance/public_audit_0.3.0.json) 和 [汇总](provenance/validation_0.3.0.json) 只覆盖原48例，不能替代0.4.0全64例审核。
 
 本次从本分支根目录分别审核全部32eval和32train，未使用allow-small-memory。复核命令如下，输出放输入目录之外：
 

@@ -26,4 +26,4 @@ python expert_runtime/tests/run_tests.py --out build/expert-contracts --max-seco
 python expert_runtime/export.py --entry src/experts/best_fit_fast/standalone.cpp --out build/best_fit_standalone.cpp
 ```
 
-目标父目录须存在，已有文件不会被覆盖。展开器递归处理仓库内的字面引号 include，去重、拒绝循环/越界，保留标准库 include；不支持条件化的局部 include 图。重复导出相同输入字节结果相同，不写时间戳或本机路径。正式提交时仅使用导出的单个 `MySpillScheduler` 文件，本地编译仍需另外接官方兼容框架，不能将该文件当独立可执行程序。
+目标父目录须存在，已有文件不会被覆盖。展开器递归处理仓库内的字面引号 include，去重、拒绝循环/越界，保留标准库 include。仅支持普通文件外层 `#ifndef`/`#define` include guard 和单行注释；其他条件分支中的本地 include、宏 include、块注释和原始字符串明确报错，不静默导出。它不是通用 C++ 预处理器。重复导出相同输入字节结果相同，不写时间戳或本机路径；导出后仍须编译和动作等价验证。正式提交时仅使用导出的单个 `MySpillScheduler` 文件，本地编译仍需另外接官方兼容框架，不能将该文件当独立可执行程序。

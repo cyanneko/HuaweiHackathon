@@ -1,6 +1,6 @@
 # 公共仓库 Agent 上手指南
 
-先读根目录 [AGENTS.md](../AGENTS.md)。本指南依据仓库实际代码、清单及 **2026-10-26 协议**；2026-10-28 重新核对官方公开接口，响应与此前保存件相同，来源与 SHA 见 [专家接口 v1](EXPERT_INTERFACE_V1.md#1-目的和依据)。下列数据与方法数字是 **2026-10-27 快照**，后续以 datasets 分支的 manifest、VERSION、当前评测器和各方法来源记录为准。
+先读根目录 [AGENTS.md](../AGENTS.md)。本指南依据仓库实际代码、清单及 **2026-10-26 协议**；2026-10-28 重新核对官方公开接口，响应与此前保存件相同，来源与 SHA 见 [专家接口 v1](EXPERT_INTERFACE_V1.md#1-目的和依据)。数据发布状态更新至 **2026-10-29**；历史方法和实验保留各自版本，后续以 datasets 分支的 manifest、VERSION、当前评测器和各方法来源记录为准。
 
 ## 分支与事实来源
 
@@ -12,7 +12,7 @@
 | evaluation | [使用与协议](../evaluation/README.md)、[数据格式](../evaluation/DATA_SPEC.md)、评测器与旧版核算器 |
 | docs/EXPERT_INTERFACE_V1.md | [独立专家与逐回调选择器契约](EXPERT_INTERFACE_V1.md)，团队接口/预算与接入验收，非已实现的运行库 |
 | generators/r54 | [可复现生成器](../generators/r54/README.md)及来源记录，不是实际数据检出 |
-| generators/r58 | [R58路径适配候选](../generators/r58/README.md)；原16数据独立核对、公开双次复现/3项测试及全64审核通过；独立发布复核通过，本地候选尚未推送 |
+| generators/r58 | [已发布R58生成器](../generators/r58/README.md)；8/8增量已进入eval0.4.0，总量32/32；复现/数据审核通过，不代表新版本已完整评分 |
 
 实际分支以 `git branch -r` 为准，不能再假设固定只有三个或最多五个分支。`member2`、`member3` 是数据目录占位，不自动代表某位新成员。源码见 [source/cyanneko](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src)，实际输入见 [datasets 分支](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)。
 
@@ -92,9 +92,9 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 
 ## 数据与新增数据的流程
 
-R58已准备8/8增量与公开生成器适配，拟eval0.4.0、总量32/32；公开双次复现、3项测试和全64公共审核已通过，独立发布复核已通过，当前尚未推送。已发布数据身份仍以datasets分支实际记录为准；R57结果保留0.3.0，不将旧封顶分迁移到新版本。
+R58的8/8增量与公开生成器已发布，cyanneko eval为0.4.0、train/eval总量32/32。双次复现、3项测试、全64数据审核与独立发布复核通过；0.4.0尚未完成全体实际非空集合的完整评分。R57结果保留0.3.0，旧封顶分不能迁移。[发布提交与冻结清单作用域](R58_PUBLICATION_STATUS.md)给出不可变定位。
 
-当前 [数据说明](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/README.md)为 48 txt＋48 meta，train/eval 各 24，cyanneko eval VERSION 为 `0.3.0`。R48 的16例都是历史开发输入，其中 coverage_06..11 为均衡诊断。R54新增32例，cross_operator/temporal/combined/control各8，前三类24/32为组合场景。合成开发回归数据不作盲测或独立泛化声明。
+当前[已发布数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/875b6b0b99ec1b63ac37c11a99ea7f1a349b83a3/datasets/cyanneko/manifest.json)为64txt＋64meta，train/eval各32，cyanneko eval VERSION为`0.4.0`。R48的16例为历史开发输入，coverage_06..11为均衡诊断；R54为16/16，其中24/32为组合场景；R58为8/8，其中8/16为组合场景。合成开发/回归数据不作盲测或独立泛化声明。
 
 R54 六种 Probe 模式按 [生成器源码](../generators/r54/generate.py)实现：
 
@@ -121,7 +121,7 @@ python generators/r54/generate.py --out NEWDIR
 3. 核对输入 SHA-256 与操作流 SHA-256，在新批内部、train/eval 之间以及既有数据中去重；不同种子不等于不同流或独立分布。
 4. 更新 manifest。成员自己的 eval 输入、元数据或文件集合变更时，升级对应 eval/VERSION 并重算文件与个人集合指纹；不能只编辑评测 txt 后沿用旧版本。train-only 变更只更新训练来源和 manifest，不改变 eval 版本或 suite_id。新增成员提供自己的评测版本，参与集合变化会改变全局 suite_id。冻结原件不格式化、不改写。
 
-`datasets/<成员>/eval` 连同 VERSION 是一集，R48/R54合在 cyanneko 的同一集，不算成两集。默认自动发现所有成员的非空 eval；空/缺失集合跳过，坏的非空集合或执行失败让本轮失败。`--members` 明确选择子集，报告标 partial。个人版本/集合 SHA 与参与集合合成的 suite_id 均应保留；比较前检查实际成员名单。
+`datasets/<成员>/eval` 连同 VERSION 是一集，R48/R54/R58合在 cyanneko 的同一集，不按轮次重复算集。默认自动发现所有成员的非空 eval；空/缺失集合跳过，坏的非空集合或执行失败让本轮失败。`--members` 明确选择子集，报告标 partial。个人版本/集合 SHA 与参与集合合成的 suite_id 均应保留；比较前检查实际成员名单。
 
 ## 评测与评分
 

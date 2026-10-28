@@ -57,6 +57,12 @@ class ExportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'unsupported'):
             self.module.flatten(entry, self.root)
 
+    def test_line_splicing_is_rejected_even_in_comments(self):
+        self.put('common.hpp', 'struct Common {};\n')
+        entry = self.put('a.hpp', '// continued comment'+'\\'+'\n#include "common.hpp"\n')
+        with self.assertRaisesRegex(ValueError, 'continuation'):
+            self.module.flatten(entry, self.root)
+
     def test_outside_repository_is_rejected(self):
         entry = self.put('a.hpp', '#include "../outside.hpp"\n')
         with self.assertRaisesRegex(ValueError, 'outside'):

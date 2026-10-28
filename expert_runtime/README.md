@@ -20,10 +20,10 @@ python expert_runtime/tests/run_tests.py --out build/expert-contracts --max-seco
 
 ## 源码与导出
 
-真实适配在成员源码分支的 `src/experts/`，main 只提供公共组件。切到已协调的源码工作树后，例如：
+真实适配在 [source/cyanneko 的 src/experts](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts)，main 只提供公共组件。该分支用 `--source-tests` 另测两规则与导出文件的逐动作等价。切到已协调的源码工作树后，例如：
 
 ```sh
 python expert_runtime/export.py --entry src/experts/best_fit_fast/standalone.cpp --out build/best_fit_standalone.cpp
 ```
 
-目标父目录须存在，已有文件不会被覆盖。展开器递归处理仓库内的字面引号 include，去重、拒绝循环/越界，保留标准库 include。仅支持普通文件外层 `#ifndef`/`#define` include guard 和单行注释；其他条件分支中的本地 include、宏 include、块注释和原始字符串明确报错，不静默导出。它不是通用 C++ 预处理器。重复导出相同输入字节结果相同，不写时间戳或本机路径；导出后仍须编译和动作等价验证。正式提交时仅使用导出的单个 `MySpillScheduler` 文件，本地编译仍需另外接官方兼容框架，不能将该文件当独立可执行程序。
+目标父目录须存在，已有文件不会被覆盖。展开器递归处理仓库内的字面引号 include，去重、拒绝循环/越界，保留标准库 include。仅支持本项目受控、唯一且不在外部预定义/undef 的外层 `#ifndef`/`#define` 头保护宏和单行注释；其他条件分支中的本地 include、宏 include、块注释、原始字符串、反斜杠续行（包括注释行）明确报错，不静默导出。不支持宏开关或条件本地 include 图，它不是通用 C++ 预处理器。重复导出相同输入字节结果相同，不写时间戳或本机路径；导出后仍须编译和动作等价验证。正式提交时仅使用导出的单个 `MySpillScheduler` 文件，本地编译仍需另外接官方兼容框架，不能将该文件当独立可执行程序。

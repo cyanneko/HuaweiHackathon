@@ -53,6 +53,18 @@ def main():
             run([args.cxx, '-std=c++14', '-O2', '-Wall', '-Wextra', '-pedantic-errors',
                  str(ROOT/file), '-o', str(binary)])
             run([str(binary)])
+        if args.source_tests:
+            defines = []
+            for name, entry in [('BF','best_fit_fast/standalone.cpp'),
+                                ('NG','next_guard_fast/standalone.cpp'),('PAIR','fixed_pair.cpp')]:
+                output = args.out / (name.lower()+'-export.cpp')
+                run([sys.executable, '-B', str(ROOT/'expert_runtime/export.py'),
+                     '--entry', str(ROOT/'src/experts'/entry), '--out', str(output)])
+                defines.append('-DEXPORTED_'+name+'="'+str(output)+'"')
+            binary = args.out/('exported-contract'+('.exe' if os.name=='nt' else ''))
+            run([args.cxx, '-std=c++14', '-O2', '-Wall', '-Wextra', '-pedantic-errors',
+                 *defines, str(ROOT/'src/experts/tests/test_experts.cpp'), '-o', str(binary)])
+            run([str(binary)])
         report['status'] = 'passed'
     except (OSError, RuntimeError) as error:
         report['error'] = str(error)

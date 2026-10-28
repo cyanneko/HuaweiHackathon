@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "release": "r58-fixed-construction-v1",
-  "status": "candidate_pending_public_reproduction_and_full_dataset_validation",
+  "status": "validated_candidate_pending_root_review",
   "performance_validated": false,
   "proposed_eval_version": "0.4.0",
   "data_branch": "datasets",
@@ -16,9 +16,9 @@
   "original_root_data_review_sha256": "a84ac4e27e53a4dfc7851de077ab31e386d4d5119fa03a95ec65429e3d9044ba",
   "original_generation_report_sha256": "613dd4b42a00d672202e7a1d07ee8d2f83fb9be40c86edbc9dae7ff86e5d61f8",
   "original_generator_body_preserved": true,
-  "public_generator_reproduction": "pending",
-  "generator_tests": "pending",
-  "full_dataset_public_audit": "pending: 32 eval and 32 train",
+  "public_generator_reproduction": "passed: 2 CLI runs, 16 exact raw cases each",
+  "generator_tests": "passed: 3 unittest tests",
+  "full_dataset_public_audit": "passed: 32 eval and 32 train; zero errors/skips; exact paths",
   "files": [
     {
       "path": "generators/r58/.gitattributes",
@@ -32,8 +32,8 @@
     },
     {
       "path": "generators/r58/DESIGN.md",
-      "bytes": 2390,
-      "sha256": "2885c159dd2856829c7cb0bd9b35a1b925b47c00cf8b3bfa236f2e79a5394e74"
+      "bytes": 2493,
+      "sha256": "97a0194518818d48c38978c396dee2e30fcbde94014d0cbc0c60c5bf58af6890"
     },
     {
       "path": "generators/r58/generate.py",
@@ -56,6 +56,11 @@
       "sha256": "841bcb58c6582de528c3ec1bc56c66f89c31fadfd44f6e4824b7ce0ce47c9199"
     },
     {
+      "path": "generators/r58/provenance/public_reproduction.json",
+      "bytes": 10583,
+      "sha256": "3936f6c2e797d7ccae98d0b2f2e4fd24c80c7097d3a329c6e07507d6f6d128ba"
+    },
+    {
       "path": "generators/r58/provenance/root_data_review.json",
       "bytes": 5355,
       "sha256": "a84ac4e27e53a4dfc7851de077ab31e386d4d5119fa03a95ec65429e3d9044ba"
@@ -72,8 +77,8 @@
     },
     {
       "path": "generators/r58/README.md",
-      "bytes": 3398,
-      "sha256": "3e922b1139deef5e71f874d071c236c418ee45addbe425641a9b38fa38794d7e"
+      "bytes": 3604,
+      "sha256": "2ba8b800d94850d24f57de21b4b60c5bbd9672dd2a1b9fdd1ee3021592b28d73"
     },
     {
       "path": "generators/r58/tests/test_generate.py",
@@ -248,5 +253,6 @@
     "Original test/spec/freeze/generation report and root input review copied byte-for-byte.",
     "Public reproduction freeze is not labelled before original experiment outcomes.",
     "No solver or performance claims are transferred; R57 remains on eval 0.3.0."
-  ]
+  ],
+  "public_reproduction_sha256": "3936f6c2e797d7ccae98d0b2f2e4fd24c80c7097d3a329c6e07507d6f6d128ba"
 }

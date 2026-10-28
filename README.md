@@ -62,7 +62,7 @@ datasets/
 
 2026-10-27 数据快照：[cyanneko 的 R48＋R54 数据](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)共 48 份输入及 48 份原始元数据，train/eval 各 24 份，个人评测版本 `0.3.0`。R54 新增 32 例，其中 24 例为组合场景；保留原 R48 的 16 例。数据用于合成开发/回归，不是独立盲测集；R48 的 `coverage_06..11` 为均衡分布诊断。后续以 datasets 的 manifest、VERSION 和文件指纹为准。
 
-R58 的 [公开生成器候选](generators/r58/README.md)已做路径/输出适配，保留原件和固定spec；复现、测试与新增后全64例公共审核尚待执行。拟新增train/eval各8例、个人eval升0.4.0，在审核与批准上传前仍以上述已发布0.3.0快照为准，不继承R57成绩。
+R58 的 [公开生成器候选](generators/r58/README.md)已做路径/输出适配，保留原件和固定spec；3项测试、两次CLI复现与新增后全64例公共审核已通过，仍待最终审阅和上传。拟新增train/eval各8例、个人eval升0.4.0，在审核与批准上传前仍以上述已发布0.3.0快照为准，不继承R57成绩。
 
 **实际数据文件只在 datasets 分支。** main 保存公共工具、规范和 [R54 生成器](generators/r54/README.md)，source 分支保存方法源码与公共工具。评测时使用 datasets 分支的数据目录，或将 `--datasets-root` 指向其独立工作目录。
 

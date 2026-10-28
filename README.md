@@ -2,7 +2,7 @@
 
 团队协作仓库，研究内存受限下 Hash Join 算子的 Spill-to-Disk 动态调度。
 
-Agent 先读 [AGENTS.md](AGENTS.md)，再按 [中文上手指南](docs/AGENT_GUIDE.md) 开始工作；评测细节见 [evaluation/README.md](evaluation/README.md)。协议说明基于保存的 2026-10-26 版本，不代表本次在线核验官网。
+Agent 先读 [AGENTS.md](AGENTS.md)，再按 [中文上手指南](docs/AGENT_GUIDE.md) 开始工作；开发独立专家与后续选择器先读 [专家接口技术规范 v1](docs/EXPERT_INTERFACE_V1.md)，评测细节见 [evaluation/README.md](evaluation/README.md)。2026-10-28 重新核对官方公开接口，响应与此前保存件相同；核对来源和 SHA 见专家规范，评测协议名仍为 `official-2026-10-26`。
 
 ## 分支约定
 
@@ -21,6 +21,10 @@ Agent 先读 [AGENTS.md](AGENTS.md)，再按 [中文上手指南](docs/AGENT_GUI
 公共目录同步维护于 main、datasets、source/cyanneko；其他成员分支的同步由其维护者协调：
 
 ```text
+AGENTS.md                    # Agent 工作入口
+docs/
+  AGENT_GUIDE.md              # 数据、方法、评分与协作流程
+  EXPERT_INTERFACE_V1.md      # 独立专家与逐回调选择器契约
 evaluation/
   README.md                  # 使用方式与版本边界
   DATA_SPEC.md               # 数据格式与团队提交规范
@@ -58,7 +62,7 @@ datasets/
 
 ## 提交与部署基线
 
-正式提交物是**只定义 MySpillScheduler 的单个 `.cpp`，无 main/engine**。本地评测要将该类接入官方兼容完整框架后才编译可执行程序；完整框架未随本仓库发布，不能直接将 methods 中的 cpp 当成完整程序编译。
+正式提交物是**只定义 MySpillScheduler 的单个 `.cpp`，无 main/engine**。本地评测要将该类接入官方兼容完整框架后才编译可执行程序。main/source/cyanneko 未随方法发布完整框架，不能直接将 methods 中的 cpp 当成完整程序编译；其他成员分支保存的参考框架须自行核对来源、协议和计时边界。
 
 部署按无 GPU 环境准备：纯 CPU、C++14 标准库，模型权重须内嵌源码，不依赖 CUDA、第三方推理运行时或外部模型文件。
 
@@ -69,6 +73,7 @@ GPU 可以用于离线训练；提交程序的推理和计时均使用 CPU。构
 | 要做的事 | 工作流入口 |
 | --- | --- |
 | 了解接口、获取数据、构建本地程序 | [Agent 上手指南](docs/AGENT_GUIDE.md) |
+| 开发独立规则/NN 专家、后续逐回调选择 | [专家接口 v1](docs/EXPERT_INTERFACE_V1.md)：统一生命周期、交付和验收，先比较独立方法，再接选择器 |
 | 修改方法 | 自己的 source 分支；只改 Scheduler，保留框架语义 |
 | 新增数据 | datasets 成员目录；去重、审核、更新 manifest，eval 变更再升 VERSION，train-only 不升评测版本 |
 | 改公共文档、生成器或评测工具 | main 修改，再按协调范围同步 |

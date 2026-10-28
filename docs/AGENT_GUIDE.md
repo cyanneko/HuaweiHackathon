@@ -1,6 +1,6 @@
 # 公共仓库 Agent 上手指南
 
-先读根目录 [AGENTS.md](../AGENTS.md)。本指南依据仓库实际代码、清单及保存的 **2026-10-26 协议**；没有为本文重新在线核验官网。下列数据与方法数字是 **2026-10-27 快照**，后续以 datasets 分支的 manifest、VERSION、当前评测器和各方法来源记录为准。
+先读根目录 [AGENTS.md](../AGENTS.md)。本指南依据仓库实际代码、清单及 **2026-10-26 协议**；2026-10-28 重新核对官方公开接口，响应与此前保存件相同，来源与 SHA 见 [专家接口 v1](EXPERT_INTERFACE_V1.md#1-目的和依据)。下列数据与方法数字是 **2026-10-27 快照**，后续以 datasets 分支的 manifest、VERSION、当前评测器和各方法来源记录为准。
 
 ## 分支与事实来源
 
@@ -10,6 +10,7 @@
 | datasets | `datasets/<成员>/train`、`eval`、VERSION、manifest 与发布审核记录 |
 | source/成员名 | 个人方法与说明，继承公共工具；已发布的 R49/R53 方法只有 Scheduler 类，无 main |
 | evaluation | [使用与协议](../evaluation/README.md)、[数据格式](../evaluation/DATA_SPEC.md)、评测器与旧版核算器 |
+| docs/EXPERT_INTERFACE_V1.md | [独立专家与逐回调选择器契约](EXPERT_INTERFACE_V1.md)，团队接口/预算与接入验收，非已实现的运行库 |
 | generators/r54 | [可复现生成器](../generators/r54/README.md)及来源记录，不是实际数据检出 |
 
 实际分支以 `git branch -r` 为准，不能再假设固定只有三个或最多五个分支。`member2`、`member3` 是数据目录占位，不自动代表某位新成员。源码见 [source/cyanneko](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src)，实际输入见 [datasets 分支](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)。
@@ -53,7 +54,7 @@ python evaluation/scripts/audit_datasets.py --root ../HuaweiHackathon-datasets/d
 
 **正式参赛提交物：单个 `.cpp`，只定义 `MySpillScheduler`，无 main/engine。** 不要把本地入口和执行引擎上传来替代参赛类。
 
-**本地可测程序：**将选定的类接入官方兼容完整框架后，才构建可执行程序。本仓库没有发布完整框架、可直接构建的完整 solution.cpp 或求解器二进制；不能直接对 `src/methods/r53/*.cpp` 执行 g++ 并期待生成可运行程序。一次只选择一个同名 Scheduler 类，仅替换调度器定义及必要的实例化，不改引擎、状态、动作和计时语义。
+**本地可测程序：**将选定的类接入官方兼容完整框架后，才构建可执行程序。main/source/cyanneko 未随已发布方法提供完整框架、可直接构建的完整 solution.cpp 或求解器二进制；不能直接对 `src/methods/r53/*.cpp` 执行 g++ 并期待生成可运行程序。其他成员分支可能保存完整参考框架，须自行核对来源、协议和计时边界，不因文件名为 reference 就认定最新。一次只选择一个同名 Scheduler 类，仅替换调度器定义及必要的实例化，不改引擎、状态、动作和计时语义。
 
 Python 工具需要 3.10+，仅用标准库。完整本地程序用 C++14 标准库，构建基线 `g++ -std=c++14 -O2`。推理和提交计时按无 GPU 环境准备，不使用 CUDA/第三方推理运行时/外部模型文件；未来模型权重须内嵌。GPU 可用于离线训练。不擅加 `-march=native` 或假设 AVX。
 
@@ -68,6 +69,8 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 | best_fit_fast | [R53 快路径候选](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r53)，保存轨迹上动作等价的实现优化，保留原版，非全局冠军或唯一默认 |
 
 仓库未发布可用的 NN 或融合器，不应从研究讨论推断已有模型可调用。方法历史结果的样本范围、改善与退化以各自 README/manifest 为准。
+
+开发新的规则或 NN 专家先遵循 [专家接口 v1](EXPERT_INTERFACE_V1.md)：内部唯一 namespace 的 Expert 由官方 MySpillScheduler 外壳转接；每个测试案例重置，按真实回调 observe、无策略副作用 decide、执行前 onDispatch。选择器只运行被选专家的提案，状态维护和选择成本全部计时。先交付独立适配和验收证据，再比较少量互补专家、训练浅树；旧类不因接口文档发布自动兼容，当前也没有据此发布统一运行库或训练好的树。
 
 ### 调度器可见信息
 

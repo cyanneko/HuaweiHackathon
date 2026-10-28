@@ -54,7 +54,7 @@ datasets/
 
 `source/cyanneko` 分支另有 `src/`，用于个人源码。已上传 [R49 三种 CPU/C++14 方法及 Naive 基线](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r49)：仅包含 `MySpillScheduler` 定义，无 `main`，须接入官方 2026-10-26 框架。
 
-另有 [R53 best_fit_fast 候选](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r53)：保留原版，对保存轨迹验证动作等价的实现优化；不是全局冠军或唯一默认。仓库没有发布可用 NN/融合器。
+另有 [R53 best_fit_fast 候选](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r53)：保留原版，对保存轨迹验证动作等价的实现优化；不是全局冠军或唯一默认。[v1 规则专家适配](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts)提供 best-fit/next-guard-fast 与固定选择入口。尚无可用 NN 或训练好的融合选择器。
 
 2026-10-27 数据快照：[cyanneko 的 R48＋R54 数据](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)共 48 份输入及 48 份原始元数据，train/eval 各 24 份，个人评测版本 `0.3.0`。R54 新增 32 例，其中 24 例为组合场景；保留原 R48 的 16 例。数据用于合成开发/回归，不是独立盲测集；R48 的 `coverage_06..11` 为均衡分布诊断。后续以 datasets 的 manifest、VERSION 和文件指纹为准。
 
@@ -74,6 +74,7 @@ GPU 可以用于离线训练；提交程序的推理和计时均使用 CPU。构
 | --- | --- |
 | 了解接口、获取数据、构建本地程序 | [Agent 上手指南](docs/AGENT_GUIDE.md) |
 | 开发独立规则/NN 专家、后续逐回调选择 | [专家接口 v1](docs/EXPERT_INTERFACE_V1.md)：统一生命周期、交付和验收，先比较独立方法，再接选择器 |
+| 使用最小固定专家外壳、短测或单文件导出 | [专家运行骨架](expert_runtime/README.md)，不含框架或训练树 |
 | 修改方法 | 自己的 source 分支；只改 Scheduler，保留框架语义 |
 | 新增数据 | datasets 成员目录；去重、审核、更新 manifest，eval 变更再升 VERSION，train-only 不升评测版本 |
 | 改公共文档、生成器或评测工具 | main 修改，再按协调范围同步 |

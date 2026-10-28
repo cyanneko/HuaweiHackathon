@@ -68,9 +68,9 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 | official_naive | 同 R49 目录，Naive 类体改名后的对照；来源声明不自动认证任意基线二进制 |
 | best_fit_fast | [R53 快路径候选](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r53)，保存轨迹上动作等价的实现优化，保留原版，非全局冠军或唯一默认 |
 
-仓库未发布可用的 NN 或融合器，不应从研究讨论推断已有模型可调用。方法历史结果的样本范围、改善与退化以各自 README/manifest 为准。
+仓库未发布可用的 NN 或训练好的融合选择器，不应从研究讨论推断已有模型可调用。[v1 规则适配](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts)仅有固定选择和短动作检查；方法历史结果的样本范围、改善与退化以各自 README/manifest 为准。
 
-开发新的规则或 NN 专家先遵循 [专家接口 v1](EXPERT_INTERFACE_V1.md)：内部唯一 namespace 的 Expert 由官方 MySpillScheduler 外壳转接；每个测试案例重置，按真实回调 observe、无策略副作用 decide、执行前 onDispatch。选择器只运行被选专家的提案，状态维护和选择成本全部计时。先交付独立适配和验收证据，再比较少量互补专家、训练浅树；旧类不因接口文档发布自动兼容，当前也没有据此发布统一运行库或训练好的树。
+开发新的规则或 NN 专家先遵循 [专家接口 v1](EXPERT_INTERFACE_V1.md)：内部唯一 namespace 的 Expert 由官方 MySpillScheduler 外壳转接；每个测试案例重置，按真实回调 observe、无策略副作用 decide、执行前 onDispatch。选择器只运行被选专家的提案，状态维护和选择成本全部计时。[最小运行骨架](../expert_runtime/README.md)提供固定选择、短测和导出；先交付独立适配与验收，再比较少量互补专家、训练浅树。旧类不自动兼容，尚无训练好的树。
 
 ### 调度器可见信息
 

@@ -2,7 +2,7 @@
 
 本目录是团队公共工具区。`evaluate.py` 对已上传的非空评测集进行批量评测；`scripts/` 复用本地 `hashjoin_lab/tools/` 中的数据校验与旧版动作核算工具。仅依赖标准库，需要 Python 3.10 及以上。
 
-首次接手请先读 [Agent 上手指南](../docs/AGENT_GUIDE.md)。本说明基于保存的 2026-10-26 协议和当前脚本，未为文档重新在线核验官网。
+首次接手请先读 [Agent 上手指南](../docs/AGENT_GUIDE.md)。本说明基于 2026-10-26 协议和当前脚本；2026-10-28 官方公开接口重新核对的来源与响应 SHA 见 [专家接口 v1](../docs/EXPERT_INTERFACE_V1.md#1-目的和依据)，响应与此前保存件相同，现有评测协议名保持不变。
 
 ## 提交与部署基线
 
@@ -15,7 +15,7 @@
 - 提交评测结果时保留报告已有的机器/CPU、程序指纹和编译身份信息，并在随附运行说明中记录实际推理线程数；未知项写 `unknown`。当前 runner 不自动检测实际推理线程数。
 - 可在随附部署说明中声明 `gpu_required=false`，但声明本身不构成认证；需结合源码、构建依赖及无 GPU 环境的实际运行证据核对。
 
-本地可测程序需要把该类接官方兼容完整框架后另行构建，仅替换 Scheduler，不修改状态、动作、计数或计时语义。完整框架和可直接编译的完整 solution.cpp 未随仓库发布；不能对 methods 中仅含类定义的 cpp 直接编译成 exe。[接入与接口边界](../docs/AGENT_GUIDE.md#参赛提交物与本地可测程序)见指南。
+本地可测程序需要把该类接官方兼容完整框架后另行构建，仅替换 Scheduler，不修改状态、动作、计数或计时语义。main/source/cyanneko 未随方法发布完整框架和可直接编译的完整 solution.cpp；其他成员保存的框架须自行核对来源、协议和计时边界，不能对 methods 中仅含类定义的 cpp 直接编译成 exe。[接入与接口边界](../docs/AGENT_GUIDE.md#参赛提交物与本地可测程序)见指南。
 
 当前公共 runner 负责运行与结果记录，不自动认证标准库依赖、提交格式、CPU 专用推理或权重内嵌。
 
@@ -150,4 +150,4 @@ python evaluation/scripts/legacy_checker.py case.txt actions.trace.jsonl output.
 
 **版本边界：本脚本是旧版本地实验核算器，不是新版官方评测器。** 它允许溢出回调落盘当前 INSERT 目标后将新元组追加到磁盘；本地保存的 2026-10-26 题面则禁止落盘当前 INSERT 目标。当前脚本没有适配该差异，也没有实现官方归一化比赛总分。团队统一正式评测前，需要按最终官方规则更新执行器和核算器。
 
-实际数据在 datasets 分支，Scheduler 源码在对应 source 分支；完整官方框架和 NN/融合器未随这些文件发布。数据格式见 [DATA_SPEC.md](DATA_SPEC.md)，跨分支工作流见 [Agent 指南](../docs/AGENT_GUIDE.md)。
+实际数据在 datasets 分支，Scheduler 源码在对应 source 分支。main/source/cyanneko 未随方法发布完整框架或 NN/融合器；其他成员分支保存的参考框架须自行核对来源、协议和计时边界。数据格式见 [DATA_SPEC.md](DATA_SPEC.md)，跨分支工作流见 [Agent 指南](../docs/AGENT_GUIDE.md)，新专家接入和门控开销验收见 [专家接口 v1](../docs/EXPERT_INTERFACE_V1.md)。

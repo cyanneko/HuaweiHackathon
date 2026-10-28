@@ -58,7 +58,7 @@ datasets/
 
 另有 [R53 best_fit_fast 候选](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r53)：保留原版，对保存轨迹验证动作等价的实现优化；不是全局冠军或唯一默认。[v1 规则专家适配](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts)提供 best-fit/next-guard-fast 固定组合，以及完成动作/导出验收的可选 single-fit ID103；ID103尚未测正式接口时延。尚无可用 NN 或训练好的融合选择器。
 
-[R57完整公共结果包](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r57_public_suite_20261028)保留原直接版本的432条测量、216配对单分及逐例/逐集/均分和尾部。BF/SF封顶50并非无退化，三候选最差约9.30/8.29/7.42倍Naive；原直接版本计时不继承给ID103。
+[R57完整公共结果包](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r57_public_suite_20261028)保留原直接版本的432条测量、216配对单分及逐例/逐集/均分和尾部。BF/SF封顶50并非无退化，BF/NG/SF最差分别约9.30/8.29/7.42倍Naive；原直接版本计时不继承给ID103。
 
 2026-10-27 数据快照：[cyanneko 的 R48＋R54 数据](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)共 48 份输入及 48 份原始元数据，train/eval 各 24 份，个人评测版本 `0.3.0`。R54 新增 32 例，其中 24 例为组合场景；保留原 R48 的 16 例。数据用于合成开发/回归，不是独立盲测集；R48 的 `coverage_06..11` 为均衡分布诊断。后续以 datasets 的 manifest、VERSION 和文件指纹为准。
 

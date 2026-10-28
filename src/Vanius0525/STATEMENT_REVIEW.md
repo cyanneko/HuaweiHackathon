@@ -1,6 +1,6 @@
 # 补充题面一致性审查
 
-日期：2026-10-28。审查对象：当前 STATEMENT_ENHANCED.md，对照 main 保存的 docs/statement-2026-10-20/statement.md、SOURCE_NOTES.md，以及文内参考框架。仅审查保存版本，不代表核验当前官网或隐藏评测实现。本次不改写补充题面、PDF 或冻结原件。
+日期：2026-10-28。初次审查对象：修复前 STATEMENT_ENHANCED.md（记录提交 c640d7b），对照 main 保存的 docs/statement-2026-10-20/statement.md、SOURCE_NOTES.md，以及文内参考框架。仅审查保存版本，不代表核验当前官网或隐藏评测实现。初次审查未改写补充题面、PDF 或冻结原件；后续修复见本文末节。以下行号指修复前版本。
 
 ## 结论
 
@@ -85,3 +85,32 @@ build_count/probe_count无下界，SWITCH恰好一次未完整形式化，PROBE 
 - Python提取补充版text样例，检查物理行与前N行内容：14/11行，前N行仅1次PROBE，尾部3次PROBE不在读取范围内。
 - 静态逐函数核对初始化、processInsert/Probe/Switch、executeActions、main、timedSchedulerCall、printResult及Naive排序；手工核算两条样例轨迹。
 - 未运行求解器或性能实验，未修改框架、补充版Markdown/PDF或manifest。未核验参考文献；本次一致性审查不依赖其真实性。
+
+## 本轮修复与原PDF复核（2026-10-28）
+
+用户要求修复补充版后，已完成上述10类问题的处理。冻结原件与三个原文C++块不改；原代码错误注释在块外显著标注。初次审查是静态核查，本轮增加了原PDF对照、转换验证和小样例执行。
+
+新增确认的转换问题：
+
+- 原PDF第5页末尾PROBE 0 0与第6页开头PROBE 0 1/2/3构成连续样例。三个空行由提取跨页引入，现已清理。
+- 原补充版的五个裸露输出占位符，以及正文和main替换点的模板参数，被Markdown解析为HTML；旧PDF渲染器忽略html_inline，实际丢失可见内容。现将这些表达放入代码围栏/行内代码，渲染器也保留原始角括号字面文本。
+- 旧渲染器未处理list_item标记，PDF丢失项目符号与编号；现已恢复。所有代码空格予以保留。
+- 逐页核对主栏保留与排除行，未发现裁剪遗漏题干正文；自动表格副本的重复与错列不作为可靠原版布局，按原PDF可见内容重排。
+
+样例输出并不需要改成另一组固定数字：文中指定轨迹的I/O=9.92、Hit=1、Miss=3正确，0.50决策时间原题已写为示意值。清理空行后的原参考代码用g++ -std=c++14 -O2编译，本机一次执行结果为I/O=9.92、Decision=3.46、Hit=1、Miss=3、Score=43.38；旧跨页空行输入为I/O=4.16、Decision=1.87、Hit=0、Miss=1、Score=16.03。决策时间只用于说明为何不能精确复现示例Score，不据此比较性能。
+
+补充版第七节列明文字约束未由引擎实现的检查，以及外部评测要求；不再宣称所有矛盾已经消除。实现缺口没有被偷偷补入参考代码。
+
+验证命令（均在仓库根目录；原PDF需自行提供）：
+
+```sh
+python src/Vanius0525/render_statement_pdf.py
+python src/Vanius0525/verify_statement.py --source-pdf SOURCE.pdf
+g++ -std=c++14 -O2 reference.cpp -o reference
+./reference sample.in
+git diff --check
+```
+
+其中reference.cpp与sample.in从本版代码块提取，在临时目录编译执行，不加入正式参赛提交物。verify_statement.py默认读取已冻结的11b719b版本题干，可用--source-markdown指定同指纹文件。
+
+程序验证：3/3 C++块不仅去空白一致，非空行在NBSP/行尾空白规范化后也逐行一致；直接原PDF正文也匹配3个代码块及样例。新PDF全文按Markdown内容顺序核对，样例输入整块留在同页，未发现正文或代码裁边、NUL或替代字符。目视复核总览、输入输出、样例、代码续页、差异表与末页。最终数量与SHA-256见manifest。

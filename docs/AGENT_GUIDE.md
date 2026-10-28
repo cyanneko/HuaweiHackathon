@@ -12,7 +12,7 @@
 | evaluation | [使用与协议](../evaluation/README.md)、[数据格式](../evaluation/DATA_SPEC.md)、评测器与旧版核算器 |
 | docs/EXPERT_INTERFACE_V1.md | [独立专家与逐回调选择器契约](EXPERT_INTERFACE_V1.md)，团队接口/预算与接入验收，非已实现的运行库 |
 | generators/r54 | [可复现生成器](../generators/r54/README.md)及来源记录，不是实际数据检出 |
-| generators/r58 | [R58路径适配候选](../generators/r58/README.md)；原16数据独立核对、公开双次复现/3项测试及全64审核通过；本地候选待最终审阅 |
+| generators/r58 | [R58路径适配候选](../generators/r58/README.md)；原16数据独立核对、公开双次复现/3项测试及全64审核通过；独立发布复核通过，本地候选尚未推送 |
 
 实际分支以 `git branch -r` 为准，不能再假设固定只有三个或最多五个分支。`member2`、`member3` 是数据目录占位，不自动代表某位新成员。源码见 [source/cyanneko](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src)，实际输入见 [datasets 分支](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)。
 
@@ -92,7 +92,7 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 
 ## 数据与新增数据的流程
 
-R58已准备8/8增量与公开生成器适配，拟eval0.4.0、总量32/32；公开双次复现、3项测试和全64公共审核已通过，当前尚待最终审阅上传。已发布数据身份仍以datasets分支实际记录为准；R57结果保留0.3.0，不将旧封顶分迁移到新版本。
+R58已准备8/8增量与公开生成器适配，拟eval0.4.0、总量32/32；公开双次复现、3项测试和全64公共审核已通过，独立发布复核已通过，当前尚未推送。已发布数据身份仍以datasets分支实际记录为准；R57结果保留0.3.0，不将旧封顶分迁移到新版本。
 
 当前 [数据说明](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/README.md)为 48 txt＋48 meta，train/eval 各 24，cyanneko eval VERSION 为 `0.3.0`。R48 的16例都是历史开发输入，其中 coverage_06..11 为均衡诊断。R54新增32例，cross_operator/temporal/combined/control各8，前三类24/32为组合场景。合成开发回归数据不作盲测或独立泛化声明。
 

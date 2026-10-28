@@ -1,4 +1,5 @@
 * text=auto
+/.gitattributes text eol=lf
 *.py text eol=lf
 *.md text eol=lf
 *.txt text eol=lf
@@ -15,3 +16,9 @@ src/experts/next_guard_fast/reference.cpp -text
 src/experts/single_fit_phase/reference.cpp -text
 # Published numeric packages must retain hashes on Windows checkouts.
 src/reports/** text eol=lf
+
+# Frozen R58 inputs and original metadata: preserve source bytes.
+datasets/cyanneko/train/r58_*.txt -text
+datasets/cyanneko/train/r58_*.meta.json -text
+datasets/cyanneko/eval/r58_*.txt -text
+datasets/cyanneko/eval/r58_*.meta.json -text

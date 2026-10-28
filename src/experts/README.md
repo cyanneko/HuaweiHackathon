@@ -9,6 +9,8 @@
 
 [fixed_pair.cpp](fixed_pair.cpp) 注册两者，默认始终选101；未知ID回退101。交替选择是验收模式，不是训练好的策略。独立 standalone 只注册自身。公共路由不替专家做动作合法性检查。
 
+[fixed_next_guard_pair.cpp](fixed_next_guard_pair.cpp) 仍注册101/102，但固定选102，供独立的SDK-NGfast验证/计时。其模板选择路径已在字面状态中检查；该额外入口的确切导出产物交由后续独立验证，不把它冒称为本轮三文件导出测试的一部分。
+
 ## 复现短测与导出
 
 在本源码分支、同一 Linux/WSL Python与g++环境中运行，输出目录须不存在：

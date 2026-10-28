@@ -60,11 +60,11 @@ datasets/
 
 [R57完整公共结果包](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r57_public_suite_20261028)保留原直接版本的432条测量、216配对单分及逐例/逐集/均分和尾部。BF/SF封顶50并非无退化，BF/NG/SF最差分别约9.30/8.29/7.42倍Naive；原直接版本计时不继承给ID103。
 
-2026-10-27 数据快照：[cyanneko 的 R48＋R54 数据](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)共 48 份输入及 48 份原始元数据，train/eval 各 24 份，个人评测版本 `0.3.0`。R54 新增 32 例，其中 24 例为组合场景；保留原 R48 的 16 例。数据用于合成开发/回归，不是独立盲测集；R48 的 `coverage_06..11` 为均衡分布诊断。后续以 datasets 的 manifest、VERSION 和文件指纹为准。
+2026-10-29 已发布数据：cyanneko 的 R48＋R54＋R58 共 **64 份输入及 64 份原始元数据，train/eval 各 32 份，eval 版本 `0.4.0`**。[不可变版本文件](https://github.com/cyanneko/HuaweiHackathon/blob/875b6b0b99ec1b63ac37c11a99ea7f1a349b83a3/datasets/cyanneko/eval/VERSION)与[数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/875b6b0b99ec1b63ac37c11a99ea7f1a349b83a3/datasets/cyanneko/manifest.json)定位本次发布；R58 增加8/8，旧48对原字节保留。数据用于合成开发/回归，不是独立盲测或泛化保证。
 
-R58 的 [公开生成器候选](generators/r58/README.md)已做路径/输出适配，保留原件和固定spec；3项测试、两次CLI复现与新增后全64例公共审核已通过，独立发布复核已通过，尚未推送。拟新增train/eval各8例、个人eval升0.4.0，在最终推送前仍以上述已发布0.3.0快照为准，不继承R57成绩。
+[R58 公开生成器](generators/r58/README.md)已随本次发布，3项测试、两次CLI复现、全64例公共审核和独立复核通过。**0.4.0 尚未完成全部实际非空集合的完整评分**；R57仍绑定0.3.0，R58对旧24与新8分别测量，不能拼成新版本完整成绩。[当前发布状态与历史冻结清单作用域](docs/R58_PUBLICATION_STATUS.md)区分已发布事实、审阅快照和当前说明。
 
-**实际数据文件只在 datasets 分支。** main 保存公共工具、规范和 [R54 生成器](generators/r54/README.md)，source 分支保存方法源码与公共工具。评测时使用 datasets 分支的数据目录，或将 `--datasets-root` 指向其独立工作目录。
+**实际数据文件只在 datasets 分支。** main 保存公共工具、规范和 [R54](generators/r54/README.md)、[R58](generators/r58/README.md)生成器，source 分支保存方法源码与公共工具。评测时使用 datasets 分支的数据目录，或将 `--datasets-root` 指向其独立工作目录。
 
 ## 提交与部署基线
 
@@ -117,4 +117,4 @@ python evaluation/evaluate.py --datasets-root ../HuaweiHackathon-datasets/datase
 
 有当前协议的官方 Naive 基线时，先对每个测试集独立计算每案例分数、每重复求和封顶 50、再取重复均值；最终成绩为所有参与测试集分数的**等权算术平均**，与案例数无关。报告保留逐例、逐集及最终平均分。没有基线时归一化分显示 `unavailable`；原始成本另行记录，不作为最终平均分。
 
-目前可直接评测 cyanneko 已上传的 `0.3.0` 版评测集，另外两人的空目录会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
+目前可直接评测 cyanneko 已发布的 `0.4.0` 版32例评测集；该版本尚无完整评分记录，另外两人的空目录会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。

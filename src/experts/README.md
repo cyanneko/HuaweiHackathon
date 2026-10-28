@@ -1,15 +1,18 @@
 # cyanneko 的 v1 规则专家适配
 
-现有 R53/R55 规则迁移到 [公共契约](../../docs/EXPERT_INTERFACE_V1.md)，旧 methods 与研究原件不改。两个专家均为全范围无状态实现，reset/observe/onDispatch 为空；不声称空钩子零成本。当前无 NN 权重、无训练树、无融合性能结论。
+现有 R53/R55/R56 规则迁移到 [公共契约](../../docs/EXPERT_INTERFACE_V1.md)，旧 methods 与研究原件不改。三个可用方法均为全范围无状态实现，reset/observe/onDispatch 为空；默认仍只注册101/102，不声称空钩子零成本。当前无 NN 权重、无训练树、无融合性能结论。
 
 | ID | 方法 | 入口 |
 | --- | --- | --- |
 | 101 | best_fit_fast，R53 规则与平局顺序 | [说明](best_fit_fast/README.md) / [manifest](best_fit_fast/manifest.json) |
 | 102 | next_guard_fast，R55 初始缺口保护规则 | [说明](next_guard_fast/README.md) / [manifest](next_guard_fast/manifest.json) |
+| 103（独立可选） | single_fit_phase，R56阶段单项覆盖+BF回退 | [说明](single_fit_phase/README.md) / [manifest](single_fit_phase/manifest.json) |
 
 [fixed_pair.cpp](fixed_pair.cpp) 注册两者，默认始终选101；未知ID回退101。交替选择是验收模式，不是训练好的策略。独立 standalone 只注册自身。公共路由不替专家做动作合法性检查。
 
 [fixed_next_guard_pair.cpp](fixed_next_guard_pair.cpp) 仍注册101/102，但固定选102，供独立的SDK-NGfast验证/计时。其模板选择路径已在字面状态中检查；该额外入口的确切导出产物交由后续独立验证，不把它冒称为本轮三文件导出测试的一部分。
+
+ID103另有独立动作/导出验收，见其目录；101+103固定/交替仅用于新测试，不扩成三专家。原独立程序的 [R57完整公共结果](../reports/r57_public_suite_20261028/README.md) 与适配版计时分开记录。
 
 ## 复现短测与导出
 

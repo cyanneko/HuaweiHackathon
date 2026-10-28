@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-28",
+  "main_commit": "2fbabe5f5a4e1d427a313ec4bf34ab605bc1211b",
+  "data_commit": "5225e8b7142782344bb13ecb5781ff1f256a9eea",
+  "evaluator_path": "evaluation/evaluate.py",
+  "evaluator_sha256": "9a1231d5dc6913b694927ab34fb34d8c59889584c1cfb596959d9eaf383e09f3",
+  "input_auditor_path": "evaluation/scripts/audit_datasets.py",
+  "input_auditor_sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
+  "protocol": "official-2026-10-26",
+  "schema_version": 3,
+  "reports": [
+    {
+      "report_id": "cli01_best_fit_fast_rep1",
+      "method": "best_fit_fast",
+      "global_repeat": 1,
+      "sha256": "0b68507e33e0542b257abad8139b0ab3c3ad8100fdcdae3fe9b0bfd50693dc41",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    },
+    {
+      "report_id": "cli02_next_guard_fast_rep1",
+      "method": "next_guard_fast",
+      "global_repeat": 1,
+      "sha256": "b300558b4a3bab37a75810b84e47b771666e6d4ebaf5d3241769cd9a684987b8",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    },
+    {
+      "report_id": "cli03_single_fit_phase_rep1",
+      "method": "single_fit_phase",
+      "global_repeat": 1,
+      "sha256": "68dc2d3ca5ba769407cc99ee34880d40957de6d4a1414ba77fd85f4027d3e873",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    },
+    {
+      "report_id": "cli04_single_fit_phase_rep2",
+      "method": "single_fit_phase",
+      "global_repeat": 2,
+      "sha256": "2bb4f96cc9a18a21f5b362a92748215098b59edf1d9a542d6809de4ff4bb2608",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    },
+    {
+      "report_id": "cli05_next_guard_fast_rep2",
+      "method": "next_guard_fast",
+      "global_repeat": 2,
+      "sha256": "2853568ec7fe405de824da5bed4c6dc07aaacc90a3b2215b2d8fa5bc8e7b989f",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    },
+    {
+      "report_id": "cli06_best_fit_fast_rep2",
+      "method": "best_fit_fast",
+      "global_repeat": 2,
+      "sha256": "3ea1e300b8734d3c6e30aafdca1e3a0e121401ff0533d93201f954d8a00f4367",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    },
+    {
+      "report_id": "cli07_next_guard_fast_rep3",
+      "method": "next_guard_fast",
+      "global_repeat": 3,
+      "sha256": "daf1c9f5de1ae136ff854b420ffd6a5e725763d68d846c216eb470b512fbc73f",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    },
+    {
+      "report_id": "cli08_best_fit_fast_rep3",
+      "method": "best_fit_fast",
+      "global_repeat": 3,
+      "sha256": "5db48296617092cb20b1b28fcdb8268a30ed49fc9f39ba2220f4ae83cbdeae16",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    },
+    {
+      "report_id": "cli09_single_fit_phase_rep3",
+      "method": "single_fit_phase",
+      "global_repeat": 3,
+      "sha256": "276faa67385289d26e87030e0f4998de535bf7a3442f423ab96feed6a944cdc1",
+      "status": "complete",
+      "candidate_count": 24,
+      "paired_naive_count": 24
+    }
+  ],
+  "programs": {
+    "best_fit_fast": {
+      "binary_sha256": "723fe0a26232dd32b7226b8f351b9a8575e6e77c8166b25245d5ece833e9612d",
+      "complete_program_source_sha256s": [
+        "4faf15ed8bd2018f1d37cc7604fcf79a129bea00f7c3499988a539213ddfb91f"
+      ],
+      "complete_program_source_published": false,
+      "compiler": "GCC: (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "scheduler_source_path": "src/methods/r53/best_fit_fast.cpp",
+      "scheduler_source_sha256": "c080764785e049e35903020204d84bbad17150fec6b0fb7c33d212d12348965c",
+      "measured_implementation": "original direct scheduler, not v1 adapter"
+    },
+    "official_naive": {
+      "binary_sha256": "5263a75083951601e1d5bb7a1ee208c013f9eb314fe268de5065ec28c8244b68",
+      "complete_program_source_sha256s": [
+        "504c84d0d6d76a3f0d86a2da9ea4a333d503d625541e9c8b8a19e40c91ab617f"
+      ],
+      "complete_program_source_published": false,
+      "compiler": "GCC: (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "scheduler_source_path": "src/methods/r49/official_naive.cpp",
+      "scheduler_source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "measured_implementation": "original official Naive as paired baseline"
+    },
+    "next_guard_fast": {
+      "binary_sha256": "7b54ea31f81be80f4856cc8fed2b97d59cbcf8c7ec0360b918d5d8fef62af009",
+      "complete_program_source_sha256s": [
+        "8ac0e1f200b450e2c5f3df3d148e8a5ebfed458c6f53cab332c482295ccd151b"
+      ],
+      "complete_program_source_published": false,
+      "compiler": "GCC: (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "scheduler_source_path": "src/experts/next_guard_fast/reference.cpp",
+      "scheduler_source_sha256": "dfa8212908d8c106daf6731533f6130cf0c826b4377c644465930a366c9ea65f",
+      "measured_implementation": "original direct scheduler, not v1 adapter"
+    },
+    "single_fit_phase": {
+      "binary_sha256": "5c7fe2e4bb972a74e5a25abf94ea8c994544f603aa360cc13c0312172839b8aa",
+      "complete_program_source_sha256s": [
+        "6b8d137108abfb3299be30bf208a02cd568d12d9057f4855b8dc6b8caa46ea93"
+      ],
+      "complete_program_source_published": false,
+      "compiler": "GCC: (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "scheduler_source_path": "src/experts/single_fit_phase/reference.cpp",
+      "scheduler_source_sha256": "2ee28d494c4d7d3b0edf9b130d776e30b1fb7dc2fff41b738833de41593707f8",
+      "measured_implementation": "original direct scheduler, not v1 adapter"
+    }
+  },
+  "root_review_sha256": "4c13121aa9dfa31df256ac605226170f92ffb3c3db6c6ed3457ffd36c1cd7436",
+  "root_review_passed": true,
+  "root_review_scope": {
+    "manifest_files": 288,
+    "dependencies": 81,
+    "raw_outputs": 432
+  },
+  "sealed_final_manifest_sha256": "5071d5b1882e7c6a8b14057c95bed81ac748cfdffdf6989bda111681aeb94b15",
+  "sealed_summary_sha256": "d2085e9b690cdc782f0127a76b8c650a5f61d52b9e46ea1a95337fbc45852e17",
+  "input_audit_sha256": "a506c0b9c59ea3b464d7fdedd19a1f5cf30e5d427718559f2a0d186a856e2837",
+  "internal_case_timeout_seconds": 10,
+  "outer_CLI_timeout_seconds": 60,
+  "timeouts_not_official_verdict": true,
+  "candidate_repeats": 3,
+  "internal_repeats_per_report": 1,
+  "additional_solver_runs_for_publication": 0,
+  "baseline_role": "fresh paired baseline only; no extra self-comparison",
+  "privacy": "allowlisted numerical fields, public repository paths and source digests; no hostname, local path or chat ID",
+  "reproducibility_limit": "bundle verifies numerical formulas and aggregation, not independent rerun timing or every scheduler action"
+}

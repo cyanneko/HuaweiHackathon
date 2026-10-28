@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "date": "2026-10-28",
+  "scope": "literal state and short typed-fixture action equivalence, not full official replay or performance",
+  "literal_states_per_mode": 1039,
+  "trajectory_callbacks_per_mode": 96,
+  "modes": [
+    "direct",
+    "flattened_exports"
+  ],
+  "random_states": 1024,
+  "random_seed": 20261029,
+  "formal_engine_executed": false,
+  "performance_runs": 0,
+  "checks": [
+    "frozen R56 equivalence",
+    "single103",
+    "fixed101+103",
+    "alternating actual-state oracle",
+    "internal BF retains selected103",
+    "no duplicate registered lifecycle",
+    "out.clear",
+    "capacity/phase/target/final LOAD",
+    "reset/empty notifications"
+  ],
+  "compiler": "g++ 11.4.0 WSL Ubuntu",
+  "flags": [
+    "-std=c++14",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-pedantic-errors"
+  ],
+  "stages": [
+    {
+      "stage": "id103_RED",
+      "status": "failed",
+      "report_sha256": "d8652657f5be6fa1427504c42db4ee571f146f74e4e70f016ee228f1801daf16",
+      "process_wall_seconds": 0.18395839900000022
+    },
+    {
+      "stage": "id103_GREEN",
+      "status": "failed",
+      "report_sha256": "541d99d45ea3320cd229473c29ed7bc6b8858747ac1bc39d725be3c84a91d210",
+      "process_wall_seconds": 0.5856960260000008
+    },
+    {
+      "stage": "id103_GREEN_corrected",
+      "status": "passed",
+      "report_sha256": "854ba044544092ab429cce975afac69fc93b96a9789cf18c8052219af45a9453",
+      "process_wall_seconds": 4.701316234999993
+    }
+  ],
+  "recorded_process_seconds": 5.470970659999994,
+  "invocation_wall_upper_bound_seconds": 30,
+  "authorized_budget_seconds": 120,
+  "cpu_window_released": true,
+  "preparation_corrections": "Test fixture needed algorithm header and reacquisition after replacing a state snapshot; frozen reference unchanged",
+  "frozen_reference_sha256": "2ee28d494c4d7d3b0edf9b130d776e30b1fb7dc2fff41b738833de41593707f8",
+  "test_source_path": "src/experts/tests/test_single_fit.cpp",
+  "test_source_sha256": "06736bfa5f19aed9b4260f7ed13c1685d09a52aadd4ef70dd5c3b985f732e1fe",
+  "exports": {
+    "standalone_sha256": "f0d01e9984186e242c8970a6166b3be3869dc833d876aa2b3d7e58d1abeee405",
+    "fixed_pair_fixture_sha256": "9f14120ad07af6e87ee0fcb60e489cb22cf72eeaee53e8b90c55a50bb7d0ff18"
+  },
+  "limitations": [
+    "No complete official-input action replay",
+    "No adapter Total_Decision_Time or score measurement",
+    "Direct R56/R57 timing is not inherited",
+    "Original reference retains formatting warnings"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "interface_version": "1.0",
+  "method_id": "single_fit_phase",
+  "expert_id": 103,
+  "namespace": "cyanneko_single_fit_phase_v1",
+  "state_mode": "stateless",
+  "adaptation_status": "adapted",
+  "performance_validated": false,
+  "supported_ranges": {
+    "K": [
+      1,
+      8
+    ],
+    "P": [
+      2,
+      64
+    ],
+    "memory_limit": [
+      67108864,
+      4294967296
+    ],
+    "phase": [
+      "BUILD",
+      "PROBE"
+    ],
+    "callback_kinds": [
+      "Overflow",
+      "Miss",
+      "Periodic"
+    ],
+    "observe_onDispatch": "empty and safe for all official states"
+  },
+  "feature_schema": [
+    "legal current state/target",
+    "phase",
+    "write/read bandwidth",
+    "one next_op"
+  ],
+  "tie_break": "original R56 representative and cross-phase double comparisons; byte then op/pid ties",
+  "fallback": {
+    "kind": "internal stateless BF decide delegation when all has no singleton fit",
+    "dependency_path": "src/experts/best_fit_fast/expert.hpp",
+    "dependency_sha256": "088c4a039ed67eb18b8247a0685ae3cf03c2d32b40011d88076929a4e2e47555",
+    "selected_id_remains": 103,
+    "extra_lifecycle_notifications": 0
+  },
+  "complexity": {
+    "reset": "O(1)",
+    "observe": "O(1)",
+    "decide": "O(KP); no-fit branch adds full BF O(KP+C log C)",
+    "onDispatch": "O(1)"
+  },
+  "memory": {
+    "history_bytes": 0,
+    "weights_bytes": 0,
+    "expert_object_bytes": 1,
+    "local_representative_count": 4,
+    "local_representative_storage_bytes": 128,
+    "representative_basis": "GCC target ABI field/alignment calculation, not measured RSS",
+    "fallback_candidate_payload_bound_bytes": 8192,
+    "actions": "O(KP), capacity and allocator overhead implementation dependent"
+  },
+  "training": null,
+  "weights_sha256": null,
+  "origin": {
+    "path": "src/experts/single_fit_phase/reference.cpp",
+    "sha256": "2ee28d494c4d7d3b0edf9b130d776e30b1fb7dc2fff41b738833de41593707f8",
+    "kind": "frozen R56 scheduler-only submission"
+  },
+  "files": {
+    "expert.hpp": "c3dc9a12cf93407d0f67c7062d1a1385da5784a5eaf831637aeee4563d569d4b",
+    "standalone.cpp": "2de1d0aaab7ed5e102187ee5f0d47c50d125018357a2014ca541e9f999850515"
+  },
+  "validation": "validation.json"
+}

@@ -70,6 +70,8 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 
 仓库未发布可用的 NN 或训练好的融合选择器，不应从研究讨论推断已有模型可调用。[v1 规则适配](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts)仅有固定选择和短动作检查；方法历史结果的样本范围、改善与退化以各自 README/manifest 为准。
 
+可选 [single-fit ID103](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts/single_fit_phase)已完成边界、短轨迹与导出动作验收，默认101/102组合不变，performance_validated仍为false。[R57净化结果包](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r57_public_suite_20261028)对应原独立直接程序的24例完整公共集合，非适配版时延或隐藏成绩；封顶分数必须与P90/worst及逐例差异一起阅读。
+
 开发新的规则或 NN 专家先遵循 [专家接口 v1](EXPERT_INTERFACE_V1.md)：内部唯一 namespace 的 Expert 由官方 MySpillScheduler 外壳转接；每个测试案例重置，按真实回调 observe、无策略副作用 decide、执行前 onDispatch。选择器只运行被选专家的提案，状态维护和选择成本全部计时。[最小运行骨架](../expert_runtime/README.md)提供固定选择、短测和导出；先交付独立适配与验收，再比较少量互补专家、训练浅树。旧类不自动兼容，尚无训练好的树。
 
 ### 调度器可见信息

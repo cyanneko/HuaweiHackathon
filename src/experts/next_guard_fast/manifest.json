@@ -1,0 +1,67 @@
+{
+  "interface_version": "1.0",
+  "method_id": "next_guard_fast",
+  "expert_id": 102,
+  "namespace": "cyanneko_next_guard_fast_v1",
+  "state_mode": "stateless",
+  "adaptation_status": "adapted",
+  "supported_ranges": {
+    "K": [
+      1,
+      8
+    ],
+    "P": [
+      2,
+      64
+    ],
+    "memory_limit": [
+      67108864,
+      4294967296
+    ],
+    "phase": [
+      "BUILD",
+      "PROBE"
+    ],
+    "callback_kinds": [
+      "Overflow",
+      "Miss",
+      "Periodic"
+    ],
+    "observe_onDispatch": "empty and safe for all official states"
+  },
+  "tie_break": "See code and README; preserves frozen source victim order",
+  "feature_schema": [
+    "legal current SystemState",
+    "callback kind and target",
+    "next_op (next_guard only)"
+  ],
+  "fallback": null,
+  "full_range": true,
+  "complexity": {
+    "reset": "O(1)",
+    "observe": "O(1)",
+    "decide": "O(KP + C^2)",
+    "onDispatch": "O(1)"
+  },
+  "memory": {
+    "history_bytes": 0,
+    "weights_bytes": 0,
+    "candidate_element_bytes": 16,
+    "candidate_elements_bound": 512,
+    "candidate_payload_bound_bytes": 8192,
+    "actions": "O(KP), capacity/allocator overhead implementation dependent; not an RSS bound"
+  },
+  "training": null,
+  "weights_sha256": null,
+  "origin": {
+    "path": "src/experts/next_guard_fast/reference.cpp",
+    "sha256": "dfa8212908d8c106daf6731533f6130cf0c826b4377c644465930a366c9ea65f"
+  },
+  "files": {
+    "expert.hpp": "8290e909f4fd880df86d3b766d259af0e2ed78c36aa0bd4fcfbd7be4378b4abc",
+    "standalone.cpp": "ad4665d9d9aa7032eddab3106733ae91ef7b43df79f393b83acdd96d2ac47504"
+  },
+  "validation": "../validation.json",
+  "compiler": "g++ 11.4.0 C++14 -O2, WSL Ubuntu",
+  "performance_validated": false
+}

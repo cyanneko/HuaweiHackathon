@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-28",
+  "interface_version": "1.0",
+  "status": "passed",
+  "environment": {
+    "os": "WSL Ubuntu",
+    "compiler": "g++ 11.4.0",
+    "flags": [
+      "-std=c++14",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-pedantic-errors"
+    ]
+  },
+  "exporter_tests": 8,
+  "literal_states": 521,
+  "random_states": 512,
+  "seed": 20261028,
+  "paths_checked": [
+    "frozen_class",
+    "single_adapter",
+    "fixed_pair_BF",
+    "fixed_pair_NG",
+    "alternating_pair",
+    "flattened_exports"
+  ],
+  "action_audit": [
+    "capacity_each_action",
+    "phase",
+    "residency",
+    "overflow_target_exclusion",
+    "miss_final_LOAD"
+  ],
+  "scope": "literal states and controlled type fixture; not complete engine replay or performance",
+  "performance_runs": 0,
+  "cpu_window_released": true,
+  "stages": [
+    {
+      "stage": "router_RED",
+      "sha256": "793540607e497c548823ff551894b9bd7c557e015c78e50f83366db2a3b1aa0f",
+      "status": "failed",
+      "machine_process_wall_seconds": 1.3787963170000004
+    },
+    {
+      "stage": "common_GREEN",
+      "sha256": "b3ab2e83e0b3806d9c318366b8f77acf83bc4e2c3911f5f9311a2e47d570302f",
+      "status": "passed",
+      "machine_process_wall_seconds": 2.1085491189999956
+    },
+    {
+      "stage": "adapters_RED",
+      "sha256": "44360a82153f2f65a72108aaeee1a3a5dbc83e1e0c148a1a770f54dcf0524950",
+      "status": "failed",
+      "machine_process_wall_seconds": 2.344434986
+    },
+    {
+      "stage": "adapters_GREEN",
+      "sha256": "5a1dde1635edc1b836df9811a1ba1cf9ff8b4b3b0ea8403c03318cce5abdceb9",
+      "status": "passed",
+      "machine_process_wall_seconds": 3.914133751999998
+    },
+    {
+      "stage": "exported_GREEN",
+      "sha256": "9d27a3c2e12d3345e33f9097179e02c2a67de034819d7423c721f133caeefc1a",
+      "status": "passed",
+      "machine_process_wall_seconds": 6.753769229999989
+    },
+    {
+      "stage": "final_GREEN",
+      "sha256": "e7238090290db444b143ccb28084fb946ee059cfb25d52813f2a01988d32e05f",
+      "status": "passed",
+      "machine_process_wall_seconds": 6.400750106
+    }
+  ],
+  "recorded_process_seconds": 22.900433509999985,
+  "compile_test_invocation_wall_upper_bound_seconds": 80,
+  "budget_seconds": 120,
+  "limitations": [
+    "No full-stream audit",
+    "No latency or 10 percent gating-budget measurement",
+    "No trained selector",
+    "Original frozen sources retain their indentation warnings"
+  ]
+}

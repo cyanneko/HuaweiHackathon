@@ -10,6 +10,8 @@
 
 另补充 [R53 best_fit_fast 候选](methods/r53/README.md)：优化 best-fit 的实现路径，保留原版作对照，未设为默认策略。结果只覆盖六个已见开发输入，具体改善与退化边界见该目录说明。
 
+现有 [v1 专家适配](experts/README.md)提供R53 best-fit与R55 next-guard-fast的新namespace实现、独立外壳与固定双专家入口。旧methods保持原字节；短动作等价验收与导出范围见该目录，不代表已训练融合树或全流性能验收。
+
 评测程序默认需输出新版五项指标：`Total_IO_Time`、`Total_Decision_Time`、`Hit_Count`、`Miss_Count`、`Total_Score`。决策时间应由与官方规则一致的执行框架测量，不能以 0 补齐。完整协议见 [评测说明](../evaluation/README.md)。
 
 共同数据在 `datasets` 分支。可以使用单独的工作目录存放该分支，然后给评测入口传入 `--datasets-root` 绝对路径，以免把数据混入本源码分支。

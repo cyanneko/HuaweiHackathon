@@ -1,0 +1,67 @@
+{
+  "interface_version": "1.0",
+  "method_id": "best_fit_fast",
+  "expert_id": 101,
+  "namespace": "cyanneko_best_fit_fast_v1",
+  "state_mode": "stateless",
+  "adaptation_status": "adapted",
+  "supported_ranges": {
+    "K": [
+      1,
+      8
+    ],
+    "P": [
+      2,
+      64
+    ],
+    "memory_limit": [
+      67108864,
+      4294967296
+    ],
+    "phase": [
+      "BUILD",
+      "PROBE"
+    ],
+    "callback_kinds": [
+      "Overflow",
+      "Miss",
+      "Periodic"
+    ],
+    "observe_onDispatch": "empty and safe for all official states"
+  },
+  "tie_break": "See code and README; preserves frozen source victim order",
+  "feature_schema": [
+    "legal current SystemState",
+    "callback kind and target",
+    "next_op (next_guard only)"
+  ],
+  "fallback": null,
+  "full_range": true,
+  "complexity": {
+    "reset": "O(1)",
+    "observe": "O(1)",
+    "decide": "O(KP + C log C)",
+    "onDispatch": "O(1)"
+  },
+  "memory": {
+    "history_bytes": 0,
+    "weights_bytes": 0,
+    "candidate_element_bytes": 16,
+    "candidate_elements_bound": 512,
+    "candidate_payload_bound_bytes": 8192,
+    "actions": "O(KP), capacity/allocator overhead implementation dependent; not an RSS bound"
+  },
+  "training": null,
+  "weights_sha256": null,
+  "origin": {
+    "path": "src/methods/r53/best_fit_fast.cpp",
+    "sha256": "c080764785e049e35903020204d84bbad17150fec6b0fb7c33d212d12348965c"
+  },
+  "files": {
+    "expert.hpp": "088c4a039ed67eb18b8247a0685ae3cf03c2d32b40011d88076929a4e2e47555",
+    "standalone.cpp": "ed8fd79562459ba8d87791a5b5effb4a16070324633c66f86f8653f6b13dfdc9"
+  },
+  "validation": "../validation.json",
+  "compiler": "g++ 11.4.0 C++14 -O2, WSL Ubuntu",
+  "performance_validated": false
+}

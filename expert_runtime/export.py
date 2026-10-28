@@ -21,6 +21,8 @@ def flatten(entry, root=ROOT):
             return ''
         active.add(path)
         lines = path.read_text(encoding='utf-8-sig').splitlines()
+        if any(line.rstrip().endswith('\\') for line in lines):
+            raise ValueError('unsupported line continuation')
         # Deliberately support a small, fail-closed preprocessing subset.
         # Block comments/raw strings could hide fake include directives.
         if any('/*' in line or '*/' in line or 'R"' in line for line in lines):

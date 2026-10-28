@@ -8,7 +8,7 @@
 | 102 | next_guard_fast，R55 初始缺口保护规则 | [说明](next_guard_fast/README.md) / [manifest](next_guard_fast/manifest.json) |
 | 103（独立可选） | single_fit_phase，R56阶段单项覆盖+BF回退 | [说明](single_fit_phase/README.md) / [manifest](single_fit_phase/manifest.json) |
 
-[fixed_pair.cpp](fixed_pair.cpp) 注册两者，默认始终选101；未知ID回退101。交替选择是验收模式，不是训练好的策略。独立 standalone 只注册自身。公共路由不替专家做动作合法性检查。
+[fixed_pair.cpp](fixed_pair.cpp) 只注册101和102，默认始终选101；未知ID回退101。交替选择是验收模式，不是训练好的策略。独立 standalone 只注册自身。公共路由不替专家做动作合法性检查。
 
 [fixed_next_guard_pair.cpp](fixed_next_guard_pair.cpp) 仍注册101/102，但固定选102，供独立的SDK-NGfast验证/计时。其模板选择路径已在字面状态中检查；该额外入口的确切导出产物交由后续独立验证，不把它冒称为本轮三文件导出测试的一部分。
 

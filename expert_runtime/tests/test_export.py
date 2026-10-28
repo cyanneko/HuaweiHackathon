@@ -41,6 +41,22 @@ class ExportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'cycle'):
             self.module.flatten(entry, self.root)
 
+    def test_conditional_local_include_is_rejected(self):
+        self.put('common.hpp', 'struct Common {};\n')
+        entry = self.put('a.hpp', '#if 0\n#include "common.hpp"\n#endif\n#include "common.hpp"\n')
+        with self.assertRaisesRegex(ValueError, 'conditional'):
+            self.module.flatten(entry, self.root)
+
+    def test_normal_outer_include_guard_is_supported(self):
+        self.put('common.hpp', 'struct Common {};\n')
+        entry = self.put('a.hpp', '#ifndef A_HPP\n#define A_HPP\n#include "common.hpp"\n#endif\n')
+        self.assertIn('struct Common', self.module.flatten(entry, self.root))
+
+    def test_macro_include_is_rejected(self):
+        entry = self.put('a.hpp', '#include HEADER_MACRO\n')
+        with self.assertRaisesRegex(ValueError, 'unsupported'):
+            self.module.flatten(entry, self.root)
+
     def test_outside_repository_is_rejected(self):
         entry = self.put('a.hpp', '#include "../outside.hpp"\n')
         with self.assertRaisesRegex(ValueError, 'outside'):

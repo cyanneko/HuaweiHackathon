@@ -1,50 +1,41 @@
-# cyanneko · R48＋R54 开发数据，eval 0.3.0
+# cyanneko · R48＋R54＋R58 候选数据，eval 0.4.0
 
-本分支共有 48 份输入和 48 份同名原始元数据，train/eval 各 24 份。输入合计 15,839,087 字节，元数据合计 1,227,520 字节。R48 原有 16 份文件未改字节，新增 R54 v1.1 的 32 份；`eval/VERSION` 从 `0.2.0` 升为 `0.3.0`。
+**本地已验证候选：3项测试、两次CLI复现和全64例公共审核通过，尚待最终审阅及批准上传。** 当前候选共64份输入和64份同名meta，train/eval各32；R58增加8/8。原48输入与48元数据逐文件保留原字节，原0.3.0审核记录不覆盖。
 
-**数据用于开发/回归，不作独立盲测、官方隐藏分布代表性或泛化保证。** R48 全部曾参与历史开发实验；R54 是公开配置与固定种子产生的合成数据，train/eval 的划分与不同种子不意味着独立泛化分布。本次发布没有训练或求解器跑分。
-
-## 划分与覆盖
-
-| 来源 | train | eval | 说明 |
+| 来源 | train | eval | 边界 |
 | --- | ---: | ---: | --- |
-| R48 | 8 | 8 | 保留既有文件和元数据 |
-| R54 v1.1 | 16 | 16 | 新增组合场景及极端/单模式对照 |
-| 合计 | 24 | 24 | 同属 cyanneko 的一个有 VERSION 的集合 |
+| R48 | 8 | 8 | 历史开发数据；coverage_06..11为均衡分布诊断 |
+| R54 v1.1 | 16 | 16 | 原发布输入与元数据，24/32组合案例 |
+| R58 | 8 | 8 | 四家族各4例，8/16显式组合；原16例已独立审核 |
+| 合计 | 32 | 32 | cyanneko一个有VERSION的成员集合 |
 
-R48 train 为 `coverage_00,03,05,07,09,12,13,15`，eval 为 `coverage_01,02,04,06,08,10,11,14`。其中 `coverage_06..11` 为均衡分布诊断，其余为偏斜分布案例。
+输入合计16,513,143字节，元数据合计2,098,853字节。数据属于合成开发/回归；train/eval共享构造，不是独立盲测、隐藏分布代表或泛化保证。生成参数、模式与q预测仅供离线审核，不进入在线策略。
 
-R54 文件名为 `r54_<category>_<variant>_<split>`。`cross_operator`、`temporal`、`combined`、`control` 各 8 例；前三类共 24/32，即 **R54 新批次的 75%** 属于组合场景。每例 24,123–50,463 条操作，共 1,124,488 条操作。v1.1 修正 control 元数据的目标压力标签，输入 raw 与研究侧 v1 相同；本仓库没有发布旧版标签。
+## 清单和身份
 
-R54 新增输入为 12,422,581 字节，元数据为 1,179,178 字节。每个算子只经历一次 BUILD→PROBE；Probe 模式的分段变化不表示回到 BUILD。具体模式比例、分段索引和统计保留在原始元数据中。
+[manifest.json](manifest.json)保存64例路径、来源、input/meta SHA、划分、原0.3.0来源和R58新增来源。旧48条case来源/哈希保留；原48输入和meta逐文件SHA与旧manifest相同。R58的txt/meta按冻结原件复制；新输入raw及modulo-P语义SHA与独立审核相符。
 
-## 来源、哈希与校验
+eval/VERSION拟升0.4.0，候选个人eval指纹为`d686842e79b18cc4e8351c8d5bfd571c34ad961de470b6d4edd84868ba302f94`。该值由实际32txt＋32meta及VERSION计算，是静态身份，不表示审核通过或已发布；最终以审核后的清单为准。仅train改变时不改eval版本或suite_id。各轮数据不能当多个成员重复算分。
 
-[manifest.json](manifest.json) 记录全部 48 例的仓库路径、来源相对路径、输入与元数据 SHA-256、操作流 SHA-256、划分、用途和发布来源。`evaluation_sha256` 对应个人 `0.3.0` 集合，不是多个成员的合并 suite_id。旧版本清单可从 Git 历史追溯。
+R58生成前spec的planned标签保留历史含义，当前原16例的实际独立审核见 [生成器来源](../../generators/r58/README.md)。原meta的q_observed=null表示生成时未诊断；不从之后结果回填meta或改写源数据。
 
-- R54 原始文件逐一匹配已批准的发布冻结清单，复制时保留原始字节，Git 属性关闭换行转换。
-- 全部 48 份输入经过公共校验器，0 错误、0 跳过；算子头按编号升序，完整输入及操作流哈希各有 48 个不同值，train/eval 及 R48/R54 之间无重复。
-- R54 研究侧独立审核额外核对真实分段/索引、模式计数、scan/stride/burst 公式与热点比例；原记录随 [生成器 provenance](../../generators/r54/provenance/audit_v2.json) 保存。公共格式校验不能替代这些额外检查。
-- 复制后的生成器通过 3 项测试，覆盖计划、压力标签和全部 32 配置双次生成的一致性。
+## 审核状态与复现
 
-本发布的可移植公共校验记录为 [public_audit_0.3.0.json](provenance/public_audit_0.3.0.json)，汇总为 [validation_0.3.0.json](provenance/validation_0.3.0.json)。这些验证不构成求解器性能结论，也不证明训练评测独立。
+[验证汇总](provenance/validation_0.4.0.json)、[全64例公共审核](provenance/public_audit_0.4.0.json)和[去重/头顺序](provenance/dedup_0.4.0.json)记录实际验证范围。原0.3.0的 [公共审核](provenance/public_audit_0.3.0.json) 和 [汇总](provenance/validation_0.3.0.json) 只覆盖原48例，不能代表本候选64例全部通过。
 
-## 使用与复现
-
-实际数据文件只在 datasets 分支。main/source 分支的评测器可通过 `--datasets-root` 指向本分支的独立工作目录。
-
-在本分支仓库根目录检查输入：
+本次从本分支根目录分别审核全部32eval和32train，未使用allow-small-memory。复核命令如下，输出放输入目录之外：
 
 ```sh
-python evaluation/scripts/audit_datasets.py --root datasets/cyanneko --out results/cyanneko-data-audit.json
+python evaluation/scripts/audit_datasets.py --root datasets/cyanneko/eval --out results/cyanneko-eval32-audit.json
+python evaluation/scripts/audit_datasets.py --root datasets/cyanneko/train --out results/cyanneko-train32-audit.json
 ```
 
-可使用 [公共批量评测](../../evaluation/README.md)，默认评测所有成员已有的非空集合；空成员跳过，不计入分母。R48 和 R54 是同一 cyanneko 集合的内容，不会因分属两轮而重复算成两集。各集归一化分数独立计算，最终等权平均；无官方基线则不生成归一化分。
+本次两报告各为32cases、0errors、0skipped，且与manifest名单精确匹配。独立CLI可能跳过不像输入的txt，且不检查团队额外的头升序约定；完整覆盖、升序与跨旧/新/划分/成员语义去重另做。本次另行验证了64份头升序，raw、完整操作流及modulo-P语义流各64个唯一值；其他成员当前仅有空占位，已记录跳过状态。原48输入/meta、旧审核记录及新16输入/meta的来源字节保持不变。
 
-复现 R54：
+复现R58的8/8见 [公开生成器](../../generators/r58/README.md)，R54的16/16仍见 [R54入口](../../generators/r54/README.md)。生成器不自动加入R48或创建VERSION。
 
-```sh
-python generators/r54/generate.py --out NEWDIR
-```
+## 评分迁移
 
-输出仅含 R54 的 16/16，不包含 R48，也不会自动填写 VERSION。详见 [生成器说明](../../generators/r54/README.md)。请勿把固定种子的相同流复制到其他成员目录充当新测试集。
+默认只评测各成员已有的非空eval；空成员跳过并记录，不等三人到齐。非空但无合法VERSION/内容错误则失败。成绩绑定实际成员VERSION、文件指纹和suite_id，按参与集合等权平均。
+
+R57旧结果继续对应0.3.0的24eval与原直接程序。旧BF/SF封顶50不能继承到0.4.0；新成绩需冻结程序与数据后，重跑全部实际非空集合及新配对Naive，cyanneko覆盖完整32eval，不只跑新增8例、不拼接旧测量。train不参加集合评分，发布数据本身没有新成绩或性能验证。

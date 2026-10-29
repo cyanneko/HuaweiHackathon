@@ -91,3 +91,7 @@
 ### 保留源码中的两处表述边界
 - cover_v1.cpp的“Exact best two-item cover”注释仅按字节大小解释时成立；该失败版本又加了next读取惩罚，其two-pointer扫描不能保证加权二项最优。原失败字节保留，不能把注释当成理论保证。
 - 完整循环假设的快路径只核对过去可见转移与当前等大小/阶段条件；它不能证明未来不变。MRU近期列表同样来自部分观测，不是完整LRU栈，不能把实测接近基线的Miss当成精确Belady最优。
+
+## 2026-10-30恢复后的定向复核
+- Merlin: An Efficient Adaptive Cache Eviction Algorithm via Fine-Grained Characterization，OSDI26，https://www.usenix.org/conference/osdi26/presentation/li-liujia ：会议摘要指出粗粒度模式选择及基础策略干扰可能导致自适应缓存退化，采用结合局部性与容量的对象级刻画。本项目可检验全局scan判断与候选重排的干扰；其完整访问观测与多核吞吐结论不能直接移植。本次只核对会议摘要，未精读全文。
+- HALP（NSDI23）及LAH（OSDI26）重新打开原会议页面核对：前者强调启发式融合的CPU与稳健收益，后者学习缓存级参数而非逐对象替代。对本轮的启发是分别测试受限重排和低频门控；这是实验方向，不是已有方法保证本题提升。链接沿用上表。

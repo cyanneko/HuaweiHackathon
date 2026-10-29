@@ -54,3 +54,6 @@ benchmark_measurements.zip保存3轮eval和3轮train的原始结果，原字节�
 冻结模型JSON保留生成阶段candidate_has_measured_fitness=false与父模型640/568来源字段，后续实测以published_checkpoint及对应train/eval结果为准。
 
 training_git_provenance.json独立验证840份train及840份meta与固定提交Git blob字节一致；原WSL结果中的unknown修订字段保持不改。
+
+后续members_r4：候选81仅将两个临时数组复用，785例动作完全一致；三次D均升高，平均1525.31→1592.81us（+4.43%），未采用。
+scratch_result.json为固定门槛结论，scratch_sources.zip和scratch_measurements.zip只对应members_r4，不覆盖旧r3包。

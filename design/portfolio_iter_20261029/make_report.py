@@ -87,7 +87,7 @@ def main():
     p('有限采样会低估高频miss/overflow输入。对文件f、回调类k，记录完整轨迹事件数T及采样数S，给每条状态权重T/S。叶子选择argmin_e Σw_i·Loss(C_i,e)，分裂以左右叶子的最小成本下降为目标；不用普通分类准确率代替成本。')
     p('当前父模型使用640份train采样的15,801个状态。新三成员840份train又采集20,764个状态；无决策事件的输入仍在全程评测中保留。有限窗口与重叠窗口只提供近似标签，不是完整Score的无偏估计。')
     h('贡献三：沿树路径付出特征成本')
-    p(f'当前模型深度{model["max_depth"]}、{model["node_count"]}节点、{model["leaf_count"]}叶子。阈值展开为内嵌if/else，最多4次比较；cheap特征按路径懒计算，避免先汇总全部分区统计。无需在线模型文件或推理库。')
+    p(f'当前模型深度{model["max_depth"]}、{model["node_count"]}节点、{model["leaf_count"]}叶子。阈值展开为内嵌if/else，最多{model["max_depth"]}次比较；cheap特征按路径懒计算，避免先汇总全部分区统计。无需在线模型文件或推理库。')
     p('这不表示整个回调O(1)：公开getSystemState复制、专家候选收集和规划仍可能O(Q)。真正收益必须由实际回调时间和完整Score检验。')
     h('贡献四：完整train Score闭环微调')
     p('以小树为起点，只在训练特征的邻近阈值或叶子专家上做小范围变更，保持容量公共层不变；在840份完整train轨迹上串行计算实际Score筛选。随后冻结候选到785例eval复测。此为本项目实现贡献，尚未主张这些组合首次见于文献。')
@@ -106,6 +106,10 @@ def main():
     p(f'旧固定568例：NN平均约96,578,213,902.12 μs，第一轮树94,273,432,606.00，加入强制集合94,247,452,742.66，事件加权cheap树{old["best"]["mean_score"]:,.2f}。后者比旧快照Naive下降28.7795%。旧数据与新785例分母不同，不直接比较两者平均值大小。')
     p('新785例：增加Vanius0525的209例，并纳入cyanneko 0.6.0的48例。新train重拟合模型曾在cyanneko上达到50.06%降幅，但全库差于父树；因此未仅因一份集合改善就替换。全部负结果与逐例坏例保留在结果文件。')
     if checkpoint.get('search_note'):p(escape(checkpoint['search_note']))
+    scratch=ROOT/'scratch_result.json'
+    if scratch.is_file():
+        sr=read(scratch)
+        p(f'随后单独验证数组复用：785例动作完全一致，3次完整回调D均更慢，平均由{sr["parent_mean_D_us"]:,.2f}升至{sr["scratch_mean_D_us"]:,.2f} μs（增加{-sr["D_reduction_percent"]:.2f}%），未采用。该轮保留版本Score为{sr["parent_score"]:,.2f} μs。')
     p('尾部须结合绝对成本与IO看：父树某次最差241倍来自无IO、无miss的小例，约182 μs对照0.75 μs；而未采用模型曾在hot-small例引发约440万μs真实IO。两个现象都保留，含义不同。')
     h('单文件接入与复测')
     p('交付文件：design/MySpillScheduler_tree.cpp。定义MySpillScheduler、无main，接入公开C++14框架。编译运行：python design/tools/run.py --policy tree --input &lt;正式输入文件&gt;。原rule/NN版本保留便于比较。','small')

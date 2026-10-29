@@ -1,0 +1,183 @@
+{
+  "metric": "internal member-balanced v1",
+  "official_metric": false,
+  "member_weights": {
+    "Vanius0525": 0.3333333333333333,
+    "cyanneko": 0.3333333333333333,
+    "liunianwww": 0.3333333333333333
+  },
+  "normal_weight": 0.8,
+  "corner_weight": 0.2,
+  "scale": "5 * mean per-case official improvement score; internal 0..50 comparable across dataset sizes",
+  "duplicate_rule": "same operation-stream group averaged once per member/stratum",
+  "excluded_inputs": {
+    "end_insert.txt": "Missing mandatory SWITCH; legacy tolerance diagnostic, not legal eval"
+  },
+  "classification_rule": "Own edges; liunian family=corners; cyanneko explicitly named r54_control, no_op_controls, resident_control and explicit mxv1 memory-one-partition boundary. Other workload families remain normal. Labels fixed independently of results.",
+  "members": {
+    "Vanius0525": {
+      "case_counts": {
+        "normal": 192,
+        "corner": 17
+      },
+      "operation_group_counts": {
+        "normal": 192,
+        "corner": 17
+      },
+      "methods": {
+        "pure": {
+          "mean_single_by_stratum": {
+            "normal": 3.8551452823585315,
+            "corner": 1.432133094679684
+          },
+          "balanced_score_50": 16.85271422411381
+        },
+        "ai": {
+          "mean_single_by_stratum": {
+            "normal": 3.9257739235602114,
+            "corner": 1.4261464542369116
+          },
+          "balanced_score_50": 17.129242148477758
+        }
+      },
+      "raw_official_suite_scores": [
+        {
+          "report": "holdout-final.json",
+          "reported_scores": {
+            "pure": 50,
+            "ai": 50
+          },
+          "includes_excluded_diagnostic": false
+        },
+        {
+          "report": "ood-final.json",
+          "reported_scores": {
+            "pure": 50,
+            "ai": 50
+          },
+          "includes_excluded_diagnostic": false
+        },
+        {
+          "report": "round3-fresh.json",
+          "reported_scores": {
+            "pure": 50,
+            "ai": 50
+          },
+          "includes_excluded_diagnostic": false
+        },
+        {
+          "report": "round3-ood.json",
+          "reported_scores": {
+            "pure": 50,
+            "ai": 50
+          },
+          "includes_excluded_diagnostic": false
+        },
+        {
+          "report": "balanced-own-corners.json",
+          "reported_scores": {
+            "pure": 24.994829100709648,
+            "ai": 24.87532388747516
+          },
+          "includes_excluded_diagnostic": true
+        }
+      ]
+    },
+    "cyanneko": {
+      "case_counts": {
+        "normal": 39,
+        "corner": 9
+      },
+      "operation_group_counts": {
+        "normal": 39,
+        "corner": 9
+      },
+      "methods": {
+        "pure": {
+          "mean_single_by_stratum": {
+            "normal": 3.4639597490225644,
+            "corner": 3.2803824379136217
+          },
+          "balanced_score_50": 17.136221434003883
+        },
+        "ai": {
+          "mean_single_by_stratum": {
+            "normal": 3.6903958351029855,
+            "corner": 3.283929304201705
+          },
+          "balanced_score_50": 18.04551264461365
+        }
+      },
+      "raw_official_suite_scores": [
+        {
+          "report": "round2-cyanneko050.json",
+          "reported_scores": {
+            "pure": 50,
+            "ai": 50
+          },
+          "includes_excluded_diagnostic": false
+        },
+        {
+          "report": "cyanneko060-new.json",
+          "reported_scores": {
+            "pure": 31.911315724652916,
+            "ai": 32.1104766799487
+          },
+          "includes_excluded_diagnostic": false
+        }
+      ]
+    },
+    "liunianwww": {
+      "case_counts": {
+        "normal": 395,
+        "corner": 133
+      },
+      "operation_group_counts": {
+        "normal": 391,
+        "corner": 133
+      },
+      "methods": {
+        "pure": {
+          "mean_single_by_stratum": {
+            "normal": 2.542802096704851,
+            "corner": 1.6325374045914203
+          },
+          "balanced_score_50": 11.803745791410824
+        },
+        "ai": {
+          "mean_single_by_stratum": {
+            "normal": 2.528281555614725,
+            "corner": 1.6848797420798802
+          },
+          "balanced_score_50": 11.798005964538783
+        }
+      },
+      "raw_official_suite_scores": [
+        {
+          "report": "round2-liunianwww010.json",
+          "reported_scores": {
+            "pure": 50,
+            "ai": 50
+          },
+          "includes_excluded_diagnostic": false
+        }
+      ]
+    }
+  },
+  "sources": {
+    "holdout-final.json": "31e7910df93c0dbfb2a035cdfb806f02927f770bc5afde897dcd599e6009c16d",
+    "ood-final.json": "5f27b3fbb54895e46b278141fb589b85cd54877d893805bf18a2ffe422a715ca",
+    "round3-fresh.json": "caa24f72dd8f3c91aa9bee0220118d009a58bb6543fee8dba9e2268257be896b",
+    "round3-ood.json": "415f3d57c82fbdf9477874f27bf7e8d1b5eb86f546160c3816214aabf3c28f02",
+    "balanced-own-corners.json": "47440895bf02ca992e1006f7467786cf8c2c43b7af9992a122df62710d5a0892",
+    "build/team_snapshot_923d21e/cyanneko/manifest.json": "75ce76c3f016f03f003b419ed91268852e5f32415f0eb944d24e78e5f83006b4",
+    "round2-cyanneko050.json": "4ec4f3fa1b8db667c106e8750f2991388c70a0571043717714fcdc30647300fe",
+    "cyanneko060-new.json": "1bcfc2ad1a96bf74167a502e84957d35bf442a91ce9f209134067aeb4f0db8a0",
+    "build/team_snapshot_923d21e/liunianwww/manifest.json": "022b1ab178bcbd428a0002b36e3b035db54f580e404ab4d39bd49d5af3c0b84c",
+    "round2-liunianwww010.json": "e0911cfd044a1661f0b748f468512572f8a340faf89403992fe716466e447b66"
+  },
+  "overall": {
+    "pure": 15.264227149842839,
+    "ai": 15.657586919210063
+  }
+}

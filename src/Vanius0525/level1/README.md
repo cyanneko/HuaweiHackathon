@@ -73,3 +73,5 @@ python stress.py --n 5000000 --b 1 10000 --scheduler pure=MySpillScheduler.cpp -
 这依赖WSL/app-server继续运行，不是云端Scheduled任务。会话绑定与进程状态只保存在忽略的 `build/hourly/`；不提交聊天ID、私人状态或凭据。查看 `build/hourly/status.json`、`last_queue.json` 和每轮summary；创建 `build/hourly/STOP` 可在当前案例完成后停止。实验锁只串行化本项目工具，不能保证整个操作系统没有其他负载。
 
 版本与优化过程见[OPTIMIZATION_HISTORY.md](OPTIMIZATION_HISTORY.md)、[VERSION_LEDGER.json](VERSION_LEDGER.json)。第二轮新增568个团队样例的结果见[round2/RESULTS.json](round2/RESULTS.json)；较大团队集上纯算法均分略高于AI，尚无新的候选晋升。
+
+后续候选按[三人等权内部指标](SCORING_POLICY.md)选型，结果见[BALANCED_RESULTS.json](BALANCED_RESULTS.json)。该指标不是官方分数。第三阶段外推反例与CPU结果见[round3/RESULTS.json](round3/RESULTS.json)。

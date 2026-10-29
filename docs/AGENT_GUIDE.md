@@ -12,7 +12,7 @@
 | evaluation | [使用与协议](../evaluation/README.md)、[数据格式](../evaluation/DATA_SPEC.md)、评测器与旧版核算器 |
 | docs/EXPERT_INTERFACE_V1.md | [独立专家与逐回调选择器契约](EXPERT_INTERFACE_V1.md)，团队接口/预算与接入验收，非已实现的运行库 |
 | generators/r54 | [可复现生成器](../generators/r54/README.md)及来源记录，不是实际数据检出 |
-| generators/r58 | [已发布R58生成器](../generators/r58/README.md)；8/8增量已进入eval0.4.0，总量32/32；复现/数据审核通过，不代表新版本已完整评分 |
+| generators/r58 | [已发布R58生成器](../generators/r58/README.md)；历史8/8增量进入eval0.4.0、当时总量32/32；R60已完整评测该历史版本 |
 
 实际分支以 `git branch -r` 为准，不能再假设固定只有三个或最多五个分支。`member2`、`member3` 是数据目录占位，不自动代表某位新成员。源码见 [source/cyanneko](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src)，实际输入见 [datasets 分支](https://github.com/cyanneko/HuaweiHackathon/tree/datasets/datasets/cyanneko)。
 
@@ -73,7 +73,7 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 
 可选 [single-fit ID103](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts/single_fit_phase)已完成边界、短轨迹与导出动作验收，默认101/102组合不变，performance_validated仍为false。[R57净化结果包](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r57_public_suite_20261028)对应原独立直接程序的24例完整公共集合，非适配版时延或隐藏成绩；封顶分数必须与P90/worst及逐例差异一起阅读。
 
-开发新的规则或 NN 专家先遵循 [专家接口 v1](EXPERT_INTERFACE_V1.md)：内部唯一 namespace 的 Expert 由官方 MySpillScheduler 外壳转接；每个测试案例重置，按真实回调 observe、无策略副作用 decide、执行前 onDispatch。选择器只运行被选专家的提案，状态维护和选择成本全部计时。[最小运行骨架](../expert_runtime/README.md)提供固定选择、短测和导出；先交付独立适配与验收，再比较少量互补专家、训练浅树。旧类不自动兼容，尚无训练好的树。
+开发新的规则或 NN 专家先遵循 [专家接口 v1](EXPERT_INTERFACE_V1.md)：内部唯一 namespace 的 Expert 由官方 MySpillScheduler 外壳转接；每个测试案例重置，按真实回调 observe、无策略副作用 decide、执行前 onDispatch。选择器只运行被选专家的提案，状态维护和选择成本全部计时。[最小运行骨架](../expert_runtime/README.md)提供固定选择、短测和导出；先交付独立适配与验收，再比较少量互补专家、训练浅树。旧类不自动兼容；R61研究侧树已训练并检验，尚未发布为默认策略。
 
 ### 调度器可见信息
 
@@ -92,9 +92,9 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 
 ## 数据与新增数据的流程
 
-R58的8/8增量与公开生成器已发布，cyanneko eval为0.4.0、train/eval总量32/32。双次复现、3项测试、全64数据审核与独立发布复核通过；0.4.0尚未完成全体实际非空集合的完整评分。R57结果保留0.3.0，旧封顶分不能迁移。[发布提交与冻结清单作用域](R58_PUBLICATION_STATUS.md)给出不可变定位。
+当前公共数据为 **0.5.0、train/eval各40、80txt＋80meta**。R48/R54/R58旧64对不改，新R61 8/8按Root recipe971ceca冻结生成；原留出在模型freeze后开放，现属已观察开发数据，不能称官方盲测。[新增生成器](../generators/r61_mix/README.md)和[数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/manifest.json)记录来源。
 
-当前[已发布数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/875b6b0b99ec1b63ac37c11a99ea7f1a349b83a3/datasets/cyanneko/manifest.json)为64txt＋64meta，train/eval各32，cyanneko eval VERSION为`0.4.0`。R48的16例为历史开发输入，coverage_06..11为均衡诊断；R54为16/16，其中24/32为组合场景；R58为8/8，其中8/16为组合场景。合成开发/回归数据不作盲测或独立泛化声明。
+[R60/R61报告](PRECONTEST_RESULTS_20261029.md)覆盖冻结0.4全32例与独立8例，不是0.5全40重评；新版本仍需自动发现并完整评测全部实际非空成员集合，官方Naive基线不变。
 
 R54 六种 Probe 模式按 [生成器源码](../generators/r54/generate.py)实现：
 
@@ -179,3 +179,5 @@ schema 3的评分顺序：
 ```
 
 交接与提交不含聊天ID、本机绝对路径、私人状态或凭据。保留冻结字节和旧证据；不force push、不reset，不未经协调切共享工作树分支。推送按最新用户授权及明确的本次审阅安排执行，不把本地准备写成远端已发布。
+
+可选ID104已在独立/导出各278状态、92短typed回调通过动作验收，但没有接口D或得分；不能替换官方Naive参照。默认101/102和103保持原样。R61研究侧树的训练/回归与代码发布范围分别看赛前报告，不将计划中的R62写成已完成。

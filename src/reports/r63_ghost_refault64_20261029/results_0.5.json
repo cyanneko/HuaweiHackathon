@@ -1,0 +1,4612 @@
+{
+  "scope": "R63 fixed Ghost64, all40 frozen0.5 eval cases, one repeat; local development evidence",
+  "definitions": {
+    "cost_ratio": "Per-case Total_Score(candidate)/Total_Score(own fresh paired original Naive), lower is better.",
+    "mean": "Arithmetic mean of all 40 per-case ratios, equal case weights; not ratio of summed costs.",
+    "P50": "Ordinary median, middle pair arithmetic mean for even n.",
+    "P90": "Nearest rank ceil(0.90*n), using all n.",
+    "worst": "Maximum per-case ratio.",
+    "zero_denominator": "0/0 is 1, positive/0 is Infinity retained; Infinity encoded as a JSON string.",
+    "family": "Original recorded family/family_definition from the complete CSV; coverage filename group is coarse, unlike the earlier R60-R62 scenario subgroups.",
+    "D": "Per-case scheduler callback total in microseconds, including history reconciliation, action-intent validation, scanning, and action generation.",
+    "scope": "One repeat on all actual nonempty eval sets in the fixed 0.5 snapshot; unknown official sample count/distribution is not predicted."
+  },
+  "datasets": [
+    {
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "files": [
+        {
+          "path": "coverage_01.meta.json",
+          "sha256": "93ad9fb7aee9c66a161f12df866011e5d62702560dfbbc75fe28cd617c3ba2a0"
+        },
+        {
+          "path": "coverage_01.txt",
+          "sha256": "073960367df53d51ad53d7f7beb6ec209a35762f9ff12dd84e9309dcdf8fa583"
+        },
+        {
+          "path": "coverage_02.meta.json",
+          "sha256": "03b329fab781de772f732da3ef82bdd9f80b178d29cb58e954838fc5a842d4d7"
+        },
+        {
+          "path": "coverage_02.txt",
+          "sha256": "f8e9d06c8f9b9c33ec59fe139abc9e2b9f3064196a9daf23ecb5540f3637b6fd"
+        },
+        {
+          "path": "coverage_04.meta.json",
+          "sha256": "28803d7ce68c1b3355321197f93a1520bbc918bcc3af52c370a760e72b3cbf4c"
+        },
+        {
+          "path": "coverage_04.txt",
+          "sha256": "8a90d47eeab887266b520a383bed43ddc3ef9afb9a4dc7a9007ada8250f74838"
+        },
+        {
+          "path": "coverage_06.meta.json",
+          "sha256": "a4f5acced8728eb406772fcc6155a696c2c42f6293630b775ea90e486f3f236a"
+        },
+        {
+          "path": "coverage_06.txt",
+          "sha256": "a0e3bd8874eb075f12a5929ed43c58b176b6808861be431f15bddf7fd172c187"
+        },
+        {
+          "path": "coverage_08.meta.json",
+          "sha256": "b6ef06bfb0cb74dec3f2ff78ebb5b5e5a3c5d232abe35f35ea4e1a0ab9c8f360"
+        },
+        {
+          "path": "coverage_08.txt",
+          "sha256": "1add815207e22668fd9c32486f9341c8c079b6576f5ade1886b8abb5a2c221e0"
+        },
+        {
+          "path": "coverage_10.meta.json",
+          "sha256": "c133a3cd25a449081a5a6512a334a987862ae5c9609720a9c5d461d67d5d33da"
+        },
+        {
+          "path": "coverage_10.txt",
+          "sha256": "5e1b4ece8e9205002069a77ad3b17056b6385965769d78aabab368d90588903a"
+        },
+        {
+          "path": "coverage_11.meta.json",
+          "sha256": "d92499533ac03abaa50ec13d8fd8818dfb982d09b80ec44f02ed22d01d2bb2d7"
+        },
+        {
+          "path": "coverage_11.txt",
+          "sha256": "551817b3788c5d86c9489db6aaed80f4a1b01ccf9984d47440bf264d83562708"
+        },
+        {
+          "path": "coverage_14.meta.json",
+          "sha256": "eed1f129d21292fe98504e490ccedc5c3c094a48567cfd33516f50732dd9c628"
+        },
+        {
+          "path": "coverage_14.txt",
+          "sha256": "9b0e923313f2149940b3ca84c397e270ed21a43181c4c2fda3f547baa6938518"
+        },
+        {
+          "path": "r54_combined_0_eval.meta.json",
+          "sha256": "902e0f0d2e6dcc21e2d8dc13f4218be3d840067675b136e5f9c245f45789aa4a"
+        },
+        {
+          "path": "r54_combined_0_eval.txt",
+          "sha256": "44eb74be34d2614c647bac786eae65af743d06f9c5e8e5e0d98433a6e5eacbd1"
+        },
+        {
+          "path": "r54_combined_1_eval.meta.json",
+          "sha256": "4fb9302039587b3f94cd88951b2ebcead5370272e7caeb8f9e3000ee3f671e8d"
+        },
+        {
+          "path": "r54_combined_1_eval.txt",
+          "sha256": "173bbb0b70c6e77df294be2f072e25b92457473b9135a8198879b9ea22a48788"
+        },
+        {
+          "path": "r54_combined_2_eval.meta.json",
+          "sha256": "c663d9df84770714da6ed01cc3e6bb6d10d79f736d2d5f009c728362e91d9131"
+        },
+        {
+          "path": "r54_combined_2_eval.txt",
+          "sha256": "744856946aac6a6ecb4693c5da1cbb52c2aea286533cf159f0a554317261b9f9"
+        },
+        {
+          "path": "r54_combined_3_eval.meta.json",
+          "sha256": "ed65809205ffd833bb72820262367fe6baa1d309405b6b2e0bab096624e86c79"
+        },
+        {
+          "path": "r54_combined_3_eval.txt",
+          "sha256": "92b0ba3256c225627cb5f746751beb899261abcb90354abda954dc802112fd51"
+        },
+        {
+          "path": "r54_control_0_eval.meta.json",
+          "sha256": "8a3ce602279c67c07ea6f7070745278a57d6e1607abb5e95782dda88d25b7093"
+        },
+        {
+          "path": "r54_control_0_eval.txt",
+          "sha256": "1d112a85c108fbab8cef260feb04463c431b2df6bcf69b5087bcd0caa595f5e7"
+        },
+        {
+          "path": "r54_control_1_eval.meta.json",
+          "sha256": "5bd4146e8e4ae295b533c9e76b85874e262fad1788361cb462fa71da1264c3e9"
+        },
+        {
+          "path": "r54_control_1_eval.txt",
+          "sha256": "fa5380aaaae0cdcd189c32dab2ac6b0a57d3a07179809dd5b8094e562af442dd"
+        },
+        {
+          "path": "r54_control_2_eval.meta.json",
+          "sha256": "6faf9c92f9f2cd482182b9241b9f59386ed957fe294baad0cf7597443567cf40"
+        },
+        {
+          "path": "r54_control_2_eval.txt",
+          "sha256": "f0e6bee4288282960046b2991f0acc1bf2d225a28ea2600a89c0288459dce279"
+        },
+        {
+          "path": "r54_control_3_eval.meta.json",
+          "sha256": "fcc1401aff3d87fc5fcead6454f856c85576f9db9a80cc5dff949692e59d68b7"
+        },
+        {
+          "path": "r54_control_3_eval.txt",
+          "sha256": "8aa96d9d0845b0b15c246ddd08748f44c6bb74fdfdaa3450f37ed259561f621d"
+        },
+        {
+          "path": "r54_cross_operator_0_eval.meta.json",
+          "sha256": "99cd9946e58caa947025fe4a57f265f00134cd44690bb2690cc908c2d5ce3944"
+        },
+        {
+          "path": "r54_cross_operator_0_eval.txt",
+          "sha256": "07fd24272d07eec709b8629b77a87008f45debbdae1557706a718b91dfda7065"
+        },
+        {
+          "path": "r54_cross_operator_1_eval.meta.json",
+          "sha256": "0fb80d6116cf1b8613aebc73e7edb3f2062c9d11427837a1166483669e022f2c"
+        },
+        {
+          "path": "r54_cross_operator_1_eval.txt",
+          "sha256": "dd822f40bbd69def5150d52b653de1f5d6350691acfa66dd0eba2907912d3760"
+        },
+        {
+          "path": "r54_cross_operator_2_eval.meta.json",
+          "sha256": "3ae70deb249e44a43fb59e9b58b8319e0d4cf8a77f18f3a8857c93bf0b0ecfeb"
+        },
+        {
+          "path": "r54_cross_operator_2_eval.txt",
+          "sha256": "1721b066a8f7dbd056d0cd98ff9474c30ef202038759f48352e599be7222165a"
+        },
+        {
+          "path": "r54_cross_operator_3_eval.meta.json",
+          "sha256": "636021914bd3a2e6dfadd97a54add64c9394e95b3e6591d01a2dc1575c3d4822"
+        },
+        {
+          "path": "r54_cross_operator_3_eval.txt",
+          "sha256": "912074fa273793d6206ea65cd4f0c15d3fa591a1a6a44aa6c23c66d4223b4782"
+        },
+        {
+          "path": "r54_temporal_0_eval.meta.json",
+          "sha256": "53db6a9051cd8590cc9285d61ce03d60bd1b75f41d40c3164987a4e34a5072e9"
+        },
+        {
+          "path": "r54_temporal_0_eval.txt",
+          "sha256": "d6519efea154d7f7b568d30609fd5a37da501773dd6ee2f824f02f038e2db9c4"
+        },
+        {
+          "path": "r54_temporal_1_eval.meta.json",
+          "sha256": "555ce35074c14beae25d74c0787ef4aa0277359cd5986203715f029901ca1f6c"
+        },
+        {
+          "path": "r54_temporal_1_eval.txt",
+          "sha256": "6f9fc410d9aa10a9313cda45026ce07a97dfe9fa8a3f3a20ab243f3fe1d6cbcd"
+        },
+        {
+          "path": "r54_temporal_2_eval.meta.json",
+          "sha256": "83c5118ea0bc448f8ebfedf6d9e3350bf86e0d3d5bfd7ba78806d5e0ef5b1c71"
+        },
+        {
+          "path": "r54_temporal_2_eval.txt",
+          "sha256": "5423ba1322143ea154c6a5ca037065b970f818f047f7c89b7e907e01ebaf9828"
+        },
+        {
+          "path": "r54_temporal_3_eval.meta.json",
+          "sha256": "d2e5287dd768c6e537b5666ff66102bd9e72003f7fa09de1fb9af820e3dc2a90"
+        },
+        {
+          "path": "r54_temporal_3_eval.txt",
+          "sha256": "16b2dcbb777ec888a083076d9e9a0d5b0a59a47598b0ce1e78dd3d897803a0f6"
+        },
+        {
+          "path": "r58_low_opportunity_mix_0_eval.meta.json",
+          "sha256": "8238c2a380d7714827e86c4a23921f4b2db61f2b32f0c56bed12291c2161bb12"
+        },
+        {
+          "path": "r58_low_opportunity_mix_0_eval.txt",
+          "sha256": "075bb7466cad2d87ad5b282aae4cfdce756b8c8ce01e306f90541e3c240b1ee8"
+        },
+        {
+          "path": "r58_low_opportunity_mix_1_eval.meta.json",
+          "sha256": "714f062651a7436588533f78d3787b2a29782299903b2ec3e14bf6cb02870c2d"
+        },
+        {
+          "path": "r58_low_opportunity_mix_1_eval.txt",
+          "sha256": "03266eca217b7d7bd8deec2502d44338dd5bc1677e425d5c24dc4ad08bc999b4"
+        },
+        {
+          "path": "r58_no_op_controls_0_eval.meta.json",
+          "sha256": "90bdb4dc67f29109a5e28e46d912064aaffa9a26b570790ce6aa8af456e07a8b"
+        },
+        {
+          "path": "r58_no_op_controls_0_eval.txt",
+          "sha256": "15903b01821f5e30de740679bba20f7f2249a119fa2071f50e0bb4eac9583cbe"
+        },
+        {
+          "path": "r58_no_op_controls_1_eval.meta.json",
+          "sha256": "24e6cdb4f4ddc0735da6640c159b4a4ae30f638c813cbb7f89acaaa19ff3d174"
+        },
+        {
+          "path": "r58_no_op_controls_1_eval.txt",
+          "sha256": "07e83e93f68588e7e58d8c654e1c690ddc081144fa3d720ad58dc45f7d6be247"
+        },
+        {
+          "path": "r58_positive_cycles_0_eval.meta.json",
+          "sha256": "8a91db4da707a7a1c22a91ee05db38d05fbe0d59c865bf51b775b98b8f1b5f59"
+        },
+        {
+          "path": "r58_positive_cycles_0_eval.txt",
+          "sha256": "73f2a218012a8ebd5a1e54ce70310aa9fc493811ced3ce77db1ce47e8e818f45"
+        },
+        {
+          "path": "r58_positive_cycles_1_eval.meta.json",
+          "sha256": "35526c1c5742a35bb580c997cf78a562287c6cbdbc5a56f61ff5964fd69f03ad"
+        },
+        {
+          "path": "r58_positive_cycles_1_eval.txt",
+          "sha256": "db99949835d9cde574f7a4af7894f9f79fac62b57f206d021c763aa394f2d404"
+        },
+        {
+          "path": "r58_temporal_alignment_mix_0_eval.meta.json",
+          "sha256": "009f360683d0398c234d16f40ecf9fe4f9fce750adbd086c9cb02c12e4124fd0"
+        },
+        {
+          "path": "r58_temporal_alignment_mix_0_eval.txt",
+          "sha256": "b702a164039ec4062814dd30ff0204c018fd60d30d402431bc7c9bec8a2f67b6"
+        },
+        {
+          "path": "r58_temporal_alignment_mix_1_eval.meta.json",
+          "sha256": "4436c4e734a52d6beffa98700f01ddb838c547986e1b6d8a6b1aa45779d9fee6"
+        },
+        {
+          "path": "r58_temporal_alignment_mix_1_eval.txt",
+          "sha256": "b33e5018f32cca0fe43c950c3c48836c728f0a84740e1e48907215a03baa40ea"
+        },
+        {
+          "path": "r61root_00_operator_mix_holdout.meta.json",
+          "sha256": "fc5779d1782a0cfe60d31b29079fcbd7625228fd15b6255d592b202220497c44"
+        },
+        {
+          "path": "r61root_00_operator_mix_holdout.txt",
+          "sha256": "4e1838e5384e97fd4ddeba303c7359fd96cf0fbb1d8429eeedfccf0b4f0e112d"
+        },
+        {
+          "path": "r61root_01_temporal_reverse_holdout.meta.json",
+          "sha256": "c47a0d5e97beaf147b7e182d7f17adfa1cb4999b98e1e831adee819ec7b5321b"
+        },
+        {
+          "path": "r61root_01_temporal_reverse_holdout.txt",
+          "sha256": "6bc445f97bcd8967c3f767f8869058c9590dfff12371f79d34d0771ba1cbf7ad"
+        },
+        {
+          "path": "r61root_02_interleave_reverse_holdout.meta.json",
+          "sha256": "1d8c3ea47a2150cffa4ce7fdcd9750b2a6ee1fdda61c722eda8bd20a03442dc4"
+        },
+        {
+          "path": "r61root_02_interleave_reverse_holdout.txt",
+          "sha256": "bc6a70157699a70008a8bb5e69bd817013ed4a722c7f973d02a234d5318f68be"
+        },
+        {
+          "path": "r61root_03_burst_mix_holdout.meta.json",
+          "sha256": "33564cd6334ef80903adba87287a8579450606f0649f1dd1bca905b15e992081"
+        },
+        {
+          "path": "r61root_03_burst_mix_holdout.txt",
+          "sha256": "ef65bfcfd05d36b659117bf4bcce368f1f5e57ab129447c5e16454d2db879d12"
+        },
+        {
+          "path": "r61root_04_big_small_cycles_holdout.meta.json",
+          "sha256": "d57654744d4d252b159d5b53598e647a89090c45e5886bc3697962cba7d7823b"
+        },
+        {
+          "path": "r61root_04_big_small_cycles_holdout.txt",
+          "sha256": "d7f6475878f3189bd30c7e3601485e80c3fd28e2bedfacaf2481c67fb55c57ac"
+        },
+        {
+          "path": "r61root_05_next_alternation_holdout.meta.json",
+          "sha256": "087613999f0fab9639d14d45c4f9a7a4a9581adce977d1661df53321122c221d"
+        },
+        {
+          "path": "r61root_05_next_alternation_holdout.txt",
+          "sha256": "80905f868da3fb5db3d18cbb6141ecaeaaff832620801014f37f8b9014e80696"
+        },
+        {
+          "path": "r61root_06_phase_overlap_holdout.meta.json",
+          "sha256": "0e88ff7ee3c985d5f939a97aac8d303991c7c846ca081b1425cef3f4aa3ac320"
+        },
+        {
+          "path": "r61root_06_phase_overlap_holdout.txt",
+          "sha256": "0be89dc4b9e255959fde5a6b4816d8f81db9fa038a7494ba03c69ec392741b6a"
+        },
+        {
+          "path": "r61root_07_resident_control_holdout.meta.json",
+          "sha256": "901b18c43340dc27053c8b16b4ddd4b5a59fc7c96db6a72b5670fd76360e69e3"
+        },
+        {
+          "path": "r61root_07_resident_control_holdout.txt",
+          "sha256": "d91a34b137f97efd3ac43e0305d6371b4b2b256e9c14ffb1403220977e61f2f3"
+        }
+      ],
+      "sha256": "e0e014b8ceb20050a8249cf7f30863642de262870777f435142feaba7afba77d",
+      "case_count": 40,
+      "aggregate": {
+        "case_count": 40,
+        "measurement_count": 40,
+        "aggregation": "sum of per-case arithmetic mean over repeats",
+        "total_cost": 169676792905.5,
+        "total_io_time": 169656895591.67,
+        "total_decision_time": 145193.84,
+        "hit_count": 532107.0,
+        "miss_count": 84409.0,
+        "wall_seconds": 1.5013785210000066
+      }
+    }
+  ],
+  "skipped_members": [
+    {
+      "member": "member2",
+      "reason": "empty evaluation set"
+    },
+    {
+      "member": "member3",
+      "reason": "empty evaluation set"
+    }
+  ],
+  "suite_id": "baaf5b24e8a9697bc6cacb7e4f47c1e6d53b80e5f177fea0479ec06816702c63",
+  "methods": {
+    "ghost64": {
+      "ratios": {
+        "Total_Score": {
+          "n": 40,
+          "mean": 0.9755489882504327,
+          "p50": 0.7383883046987962,
+          "p90": 1.2246011407787054,
+          "worst": 7.4583621635396256,
+          "sum_ratio": 0.40688974509370324,
+          "wins": 23,
+          "ties": 0,
+          "losses": 17,
+          "zero_zero": 0,
+          "positive_over_zero": 0
+        },
+        "Total_Decision_Time": {
+          "n": 40,
+          "mean": 3.2891616703018847,
+          "p50": 1.232962897023941,
+          "p90": 8.227156712608473,
+          "worst": 17.893700787401574,
+          "sum_ratio": 1.5297589189413576,
+          "wins": 10,
+          "ties": 0,
+          "losses": 30,
+          "zero_zero": 0,
+          "positive_over_zero": 0
+        },
+        "Total_IO_Time": {
+          "n": 40,
+          "mean": 0.9696187007460486,
+          "p50": 0.7378017834722319,
+          "p90": 1.00440875360103,
+          "worst": 7.6341447765054955,
+          "sum_ratio": 0.4068571506876294,
+          "wins": 23,
+          "ties": 10,
+          "losses": 7,
+          "zero_zero": 3,
+          "positive_over_zero": 0
+        },
+        "Miss_Count": {
+          "n": 40,
+          "mean": "Infinity",
+          "p50": 1.1202242056843452,
+          "p90": 12.463157894736842,
+          "worst": "Infinity",
+          "sum_ratio": 1.683466294375748,
+          "wins": 6,
+          "ties": 10,
+          "losses": 24,
+          "zero_zero": 3,
+          "positive_over_zero": 1
+        }
+      },
+      "absolute_D": {
+        "candidate": {
+          "n": 40,
+          "mean": 3629.846,
+          "p50": 518.42,
+          "p90": 8281.22,
+          "worst": 50711.46,
+          "sum": 145193.84,
+          "units": "microseconds"
+        },
+        "baseline": {
+          "n": 40,
+          "mean": 2372.82225,
+          "p50": 533.2950000000001,
+          "p90": 3426.71,
+          "worst": 20138.85,
+          "sum": 94912.89,
+          "units": "microseconds"
+        }
+      },
+      "wins": 23,
+      "losses": 17,
+      "ties": 0
+    }
+  },
+  "families": {
+    "coverage": {
+      "Total_Score": {
+        "n": 8,
+        "mean": 0.9430401415131665,
+        "p50": 0.35847460082258736,
+        "p90": 4.703721208728124,
+        "worst": 4.703721208728124,
+        "sum_ratio": 0.8169596877787065,
+        "wins": 5,
+        "ties": 0,
+        "losses": 3,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 8,
+        "mean": 2.872738547617839,
+        "p50": 0.9065109070878767,
+        "p90": 17.893700787401574,
+        "worst": 17.893700787401574,
+        "sum_ratio": 0.32946468471218693,
+        "wins": 4,
+        "ties": 0,
+        "losses": 4,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 8,
+        "mean": 0.9370658016429707,
+        "p50": 0.35843819779645475,
+        "p90": 4.656525819722812,
+        "worst": 4.656525819722812,
+        "sum_ratio": 0.8171915103677323,
+        "wins": 5,
+        "ties": 1,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 8,
+        "mean": 3.460162070761219,
+        "p50": 0.7727272727272727,
+        "p90": 22.55,
+        "worst": 22.55,
+        "sum_ratio": 0.272454662287591,
+        "wins": 4,
+        "ties": 1,
+        "losses": 3,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r54_combined": {
+      "Total_Score": {
+        "n": 4,
+        "mean": 0.798565708488246,
+        "p50": 0.5684199948680917,
+        "p90": 1.7688575115100655,
+        "worst": 1.7688575115100655,
+        "sum_ratio": 0.43400600535203065,
+        "wins": 3,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 4,
+        "mean": 2.114423813083151,
+        "p50": 0.8712871254762042,
+        "p90": 6.284180941099105,
+        "worst": 6.284180941099105,
+        "sum_ratio": 1.0238073633247895,
+        "wins": 2,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 4,
+        "mean": 0.7975697030925921,
+        "p50": 0.5682313290743661,
+        "p90": 1.7652553655143197,
+        "worst": 1.7652553655143197,
+        "sum_ratio": 0.433875809210016,
+        "wins": 3,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 4,
+        "mean": 8.431991839585471,
+        "p50": 1.476205524872964,
+        "p90": 29.564102564102566,
+        "worst": 29.564102564102566,
+        "sum_ratio": 2.839638622247318,
+        "wins": 0,
+        "ties": 0,
+        "losses": 4,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r54_control": {
+      "Total_Score": {
+        "n": 4,
+        "mean": 0.718937940761215,
+        "p50": 0.8810035616423415,
+        "p90": 1.0657810179755944,
+        "worst": 1.0657810179755944,
+        "sum_ratio": 0.40833819725941095,
+        "wins": 2,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 4,
+        "mean": 5.015942521091768,
+        "p50": 2.0995560046946404,
+        "p90": 14.798877057002198,
+        "worst": 14.798877057002198,
+        "sum_ratio": 7.31153919642055,
+        "wins": 0,
+        "ties": 0,
+        "losses": 4,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 4,
+        "mean": 0.7022372297795556,
+        "p50": 0.8804941195329683,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": 0.40832690338112254,
+        "wins": 2,
+        "ties": 2,
+        "losses": 0,
+        "zero_zero": 1,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 4,
+        "mean": 2.440453107071767,
+        "p50": 1.7799393633148055,
+        "p90": 5.201933701657459,
+        "worst": 5.201933701657459,
+        "sum_ratio": 3.1393663042207414,
+        "wins": 0,
+        "ties": 2,
+        "losses": 2,
+        "zero_zero": 1,
+        "positive_over_zero": 0
+      }
+    },
+    "r54_cross_operator": {
+      "Total_Score": {
+        "n": 4,
+        "mean": 3.044460315016263,
+        "p50": 2.2307446993021878,
+        "p90": 7.4583621635396256,
+        "worst": 7.4583621635396256,
+        "sum_ratio": 0.3577107464933357,
+        "wins": 2,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 4,
+        "mean": 3.6963337696637883,
+        "p50": 0.7612364699398995,
+        "p90": 12.896049359545817,
+        "worst": 12.896049359545817,
+        "sum_ratio": 1.034991764386228,
+        "wins": 2,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 4,
+        "mean": 3.086332334457591,
+        "p50": 2.226598723725515,
+        "p90": 7.6341447765054955,
+        "worst": 7.6341447765054955,
+        "sum_ratio": 0.35761409009790324,
+        "wins": 2,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 4,
+        "mean": "Infinity",
+        "p50": 30.301146304253503,
+        "p90": "Infinity",
+        "worst": "Infinity",
+        "sum_ratio": 2.7230081906180192,
+        "wins": 1,
+        "ties": 0,
+        "losses": 3,
+        "zero_zero": 0,
+        "positive_over_zero": 1
+      }
+    },
+    "r54_temporal": {
+      "Total_Score": {
+        "n": 4,
+        "mean": 0.5071882783582166,
+        "p50": 0.5559691720942899,
+        "p90": 0.8360565229832644,
+        "worst": 0.8360565229832644,
+        "sum_ratio": 0.12698400929096995,
+        "wins": 4,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 4,
+        "mean": 1.1759686000429068,
+        "p50": 0.7799796435958863,
+        "p90": 2.9089112520663387,
+        "worst": 2.9089112520663387,
+        "sum_ratio": 0.9820349826052773,
+        "wins": 2,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 4,
+        "mean": 0.5067049024974256,
+        "p50": 0.5558505135728298,
+        "p90": 0.8343615872200587,
+        "worst": 0.8343615872200587,
+        "sum_ratio": 0.1269466486836228,
+        "wins": 4,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 4,
+        "mean": 4.319413937695084,
+        "p50": 2.3978330920468873,
+        "p90": 12.139755766621438,
+        "worst": 12.139755766621438,
+        "sum_ratio": 2.0892514395393476,
+        "wins": 1,
+        "ties": 0,
+        "losses": 3,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r58_low_opportunity_mix": {
+      "Total_Score": {
+        "n": 2,
+        "mean": 1.0018925477795753,
+        "p50": 1.0018925477795753,
+        "p90": 1.0020306490065516,
+        "worst": 1.0020306490065516,
+        "sum_ratio": 1.001992661921609,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 2,
+        "mean": 1.2944902642873912,
+        "p50": 1.2944902642873912,
+        "p90": 1.3825079030558483,
+        "worst": 1.3825079030558483,
+        "sum_ratio": 1.3031743898783374,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 2,
+        "mean": 1.0018915970837796,
+        "p50": 1.0018915970837796,
+        "p90": 1.0020306080343626,
+        "worst": 1.0020306080343626,
+        "sum_ratio": 1.0019923767126024,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 2,
+        "mean": 1.0123528328355464,
+        "p50": 1.0123528328355464,
+        "p90": 1.0132435465768799,
+        "worst": 1.0132435465768799,
+        "sum_ratio": 1.0124501992031874,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r58_no_op_controls": {
+      "Total_Score": {
+        "n": 2,
+        "mean": 1.1123060586547575,
+        "p50": 1.1123060586547575,
+        "p90": 1.2246011407787054,
+        "worst": 1.2246011407787054,
+        "sum_ratio": 1.0000187161490348,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 2,
+        "mean": 1.2877854989022386,
+        "p50": 1.2877854989022386,
+        "p90": 1.3509698570257718,
+        "worst": 1.3509698570257718,
+        "sum_ratio": 1.28473004593119,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 2,
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": 1.0,
+        "wins": 0,
+        "ties": 2,
+        "losses": 0,
+        "zero_zero": 1,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 2,
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": 1.0,
+        "wins": 0,
+        "ties": 2,
+        "losses": 0,
+        "zero_zero": 1,
+        "positive_over_zero": 0
+      }
+    },
+    "r58_positive_cycles": {
+      "Total_Score": {
+        "n": 2,
+        "mean": 1.0000049686610772,
+        "p50": 1.0000049686610772,
+        "p90": 1.0000098086997138,
+        "worst": 1.0000098086997138,
+        "sum_ratio": 1.0000002848558194,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 2,
+        "mean": 1.2486686633442996,
+        "p50": 1.2486686633442996,
+        "p90": 1.2560126734194228,
+        "worst": 1.2560126734194228,
+        "sum_ratio": 1.2492726517040729,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 2,
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": 1.0,
+        "wins": 0,
+        "ties": 2,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 2,
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": 1.0,
+        "wins": 0,
+        "ties": 2,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r58_temporal_alignment_mix": {
+      "Total_Score": {
+        "n": 2,
+        "mean": 1.0000000748085838,
+        "p50": 1.0000000748085838,
+        "p90": 1.000000149292304,
+        "worst": 1.000000149292304,
+        "sum_ratio": 1.000000002515033,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 2,
+        "mean": 1.2429840368137686,
+        "p50": 1.2429840368137686,
+        "p90": 1.4469298245614035,
+        "worst": 1.4469298245614035,
+        "sum_ratio": 1.191962377084224,
+        "wins": 0,
+        "ties": 0,
+        "losses": 2,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 2,
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": 1.0,
+        "wins": 0,
+        "ties": 2,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 2,
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": 1.0,
+        "wins": 0,
+        "ties": 2,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r61root_big_small_cycles": {
+      "Total_Score": {
+        "n": 1,
+        "mean": 0.3100892775156587,
+        "p50": 0.3100892775156587,
+        "p90": 0.3100892775156587,
+        "worst": 0.3100892775156587,
+        "sum_ratio": 0.3100892775156587,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 1,
+        "mean": 7.297381546134663,
+        "p50": 7.297381546134663,
+        "p90": 7.297381546134663,
+        "worst": 7.297381546134663,
+        "sum_ratio": 7.297381546134663,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 1,
+        "mean": 0.29149484537873654,
+        "p50": 0.29149484537873654,
+        "p90": 0.29149484537873654,
+        "worst": 0.29149484537873654,
+        "sum_ratio": 0.29149484537873654,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 1,
+        "mean": 10.8125,
+        "p50": 10.8125,
+        "p90": 10.8125,
+        "worst": 10.8125,
+        "sum_ratio": 10.8125,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r61root_burst_mix": {
+      "Total_Score": {
+        "n": 1,
+        "mean": 0.265370451225805,
+        "p50": 0.265370451225805,
+        "p90": 0.265370451225805,
+        "worst": 0.265370451225805,
+        "sum_ratio": 0.265370451225805,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 1,
+        "mean": 7.830072407949469,
+        "p50": 7.830072407949469,
+        "p90": 7.830072407949469,
+        "worst": 7.830072407949469,
+        "sum_ratio": 7.830072407949469,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 1,
+        "mean": 0.2535195530718757,
+        "p50": 0.2535195530718757,
+        "p90": 0.2535195530718757,
+        "worst": 0.2535195530718757,
+        "sum_ratio": 0.2535195530718757,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 1,
+        "mean": 9.976377952755906,
+        "p50": 9.976377952755906,
+        "p90": 9.976377952755906,
+        "worst": 9.976377952755906,
+        "sum_ratio": 9.976377952755906,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r61root_interleave_reverse": {
+      "Total_Score": {
+        "n": 1,
+        "mean": 0.2453602064923403,
+        "p50": 0.2453602064923403,
+        "p90": 0.2453602064923403,
+        "worst": 0.2453602064923403,
+        "sum_ratio": 0.2453602064923403,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 1,
+        "mean": 5.918521751782336,
+        "p50": 5.918521751782336,
+        "p90": 5.918521751782336,
+        "worst": 5.918521751782336,
+        "sum_ratio": 5.918521751782336,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 1,
+        "mean": 0.24479454763539815,
+        "p50": 0.24479454763539815,
+        "p90": 0.24479454763539815,
+        "worst": 0.24479454763539815,
+        "sum_ratio": 0.24479454763539815,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 1,
+        "mean": 9.140625,
+        "p50": 9.140625,
+        "p90": 9.140625,
+        "worst": 9.140625,
+        "sum_ratio": 9.140625,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r61root_next_alternation": {
+      "Total_Score": {
+        "n": 1,
+        "mean": 0.2758565621073973,
+        "p50": 0.2758565621073973,
+        "p90": 0.2758565621073973,
+        "worst": 0.2758565621073973,
+        "sum_ratio": 0.2758565621073973,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 1,
+        "mean": 8.227156712608473,
+        "p50": 8.227156712608473,
+        "p90": 8.227156712608473,
+        "worst": 8.227156712608473,
+        "sum_ratio": 8.227156712608473,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 1,
+        "mean": 0.2527614068758852,
+        "p50": 0.2527614068758852,
+        "p90": 0.2527614068758852,
+        "worst": 0.2527614068758852,
+        "sum_ratio": 0.2527614068758852,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 1,
+        "mean": 9.75,
+        "p50": 9.75,
+        "p90": 9.75,
+        "worst": 9.75,
+        "sum_ratio": 9.75,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r61root_operator_mix": {
+      "Total_Score": {
+        "n": 1,
+        "mean": 0.27120213351884637,
+        "p50": 0.27120213351884637,
+        "p90": 0.27120213351884637,
+        "worst": 0.27120213351884637,
+        "sum_ratio": 0.27120213351884637,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 1,
+        "mean": 2.3049140339143097,
+        "p50": 2.3049140339143097,
+        "p90": 2.3049140339143097,
+        "worst": 2.3049140339143097,
+        "sum_ratio": 2.3049140339143097,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 1,
+        "mean": 0.2711388455916459,
+        "p50": 0.2711388455916459,
+        "p90": 0.2711388455916459,
+        "worst": 0.2711388455916459,
+        "sum_ratio": 0.2711388455916459,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 1,
+        "mean": 10.622047244094489,
+        "p50": 10.622047244094489,
+        "p90": 10.622047244094489,
+        "worst": 10.622047244094489,
+        "sum_ratio": 10.622047244094489,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r61root_phase_overlap": {
+      "Total_Score": {
+        "n": 1,
+        "mean": 0.315617387710767,
+        "p50": 0.315617387710767,
+        "p90": 0.315617387710767,
+        "worst": 0.315617387710767,
+        "sum_ratio": 0.315617387710767,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 1,
+        "mean": 10.536623844940275,
+        "p50": 10.536623844940275,
+        "p90": 10.536623844940275,
+        "worst": 10.536623844940275,
+        "sum_ratio": 10.536623844940275,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 1,
+        "mean": 0.315418118466899,
+        "p50": 0.315418118466899,
+        "p90": 0.315418118466899,
+        "worst": 0.315418118466899,
+        "sum_ratio": 0.315418118466899,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 1,
+        "mean": 12.463157894736842,
+        "p50": 12.463157894736842,
+        "p90": 12.463157894736842,
+        "worst": 12.463157894736842,
+        "sum_ratio": 12.463157894736842,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    },
+    "r61root_resident_control": {
+      "Total_Score": {
+        "n": 1,
+        "mean": 1.0047956001207283,
+        "p50": 1.0047956001207283,
+        "p90": 1.0047956001207283,
+        "worst": 1.0047956001207283,
+        "sum_ratio": 1.0047956001207283,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 1,
+        "mean": 1.0047956001207283,
+        "p50": 1.0047956001207283,
+        "p90": 1.0047956001207283,
+        "worst": 1.0047956001207283,
+        "sum_ratio": 1.0047956001207283,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 1,
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": null,
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "zero_zero": 1,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 1,
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "sum_ratio": null,
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "zero_zero": 1,
+        "positive_over_zero": 0
+      }
+    },
+    "r61root_temporal_reverse": {
+      "Total_Score": {
+        "n": 1,
+        "mean": 0.28433050891668527,
+        "p50": 0.28433050891668527,
+        "p90": 0.28433050891668527,
+        "worst": 0.28433050891668527,
+        "sum_ratio": 0.28433050891668527,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_Decision_Time": {
+        "n": 1,
+        "mean": 7.306560791460558,
+        "p50": 7.306560791460558,
+        "p90": 7.306560791460558,
+        "worst": 7.306560791460558,
+        "sum_ratio": 7.306560791460558,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Total_IO_Time": {
+        "n": 1,
+        "mean": 0.28393442620152076,
+        "p50": 0.28393442620152076,
+        "p90": 0.28393442620152076,
+        "worst": 0.28393442620152076,
+        "sum_ratio": 0.28393442620152076,
+        "wins": 1,
+        "ties": 0,
+        "losses": 0,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      },
+      "Miss_Count": {
+        "n": 1,
+        "mean": 10.671875,
+        "p50": 10.671875,
+        "p90": 10.671875,
+        "worst": 10.671875,
+        "sum_ratio": 10.671875,
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "zero_zero": 0,
+        "positive_over_zero": 0
+      }
+    }
+  },
+  "pairs": [
+    {
+      "case": "coverage_01.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "073960367df53d51ad53d7f7beb6ec209a35762f9ff12dd84e9309dcdf8fa583",
+      "family": "coverage",
+      "family_definition": "filename coverage_*",
+      "candidate": {
+        "Total_IO_Time": 117408.18,
+        "Total_Decision_Time": 11.13,
+        "Hit_Count": 506,
+        "Miss_Count": 6,
+        "Total_Score": 118019.31
+      },
+      "paired_naive": {
+        "Total_IO_Time": 1465119.52,
+        "Total_Decision_Time": 10.96,
+        "Hit_Count": 509,
+        "Miss_Count": 3,
+        "Total_Score": 1465430.48
+      },
+      "cost_ratio": 0.08053559115271029,
+      "D_ratio": 1.0155109489051095
+    },
+    {
+      "case": "coverage_02.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "f8e9d06c8f9b9c33ec59fe139abc9e2b9f3064196a9daf23ecb5540f3637b6fd",
+      "family": "coverage",
+      "family_definition": "filename coverage_*",
+      "candidate": {
+        "Total_IO_Time": 15731794.93,
+        "Total_Decision_Time": 80.74,
+        "Hit_Count": 4000,
+        "Miss_Count": 96,
+        "Total_Score": 15741475.67
+      },
+      "paired_naive": {
+        "Total_IO_Time": 69203567.15,
+        "Total_Decision_Time": 101.24,
+        "Hit_Count": 3920,
+        "Miss_Count": 176,
+        "Total_Score": 69221268.39
+      },
+      "cost_ratio": 0.2274080789925843,
+      "D_ratio": 0.797510865270644
+    },
+    {
+      "case": "coverage_04.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "8a90d47eeab887266b520a383bed43ddc3ef9afb9a4dc7a9007ada8250f74838",
+      "family": "coverage",
+      "family_definition": "filename coverage_*",
+      "candidate": {
+        "Total_IO_Time": 3538128.34,
+        "Total_Decision_Time": 227.25,
+        "Hit_Count": 61,
+        "Miss_Count": 451,
+        "Total_Score": 3583455.59
+      },
+      "paired_naive": {
+        "Total_IO_Time": 759821.48,
+        "Total_Decision_Time": 12.7,
+        "Hit_Count": 492,
+        "Miss_Count": 20,
+        "Total_Score": 761834.18
+      },
+      "cost_ratio": 4.703721208728124,
+      "D_ratio": 17.893700787401574
+    },
+    {
+      "case": "coverage_06.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "a0e3bd8874eb075f12a5929ed43c58b176b6808861be431f15bddf7fd172c187",
+      "family": "coverage",
+      "family_definition": "filename coverage_*",
+      "candidate": {
+        "Total_IO_Time": 2623594187.88,
+        "Total_Decision_Time": 680.11,
+        "Hit_Count": 0,
+        "Miss_Count": 2048,
+        "Total_Score": 2623799667.99
+      },
+      "paired_naive": {
+        "Total_IO_Time": 2623594187.88,
+        "Total_Decision_Time": 535.15,
+        "Hit_Count": 0,
+        "Miss_Count": 2048,
+        "Total_Score": 2623799523.03
+      },
+      "cost_ratio": 1.0000000552481234,
+      "D_ratio": 1.2708773241147342
+    },
+    {
+      "case": "coverage_08.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "1add815207e22668fd9c32486f9341c8c079b6576f5ade1886b8abb5a2c221e0",
+      "family": "coverage",
+      "family_definition": "filename coverage_*",
+      "candidate": {
+        "Total_IO_Time": 52192870.4,
+        "Total_Decision_Time": 510.83,
+        "Hit_Count": 3120,
+        "Miss_Count": 976,
+        "Total_Score": 52290981.23
+      },
+      "paired_naive": {
+        "Total_IO_Time": 106613964.8,
+        "Total_Decision_Time": 955.24,
+        "Hit_Count": 2082,
+        "Miss_Count": 2014,
+        "Total_Score": 106816320.04
+      },
+      "cost_ratio": 0.4895411226525904,
+      "D_ratio": 0.5347661320715212
+    },
+    {
+      "case": "coverage_10.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "5e1b4ece8e9205002069a77ad3b17056b6385965769d78aabab368d90588903a",
+      "family": "coverage",
+      "family_definition": "filename coverage_*",
+      "candidate": {
+        "Total_IO_Time": 4744806.4,
+        "Total_Decision_Time": 96.92,
+        "Hit_Count": 16313,
+        "Miss_Count": 71,
+        "Total_Score": 4752003.32
+      },
+      "paired_naive": {
+        "Total_IO_Time": 243190988.8,
+        "Total_Decision_Time": 1824.46,
+        "Hit_Count": 11765,
+        "Miss_Count": 4619,
+        "Total_Score": 243654713.26
+      },
+      "cost_ratio": 0.019503022356596955,
+      "D_ratio": 0.05312256777347818
+    },
+    {
+      "case": "coverage_11.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "551817b3788c5d86c9489db6aaed80f4a1b01ccf9984d47440bf264d83562708",
+      "family": "coverage",
+      "family_definition": "filename coverage_*",
+      "candidate": {
+        "Total_IO_Time": 5059379.2,
+        "Total_Decision_Time": 85.5,
+        "Hit_Count": 16307,
+        "Miss_Count": 77,
+        "Total_Score": 5067164.7
+      },
+      "paired_naive": {
+        "Total_IO_Time": 265315942.4,
+        "Total_Decision_Time": 1925.78,
+        "Hit_Count": 11343,
+        "Miss_Count": 5041,
+        "Total_Score": 265821968.18
+      },
+      "cost_ratio": 0.01906224957513216,
+      "D_ratio": 0.04439759474083229
+    },
+    {
+      "case": "coverage_14.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "9b0e923313f2149940b3ca84c397e270ed21a43181c4c2fda3f547baa6938518",
+      "family": "coverage",
+      "family_definition": "filename coverage_*",
+      "candidate": {
+        "Total_IO_Time": 228901.35,
+        "Total_Decision_Time": 99.06,
+        "Hit_Count": 1957,
+        "Miss_Count": 91,
+        "Total_Score": 229091.41
+      },
+      "paired_naive": {
+        "Total_IO_Time": 227896.61,
+        "Total_Decision_Time": 72.2,
+        "Hit_Count": 1963,
+        "Miss_Count": 85,
+        "Total_Score": 228053.81
+      },
+      "cost_ratio": 1.0045498033994698,
+      "D_ratio": 1.37202216066482
+    },
+    {
+      "case": "r54_combined_0_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "44eb74be34d2614c647bac786eae65af743d06f9c5e8e5e0d98433a6e5eacbd1",
+      "family": "r54_combined",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 5512136.36,
+        "Total_Decision_Time": 3211.28,
+        "Hit_Count": 23872,
+        "Miss_Count": 128,
+        "Total_Score": 5515475.64
+      },
+      "paired_naive": {
+        "Total_IO_Time": 15013358.36,
+        "Total_Decision_Time": 3173.42,
+        "Hit_Count": 23923,
+        "Miss_Count": 77,
+        "Total_Score": 15016608.78
+      },
+      "cost_ratio": 0.367291691539959,
+      "D_ratio": 1.0119303464401184
+    },
+    {
+      "case": "r54_combined_1_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "173bbb0b70c6e77df294be2f072e25b92457473b9135a8198879b9ea22a48788",
+      "family": "r54_combined",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 4401102205.59,
+        "Total_Decision_Time": 8281.22,
+        "Hit_Count": 26660,
+        "Miss_Count": 3340,
+        "Total_Score": 4404450486.8
+      },
+      "paired_naive": {
+        "Total_IO_Time": 5720814857.81,
+        "Total_Decision_Time": 19216.64,
+        "Hit_Count": 27411,
+        "Miss_Count": 2589,
+        "Total_Score": 5723423074.45
+      },
+      "cost_ratio": 0.7695482981962245,
+      "D_ratio": 0.4309400602810897
+    },
+    {
+      "case": "r54_combined_2_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "744856946aac6a6ecb4693c5da1cbb52c2aea286533cf159f0a554317261b9f9",
+      "family": "r54_combined",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 4014904144.2,
+        "Total_Decision_Time": 618.87,
+        "Hit_Count": 35175,
+        "Miss_Count": 825,
+        "Total_Score": 4014987263.07
+      },
+      "paired_naive": {
+        "Total_IO_Time": 13913547166.91,
+        "Total_Decision_Time": 847.02,
+        "Hit_Count": 35319,
+        "Miss_Count": 681,
+        "Total_Score": 13913616113.93
+      },
+      "cost_ratio": 0.288565332706735,
+      "D_ratio": 0.7306439045122902
+    },
+    {
+      "case": "r54_combined_3_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "92b0ba3256c225627cb5f746751beb899261abcb90354abda954dc802112fd51",
+      "family": "r54_combined",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 137719821.53,
+        "Total_Decision_Time": 13951.95,
+        "Hit_Count": 36235,
+        "Miss_Count": 5765,
+        "Total_Score": 138022023.48
+      },
+      "paired_naive": {
+        "Total_IO_Time": 78016939.77,
+        "Total_Decision_Time": 2220.17,
+        "Hit_Count": 41805,
+        "Miss_Count": 195,
+        "Total_Score": 78028909.95
+      },
+      "cost_ratio": 1.7688575115100655,
+      "D_ratio": 6.284180941099105
+    },
+    {
+      "case": "r54_control_0_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "1d112a85c108fbab8cef260feb04463c431b2df6bcf69b5087bcd0caa595f5e7",
+      "family": "r54_control",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 2935.47,
+        "Hit_Count": 24000,
+        "Miss_Count": 0,
+        "Total_Score": 2935.47
+      },
+      "paired_naive": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 2754.29,
+        "Hit_Count": 24000,
+        "Miss_Count": 0,
+        "Total_Score": 2754.29
+      },
+      "cost_ratio": 1.0657810179755944,
+      "D_ratio": 1.0657810179755944
+    },
+    {
+      "case": "r54_control_1_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "fa5380aaaae0cdcd189c32dab2ac6b0a57d3a07179809dd5b8094e562af442dd",
+      "family": "r54_control",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 103129788053.3,
+        "Total_Decision_Time": 672.79,
+        "Hit_Count": 27046,
+        "Miss_Count": 2954,
+        "Total_Score": 103132742726.09
+      },
+      "paired_naive": {
+        "Total_IO_Time": 103129788053.3,
+        "Total_Decision_Time": 589.59,
+        "Hit_Count": 27046,
+        "Miss_Count": 2954,
+        "Total_Score": 103132742642.89
+      },
+      "cost_ratio": 1.0000000008067274,
+      "D_ratio": 1.1411150121270712
+    },
+    {
+      "case": "r54_control_2_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "f0e6bee4288282960046b2991f0acc1bf2d225a28ea2600a89c0288459dce279",
+      "family": "r54_control",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 8160191950.98,
+        "Total_Decision_Time": 3462.57,
+        "Hit_Count": 30934,
+        "Miss_Count": 5066,
+        "Total_Score": 8160702013.55
+      },
+      "paired_naive": {
+        "Total_IO_Time": 170143374574.42,
+        "Total_Decision_Time": 1132.3,
+        "Hit_Count": 34021,
+        "Miss_Count": 1979,
+        "Total_Score": 170143573606.72
+      },
+      "cost_ratio": 0.04796362178458255,
+      "D_ratio": 3.05799699726221
+    },
+    {
+      "case": "r54_control_3_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "8aa96d9d0845b0b15c246ddd08748f44c6bb74fdfdaa3450f37ed259561f621d",
+      "family": "r54_control",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 636141699.07,
+        "Total_Decision_Time": 50711.46,
+        "Hit_Count": 23169,
+        "Miss_Count": 18831,
+        "Total_Score": 637133960.53
+      },
+      "paired_naive": {
+        "Total_IO_Time": 835941564.42,
+        "Total_Decision_Time": 3426.71,
+        "Hit_Count": 38380,
+        "Miss_Count": 3620,
+        "Total_Score": 836125991.13
+      },
+      "cost_ratio": 0.7620071224779557,
+      "D_ratio": 14.798877057002198
+    },
+    {
+      "case": "r54_cross_operator_0_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "07fd24272d07eec709b8629b77a87008f45debbdae1557706a718b91dfda7065",
+      "family": "r54_cross_operator",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 790027.03,
+        "Total_Decision_Time": 3327.13,
+        "Hit_Count": 23901,
+        "Miss_Count": 99,
+        "Total_Score": 793453.16
+      },
+      "paired_naive": {
+        "Total_IO_Time": 103485.99,
+        "Total_Decision_Time": 2898.38,
+        "Hit_Count": 24000,
+        "Miss_Count": 0,
+        "Total_Score": 106384.37
+      },
+      "cost_ratio": 7.4583621635396256,
+      "D_ratio": 1.1479274629275664
+    },
+    {
+      "case": "r54_cross_operator_1_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "dd822f40bbd69def5150d52b653de1f5d6350691acfa66dd0eba2907912d3760",
+      "family": "r54_cross_operator",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 2846626589.7,
+        "Total_Decision_Time": 5470.6,
+        "Hit_Count": 27741,
+        "Miss_Count": 2259,
+        "Total_Score": 2848891060.3
+      },
+      "paired_naive": {
+        "Total_IO_Time": 4078203128.04,
+        "Total_Decision_Time": 14605.97,
+        "Hit_Count": 28069,
+        "Miss_Count": 1931,
+        "Total_Score": 4080148734.01
+      },
+      "cost_ratio": 0.6982321591742782,
+      "D_ratio": 0.3745454769522326
+    },
+    {
+      "case": "r54_cross_operator_2_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "1721b066a8f7dbd056d0cd98ff9474c30ef202038759f48352e599be7222165a",
+      "family": "r54_cross_operator",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 3829800489.81,
+        "Total_Decision_Time": 435.15,
+        "Hit_Count": 35442,
+        "Miss_Count": 558,
+        "Total_Score": 3829856724.96
+      },
+      "paired_naive": {
+        "Total_IO_Time": 14844929393.19,
+        "Total_Decision_Time": 1186.3,
+        "Hit_Count": 35319,
+        "Miss_Count": 681,
+        "Total_Score": 14844998679.49
+      },
+      "cost_ratio": 0.25798969792104925,
+      "D_ratio": 0.3668127792295372
+    },
+    {
+      "case": "r54_cross_operator_3_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "912074fa273793d6206ea65cd4f0c15d3fa591a1a6a44aa6c23c66d4223b4782",
+      "family": "r54_cross_operator",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 99471601.56,
+        "Total_Decision_Time": 10994.14,
+        "Hit_Count": 37602,
+        "Miss_Count": 4398,
+        "Total_Score": 99702495.69
+      },
+      "paired_naive": {
+        "Total_IO_Time": 26489117.55,
+        "Total_Decision_Time": 852.52,
+        "Hit_Count": 41926,
+        "Miss_Count": 74,
+        "Total_Score": 26493670.07
+      },
+      "cost_ratio": 3.7632572394300974,
+      "D_ratio": 12.896049359545817
+    },
+    {
+      "case": "r54_temporal_0_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "d6519efea154d7f7b568d30609fd5a37da501773dd6ee2f824f02f038e2db9c4",
+      "family": "r54_temporal",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 13976787.42,
+        "Total_Decision_Time": 3463.4,
+        "Hit_Count": 23287,
+        "Miss_Count": 713,
+        "Total_Score": 13980963.82
+      },
+      "paired_naive": {
+        "Total_IO_Time": 35198415.47,
+        "Total_Decision_Time": 2955.69,
+        "Hit_Count": 23810,
+        "Miss_Count": 190,
+        "Total_Score": 35201561.16
+      },
+      "cost_ratio": 0.39716885726894285,
+      "D_ratio": 1.1717737651783509
+    },
+    {
+      "case": "r54_temporal_1_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "6f9fc410d9aa10a9313cda45026ce07a97dfe9fa8a3f3a20ab243f3fe1d6cbcd",
+      "family": "r54_temporal",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 3399415808.54,
+        "Total_Decision_Time": 7817.61,
+        "Hit_Count": 27649,
+        "Miss_Count": 2351,
+        "Total_Score": 3401774626.15
+      },
+      "paired_naive": {
+        "Total_IO_Time": 4756986977.36,
+        "Total_Decision_Time": 20138.85,
+        "Hit_Count": 27746,
+        "Miss_Count": 2254,
+        "Total_Score": 4759261116.21
+      },
+      "cost_ratio": 0.7147694869196369,
+      "D_ratio": 0.3881855220134218
+    },
+    {
+      "case": "r54_temporal_2_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "5423ba1322143ea154c6a5ca037065b970f818f047f7c89b7e907e01ebaf9828",
+      "family": "r54_temporal",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 5219184378.19,
+        "Total_Decision_Time": 803.45,
+        "Hit_Count": 34949,
+        "Miss_Count": 1051,
+        "Total_Score": 5219290281.65
+      },
+      "paired_naive": {
+        "Total_IO_Time": 64628263320.88,
+        "Total_Decision_Time": 3418.88,
+        "Hit_Count": 32929,
+        "Miss_Count": 3071,
+        "Total_Score": 64628573839.76
+      },
+      "cost_ratio": 0.08075824626102227,
+      "D_ratio": 0.23500386091351555
+    },
+    {
+      "case": "r54_temporal_3_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "16b2dcbb777ec888a083076d9e9a0d5b0a59a47598b0ce1e78dd3d897803a0f6",
+      "family": "r54_temporal",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 212438481.69,
+        "Total_Decision_Time": 21063.63,
+        "Hit_Count": 33053,
+        "Miss_Count": 8947,
+        "Total_Score": 212906895.32
+      },
+      "paired_naive": {
+        "Total_IO_Time": 254612011.08,
+        "Total_Decision_Time": 7241.07,
+        "Hit_Count": 41263,
+        "Miss_Count": 737,
+        "Total_Score": 254656102.15
+      },
+      "cost_ratio": 0.8360565229832644,
+      "D_ratio": 2.9089112520663387
+    },
+    {
+      "case": "r58_low_opportunity_mix_0_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "075bb7466cad2d87ad5b282aae4cfdce756b8c8ce01e306f90541e3c240b1ee8",
+      "family": "r58_low_opportunity_mix",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 982935142.4,
+        "Total_Decision_Time": 526.01,
+        "Hit_Count": 606,
+        "Miss_Count": 3618,
+        "Total_Score": 983116568.41
+      },
+      "paired_naive": {
+        "Total_IO_Time": 981215477.76,
+        "Total_Decision_Time": 435.99,
+        "Hit_Count": 647,
+        "Miss_Count": 3577,
+        "Total_Score": 981394763.75
+      },
+      "cost_ratio": 1.0017544465525992,
+      "D_ratio": 1.206472625518934
+    },
+    {
+      "case": "r58_low_opportunity_mix_1_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "03266eca217b7d7bd8deec2502d44338dd5bc1677e425d5c24dc4ad08bc999b4",
+      "family": "r58_low_opportunity_mix",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 6166776119.3,
+        "Total_Decision_Time": 734.72,
+        "Hit_Count": 734,
+        "Miss_Count": 4514,
+        "Total_Score": 6166781368.02
+      },
+      "paired_naive": {
+        "Total_IO_Time": 6154279190.53,
+        "Total_Decision_Time": 531.44,
+        "Hit_Count": 793,
+        "Miss_Count": 4455,
+        "Total_Score": 6154284176.97
+      },
+      "cost_ratio": 1.0020306490065516,
+      "D_ratio": 1.3825079030558483
+    },
+    {
+      "case": "r58_no_op_controls_0_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "15903b01821f5e30de740679bba20f7f2249a119fa2071f50e0bb4eac9583cbe",
+      "family": "r58_no_op_controls",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 3508954.73,
+        "Total_Decision_Time": 148.35,
+        "Hit_Count": 0,
+        "Miss_Count": 1152,
+        "Total_Score": 3510255.07
+      },
+      "paired_naive": {
+        "Total_IO_Time": 3508954.73,
+        "Total_Decision_Time": 109.81,
+        "Hit_Count": 0,
+        "Miss_Count": 1152,
+        "Total_Score": 3510216.54
+      },
+      "cost_ratio": 1.0000109765308096,
+      "D_ratio": 1.3509698570257718
+    },
+    {
+      "case": "r58_no_op_controls_1_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "07e83e93f68588e7e58d8c654e1c690ddc081144fa3d720ad58dc45f7d6be247",
+      "family": "r58_no_op_controls",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 148.14,
+        "Hit_Count": 2176,
+        "Miss_Count": 0,
+        "Total_Score": 148.14
+      },
+      "paired_naive": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 120.97,
+        "Hit_Count": 2176,
+        "Miss_Count": 0,
+        "Total_Score": 120.97
+      },
+      "cost_ratio": 1.2246011407787054,
+      "D_ratio": 1.2246011407787054
+    },
+    {
+      "case": "r58_positive_cycles_0_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "73f2a218012a8ebd5a1e54ce70310aa9fc493811ced3ce77db1ce47e8e818f45",
+      "family": "r58_positive_cycles",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 331433902.08,
+        "Total_Decision_Time": 219.28,
+        "Hit_Count": 0,
+        "Miss_Count": 1088,
+        "Total_Score": 331435209.36
+      },
+      "paired_naive": {
+        "Total_IO_Time": 331433902.08,
+        "Total_Decision_Time": 176.65,
+        "Hit_Count": 0,
+        "Miss_Count": 1088,
+        "Total_Score": 331435166.73
+      },
+      "cost_ratio": 1.0000001286224405,
+      "D_ratio": 1.2413246532691764
+    },
+    {
+      "case": "r58_positive_cycles_1_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "db99949835d9cde574f7a4af7894f9f79fac62b57f206d021c763aa394f2d404",
+      "family": "r58_positive_cycles",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 4092801.84,
+        "Total_Decision_Time": 261.64,
+        "Hit_Count": 0,
+        "Miss_Count": 1344,
+        "Total_Score": 5437063.49
+      },
+      "paired_naive": {
+        "Total_IO_Time": 4092801.84,
+        "Total_Decision_Time": 208.31,
+        "Hit_Count": 0,
+        "Miss_Count": 1344,
+        "Total_Score": 5437010.16
+      },
+      "cost_ratio": 1.0000098086997138,
+      "D_ratio": 1.2560126734194228
+    },
+    {
+      "case": "r58_temporal_alignment_mix_0_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "b702a164039ec4062814dd30ff0204c018fd60d30d402431bc7c9bec8a2f67b6",
+      "family": "r58_temporal_alignment_mix",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 341164687.36,
+        "Total_Decision_Time": 164.95,
+        "Hit_Count": 2,
+        "Miss_Count": 1120,
+        "Total_Score": 341276852.31
+      },
+      "paired_naive": {
+        "Total_IO_Time": 341164687.36,
+        "Total_Decision_Time": 114.0,
+        "Hit_Count": 2,
+        "Miss_Count": 1120,
+        "Total_Score": 341276801.36
+      },
+      "cost_ratio": 1.000000149292304,
+      "D_ratio": 1.4469298245614035
+    },
+    {
+      "case": "r58_temporal_alignment_mix_1_eval.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "b33e5018f32cca0fe43c950c3c48836c728f0a84740e1e48907215a03baa40ea",
+      "family": "r58_temporal_alignment_mix",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 22869638014.57,
+        "Total_Decision_Time": 197.49,
+        "Hit_Count": 2,
+        "Miss_Count": 1504,
+        "Total_Score": 22871142212.06
+      },
+      "paired_naive": {
+        "Total_IO_Time": 22869638014.57,
+        "Total_Decision_Time": 190.07,
+        "Hit_Count": 2,
+        "Miss_Count": 1504,
+        "Total_Score": 22871142204.63
+      },
+      "cost_ratio": 1.0000000003248635,
+      "D_ratio": 1.0390382490661336
+    },
+    {
+      "case": "r61root_00_operator_mix_holdout.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "4e1838e5384e97fd4ddeba303c7359fd96cf0fbb1d8429eeedfccf0b4f0e112d",
+      "family": "r61root_operator_mix",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 30373751.47,
+        "Total_Decision_Time": 585.84,
+        "Hit_Count": 1723,
+        "Miss_Count": 1349,
+        "Total_Score": 30381082.31
+      },
+      "paired_naive": {
+        "Total_IO_Time": 112022869.33,
+        "Total_Decision_Time": 254.17,
+        "Hit_Count": 2945,
+        "Miss_Count": 127,
+        "Total_Score": 112023758.5
+      },
+      "cost_ratio": 0.27120213351884637,
+      "D_ratio": 2.3049140339143097
+    },
+    {
+      "case": "r61root_01_temporal_reverse_holdout.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "6bc445f97bcd8967c3f767f8869058c9590dfff12371f79d34d0771ba1cbf7ad",
+      "family": "r61root_temporal_reverse",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 24215115.09,
+        "Total_Decision_Time": 561.29,
+        "Hit_Count": 1706,
+        "Miss_Count": 1366,
+        "Total_Score": 24249826.38
+      },
+      "paired_naive": {
+        "Total_IO_Time": 85284181.33,
+        "Total_Decision_Time": 76.82,
+        "Hit_Count": 2944,
+        "Miss_Count": 128,
+        "Total_Score": 85287458.15
+      },
+      "cost_ratio": 0.28433050891668527,
+      "D_ratio": 7.306560791460558
+    },
+    {
+      "case": "r61root_02_interleave_reverse_holdout.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "bc6a70157699a70008a8bb5e69bd817013ed4a722c7f973d02a234d5318f68be",
+      "family": "r61root_interleave_reverse",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 37124084.3,
+        "Total_Decision_Time": 406.78,
+        "Hit_Count": 1902,
+        "Miss_Count": 1170,
+        "Total_Score": 37212241.08
+      },
+      "paired_naive": {
+        "Total_IO_Time": 151654048.91,
+        "Total_Decision_Time": 68.73,
+        "Hit_Count": 2944,
+        "Miss_Count": 128,
+        "Total_Score": 151663717.65
+      },
+      "cost_ratio": 0.2453602064923403,
+      "D_ratio": 5.918521751782336
+    },
+    {
+      "case": "r61root_03_burst_mix_holdout.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "ef65bfcfd05d36b659117bf4bcce368f1f5e57ab129447c5e16454d2db879d12",
+      "family": "r61root_burst_mix",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 5287153.21,
+        "Total_Decision_Time": 508.25,
+        "Hit_Count": 1805,
+        "Miss_Count": 1267,
+        "Total_Score": 5541061.46
+      },
+      "paired_naive": {
+        "Total_IO_Time": 20855011.56,
+        "Total_Decision_Time": 64.91,
+        "Hit_Count": 2945,
+        "Miss_Count": 127,
+        "Total_Score": 20880476.46
+      },
+      "cost_ratio": 0.265370451225805,
+      "D_ratio": 7.830072407949469
+    },
+    {
+      "case": "r61root_04_big_small_cycles_holdout.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "d7f6475878f3189bd30c7e3601485e80c3fd28e2bedfacaf2481c67fb55c57ac",
+      "family": "r61root_big_small_cycles",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 15812526.08,
+        "Total_Decision_Time": 468.2,
+        "Hit_Count": 1688,
+        "Miss_Count": 1384,
+        "Total_Score": 16850994.28
+      },
+      "paired_naive": {
+        "Total_IO_Time": 54246331.73,
+        "Total_Decision_Time": 64.16,
+        "Hit_Count": 2944,
+        "Miss_Count": 128,
+        "Total_Score": 54342395.89
+      },
+      "cost_ratio": 0.3100892775156587,
+      "D_ratio": 7.297381546134663
+    },
+    {
+      "case": "r61root_05_next_alternation_holdout.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "80905f868da3fb5db3d18cbb6141ecaeaaff832620801014f37f8b9014e80696",
+      "family": "r61root_next_alternation",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 13277219.11,
+        "Total_Decision_Time": 483.51,
+        "Hit_Count": 1824,
+        "Miss_Count": 1248,
+        "Total_Score": 14525702.62
+      },
+      "paired_naive": {
+        "Total_IO_Time": 52528664.38,
+        "Total_Decision_Time": 58.77,
+        "Hit_Count": 2944,
+        "Miss_Count": 128,
+        "Total_Score": 52656723.15
+      },
+      "cost_ratio": 0.2758565621073973,
+      "D_ratio": 8.227156712608473
+    },
+    {
+      "case": "r61root_06_phase_overlap_holdout.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "0be89dc4b9e255959fde5a6b4816d8f81db9fa038a7494ba03c69ec392741b6a",
+      "family": "r61root_phase_overlap",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 18984468.48,
+        "Total_Decision_Time": 467.51,
+        "Hit_Count": 1888,
+        "Miss_Count": 1184,
+        "Total_Score": 18996775.99
+      },
+      "paired_naive": {
+        "Total_IO_Time": 60188262.4,
+        "Total_Decision_Time": 44.37,
+        "Hit_Count": 2977,
+        "Miss_Count": 95,
+        "Total_Score": 60189256.77
+      },
+      "cost_ratio": 0.315617387710767,
+      "D_ratio": 10.536623844940275
+    },
+    {
+      "case": "r61root_07_resident_control_holdout.txt",
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "input_sha256": "d91a34b137f97efd3ac43e0305d6371b4b2b256e9c14ffb1403220977e61f2f3",
+      "family": "r61root_resident_control",
+      "family_definition": "declared filename grouping",
+      "candidate": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 299.62,
+        "Hit_Count": 3072,
+        "Miss_Count": 0,
+        "Total_Score": 299.62
+      },
+      "paired_naive": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 298.19,
+        "Hit_Count": 3072,
+        "Miss_Count": 0,
+        "Total_Score": 298.19
+      },
+      "cost_ratio": 1.0047956001207283,
+      "D_ratio": 1.0047956001207283
+    }
+  ],
+  "measurements": [
+    {
+      "member": "cyanneko",
+      "case": "coverage_01.txt",
+      "sha256": "073960367df53d51ad53d7f7beb6ec209a35762f9ff12dd84e9309dcdf8fa583",
+      "status": "complete",
+      "wall_seconds": 0.021937332000000254,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 117408.18\nTotal_Decision_Time: 11.13\nHit_Count: 506\nMiss_Count: 6\nTotal_Score: 118019.31\n",
+      "metrics": {
+        "Total_IO_Time": 117408.18,
+        "Total_Decision_Time": 11.13,
+        "Hit_Count": 506,
+        "Miss_Count": 6,
+        "Total_Score": 118019.31
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_01.txt",
+      "sha256": "073960367df53d51ad53d7f7beb6ec209a35762f9ff12dd84e9309dcdf8fa583",
+      "status": "complete",
+      "wall_seconds": 0.02165871500000094,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 1465119.52\nTotal_Decision_Time: 10.96\nHit_Count: 509\nMiss_Count: 3\nTotal_Score: 1465430.48\n",
+      "metrics": {
+        "Total_IO_Time": 1465119.52,
+        "Total_Decision_Time": 10.96,
+        "Hit_Count": 509,
+        "Miss_Count": 3,
+        "Total_Score": 1465430.48
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_02.txt",
+      "sha256": "f8e9d06c8f9b9c33ec59fe139abc9e2b9f3064196a9daf23ecb5540f3637b6fd",
+      "status": "complete",
+      "wall_seconds": 0.020150153000003,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 15731794.93\nTotal_Decision_Time: 80.74\nHit_Count: 4000\nMiss_Count: 96\nTotal_Score: 15741475.67\n",
+      "metrics": {
+        "Total_IO_Time": 15731794.93,
+        "Total_Decision_Time": 80.74,
+        "Hit_Count": 4000,
+        "Miss_Count": 96,
+        "Total_Score": 15741475.67
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_02.txt",
+      "sha256": "f8e9d06c8f9b9c33ec59fe139abc9e2b9f3064196a9daf23ecb5540f3637b6fd",
+      "status": "complete",
+      "wall_seconds": 0.020415490000001313,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 69203567.15\nTotal_Decision_Time: 101.24\nHit_Count: 3920\nMiss_Count: 176\nTotal_Score: 69221268.39\n",
+      "metrics": {
+        "Total_IO_Time": 69203567.15,
+        "Total_Decision_Time": 101.24,
+        "Hit_Count": 3920,
+        "Miss_Count": 176,
+        "Total_Score": 69221268.39
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_04.txt",
+      "sha256": "8a90d47eeab887266b520a383bed43ddc3ef9afb9a4dc7a9007ada8250f74838",
+      "status": "complete",
+      "wall_seconds": 0.020458978999997157,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 3538128.34\nTotal_Decision_Time: 227.25\nHit_Count: 61\nMiss_Count: 451\nTotal_Score: 3583455.59\n",
+      "metrics": {
+        "Total_IO_Time": 3538128.34,
+        "Total_Decision_Time": 227.25,
+        "Hit_Count": 61,
+        "Miss_Count": 451,
+        "Total_Score": 3583455.59
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_04.txt",
+      "sha256": "8a90d47eeab887266b520a383bed43ddc3ef9afb9a4dc7a9007ada8250f74838",
+      "status": "complete",
+      "wall_seconds": 0.022228667000000257,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 759821.48\nTotal_Decision_Time: 12.70\nHit_Count: 492\nMiss_Count: 20\nTotal_Score: 761834.18\n",
+      "metrics": {
+        "Total_IO_Time": 759821.48,
+        "Total_Decision_Time": 12.7,
+        "Hit_Count": 492,
+        "Miss_Count": 20,
+        "Total_Score": 761834.18
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_06.txt",
+      "sha256": "a0e3bd8874eb075f12a5929ed43c58b176b6808861be431f15bddf7fd172c187",
+      "status": "complete",
+      "wall_seconds": 0.03697746699999982,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 2623594187.88\nTotal_Decision_Time: 680.11\nHit_Count: 0\nMiss_Count: 2048\nTotal_Score: 2623799667.99\n",
+      "metrics": {
+        "Total_IO_Time": 2623594187.88,
+        "Total_Decision_Time": 680.11,
+        "Hit_Count": 0,
+        "Miss_Count": 2048,
+        "Total_Score": 2623799667.99
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_06.txt",
+      "sha256": "a0e3bd8874eb075f12a5929ed43c58b176b6808861be431f15bddf7fd172c187",
+      "status": "complete",
+      "wall_seconds": 0.0381977479999982,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 2623594187.88\nTotal_Decision_Time: 535.15\nHit_Count: 0\nMiss_Count: 2048\nTotal_Score: 2623799523.03\n",
+      "metrics": {
+        "Total_IO_Time": 2623594187.88,
+        "Total_Decision_Time": 535.15,
+        "Hit_Count": 0,
+        "Miss_Count": 2048,
+        "Total_Score": 2623799523.03
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_08.txt",
+      "sha256": "1add815207e22668fd9c32486f9341c8c079b6576f5ade1886b8abb5a2c221e0",
+      "status": "complete",
+      "wall_seconds": 0.03826450599999731,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 52192870.40\nTotal_Decision_Time: 510.83\nHit_Count: 3120\nMiss_Count: 976\nTotal_Score: 52290981.23\n",
+      "metrics": {
+        "Total_IO_Time": 52192870.4,
+        "Total_Decision_Time": 510.83,
+        "Hit_Count": 3120,
+        "Miss_Count": 976,
+        "Total_Score": 52290981.23
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_08.txt",
+      "sha256": "1add815207e22668fd9c32486f9341c8c079b6576f5ade1886b8abb5a2c221e0",
+      "status": "complete",
+      "wall_seconds": 0.020650152000001754,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 106613964.80\nTotal_Decision_Time: 955.24\nHit_Count: 2082\nMiss_Count: 2014\nTotal_Score: 106816320.04\n",
+      "metrics": {
+        "Total_IO_Time": 106613964.8,
+        "Total_Decision_Time": 955.24,
+        "Hit_Count": 2082,
+        "Miss_Count": 2014,
+        "Total_Score": 106816320.04
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_10.txt",
+      "sha256": "5e1b4ece8e9205002069a77ad3b17056b6385965769d78aabab368d90588903a",
+      "status": "complete",
+      "wall_seconds": 0.037404310999999524,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 4744806.40\nTotal_Decision_Time: 96.92\nHit_Count: 16313\nMiss_Count: 71\nTotal_Score: 4752003.32\n",
+      "metrics": {
+        "Total_IO_Time": 4744806.4,
+        "Total_Decision_Time": 96.92,
+        "Hit_Count": 16313,
+        "Miss_Count": 71,
+        "Total_Score": 4752003.32
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_10.txt",
+      "sha256": "5e1b4ece8e9205002069a77ad3b17056b6385965769d78aabab368d90588903a",
+      "status": "complete",
+      "wall_seconds": 0.036003608000001464,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 243190988.80\nTotal_Decision_Time: 1824.46\nHit_Count: 11765\nMiss_Count: 4619\nTotal_Score: 243654713.26\n",
+      "metrics": {
+        "Total_IO_Time": 243190988.8,
+        "Total_Decision_Time": 1824.46,
+        "Hit_Count": 11765,
+        "Miss_Count": 4619,
+        "Total_Score": 243654713.26
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_11.txt",
+      "sha256": "551817b3788c5d86c9489db6aaed80f4a1b01ccf9984d47440bf264d83562708",
+      "status": "complete",
+      "wall_seconds": 0.03734570900000023,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 5059379.20\nTotal_Decision_Time: 85.50\nHit_Count: 16307\nMiss_Count: 77\nTotal_Score: 5067164.70\n",
+      "metrics": {
+        "Total_IO_Time": 5059379.2,
+        "Total_Decision_Time": 85.5,
+        "Hit_Count": 16307,
+        "Miss_Count": 77,
+        "Total_Score": 5067164.7
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_11.txt",
+      "sha256": "551817b3788c5d86c9489db6aaed80f4a1b01ccf9984d47440bf264d83562708",
+      "status": "complete",
+      "wall_seconds": 0.038073727000000446,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 265315942.40\nTotal_Decision_Time: 1925.78\nHit_Count: 11343\nMiss_Count: 5041\nTotal_Score: 265821968.18\n",
+      "metrics": {
+        "Total_IO_Time": 265315942.4,
+        "Total_Decision_Time": 1925.78,
+        "Hit_Count": 11343,
+        "Miss_Count": 5041,
+        "Total_Score": 265821968.18
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_14.txt",
+      "sha256": "9b0e923313f2149940b3ca84c397e270ed21a43181c4c2fda3f547baa6938518",
+      "status": "complete",
+      "wall_seconds": 0.02184301100000141,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 228901.35\nTotal_Decision_Time: 99.06\nHit_Count: 1957\nMiss_Count: 91\nTotal_Score: 229091.41\n",
+      "metrics": {
+        "Total_IO_Time": 228901.35,
+        "Total_Decision_Time": 99.06,
+        "Hit_Count": 1957,
+        "Miss_Count": 91,
+        "Total_Score": 229091.41
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "coverage_14.txt",
+      "sha256": "9b0e923313f2149940b3ca84c397e270ed21a43181c4c2fda3f547baa6938518",
+      "status": "complete",
+      "wall_seconds": 0.020813056000001495,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 227896.61\nTotal_Decision_Time: 72.20\nHit_Count: 1963\nMiss_Count: 85\nTotal_Score: 228053.81\n",
+      "metrics": {
+        "Total_IO_Time": 227896.61,
+        "Total_Decision_Time": 72.2,
+        "Hit_Count": 1963,
+        "Miss_Count": 85,
+        "Total_Score": 228053.81
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_combined_0_eval.txt",
+      "sha256": "44eb74be34d2614c647bac786eae65af743d06f9c5e8e5e0d98433a6e5eacbd1",
+      "status": "complete",
+      "wall_seconds": 0.03810382800000056,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 5512136.36\nTotal_Decision_Time: 3211.28\nHit_Count: 23872\nMiss_Count: 128\nTotal_Score: 5515475.64\n",
+      "metrics": {
+        "Total_IO_Time": 5512136.36,
+        "Total_Decision_Time": 3211.28,
+        "Hit_Count": 23872,
+        "Miss_Count": 128,
+        "Total_Score": 5515475.64
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_combined_0_eval.txt",
+      "sha256": "44eb74be34d2614c647bac786eae65af743d06f9c5e8e5e0d98433a6e5eacbd1",
+      "status": "complete",
+      "wall_seconds": 0.03743185600000132,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 15013358.36\nTotal_Decision_Time: 3173.42\nHit_Count: 23923\nMiss_Count: 77\nTotal_Score: 15016608.78\n",
+      "metrics": {
+        "Total_IO_Time": 15013358.36,
+        "Total_Decision_Time": 3173.42,
+        "Hit_Count": 23923,
+        "Miss_Count": 77,
+        "Total_Score": 15016608.78
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_combined_1_eval.txt",
+      "sha256": "173bbb0b70c6e77df294be2f072e25b92457473b9135a8198879b9ea22a48788",
+      "status": "complete",
+      "wall_seconds": 0.070274947999998,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 4401102205.59\nTotal_Decision_Time: 8281.22\nHit_Count: 26660\nMiss_Count: 3340\nTotal_Score: 4404450486.80\n",
+      "metrics": {
+        "Total_IO_Time": 4401102205.59,
+        "Total_Decision_Time": 8281.22,
+        "Hit_Count": 26660,
+        "Miss_Count": 3340,
+        "Total_Score": 4404450486.8
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_combined_1_eval.txt",
+      "sha256": "173bbb0b70c6e77df294be2f072e25b92457473b9135a8198879b9ea22a48788",
+      "status": "complete",
+      "wall_seconds": 0.07014713199999889,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 5720814857.81\nTotal_Decision_Time: 19216.64\nHit_Count: 27411\nMiss_Count: 2589\nTotal_Score: 5723423074.45\n",
+      "metrics": {
+        "Total_IO_Time": 5720814857.81,
+        "Total_Decision_Time": 19216.64,
+        "Hit_Count": 27411,
+        "Miss_Count": 2589,
+        "Total_Score": 5723423074.45
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_combined_2_eval.txt",
+      "sha256": "744856946aac6a6ecb4693c5da1cbb52c2aea286533cf159f0a554317261b9f9",
+      "status": "complete",
+      "wall_seconds": 0.07064546499999835,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 4014904144.20\nTotal_Decision_Time: 618.87\nHit_Count: 35175\nMiss_Count: 825\nTotal_Score: 4014987263.07\n",
+      "metrics": {
+        "Total_IO_Time": 4014904144.2,
+        "Total_Decision_Time": 618.87,
+        "Hit_Count": 35175,
+        "Miss_Count": 825,
+        "Total_Score": 4014987263.07
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_combined_2_eval.txt",
+      "sha256": "744856946aac6a6ecb4693c5da1cbb52c2aea286533cf159f0a554317261b9f9",
+      "status": "complete",
+      "wall_seconds": 0.03742571699999786,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 13913547166.91\nTotal_Decision_Time: 847.02\nHit_Count: 35319\nMiss_Count: 681\nTotal_Score: 13913616113.93\n",
+      "metrics": {
+        "Total_IO_Time": 13913547166.91,
+        "Total_Decision_Time": 847.02,
+        "Hit_Count": 35319,
+        "Miss_Count": 681,
+        "Total_Score": 13913616113.93
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_combined_3_eval.txt",
+      "sha256": "92b0ba3256c225627cb5f746751beb899261abcb90354abda954dc802112fd51",
+      "status": "complete",
+      "wall_seconds": 0.06800014599999926,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 137719821.53\nTotal_Decision_Time: 13951.95\nHit_Count: 36235\nMiss_Count: 5765\nTotal_Score: 138022023.48\n",
+      "metrics": {
+        "Total_IO_Time": 137719821.53,
+        "Total_Decision_Time": 13951.95,
+        "Hit_Count": 36235,
+        "Miss_Count": 5765,
+        "Total_Score": 138022023.48
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_combined_3_eval.txt",
+      "sha256": "92b0ba3256c225627cb5f746751beb899261abcb90354abda954dc802112fd51",
+      "status": "complete",
+      "wall_seconds": 0.06845995400000149,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 78016939.77\nTotal_Decision_Time: 2220.17\nHit_Count: 41805\nMiss_Count: 195\nTotal_Score: 78028909.95\n",
+      "metrics": {
+        "Total_IO_Time": 78016939.77,
+        "Total_Decision_Time": 2220.17,
+        "Hit_Count": 41805,
+        "Miss_Count": 195,
+        "Total_Score": 78028909.95
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_control_0_eval.txt",
+      "sha256": "1d112a85c108fbab8cef260feb04463c431b2df6bcf69b5087bcd0caa595f5e7",
+      "status": "complete",
+      "wall_seconds": 0.037666756000000134,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 0.00\nTotal_Decision_Time: 2935.47\nHit_Count: 24000\nMiss_Count: 0\nTotal_Score: 2935.47\n",
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 2935.47,
+        "Hit_Count": 24000,
+        "Miss_Count": 0,
+        "Total_Score": 2935.47
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_control_0_eval.txt",
+      "sha256": "1d112a85c108fbab8cef260feb04463c431b2df6bcf69b5087bcd0caa595f5e7",
+      "status": "complete",
+      "wall_seconds": 0.03712022999999931,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 0.00\nTotal_Decision_Time: 2754.29\nHit_Count: 24000\nMiss_Count: 0\nTotal_Score: 2754.29\n",
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 2754.29,
+        "Hit_Count": 24000,
+        "Miss_Count": 0,
+        "Total_Score": 2754.29
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_control_1_eval.txt",
+      "sha256": "fa5380aaaae0cdcd189c32dab2ac6b0a57d3a07179809dd5b8094e562af442dd",
+      "status": "complete",
+      "wall_seconds": 0.03734424900000022,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 103129788053.30\nTotal_Decision_Time: 672.79\nHit_Count: 27046\nMiss_Count: 2954\nTotal_Score: 103132742726.09\n",
+      "metrics": {
+        "Total_IO_Time": 103129788053.3,
+        "Total_Decision_Time": 672.79,
+        "Hit_Count": 27046,
+        "Miss_Count": 2954,
+        "Total_Score": 103132742726.09
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_control_1_eval.txt",
+      "sha256": "fa5380aaaae0cdcd189c32dab2ac6b0a57d3a07179809dd5b8094e562af442dd",
+      "status": "complete",
+      "wall_seconds": 0.037916927000001266,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 103129788053.30\nTotal_Decision_Time: 589.59\nHit_Count: 27046\nMiss_Count: 2954\nTotal_Score: 103132742642.89\n",
+      "metrics": {
+        "Total_IO_Time": 103129788053.3,
+        "Total_Decision_Time": 589.59,
+        "Hit_Count": 27046,
+        "Miss_Count": 2954,
+        "Total_Score": 103132742642.89
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_control_2_eval.txt",
+      "sha256": "f0e6bee4288282960046b2991f0acc1bf2d225a28ea2600a89c0288459dce279",
+      "status": "complete",
+      "wall_seconds": 0.036267428999998685,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 8160191950.98\nTotal_Decision_Time: 3462.57\nHit_Count: 30934\nMiss_Count: 5066\nTotal_Score: 8160702013.55\n",
+      "metrics": {
+        "Total_IO_Time": 8160191950.98,
+        "Total_Decision_Time": 3462.57,
+        "Hit_Count": 30934,
+        "Miss_Count": 5066,
+        "Total_Score": 8160702013.55
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_control_2_eval.txt",
+      "sha256": "f0e6bee4288282960046b2991f0acc1bf2d225a28ea2600a89c0288459dce279",
+      "status": "complete",
+      "wall_seconds": 0.03585451600000056,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 170143374574.42\nTotal_Decision_Time: 1132.30\nHit_Count: 34021\nMiss_Count: 1979\nTotal_Score: 170143573606.72\n",
+      "metrics": {
+        "Total_IO_Time": 170143374574.42,
+        "Total_Decision_Time": 1132.3,
+        "Hit_Count": 34021,
+        "Miss_Count": 1979,
+        "Total_Score": 170143573606.72
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_control_3_eval.txt",
+      "sha256": "8aa96d9d0845b0b15c246ddd08748f44c6bb74fdfdaa3450f37ed259561f621d",
+      "status": "complete",
+      "wall_seconds": 0.1181444220000003,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 636141699.07\nTotal_Decision_Time: 50711.46\nHit_Count: 23169\nMiss_Count: 18831\nTotal_Score: 637133960.53\n",
+      "metrics": {
+        "Total_IO_Time": 636141699.07,
+        "Total_Decision_Time": 50711.46,
+        "Hit_Count": 23169,
+        "Miss_Count": 18831,
+        "Total_Score": 637133960.53
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_control_3_eval.txt",
+      "sha256": "8aa96d9d0845b0b15c246ddd08748f44c6bb74fdfdaa3450f37ed259561f621d",
+      "status": "complete",
+      "wall_seconds": 0.06989990800000001,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 835941564.42\nTotal_Decision_Time: 3426.71\nHit_Count: 38380\nMiss_Count: 3620\nTotal_Score: 836125991.13\n",
+      "metrics": {
+        "Total_IO_Time": 835941564.42,
+        "Total_Decision_Time": 3426.71,
+        "Hit_Count": 38380,
+        "Miss_Count": 3620,
+        "Total_Score": 836125991.13
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_cross_operator_0_eval.txt",
+      "sha256": "07fd24272d07eec709b8629b77a87008f45debbdae1557706a718b91dfda7065",
+      "status": "complete",
+      "wall_seconds": 0.03756964100000104,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 790027.03\nTotal_Decision_Time: 3327.13\nHit_Count: 23901\nMiss_Count: 99\nTotal_Score: 793453.16\n",
+      "metrics": {
+        "Total_IO_Time": 790027.03,
+        "Total_Decision_Time": 3327.13,
+        "Hit_Count": 23901,
+        "Miss_Count": 99,
+        "Total_Score": 793453.16
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_cross_operator_0_eval.txt",
+      "sha256": "07fd24272d07eec709b8629b77a87008f45debbdae1557706a718b91dfda7065",
+      "status": "complete",
+      "wall_seconds": 0.03705536900000084,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 103485.99\nTotal_Decision_Time: 2898.38\nHit_Count: 24000\nMiss_Count: 0\nTotal_Score: 106384.37\n",
+      "metrics": {
+        "Total_IO_Time": 103485.99,
+        "Total_Decision_Time": 2898.38,
+        "Hit_Count": 24000,
+        "Miss_Count": 0,
+        "Total_Score": 106384.37
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_cross_operator_1_eval.txt",
+      "sha256": "dd822f40bbd69def5150d52b653de1f5d6350691acfa66dd0eba2907912d3760",
+      "status": "complete",
+      "wall_seconds": 0.07111190200000195,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 2846626589.70\nTotal_Decision_Time: 5470.60\nHit_Count: 27741\nMiss_Count: 2259\nTotal_Score: 2848891060.30\n",
+      "metrics": {
+        "Total_IO_Time": 2846626589.7,
+        "Total_Decision_Time": 5470.6,
+        "Hit_Count": 27741,
+        "Miss_Count": 2259,
+        "Total_Score": 2848891060.3
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_cross_operator_1_eval.txt",
+      "sha256": "dd822f40bbd69def5150d52b653de1f5d6350691acfa66dd0eba2907912d3760",
+      "status": "complete",
+      "wall_seconds": 0.06764300300000059,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 4078203128.04\nTotal_Decision_Time: 14605.97\nHit_Count: 28069\nMiss_Count: 1931\nTotal_Score: 4080148734.01\n",
+      "metrics": {
+        "Total_IO_Time": 4078203128.04,
+        "Total_Decision_Time": 14605.97,
+        "Hit_Count": 28069,
+        "Miss_Count": 1931,
+        "Total_Score": 4080148734.01
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_cross_operator_2_eval.txt",
+      "sha256": "1721b066a8f7dbd056d0cd98ff9474c30ef202038759f48352e599be7222165a",
+      "status": "complete",
+      "wall_seconds": 0.04160435800000073,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 3829800489.81\nTotal_Decision_Time: 435.15\nHit_Count: 35442\nMiss_Count: 558\nTotal_Score: 3829856724.96\n",
+      "metrics": {
+        "Total_IO_Time": 3829800489.81,
+        "Total_Decision_Time": 435.15,
+        "Hit_Count": 35442,
+        "Miss_Count": 558,
+        "Total_Score": 3829856724.96
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_cross_operator_2_eval.txt",
+      "sha256": "1721b066a8f7dbd056d0cd98ff9474c30ef202038759f48352e599be7222165a",
+      "status": "complete",
+      "wall_seconds": 0.03741064900000168,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 14844929393.19\nTotal_Decision_Time: 1186.30\nHit_Count: 35319\nMiss_Count: 681\nTotal_Score: 14844998679.49\n",
+      "metrics": {
+        "Total_IO_Time": 14844929393.19,
+        "Total_Decision_Time": 1186.3,
+        "Hit_Count": 35319,
+        "Miss_Count": 681,
+        "Total_Score": 14844998679.49
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_cross_operator_3_eval.txt",
+      "sha256": "912074fa273793d6206ea65cd4f0c15d3fa591a1a6a44aa6c23c66d4223b4782",
+      "status": "complete",
+      "wall_seconds": 0.07003854000000231,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 99471601.56\nTotal_Decision_Time: 10994.14\nHit_Count: 37602\nMiss_Count: 4398\nTotal_Score: 99702495.69\n",
+      "metrics": {
+        "Total_IO_Time": 99471601.56,
+        "Total_Decision_Time": 10994.14,
+        "Hit_Count": 37602,
+        "Miss_Count": 4398,
+        "Total_Score": 99702495.69
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_cross_operator_3_eval.txt",
+      "sha256": "912074fa273793d6206ea65cd4f0c15d3fa591a1a6a44aa6c23c66d4223b4782",
+      "status": "complete",
+      "wall_seconds": 0.06972135700000237,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 26489117.55\nTotal_Decision_Time: 852.52\nHit_Count: 41926\nMiss_Count: 74\nTotal_Score: 26493670.07\n",
+      "metrics": {
+        "Total_IO_Time": 26489117.55,
+        "Total_Decision_Time": 852.52,
+        "Hit_Count": 41926,
+        "Miss_Count": 74,
+        "Total_Score": 26493670.07
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_temporal_0_eval.txt",
+      "sha256": "d6519efea154d7f7b568d30609fd5a37da501773dd6ee2f824f02f038e2db9c4",
+      "status": "complete",
+      "wall_seconds": 0.03864330300000063,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 13976787.42\nTotal_Decision_Time: 3463.40\nHit_Count: 23287\nMiss_Count: 713\nTotal_Score: 13980963.82\n",
+      "metrics": {
+        "Total_IO_Time": 13976787.42,
+        "Total_Decision_Time": 3463.4,
+        "Hit_Count": 23287,
+        "Miss_Count": 713,
+        "Total_Score": 13980963.82
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_temporal_0_eval.txt",
+      "sha256": "d6519efea154d7f7b568d30609fd5a37da501773dd6ee2f824f02f038e2db9c4",
+      "status": "complete",
+      "wall_seconds": 0.03601356699999769,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 35198415.47\nTotal_Decision_Time: 2955.69\nHit_Count: 23810\nMiss_Count: 190\nTotal_Score: 35201561.16\n",
+      "metrics": {
+        "Total_IO_Time": 35198415.47,
+        "Total_Decision_Time": 2955.69,
+        "Hit_Count": 23810,
+        "Miss_Count": 190,
+        "Total_Score": 35201561.16
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_temporal_1_eval.txt",
+      "sha256": "6f9fc410d9aa10a9313cda45026ce07a97dfe9fa8a3f3a20ab243f3fe1d6cbcd",
+      "status": "complete",
+      "wall_seconds": 0.06876893999999822,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 3399415808.54\nTotal_Decision_Time: 7817.61\nHit_Count: 27649\nMiss_Count: 2351\nTotal_Score: 3401774626.15\n",
+      "metrics": {
+        "Total_IO_Time": 3399415808.54,
+        "Total_Decision_Time": 7817.61,
+        "Hit_Count": 27649,
+        "Miss_Count": 2351,
+        "Total_Score": 3401774626.15
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_temporal_1_eval.txt",
+      "sha256": "6f9fc410d9aa10a9313cda45026ce07a97dfe9fa8a3f3a20ab243f3fe1d6cbcd",
+      "status": "complete",
+      "wall_seconds": 0.06924741599999962,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 4756986977.36\nTotal_Decision_Time: 20138.85\nHit_Count: 27746\nMiss_Count: 2254\nTotal_Score: 4759261116.21\n",
+      "metrics": {
+        "Total_IO_Time": 4756986977.36,
+        "Total_Decision_Time": 20138.85,
+        "Hit_Count": 27746,
+        "Miss_Count": 2254,
+        "Total_Score": 4759261116.21
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_temporal_2_eval.txt",
+      "sha256": "5423ba1322143ea154c6a5ca037065b970f818f047f7c89b7e907e01ebaf9828",
+      "status": "complete",
+      "wall_seconds": 0.0373910670000015,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 5219184378.19\nTotal_Decision_Time: 803.45\nHit_Count: 34949\nMiss_Count: 1051\nTotal_Score: 5219290281.65\n",
+      "metrics": {
+        "Total_IO_Time": 5219184378.19,
+        "Total_Decision_Time": 803.45,
+        "Hit_Count": 34949,
+        "Miss_Count": 1051,
+        "Total_Score": 5219290281.65
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_temporal_2_eval.txt",
+      "sha256": "5423ba1322143ea154c6a5ca037065b970f818f047f7c89b7e907e01ebaf9828",
+      "status": "complete",
+      "wall_seconds": 0.03676665100000065,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 64628263320.88\nTotal_Decision_Time: 3418.88\nHit_Count: 32929\nMiss_Count: 3071\nTotal_Score: 64628573839.76\n",
+      "metrics": {
+        "Total_IO_Time": 64628263320.88,
+        "Total_Decision_Time": 3418.88,
+        "Hit_Count": 32929,
+        "Miss_Count": 3071,
+        "Total_Score": 64628573839.76
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_temporal_3_eval.txt",
+      "sha256": "16b2dcbb777ec888a083076d9e9a0d5b0a59a47598b0ce1e78dd3d897803a0f6",
+      "status": "complete",
+      "wall_seconds": 0.06980760199999736,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 212438481.69\nTotal_Decision_Time: 21063.63\nHit_Count: 33053\nMiss_Count: 8947\nTotal_Score: 212906895.32\n",
+      "metrics": {
+        "Total_IO_Time": 212438481.69,
+        "Total_Decision_Time": 21063.63,
+        "Hit_Count": 33053,
+        "Miss_Count": 8947,
+        "Total_Score": 212906895.32
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r54_temporal_3_eval.txt",
+      "sha256": "16b2dcbb777ec888a083076d9e9a0d5b0a59a47598b0ce1e78dd3d897803a0f6",
+      "status": "complete",
+      "wall_seconds": 0.06980200499999967,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 254612011.08\nTotal_Decision_Time: 7241.07\nHit_Count: 41263\nMiss_Count: 737\nTotal_Score: 254656102.15\n",
+      "metrics": {
+        "Total_IO_Time": 254612011.08,
+        "Total_Decision_Time": 7241.07,
+        "Hit_Count": 41263,
+        "Miss_Count": 737,
+        "Total_Score": 254656102.15
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_low_opportunity_mix_0_eval.txt",
+      "sha256": "075bb7466cad2d87ad5b282aae4cfdce756b8c8ce01e306f90541e3c240b1ee8",
+      "status": "complete",
+      "wall_seconds": 0.021661962999999673,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 982935142.40\nTotal_Decision_Time: 526.01\nHit_Count: 606\nMiss_Count: 3618\nTotal_Score: 983116568.41\n",
+      "metrics": {
+        "Total_IO_Time": 982935142.4,
+        "Total_Decision_Time": 526.01,
+        "Hit_Count": 606,
+        "Miss_Count": 3618,
+        "Total_Score": 983116568.41
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_low_opportunity_mix_0_eval.txt",
+      "sha256": "075bb7466cad2d87ad5b282aae4cfdce756b8c8ce01e306f90541e3c240b1ee8",
+      "status": "complete",
+      "wall_seconds": 0.038934183999998595,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 981215477.76\nTotal_Decision_Time: 435.99\nHit_Count: 647\nMiss_Count: 3577\nTotal_Score: 981394763.75\n",
+      "metrics": {
+        "Total_IO_Time": 981215477.76,
+        "Total_Decision_Time": 435.99,
+        "Hit_Count": 647,
+        "Miss_Count": 3577,
+        "Total_Score": 981394763.75
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_low_opportunity_mix_1_eval.txt",
+      "sha256": "03266eca217b7d7bd8deec2502d44338dd5bc1677e425d5c24dc4ad08bc999b4",
+      "status": "complete",
+      "wall_seconds": 0.03818141700000055,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 6166776119.30\nTotal_Decision_Time: 734.72\nHit_Count: 734\nMiss_Count: 4514\nTotal_Score: 6166781368.02\n",
+      "metrics": {
+        "Total_IO_Time": 6166776119.3,
+        "Total_Decision_Time": 734.72,
+        "Hit_Count": 734,
+        "Miss_Count": 4514,
+        "Total_Score": 6166781368.02
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_low_opportunity_mix_1_eval.txt",
+      "sha256": "03266eca217b7d7bd8deec2502d44338dd5bc1677e425d5c24dc4ad08bc999b4",
+      "status": "complete",
+      "wall_seconds": 0.038642719999998576,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 6154279190.53\nTotal_Decision_Time: 531.44\nHit_Count: 793\nMiss_Count: 4455\nTotal_Score: 6154284176.97\n",
+      "metrics": {
+        "Total_IO_Time": 6154279190.53,
+        "Total_Decision_Time": 531.44,
+        "Hit_Count": 793,
+        "Miss_Count": 4455,
+        "Total_Score": 6154284176.97
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_no_op_controls_0_eval.txt",
+      "sha256": "15903b01821f5e30de740679bba20f7f2249a119fa2071f50e0bb4eac9583cbe",
+      "status": "complete",
+      "wall_seconds": 0.020838490999999237,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 3508954.73\nTotal_Decision_Time: 148.35\nHit_Count: 0\nMiss_Count: 1152\nTotal_Score: 3510255.07\n",
+      "metrics": {
+        "Total_IO_Time": 3508954.73,
+        "Total_Decision_Time": 148.35,
+        "Hit_Count": 0,
+        "Miss_Count": 1152,
+        "Total_Score": 3510255.07
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_no_op_controls_0_eval.txt",
+      "sha256": "15903b01821f5e30de740679bba20f7f2249a119fa2071f50e0bb4eac9583cbe",
+      "status": "complete",
+      "wall_seconds": 0.02292260900000187,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 3508954.73\nTotal_Decision_Time: 109.81\nHit_Count: 0\nMiss_Count: 1152\nTotal_Score: 3510216.54\n",
+      "metrics": {
+        "Total_IO_Time": 3508954.73,
+        "Total_Decision_Time": 109.81,
+        "Hit_Count": 0,
+        "Miss_Count": 1152,
+        "Total_Score": 3510216.54
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_no_op_controls_1_eval.txt",
+      "sha256": "07e83e93f68588e7e58d8c654e1c690ddc081144fa3d720ad58dc45f7d6be247",
+      "status": "complete",
+      "wall_seconds": 0.019693647000000425,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 0.00\nTotal_Decision_Time: 148.14\nHit_Count: 2176\nMiss_Count: 0\nTotal_Score: 148.14\n",
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 148.14,
+        "Hit_Count": 2176,
+        "Miss_Count": 0,
+        "Total_Score": 148.14
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_no_op_controls_1_eval.txt",
+      "sha256": "07e83e93f68588e7e58d8c654e1c690ddc081144fa3d720ad58dc45f7d6be247",
+      "status": "complete",
+      "wall_seconds": 0.02171655300000097,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 0.00\nTotal_Decision_Time: 120.97\nHit_Count: 2176\nMiss_Count: 0\nTotal_Score: 120.97\n",
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 120.97,
+        "Hit_Count": 2176,
+        "Miss_Count": 0,
+        "Total_Score": 120.97
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_positive_cycles_0_eval.txt",
+      "sha256": "73f2a218012a8ebd5a1e54ce70310aa9fc493811ced3ce77db1ce47e8e818f45",
+      "status": "complete",
+      "wall_seconds": 0.02157956099999936,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 331433902.08\nTotal_Decision_Time: 219.28\nHit_Count: 0\nMiss_Count: 1088\nTotal_Score: 331435209.36\n",
+      "metrics": {
+        "Total_IO_Time": 331433902.08,
+        "Total_Decision_Time": 219.28,
+        "Hit_Count": 0,
+        "Miss_Count": 1088,
+        "Total_Score": 331435209.36
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_positive_cycles_0_eval.txt",
+      "sha256": "73f2a218012a8ebd5a1e54ce70310aa9fc493811ced3ce77db1ce47e8e818f45",
+      "status": "complete",
+      "wall_seconds": 0.02136119200000053,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 331433902.08\nTotal_Decision_Time: 176.65\nHit_Count: 0\nMiss_Count: 1088\nTotal_Score: 331435166.73\n",
+      "metrics": {
+        "Total_IO_Time": 331433902.08,
+        "Total_Decision_Time": 176.65,
+        "Hit_Count": 0,
+        "Miss_Count": 1088,
+        "Total_Score": 331435166.73
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_positive_cycles_1_eval.txt",
+      "sha256": "db99949835d9cde574f7a4af7894f9f79fac62b57f206d021c763aa394f2d404",
+      "status": "complete",
+      "wall_seconds": 0.022824620000001516,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 4092801.84\nTotal_Decision_Time: 261.64\nHit_Count: 0\nMiss_Count: 1344\nTotal_Score: 5437063.49\n",
+      "metrics": {
+        "Total_IO_Time": 4092801.84,
+        "Total_Decision_Time": 261.64,
+        "Hit_Count": 0,
+        "Miss_Count": 1344,
+        "Total_Score": 5437063.49
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_positive_cycles_1_eval.txt",
+      "sha256": "db99949835d9cde574f7a4af7894f9f79fac62b57f206d021c763aa394f2d404",
+      "status": "complete",
+      "wall_seconds": 0.02147415499999994,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 4092801.84\nTotal_Decision_Time: 208.31\nHit_Count: 0\nMiss_Count: 1344\nTotal_Score: 5437010.16\n",
+      "metrics": {
+        "Total_IO_Time": 4092801.84,
+        "Total_Decision_Time": 208.31,
+        "Hit_Count": 0,
+        "Miss_Count": 1344,
+        "Total_Score": 5437010.16
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_temporal_alignment_mix_0_eval.txt",
+      "sha256": "b702a164039ec4062814dd30ff0204c018fd60d30d402431bc7c9bec8a2f67b6",
+      "status": "complete",
+      "wall_seconds": 0.020810802999999822,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 341164687.36\nTotal_Decision_Time: 164.95\nHit_Count: 2\nMiss_Count: 1120\nTotal_Score: 341276852.31\n",
+      "metrics": {
+        "Total_IO_Time": 341164687.36,
+        "Total_Decision_Time": 164.95,
+        "Hit_Count": 2,
+        "Miss_Count": 1120,
+        "Total_Score": 341276852.31
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_temporal_alignment_mix_0_eval.txt",
+      "sha256": "b702a164039ec4062814dd30ff0204c018fd60d30d402431bc7c9bec8a2f67b6",
+      "status": "complete",
+      "wall_seconds": 0.020257450000002564,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 341164687.36\nTotal_Decision_Time: 114.00\nHit_Count: 2\nMiss_Count: 1120\nTotal_Score: 341276801.36\n",
+      "metrics": {
+        "Total_IO_Time": 341164687.36,
+        "Total_Decision_Time": 114.0,
+        "Hit_Count": 2,
+        "Miss_Count": 1120,
+        "Total_Score": 341276801.36
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_temporal_alignment_mix_1_eval.txt",
+      "sha256": "b33e5018f32cca0fe43c950c3c48836c728f0a84740e1e48907215a03baa40ea",
+      "status": "complete",
+      "wall_seconds": 0.021059495999999456,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 22869638014.57\nTotal_Decision_Time: 197.49\nHit_Count: 2\nMiss_Count: 1504\nTotal_Score: 22871142212.06\n",
+      "metrics": {
+        "Total_IO_Time": 22869638014.57,
+        "Total_Decision_Time": 197.49,
+        "Hit_Count": 2,
+        "Miss_Count": 1504,
+        "Total_Score": 22871142212.06
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r58_temporal_alignment_mix_1_eval.txt",
+      "sha256": "b33e5018f32cca0fe43c950c3c48836c728f0a84740e1e48907215a03baa40ea",
+      "status": "complete",
+      "wall_seconds": 0.020640631999999215,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 22869638014.57\nTotal_Decision_Time: 190.07\nHit_Count: 2\nMiss_Count: 1504\nTotal_Score: 22871142204.63\n",
+      "metrics": {
+        "Total_IO_Time": 22869638014.57,
+        "Total_Decision_Time": 190.07,
+        "Hit_Count": 2,
+        "Miss_Count": 1504,
+        "Total_Score": 22871142204.63
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_00_operator_mix_holdout.txt",
+      "sha256": "4e1838e5384e97fd4ddeba303c7359fd96cf0fbb1d8429eeedfccf0b4f0e112d",
+      "status": "complete",
+      "wall_seconds": 0.02021224099999941,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 30373751.47\nTotal_Decision_Time: 585.84\nHit_Count: 1723\nMiss_Count: 1349\nTotal_Score: 30381082.31\n",
+      "metrics": {
+        "Total_IO_Time": 30373751.47,
+        "Total_Decision_Time": 585.84,
+        "Hit_Count": 1723,
+        "Miss_Count": 1349,
+        "Total_Score": 30381082.31
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_00_operator_mix_holdout.txt",
+      "sha256": "4e1838e5384e97fd4ddeba303c7359fd96cf0fbb1d8429eeedfccf0b4f0e112d",
+      "status": "complete",
+      "wall_seconds": 0.020664828999997553,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 112022869.33\nTotal_Decision_Time: 254.17\nHit_Count: 2945\nMiss_Count: 127\nTotal_Score: 112023758.50\n",
+      "metrics": {
+        "Total_IO_Time": 112022869.33,
+        "Total_Decision_Time": 254.17,
+        "Hit_Count": 2945,
+        "Miss_Count": 127,
+        "Total_Score": 112023758.5
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_01_temporal_reverse_holdout.txt",
+      "sha256": "6bc445f97bcd8967c3f767f8869058c9590dfff12371f79d34d0771ba1cbf7ad",
+      "status": "complete",
+      "wall_seconds": 0.022065072000000185,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 24215115.09\nTotal_Decision_Time: 561.29\nHit_Count: 1706\nMiss_Count: 1366\nTotal_Score: 24249826.38\n",
+      "metrics": {
+        "Total_IO_Time": 24215115.09,
+        "Total_Decision_Time": 561.29,
+        "Hit_Count": 1706,
+        "Miss_Count": 1366,
+        "Total_Score": 24249826.38
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_01_temporal_reverse_holdout.txt",
+      "sha256": "6bc445f97bcd8967c3f767f8869058c9590dfff12371f79d34d0771ba1cbf7ad",
+      "status": "complete",
+      "wall_seconds": 0.02250758899999994,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 85284181.33\nTotal_Decision_Time: 76.82\nHit_Count: 2944\nMiss_Count: 128\nTotal_Score: 85287458.15\n",
+      "metrics": {
+        "Total_IO_Time": 85284181.33,
+        "Total_Decision_Time": 76.82,
+        "Hit_Count": 2944,
+        "Miss_Count": 128,
+        "Total_Score": 85287458.15
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_02_interleave_reverse_holdout.txt",
+      "sha256": "bc6a70157699a70008a8bb5e69bd817013ed4a722c7f973d02a234d5318f68be",
+      "status": "complete",
+      "wall_seconds": 0.021615440000005037,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 37124084.30\nTotal_Decision_Time: 406.78\nHit_Count: 1902\nMiss_Count: 1170\nTotal_Score: 37212241.08\n",
+      "metrics": {
+        "Total_IO_Time": 37124084.3,
+        "Total_Decision_Time": 406.78,
+        "Hit_Count": 1902,
+        "Miss_Count": 1170,
+        "Total_Score": 37212241.08
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_02_interleave_reverse_holdout.txt",
+      "sha256": "bc6a70157699a70008a8bb5e69bd817013ed4a722c7f973d02a234d5318f68be",
+      "status": "complete",
+      "wall_seconds": 0.02165988800000207,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 151654048.91\nTotal_Decision_Time: 68.73\nHit_Count: 2944\nMiss_Count: 128\nTotal_Score: 151663717.65\n",
+      "metrics": {
+        "Total_IO_Time": 151654048.91,
+        "Total_Decision_Time": 68.73,
+        "Hit_Count": 2944,
+        "Miss_Count": 128,
+        "Total_Score": 151663717.65
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_03_burst_mix_holdout.txt",
+      "sha256": "ef65bfcfd05d36b659117bf4bcce368f1f5e57ab129447c5e16454d2db879d12",
+      "status": "complete",
+      "wall_seconds": 0.022016859000004274,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 5287153.21\nTotal_Decision_Time: 508.25\nHit_Count: 1805\nMiss_Count: 1267\nTotal_Score: 5541061.46\n",
+      "metrics": {
+        "Total_IO_Time": 5287153.21,
+        "Total_Decision_Time": 508.25,
+        "Hit_Count": 1805,
+        "Miss_Count": 1267,
+        "Total_Score": 5541061.46
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_03_burst_mix_holdout.txt",
+      "sha256": "ef65bfcfd05d36b659117bf4bcce368f1f5e57ab129447c5e16454d2db879d12",
+      "status": "complete",
+      "wall_seconds": 0.021043553999994913,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 20855011.56\nTotal_Decision_Time: 64.91\nHit_Count: 2945\nMiss_Count: 127\nTotal_Score: 20880476.46\n",
+      "metrics": {
+        "Total_IO_Time": 20855011.56,
+        "Total_Decision_Time": 64.91,
+        "Hit_Count": 2945,
+        "Miss_Count": 127,
+        "Total_Score": 20880476.46
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_04_big_small_cycles_holdout.txt",
+      "sha256": "d7f6475878f3189bd30c7e3601485e80c3fd28e2bedfacaf2481c67fb55c57ac",
+      "status": "complete",
+      "wall_seconds": 0.02125843500000002,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 15812526.08\nTotal_Decision_Time: 468.20\nHit_Count: 1688\nMiss_Count: 1384\nTotal_Score: 16850994.28\n",
+      "metrics": {
+        "Total_IO_Time": 15812526.08,
+        "Total_Decision_Time": 468.2,
+        "Hit_Count": 1688,
+        "Miss_Count": 1384,
+        "Total_Score": 16850994.28
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_04_big_small_cycles_holdout.txt",
+      "sha256": "d7f6475878f3189bd30c7e3601485e80c3fd28e2bedfacaf2481c67fb55c57ac",
+      "status": "complete",
+      "wall_seconds": 0.021683203000002038,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 54246331.73\nTotal_Decision_Time: 64.16\nHit_Count: 2944\nMiss_Count: 128\nTotal_Score: 54342395.89\n",
+      "metrics": {
+        "Total_IO_Time": 54246331.73,
+        "Total_Decision_Time": 64.16,
+        "Hit_Count": 2944,
+        "Miss_Count": 128,
+        "Total_Score": 54342395.89
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_05_next_alternation_holdout.txt",
+      "sha256": "80905f868da3fb5db3d18cbb6141ecaeaaff832620801014f37f8b9014e80696",
+      "status": "complete",
+      "wall_seconds": 0.020682526999998174,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 13277219.11\nTotal_Decision_Time: 483.51\nHit_Count: 1824\nMiss_Count: 1248\nTotal_Score: 14525702.62\n",
+      "metrics": {
+        "Total_IO_Time": 13277219.11,
+        "Total_Decision_Time": 483.51,
+        "Hit_Count": 1824,
+        "Miss_Count": 1248,
+        "Total_Score": 14525702.62
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_05_next_alternation_holdout.txt",
+      "sha256": "80905f868da3fb5db3d18cbb6141ecaeaaff832620801014f37f8b9014e80696",
+      "status": "complete",
+      "wall_seconds": 0.019636215000005564,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 52528664.38\nTotal_Decision_Time: 58.77\nHit_Count: 2944\nMiss_Count: 128\nTotal_Score: 52656723.15\n",
+      "metrics": {
+        "Total_IO_Time": 52528664.38,
+        "Total_Decision_Time": 58.77,
+        "Hit_Count": 2944,
+        "Miss_Count": 128,
+        "Total_Score": 52656723.15
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_06_phase_overlap_holdout.txt",
+      "sha256": "0be89dc4b9e255959fde5a6b4816d8f81db9fa038a7494ba03c69ec392741b6a",
+      "status": "complete",
+      "wall_seconds": 0.021041547999999466,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 18984468.48\nTotal_Decision_Time: 467.51\nHit_Count: 1888\nMiss_Count: 1184\nTotal_Score: 18996775.99\n",
+      "metrics": {
+        "Total_IO_Time": 18984468.48,
+        "Total_Decision_Time": 467.51,
+        "Hit_Count": 1888,
+        "Miss_Count": 1184,
+        "Total_Score": 18996775.99
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_06_phase_overlap_holdout.txt",
+      "sha256": "0be89dc4b9e255959fde5a6b4816d8f81db9fa038a7494ba03c69ec392741b6a",
+      "status": "complete",
+      "wall_seconds": 0.01988674100000054,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 60188262.40\nTotal_Decision_Time: 44.37\nHit_Count: 2977\nMiss_Count: 95\nTotal_Score: 60189256.77\n",
+      "metrics": {
+        "Total_IO_Time": 60188262.4,
+        "Total_Decision_Time": 44.37,
+        "Hit_Count": 2977,
+        "Miss_Count": 95,
+        "Total_Score": 60189256.77
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_07_resident_control_holdout.txt",
+      "sha256": "d91a34b137f97efd3ac43e0305d6371b4b2b256e9c14ffb1403220977e61f2f3",
+      "status": "complete",
+      "wall_seconds": 0.020072337000001994,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 0.00\nTotal_Decision_Time: 299.62\nHit_Count: 3072\nMiss_Count: 0\nTotal_Score: 299.62\n",
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 299.62,
+        "Hit_Count": 3072,
+        "Miss_Count": 0,
+        "Total_Score": 299.62
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "candidate",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    },
+    {
+      "member": "cyanneko",
+      "case": "r61root_07_resident_control_holdout.txt",
+      "sha256": "d91a34b137f97efd3ac43e0305d6371b4b2b256e9c14ffb1403220977e61f2f3",
+      "status": "complete",
+      "wall_seconds": 0.020685122000003275,
+      "repeat": 1,
+      "returncode": 0,
+      "stdout": "Total_IO_Time: 0.00\nTotal_Decision_Time: 298.19\nHit_Count: 3072\nMiss_Count: 0\nTotal_Score: 298.19\n",
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 298.19,
+        "Hit_Count": 3072,
+        "Miss_Count": 0,
+        "Total_Score": 298.19
+      },
+      "round": "R63",
+      "method": "ghost64",
+      "role": "paired_naive",
+      "version": "0.5.0",
+      "wall_seconds_scope": "WSL subprocess including startup; separate from scheduler D"
+    }
+  ],
+  "formal_run_count": 80,
+  "original_normalization": {
+    "status": "available",
+    "scope": "local per-dataset Level 1 estimates; not official contest result",
+    "baseline_identity": "official-naive asserted by caller; not automatically certified",
+    "aggregation": "equal-weight arithmetic mean of participating dataset scores",
+    "dataset_aggregation": "per-case score -> per-repeat sum capped at 50 -> arithmetic mean over repeats",
+    "dataset_count": 1,
+    "average_score": 50.0,
+    "datasets": [
+      {
+        "member": "cyanneko",
+        "version": "0.5.0",
+        "sha256": "e0e014b8ceb20050a8249cf7f30863642de262870777f435142feaba7afba77d",
+        "status": "available",
+        "case_count": 40,
+        "level1_estimate": 50.0,
+        "per_repeat": [
+          {
+            "repeat": 1,
+            "level1_estimate": 50.0
+          }
+        ]
+      }
+    ],
+    "cases": [
+      {
+        "member": "cyanneko",
+        "case": "coverage_01.txt",
+        "repeat": 1,
+        "candidate_cost": 118019.31,
+        "baseline_cost": 1465430.48,
+        "single_score": 9.194644088472897
+      },
+      {
+        "member": "cyanneko",
+        "case": "coverage_02.txt",
+        "repeat": 1,
+        "candidate_cost": 15741475.67,
+        "baseline_cost": 69221268.39,
+        "single_score": 7.7259192100741565
+      },
+      {
+        "member": "cyanneko",
+        "case": "coverage_04.txt",
+        "repeat": 1,
+        "candidate_cost": 3583455.59,
+        "baseline_cost": 761834.18,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "coverage_06.txt",
+        "repeat": 1,
+        "candidate_cost": 2623799667.99,
+        "baseline_cost": 2623799523.03,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "coverage_08.txt",
+        "repeat": 1,
+        "candidate_cost": 52290981.23,
+        "baseline_cost": 106816320.04,
+        "single_score": 5.104588773474096
+      },
+      {
+        "member": "cyanneko",
+        "case": "coverage_10.txt",
+        "repeat": 1,
+        "candidate_cost": 4752003.32,
+        "baseline_cost": 243654713.26,
+        "single_score": 9.80496977643403
+      },
+      {
+        "member": "cyanneko",
+        "case": "coverage_11.txt",
+        "repeat": 1,
+        "candidate_cost": 5067164.7,
+        "baseline_cost": 265821968.18,
+        "single_score": 9.809377504248678
+      },
+      {
+        "member": "cyanneko",
+        "case": "coverage_14.txt",
+        "repeat": 1,
+        "candidate_cost": 229091.41,
+        "baseline_cost": 228053.81,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_combined_0_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 5515475.64,
+        "baseline_cost": 15016608.78,
+        "single_score": 6.32708308460041
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_combined_1_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 4404450486.8,
+        "baseline_cost": 5723423074.45,
+        "single_score": 2.304517018037755
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_combined_2_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 4014987263.07,
+        "baseline_cost": 13913616113.93,
+        "single_score": 7.114346672932649
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_combined_3_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 138022023.48,
+        "baseline_cost": 78028909.95,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_control_0_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 2935.47,
+        "baseline_cost": 2754.29,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_control_1_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 103132742726.09,
+        "baseline_cost": 103132742642.89,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_control_2_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 8160702013.55,
+        "baseline_cost": 170143573606.72,
+        "single_score": 9.520363782154174
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_control_3_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 637133960.53,
+        "baseline_cost": 836125991.13,
+        "single_score": 2.3799287752204434
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_cross_operator_0_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 793453.16,
+        "baseline_cost": 106384.37,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_cross_operator_1_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 2848891060.3,
+        "baseline_cost": 4080148734.01,
+        "single_score": 3.0176784082572183
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_cross_operator_2_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 3829856724.96,
+        "baseline_cost": 14844998679.49,
+        "single_score": 7.420103020789508
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_cross_operator_3_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 99702495.69,
+        "baseline_cost": 26493670.07,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_temporal_0_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 13980963.82,
+        "baseline_cost": 35201561.16,
+        "single_score": 6.028311427310571
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_temporal_1_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 3401774626.15,
+        "baseline_cost": 4759261116.21,
+        "single_score": 2.8523051308036305
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_temporal_2_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 5219290281.65,
+        "baseline_cost": 64628573839.76,
+        "single_score": 9.192417537389778
+      },
+      {
+        "member": "cyanneko",
+        "case": "r54_temporal_3_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 212906895.32,
+        "baseline_cost": 254656102.15,
+        "single_score": 1.6394347701673562
+      },
+      {
+        "member": "cyanneko",
+        "case": "r58_low_opportunity_mix_0_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 983116568.41,
+        "baseline_cost": 981394763.75,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r58_low_opportunity_mix_1_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 6166781368.02,
+        "baseline_cost": 6154284176.97,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r58_no_op_controls_0_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 3510255.07,
+        "baseline_cost": 3510216.54,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r58_no_op_controls_1_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 148.14,
+        "baseline_cost": 120.97,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r58_positive_cycles_0_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 331435209.36,
+        "baseline_cost": 331435166.73,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r58_positive_cycles_1_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 5437063.49,
+        "baseline_cost": 5437010.16,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r58_temporal_alignment_mix_0_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 341276852.31,
+        "baseline_cost": 341276801.36,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r58_temporal_alignment_mix_1_eval.txt",
+        "repeat": 1,
+        "candidate_cost": 22871142212.06,
+        "baseline_cost": 22871142204.63,
+        "single_score": 0.0
+      },
+      {
+        "member": "cyanneko",
+        "case": "r61root_00_operator_mix_holdout.txt",
+        "repeat": 1,
+        "candidate_cost": 30381082.31,
+        "baseline_cost": 112023758.5,
+        "single_score": 7.287978664811536
+      },
+      {
+        "member": "cyanneko",
+        "case": "r61root_01_temporal_reverse_holdout.txt",
+        "repeat": 1,
+        "candidate_cost": 24249826.38,
+        "baseline_cost": 85287458.15,
+        "single_score": 7.1566949108331475
+      },
+      {
+        "member": "cyanneko",
+        "case": "r61root_02_interleave_reverse_holdout.txt",
+        "repeat": 1,
+        "candidate_cost": 37212241.08,
+        "baseline_cost": 151663717.65,
+        "single_score": 7.546397935076596
+      },
+      {
+        "member": "cyanneko",
+        "case": "r61root_03_burst_mix_holdout.txt",
+        "repeat": 1,
+        "candidate_cost": 5541061.46,
+        "baseline_cost": 20880476.46,
+        "single_score": 7.3462954877419495
+      },
+      {
+        "member": "cyanneko",
+        "case": "r61root_04_big_small_cycles_holdout.txt",
+        "repeat": 1,
+        "candidate_cost": 16850994.28,
+        "baseline_cost": 54342395.89,
+        "single_score": 6.899107224843412
+      },
+      {
+        "member": "cyanneko",
+        "case": "r61root_05_next_alternation_holdout.txt",
+        "repeat": 1,
+        "candidate_cost": 14525702.62,
+        "baseline_cost": 52656723.15,
+        "single_score": 7.241434378926027
+      },
+      {
+        "member": "cyanneko",
+        "case": "r61root_06_phase_overlap_holdout.txt",
+        "repeat": 1,
+        "candidate_cost": 18996775.99,
+        "baseline_cost": 60189256.77,
+        "single_score": 6.84382612289233
+      },
+      {
+        "member": "cyanneko",
+        "case": "r61root_07_resident_control_holdout.txt",
+        "repeat": 1,
+        "candidate_cost": 299.62,
+        "baseline_cost": 298.19,
+        "single_score": 0.0
+      }
+    ]
+  },
+  "normalization_is_not_selection_target": true,
+  "no_causal_full_case_action_trace": true,
+  "new_solver_runs_during_publication": 0,
+  "new_compile_runs_during_publication": 0,
+  "uncapped_case_point_diagnostic": {
+    "n": 40,
+    "uncapped_sum": 149.75772370549234,
+    "mean_case_points": 3.7439430926373083,
+    "formula": "max(0,min(10,10*(1-C/Cnaive))) for each case; sum has no overall50 cap",
+    "scope": "Existing local per-case rule only, not predicted official points. Per-case clipping hides regression magnitude; read actual cost and D tails.",
+    "per_case": [
+      {
+        "case": "coverage_01.txt",
+        "points": 9.194644088472897
+      },
+      {
+        "case": "coverage_02.txt",
+        "points": 7.7259192100741565
+      },
+      {
+        "case": "coverage_04.txt",
+        "points": 0.0
+      },
+      {
+        "case": "coverage_06.txt",
+        "points": 0.0
+      },
+      {
+        "case": "coverage_08.txt",
+        "points": 5.104588773474096
+      },
+      {
+        "case": "coverage_10.txt",
+        "points": 9.80496977643403
+      },
+      {
+        "case": "coverage_11.txt",
+        "points": 9.809377504248678
+      },
+      {
+        "case": "coverage_14.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r54_combined_0_eval.txt",
+        "points": 6.32708308460041
+      },
+      {
+        "case": "r54_combined_1_eval.txt",
+        "points": 2.304517018037755
+      },
+      {
+        "case": "r54_combined_2_eval.txt",
+        "points": 7.114346672932649
+      },
+      {
+        "case": "r54_combined_3_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r54_control_0_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r54_control_1_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r54_control_2_eval.txt",
+        "points": 9.520363782154174
+      },
+      {
+        "case": "r54_control_3_eval.txt",
+        "points": 2.3799287752204434
+      },
+      {
+        "case": "r54_cross_operator_0_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r54_cross_operator_1_eval.txt",
+        "points": 3.0176784082572183
+      },
+      {
+        "case": "r54_cross_operator_2_eval.txt",
+        "points": 7.420103020789508
+      },
+      {
+        "case": "r54_cross_operator_3_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r54_temporal_0_eval.txt",
+        "points": 6.028311427310571
+      },
+      {
+        "case": "r54_temporal_1_eval.txt",
+        "points": 2.8523051308036305
+      },
+      {
+        "case": "r54_temporal_2_eval.txt",
+        "points": 9.192417537389778
+      },
+      {
+        "case": "r54_temporal_3_eval.txt",
+        "points": 1.6394347701673562
+      },
+      {
+        "case": "r58_low_opportunity_mix_0_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r58_low_opportunity_mix_1_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r58_no_op_controls_0_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r58_no_op_controls_1_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r58_positive_cycles_0_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r58_positive_cycles_1_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r58_temporal_alignment_mix_0_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r58_temporal_alignment_mix_1_eval.txt",
+        "points": 0.0
+      },
+      {
+        "case": "r61root_00_operator_mix_holdout.txt",
+        "points": 7.287978664811536
+      },
+      {
+        "case": "r61root_01_temporal_reverse_holdout.txt",
+        "points": 7.1566949108331475
+      },
+      {
+        "case": "r61root_02_interleave_reverse_holdout.txt",
+        "points": 7.546397935076596
+      },
+      {
+        "case": "r61root_03_burst_mix_holdout.txt",
+        "points": 7.3462954877419495
+      },
+      {
+        "case": "r61root_04_big_small_cycles_holdout.txt",
+        "points": 6.899107224843412
+      },
+      {
+        "case": "r61root_05_next_alternation_holdout.txt",
+        "points": 7.241434378926027
+      },
+      {
+        "case": "r61root_06_phase_overlap_holdout.txt",
+        "points": 6.84382612289233
+      },
+      {
+        "case": "r61root_07_resident_control_holdout.txt",
+        "points": 0.0
+      }
+    ]
+  }
+}

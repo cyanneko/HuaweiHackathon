@@ -151,3 +151,7 @@ python evaluation/scripts/legacy_checker.py case.txt actions.trace.jsonl output.
 **版本边界：本脚本是旧版本地实验核算器，不是新版官方评测器。** 它允许溢出回调落盘当前 INSERT 目标后将新元组追加到磁盘；本地保存的 2026-10-26 题面则禁止落盘当前 INSERT 目标。当前脚本没有适配该差异，也没有实现官方归一化比赛总分。团队统一正式评测前，需要按最终官方规则更新执行器和核算器。
 
 实际数据在 datasets 分支，Scheduler 源码在对应 source 分支。main/source/cyanneko 未随方法发布完整框架或 NN/融合器；其他成员分支保存的参考框架须自行核对来源、协议和计时边界。数据格式见 [DATA_SPEC.md](DATA_SPEC.md)，跨分支工作流见 [Agent 指南](../docs/AGENT_GUIDE.md)，新专家接入和门控开销验收见 [专家接口 v1](../docs/EXPERT_INTERFACE_V1.md)。
+
+## 当前报告主汇总：成员等权、集内未封顶sum
+
+原evaluate.py已按成员数据集等权平均，无需改代码。当前报告对原逐例贡献按每集求sum（重复时mean_repeat），不施加50总封顶，然后`score_final=mean_nonempty_members(score_dataset)`。当前两个成员系数各50%，空成员列出不占权重。每集单例均分与全576等权均分仅辅助、不用于主排名；原封顶raw并列保留。规则、边界和只读重算命令见[MEMBER_SCORING.md](MEMBER_SCORING.md)。新工具只读原normalization.cases和冻结身份，不重跑solver，不允许缺案例/重复后给有效完整分。

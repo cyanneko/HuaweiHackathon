@@ -147,7 +147,7 @@ python evaluation/evaluate.py --datasets-root ../HuaweiHackathon-datasets/datase
 
 所有 runner 选项必须在 `--command` 前；它之后全部属于候选程序。候选和基线是否接收 argv 文件名或 stdin，由实际完整框架/包装决定；从 stdin 读取时分别省略相应命令中的 `{input}`。没有基线可以省略两个 baseline 选项，但只得到原始成本，归一化显示 unavailable，不能补0。
 
-schema 3的评分顺序：
+原schema 3 raw评分顺序（保留不改）：
 
 1. 每案例、每重复计算 clamp(10×(1−VAL/BASE),0,10)；VAL=0或BASE=0按规则记0。
 2. 每集每次重复求和、封顶50，再对重复取均值，得到该集分数。
@@ -184,7 +184,7 @@ schema 3的评分顺序：
 
 ## 当前报告与筛选口径（2026-10-29）
 
-不把封顶50分作为目标或主要成果，评测器和原始封顶分不改。主要展示逐例`Total_Score`/其配对官方Naive的倍率，以及D倍率，各给mean/P50/P90/worst、样本数和完整逐例表，并按元数据家族分组检查。mean明确为逐例倍率等权算术平均；成本和D的总和之比另列，不能混称平均。P50用普通中位数，P90用最近秩，样本数小的组说明限制。0/0按1、正值/0按Infinity并保留。官方数据数量和分布未知，本地平均或家族分组不能预测官方成绩。跨轮的微小D差异不排名。
+不把封顶50分作为目标或主要成果，评测器和原始封顶分不改。成本分析展示逐例`Total_Score`/配对官方Naive倍率及D倍率，各给mean/P50/P90/worst、样本数、完整逐例表和家族分组；当前主评分/排名另按每成员dataset sum的等权平均。mean明确为逐例倍率等权算术平均；成本和D的总和之比另列，不能混称平均。P50用普通中位数，P90用最近秩，样本数小的组说明限制。0/0按1、正值/0按Infinity并保留。官方数据数量和分布未知，本地平均或家族分组不能预测官方成绩。跨轮的微小D差异不排名。
 
 当前优先扩充独立非神经网络专家，暂不继续NN/树训练。新专家启动CPU测量前须完成完整源码独立审查并修复问题；使用固定0.5快照、发现全部实际非空eval，保持原官方框架和Naive基线。R60/R61历史数据范围见[实际倍率与家族表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/reports/precontest_20261029/comparison_tables.md)；后续轮次另按实测证据发布。
 
@@ -195,3 +195,9 @@ R63已完成固定0.5全部40例一次配对评测，含80次正式运行；36�
 最新MXV1增量按固定recipe先冻结再生成，8/8加到原80对，cyanneko eval0.6.0/48；另一个非空成员liunianwww0.1.0/528，当前总576eval、约87.49MB/4,384,765操作。自动发现全部实际成员；如全量超单窗预算，分有界批次记录实际完成/未完成，不能筛成员而称完整。0.6新集合尚无完整成绩，旧R63只绑定其冻结0.5/40集合。新热点反转train压力1.0为容量无压力对照，不改样本。
 
 [负结果归档](EXPERIMENT_STATUS_20261029.md)和[Ghost64接口差异](GHOST64_INTERFACE_REVIEW_20261029.md)分别处理状态分类与未来适配。本轮只有数据生成/审计和静态归档，没有训练、编译或solver；未执行的复现入口不能写作实测通过。
+
+## 当前最终评分与只读重算
+
+`score_dataset(m)=mean_repeat(sum_case(original single_score))`，集内sum不施加50总封顶；`score_final=mean_nonempty_members(score_dataset(m))`。当前cyanneko0.6/48与liunianwww0.1/528的成员系数各1/2，空成员列出且不占权重。每集内部仍累加原贡献，不除以各自案例数。单例均分/全576等权均分仅辅助、不用于主排名；真实成本、D、坏例和家族稳定性继续完整展示。原normalize的逐例边界和封顶raw保留，新增只读摘要不调用候选/基线，见[评分定义](../evaluation/MEMBER_SCORING.md)。
+
+全量数据/重复不齐或某非空成员失败时不计算有效完整主排名，不能丢失败成员再平均。显式子集标partial。既有solver记录只重算数学摘要，不为改汇总重跑。

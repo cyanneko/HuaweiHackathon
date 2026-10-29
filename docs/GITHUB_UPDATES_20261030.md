@@ -51,6 +51,14 @@ main与source/cyanneko相对矩阵冻结提交新增成员等权摘要工具、�
 
 本仓主汇总为[逐成员未封顶sum，再对非空成员等权平均](../evaluation/MEMBER_SCORING.md)：`mean_member(mean_repeat(sum_case(original single_score)))`。原评测器含50总封顶的raw分另行保留。
 
-Vanius0525的[SCORING_POLICY.md](https://github.com/cyanneko/HuaweiHackathon/blob/9e39e51eab04a41a9e46948771a9d43f811d4770/src/Vanius0525/level1/SCORING_POLICY.md)则在分层内按相同操作流去重，成员内部按normal80%+corner20%均分，三成员等权后乘5；其结果还复用了不同重复设置的旧测量。这是作者内部诊断分，不是上述dataset sum，也不是一次统一785例计时。liunianwww的现成报告使用旧568例。两份现成报告都不能直接与统一矩阵主分横排；须核对相同数据/源码/基线和测量设置，再按一致公式汇总。
+Vanius0525在首次核对提交9e39e51的[SCORING_POLICY.md](https://github.com/cyanneko/HuaweiHackathon/blob/9e39e51eab04a41a9e46948771a9d43f811d4770/src/Vanius0525/level1/SCORING_POLICY.md)中，在分层内按相同操作流去重，成员内部按normal80%+corner20%均分，三成员等权后乘5；其结果还复用了不同重复设置的旧测量。这是作者当时的内部诊断分，不是上述dataset sum，也不是一次统一785例计时。liunianwww的现成报告使用旧568例。两份现成报告都不能直接与统一矩阵主分横排；须核对相同数据/源码/基线和测量设置，再按一致公式汇总。
+
+## 首次发布后的源码分支补充
+
+同日发布总览后再次读取远端，Vanius0525已通过[856549e](https://github.com/cyanneko/HuaweiHackathon/commit/856549e)前进到[9aa7cac85dbebdca018a89dde373005791b654e9](https://github.com/cyanneko/HuaweiHackathon/commit/9aa7cac85dbebdca018a89dde373005791b654e9)。相对9e39e51只增加或修改8个交接/评分说明、JSON摘要与Python工具文件，没有C++源码变化。上表保留首次核对的固定提交，不将本次补充冒充矩阵实测。
+
+作者新的[评分说明](https://github.com/cyanneko/HuaweiHackathon/blob/9aa7cac85dbebdca018a89dde373005791b654e9/src/Vanius0525/level1/SCORING_POLICY.md)改为每成员内逐题均分，再对三成员等权平均；旧80/20、去重权重与50分换算仅作历史。[CURRENT_SCORES.json](https://github.com/cyanneko/HuaweiHackathon/blob/9aa7cac85dbebdca018a89dde373005791b654e9/src/Vanius0525/level1/CURRENT_SCORES.json)自报纯算法3.134088、AI3.211106，继续复用不同批次、不同重复设置的原测量。该成员内均分仍不同于本仓当前的成员dataset未封顶sum，本次没有执行其重算脚本，也不据成员文档改变统一矩阵口径。
+
+作者[交接文档](https://github.com/cyanneko/HuaweiHackathon/blob/9aa7cac85dbebdca018a89dde373005791b654e9/src/Vanius0525/level1/SESSION_HANDOFF_20261030.md)声明其周期性研究已经停止且不自动恢复。这里只记录对方发布的状态，不独立认证其运行进程，也不将该文档作为启动或停止其他成员工作的指令。
 
 本页及随后的总览修订只更新说明，不改变输入、版本号、评分器或矩阵冻结提交，不新增性能结论。

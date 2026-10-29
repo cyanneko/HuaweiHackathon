@@ -115,11 +115,11 @@ python evaluation/evaluate.py --datasets-root ../HuaweiHackathon-datasets/datase
 
 默认自动发现 `datasets/` 下所有成员的非空 `eval/`，包括后来加入的成员。成绩 JSON 与终端摘要包含本次实际参与成员的 `VERSION`、SHA-256 和这些数据合并后的 `suite_id`，并列出被跳过的空目录。显式 `--members` 运行会标为 `partial=true`。比较成绩时应核对 `suite_id` 及评测脚本版本，不能只看人工版本号。
 
-有当前协议的官方 Naive 基线时，先对每个测试集独立计算每案例分数、每重复求和封顶 50、再取重复均值；最终成绩为所有参与测试集分数的**等权算术平均**，与案例数无关。报告保留逐例、逐集及最终平均分。没有基线时归一化分显示 `unavailable`；原始成本另行记录，不作为最终平均分。
+当前主评分先把每个成员数据集的原逐例贡献相加（不施加总分50封顶），重复时先对该集每次sum取均值，最后对所有非空成员的dataset score等权平均：`score_final = mean_member(mean_repeat(sum_case(single_score)))`。当前固定两成员系数各50%。每集内部保留逐例sum；单例均分和全576例均分只作辅助、不用于主排名。原评分器含总分封顶的raw值并列保留，不改原逐例函数或代码；[详细定义与只读摘要工具](evaluation/MEMBER_SCORING.md)可直接重算已有报告。
 
 目前默认评测实际两个非空成员：cyanneko `0.6.0` 的48例与liunianwww `0.1.0` 的528例；空member2/member3会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
 
-当前报告/筛选主要比较实际`Total_Score`相对配对Naive的逐例倍率mean/P50/P90/worst、D和元数据家族分组；注明平均定义、样本量及完整逐例表。原始封顶归一化分保留，不作为目标或主要成果。官方数据数量/分布未知，不据本地样本预测官方成绩。见[R60/R61实际倍率与家族表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/reports/precontest_20261029/comparison_tables.md)。
+当前最终主排名按成员dataset未封顶sum的等权平均；实际`Total_Score`/Naive倍率mean/P50/P90/worst、D和家族分组同时展示，用于解释成本、尾部和维护开销。原始封顶归一化分保留，不作为目标或主要成果。官方数据数量/分布未知，不据本地样本预测官方成绩。见[R60/R61实际倍率与家族表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/reports/precontest_20261029/comparison_tables.md)。
 
 最新非神经网络进展与旧0.4的R62结果见[进展报告](docs/NON_NEURAL_PROGRESS_20261029.md)，论文原始来源、工程假设和适用限制见[文献路线](docs/NON_NEURAL_PAPERS_20261029.md)；新候选仅准备时不声明已实测。
 

@@ -1,13 +1,13 @@
-# cyanneko · eval0.5.0，train/eval各40
+# cyanneko · eval0.6.0，train/eval各48
 
-已发布数据共80txt＋80原meta：R48 8/8、R54 16/16、R58 8/8、R61 8/8。旧64对逐字保留，新16对也保留原生成字节。输入共16,928,341字节，meta共2,782,588字节。
+共96输入＋96原meta；原80对逐字保留，MXV1新增8训练＋8评测，配方固定后生成，无结果筛选或换seed。新增16对共21,279,105字节，首次生成/写入/严格审计5.625秒，第二次5.313秒，32个输入/meta文件逐字复现。Root独立核对16例共1,179,648 PROBE。
 
-R61 Root recipe在训练前冻结；8原留出在模型freeze后开放作本轮检验，已成为观察过的开发数据，后续用于调参时必须按dev处理。它们是已知基础模式的新组合/参数，不能称官方盲测或全新家族。生成时meta里的split/use保留来源快照；当前映射为train8和eval8，详见[usage记录](provenance/usage_0.5.0.json)。
+[manifest](manifest.json)绑定个人指纹`b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50`；当前固定集合另有liunianwww0.1.0/528eval，共576eval，成员版本/指纹和suite见[集合快照](provenance/collection_0.6_snapshot.json)。空member2/member3跳过。后续仍自动发现所有实际非空成员，不能把48当团队总例数。
 
-[manifest](manifest.json)记录80例原字节SHA、来源和个人eval指纹`e0e014b8ceb20050a8249cf7f30863642de262870777f435142feaba7afba77d`。只有cyanneko非空时suite_id为`baaf5b24e8a9697bc6cacb7e4f47c1e6d53b80e5f177fea0479ec06816702c63`；空成员跳过，不等待三人到齐，新增非空成员需重新发现并记录实际版本。
+八组覆盖热点/冷流混合、大小/算子速率异构、跨64的全局重用距离、热点相位反转、大小热度反转、next诱饵、恰好M和多一整分区的活跃集、全驻留。train/eval使用不同组合/参数/种子，但共享已知基础家族；不是未知官方分布或盲测保证。最长eval262144 PROBE。
 
-审核覆盖由原64不变字节的0.4实际记录与新增16的公共CLI/Root独立审核组成，见[0.5审核](provenance/public_audit_0.5.0.json)；没有冒称本次重新执行全80 CLI。新16三种流SHA互异，且与原64无重复。[生成器](../../generators/r61_mix/README.md)只复现新增8/8；不生成旧64或VERSION。
+限制：mxv1_03_hotset_phase_reverse_train总build压力恰1.0，可全部驻留，应和两个fully_resident案例一起作为无压力对照；其eval压力1.3125。保留已冻结输入，不删除或改样本。冷频率按冷热事件各自累计ordinal生成，跨相位不重置，hot_stream全部对象确实被访问。
 
-**数据初次发布时0.5.0完整40eval评分尚未执行；R63现已另行完成一次完整配对测量。** R60/R61公共成绩绑定冻结0.4.0的32eval；R61的新8例是独立冻结模型检验，不能将它和旧32测量拼成0.5完整重评或迁移cap50。新版本需按全部实际非空集合重新评分，官方Naive基线保持不变。
+[生成器](../../generators/mixed_extremes_v1/README.md)、[实际审计](provenance/mxv1_generation_validation.json)、[Root复核](provenance/mxv1_root_review.json)与[用途/限制](provenance/mxv1_usage.json)分别记录。新16与旧80、liunianwww1128例的raw/操作流/modulo-P语义流均无碰撞；其他成员文件不改。
 
-当前R63完整40例、17家族、D及开发消融见[进展报告](../../docs/NON_NEURAL_PROGRESS_20261029.md)。80次正式运行与36次开发运行分开；它只是一轮本地合成开发评测，不能预测未知官方分布或证明普遍改进。本次只更新说明，输入、meta、VERSION与数据manifest保持不变。
+0.6全部实际集合尚无完整成绩。R63仅绑定旧冻结0.5/cyanneko40例，不能迁移到本版本或新成员集合；[历史结果与负结果档案](../../docs/EXPERIMENT_STATUS_20261029.md)保留原条件。数据合法、可复现不代表方法有效。

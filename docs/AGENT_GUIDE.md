@@ -94,7 +94,7 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 
 当前公共数据为 **0.5.0、train/eval各40、80txt＋80meta**。R48/R54/R58旧64对不改，新R61 8/8按Root recipe971ceca冻结生成；原留出在模型freeze后开放，现属已观察开发数据，不能称官方盲测。[新增生成器](../generators/r61_mix/README.md)和[数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/manifest.json)记录来源。
 
-[R60/R61报告](PRECONTEST_RESULTS_20261029.md)覆盖冻结0.4全32例与独立8例，不是0.5全40重评；新版本仍需自动发现并完整评测全部实际非空成员集合，官方Naive基线不变。
+[R60/R61报告](PRECONTEST_RESULTS_20261029.md)覆盖冻结0.4全32例与独立8例，不是0.5全40重评；R63已另行完整评测固定0.5全部40例，见[当前进展](NON_NEURAL_PROGRESS_20261029.md)；仍自动发现全部实际非空成员集合，官方Naive基线不变。
 
 R54 六种 Probe 模式按 [生成器源码](../generators/r54/generate.py)实现：
 
@@ -187,3 +187,7 @@ schema 3的评分顺序：
 不把封顶50分作为目标或主要成果，评测器和原始封顶分不改。主要展示逐例`Total_Score`/其配对官方Naive的倍率，以及D倍率，各给mean/P50/P90/worst、样本数和完整逐例表，并按元数据家族分组检查。mean明确为逐例倍率等权算术平均；成本和D的总和之比另列，不能混称平均。P50用普通中位数，P90用最近秩，样本数小的组说明限制。0/0按1、正值/0按Infinity并保留。官方数据数量和分布未知，本地平均或家族分组不能预测官方成绩。跨轮的微小D差异不排名。
 
 当前优先扩充独立非神经网络专家，暂不继续NN/树训练。新专家启动CPU测量前须完成完整源码独立审查并修复问题；使用固定0.5快照、发现全部实际非空eval，保持原官方框架和Naive基线。R60/R61历史数据范围见[实际倍率与家族表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/reports/precontest_20261029/comparison_tables.md)；后续轮次另按实测证据发布。
+
+R63已完成固定0.5全部40例一次配对评测，含80次正式运行；36次开发运行另记。实验源码快照未接SDK、无新专家ID、不改默认，结果和限制见[当前进展](NON_NEURAL_PROGRESS_20261029.md)。本轮以发布收口，不据文档中的历史候选计划自动启动新实验。
+
+不强调总分50封顶不意味着删掉原逐例0至10分函数。报告另给`mean(max(0,min(10,10*(1-C/Cnaive))))`、未施加总封顶的sum与n；它只作本地规则诊断，不预测未知官方分，不能跨不同n/分布比较总和或忽视逐例零截断丢失的退化幅度。

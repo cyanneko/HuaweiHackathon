@@ -75,3 +75,5 @@ python stress.py --n 5000000 --b 1 10000 --scheduler pure=MySpillScheduler.cpp -
 版本与优化过程见[OPTIMIZATION_HISTORY.md](OPTIMIZATION_HISTORY.md)、[VERSION_LEDGER.json](VERSION_LEDGER.json)。第二轮新增568个团队样例的结果见[round2/RESULTS.json](round2/RESULTS.json)；较大团队集上纯算法均分略高于AI，尚无新的候选晋升。
 
 后续候选按[三人等权内部指标](SCORING_POLICY.md)选型，结果见[BALANCED_RESULTS.json](BALANCED_RESULTS.json)。该指标不是官方分数。第三阶段外推反例与CPU结果见[round3/RESULTS.json](round3/RESULTS.json)。
+
+当前阶段已收尾，周期检查已按用户要求停止。交接入口：[SESSION_HANDOFF_20261030.md](SESSION_HANDOFF_20261030.md)；最新三人分别均分与等权平均：[CURRENT_SCORES.json](CURRENT_SCORES.json)。

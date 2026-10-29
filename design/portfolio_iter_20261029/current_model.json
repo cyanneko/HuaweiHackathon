@@ -119,7 +119,7 @@
     },
     "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee"
   },
-  "label_caveat": "T/S-weighted finite-window cost proxy only; complete training SDK fitness and separate eval are still required.",
+  "label_caveat": "Tree nodes and eight expert classes are copied unchanged from the parent; inherited training diagnostics describe the parent only. This new common periodic action changes trajectories and has not been compiled or evaluated. No admission candidate fitness is read to generate these configurations.",
   "sampling": {
     "rows": 20854,
     "represented_inputs": 783,
@@ -156,7 +156,7 @@
   "forced_cover": true,
   "provider_note": "Training and deployment both use the common forced-cover certificate layer.",
   "base_sha256": "b4268045e24a8cb21948af860e090259188f75735a4ad3f32a18217fdfbc6c2d",
-  "candidate_generation": "single_leaf_cost_sensitive_refinement",
+  "candidate_generation": "periodic_admission_certificate_without_fitness",
   "tree": [
     {
       "id": 0,
@@ -453,5 +453,30 @@
     "provider_unchanged": true,
     "added_nodes": 2,
     "added_leaves": 1
+  },
+  "periodic_admission_shift": 2,
+  "periodic_admission_experiment": {
+    "parent": "tree_refine_r6_gate60_2.json",
+    "parent_sha256": "31d047e7c5709311ee6e17342c8dbc37a8f023527f259122105e0bf1a1c288ae",
+    "parent_source_sha256": "86f603eeab1338f59c292ee6000f26fc3d4f042a2d1384d8c591b372557c88fd",
+    "tag": "r8_92",
+    "patch_module": "admission_patch.py",
+    "proof": "admission_proof.txt",
+    "official_content_sha256": "61b537b9ed5aa691f8a2bf8b628c3b7fdb45a09dd9ef4182733f1d209c7097db",
+    "shared_layer": true,
+    "expert_classes_unchanged": 8,
+    "classifier_tree_unchanged": true,
+    "local_certificate": "At periodic next-INSERT overflow, spill the positive resident target b only if s+t<=M, at least one other positive resident partition exists, and every such partition has size >= (s+t)*2^shift. Then total writes through that known INSERT are s+t, at most 2^-shift of the immediate write lower bound for keeping b resident.",
+    "shift": 2,
+    "conservatism_factor": 4,
+    "accepted_action": "one SPILL of the positive next-INSERT target",
+    "choice_timing": "Run the existing choose and requester/demand assignment before the certificate, consuming forceNext at this event; on acceptance set spilled, remember(cause=-1), increment advanced_builds, and skip plan.",
+    "callback_cost": "O(Q) worst-case certificate scan, early rejection at the first smaller eligible partition; accepted path skips plan. Full callback D and future IO/misses must be measured, not inferred from the certificate.",
+    "limitations": "Only one known next INSERT is used. Later growth, future probes, append writes and callback D can reverse the full-Score benefit. This is a common action layer, not a ninth expert or a new class.",
+    "next_validation_only": [
+      "Toy cases: zero target must reject; equality accepts; one smaller victim rejects; no eligible victim rejects.",
+      "M=64MiB, A=63MiB, B=1MiB, grow B to 10MiB, periodic interval 1: verify capacity, append bytes and target history.",
+      "840 independent train cases before candidate selection, then 785 member cases with unchanged official timers."
+    ]
   }
 }

@@ -9,18 +9,24 @@
 policy还支持rule、neural、baseline、scan-fused、experimental、cross-feedback。
 每次只接入一个同名MySpillScheduler实现，输出在design/build，禁止混编多个。
 
-最新785例×3：平均Score 67,004,205,540.08 us，比Naive下降29.2936%。
+最新785例×3：平均Score 67,004,203,128.74 us，比Naive下降29.2936%。
 三成员209/48/528，版本及完整分项见CURRENT_SOLUTION.txt。
 目前按原始平均Score选推荐。未封顶成员sum与真实成本同时展示，不宣称各集都优于所有版本。
 
 中文PDF：topic20_portfolio_iteration_report.pdf（实现、创新、文献、局部证明、实测与限制）。
 当前冻结状态：portfolio_iter_20261029/published_checkpoint.json。
 训练、Score搜索与解包复现：portfolio_iter_20261029/README.txt。
-单文件部署源码包的引用已归一为相对路径；重编译三程序与计时二进制SHA逐字节相同。
+当前测量接入方式：three independently compiled programs; argv contains input path only；源码、二进制身份及重复数以checkpoint绑定记录为准。
 离线下界工具：offline_bounds_20261030；读取未来/p/B仅为评测，绝不能接入在线调度。
 文件列表与SHA256：project_manifest.json。
 
 仍保留旧568例、NN和规则历史报告，各自日期/集合/重复数不迁移为本轮成绩。
 原始截图、批量输入、工作树、二进制和临时预览不提交。
-准备中的collect_full_horizon、categorical_transition、admission工具尚未产生本轮结果；
-当前交付模型不包含这些未验证方案。
+完整后缀标签已采集，3854个状态、覆盖783份train；尚未验证拟合及正式Score。
+categorical_transition仍为待生成/拟合验证方案；上述两项尚未作为当前模型的新训练结果。
+周期admission公共层已实现并启用，factor=4，保持8专家。
+admission：4档候选已完成840份train评分；785例×3次已测mode 98/99/108；109无本批成员结果。
+admission研究配对轮相对mode 92的平均Score：98上升0.065618%，99上升0.007852%，108下降0.000003947%；微小收益不等于隐藏测试保证。
+admission为公共提前处置层，非第9类专家；局部证书截止下条INSERT写入结束、其后periodic动作之前。
+后续增长、Probe与回调D可能改变收益，不宣称完整Score的理论保证。
+训练labeltimer仅为离线成本代理，最终性能以正式框架回调计时与完整Score为准。

@@ -10,7 +10,7 @@ def main():
     assert all(sha(D/'build'/name)==report['binary_sha256_by_mode'][mode] for mode,name in modes.items())
     paths=[D/'build'/('engine_'+name+'.cpp') for name in modes.values()]+[D/'MySpillScheduler_tree.cpp',D/'MySpillScheduler_neural.cpp']
     assert all(b'/mnt/' not in p.read_bytes() and b':/Users/' not in p.read_bytes() for p in paths)
-    meta=dict(tag=a.tag,source_only=True,normalized_includes='Only generated include paths changed from absolute to relative; recompiled binaries are byte-identical to timed binaries.',
+    meta=dict(tag=a.tag,source_only=True,normalized_includes='Generated sources use relative include paths; current compiled binaries match the timed binary SHA values.',
         measured_binary_sha256_by_mode=report['binary_sha256_by_mode'],binary_identity_verified=True,
         historical_build_sources=report['build_sources'],
         files={p.relative_to(PROJECT).as_posix():dict(bytes=p.stat().st_size,sha256=sha(p)) for p in paths},

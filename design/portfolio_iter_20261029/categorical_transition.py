@@ -12,11 +12,66 @@ from pathlib import Path
 import numpy as np
 from leaf_refine import strict_train_rows
 from train_tree_v2 import CHEAP_V2, CostTreeV2, inventory, load_labels
-from search_candidates import (validate_tree, route_samples, compact_metadata,
+from search_candidates import (route_samples, compact_metadata,
                                portable, hash_file, STALE_DIAGNOSTICS)
 
 ROOT = Path(__file__).resolve().parent
 TARGET_NODE = 22
+
+
+def validate_numeric_parent(tree):
+    """Validate/reroute a numeric parent without the historical depth-4 cap.
+
+    This returns a separate normalized routing view.  Candidate output still
+    copies the untouched input tree and replaces only TARGET_NODE's test.
+    """
+    if not isinstance(tree,list) or not tree:
+        raise ValueError('Parent must contain a nonempty numeric tree list')
+    normalized=[]
+    for i,node in enumerate(tree):
+        if not isinstance(node,dict):raise ValueError('Tree node must be an object')
+        node_id=node.get('id',i)
+        if type(node_id) is not int or node_id!=i:
+            raise ValueError('Tree node id must be its integer list index')
+        out=dict(id=i)
+        if 'expert' in node:
+            if type(node['expert']) is not int or not 0<=node['expert']<8:
+                raise ValueError('Leaf expert must be an integer in 0..7')
+            if any(key in node for key in ['feature','threshold','left','right','comparison','category_mask']):
+                raise ValueError('Leaf cannot also contain a split test')
+            out['expert']=node['expert']
+        else:
+            feature=node.get('feature')
+            if type(feature) is not int or feature not in CHEAP_V2:
+                raise ValueError('Parent numeric split must use a cheap integer feature')
+            if node.get('comparison','<=')!='<=' or 'category_mask' in node:
+                raise ValueError('Parent must contain only numeric <= tests')
+            threshold=node.get('threshold')
+            if type(threshold) not in (int,float):
+                raise ValueError('Parent threshold must be numeric, not bool/string')
+            value=float(np.float32(threshold))
+            if not math.isfinite(value):raise ValueError('Nonfinite float32 threshold')
+            left,right=node.get('left'),node.get('right')
+            if any(type(child) is not int or not 0<=child<len(tree) for child in [left,right]):
+                raise ValueError('Child ids must be in-range integer list indices')
+            out.update(feature=feature,threshold=value,comparison='<=',left=left,right=right)
+        normalized.append(out)
+
+    seen=set();used=set();leaves=0;maximum=0;pending=[(0,0)]
+    while pending:
+        i,depth=pending.pop()
+        if i in seen:raise ValueError('Tree contains a cycle or multiple parents')
+        seen.add(i)
+        if 'depth' in tree[i] and (type(tree[i]['depth']) is not int or tree[i]['depth']!=depth):
+            raise ValueError('Stored node depth differs from the parent structure')
+        normalized[i]['depth']=depth;maximum=max(maximum,depth)
+        if 'expert' in normalized[i]:leaves+=1
+        else:
+            node=normalized[i];used.add(node['feature'])
+            pending.extend([(node['left'],depth+1),(node['right'],depth+1)])
+    if len(seen)!=len(tree):raise ValueError('Parent tree has unreachable nodes')
+    return normalized,dict(node_count=len(tree),leaf_count=leaves,
+        max_depth=maximum,used_features=sorted(used))
 
 
 def previous_ids(x):
@@ -45,9 +100,9 @@ def subtree_actions(tree, x, rows, start):
 
 
 def enumerate_objective(base, data, ids, cats, left_actions, right_actions,
-                        parent_mask, objective, args):
+                        parent_mask, objective, args, *, parent_max_depth):
     # One full-data cap/scale per objective, shared by all mask alternatives.
-    model = CostTreeV2(data,objective,CHEAP_V2,4,args.min_leaf,
+    model = CostTreeV2(data,objective,CHEAP_V2,parent_max_depth,args.min_leaf,
                        args.min_groups,args.absolute_cap_quantile)
     weighted = model.weighted_losses
     left_values = weighted[ids,left_actions]
@@ -118,7 +173,8 @@ def enumerate_objective(base, data, ids, cats, left_actions, right_actions,
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--base',type=Path,default=ROOT/'tree_search_g1_1.json')
+    ap.add_argument('--base',type=Path,default=ROOT/'tree_search_g1_1.json',
+        help='Parent JSON path; a bare filename is resolved in this script directory.')
     ap.add_argument('--input',type=Path,required=True)
     ap.add_argument('--tag',required=True)
     ap.add_argument('--datasets-root',type=Path,default=ROOT.parent/'member_eval_20261030/worktree/datasets')
@@ -134,12 +190,19 @@ def main():
     if not 0<args.absolute_cap_quantile<=1: ap.error('Invalid absolute cap quantile')
     objectives = list(dict.fromkeys(args.objectives.split(',')))
     if not objectives or not set(objectives)<={'absolute','relative'}: ap.error('Unknown objective')
-    base_path = args.base.resolve(); base = json.loads(base_path.read_text('utf8'))
-    normalized,shape = validate_tree(base['tree'])
-    if shape['max_depth']!=4 or shape['node_count']!=29 or shape['leaf_count']!=15:
-        raise ValueError('Expected the fixed 29-node/15-leaf/depth-4 parent')
+    base_path = args.base.expanduser()
+    if not base_path.is_absolute() and base_path.parent==Path('.'):
+        base_path = ROOT/base_path
+    base_path = base_path.resolve(); base = json.loads(base_path.read_text('utf8'))
+    normalized,shape = validate_numeric_parent(base['tree'])
+    if TARGET_NODE>=shape['node_count']:
+        raise ValueError('Parent has no node22')
+    original_target = base['tree'][TARGET_NODE]
     target = normalized[TARGET_NODE]
-    if target.get('feature')!=30 or target.get('comparison','<=')!='<=': raise ValueError('Parent node22 is not ordinal previous-expert split')
+    if (target.get('feature')!=30 or target.get('comparison','<=')!='<=' or
+            'expert' in original_target or 'category_mask' in original_target or
+            type(original_target.get('threshold')) not in (int,float)):
+        raise ValueError('Parent node22 is not a numeric <= previous-expert split')
     parent_mask = sum(1<<c for c in range(8) if np.float32(c/7.0)<=np.float32(target['threshold']))
     strict_train_rows(args.input)
     aliases,checked = inventory(args.datasets_root.resolve(),args.expected_train_inputs)
@@ -152,7 +215,8 @@ def main():
     ranked,searches = {},{}
     for objective in objectives:
         ranked[objective],searches[objective] = enumerate_objective(
-            base,data,ids,categories[ids],left_actions,right_actions,parent_mask,objective,args)
+            base,data,ids,categories[ids],left_actions,right_actions,parent_mask,objective,args,
+            parent_max_depth=shape['max_depth'])
     selected,seen,positions = [],set(),{o:0 for o in objectives}
     while len(selected)<args.count:
         progressed = False
@@ -174,12 +238,13 @@ def main():
         nodes[TARGET_NODE].pop('threshold',None)
         nodes[TARGET_NODE].update(feature=30,category_mask=int(proposal['category_mask']),comparison='in_mask')
         if any(nodes[j]!=base['tree'][j] for j in range(len(nodes)) if j!=TARGET_NODE): raise ValueError('Non-target node changed')
-        obj.update(tree=nodes,**shape,configured_max_depth=4,base_sha256=base_sha,
+        obj.update(tree=nodes,**shape,configured_max_depth=shape['max_depth'],base_sha256=base_sha,
             objective=proposal['objective_spec'],sampling=compact_metadata(sampling),
             candidate_generation='categorical_previous_expert_transition',candidate_has_measured_fitness=False,
             validation_role='No eval or validation labels or performance used.',
             label_caveat='Exact mask search only optimizes a constrained local frozen-state proxy; it does not establish complete SDK Score improvement.')
         obj['category_transition'] = dict(node=TARGET_NODE,parent_path=portable(base_path),parent_sha256=base_sha,
+            parent_shape=copy.deepcopy(shape),
             training_artifact=artifact,parent_mask=parent_mask,proposal=proposal,
             enumeration=searches[proposal['objective']],training_states_at_node=len(ids),
             input_inventory_sha256=checked['inventory_sha256'],train_input_count=checked['train_inputs'],
@@ -194,12 +259,13 @@ def main():
         entries.append(dict(path=name,sha256=hashlib.sha256(content).hexdigest(),
             category_mask=proposal['category_mask'],objective=proposal['objective'],
             proxy_gain=proposal['weighted_proxy_gain'],**shape))
-    manifest = dict(schema_version=1,parent_sha256=base_sha,training_artifact=artifact,
+    manifest = dict(schema_version=1,parent_sha256=base_sha,parent_shape=shape,training_artifact=artifact,
         output_count=len(selected),parent_mask=parent_mask,enumeration=searches,candidates=entries,
         fitness_computed=False,builder_support_required='in_mask at feature30 using selected_expert_ bit test')
     outputs.append((ROOT/f'tree_category_{args.tag}_manifest.json',(json.dumps(manifest,ensure_ascii=False,indent=2,allow_nan=False)+'\n').encode('utf8')))
     if any(path.exists() for path,content in outputs): raise FileExistsError('Category tag already exists; choose a new tag')
-    for path,content in outputs: path.write_bytes(content)
+    for path,content in outputs:
+        with path.open('xb') as stream: stream.write(content)
     print(json.dumps(dict(tag=args.tag,candidates=len(selected),manifest=f'tree_category_{args.tag}_manifest.json')),flush=True)
 
 

@@ -1,8 +1,9 @@
 """Prepare four opt-in periodic admission candidates; never compile or time.
 
-Run explicitly after the current timing window.  build_candidates.py does not
-yet consume periodic_admission_shift: its owner must opt in to admission_patch.
-Existing candidate files are always refused, even when their bytes match.
+Run explicitly after the current timing window.  build_candidates.py consumes
+periodic_admission_shift by key presence, so shift=0 is an active configuration.
+The four candidate names and their manifest are scoped by --tag.  Existing
+candidate or manifest files are always refused, even when their bytes match.
 """
 
 from copy import deepcopy
@@ -17,12 +18,23 @@ OFFICIAL_CONTENT_SHA256 = "61b537b9ed5aa691f8a2bf8b628c3b7fdb45a09dd9ef4182733f1
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--base',type=Path,default=ROOT/'tree_search_g1_1.json')
-    parser.add_argument('--tag',default='')
-    args=parser.parse_args()
-    if args.tag and not all(c.isalnum() or c=='_' for c in args.tag):raise ValueError('Invalid candidate tag')
-    parent_path = args.base.resolve()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        '--base', type=Path, default=ROOT / 'tree_search_g1_1.json',
+        help='Parent JSON path; a bare filename is resolved in this script directory.',
+    )
+    parser.add_argument(
+        '--tag', default='',
+        help='Optional ASCII letters/digits/underscore tag for all four names and their manifest.',
+    )
+    args = parser.parse_args()
+    allowed_tag = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'
+    if args.tag and not all(c in allowed_tag for c in args.tag):
+        raise ValueError('Invalid candidate tag: use ASCII letters, digits or underscore')
+    base = args.base.expanduser()
+    if not base.is_absolute() and base.parent == Path('.'):
+        base = ROOT / base
+    parent_path = base.resolve()
     parent_bytes = parent_path.read_bytes()
     parent = json.loads(parent_bytes.decode("utf8"))
     if parent.get("classes") != 8 or parent.get("kind") != "cost_sensitive_cart":
@@ -30,9 +42,20 @@ def main():
     if not parent.get("forced_cover") or "periodic_admission_shift" in parent:
         raise ValueError("expected the forced-cover parent without admission")
     parent_sha256 = hashlib.sha256(parent_bytes).hexdigest()
+    prefix = 'tree_admission_' + (args.tag + '_' if args.tag else '')
+    # The suffix is intentional: build_candidates.py excludes *_manifest.json
+    # from its tree_*.json candidate glob.
+    manifest_path = ROOT / (prefix + 'manifest.json')
+    if manifest_path.exists():
+        raise FileExistsError("refusing to overwrite " + str(manifest_path))
+    parent_source = parent_path.with_suffix('.cpp')
+    parent_source_sha256 = (
+        hashlib.sha256(parent_source.read_bytes()).hexdigest()
+        if parent_source.is_file() else None
+    )
     prepared = []
+    candidate_records = []
     for shift in range(4):
-        prefix='tree_admission_'+(args.tag+'_' if args.tag else '')
         target = ROOT / (prefix+"s%d.json" % shift)
         if target.exists():
             raise FileExistsError("refusing to overwrite " + str(target))
@@ -49,6 +72,8 @@ def main():
         obj["periodic_admission_experiment"] = {
             "parent": parent_path.name,
             "parent_sha256": parent_sha256,
+            "parent_source_sha256": parent_source_sha256,
+            "tag": args.tag,
             "patch_module": "admission_patch.py",
             "proof": "admission_proof.txt",
             "official_content_sha256": OFFICIAL_CONTENT_SHA256,
@@ -88,11 +113,53 @@ def main():
         }
         encoded = (json.dumps(obj, ensure_ascii=False, indent=2) + "\n").encode("utf8")
         prepared.append((target, encoded))
+        candidate_records.append({
+            "name": target.stem,
+            "path": target.name,
+            "sha256": hashlib.sha256(encoded).hexdigest(),
+            "periodic_admission_shift": shift,
+            "conservatism_factor": 1 << shift,
+        })
 
-    # Preflight all four names before writing any. Exclusive mode also protects
+    manifest = {
+        "schema_version": 1,
+        "kind": "periodic_admission_manifest",
+        "tag": args.tag,
+        "candidate_prefix": prefix,
+        "parent": parent_path.name,
+        "parent_sha256": parent_sha256,
+        "parent_source": parent_source.name if parent_source_sha256 is not None else None,
+        "parent_source_sha256": parent_source_sha256,
+        "official_content_sha256": OFFICIAL_CONTENT_SHA256,
+        "patch_module": "admission_patch.py",
+        "patch_sha256": hashlib.sha256((ROOT / 'admission_patch.py').read_bytes()).hexdigest(),
+        "generator": Path(__file__).name,
+        "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "proof": "admission_proof.txt",
+        "proof_sha256": hashlib.sha256((ROOT / 'admission_proof.txt').read_bytes()).hexdigest(),
+        "classes": 8,
+        "tree_unchanged": True,
+        "common_periodic_layer_changed": True,
+        "candidate_count": len(candidate_records),
+        "candidates": candidate_records,
+        "candidate_has_measured_fitness": False,
+        "compilation_or_evaluation_performed_by_generator": False,
+    }
+    encoded_manifest = (json.dumps(manifest, ensure_ascii=False, indent=2) + '\n').encode('utf8')
+    # The manifest is written last, after all four candidate files succeed.
+    prepared.append((manifest_path, encoded_manifest))
+
+    # Preflight all five names before writing any. Exclusive mode also protects
     # against a different process creating one between this check and the write.
+    for target, _ in prepared:
+        if target.exists():
+            raise FileExistsError("refusing to overwrite " + str(target))
     if hashlib.sha256(parent_path.read_bytes()).hexdigest() != parent_sha256:
         raise RuntimeError("parent changed during candidate preparation")
+    if parent_source_sha256 is not None and (
+            not parent_source.is_file() or
+            hashlib.sha256(parent_source.read_bytes()).hexdigest() != parent_source_sha256):
+        raise RuntimeError("parent source changed during candidate preparation")
     for target, encoded in prepared:
         with target.open("xb") as stream:
             stream.write(encoded)

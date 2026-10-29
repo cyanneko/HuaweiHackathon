@@ -111,6 +111,8 @@ def main():
     if text.count(HORIZON_LINES)!=1 or text.count(SAMPLE_EXPRESSION)!=1: raise ValueError('Teacher template differs; refusing ambiguous patches')
     text = text.replace(HORIZON_LINES,'        int end=int(input->rows.size());',1)
     text = text.replace(SAMPLE_EXPRESSION,f'kind==1?cap:{args.nonmiss_cap}',1)
+    if text.count('std::setprecision(10)')!=1: raise ValueError('Unexpected label precision marker')
+    text = text.replace('std::setprecision(10)','std::setprecision(17)',1)
     # Keep the runtime teacher subject to the six-state budget and current-tree
     # continuation even if someone later invokes the prepared binary manually.
     main_tail = ';std::string path;\n    while(std::getline(list,path))'
@@ -137,6 +139,8 @@ def main():
                            actual_per_file_max=args.cap+2*args.nonmiss_cap,hard_limit=6),
         weight='event_total/event_sampled per file and callback kind; totals refer to the full parent trajectory',
         cost='Remaining IO + true offline p times future misses + measured callback CPU, under one common continuation',
+        output_significant_digits=17,
+        label_timer_scope='Offline simulator callback proxy includes state snapshots; not the public-engine D. Forced first expert bypasses its classifier.',
         online_boundary='Only the offline teacher reads full future and true p; the frozen online source is unchanged.',
         caveats=['CPU labels contain measurement noise despite rotated order.',
                  'Visible features can alias states with different hidden parameters/future.',

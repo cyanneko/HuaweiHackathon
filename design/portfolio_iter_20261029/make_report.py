@@ -13,11 +13,61 @@ D=ROOT.parent
 OUT=D/'topic20_portfolio_iteration_report.pdf'
 def read(p):return json.loads(p.read_text(encoding='utf8'))
 
+def admission_evidence(result):
+    """Short historical comparisons; omit any metrics absent from the record."""
+    if not isinstance(result,dict):return []
+    lines=[];train=result.get('train',{});members=result.get('members',{})
+    trained=[k for k,r in train.get('candidates',{}).items() if r.get('status')=='complete']
+    measured=[k for k,r in members.get('candidates',{}).items() if r.get('status')=='complete']
+    missing=[k for k,r in members.get('candidates',{}).items() if r.get('status')=='unavailable']
+    if trained and train.get('cases'):
+        line=f'{len(trained)}档候选已完成{train["cases"]}份train评分'
+        if measured and members.get('cases') and members.get('repeats'):
+            line+=f'；{members.get("tag","成员回归轮")}为{members["cases"]}例×{members["repeats"]}次，已测mode '+ '/'.join(measured)
+        if missing:line+='；'+ '/'.join(missing)+'无本批成员结果'
+        lines.append(line+'。')
+    comparisons=[]
+    for mode in ['98','99','108']:
+        record=members.get('candidates',{}).get(mode,{})
+        metric=record.get('overall',{}).get('metrics',{}).get('Total_Score',{})
+        rate=metric.get('decrease_percent')
+        if record.get('status')!='complete' or not isinstance(rate,(int,float)):continue
+        comparisons.append(f'{mode}平均Score'+(f'上升{-rate:.6f}%' if rate<0 else f'下降{rate:.9f}%'))
+    if comparisons:lines.append('同批相对mode '+str(result.get('baseline_mode','父方案'))+'：'+'，'.join(comparisons)+'。')
+    overall=members.get('candidates',{}).get('108',{}).get('overall',{})
+    delta=overall.get('metrics',{}).get('Physical_Cost_Without_D',{}).get('delta_mean_candidate_minus_baseline')
+    outcomes=overall.get('physical_case_outcomes',{})
+    if isinstance(delta,(int,float)):
+        line='108剔D成本平均'+(f'减少{-delta:,.2f}' if delta<=0 else f'增加{delta:,.2f}')+' μs/例'
+        if all(k in outcomes for k in ['improved','regressed','tolerance']):
+            line+=f'，{outcomes["improved"]}例改善/{outcomes["regressed"]}例退化（{outcomes["tolerance"]} μs公差）'
+        lines.append(line+'；微小收益及CPU波动须与坏例共同披露。')
+    return lines
+
+def full_horizon_status(record):
+    if not isinstance(record,dict):return '完整后缀采集器已准备，尚未运行。'
+    status=record.get('status')
+    if status=='collected':
+        validation=record.get('validation',{});details=[]
+        if 'label_rows' in validation:details.append(f'{validation["label_rows"]}个状态')
+        if 'represented_training_inputs' in validation:details.append(f'覆盖{validation["represented_training_inputs"]}份train')
+        return '完整后缀标签已采集'+('，'+'、'.join(details) if details else '')+'；尚未验证拟合及正式Score。'
+    if status=='collecting':return '完整后缀标签正在采集，尚未验证拟合及正式Score。'
+    if status=='prepared':return '完整后缀教师已准备，尚未开始采集。'
+    if status=='failed':return '完整后缀采集未成功完成，不作为已验证训练结果。'
+    return '完整后缀采集状态见对应provenance；尚未验证拟合及正式Score。'
+
 def main():
     checkpoint=read(ROOT/'published_checkpoint.json')
     member=read(D/'member_eval_20261030'/checkpoint['member_report'])
     chosen=member['candidates'][str(checkpoint['mode'])]
     model=read(ROOT/checkpoint['model'])
+    admission_model='periodic_admission_shift' in model or 'admission_model' in model
+    admission_result=read(ROOT/'admission_result.json') if (ROOT/'admission_result.json').is_file() else None
+    admission_factor=(1<<model['periodic_admission_shift']) if type(model.get('periodic_admission_shift')) is int and 0<=model['periodic_admission_shift']<=3 else None
+    standalone='standalone' in checkpoint.get('sdk_report','').lower() or 'independently' in checkpoint.get('deployment','').lower()
+    full_path=ROOT/'members_full108_r1_provenance.json'
+    full_record=read(full_path) if full_path.is_file() else None
     old=read(ROOT/'progress.json')
     candidates=[]
     if os.environ.get('CHINESE_PDF_FONT'):candidates.append(Path(os.environ['CHINESE_PDF_FONT']))
@@ -49,7 +99,7 @@ def main():
     p('第20题 · 跨算子动态落盘调度','sub')
     p('8专家与微型决策树\u3000<br/>三成员数据集迭代报告','title')
     p('已完成测量的阶段记录 | 2026-10-30 | C++14 / CPU','small')
-    p('方案将策略选择建模为成本敏感分类：读取合法可见状态和自身历史，小树输出专家编号，只执行被选中的专家。训练与部署均已实现；所有下表Score包含公开执行器实际测得的回调耗时。')
+    p('方案将策略选择建模为成本敏感分类：读取合法状态和自身历史，小树输出专家编号。'+('公共证书可直接提前处置，其余执行所选专家。' if admission_model else '只执行被选中的专家。')+'训练与部署均已实现；下表Score包含公开执行器实测回调耗时。')
     h('当前本地最佳：'+escape(chosen['name']))
     v=chosen['all_case_summary']
     p(f'785例平均Score为 <b>{v["mean_score"]:,.2f} μs</b>，相对同批官方Naive下降 <b>{v["decrease_vs_naive_percent"]:.4f}%</b>。这是反复观察的开发/回归数据上的结果，尚无官方隐藏测试成绩，也不是全输入最优证明。')
@@ -59,9 +109,9 @@ def main():
     timing_rows=[['同批方法','平均完整决策时间 / μs每例','miss总数']]
     for key,label in [('0','原NN'),('2','官方Naive')]:
         r=raw['summary'][key];timing_rows.append([label,f'{r["mean_decision_us"]:,.2f}',f'{r["miss_count"]:,.0f}'])
-    timing_rows.append(['当前小树',f'{v["mean_decision_us"]:,.2f}',f'{v["miss_count"]:,.0f}'])
+    timing_rows.append(['当前方案',f'{v["mean_decision_us"]:,.2f}',f'{v["miss_count"]:,.0f}'])
     table(timing_rows,[118,242,147])
-    p('本表是三个独立程序按真实单文件接入复测。小树比NN产生更多miss及调度，总D更高；I/O收益覆盖这些代价后，总Score仍更低。不能把比较次数当作回调实测时间。','small')
+    p('计时接入方式：'+escape(checkpoint.get('deployment','见本轮记录'))+'。D包含状态获取、规划及所有实际回调；其高低以同批数值为准，不能从树深度推断，也不把比较次数当作回调时间。','small')
     h('两种指标分别保留')
     score=chosen['public_score_summary']['score_final']
     p(f'仓库主归一化汇总：先对每成员原逐例贡献求和、不做50分总封顶，再对3个成员等权平均，本轮为 <b>{score:.4f}</b>。原封顶50分汇总在三份集合上均已饱和为50，难以区分方案。主归一化分与raw平均Score是不同指标，后者越低越好。')
@@ -95,16 +145,21 @@ def main():
     p('这不表示整个回调O(1)：公开getSystemState复制、专家候选收集和规划仍可能O(Q)。真正收益必须由实际回调时间和完整Score检验。')
     h('贡献四：完整train Score闭环微调')
     p('用840份完整train轨迹的实际Score筛选局部变更。普通细分曾训练改善、eval退步；随后限制每次只改一个子叶，另一侧保留原专家，变化侧不超过父叶25%的训练事件质量。当前采用方案实际为10.18%；这不构成部署风险界。')
-    p('最终只在一个原热度密度叶子中，遇到极低读带宽时改用恢复代价密度，其余保留父动作。候选冻结后在785例复测，再按单文件接入重测。上述是本项目实现贡献，不主张首次见于文献。')
+    p('小树本体只在一个原热度密度叶子中，遇到极低读带宽时改用恢复代价密度，其余保留父动作。候选冻结后在785例复测；公共周期层见第7页。上述是本项目实现贡献，不主张首次见于文献。')
 
     page(4,'在线运行与训练边界')
-    table([['触发时机','实际行为'],['首次及后续PROBE miss','每次重新分类，再更新当前可观测反馈，执行所选专家并把当前目标LOAD放在最后。'],['INSERT内存溢出','每次重新分类，排除当前插入目标，跨算子落盘。'],['周期回调看到下一INSERT将溢出','提前分类与释放空间，减少之后的压力。'],['周期回调看到下一PROBE','不进行树分类；仅在空闲空间或强制集合条件下保守预载，并更新部分可见历史。'],['普通hit','无对应回调，不编造完整访问时间线。']],[143,364])
+    periodic_insert=('先分类；证书通过时提前落盘正大小目标，让下条INSERT磁盘追加；否则按所选专家跨算子腾空间。' if admission_model else '提前分类与释放空间，减少之后的压力。')
+    table([['触发时机','实际行为'],['首次及后续PROBE miss','每次重新分类，再更新当前可观测反馈，执行所选专家并把当前目标LOAD放在最后。'],['INSERT内存溢出','每次重新分类，排除当前插入目标，跨算子落盘。'],['周期回调看到下一INSERT将溢出',periodic_insert],['周期回调看到下一PROBE','不进行树分类；仅在空闲空间或强制集合条件下保守预载，并更新部分可见历史。'],['普通hit','无对应回调，不编造完整访问时间线。']],[143,364])
     h('next_op只是一条已知操作')
     p('只使用接口给出的next_op，做保守的目标保护、无需额外落盘的联合加载等。没有下一步之后的未来访问流，也看不到真实miss罚分p、总操作数N或周期B。若接口中的pair_fits历史特征有同分区重复计数，它仅为训练特征，容量判断始终由精确动作层完成。')
     h('离线标签与信息隔离')
-    p('教师复制同一状态，让8个专家分别执行首动作，再由共同续行策略推进。成本含ΔIO+p·Δmiss及测得的决策时间。默认窗口384步，BUILD可延伸到当前算子SWITCH之后128步、最多2048步。未来流和真实p仅用于离线评分，不进入在线特征。')
+    p('教师复制同一状态，让8个专家分别执行首动作，再由共同策略续行。成本含ΔIO+p·Δmiss及离线回调计时代理，后者不是正式引擎D。默认窗口384步，BUILD可延伸到SWITCH之后128步、最多2048步。未来流和真实p仅用于离线评分，不进入在线特征。')
     p('训练检查了输入字节、原始操作流和按key%P归一的操作流，避免同一流跨train/eval；标签实际只来自train。用于比较或反复查看的eval已是开发/回归数据，不能称为未见盲测。')
     h('时间与容量边界')
+    diagnosis_path=ROOT/(checkpoint['sdk_report'].replace('_summary.json','_diagnosis.json'))
+    if diagnosis_path.is_file():
+        dr=read(diagnosis_path)['candidates'][str(checkpoint['mode'])]['aggregate']
+        p(f'本批sum(D)/sum(Score)约{dr["global_decision_share_percent"]:.8f}%，即使把D全部消除，对总体原始Score的收益也受此比例限制；但有{dr["decision_dominant_ge_90_percent_cases"]}个正成本案例的D占比≥90%，逐例归一化仍对回调开销敏感。两种目标须分别衡量。')
     p('完整Score=IO时间+p·miss次数+实际决策时间。保留官方计时范围，包含状态获取；不把路由比较数当成实测速度。所有动作独立核对容量、插入目标排除、LOAD阶段、miss末动作及lazy特征预测一致性。')
 
     page(5,'迭代证据与复现')
@@ -145,18 +200,27 @@ def main():
         p(f'实现已通过6个手算边界与24个随机小Q的Fraction暴力DP核对，并扫描全部785例：185例可计算，500例Q超限、100例预算超限，均明确跳过且不补0。R6开发程序中，对小树92的同一185例，总成本/计算下界≈{br["ratio_C_over_LB"]:.6f}，最多进一步降低的上限约{100*br["maximum_improvement_fraction_upper_bound"]:.4f}%。')
     p('该结论只针对这185例，不能推广到其余600例；差距不是可实现收益。数学证明按实数I/O计价；数值用long double与下调余量，未做机器认证。完整未来、真实p/B只用于这个离线工具，绝不进入在线专家或特征。')
     p('推导与源代码：portfolio_iter_20261029/offline_suffix_bound_proof.txt、expert1_cover_approx_proof.txt，以及offline_bounds_20261030。当前只实现后缀耦合松弛，并未声称求出整题全输入最优策略。','small')
-    page(7,'后续原创提案：已准备，待验证')
-    p('以下三项已准备实验代码与推导，尚未采集或完成完整Score测试，均未纳入前述最佳交付。这里的原创指本项目自行设计和实现，不主张文献首次提出。')
+    page(7,'原创迭代：已实现与待验证' if admission_model or admission_result else '后续原创提案：已准备，待验证')
+    p(('完整标签与类别切换尚待拟合验证；第三项已实现并完成候选实验，采用状态以当前模型为准。' if admission_model or admission_result else '以下三项已准备代码与推导，采用状态以实测记录为准。')+'这里的原创指本项目自行设计和实现，不主张文献首次提出。')
     h('一、用完整剩余轨迹提高教师标签保真度')
     p('现有384/2048步窗口可能漏掉长时间后的重读和策略反馈。新采集器让每种首动作一直推进到输入末尾，用当前树作为共同续行；每文件最多采6个状态控制离线成本。完整未来和真实p仅在离线教师中使用，在线仍只看当前状态、历史和next_op。')
-    p('状态：collect_full_horizon.py已准备，尚未运行。即使标签推进到末尾，仍是固定续行策略的反事实成本，且在线特征不完整，不能称全局最优oracle。','small')
+    p(full_horizon_status(full_record)+('已拟合8棵深度3至6的小树，完整Score验证尚在进行。' if (ROOT/'tree_full108_r1_training_summary.json').is_file() else '')+'固定策略的反事实标签及离线计时代理，不能称正式引擎D或全局最优oracle。','small')
     h('二、把上次专家当类别，学习策略切换集合')
     p('专家编号没有天然大小顺序。拟将原树一个“上次编号≤阈值”节点改为“编号属于某集合”，在线只需一次位测试，保持树深度不变。离线按上次专家类别汇总左右子树成本，枚举类别掩码，可严格最小化这个固定节点、固定训练状态的代理目标。')
-    p('状态：categorical_transition.py与导出支持已准备，尚未生成或评测候选；代理最优不代表整个闭环Score最优。未观察类别保留父动作侧。','small')
+    category_manifest=ROOT/'tree_category_full108_r1_manifest.json'
+    p(('已生成'+str(read(category_manifest)['output_count'])+'个类别掩码候选，完整Score验证尚在进行。' if category_manifest.is_file() else '状态：categorical_transition.py与导出支持已准备，尚未生成或评测候选。')+'代理最优不代表整个闭环Score最优。未观察类别保留父动作侧。','small')
     h('三、周期回调提前将增长目标转为磁盘追加')
-    p('periodic已知下一INSERT到b将溢出，且b当前驻留大小s&gt;0。可以先SPILL b，使下条INSERT的t字节直接append到磁盘；该已知步骤总写量为s+t。若保持b驻留，则至少要驱逐一个其他正大小分区，写量不小于其中最小值v。')
-    p('因此(s+t)·2^k≤v是局部立即写量证书，可用k=0..3控制保守程度；后续增长和Probe未知，完整Score可能反转，必须测试。只在periodic使用，避开Overflow对当前插入目标的保护；零大小SPILL会被忽略，不能使用。')
-    p('状态：admission_patch.py、prepare_admission.py、admission_proof.txt已准备，未生成/编译/评测。保持8专家选择和历史更新，作为公共提前处置层，不冒充新增第9类专家。','small')
+    p('periodic看到下一INSERT将溢出，若目标b驻留且s&gt;0，可提前SPILL b，下条t字节走磁盘追加。已知写入体的写量为s+t；保持b驻留则至少驱逐一个其他正大小分区，写量不小于其中最小值v。')
+    p('(s+t)·2^k≤v给出局部写量证书，k=0..3；窗口截止下条INSERT数据写入完成、其后新periodic动作之前。后续增长、Probe和D可反转收益，没有全Score理论保证。仅用于periodic；空分区SPILL无效。')
+    for line in admission_evidence(admission_result):p(escape(line),'small')
+    if admission_model:
+        factor_text=f'、阈值factor {admission_factor}' if admission_factor is not None else ''
+        state='独立接入复测已完成' if standalone else '独立接入复测待完成'
+        p(f'当前已启用公共层{factor_text}，仍为8专家；{state}。checkpoint mode {checkpoint["mode"]}平均Score {checkpoint["summary"]["mean_score"]:,.2f} μs、D {checkpoint["summary"]["mean_decision_us"]:,.2f} μs/例；绑定'+escape(checkpoint['sdk_report'])+'。','small')
+    elif admission_result:
+        p('候选实验已完成；当前模型未启用该公共层，结论以admission_result.json和各轮绑定记录为准。仍为8专家。','small')
+    else:
+        p('状态：admission_patch.py、prepare_admission.py及推导已准备，尚未评测；公共层不增加第9类专家。','small')
     def footer(c,doc):
         c.setStrokeColor(colors.HexColor('#D1DDE2'));c.line(44,39,551,39)
         c.setFont('Song',8);c.setFillColor(blue);c.drawString(44,25,'第20题 · 三成员数据集 / 专家选择器')

@@ -4,8 +4,49 @@ import json
 from pypdf import PdfReader
 ROOT=Path(__file__).resolve().parent;D=ROOT.parent
 def read(p):return json.loads(p.read_text('utf8'))
+def full_horizon_status(record):
+    if not isinstance(record,dict):return 'collect_full_horizon已准备，尚未运行。'
+    status=record.get('status')
+    if status=='collected':
+        validation=record.get('validation',{});details=[]
+        if 'label_rows' in validation:details.append(f'{validation["label_rows"]}个状态')
+        if 'represented_training_inputs' in validation:details.append(f'覆盖{validation["represented_training_inputs"]}份train')
+        return '完整后缀标签已采集'+('，'+'、'.join(details) if details else '')+'；尚未验证拟合及正式Score。'
+    if status=='collecting':return '完整后缀标签采集中，尚未验证拟合及正式Score。'
+    if status=='prepared':return '完整后缀教师已准备，尚未开始采集。'
+    if status=='failed':return '完整后缀采集未成功完成，不作为已验证训练结果。'
+    return '完整后缀采集状态见provenance；尚未验证拟合及正式Score。'
+
+def admission_notes(result):
+    if not isinstance(result,dict):return []
+    lines=[];train=result.get('train',{});members=result.get('members',{})
+    trained=[k for k,r in train.get('candidates',{}).items() if r.get('status')=='complete']
+    measured=[k for k,r in members.get('candidates',{}).items() if r.get('status')=='complete']
+    missing=[k for k,r in members.get('candidates',{}).items() if r.get('status')=='unavailable']
+    if trained and train.get('cases'):
+        line=f'admission：{len(trained)}档候选已完成{train["cases"]}份train评分'
+        if measured and members.get('cases') and members.get('repeats'):
+            line+=f'；{members["cases"]}例×{members["repeats"]}次已测mode '+ '/'.join(measured)
+        if missing:line+='；'+ '/'.join(missing)+'无本批成员结果'
+        lines.append(line+'。')
+    comparisons=[]
+    for mode in ['98','99','108']:
+        record=members.get('candidates',{}).get(mode,{})
+        rate=record.get('overall',{}).get('metrics',{}).get('Total_Score',{}).get('decrease_percent')
+        if record.get('status')=='complete' and isinstance(rate,(int,float)):
+            comparisons.append(mode+(f'上升{-rate:.6f}%' if rate<0 else f'下降{rate:.9f}%'))
+    if comparisons:lines.append('admission研究配对轮相对mode '+str(result.get('baseline_mode','父方案'))+'的平均Score：'+'，'.join(comparisons)+'；微小收益不等于隐藏测试保证。')
+    return lines
+
 def main():
-    c=read(ROOT/'published_checkpoint.json');m=read(ROOT/'current_model.json');v=c['summary'];pages=len(PdfReader(D/'topic20_portfolio_iteration_report.pdf').pages)
+    c=read(ROOT/'published_checkpoint.json');m=read(ROOT/c['model']);v=c['summary'];pages=len(PdfReader(D/'topic20_portfolio_iteration_report.pdf').pages)
+    admission_model='periodic_admission_shift' in m or 'admission_model' in m
+    factor=(1<<m['periodic_admission_shift']) if type(m.get('periodic_admission_shift')) is int and 0<=m['periodic_admission_shift']<=3 else None
+    admission_result=read(ROOT/'admission_result.json') if (ROOT/'admission_result.json').is_file() else None
+    full_path=ROOT/'members_full108_r1_provenance.json'
+    full_status=full_horizon_status(read(full_path) if full_path.is_file() else None)
+    admission_status=('周期admission公共层已实现并启用'+(f'，factor={factor}' if factor is not None else '')+'，保持8专家。' if admission_model else '当前模型未启用周期admission公共层。')
+    periodic_insert=('periodic下一INSERT将溢出时先分类；证书通过可落盘正大小目标，令下条INSERT走磁盘追加。' if admission_model else 'periodic只有下一INSERT将溢出时分类。')
     proof=D/'member_eval_20261030'/(c['member_report'].replace('_members.json','_action_verification.json'))
     assert proof.is_file() and read(proof)['source_sha256']==c['source_sha256']
     rows=[f"{r['member']} {r['version']}/{r['case_count']}：平均Score {r['mean_score_us']:,.2f} us，比Naive下降{r['decrease_vs_naive_percent']:.4f}%；原逐例分均值{r['mean_case_points_0_10']:.4f}/10。" for r in c['members']]
@@ -14,7 +55,7 @@ def main():
         f"8专家，最大{m['max_depth']}层、{m['node_count']}节点、{m['leaf_count']}叶子；路径最多{m['max_depth']}次比较。",
         'C++14单文件，无main；只使用合法当前状态和自身观测历史，不依赖推理库。',
         '跨算子候选、阶段/软配额、ghost反馈及保守next_op处理；overflow/miss重选。',
-        'periodic只有下一INSERT将溢出时分类；periodic PROBE用保守预载。','',
+        periodic_insert+'periodic PROBE仍不分类，用保守预载。',admission_status,'',
         '最新实际接入方式：'+c['deployment'],
         f"785例各3次，平均Score {v['mean_score']:,.2f} us，比同批Naive下降{v['decrease_vs_naive_percent']:.4f}%。",
         f"平均完整决策耗时{v['mean_decision_us']:.2f} us/例；该时间已计入Score。",*rows,
@@ -35,6 +76,9 @@ def main():
         '可移植源码快照：portfolio_iter_20261029/'+c['source_bundle'],
         '更多理论：expert1局部2近似和offline_bounds_20261030离线成本下界。',
         '下界只在185可计算例上核对；其余600例明确跳过，不作为已证近最优。',
+        'admission只证明已知下一INSERT写入体的局部写量，截止其后新periodic动作之前，不保证完整Score。',
+        '教师labeltimer为离线回调成本代理，不能替代正式引擎D；正式Score始终计入实际回调时间。',
+        full_status,*admission_notes(admission_result),
         '截图、批量原始输入、工作目录、二进制和预览图不提交到源码分支。']
     (D/'CURRENT_SOLUTION.txt').write_text('\n'.join(current)+'\n',encoding='utf8')
     readme=["第20题关键项目文件 | source/liunianwww | 2026-10-30",'',
@@ -51,13 +95,17 @@ def main():
         '中文PDF：topic20_portfolio_iteration_report.pdf（实现、创新、文献、局部证明、实测与限制）。',
         '当前冻结状态：portfolio_iter_20261029/published_checkpoint.json。',
         '训练、Score搜索与解包复现：portfolio_iter_20261029/README.txt。',
-        '单文件部署源码包的引用已归一为相对路径；重编译三程序与计时二进制SHA逐字节相同。',
+        '当前测量接入方式：'+c['deployment']+'；源码、二进制身份及重复数以checkpoint绑定记录为准。',
         '离线下界工具：offline_bounds_20261030；读取未来/p/B仅为评测，绝不能接入在线调度。',
         '文件列表与SHA256：project_manifest.json。','',
         '仍保留旧568例、NN和规则历史报告，各自日期/集合/重复数不迁移为本轮成绩。',
         '原始截图、批量输入、工作树、二进制和临时预览不提交。',
-        '准备中的collect_full_horizon、categorical_transition、admission工具尚未产生本轮结果；',
-        '当前交付模型不包含这些未验证方案。']
+        full_status,
+        'categorical_transition仍为待生成/拟合验证方案；上述两项尚未作为当前模型的新训练结果。',
+        admission_status,*admission_notes(admission_result),
+        'admission为公共提前处置层，非第9类专家；局部证书截止下条INSERT写入结束、其后periodic动作之前。',
+        '后续增长、Probe与回调D可能改变收益，不宣称完整Score的理论保证。',
+        '训练labeltimer仅为离线成本代理，最终性能以正式框架回调计时与完整Score为准。']
     (D/'README.txt').write_text('\n'.join(readme)+'\n',encoding='utf8')
     result=D/'results_summary.json';s=read(result);s['portfolio_20261030']=c;s['leaf_refinement_development_rounds']=[dict(tag=tag,summary=read(ROOT/(tag+'_summary.json'))['summary']) for tag in ['members_r5','members_r6']];result.write_text(json.dumps(s,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     print('Entry notes updated',c['name'],v['mean_score'])

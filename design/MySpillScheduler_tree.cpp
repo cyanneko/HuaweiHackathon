@@ -401,7 +401,36 @@ public:
         if((flags_&1)&&s.next_op.type=="INSERT") {
             int o=s.next_op.op_id,p=int(s.next_op.key%s.num_partitions);
             if(s.operators[o].partitions[p].in_memory&&s.next_op.tuple_size>s.memory_limit-s.memory_used) {
-                choose(s,o,p,true,s.next_op.tuple_size);requester_=o;demand_size_=s.operators[o].partitions[p].data_size+s.next_op.tuple_size;auto a=plan(s,s.next_op.tuple_size,o,p,true);spilled_=true;remember(s,a,-1);++advanced_builds;return a;
+                choose(s,o,p,true,s.next_op.tuple_size);requester_=o;demand_size_=s.operators[o].partitions[p].data_size+s.next_op.tuple_size;
+                // PERIODIC_ADMISSION_V1: fixed next INSERT, immediate writes only.
+                const int64_t admission_size=s.operators[o].partitions[p].data_size;
+                const int64_t admission_tuple=s.next_op.tuple_size;
+                const int64_t admission_factor=int64_t(1)<<2;
+                if(admission_size>0&&admission_tuple>0&&admission_tuple<=s.memory_limit&&
+                   admission_size<=s.memory_limit-admission_tuple) {
+                    const int64_t admission_full=admission_size+admission_tuple;
+                    if(admission_full<=s.memory_limit/admission_factor) {
+                        const int64_t admission_cutoff=admission_full*admission_factor;
+                        bool admission_has_other=false,admission_certified=true;
+                        for(const auto& admission_op:s.operators) {
+                            for(const auto& admission_part:admission_op.partitions) {
+                                if(!admission_part.in_memory||admission_part.data_size<=0||
+                                   (admission_op.op_id==o&&admission_part.partition_id==p))continue;
+                                admission_has_other=true;
+                                if(admission_part.data_size<admission_cutoff) {
+                                    admission_certified=false;break;
+                                }
+                            }
+                            if(!admission_certified)break;
+                        }
+                        if(admission_has_other&&admission_certified) {
+                            std::vector<Action> admission_actions;admission_actions.reserve(1);
+                            admission_actions.emplace_back(Action::SPILL,o,p);
+                            spilled_=true;remember(s,admission_actions,-1);++advanced_builds;return admission_actions;
+                        }
+                    }
+                }
+                auto a=plan(s,s.next_op.tuple_size,o,p,true);spilled_=true;remember(s,a,-1);++advanced_builds;return a;
             }
             return {};
         }

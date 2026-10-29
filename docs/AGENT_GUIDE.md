@@ -71,7 +71,7 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 
 仓库未发布可用的 NN 或训练好的融合选择器，不应从研究讨论推断已有模型可调用。[v1 规则适配](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts)仅有固定选择和短动作检查；方法历史结果的样本范围、改善与退化以各自 README/manifest 为准。
 
-可选 [single-fit ID103](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts/single_fit_phase)已完成边界、短轨迹与导出动作验收，默认101/102组合不变，performance_validated仍为false。[R57净化结果包](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r57_public_suite_20261028)对应原独立直接程序的24例完整公共集合，非适配版时延或隐藏成绩；封顶分数必须与P90/worst及逐例差异一起阅读。
+可选 [single-fit ID103](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/experts/single_fit_phase)已完成边界、短轨迹与导出动作验收，默认101/102组合不变，performance_validated仍为false。[R57净化结果包](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r57_public_suite_20261028)对应原独立直接程序的24例完整公共集合，非适配版时延或隐藏成绩；主展示实际Score倍率mean/P50/P90/worst、D及家族分组，封顶分仅作为原始记录保留。
 
 开发新的规则或 NN 专家先遵循 [专家接口 v1](EXPERT_INTERFACE_V1.md)：内部唯一 namespace 的 Expert 由官方 MySpillScheduler 外壳转接；每个测试案例重置，按真实回调 observe、无策略副作用 decide、执行前 onDispatch。选择器只运行被选专家的提案，状态维护和选择成本全部计时。[最小运行骨架](../expert_runtime/README.md)提供固定选择、短测和导出；先交付独立适配与验收，再比较少量互补专家、训练浅树。旧类不自动兼容；R61研究侧树已训练并检验，尚未发布为默认策略。
 
@@ -181,3 +181,9 @@ schema 3的评分顺序：
 交接与提交不含聊天ID、本机绝对路径、私人状态或凭据。保留冻结字节和旧证据；不force push、不reset，不未经协调切共享工作树分支。推送按最新用户授权及明确的本次审阅安排执行，不把本地准备写成远端已发布。
 
 可选ID104已在独立/导出各278状态、92短typed回调通过动作验收，但没有接口D或得分；不能替换官方Naive参照。默认101/102和103保持原样。R61研究侧树的训练/回归与代码发布范围分别看赛前报告，不将计划中的R62写成已完成。
+
+## 当前报告与筛选口径（2026-10-29）
+
+不把封顶50分作为目标或主要成果，评测器和原始封顶分不改。主要展示逐例`Total_Score`/其配对官方Naive的倍率，以及D倍率，各给mean/P50/P90/worst、样本数和完整逐例表，并按元数据家族分组检查。mean明确为逐例倍率等权算术平均；成本和D的总和之比另列，不能混称平均。P50用普通中位数，P90用最近秩，样本数小的组说明限制。0/0按1、正值/0按Infinity并保留。官方数据数量和分布未知，本地平均或家族分组不能预测官方成绩。跨轮的微小D差异不排名。
+
+当前优先扩充独立非神经网络专家，暂不继续NN/树训练。新专家启动CPU测量前须完成完整源码独立审查并修复问题；使用固定0.5快照、发现全部实际非空eval，保持原官方框架和Naive基线。R60/R61历史数据范围见[实际倍率与家族表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/reports/precontest_20261029/comparison_tables.md)；后续轮次另按实测证据发布。

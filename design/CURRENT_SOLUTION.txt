@@ -1,29 +1,35 @@
 第20题当前方案 | 2026-10-30
 
-本地完整785例平均Score目标推荐：MySpillScheduler_tree.cpp。
-8专家，由最大4层、29节点、15叶的小树选择；单路径最多4次比较。
-路由只读取合法当前状态和自身可见历史，阈值内嵌C++14，不依赖推理库。
-统一跨算子候选、阶段/软配额、ghost反馈与保守next_op处理。
-首次及后续miss、overflow重新选择；periodic仅下一INSERT将溢出时选择。
+本地785例平均完整Score目标推荐：MySpillScheduler_tree.cpp。
+8专家，最大5层、31节点、16叶子；路径最多5次比较。
+C++14单文件，无main；只使用合法当前状态和自身观测历史，不依赖推理库。
+跨算子候选、阶段/软配额、ghost反馈及保守next_op处理；overflow/miss重选。
+periodic只有下一INSERT将溢出时分类；periodic PROBE用保守预载。
 
-最新三成员eval：Vanius0525 0.1.0/209、cyanneko 0.6.0/48、liunianwww 0.1.0/528。
-数据固定e119c2326e198922243306eac062785420ed8156，每例3次，算术均值。
-平均Score 67,222,897,889.92 us，比同批Naive下降29.0629%，比父树下降0.4480%。
-Vanius平均157,477,620.08（降Naive35.87%）；cyanneko 7,064,788,139.59（47.66%）；
-liunianwww 99,238,545,814.94（28.89%）。
-平均完整决策耗时1532.47 us/例，比父树1372.02更高；I/O收益覆盖额外决策与miss代价。
-Vanius原始均值比父树升高约10.78%，已保留父模型作为不同取舍的参照。
-这是反复观察的开发/回归数据上的本地结果，不是官方隐藏测试或全输入最优保证。
+最新实际接入方式：three independently compiled programs; argv contains input path only
+785例各3次，平均Score 67,004,205,540.08 us，比同批Naive下降29.2936%。
+平均完整决策耗时1108.36 us/例；该时间已计入Score。
+Vanius0525 0.1.0/209：平均Score 157,477,279.48 us，比Naive下降35.8671%；原逐例分均值3.5015/10。
+cyanneko 0.6.0/48：平均Score 7,059,806,519.68 us，比Naive下降47.6995%；原逐例分均值3.5994/10。
+liunianwww 0.1.0/528：平均Score 98,913,859,629.94 us，比Naive下降29.1272%；原逐例分均值2.5111/10。
+仓库成员未封顶sum等权主分：743.479707。原cap50三份集合均为50。
+原始均值、未封顶sum、逐例均分是不同指标，不混用；坏例完整保留。
+Vanius单集仍比早期父树ID30退步约10.78%；原NN在部分成员原始均值上更好。
+这是已观察开发/回归数据上的结果，不预测官方未知分布或声称全输入最优。
 
-独立核查：785例全部动作/容量/lazy特征一致性，2355次SDK记录I/O与hit/miss一致。
-源码SHA256：1e719564a213c59bab59fd162a3bf233ae0564d14c29a96766fdd340436817fd。
-算法、训练/完整Score微调、局部证明与创新：topic20_portfolio_iteration_report.pdf（5页）。
-当前模型及状态：portfolio_iter_20261029/current_model.json、published_checkpoint.json。
-各成员分数与原始证据：member_eval_20261030/members_r3_members.json、
-portfolio_iter_20261029/benchmark_measurements.zip。
-
+独立核查：785例动作/容量/lazy特征，2355次部署SDK I/O与hit/miss一致。
+源码SHA256：86f603eeab1338f59c292ee6000f26fc3d4f042a2d1384d8c591b372557c88fd
+数据提交：e119c2326e198922243306eac062785420ed8156
+suite_id：a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1
 运行：python design/tools/run.py --policy recommended --input <正式输入文件>
-tree等同当前推荐；rule为原MySpillScheduler_final.cpp；neural为原664参数NN。
-训练与复现：portfolio_iter_20261029/README.txt。旧568例过程独立保留progress.json。
-历史报告与其他规则实现仍保留各自日期/集合，勿把旧分数迁移为785例成绩。
-截图、批量原始输入、工作目录、二进制与临时预览不提交到源码分支。
+tree同推荐；rule为旧规则；neural为原NN；baseline为官方Naive。
+
+中文说明：topic20_portfolio_iteration_report.pdf（7页）。
+当前模型/状态：portfolio_iter_20261029/current_model.json、published_checkpoint.json。
+成员分项：member_eval_20261030/members_standalone_r1_members.json
+动作核查：member_eval_20261030/members_standalone_r1_action_verification.json
+原字节结果包：portfolio_iter_20261029/standalone_measurements.zip
+可移植源码快照：portfolio_iter_20261029/standalone_sources.zip
+更多理论：expert1局部2近似和offline_bounds_20261030离线成本下界。
+下界只在185可计算例上核对；其余600例明确跳过，不作为已证近最优。
+截图、批量原始输入、工作目录、二进制和预览图不提交到源码分支。

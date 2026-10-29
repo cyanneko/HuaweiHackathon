@@ -1,0 +1,74 @@
+周期性提前落盘下一 INSERT 目标：局部证书与实验边界
+日期：2026-10-30；状态：只准备补丁/生成器，未执行、未编译、未测量
+
+官方语义
+--------
+已核对官方题面与本地 reference_current.cpp：onMemoryOverflow 的当前
+INSERT 目标不可落盘；periodic 没有这个正在执行的 INSERT 目标保护。
+对正大小、当前驻留的 BUILD 分区执行 SPILL 合法；对 size=0 的分区
+SPILL 被忽略。下一 INSERT 若目标已在盘，新增 t 字节直接追加到盘，
+不增加 memory_used，也不进入该 INSERT 的 onMemoryOverflow 回调。
+本策略严格要求目标当前大小 s>0，不依赖对空分区落盘改变状态。
+依据：官方 content SHA256
+61b537b9ed5aa691f8a2bf8b628c3b7fdb45a09dd9ef4182733f1d209c7097db；
+protocol_verification_20261030.json；reference_current.cpp 的 executeActions
+与 processInsert；topic_20_current.txt 的 INSERT 增量追加和动作约束。
+官网：https://www.chaspark.com/#/races/competitions/1326693349800046592
+
+触发和证书
+----------
+仅在已有 periodic 分支看到 next_op=INSERT，目标 b 驻留，且已知下一个
+元组 t 大于当前空闲容量时考虑。先照常调用 choose、设置 requester_ 和
+demand_size_，随后验证 s>0、t>0、s+t<=M。令 q=2^shift，shift=0/1/2/3。
+扫描除 b 外所有当前正大小驻留分区；若不存在，或遇到任一大小小于
+q(s+t) 的分区，即拒绝证书，走完全相同的原 plan。若全部符合，就只
+返回 SPILL(b)，并设置 spilled_=true、remember(cause=-1)、advanced_builds++。
+乘法前以 s+t<=M/q 排除不可能满足的阈值，避免整数乘法溢出；因为
+任一合法驻留分区的大小不大于 M，这个提前拒绝不会错失可通过的证书。
+
+局部数学证明
+------------
+令当前驻留总量为 U<=M。下一 INSERT 在 b 留存的情况下至少需要释放
+D=U+t-M>0 字节，因此任何“保持 b 驻留、仅通过落盘腾空间”的方案都
+必须落盘至少一个其他正大小驻留分区。令这些候选的最小大小为 m。
+这样的方案立即写量 L 至少 m；证书给出 m>=q(s+t)。
+
+提前落盘 b 写 s 字节，令驻留总量变为 U-s<=M；下一 INSERT 走磁盘
+追加写 t 字节，内存不增长。到这条已知 INSERT 完成时，写量恰为 s+t，
+所以 (s+t)<=L/q。shift0 是不大于保留 b 的任何上述方案的局部写量；
+shift1/2/3 要求至少 2/4/8 倍的字节裕量。等号允许接受。
+条件 s+t<=M 也保证“保留 b、驱逐其他分区”的比较子问题可行，因为
+全部其他驻留字节 U-s >= U+t-M=D。无其他候选仍显式拒绝，避免将
+缺少比较对象的情况包装成证书。
+
+保证不覆盖的部分
+----------------
+这是处理已知下一条 INSERT 的写量证书。它不包含 callback D，也不
+保证总 Score 改善：b 随后可能继续增长，后续每次 INSERT 都会产生
+磁盘追加写；BUILD 期间又不能 LOAD 回来；PROBE 阶段首次读取变大的
+b 可能造成额外读和 miss。相反，保留大分区可能减少其后续读。只有
+真正运行完整工作负载才能判断净收益，不能据局部比值承诺最终降幅。
+它只使用当前 SystemState、合法 next_op 和自有历史，不读取 p、N、B
+或 next_op 后面的操作，不利用评测答案拟合。
+
+分类和历史语义
+--------------
+这是专家执行之前的公共提前处置层，专家库仍是 8 类，树节点不变，
+不能宣称分类器已增加到 9 类。即使证书接受也先执行 choose，让离线
+teacher 的 forceNext 在当前调度事件被消费，不遗留到下一个事件。
+requester/demand、spilled、remember、advanced_builds 和原分支语义保持；
+接受时不运行 plan，拒绝时运行原 plan。扫描最坏 O(Q)，遇到小候选
+即提前拒绝；接受时省掉后续 plan，不等于整体回调耗时已经更低。
+
+交付和未运行声明
+----------------
+admission_patch.py 提供 patch(source,shift) 纯函数，只替换已识别的
+onPeriodicAdjust 内 INSERT 预测溢出分支，并对窗口外不变进行反向检查。
+不读取/写入源文件，不自行编译。prepare_admission.py 从固定父模型
+tree_search_g1_1.json 深拷贝四个 tree_admission_s0..3.json，记录父文件
+hash 与局部证书元信息，拒绝覆盖任何既存候选。生成器在本轮未执行，
+四个 JSON 尚未由本任务生成；旧 builder/模板/CPP 均未修改。
+
+后续由主任务显式集成 periodic_admission_shift，并按其安排先做 toy、
+A=63MiB/B=1MiB 增长到 10MiB/周期 1 场景，再做 840 train 和 785 eval。
+所有原始计时器应保持不变，报告写量、读量、miss 及总 D、Score。

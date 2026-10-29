@@ -36,7 +36,8 @@ def main():
         constructor = 'std::make_unique<NaiveSpillScheduler>()'
         if source.count(marker) != 1 or source.count(constructor) != 1:
             raise RuntimeError('Unexpected public engine format; refusing to modify it.')
-        include = '#include ' + json.dumps(scheduler.as_posix(), ensure_ascii=False) + '\n'
+        include_path = os.path.relpath(scheduler, build).replace(os.sep, '/')
+        include = '#include ' + json.dumps(include_path, ensure_ascii=False) + '\n'
         source = source.replace(marker, include + marker, 1)
         source = source.replace(constructor, 'std::make_unique<MySpillScheduler>()', 1)
     engine = build / f'engine_{args.policy}.cpp'

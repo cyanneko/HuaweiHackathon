@@ -4,10 +4,14 @@ import hashlib,json,re,subprocess,sys
 ROOT=Path(__file__).resolve().parent;DESIGN=ROOT.parent
 def scalar(v):
     s=format(float(v),'.9g');return s+('' if '.' in s or 'e' in s else '.0')+'f'
-def tree_code(node,feature):
+def tree_code(node,feature,category=None):
     if 'leaf' in node:return 'return '+str(node['leaf'])+';'
+    if 'category_mask' in node:
+        assert node['feature']==30 and category is not None and 0<=node['category_mask']<256
+        condition='(('+str(node['category_mask'])+'u>>unsigned('+category(30)+'))&1u)'
+        return 'if('+condition+'){'+tree_code(node['left'],feature,category)+'}else{'+tree_code(node['right'],feature,category)+'}'
     f=node['feature'];t=scalar(node['threshold'])
-    return 'if('+feature(f)+'<='+t+'){'+tree_code(node['left'],feature)+'}else{'+tree_code(node['right'],feature)+'}'
+    return 'if('+feature(f)+'<='+t+'){'+tree_code(node['left'],feature,category)+'}else{'+tree_code(node['right'],feature,category)+'}'
 def cheap(i):
     mem='double(s.memory_limit)';free='double(s.memory_limit-s.memory_used)';sz='double(bytes)'
     nn='(s.next_op.type=="PROBE"||s.next_op.type=="INSERT")'
@@ -53,16 +57,19 @@ def export(path):
     def expand(i):
         n=nodes[i]
         if 'expert' in n:return dict(leaf=n['expert'])
+        if 'category_mask' in n:
+            assert n['feature']==30 and n['comparison']=='in_mask'
+            return dict(feature=30,category_mask=n['category_mask'],left=expand(n['left']),right=expand(n['right']))
         return dict(feature=n['feature'],threshold=n['threshold'],left=expand(n['left']),right=expand(n['right']))
     node=expand(0);used=obj['used_features'];is_cheap=all(i in {0,1,2,3,4,5,6,7,17,18,19,20,21,22,23,24,25,26,27,29,30} for i in used)
-    if is_cheap:body=tree_code(node,cheap)
+    if is_cheap:body=tree_code(node,cheap,lambda i:'selected_expert_')
     else:
         body='std::array<float,32> x;bool ready=false;auto get=[&](int i){if(!ready){x=features(s,o,p,build,bytes);ready=true;}return x[i];};'
-        body+=tree_code(node,lambda i:cheap(i) if i in {0,1,2,3,4,5,6,7,17,18,19,20,21,22,23,24,25,26,27,29,30} else f'get({i})')
+        body+=tree_code(node,lambda i:cheap(i) if i in {0,1,2,3,4,5,6,7,17,18,19,20,21,22,23,24,25,26,27,29,30} else f'get({i})',lambda i:'selected_expert_')
     code='int route(const SystemState& s,int o,int p,bool build,int64_t bytes) const {'+body+'}\n'
     if 27 in used:
         code='float targetHeatFeature(const SystemState& s,int o,int p) const {int id=o*s.num_partitions+p;uint64_t now=tick(s),age=now>last_[id]?now-last_[id]:0;double h=double(heat_[id])/(1.0+double(age)/64.0);return float(h/(1+h));}\n'+code
-    code+='#ifdef PORTFOLIO_AUDIT\nint routeReference(const std::array<float,32>& x) const {'+tree_code(node,lambda i:f'x[{i}]')+'}\n#endif\n'
+    code+='#ifdef PORTFOLIO_AUDIT\nint routeReference(const std::array<float,32>& x) const {'+tree_code(node,lambda i:f'x[{i}]',lambda i:'int(x[30]*7.0f+0.5f)')+'}\n#endif\n'
     template=(DESIGN/'neural_selector/Scheduler.template').read_text('utf8')
     old='auto f=features(s,o,p,build,bytes);selected_expert_=network(f);++inferences_;'
     # Reference must see the previous expert, just as the model did.
@@ -71,14 +78,20 @@ def export(path):
     source=template.replace('@@NETWORK@@',code).replace(old,new)
     if obj.get('forced_cover'):source=forced_cover(source)
     if obj.get('shared_scratch'):source=shared_scratch(source)
+    if 'periodic_admission_shift' in obj:
+        from admission_patch import patch
+        source=patch(source,obj['periodic_admission_shift'])
     target=ROOT/(path.stem+'.cpp');target.write_bytes(source.encode('utf8'))
     return dict(name=path.stem,source=target.name,sha256=hashlib.sha256(target.read_bytes()).hexdigest(),used_features=used,lazy_features=is_cheap)
 def build():
     variants=[export(p) for p in sorted(ROOT.glob('tree_*.json')) if 'training_summary' not in p.stem and not p.stem.endswith('_manifest')]
     previous=json.loads((ROOT/'variants.json').read_text('utf8')) if (ROOT/'variants.json').exists() else []
     stable={v['name']:v['id'] for v in previous};next_id=max([2]+list(stable.values()))+1
+    if any(100<=i<108 for i in stable.values()):raise RuntimeError('Tree IDs collide with reserved fixed-expert modes')
     for v in variants:
-        if v['name'] not in stable:stable[v['name']]=next_id;next_id+=1
+        if v['name'] not in stable:
+            while 100<=next_id<108:next_id+=1
+            stable[v['name']]=next_id;next_id+=1
         v['id']=stable[v['name']]
     header='#include <stdexcept>\n#define MySpillScheduler NeuralReference\n#include "../MySpillScheduler_neural.cpp"\n#undef MySpillScheduler\n#define MySpillScheduler PreviousReference\n#include "../MySpillScheduler_final.cpp"\n#undef MySpillScheduler\n'
     for i,v in enumerate(variants):

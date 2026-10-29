@@ -136,7 +136,20 @@ def main():
     train_id = object_hash(input_identity)
     try:
         revision = subprocess.run(['git','-C',str(args.datasets_root.resolve().parent),'rev-parse','HEAD'], capture_output=True, text=True, check=True).stdout.strip()
-    except (OSError, subprocess.CalledProcessError): revision = 'unknown'
+    except (OSError, subprocess.CalledProcessError):
+        revision = 'unknown'
+        # Windows-created worktree locators use a drive path. Translate that
+        # locator only for a read-only WSL git-dir query; never edit .git files.
+        locator = args.datasets_root.resolve().parent/'.git'
+        if locator.is_file():
+            line = locator.read_text('utf8').strip()
+            if line.startswith('gitdir: '):
+                directory = line[8:].replace('\\','/')
+                if re.match(r'^[A-Za-z]:/', directory) and Path('/mnt').is_dir():
+                    directory = '/mnt/'+directory[0].lower()+directory[2:]
+                try:
+                    revision = subprocess.run(['git','--git-dir='+directory,'rev-parse','HEAD'],capture_output=True,text=True,check=True).stdout.strip()
+                except (OSError, subprocess.CalledProcessError): pass
     identity = dict(scope='train', fitness_only=True, fixed_eval_used=False,
         train_suite_id=train_id, dataset_revision=revision,
         datasets_root=portable(args.datasets_root), case_count=len(inputs), members=members,

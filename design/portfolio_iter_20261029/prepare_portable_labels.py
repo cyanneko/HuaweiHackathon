@@ -1,12 +1,13 @@
 """Publish compact training labels with relative inputs and unchanged numbers."""
 from pathlib import Path
-import collections,gzip,hashlib,io,json
+import argparse,collections,gzip,hashlib,io,json
 ROOT=Path(__file__).resolve().parent
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 def canonical(obj):return (json.dumps(obj,sort_keys=True,separators=(',',':'),allow_nan=False)+'\n').encode('utf8')
 def main():
+    ap=argparse.ArgumentParser();ap.add_argument('--stems',default='round3,members_train_r2');ap.add_argument('--audit-name',default='portable_labels_audit.json');a=ap.parse_args()
     out=[]
-    for stem in ['round3','members_train_r2']:
+    for stem in a.stems.split(','):
         source=ROOT/(stem+'_labels.jsonl');raw=source.read_bytes();numeric=hashlib.sha256();new_numeric=hashlib.sha256();buf=io.BytesIO();members=collections.Counter();groups=set();rows=0
         with gzip.GzipFile(filename='',mode='wb',fileobj=buf,mtime=0,compresslevel=9) as stream:
             for line in raw.splitlines():
@@ -24,6 +25,6 @@ def main():
         for row in replay:h.update(canonical({k:v for k,v in row.items() if k!='file'}))
         assert h.hexdigest()==numeric.hexdigest()
         out.append(dict(source=source.name,source_sha256=sha(raw),portable=target.name,portable_sha256=sha(packed),bytes=len(packed),rows=rows,represented_train_inputs=len(groups),rows_by_member=dict(members),numeric_fields_identical=True,numeric_semantic_sha256=numeric.hexdigest(),only_changed_field='file: datasets/<member>/train/<filename>',eval_rows=0))
-    (ROOT/'portable_labels_audit.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    (ROOT/a.audit_name).write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     print(json.dumps(out,ensure_ascii=False))
 if __name__=='__main__':main()

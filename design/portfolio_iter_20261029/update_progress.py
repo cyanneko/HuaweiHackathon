@@ -13,7 +13,7 @@ for p in sorted(ROOT.glob('*_full_summary.json')):
     entries=[]
     for key,v in data['summary'].items():
         mode=int(key)
-        if mode<3 or mode>=100:continue
+        if mode<3 or 100<=mode<108:continue
         entry=dict(round=data['tag'],name=data['variants'][key],mode=mode,**v)
         latest[entry['name']]=entry;entries.append(entry)
     if entries:

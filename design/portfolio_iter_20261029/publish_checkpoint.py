@@ -33,14 +33,19 @@ def main():
         report=read(path)
         if report['status']!='complete':continue
         ranking=sorted(report['summary'].items(),key=lambda pair:pair[1]['mean_score'])
-        controls={'train_g0_840':{30,32},'train_g1_840':{30,53},'train_g2_840':{30,53,60}}[report['tag']]
+        controls={'train_g0_840':{30,32},'train_g1_840':{30,53},'train_g2_840':{30,53,60}}.get(report['tag'],{0,1,2,30,60})
         new=[(k,v) for k,v in ranking if int(k) not in controls]
         train.append(dict(tag=report['tag'],scope='train',cases=report['case_count'],repeats=report['repeats'],train_suite_id=report['train_suite_id'],control_modes=sorted(controls),best_new_mode=int(new[0][0]),best_new=new[0][1],all_modes_best=int(ranking[0][0]),candidate_count=len(new),eval_used_for_fitness=False))
+    source_bundles={'members_r3':'benchmark_sources','members_r4':'scratch_sources','members_r5':'refine_sources','members_r6':'gate_sources','members_standalone_r1':'standalone_sources'}
+    measurement_bundles={'members_r3':'benchmark_measurements','members_r4':'scratch_measurements','members_r5':'refine_measurements','members_r6':'gate_measurements','members_standalone_r1':'standalone_measurements'}
+    source_bundle=source_bundles[a.tag]+'.zip';measurement_bundle=measurement_bundles[a.tag]+'.zip'
+    assert (ROOT/source_bundle).is_file() and (ROOT/measurement_bundle).is_file()
     result=dict(status='completed measurement checkpoint; iteration continues',date='2026-10-30',objective='minimise complete raw average SDK Score including callback time',
         name=v['name'],mode=a.mode,model='current_model.json',source='design/MySpillScheduler_tree.cpp',source_sha256=sha,
         dataset_commit=COMMIT,suite_id=SUITE,cases=785,repeats=3,aggregation=raw['aggregation'],
         member_report=a.tag+'_members.json',sdk_report=a.tag+'_summary.json',sdk_runs=a.tag+'_runs.jsonl',
         binary_sha256=raw['binary_sha256'],reference_sha256=digest(D/'holistic_20261026/reference_current.cpp'),
+        source_bundle=source_bundle,measurement_bundle=measurement_bundle,deployment=raw.get('deployment','combined research program; mode chosen before timed callbacks'),
         audits=audited,summary=raw['summary'][key],members=member['candidates'][key]['members'],
         public_score_summary=member['candidates'][key]['public_score_summary'],
         train_search=train,search_note=a.search_note,
@@ -80,10 +85,9 @@ def main():
         '本地实验工具：build_candidates.py导出/编译；evaluate.py串行eval；audit_candidates.py独立动作与特征核对；',
         'search_candidates.py生成train特征邻域变异；train_fitness.py串行完整train评分。',
         'variants.json固定本地mode映射；训练输入编号/成员名/真实p均非在线特征。',
-        '部分历史候选/工作目录仅保留本地；benchmark_sources.zip保存最终计时程序的完整源码快照。',
-        'benchmark_sources.zip仅绑定本轮'+a.tag+'程序；不冒充r1/r2历史二进制身份。',
-        'benchmark_measurements.zip保存3轮eval和3轮train的原始结果，原字节未改。',
-        '重算已有成员分前，可先运行：python -m zipfile -e design/portfolio_iter_20261029/benchmark_measurements.zip design/portfolio_iter_20261029',
+        '当前程序源码快照：'+source_bundle+'；只绑定'+a.tag+'，不同历史程序不混用身份。',
+        '当前原字节测量包：'+measurement_bundle+'。旧r3/4/5/6各自的source/measurements包独立保存。',
+        '重算本轮成员分前可解包：python -m zipfile -e design/portfolio_iter_20261029/'+measurement_bundle+' design/portfolio_iter_20261029',
         '使用源快照重新编译得到的新CPU时间是复测值，不冒充历史原值。','',
         '旧568例过程：progress.json；其best_model.json保留旧套件最佳，不覆盖为新套件。',
         '本轮最终选择模型：current_model.json。所有设计、PDF与证据均在design下。',a.search_note]

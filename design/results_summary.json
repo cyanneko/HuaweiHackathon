@@ -491,81 +491,86 @@
     "status": "completed measurement checkpoint; iteration continues",
     "date": "2026-10-30",
     "objective": "minimise complete raw average SDK Score including callback time",
-    "name": "tree_search_g1_1",
-    "mode": 60,
+    "name": "tree_refine_r6_gate60_2",
+    "mode": 92,
     "model": "current_model.json",
     "source": "design/MySpillScheduler_tree.cpp",
-    "source_sha256": "1e719564a213c59bab59fd162a3bf233ae0564d14c29a96766fdd340436817fd",
+    "source_sha256": "86f603eeab1338f59c292ee6000f26fc3d4f042a2d1384d8c591b372557c88fd",
     "dataset_commit": "e119c2326e198922243306eac062785420ed8156",
     "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
     "cases": 785,
     "repeats": 3,
     "aggregation": "sum of per-case arithmetic means; mean_score=total_score/case_count",
-    "member_report": "members_r3_members.json",
-    "sdk_report": "members_r3_summary.json",
-    "sdk_runs": "members_r3_runs.jsonl",
-    "binary_sha256": "125548a2626f087d04511255b989f2c0bd2a3951ba8e77f2e4bd7fdc33128fc0",
+    "member_report": "members_standalone_r1_members.json",
+    "sdk_report": "members_standalone_r1_summary.json",
+    "sdk_runs": "members_standalone_r1_runs.jsonl",
+    "binary_sha256": {
+      "0": "855102db79f89464351ab781c6a1812788473463bff8460896ac4f3293cf8996",
+      "2": "fb8accd375a93e3a08db1884ab42a20e2592f5603b7046b0680b201a2d07dc24",
+      "92": "5487dac54fb4e4abb92f98c1444a9d5982752b8464c6652d3ea946c685cbefde"
+    },
     "reference_sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5",
+    "source_bundle": "standalone_sources.zip",
+    "measurement_bundle": "standalone_measurements.zip",
+    "deployment": "three independently compiled programs; argv contains input path only",
     "audits": [
-      "members_r3_best_audit_summary.json"
+      "gate_r6_audit_summary.json"
     ],
     "summary": {
       "cases": 785,
-      "mean_score": 67222897889.917046,
-      "total_score": 52769974843584.88,
-      "mean_decision_us": 1532.4731337579617,
-      "miss_count": 614457.0,
-      "decrease_vs_nn_percent": 4.135528079598738,
-      "worst_vs_nn": 5.900219303042986,
-      "decrease_vs_previous_percent": 4.649238764548247,
-      "worst_vs_previous": 5.987961741810423,
-      "decrease_vs_naive_percent": 29.062857278788822,
-      "worst_vs_naive": 379.39766081871346
+      "mean_score": 67004205540.078094,
+      "total_score": 52598301348961.305,
+      "mean_decision_us": 1108.3621486199575,
+      "miss_count": 615310.0,
+      "decrease_vs_nn_percent": 4.447397897989025,
+      "worst_vs_nn": 5.900269521432833,
+      "decrease_vs_naive_percent": 29.29363280677023,
+      "worst_vs_naive": 9.290937818518874
     },
     "members": [
       {
         "member": "Vanius0525",
         "version": "0.1.0",
         "case_count": 209,
-        "mean_score_us": 157477620.08328548,
-        "naive_mean_score_us": 245548538.24489632,
-        "decrease_vs_naive_percent": 35.86700975339298,
-        "mean_decision_us": 1352.7061881977672,
-        "worst_score_ratio_vs_naive": 379.39766081871346,
+        "mean_score_us": 157477279.47601277,
+        "naive_mean_score_us": 245548382.47098884,
+        "decrease_vs_naive_percent": 35.86710778083889,
+        "mean_decision_us": 1012.0993301435407,
+        "worst_score_ratio_vs_naive": 9.290937818518874,
         "capped_score_0_50": 50.0,
-        "uncapped_dataset_score": 721.5852748789929,
-        "mean_case_points_0_10": 3.4525611238229326
+        "uncapped_dataset_score": 731.819156770941,
+        "mean_case_points_0_10": 3.50152706588967
       },
       {
         "member": "cyanneko",
         "version": "0.6.0",
         "case_count": 48,
-        "mean_score_us": 7064788139.593472,
-        "naive_mean_score_us": 13498555450.248262,
-        "decrease_vs_naive_percent": 47.66263571215291,
-        "mean_decision_us": 6939.465972222222,
-        "worst_score_ratio_vs_naive": 12.483579844572574,
+        "mean_score_us": 7059806519.675625,
+        "naive_mean_score_us": 13498555258.279167,
+        "decrease_vs_naive_percent": 47.699539805598214,
+        "mean_decision_us": 6605.298958333334,
+        "worst_score_ratio_vs_naive": 2.7331741156014417,
         "capped_score_0_50": 50.0,
-        "uncapped_dataset_score": 171.79504101473404,
-        "mean_case_points_0_10": 3.5790633544736257
+        "uncapped_dataset_score": 172.77182272609204,
+        "mean_case_points_0_10": 3.5994129734602507
       },
       {
         "member": "liunianwww",
         "version": "0.1.0",
         "case_count": 528,
-        "mean_score_us": 99238545814.93748,
-        "naive_mean_score_us": 139565371610.0611,
-        "decrease_vs_naive_percent": 28.894578454457044,
-        "mean_decision_us": 1112.0860795454546,
-        "worst_score_ratio_vs_naive": 98.58147321428571,
+        "mean_score_us": 98913859629.93633,
+        "naive_mean_score_us": 139565371372.61224,
+        "decrease_vs_naive_percent": 29.12721926855647,
+        "mean_decision_us": 646.7446527777778,
+        "worst_score_ratio_vs_naive": 2.6151304050732525,
         "capped_score_0_50": 50.0,
-        "uncapped_dataset_score": 1320.570999962854,
-        "mean_case_points_0_10": 2.5010814393235874
+        "uncapped_dataset_score": 1325.848140651867,
+        "mean_case_points_0_10": 2.5110760239618695
       }
     ],
     "public_score_summary": {
       "status": "available",
-      "score_final": 737.9837719521937,
+      "score_final": 743.4797067163,
       "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
       "dataset_count": 3,
       "member_weights": {
@@ -579,20 +584,20 @@
           "version": "0.1.0",
           "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
           "case_count": 209,
-          "score_dataset_uncapped": 721.5852748789929,
-          "mean_case_points_aux": 3.4525611238229326,
+          "score_dataset_uncapped": 731.819156770941,
+          "mean_case_points_aux": 3.50152706588967,
           "per_repeat": [
             {
               "repeat": 0,
-              "score_dataset_uncapped": 722.6257287389972
+              "score_dataset_uncapped": 729.6791030055931
             },
             {
               "repeat": 1,
-              "score_dataset_uncapped": 721.6755829033569
+              "score_dataset_uncapped": 725.5369136747908
             },
             {
               "repeat": 2,
-              "score_dataset_uncapped": 720.4545129946246
+              "score_dataset_uncapped": 740.2414536324393
             }
           ]
         },
@@ -601,20 +606,20 @@
           "version": "0.6.0",
           "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
           "case_count": 48,
-          "score_dataset_uncapped": 171.79504101473404,
-          "mean_case_points_aux": 3.5790633544736257,
+          "score_dataset_uncapped": 172.77182272609204,
+          "mean_case_points_aux": 3.5994129734602507,
           "per_repeat": [
             {
               "repeat": 0,
-              "score_dataset_uncapped": 171.79233071661602
+              "score_dataset_uncapped": 172.91163823903565
             },
             {
               "repeat": 1,
-              "score_dataset_uncapped": 171.7942094474029
+              "score_dataset_uncapped": 173.24348951843982
             },
             {
               "repeat": 2,
-              "score_dataset_uncapped": 171.7985828801833
+              "score_dataset_uncapped": 172.1603404208006
             }
           ]
         },
@@ -623,20 +628,20 @@
           "version": "0.1.0",
           "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
           "case_count": 528,
-          "score_dataset_uncapped": 1320.570999962854,
-          "mean_case_points_aux": 2.5010814393235874,
+          "score_dataset_uncapped": 1325.848140651867,
+          "mean_case_points_aux": 2.5110760239618695,
           "per_repeat": [
             {
               "repeat": 0,
-              "score_dataset_uncapped": 1321.4118953191837
+              "score_dataset_uncapped": 1326.101555491367
             },
             {
               "repeat": 1,
-              "score_dataset_uncapped": 1320.2221558451345
+              "score_dataset_uncapped": 1325.6174363185505
             },
             {
               "repeat": 2,
-              "score_dataset_uncapped": 1320.078948724244
+              "score_dataset_uncapped": 1325.8254301456839
             }
           ]
         }
@@ -654,7 +659,7 @@
       "partial": false,
       "eligible_for_full_collection_ranking": true,
       "auxiliary": {
-        "all_cases_mean_points": 2.820320147588001,
+        "all_cases_mean_points": 2.8413237199349046,
         "total_case_count": 785,
         "used_for_ranking": false
       },
@@ -740,9 +745,65 @@
         "all_modes_best": 80,
         "candidate_count": 6,
         "eval_used_for_fitness": false
+      },
+      {
+        "tag": "train_g3_840",
+        "scope": "train",
+        "cases": 840,
+        "repeats": 1,
+        "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+        "control_modes": [
+          0,
+          1,
+          2,
+          30,
+          60
+        ],
+        "best_new_mode": 82,
+        "best_new": {
+          "cases": 840,
+          "mean_score": 34300572444.043583,
+          "total_score": 28812480852996.61,
+          "mean_decision_us": 1133.4106428571429,
+          "miss_count": 508192.0,
+          "paired_base30_cases": 840,
+          "base30_total_score": 29512513128736.43,
+          "decrease_vs_base30_percent": 2.3719846313535298
+        },
+        "all_modes_best": 82,
+        "candidate_count": 8,
+        "eval_used_for_fitness": false
+      },
+      {
+        "tag": "train_g4_840",
+        "scope": "train",
+        "cases": 840,
+        "repeats": 1,
+        "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+        "control_modes": [
+          0,
+          1,
+          2,
+          30,
+          60
+        ],
+        "best_new_mode": 94,
+        "best_new": {
+          "cases": 840,
+          "mean_score": 34132572133.67037,
+          "total_score": 28671360592283.11,
+          "mean_decision_us": 1195.0982857142858,
+          "miss_count": 463296.0,
+          "paired_base30_cases": 840,
+          "base30_total_score": 29512513229157.6,
+          "decrease_vs_base30_percent": 2.850155899442186
+        },
+        "all_modes_best": 94,
+        "candidate_count": 8,
+        "eval_used_for_fitness": false
       }
     ],
-    "search_note": "完整train微调共测试38个新变异/组合（16+16+6）。选中tree_search_g1_1：训练均值比父树下降1.619%，785例eval同批下降0.448%；Vanius单集原始均值却升高约10.78%，明确保留。训练最好组合下降2.358%，eval反而变差，未采用。",
+    "search_note": "累计测试54个新局部候选(38+8+8)。普通细分训练改善、eval退化；保留一侧父专家并限制变化侧训练事件质量后，采用92：多候选785复测比此前60再降0.3253%；三独立程序部署复测平均67004205540.08us，比Naive下降29.2936%。变化边约占父叶训练事件10.18%，不是部署风险上界；仅在原树一处极低读带宽状态改用恢复代价密度。",
     "caution": "Observed development/regression inputs, not hidden tests. Training-only full-trace fitness is separate from final regression. No universal optimality or all-member improvement claim."
   },
   "scratch_iteration_20261030": {
@@ -846,5 +907,171 @@
     "accepted": false,
     "source_sha256": "d58190e703cd5b51d2c8bd0a496c69e0701bd5d7bde85d6aadca4e1de1a6d4ce",
     "caution": "Same actions on this observed suite. CPU latency and allocation placement effects depend on the machine; no universal latency claim."
-  }
+  },
+  "leaf_refinement_development_rounds": [
+    {
+      "tag": "members_r5",
+      "summary": {
+        "0": {
+          "cases": 785,
+          "mean_score": 70122847959.81395,
+          "total_score": 55046435648453.95,
+          "mean_decision_us": 1235.7369851380042,
+          "miss_count": 397224.0,
+          "decrease_vs_nn_percent": 0.0,
+          "worst_vs_nn": 1.0,
+          "decrease_vs_naive_percent": 26.002677229960234,
+          "worst_vs_naive": 296.23809523809524
+        },
+        "2": {
+          "cases": 785,
+          "mean_score": 94764033798.5383,
+          "total_score": 74389766531852.56,
+          "mean_decision_us": 1124.8030700636943,
+          "miss_count": 744335.0,
+          "decrease_vs_nn_percent": -35.14002433678354,
+          "worst_vs_nn": 353.5725543307087,
+          "decrease_vs_naive_percent": 0.0,
+          "worst_vs_naive": 1.0
+        },
+        "30": {
+          "cases": 785,
+          "mean_score": 67525385880.49599,
+          "total_score": 53007427916189.35,
+          "mean_decision_us": 1384.8594267515923,
+          "miss_count": 463040.0,
+          "decrease_vs_nn_percent": 3.704159421486297,
+          "worst_vs_nn": 4.223975370425989,
+          "decrease_vs_naive_percent": 28.74365603299429,
+          "worst_vs_naive": 379.7142857142857
+        },
+        "60": {
+          "cases": 785,
+          "mean_score": 67222898054.39992,
+          "total_score": 52769974972703.94,
+          "mean_decision_us": 1696.955974522293,
+          "miss_count": 614457.0,
+          "decrease_vs_nn_percent": 4.1355278483211855,
+          "worst_vs_nn": 5.900243390974354,
+          "decrease_vs_naive_percent": 29.06285712012735,
+          "worst_vs_naive": 463.2010582010582
+        },
+        "82": {
+          "cases": 785,
+          "mean_score": 69765618936.69887,
+          "total_score": 54766010865308.62,
+          "mean_decision_us": 1628.8174267515924,
+          "miss_count": 658521.0,
+          "decrease_vs_nn_percent": 0.5094331355734449,
+          "worst_vs_nn": 13.988510049817013,
+          "decrease_vs_naive_percent": 26.379644111588053,
+          "worst_vs_naive": 309.00529100529104
+        },
+        "86": {
+          "cases": 785,
+          "mean_score": 69770314890.29074,
+          "total_score": 54769697188878.234,
+          "mean_decision_us": 1673.4644118895967,
+          "miss_count": 652140.0,
+          "decrease_vs_nn_percent": 0.5027363830477083,
+          "worst_vs_nn": 13.988510790343598,
+          "decrease_vs_naive_percent": 26.374688694006476,
+          "worst_vs_naive": 289.02116402116405
+        },
+        "88": {
+          "cases": 785,
+          "mean_score": 69779610486.06235,
+          "total_score": 54776994231558.94,
+          "mean_decision_us": 1675.4160127388536,
+          "miss_count": 654676.0,
+          "decrease_vs_nn_percent": 0.48948022468841,
+          "worst_vs_nn": 13.988510340406837,
+          "decrease_vs_naive_percent": 26.36487949171844,
+          "worst_vs_naive": 364.5079365079365
+        }
+      }
+    },
+    {
+      "tag": "members_r6",
+      "summary": {
+        "0": {
+          "cases": 785,
+          "mean_score": 70122847963.66307,
+          "total_score": 55046435651475.51,
+          "mean_decision_us": 1239.5860212314226,
+          "miss_count": 397224.0,
+          "decrease_vs_nn_percent": 0.0,
+          "worst_vs_nn": 1.0,
+          "decrease_vs_naive_percent": 26.002677223223504,
+          "worst_vs_naive": 255.9943181818182
+        },
+        "2": {
+          "cases": 785,
+          "mean_score": 94764033795.11264,
+          "total_score": 74389766529163.42,
+          "mean_decision_us": 1121.3775031847133,
+          "miss_count": 744335.0,
+          "decrease_vs_nn_percent": -35.140024324480336,
+          "worst_vs_nn": 353.5725467574371,
+          "decrease_vs_naive_percent": 0.0,
+          "worst_vs_naive": 1.0
+        },
+        "30": {
+          "cases": 785,
+          "mean_score": 67525385939.98206,
+          "total_score": 53007427962885.92,
+          "mean_decision_us": 1444.345507430998,
+          "miss_count": 463040.0,
+          "decrease_vs_nn_percent": 3.704159341940849,
+          "worst_vs_nn": 4.223974549452523,
+          "decrease_vs_naive_percent": 28.743655967645587,
+          "worst_vs_naive": 441.66477272727275
+        },
+        "60": {
+          "cases": 785,
+          "mean_score": 67222898051.05498,
+          "total_score": 52769974970078.16,
+          "mean_decision_us": 1693.6109256900213,
+          "miss_count": 614457.0,
+          "decrease_vs_nn_percent": 4.135527858353405,
+          "worst_vs_nn": 5.900246656962977,
+          "decrease_vs_naive_percent": 29.062857121092776,
+          "worst_vs_naive": 347.8863636363636
+        },
+        "90": {
+          "cases": 785,
+          "mean_score": 67005617955.13037,
+          "total_score": 52599410094777.34,
+          "mean_decision_us": 1695.0544033970275,
+          "miss_count": 615817.0,
+          "decrease_vs_nn_percent": 4.445384206511416,
+          "worst_vs_nn": 5.90024529276649,
+          "decrease_vs_naive_percent": 29.292142523183596,
+          "worst_vs_naive": 486.50819672131144
+        },
+        "92": {
+          "cases": 785,
+          "mean_score": 67004206053.823265,
+          "total_score": 52598301752251.266,
+          "mean_decision_us": 1622.1072356687898,
+          "miss_count": 615310.0,
+          "decrease_vs_nn_percent": 4.447397674800435,
+          "worst_vs_nn": 5.9002408100634725,
+          "decrease_vs_naive_percent": 29.293632435812434,
+          "worst_vs_naive": 522.1306818181818
+        },
+        "94": {
+          "cases": 785,
+          "mean_score": 67235323059.50659,
+          "total_score": 52779728601712.67,
+          "mean_decision_us": 1644.0629723991508,
+          "miss_count": 621229.0,
+          "decrease_vs_nn_percent": 4.117808942461609,
+          "worst_vs_nn": 5.900241812969568,
+          "decrease_vs_naive_percent": 29.049745597707787,
+          "worst_vs_naive": 464.78409090909093
+        }
+      }
+    }
+  ]
 }

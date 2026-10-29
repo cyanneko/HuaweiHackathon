@@ -6,11 +6,11 @@
 原规则用--policy rule；原网络用--policy neural；官方Naive用--policy baseline。
 
 测量记录：published_checkpoint.json；中文说明：../topic20_portfolio_iteration_report.pdf。
-三人分别结果：../member_eval_20261030/members_r3_members.json
-完整SDK逐次数据：members_r3_runs.jsonl；每例3次，算术均值。
-当前名称：tree_search_g1_1
-源码SHA256：1e719564a213c59bab59fd162a3bf233ae0564d14c29a96766fdd340436817fd
-全785例平均Score：67222897889.917046 us；比Naive下降29.062857%。
+三人分别结果：../member_eval_20261030/members_standalone_r1_members.json
+完整SDK逐次数据：members_standalone_r1_runs.jsonl；每例3次，算术均值。
+当前名称：tree_refine_r6_gate60_2
+源码SHA256：86f603eeab1338f59c292ee6000f26fc3d4f042a2d1384d8c591b372557c88fd
+全785例平均Score：67004205540.078094 us；比Naive下降29.293633%。
 
 三成员：Vanius0525 0.1.0/209；cyanneko 0.6.0/48；liunianwww 0.1.0/528。
 数据固定提交：e119c2326e198922243306eac062785420ed8156
@@ -41,19 +41,12 @@ collect_on_policy.py可重采样，CPU标签重测会波动；不要同时运行
 本地实验工具：build_candidates.py导出/编译；evaluate.py串行eval；audit_candidates.py独立动作与特征核对；
 search_candidates.py生成train特征邻域变异；train_fitness.py串行完整train评分。
 variants.json固定本地mode映射；训练输入编号/成员名/真实p均非在线特征。
-部分历史候选/工作目录仅保留本地；benchmark_sources.zip保存最终计时程序的完整源码快照。
-benchmark_sources.zip仅绑定本轮members_r3程序；不冒充r1/r2历史二进制身份。
-benchmark_measurements.zip保存3轮eval和3轮train的原始结果，原字节未改。
-重算已有成员分前，可先运行：python -m zipfile -e design/portfolio_iter_20261029/benchmark_measurements.zip design/portfolio_iter_20261029
+当前程序源码快照：standalone_sources.zip；只绑定members_standalone_r1，不同历史程序不混用身份。
+当前原字节测量包：standalone_measurements.zip。旧r3/4/5/6各自的source/measurements包独立保存。
+重算本轮成员分前可解包：python -m zipfile -e design/portfolio_iter_20261029/standalone_measurements.zip design/portfolio_iter_20261029
 使用源快照重新编译得到的新CPU时间是复测值，不冒充历史原值。
 
 旧568例过程：progress.json；其best_model.json保留旧套件最佳，不覆盖为新套件。
 本轮最终选择模型：current_model.json。所有设计、PDF与证据均在design下。
-完整train微调共测试38个新变异/组合（16+16+6）。选中tree_search_g1_1：训练均值比父树下降1.619%，785例eval同批下降0.448%；Vanius单集原始均值却升高约10.78%，明确保留。训练最好组合下降2.358%，eval反而变差，未采用。
-
-冻结模型JSON保留生成阶段candidate_has_measured_fitness=false与父模型640/568来源字段，后续实测以published_checkpoint及对应train/eval结果为准。
-
-training_git_provenance.json独立验证840份train及840份meta与固定提交Git blob字节一致；原WSL结果中的unknown修订字段保持不改。
-
-后续members_r4：候选81仅将两个临时数组复用，785例动作完全一致；三次D均升高，平均1525.31→1592.81us（+4.43%），未采用。
-scratch_result.json为固定门槛结论，scratch_sources.zip和scratch_measurements.zip只对应members_r4，不覆盖旧r3包。
+冻结模型JSON保留生成时candidate_has_measured_fitness=false和父模型640/568来源字段；后续840训练fitness及785实测以published_checkpoint和对应结果为准，不改写冻结原件。
+累计测试54个新局部候选(38+8+8)。普通细分训练改善、eval退化；保留一侧父专家并限制变化侧训练事件质量后，采用92：多候选785复测比此前60再降0.3253%；三独立程序部署复测平均67004205540.08us，比Naive下降29.2936%。变化边约占父叶训练事件10.18%，不是部署风险上界；仅在原树一处极低读带宽状态改用恢复代价密度。

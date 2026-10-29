@@ -67,6 +67,7 @@
     6,
     19,
     23,
+    24,
     25,
     26,
     27,
@@ -74,10 +75,10 @@
   ],
   "threshold_dtype": "float32",
   "comparison": "<=",
-  "node_count": 29,
-  "leaf_count": 15,
-  "max_depth": 4,
-  "configured_max_depth": 4,
+  "node_count": 31,
+  "leaf_count": 16,
+  "max_depth": 5,
+  "configured_max_depth": 5,
   "leaf_tie_order": [
     7,
     6,
@@ -92,10 +93,14 @@
   "min_distinct_groups": 3,
   "workload_weighting": "event_total(file,kind) / event_sampled(file,kind)",
   "objective": {
-    "name": "relative",
-    "formula": "min((C_e-min(C))/max(1,min(C)),10)",
-    "scale_us": 1.0,
-    "clip_relative": 10.0
+    "name": "absolute",
+    "formula": "min(C_e-min(C),cap)/scale",
+    "clip_us": 15160474900.0,
+    "scale_us": 53.47289999999339,
+    "clip_quantile": 1.0,
+    "cap_is_training_only": true,
+    "cap_population": "Positive sampled training excess costs; unweighted quantile.",
+    "effectively_unclipped": true
   },
   "config": {
     "feature_set": "cheap",
@@ -114,20 +119,20 @@
     },
     "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee"
   },
-  "label_caveat": "No candidate Score or validation metric has been computed. Parent base training diagnostics do not apply to mutated trees.",
+  "label_caveat": "T/S-weighted finite-window cost proxy only; complete training SDK fitness and separate eval are still required.",
   "sampling": {
-    "rows": 15801,
-    "represented_inputs": 626,
+    "rows": 20854,
+    "represented_inputs": 783,
     "event_weighting": true,
     "weight_formula": "event_total(file,kind) / event_sampled(file,kind)",
     "literal_T_over_S_not_renormalized": true,
-    "training_weight_sum": 222351.0,
-    "event_frequency_weight_sum": 222351.0,
-    "estimated_events_over_represented_inputs": 222351,
+    "training_weight_sum": 480136.0,
+    "event_frequency_weight_sum": 480136.0,
+    "estimated_events_over_represented_inputs": 480136,
     "file_kind_groups": {
       "omitted": true,
-      "entries": 1353,
-      "sha256": "e0b9dc8b99b682c247d7b8113902f41ebfc8c52e8e2f43e043a6d36facc1dacf"
+      "entries": 1718,
+      "sha256": "958e2b4879ad8a32bf958db6b87c401ac14463e556c9ab8d6c3973256d3681f9"
     }
   },
   "data_isolation": {
@@ -147,82 +152,11 @@
       }
     }
   },
-  "validation_role": "Original valid_labels.npz for diagnostics only; no fixed 568-eval Score reports read.",
+  "validation_role": "No validation/eval labels or Scores used.",
   "forced_cover": true,
   "provider_note": "Training and deployment both use the common forced-cover certificate layer.",
-  "base_sha256": "efa0160a4b0ef36eadbd32be3de82bd34bd21c9e52fea91c8fd6cba107a9f8af",
-  "candidate_generation": "local_mutation_without_fitness",
-  "mutation": {
-    "generation": 1,
-    "index": 1,
-    "seed": 20261030,
-    "rng_seed_sequence": [
-      20261030,
-      1
-    ],
-    "base_path": "design/portfolio_iter_20261029/tree_search_g0_4.json",
-    "base_sha256": "efa0160a4b0ef36eadbd32be3de82bd34bd21c9e52fea91c8fd6cba107a9f8af",
-    "base_tree_fingerprint": "414c1b842d656312ca34f3e405ffbf8b4a4b3e39c79c8963c749d6aedc5cffac",
-    "candidate_tree_fingerprint": "98a31762b3478f03f11b0f17124ce5c46de160d33e0f2859101288c898301718",
-    "change_count": 1,
-    "changes": [
-      {
-        "kind": "threshold",
-        "node": 22,
-        "feature": 30,
-        "before": 0.7142857313156128,
-        "after": 0.2857142984867096,
-        "threshold_dtype": "float32",
-        "value_source": "Neighboring measured training value at base-routed node",
-        "source_samples_at_base_node": 15881
-      }
-    ],
-    "threshold_sources": [
-      {
-        "path": "design/neural_selector/train_labels.npz",
-        "sha256": "032e93eb753012e7adcc0a02ccbe5f22843f479dfed5b69990a8b68695748439",
-        "rows": 15255,
-        "use": "features and training-provenance checks only"
-      },
-      {
-        "path": "design/portfolio_iter_20261029/round3_labels.jsonl",
-        "sha256": "3e06db353fd96b37cccc26c1df3db06ea2521aa1fbe26845d1e1057c86f3142f",
-        "rows": 15801,
-        "use": "features and training-provenance checks only"
-      },
-      {
-        "path": "design/portfolio_iter_20261029/members_train_r2_labels.jsonl",
-        "sha256": "f6b00a649040e6f34af77622298c3a813d883b849ff036043407eef163596147",
-        "rows": 20764,
-        "use": "features and training-provenance checks only"
-      }
-    ],
-    "threshold_neighbor_rank_radius": 3,
-    "base_shape": {
-      "node_count": 29,
-      "leaf_count": 15,
-      "max_depth": 4,
-      "used_features": [
-        1,
-        4,
-        5,
-        6,
-        19,
-        23,
-        25,
-        26,
-        27,
-        30
-      ]
-    },
-    "unchanged_topology": true,
-    "forced_cover_unchanged": true,
-    "provider_fields_unchanged": true,
-    "inherited_diagnostics_omitted_sha256": "84f30ad2ab88e139c2ba8589bb89c3b93a5934b748a61444383fdeaafe4d51da",
-    "compacted_metadata": {},
-    "no_eval_or_validation_performance_used_for_generation": true,
-    "intended_fitness": "Full SDK Score on a separately frozen, stratified training subset; no fitness computed here."
-  },
+  "base_sha256": "b4268045e24a8cb21948af860e090259188f75735a4ad3f32a18217fdfbc6c2d",
+  "candidate_generation": "single_leaf_cost_sensitive_refinement",
   "tree": [
     {
       "id": 0,
@@ -403,8 +337,12 @@
     },
     {
       "id": 25,
-      "expert": 3,
-      "depth": 4
+      "depth": 4,
+      "feature": 24,
+      "threshold": 9.999999747378752e-05,
+      "comparison": "<=",
+      "left": 29,
+      "right": 30
     },
     {
       "id": 26,
@@ -424,7 +362,96 @@
       "id": 28,
       "expert": 1,
       "depth": 4
+    },
+    {
+      "id": 29,
+      "depth": 5,
+      "expert": 4
+    },
+    {
+      "id": 30,
+      "depth": 5,
+      "expert": 3
     }
   ],
-  "candidate_has_measured_fitness": false
+  "candidate_has_measured_fitness": false,
+  "refinement": {
+    "parent_path": "design/portfolio_iter_20261029/tree_search_g1_1.json",
+    "parent_sha256": "b4268045e24a8cb21948af860e090259188f75735a4ad3f32a18217fdfbc6c2d",
+    "parent_cpp_sha256": "1e719564a213c59bab59fd162a3bf233ae0564d14c29a96766fdd340436817fd",
+    "training_artifact": {
+      "path": "design/portfolio_iter_20261029/members_train_r5_labels.jsonl",
+      "sha256": "ae185e0ed6be968e8d2fcfa86630c2de47857b6782d48b831eb6e1cf21a342b0",
+      "rows": 20854
+    },
+    "proposal": {
+      "objective": "absolute",
+      "objective_spec": {
+        "name": "absolute",
+        "formula": "min(C_e-min(C),cap)/scale",
+        "clip_us": 15160474900.0,
+        "scale_us": 53.47289999999339,
+        "clip_quantile": 1.0,
+        "cap_is_training_only": true,
+        "cap_population": "Positive sampled training excess costs; unweighted quantile.",
+        "effectively_unclipped": true
+      },
+      "parent_leaf": 25,
+      "parent_expert": 3,
+      "feature": 24,
+      "threshold": 9.999999747378752e-05,
+      "left_expert": 4,
+      "right_expert": 3,
+      "retained_parent_expert": 3,
+      "retained_side": "right",
+      "which_side": "left",
+      "changed_side": "left",
+      "changed_expert": 4,
+      "changed_event_mass": 4866.750000000004,
+      "parent_event_mass": 47804.166666666664,
+      "changed_event_mass_fraction": 0.10180597925564376,
+      "max_changed_event_mass_fraction": 0.25,
+      "event_mass_scope": "Frozen parent-routed training labels with literal T/S weights; not a deployment bound.",
+      "left_samples": 249,
+      "right_samples": 978,
+      "left_input_groups": 32,
+      "right_input_groups": 152,
+      "left_weight": 4866.750000000004,
+      "right_weight": 42937.41666666666,
+      "weighted_proxy_before": 39629505344.911964,
+      "weighted_proxy_after": 22554686809.01901,
+      "weighted_proxy_gain": 17074818535.892956,
+      "gain_fraction_of_global_parent_proxy": 0.11065143787059148,
+      "raw_finite_window_cost_delta_us": 913040064087.8367,
+      "gating": "One child retains parent expert; only <=25% training event mass may change."
+    },
+    "candidate_tree_fingerprint": "7954fa676e7155c51c79a6000f779314f2d471a3ecc2255c4c6f959a1dbb0edb",
+    "parent_objective_sha256": "f16b8862fcf879a28a7151c3e6c5f3c72a5b27750136418e36ee86947a64eafd",
+    "min_leaf": 64,
+    "min_input_groups": 3,
+    "quantile_count": 31,
+    "threshold_rule": "measured float32 lower quantile, <=",
+    "sampling": {
+      "rows": 20854,
+      "represented_inputs": 783,
+      "event_weighting": true,
+      "weight_formula": "event_total(file,kind) / event_sampled(file,kind)",
+      "literal_T_over_S_not_renormalized": true,
+      "training_weight_sum": 480136.0,
+      "event_frequency_weight_sum": 480136.0,
+      "estimated_events_over_represented_inputs": 480136,
+      "file_kind_groups": {
+        "omitted": true,
+        "entries": 1718,
+        "sha256": "958e2b4879ad8a32bf958db6b87c401ac14463e556c9ab8d6c3973256d3681f9"
+      }
+    },
+    "data_inventory_sha256": "a47ef66931d5c2d80f07c566083d108f43ff72ff583b9d51efd573b996cbd8c7",
+    "train_input_count": 840,
+    "eval_used_for_refinement": false,
+    "selection_policy": "round-robin objective-specific descending proxy gain; semantic-tree dedup",
+    "provider_unchanged": true,
+    "added_nodes": 2,
+    "added_leaves": 1
+  }
 }

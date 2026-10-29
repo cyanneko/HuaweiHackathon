@@ -1,0 +1,1140 @@
+{
+  "date": "2026-10-29",
+  "candidate_freeze": {
+    "date": "2026-10-29",
+    "selection": "validation32 and maximum-N stress only; before own held-out/OOD/team evaluation",
+    "candidates": {
+      "MySpillScheduler.cpp": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+      "MySpillSchedulerAI.cpp": "cb13de53288303110e6e0fb0d62198f11af15402a78d8822aac7e03ef6213621"
+    },
+    "pure": "masked history, stride, equal-size cycle MRU fast path, free-only prefetch unless cycle hypothesis",
+    "ai": "same constraints, heuristic shortlist of four, embedded 12x16x1 ReLU MLP",
+    "training_sources": "training_report_v1.json; no teammate data used for fitting"
+  },
+  "suites": {
+    "holdout": {
+      "cases": 64,
+      "repeats": 7,
+      "raw_report_sha256": "31e7910df93c0dbfb2a035cdfb806f02927f770bc5afde897dcd599e6009c16d",
+      "suite_file_list_sha256": "065f04c2c46422d37de5878f70643284aff13a245e62097539dc4f3217f85bb7",
+      "summary": {
+        "naive": {
+          "cases": 64,
+          "mean_single_score": 0,
+          "capped_sum_score": 0.0,
+          "mean_io_miss_score_diagnostic": 0,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 1.0,
+          "wins": 0,
+          "regressions_gt_1pct": 0,
+          "misses": 119404.0,
+          "io": 13963190470.46,
+          "decision": 210733.62000000005,
+          "total_cost": 13984350640.107143,
+          "worst_cost_ratios": [
+            [
+              1.0,
+              "063_overlap_293063.txt"
+            ],
+            [
+              1.0,
+              "062_serial_293062.txt"
+            ],
+            [
+              1.0,
+              "061_markov_293061.txt"
+            ],
+            [
+              1.0,
+              "060_burst_293060.txt"
+            ],
+            [
+              1.0,
+              "059_scan_293059.txt"
+            ],
+            [
+              1.0,
+              "058_shift_293058.txt"
+            ]
+          ]
+        },
+        "pure": {
+          "cases": 64,
+          "mean_single_score": 3.563734205597054,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.3669105278312883,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6880309318738503,
+          "wins": 44,
+          "regressions_gt_1pct": 16,
+          "misses": 86695.0,
+          "io": 8746371399.07,
+          "decision": 137113.70285714287,
+          "total_cost": 8757380204.75286,
+          "worst_cost_ratios": [
+            [
+              1.5467910573322698,
+              "011_scan_293011.txt"
+            ],
+            [
+              1.3654213944249005,
+              "021_markov_293021.txt"
+            ],
+            [
+              1.345275728837373,
+              "026_shift_293026.txt"
+            ],
+            [
+              1.2887201759747229,
+              "053_markov_293053.txt"
+            ],
+            [
+              1.20685618729097,
+              "019_scan_293019.txt"
+            ],
+            [
+              1.1588146932251815,
+              "054_serial_293054.txt"
+            ]
+          ]
+        },
+        "ai": {
+          "cases": 64,
+          "mean_single_score": 3.695553528880217,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.5064047042040416,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.7184116090099066,
+          "wins": 44,
+          "regressions_gt_1pct": 18,
+          "misses": 84362.0,
+          "io": 8473408281.109998,
+          "decision": 196003.78857142854,
+          "total_cost": 8483104788.905714,
+          "worst_cost_ratios": [
+            [
+              4.15612378092971,
+              "046_serial_293046.txt"
+            ],
+            [
+              1.6518293748489346,
+              "011_scan_293011.txt"
+            ],
+            [
+              1.3675659355793544,
+              "021_markov_293021.txt"
+            ],
+            [
+              1.22220368671282,
+              "034_shift_293034.txt"
+            ],
+            [
+              1.1943520059160657,
+              "003_scan_293003.txt"
+            ],
+            [
+              1.194239550403934,
+              "026_shift_293026.txt"
+            ]
+          ]
+        }
+      },
+      "ai_minus_pure_mean_single_score": 0.13181932328316262,
+      "paired_bootstrap_case_95pct_interval": [
+        -0.002458688271353071,
+        0.29652783601359334
+      ],
+      "action_replay_passed": true
+    },
+    "ood": {
+      "cases": 64,
+      "repeats": 7,
+      "raw_report_sha256": "5f27b3fbb54895e46b278141fb589b85cd54877d893805bf18a2ffe422a715ca",
+      "suite_file_list_sha256": "e5acd9c046bf2a8e07e02a81d8a38bf9a907310255bd5c4f6da8f3122322aaa4",
+      "summary": {
+        "naive": {
+          "cases": 64,
+          "mean_single_score": 0,
+          "capped_sum_score": 0.0,
+          "mean_io_miss_score_diagnostic": 0,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 1.0,
+          "wins": 0,
+          "regressions_gt_1pct": 0,
+          "misses": 64940.0,
+          "io": 9157433707.32,
+          "decision": 206167.13428571424,
+          "total_cost": 9163758844.448572,
+          "worst_cost_ratios": [
+            [
+              1.0,
+              "063_periodic_alias_294063.txt"
+            ],
+            [
+              1.0,
+              "062_fixed_burst_294062.txt"
+            ],
+            [
+              1.0,
+              "061_alternating_sets_294061.txt"
+            ],
+            [
+              1.0,
+              "060_scan_hot_mix_294060.txt"
+            ],
+            [
+              1.0,
+              "059_hot_large_294059.txt"
+            ],
+            [
+              1.0,
+              "058_hot_small_294058.txt"
+            ]
+          ]
+        },
+        "pure": {
+          "cases": 64,
+          "mean_single_score": 3.816449214861806,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.7085844124006524,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6762318324230252,
+          "wins": 44,
+          "regressions_gt_1pct": 13,
+          "misses": 25072.0,
+          "io": 1835509953.8,
+          "decision": 155116.4042857144,
+          "total_cost": 1839846234.18,
+          "worst_cost_ratios": [
+            [
+              2.2559359039543314,
+              "030_fixed_burst_294030.txt"
+            ],
+            [
+              1.5303522726971532,
+              "034_hot_small_294034.txt"
+            ],
+            [
+              1.469403692546616,
+              "009_zipf_permuted_294009.txt"
+            ],
+            [
+              1.3184553082347017,
+              "027_hot_large_294027.txt"
+            ],
+            [
+              1.3038256204904297,
+              "010_hot_small_294010.txt"
+            ],
+            [
+              1.2249148834235888,
+              "059_hot_large_294059.txt"
+            ]
+          ]
+        },
+        "ai": {
+          "cases": 64,
+          "mean_single_score": 3.9027002086147324,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.7842074411885176,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6740016240256468,
+          "wins": 46,
+          "regressions_gt_1pct": 12,
+          "misses": 23315.0,
+          "io": 1739798973.3999999,
+          "decision": 174052.86142857137,
+          "total_cost": 1744083367.2428572,
+          "worst_cost_ratios": [
+            [
+              2.858911588593691,
+              "030_fixed_burst_294030.txt"
+            ],
+            [
+              1.432992274124177,
+              "009_zipf_permuted_294009.txt"
+            ],
+            [
+              1.383207610303105,
+              "010_hot_small_294010.txt"
+            ],
+            [
+              1.378695081318266,
+              "034_hot_small_294034.txt"
+            ],
+            [
+              1.2804694777800536,
+              "027_hot_large_294027.txt"
+            ],
+            [
+              1.2448376317367833,
+              "002_hot_small_294002.txt"
+            ]
+          ]
+        }
+      },
+      "ai_minus_pure_mean_single_score": 0.08625099375292598,
+      "paired_bootstrap_case_95pct_interval": [
+        0.009954824556559964,
+        0.16448863708301384
+      ],
+      "action_replay_passed": true
+    },
+    "team": {
+      "cases": 32,
+      "repeats": 7,
+      "raw_report_sha256": "1ecb1992c26470c3f04f1644151e5fc9d08e624820c5802c3afe621515b342e2",
+      "suite_file_list_sha256": "d23ffbff15a9354d48674c85d53d5cc04a2d9fd47f7d0730adbf9678e08084d0",
+      "summary": {
+        "naive": {
+          "cases": 32,
+          "mean_single_score": 0,
+          "capped_sum_score": 0.0,
+          "mean_io_miss_score_diagnostic": 0,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 1.0,
+          "wins": 0,
+          "regressions_gt_1pct": 0,
+          "misses": 49279.0,
+          "io": 416456986882.06,
+          "decision": 143397.01571428572,
+          "total_cost": 416472268776.0714,
+          "worst_cost_ratios": [
+            [
+              1.0,
+              "r58_temporal_alignment_mix_1_eval.txt"
+            ],
+            [
+              1.0,
+              "r58_temporal_alignment_mix_0_eval.txt"
+            ],
+            [
+              1.0,
+              "r58_positive_cycles_1_eval.txt"
+            ],
+            [
+              1.0,
+              "r58_positive_cycles_0_eval.txt"
+            ],
+            [
+              1.0,
+              "r58_no_op_controls_1_eval.txt"
+            ],
+            [
+              1.0,
+              "r58_no_op_controls_0_eval.txt"
+            ]
+          ]
+        },
+        "pure": {
+          "cases": 32,
+          "mean_single_score": 3.8144711843703742,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.7892302493447203,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6410742057867926,
+          "wins": 23,
+          "regressions_gt_1pct": 4,
+          "misses": 44567.0,
+          "io": 158180453748.17,
+          "decision": 130614.48999999999,
+          "total_cost": 158197512754.65857,
+          "worst_cost_ratios": [
+            [
+              1.2866176203421928,
+              "r54_temporal_0_eval.txt"
+            ],
+            [
+              1.17669195703943,
+              "r54_temporal_3_eval.txt"
+            ],
+            [
+              1.0874392266773436,
+              "r58_no_op_controls_1_eval.txt"
+            ],
+            [
+              1.0707774775727363,
+              "r54_control_0_eval.txt"
+            ],
+            [
+              1.0061613725353256,
+              "r58_low_opportunity_mix_1_eval.txt"
+            ],
+            [
+              1.0058574963854694,
+              "r58_low_opportunity_mix_0_eval.txt"
+            ]
+          ]
+        },
+        "ai": {
+          "cases": 32,
+          "mean_single_score": 3.8213794217465513,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.793654956529568,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6594380411274949,
+          "wins": 22,
+          "regressions_gt_1pct": 5,
+          "misses": 44626.0,
+          "io": 157957336155.47,
+          "decision": 153305.5057142857,
+          "total_cost": 157974425796.9743,
+          "worst_cost_ratios": [
+            [
+              1.7657298185629993,
+              "r54_cross_operator_0_eval.txt"
+            ],
+            [
+              1.1867911130204596,
+              "r54_temporal_3_eval.txt"
+            ],
+            [
+              1.1298632957730366,
+              "r58_no_op_controls_1_eval.txt"
+            ],
+            [
+              1.1078084126774994,
+              "r54_temporal_0_eval.txt"
+            ],
+            [
+              1.0380297378769192,
+              "r54_control_0_eval.txt"
+            ],
+            [
+              1.0063336692729767,
+              "r58_low_opportunity_mix_1_eval.txt"
+            ]
+          ]
+        }
+      },
+      "ai_minus_pure_mean_single_score": 0.006908237376176959,
+      "paired_bootstrap_case_95pct_interval": [
+        -0.011982608992549392,
+        0.025429823916756425
+      ],
+      "action_replay_passed": true
+    }
+  },
+  "bootstrap": "20,000 paired resamples of whole cases, conditional on these synthetic suites; not a hidden-test guarantee",
+  "cpu": "AMD Ryzen 5 7535U, WSL Linux, one solver thread",
+  "compiler": "g++ -std=c++14 -O2; no -march/native, GPU or inference runtime",
+  "stress-final": {
+    "n": 5000000,
+    "runs": [
+      {
+        "name": "naive",
+        "b": 1,
+        "wall_seconds": 21.989762776000134,
+        "returncode": 0,
+        "metrics": {
+          "Total_IO_Time": 919501327.41,
+          "Total_Decision_Time": 16225321.34,
+          "Hit_Count": 615180.0,
+          "Miss_Count": 4384300.0,
+          "Total_Score": 5320026648.75
+        }
+      },
+      {
+        "name": "pure",
+        "b": 1,
+        "wall_seconds": 10.874649657000191,
+        "returncode": 0,
+        "metrics": {
+          "Total_IO_Time": 919289934.49,
+          "Total_Decision_Time": 5902261.94,
+          "Hit_Count": 4997991.0,
+          "Miss_Count": 1489.0,
+          "Total_Score": 926681196.42
+        }
+      },
+      {
+        "name": "ai",
+        "b": 1,
+        "wall_seconds": 10.913717076000466,
+        "returncode": 0,
+        "metrics": {
+          "Total_IO_Time": 919289934.49,
+          "Total_Decision_Time": 5990188.86,
+          "Hit_Count": 4997991.0,
+          "Miss_Count": 1489.0,
+          "Total_Score": 926769123.35
+        }
+      },
+      {
+        "name": "naive",
+        "b": 10000,
+        "wall_seconds": 15.595663411000714,
+        "returncode": 0,
+        "metrics": {
+          "Total_IO_Time": 919501327.41,
+          "Total_Decision_Time": 10452701.63,
+          "Hit_Count": 615180.0,
+          "Miss_Count": 4384300.0,
+          "Total_Score": 5314254029.04
+        }
+      },
+      {
+        "name": "pure",
+        "b": 10000,
+        "wall_seconds": 9.970282817000225,
+        "returncode": 0,
+        "metrics": {
+          "Total_IO_Time": 919289934.49,
+          "Total_Decision_Time": 5153192.6,
+          "Hit_Count": 616630.0,
+          "Miss_Count": 4382850.0,
+          "Total_Score": 5307293127.09
+        }
+      },
+      {
+        "name": "ai",
+        "b": 10000,
+        "wall_seconds": 10.23451543199917,
+        "returncode": 0,
+        "metrics": {
+          "Total_IO_Time": 919289934.49,
+          "Total_Decision_Time": 5355918.82,
+          "Hit_Count": 616625.0,
+          "Miss_Count": 4382855.0,
+          "Total_Score": 5307500853.31
+        }
+      }
+    ]
+  },
+  "fuzz": {
+    "seed": 290029,
+    "cases_per_scheduler": 20000,
+    "sanitizers": true,
+    "scope": "abstract valid-capacity callback states; not evidence of workload generalization",
+    "runs": [
+      {
+        "scheduler": "MySpillScheduler",
+        "sha256": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+        "result": "property_cases=20000 callbacks=40000 passed",
+        "returncode": 0
+      },
+      {
+        "scheduler": "MySpillSchedulerAI",
+        "sha256": "cb13de53288303110e6e0fb0d62198f11af15402a78d8822aac7e03ef6213621",
+        "result": "property_cases=20000 callbacks=40000 passed",
+        "returncode": 0
+      }
+    ]
+  },
+  "edges_sanitize": {
+    "cases": [
+      {
+        "scheduler": "pure",
+        "case": "all_empty.txt",
+        "audit": {
+          "callbacks": 10,
+          "actions": 0,
+          "hits": 10,
+          "misses": 0,
+          "io": 0.0
+        }
+      },
+      {
+        "scheduler": "pure",
+        "case": "end_insert.txt",
+        "audit": {
+          "callbacks": 64,
+          "actions": 0,
+          "hits": 0,
+          "misses": 0,
+          "io": 0.0
+        }
+      },
+      {
+        "scheduler": "pure",
+        "case": "int64.txt",
+        "audit": {
+          "callbacks": 547,
+          "actions": 59,
+          "hits": 5,
+          "misses": 27,
+          "io": 31737249.792000048
+        }
+      },
+      {
+        "scheduler": "pure",
+        "case": "protected_target.txt",
+        "audit": {
+          "callbacks": 33,
+          "actions": 39,
+          "hits": 1,
+          "misses": 19,
+          "io": 1530920.960000001
+        }
+      },
+      {
+        "scheduler": "pure",
+        "case": "mixed_phases.txt",
+        "audit": {
+          "callbacks": 18,
+          "actions": 35,
+          "hits": 11,
+          "misses": 17,
+          "io": 1681915.9040000008
+        }
+      },
+      {
+        "scheduler": "pure",
+        "case": "opaque_hit_prefetch.txt",
+        "audit": {
+          "callbacks": 6,
+          "actions": 3,
+          "hits": 33,
+          "misses": 1,
+          "io": 100663.296
+        }
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_00.txt",
+        "audit": {
+          "callbacks": 117,
+          "actions": 22,
+          "hits": 12,
+          "misses": 8,
+          "io": 520093.69600000023
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 457179.1360000002,
+          "final_states": 13,
+          "transitions": 8015,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 528093.7
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_01.txt",
+        "audit": {
+          "callbacks": 40,
+          "actions": 9,
+          "hits": 17,
+          "misses": 3,
+          "io": 213909.504
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 157189.248,
+          "final_states": 13,
+          "transitions": 3055,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 216909.5
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_02.txt",
+        "audit": {
+          "callbacks": 4,
+          "actions": 8,
+          "hits": 17,
+          "misses": 3,
+          "io": 209715.19999999998
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 212715.19999999998,
+          "final_states": 5,
+          "transitions": 316,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 212715.2
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_03.txt",
+        "audit": {
+          "callbacks": 117,
+          "actions": 23,
+          "hits": 12,
+          "misses": 8,
+          "io": 524288.0000000002
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 457179.1360000002,
+          "final_states": 13,
+          "transitions": 8493,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 532288.0
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_04.txt",
+        "audit": {
+          "callbacks": 47,
+          "actions": 16,
+          "hits": 13,
+          "misses": 7,
+          "io": 419430.40000000014
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 355321.536,
+          "final_states": 4,
+          "transitions": 2736,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 426430.4
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_05.txt",
+        "audit": {
+          "callbacks": 7,
+          "actions": 14,
+          "hits": 14,
+          "misses": 6,
+          "io": 369098.7520000001
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 255658.24000000002,
+          "final_states": 6,
+          "transitions": 308,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 375098.75
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_06.txt",
+        "audit": {
+          "callbacks": 111,
+          "actions": 26,
+          "hits": 10,
+          "misses": 10,
+          "io": 612368.3840000003
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 515899.3920000002,
+          "final_states": 13,
+          "transitions": 7593,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 622368.38
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_07.txt",
+        "audit": {
+          "callbacks": 25,
+          "actions": 0,
+          "hits": 20,
+          "misses": 0,
+          "io": 0.0
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 0.0,
+          "final_states": 8,
+          "transitions": 2740,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 0.0
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_08.txt",
+        "audit": {
+          "callbacks": 4,
+          "actions": 7,
+          "hits": 17,
+          "misses": 3,
+          "io": 171966.464
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 72303.168,
+          "final_states": 6,
+          "transitions": 241,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 174966.46
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_09.txt",
+        "audit": {
+          "callbacks": 100,
+          "actions": 15,
+          "hits": 13,
+          "misses": 7,
+          "io": 289406.9760000001
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 222298.112,
+          "final_states": 15,
+          "transitions": 8393,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 296406.98
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_10.txt",
+        "audit": {
+          "callbacks": 28,
+          "actions": 0,
+          "hits": 20,
+          "misses": 0,
+          "io": 0.0
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 0.0,
+          "final_states": 16,
+          "transitions": 3265,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 0.0
+      },
+      {
+        "scheduler": "pure",
+        "case": "oracle_11.txt",
+        "audit": {
+          "callbacks": 10,
+          "actions": 18,
+          "hits": 12,
+          "misses": 8,
+          "io": 494927.87200000015
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 417041.792,
+          "final_states": 4,
+          "transitions": 224,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 502927.87
+      },
+      {
+        "scheduler": "ai",
+        "case": "all_empty.txt",
+        "audit": {
+          "callbacks": 10,
+          "actions": 0,
+          "hits": 10,
+          "misses": 0,
+          "io": 0.0
+        }
+      },
+      {
+        "scheduler": "ai",
+        "case": "end_insert.txt",
+        "audit": {
+          "callbacks": 64,
+          "actions": 0,
+          "hits": 0,
+          "misses": 0,
+          "io": 0.0
+        }
+      },
+      {
+        "scheduler": "ai",
+        "case": "int64.txt",
+        "audit": {
+          "callbacks": 541,
+          "actions": 47,
+          "hits": 11,
+          "misses": 21,
+          "io": 25282215.936000027
+        }
+      },
+      {
+        "scheduler": "ai",
+        "case": "protected_target.txt",
+        "audit": {
+          "callbacks": 33,
+          "actions": 39,
+          "hits": 1,
+          "misses": 19,
+          "io": 1530920.960000001
+        }
+      },
+      {
+        "scheduler": "ai",
+        "case": "mixed_phases.txt",
+        "audit": {
+          "callbacks": 18,
+          "actions": 35,
+          "hits": 11,
+          "misses": 17,
+          "io": 1681915.9040000008
+        }
+      },
+      {
+        "scheduler": "ai",
+        "case": "opaque_hit_prefetch.txt",
+        "audit": {
+          "callbacks": 6,
+          "actions": 3,
+          "hits": 33,
+          "misses": 1,
+          "io": 100663.296
+        }
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_00.txt",
+        "audit": {
+          "callbacks": 117,
+          "actions": 24,
+          "hits": 12,
+          "misses": 8,
+          "io": 562036.7360000003
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 457179.1360000002,
+          "final_states": 13,
+          "transitions": 8015,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 570036.74
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_01.txt",
+        "audit": {
+          "callbacks": 39,
+          "actions": 7,
+          "hits": 18,
+          "misses": 2,
+          "io": 155189.248
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 157189.248,
+          "final_states": 13,
+          "transitions": 3055,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 157189.25
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_02.txt",
+        "audit": {
+          "callbacks": 6,
+          "actions": 12,
+          "hits": 15,
+          "misses": 5,
+          "io": 276824.064
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 212715.19999999998,
+          "final_states": 5,
+          "transitions": 316,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 281824.06
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_03.txt",
+        "audit": {
+          "callbacks": 117,
+          "actions": 22,
+          "hits": 12,
+          "misses": 8,
+          "io": 511705.0880000002
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 457179.1360000002,
+          "final_states": 13,
+          "transitions": 8493,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 519705.09
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_04.txt",
+        "audit": {
+          "callbacks": 49,
+          "actions": 20,
+          "hits": 11,
+          "misses": 9,
+          "io": 503316.4800000002
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 355321.536,
+          "final_states": 4,
+          "transitions": 2736,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 512316.48
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_05.txt",
+        "audit": {
+          "callbacks": 6,
+          "actions": 12,
+          "hits": 15,
+          "misses": 5,
+          "io": 310378.49600000004
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 255658.24000000002,
+          "final_states": 6,
+          "transitions": 308,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 315378.5
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_06.txt",
+        "audit": {
+          "callbacks": 111,
+          "actions": 28,
+          "hits": 10,
+          "misses": 10,
+          "io": 603979.7760000003
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 515899.3920000002,
+          "final_states": 13,
+          "transitions": 7593,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 613979.78
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_07.txt",
+        "audit": {
+          "callbacks": 25,
+          "actions": 0,
+          "hits": 20,
+          "misses": 0,
+          "io": 0.0
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 0.0,
+          "final_states": 8,
+          "transitions": 2740,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 0.0
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_08.txt",
+        "audit": {
+          "callbacks": 5,
+          "actions": 9,
+          "hits": 16,
+          "misses": 4,
+          "io": 171966.464
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 72303.168,
+          "final_states": 6,
+          "transitions": 241,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 175966.46
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_09.txt",
+        "audit": {
+          "callbacks": 100,
+          "actions": 15,
+          "hits": 13,
+          "misses": 7,
+          "io": 264241.152
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 222298.112,
+          "final_states": 15,
+          "transitions": 8393,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 271241.15
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_10.txt",
+        "audit": {
+          "callbacks": 28,
+          "actions": 0,
+          "hits": 20,
+          "misses": 0,
+          "io": 0.0
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 0.0,
+          "final_states": 16,
+          "transitions": 3265,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 0.0
+      },
+      {
+        "scheduler": "ai",
+        "case": "oracle_11.txt",
+        "audit": {
+          "callbacks": 10,
+          "actions": 18,
+          "hits": 12,
+          "misses": 8,
+          "io": 494927.87200000015
+        },
+        "oracle": {
+          "optimal_io_plus_miss": 417041.792,
+          "final_states": 4,
+          "transitions": 224,
+          "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+        },
+        "cost_excluding_decision": 502927.87
+      }
+    ],
+    "sanitizers": true
+  },
+  "prefetch_counterexample": {
+    "case": "opaque_hit_prefetch.txt",
+    "penalty": 1000,
+    "runs": {
+      "always": {
+        "io_plus_miss": 168772.16,
+        "io": 167772.16,
+        "misses": 1.0,
+        "audit": {
+          "callbacks": 6,
+          "actions": 5,
+          "hits": 33,
+          "misses": 1,
+          "io": 167772.16
+        }
+      },
+      "adaptive": {
+        "io_plus_miss": 101663.3,
+        "io": 100663.3,
+        "misses": 1.0,
+        "audit": {
+          "callbacks": 6,
+          "actions": 3,
+          "hits": 33,
+          "misses": 1,
+          "io": 100663.296
+        }
+      }
+    },
+    "oracle": {
+      "optimal_io_plus_miss": 100663.296,
+      "final_states": 3,
+      "transitions": 72,
+      "scope": "exact saved legal callbacks, full future, no decision time, <=8 partitions"
+    },
+    "extra_cost": 67108.86,
+    "expected_extra_roundtrip": 67108.864,
+    "mechanism": "At periodic: next=C; waiting until C miss exposes next=A. Prefetching C early loses that extra lookahead and spills A rather than B."
+  },
+  "team_source": {
+    "commit": "0310af59eaad7b519c80f33071ed498522d233ba",
+    "manifest_sha256": "bb49da43dfee2a1b4335c4db009763d24d88aaef5b1de575f7df2e750921f930",
+    "version": "0.4.0",
+    "eval_cases": 32,
+    "eval_input_bytes": 7402220,
+    "algorithm_sources_read": false
+  }
+}

@@ -1,0 +1,554 @@
+{
+  "tree": {
+    "train_mse": 0.04164402662969127,
+    "validation_mse": 0.05014515324004276
+  },
+  "mlp": {
+    "train_mse": 0.04469319060444832,
+    "validation_mse": 0.04998745769262314
+  },
+  "metadata": {
+    "features": [
+      "size/M",
+      "log2_age/16",
+      "log2_gap/16",
+      "decayed_observed_count/16",
+      "ever_observed",
+      "probe_phase",
+      "same_context_operator",
+      "need/M",
+      "used/M",
+      "observed_coverage",
+      "stride_streak/8",
+      "cycle_distance/P"
+    ],
+    "label": "1/(1+next_probe_distance/32); 0 if never again; proxy, not OPT",
+    "train_rows": 100922,
+    "val_rows": 66174,
+    "train_traces": 96,
+    "val_traces": 32,
+    "train_sources": [
+      {
+        "file": "000_uniform_291000.txt",
+        "sha256": "405e12abb8199024805450145f464a079484bcc05e7d15882732fa7631ecf48d"
+      },
+      {
+        "file": "001_hot_291001.txt",
+        "sha256": "d1b181d68ee79f196643e6c1eb864cadcecc7bb3a6d399056a12be39e02a600a"
+      },
+      {
+        "file": "002_shift_291002.txt",
+        "sha256": "f06dd0e719e2597a58af22da90d33529c06097a43de6bec7f25d58c8fd6fb43f"
+      },
+      {
+        "file": "003_scan_291003.txt",
+        "sha256": "82bae2b36c5a043da437e98a22f54ae0cda867e7dcd10a95c494be1072723f02"
+      },
+      {
+        "file": "004_burst_291004.txt",
+        "sha256": "0461e45c155305a7d3108a1e1630b95fe9bc98ac5b6ef4c403c473baf8b2d6cf"
+      },
+      {
+        "file": "005_markov_291005.txt",
+        "sha256": "521c2a86ca58f862091147abd62625f9fc6feb208ba5a4927136ecf4504a4cd2"
+      },
+      {
+        "file": "006_serial_291006.txt",
+        "sha256": "63c680a6e805ded1805b5636b67dbd3cd9153fa97c6f4be47c9e2e07576b9f8e"
+      },
+      {
+        "file": "007_overlap_291007.txt",
+        "sha256": "861d6c92cdb1f4d9b044c1d0c8c1c2f45d0176413a04eb41225f8bb82d909a93"
+      },
+      {
+        "file": "008_uniform_291008.txt",
+        "sha256": "e9e09b1a41893e5049aa3c5f5ecf2ea9a17f4a456e5229a17c9ea717fd751076"
+      },
+      {
+        "file": "009_hot_291009.txt",
+        "sha256": "b270ae55601c7c27972747653296dbd05221f5fdf1cc742328b44c23454bcaf4"
+      },
+      {
+        "file": "010_shift_291010.txt",
+        "sha256": "27641ece8418fc3b4b544bdaa6531a83afd12cbc9cd83eac288d6b76a50f8d37"
+      },
+      {
+        "file": "011_scan_291011.txt",
+        "sha256": "65e09cadb9728193477bdf5ab3ec93946fa44c4bb39dd352ba2453be0a3f1ad2"
+      },
+      {
+        "file": "012_burst_291012.txt",
+        "sha256": "e3170cedf26dbcc64531cdef4f8d4d68fb798e5fea1511030af0c20fd67d6b73"
+      },
+      {
+        "file": "013_markov_291013.txt",
+        "sha256": "26dddf707696d2e1ed1b346c90b5f38b1106e937b7313aef2b27b067d08192a8"
+      },
+      {
+        "file": "014_serial_291014.txt",
+        "sha256": "06feee3263ae9dbaef91de541f6573c0fdb4dfa6801b06a09051c3f66f33aca5"
+      },
+      {
+        "file": "015_overlap_291015.txt",
+        "sha256": "48e3c241f955f381fbe7e025648c28c527af5a54eaf63a6e44e6b907851e70ff"
+      },
+      {
+        "file": "016_uniform_291016.txt",
+        "sha256": "9676acd81636b6e1153c0ba06a7c92f90875f93664d14485b2f123f390934ce2"
+      },
+      {
+        "file": "017_hot_291017.txt",
+        "sha256": "a650aba3f30322fb42be651c2b748b0c9bf7852eafd65aafeb7c0aa44a8da6c8"
+      },
+      {
+        "file": "018_shift_291018.txt",
+        "sha256": "de3d0212c39303f7e6e2ad3ea98077d2e2ba0f6a1dc69cd4f6eb19e79c08c807"
+      },
+      {
+        "file": "019_scan_291019.txt",
+        "sha256": "0f46779d16ffc183485d46dab9fed1160e161ff5ea9bfac57812d3ea14f86cfd"
+      },
+      {
+        "file": "020_burst_291020.txt",
+        "sha256": "ce6cff9b95578b59ed2b1b44fe70c5fbac7af8eea4d9fe068349d8a0c611d31a"
+      },
+      {
+        "file": "021_markov_291021.txt",
+        "sha256": "90340c22ddfe5c7b024f9cb089e4194eb6ae82707d15f7dbc8c262b498446abb"
+      },
+      {
+        "file": "022_serial_291022.txt",
+        "sha256": "c516cd27bf1a24875f95a58878fd327b80bc7349b1012db1408095b40aeb4e7c"
+      },
+      {
+        "file": "023_overlap_291023.txt",
+        "sha256": "e0d0f2504d35a13f4abfef21e0cee610624b9f3f0ada429b4c52111bb3d9cd9e"
+      },
+      {
+        "file": "024_uniform_291024.txt",
+        "sha256": "811311f770df86c07d2782cf5ab1983308da8386aa9a4227b25e602533e0decb"
+      },
+      {
+        "file": "025_hot_291025.txt",
+        "sha256": "99c25e38cfb978325cb87c4d53e48afb806e19a13f692a0f47fb6900eece6a9f"
+      },
+      {
+        "file": "026_shift_291026.txt",
+        "sha256": "e9d2aa43913267c86933cad66433fd5b47a03d40d80d5942ae196f6ae6617fae"
+      },
+      {
+        "file": "027_scan_291027.txt",
+        "sha256": "06a37c84e59ed5b0287a6bb6b9526cb37e3ca908de925693feb49d8f70fa9fde"
+      },
+      {
+        "file": "028_burst_291028.txt",
+        "sha256": "d872fd9a724abc16e8e94739bfe9ddb5ce12a6f2a89effc8ee04809790b3a88f"
+      },
+      {
+        "file": "029_markov_291029.txt",
+        "sha256": "d3c0fb35ff832b05a27c9ae27150f4b3a01393afd0bcb70acd8423f9b5a98747"
+      },
+      {
+        "file": "030_serial_291030.txt",
+        "sha256": "6b36ec9c264fd00dbac294dafc207d0a58921e4242594c370995d8f411056032"
+      },
+      {
+        "file": "031_overlap_291031.txt",
+        "sha256": "011d14af5968d64fec91c6b68eeff3e4277f2ef5bfd2f39153b170e0f11c1d30"
+      },
+      {
+        "file": "032_uniform_291032.txt",
+        "sha256": "be3c5eab5e7c20aebc976b762bf36b3d579e1e71e6f9e2cb6fdc7ca79be9392b"
+      },
+      {
+        "file": "033_hot_291033.txt",
+        "sha256": "2270f2e1152c22ed117388d24b5bbd83b975a40981208f490bd1dd00a25109bd"
+      },
+      {
+        "file": "034_shift_291034.txt",
+        "sha256": "a7b51611844ca323df5b25a7e36383d00087858966b7f9f36b5946edf6aa5347"
+      },
+      {
+        "file": "035_scan_291035.txt",
+        "sha256": "f318e69d723255c37d28de311304da5ca1fa9acddd6c47bdea0c0a80ea224ce3"
+      },
+      {
+        "file": "036_burst_291036.txt",
+        "sha256": "b917f34ea1ec521f8f456229955096e1a07225280d2e80073d4ff2d90cfc8326"
+      },
+      {
+        "file": "037_markov_291037.txt",
+        "sha256": "1dac6921f4fcdbc65b42578799e543a08518343cb9fe314f2da530ce62051232"
+      },
+      {
+        "file": "038_serial_291038.txt",
+        "sha256": "2514a9baa20ccd2019d0ddd3069911c789ab289cdaab31c022fa0416dbf6c198"
+      },
+      {
+        "file": "039_overlap_291039.txt",
+        "sha256": "28117f5a31447d65a094e2053922559fc93068278780ce4f45d22267b84c73ff"
+      },
+      {
+        "file": "040_uniform_291040.txt",
+        "sha256": "c80c6956c1b7c7ca472d95549b6482f18b0148a6c6e1973e414163f0c3d185b4"
+      },
+      {
+        "file": "041_hot_291041.txt",
+        "sha256": "837ed88584add3d99bb683ea7e07221856a5f865f0d3ac1599c50b63a612e102"
+      },
+      {
+        "file": "042_shift_291042.txt",
+        "sha256": "5a5c54900c9902019c6102604d5823d493045fb2998d738a528c83e18972bcbf"
+      },
+      {
+        "file": "043_scan_291043.txt",
+        "sha256": "2108f3def0ba775772faf9f0f72fb4c9b9b91ddf0f210d4866acce034ebe92fa"
+      },
+      {
+        "file": "044_burst_291044.txt",
+        "sha256": "ebc62f2f28e1fffb4842252c67485315aa21dce4b7bb3ca27399828a9a90ebe0"
+      },
+      {
+        "file": "045_markov_291045.txt",
+        "sha256": "7ed6755c95ea2766ee0030bf35ad3214336b29b81883f9e29c281eb3d0517fd5"
+      },
+      {
+        "file": "046_serial_291046.txt",
+        "sha256": "1e326f1761da8c644cdfd3eac02123b054b1715f48cf999a86465b1dbdc28428"
+      },
+      {
+        "file": "047_overlap_291047.txt",
+        "sha256": "94c77f2434f81cfd5522551c89c1c808502b3280ba370dc78b7b8cc0a3eacf0e"
+      },
+      {
+        "file": "048_uniform_291048.txt",
+        "sha256": "77be9895948b4611952d3d79cd2afd5980df7d1b72096ac350bc5744facf1df1"
+      },
+      {
+        "file": "049_hot_291049.txt",
+        "sha256": "73bf12a1af9697742157ca2519472cedf64e33dbbf9cdf6dbc01b8c4453d9f53"
+      },
+      {
+        "file": "050_shift_291050.txt",
+        "sha256": "af838c8330397f29306542abc332ac8a4c7b0ed33e0cc29e75c88af3f9fd40f6"
+      },
+      {
+        "file": "051_scan_291051.txt",
+        "sha256": "17645b8938baaa7636be93f54d2f1ce7aa1700df2f4a400f24645388a61e89ae"
+      },
+      {
+        "file": "052_burst_291052.txt",
+        "sha256": "27cf8faf29e5ba4ad0cdf98196e6070de5b5176509beb33ab83f3cd975a6fae3"
+      },
+      {
+        "file": "053_markov_291053.txt",
+        "sha256": "08e7d0b4e5b20c0318af4c4073adf730ab12796eefdf9e90bdb94de1263355a5"
+      },
+      {
+        "file": "054_serial_291054.txt",
+        "sha256": "47c5dc56aa4be3cdb5d069f505d16ced50e5d54c961ba66d1c24918149b21a4b"
+      },
+      {
+        "file": "055_overlap_291055.txt",
+        "sha256": "fe864cd0dbf81a38001a426d41358a9dd94a66182e1ff4fa0ca68eca13146a0f"
+      },
+      {
+        "file": "056_uniform_291056.txt",
+        "sha256": "6e5a53f7183f69e2eff7e7d261946b4691c517e257293ac36f2e950b97ddfad3"
+      },
+      {
+        "file": "057_hot_291057.txt",
+        "sha256": "652923b5ff6d3e2fbf2f152fa9a5f7eabfbac75a8053226916ba4c7769179718"
+      },
+      {
+        "file": "058_shift_291058.txt",
+        "sha256": "0941d3d7ffe9a62e1af3fdbd2d5c100e6a3f1a3537f28744ce31688b87397a7e"
+      },
+      {
+        "file": "059_scan_291059.txt",
+        "sha256": "c063b88da773adf40fefc5d32cdaa5296bd67fb312364a6ce3a2465d8dd9e6d6"
+      },
+      {
+        "file": "060_burst_291060.txt",
+        "sha256": "01882d4318fe07f99ea1112ee217c5a784cc8702ac566baec7d60f55878b3df5"
+      },
+      {
+        "file": "061_markov_291061.txt",
+        "sha256": "248a87520b4710b2a09c968d6b315626f92720ee1b85e03225ce4ec6e46faa8f"
+      },
+      {
+        "file": "062_serial_291062.txt",
+        "sha256": "e2d3b17775692a058b59a9e6beb5d03ade580fabbaf701ee4e7d07c784bf7a13"
+      },
+      {
+        "file": "063_overlap_291063.txt",
+        "sha256": "022be825e54ecfbd6a5151f02e7d79f622cffb64d897d9317898c0d393d41422"
+      },
+      {
+        "file": "064_uniform_291064.txt",
+        "sha256": "032f6166bf6c42e4cf01b3a822f7550a91c301a17657db42996599649b3135ca"
+      },
+      {
+        "file": "065_hot_291065.txt",
+        "sha256": "9beee9677b4d2e0cf189bf24fb692308312d3419e1d71420b7f0c0ef2efa9408"
+      },
+      {
+        "file": "066_shift_291066.txt",
+        "sha256": "4f6b50f977f588efa09c8122fcf58aa0557f9f298398ada77190c97b49ccf26c"
+      },
+      {
+        "file": "067_scan_291067.txt",
+        "sha256": "2a244a875b35a8351a3a1e061ac8a276c8d21535513f86a2c647a873a94fd888"
+      },
+      {
+        "file": "068_burst_291068.txt",
+        "sha256": "08747bf4635b7804936341928a3fa63903eb6f33afadf44daf8c8a59144e478f"
+      },
+      {
+        "file": "069_markov_291069.txt",
+        "sha256": "2146ac5db6f5c8f3c75d8e9995b0694b8f56b64817d3a85eb3775c9a974fce07"
+      },
+      {
+        "file": "070_serial_291070.txt",
+        "sha256": "3a048dfcef10eafd5f412d2f19f783749bd6ef5dbf26ac343fef43e9de967c28"
+      },
+      {
+        "file": "071_overlap_291071.txt",
+        "sha256": "2a3e91c4013c5646f745e12d98033ce779958d4c7f88fdc6bf4a85fccc862bf1"
+      },
+      {
+        "file": "072_uniform_291072.txt",
+        "sha256": "3bd058147c9f712253f29fc3fb533b843e32d41c12b15e4103ba24eb0ba60e9c"
+      },
+      {
+        "file": "073_hot_291073.txt",
+        "sha256": "43733043b690c281b1fdde1f0e0a6ac7c9b3f63f77f661d9af8ba1a285fcb1c1"
+      },
+      {
+        "file": "074_shift_291074.txt",
+        "sha256": "4dbd3d17a7649cf1b59b448a2d8a84c9c505cf91a8f49ffff05315f097a3fe34"
+      },
+      {
+        "file": "075_scan_291075.txt",
+        "sha256": "64b7f46024a42c74c8add4fdb9e3f675ff41689689eb557c5397ff208a919ef2"
+      },
+      {
+        "file": "076_burst_291076.txt",
+        "sha256": "1082ba98b8c94f6f8dc07692c43e80fe031a81c6adc3bd983f7cadcb3b6d21e5"
+      },
+      {
+        "file": "077_markov_291077.txt",
+        "sha256": "22848462fa23a105f46ad4c8708fb36efb996cd63d00f041e8faabd92373e1bb"
+      },
+      {
+        "file": "078_serial_291078.txt",
+        "sha256": "2c10ba8123ed7c5527d4f425f974e16661a167f6f9a9e6b3bf64fa88c84dfc2c"
+      },
+      {
+        "file": "079_overlap_291079.txt",
+        "sha256": "9d55c7bf2685b1125db88f6080ae2fc99e08dd6cc77a9f78d67d5ed8bfd1e08c"
+      },
+      {
+        "file": "080_uniform_291080.txt",
+        "sha256": "69ccae445b39b5c19e997ea63901ec44a8763883376ba2e8cc490b5719e098f9"
+      },
+      {
+        "file": "081_hot_291081.txt",
+        "sha256": "95e3fdc635f2d80f21edb3f0d38db4ebeb9dc7b7bafb4727e6be9a2cf19db1fa"
+      },
+      {
+        "file": "082_shift_291082.txt",
+        "sha256": "c8556cc3861bda81eb266e0af6ee36f7d3da20d2e5269094b3a1ed53dd95c449"
+      },
+      {
+        "file": "083_scan_291083.txt",
+        "sha256": "8ec78a18a9d7d98fe2a9b6989acd656f220a559aea53bb1d60f2cf605d2dc2df"
+      },
+      {
+        "file": "084_burst_291084.txt",
+        "sha256": "5f247e9975a02cca15a196a431da5ced891116f157033b3f3301f7639d50796c"
+      },
+      {
+        "file": "085_markov_291085.txt",
+        "sha256": "e6edf3d2015f9dc7603b25e685cacc71e4336736f6d38f722430f35bcd71ff86"
+      },
+      {
+        "file": "086_serial_291086.txt",
+        "sha256": "b975402bc9fe1f39c6a6b17c4bc897494a4a68eb2607faa8ba6c170456ebdb73"
+      },
+      {
+        "file": "087_overlap_291087.txt",
+        "sha256": "4dcb140f511ac55c3653a98b688a4fc44cd273a62ef70a994e5af5be09dcb983"
+      },
+      {
+        "file": "088_uniform_291088.txt",
+        "sha256": "70ac814410144cdf89ac105324dc0a3a1541560e0326a9762c7ce87501f49f68"
+      },
+      {
+        "file": "089_hot_291089.txt",
+        "sha256": "4a6ce5e3cf54a51ed64fcb309312c533699ec67499b4b3a078cccafc41b9e976"
+      },
+      {
+        "file": "090_shift_291090.txt",
+        "sha256": "aeaa562b27d08c80198f81d6bc4824b77780787d42c352658697d0f12c6b514b"
+      },
+      {
+        "file": "091_scan_291091.txt",
+        "sha256": "f75b61d6772861e603b4b768dd1e9f1b6020bfc82e37b6c053a9352991ede163"
+      },
+      {
+        "file": "092_burst_291092.txt",
+        "sha256": "a8ea580594ff18c9fda23ee2530fb4290f1a20f3ff81d4751bd969caadecdcef"
+      },
+      {
+        "file": "093_markov_291093.txt",
+        "sha256": "6123d02fc2a884efa7307b265eb0bf33f94f558a49079a80b113881e6b5b0baf"
+      },
+      {
+        "file": "094_serial_291094.txt",
+        "sha256": "82f1457fb86bbae66dd6761afdb7d75a7a1363a02f9ad093d7d3ffb78d2260ac"
+      },
+      {
+        "file": "095_overlap_291095.txt",
+        "sha256": "a808b97c0f50d5ec85cbdb5740a1dddfe88682f90538929344b64b67c5af1c18"
+      }
+    ],
+    "val_sources": [
+      {
+        "file": "000_uniform_292000.txt",
+        "sha256": "3abf67c230658d762ce0c70d541c91ea0dc693289eba50f84c853c9be971d46e"
+      },
+      {
+        "file": "001_hot_292001.txt",
+        "sha256": "ff68998b3263f53e2491ee4226075c452470bdb258f1de02d57777a651f28da5"
+      },
+      {
+        "file": "002_shift_292002.txt",
+        "sha256": "ff17f8118e55853c2d6c1a3e7ec790d8da0940e03782f4055dec0c51c79364dc"
+      },
+      {
+        "file": "003_scan_292003.txt",
+        "sha256": "44a82ab17b7f38f716e7ac39432fa566b73e226b22b3504e734ecaad58b856ac"
+      },
+      {
+        "file": "004_burst_292004.txt",
+        "sha256": "c220b05d7da0bf7f42736ec2ec0a996e80727b4a30e104c9a88362e80bfeaa15"
+      },
+      {
+        "file": "005_markov_292005.txt",
+        "sha256": "92883bf277389d7d16a791e9722a4d280c554e80b199c47b62bfab256b7a514b"
+      },
+      {
+        "file": "006_serial_292006.txt",
+        "sha256": "587b68320b1e8fc6eef0c246d1357e72cc7fecb093c20c0eddea931ba2754f89"
+      },
+      {
+        "file": "007_overlap_292007.txt",
+        "sha256": "ed856bbcaf3e33de05d18c608f3582efea19aee496aae1314b456a739895fecd"
+      },
+      {
+        "file": "008_uniform_292008.txt",
+        "sha256": "4959ec64a9032e364c4a060fda8884f38a48eeac2302c094da07f04d3e43332b"
+      },
+      {
+        "file": "009_hot_292009.txt",
+        "sha256": "d5496d85a34d7b876454641218986123241a7888930163c8d19da8aa16d84999"
+      },
+      {
+        "file": "010_shift_292010.txt",
+        "sha256": "aae06f5769358bf258702b412392c9595e3dd2b7c3729f1d62191af729b03fa6"
+      },
+      {
+        "file": "011_scan_292011.txt",
+        "sha256": "bbe4580d7d302aea16c86fccccc86923d5a981906d727d2a9f90b458f4a24d49"
+      },
+      {
+        "file": "012_burst_292012.txt",
+        "sha256": "1830855815cb7c874a3665999de340e897276e42b68acfb7f232dfd0efc3fb50"
+      },
+      {
+        "file": "013_markov_292013.txt",
+        "sha256": "47503b19980062e085e5e308464aac2f17142fa84c67429e299a50d1a433ea91"
+      },
+      {
+        "file": "014_serial_292014.txt",
+        "sha256": "e4799512e099dc206f637e7db1c845c492d958525370c25c5d72889e318660e7"
+      },
+      {
+        "file": "015_overlap_292015.txt",
+        "sha256": "be26e0c688826b08790b4335d3d01000b8f6ff00936a2505916f6ebb29796c4c"
+      },
+      {
+        "file": "016_uniform_292016.txt",
+        "sha256": "2ca86812ff931ae1e9121c4f3a32f65c152649ecfe64192b39745ced8472e056"
+      },
+      {
+        "file": "017_hot_292017.txt",
+        "sha256": "fd2c98bd336646567cf944cd1ea0e1886abc53de81448a789ce5e348d00e2002"
+      },
+      {
+        "file": "018_shift_292018.txt",
+        "sha256": "7e7231971b25b0831fe1f76a3d23c24023845416582bb458236babecea7cd32f"
+      },
+      {
+        "file": "019_scan_292019.txt",
+        "sha256": "6264331e802e19529f1609cba72e43bb9cb20232dbbba5a0cd28e1af76d213c7"
+      },
+      {
+        "file": "020_burst_292020.txt",
+        "sha256": "486219a8c7d4f6763c86372132360d9a7566c0d1457ef30109f595c68c0500fa"
+      },
+      {
+        "file": "021_markov_292021.txt",
+        "sha256": "1693642fc27b82d0a395b0302949296dff669c297273cacfe4fa05c2c685a2c0"
+      },
+      {
+        "file": "022_serial_292022.txt",
+        "sha256": "e41dfb1f5bbfecad12691a35ab450cedc063f107cf7dbb47d42beaa58296ed25"
+      },
+      {
+        "file": "023_overlap_292023.txt",
+        "sha256": "bc8575aed1fe09d5cc205ee7e83dbb3e63da7c64a63c24fb801f78c93c37339d"
+      },
+      {
+        "file": "024_uniform_292024.txt",
+        "sha256": "4c4f9122191a3e0cd27138f801853e0beb513b094a6e0e7dce642bcc2b0227c4"
+      },
+      {
+        "file": "025_hot_292025.txt",
+        "sha256": "201be7899dc2b43ff13e2f8f03c5c8c890498779bbe75a372c483eaaa6809097"
+      },
+      {
+        "file": "026_shift_292026.txt",
+        "sha256": "1aedfd96cf7afdf6dc55cdc036ca64b11c829f85f397af16ed5112fc5f8fb5de"
+      },
+      {
+        "file": "027_scan_292027.txt",
+        "sha256": "d853aeae74eeadfa996867d59ea8cf80011281e684be5231fec1e5c1173ba4ec"
+      },
+      {
+        "file": "028_burst_292028.txt",
+        "sha256": "55585ad0d8b0fb21bea4287b2109c1706964bfa8d2e4ebab75b1719cb3114af8"
+      },
+      {
+        "file": "029_markov_292029.txt",
+        "sha256": "4a0954c772451ce57ff899b8950d2c1c8aa1bf11dd7066e829105e38268adb7b"
+      },
+      {
+        "file": "030_serial_292030.txt",
+        "sha256": "df1bf4b0210712a472d3d34b91e79837e48db9ccea45db285531dac189a97060"
+      },
+      {
+        "file": "031_overlap_292031.txt",
+        "sha256": "fd49ba4cf25a3c218ff2aa1a9779dcfa46b205ea98c0b1eb482abf57cd0f74d0"
+      }
+    ],
+    "seed": 290029,
+    "seconds": 28.280674934387207,
+    "split": "whole independent generated traces",
+    "models": "CART depth5 and ReLU MLP 12x16x1",
+    "training_weight": "equal total mass per trace",
+    "collector": "frequency policy on legal callback history; stride distances precomputed O(P)",
+    "template_sha256": "fdd99d9068a0d5df197c7495345a4e0f1de160c0aee0dcf61985da95b3aaa450"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "date": "2026-10-28",
+  "date": "2026-10-29",
   "source_markdown_sha256": "464a542ad56f0b81ebad23371846a705c202c4461589a5f37d65af5a65c99d69",
   "source_pdf_sha256": "5438db9bcee81b9c5fde8cfbe46dbbf471d1d0e460e3c0eb75a637fefff6f41c",
   "pdf_pages": 16,
@@ -8,13 +8,14 @@
   "checks": [
     "Three C++ blocks match frozen source nonblank lines after NBSP/trailing-space normalization",
     "Three C++ blocks and sample match original PDF body across page boundaries",
-    "689 Markdown text pieces verified in rendered PDF order; three full C++ blocks preserved",
+    "695 Markdown text pieces verified in rendered PDF order; three full C++ blocks preserved",
     "Sample contains exactly N=11 operation lines with no empty line and stays on one PDF page",
     "Output placeholders, template arguments and list markers preserved; no text outside horizontal margins",
     "No NUL or replacement characters in PDF body",
     "Visual review: page overview, input/output, sample, code continuation, discrepancy table and final page",
     "Original reference compiled with C++14 -O2 and run on corrected and previous blank-line samples",
-    "git diff --check passed"
+    "git diff --check passed",
+    "2026-10-29 user constraints rendered; all three source C++ blocks still match original PDF"
   ],
   "validation": {
     "source_markdown_sha256": "464a542ad56f0b81ebad23371846a705c202c4461589a5f37d65af5a65c99d69",
@@ -30,7 +31,7 @@
     },
     "pdf": {
       "pages": 16,
-      "ordered_text_pieces_verified": 689,
+      "ordered_text_pieces_verified": 695,
       "cpp_blocks_preserved": 3,
       "no_nul_or_replacement": true,
       "margins_valid": true,
@@ -72,12 +73,12 @@
   },
   "files": {
     "STATEMENT_ENHANCED.md": {
-      "sha256": "87d5b6ee74292e3327aba00d874644568fc783c7b93d90d4b7ae14423f2b9320",
-      "bytes": 54175
+      "sha256": "dfe56e0d78d7a3e90f7232b777a7aebeae83cc4e645c4c9ec93330345c3d7c4f",
+      "bytes": 55060
     },
     "STATEMENT_ENHANCED.pdf": {
-      "sha256": "c911e52c4003dab0705160fe7203a164f49ed1c656bcfb41755c0f5ed3456a50",
-      "bytes": 163604
+      "sha256": "e26e0ebce510bac674635a65d042fca735a3f02535d655f33aec3d076ddd92cd",
+      "bytes": 164801
     },
     "STATEMENT_INTERPRETATION.md": {
       "sha256": "7396df581da84776e1967aef6e8b35ff18904565e5b3f9a7843cefda6c07ec2f",
@@ -111,5 +112,14 @@
     "No online statement or hidden evaluator verification",
     "Original reference logic preserved; missing checks documented, not implemented",
     "Original bibliography not independently verified"
-  ]
+  ],
+  "user_additions_2026_10_29": [
+    "Self-created tests, no supplied validation environment",
+    "Only MySpillScheduler, no framework changes",
+    "Linux, g++ -std=c++14 -O2"
+  ],
+  "current_artifact_sha256": {
+    "STATEMENT_ENHANCED.md": "dfe56e0d78d7a3e90f7232b777a7aebeae83cc4e645c4c9ec93330345c3d7c4f",
+    "STATEMENT_ENHANCED.pdf": "e26e0ebce510bac674635a65d042fca735a3f02535d655f33aec3d076ddd92cd"
+  }
 }

@@ -60,3 +60,9 @@ Ghost-refault64使用固定数组，记录经下一次真实状态确认的驱�
 R63冻结提交：main `87860d3e5ff1801f7ac0c5ba6f0d05459bc916c0`，datasets `9ed3b85a089c5e55900664d67c8dd885c7ebf9bf`。0.5发布记录核对211个暂存文件与Git blob，完整40例Ghost评分现已完成。ID104也已作为可选接口发布，功能一致性通过，但接口运行时间尚未单独验证。
 
 公共仓库：[HuaweiHackathon](https://github.com/cyanneko/HuaweiHackathon)。论文路线及R60/R61/R62的净化摘要已上传，文档更新提交main `c1971df88050ec492388da1a3e22e909ae9fe02e`。本页随R63净化结果和实验源码快照公开；本次发布没有新增编译、solver或训练。
+
+## 后续数据与归档更新
+
+MXV1八类固定配方新增8训练/8评测，cyanneko升0.6.0、48/48；首次生成/严格审计5.625秒、21,279,105字节，32个输入/meta字节复现通过。Root独立核对16例1,179,648 PROBE。hotset_phase_reverse_train压力1.0可全驻留，是无压力反转对照，未改或筛掉。新增数据与原80及另一成员1128例三种流签名无碰撞。当前全体为cyanneko0.6.0/48与liunianwww0.1.0/528，总576eval；新全量性能待测，旧R63固定0.5/40证据不改。
+
+R61/R62未胜出方法的原源码/模型/标签/配置/复现材料已归档，状态见[索引](EXPERIMENT_STATUS_20261029.md)。共享接口只读检查确认all-observe/selected-decide/all-final-dispatch可承载实际轨迹，但原R63不能直接作为纯提案；建议先拆分并明确共同最终派发的确认语义，不加ID或跑验收。论文补充见[有界候选与惰性维护](BOUNDED_LAZY_PAPERS_20261029.md)。

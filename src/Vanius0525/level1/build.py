@@ -46,7 +46,15 @@ def build(scheduler=None, name=None, audit=False, sanitize=False):
     chosen = 'NaiveSpillScheduler'
     if scheduler:
         scheduler = Path(scheduler).resolve()
-        insert = scheduler.read_text()
+        source_bytes = scheduler.read_bytes()
+        snapshot_dir = ROOT / 'build/source_snapshots'
+        snapshot_dir.mkdir(parents=True, exist_ok=True)
+        snapshot = snapshot_dir / (hashlib.sha256(source_bytes).hexdigest() + '.cpp')
+        if snapshot.exists():
+            assert snapshot.read_bytes() == source_bytes
+        else:
+            snapshot.write_bytes(source_bytes)
+        insert = source_bytes.decode()
         assert 'class MySpillScheduler' in insert and 'int main(' not in insert
         if audit:
             insert += AUDIT

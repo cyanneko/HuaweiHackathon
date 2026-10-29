@@ -71,3 +71,5 @@ python stress.py --n 5000000 --b 1 10000 --scheduler pure=MySpillScheduler.cpp -
 `hourly_check.py`运行于本地WSL，首轮22:39已完成，之后每小时运行新seed回归和一组参数试验；不自动晋升候选。结束后通过官方 `codex queue` 把 [HOURLY_RESUME_PROMPT.md](HOURLY_RESUME_PROMPT.md) 排入原会话，继续研究。已实测queue成功，不创建新代理或新会话。
 
 这依赖WSL/app-server继续运行，不是云端Scheduled任务。会话绑定与进程状态只保存在忽略的 `build/hourly/`；不提交聊天ID、私人状态或凭据。查看 `build/hourly/status.json`、`last_queue.json` 和每轮summary；创建 `build/hourly/STOP` 可在当前案例完成后停止。实验锁只串行化本项目工具，不能保证整个操作系统没有其他负载。
+
+版本与优化过程见[OPTIMIZATION_HISTORY.md](OPTIMIZATION_HISTORY.md)、[VERSION_LEDGER.json](VERSION_LEDGER.json)。第二轮新增568个团队样例的结果见[round2/RESULTS.json](round2/RESULTS.json)；较大团队集上纯算法均分略高于AI，尚无新的候选晋升。

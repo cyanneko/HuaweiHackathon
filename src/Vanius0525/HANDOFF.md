@@ -67,3 +67,11 @@
 - 运行与续接：本地小时回归22:39已执行一次，下一轮23:39；官方codex queue已验证并接入回归后的原会话续接。WSL/app-server须运行，非云端Scheduled。私人PID/会话绑定只在忽略的level1/build/LOCAL_RUNTIME.json和build/hourly/，研究续接指令已有一条排队。
 - Open Ideas：已记录“预取消除未来callback导致信息损失”的精确反例、最小研究方案、已有文献与失败模式；新颖性/真实系统价值尚未证实，不包装成顶会结论。
 - 下一轮：先读取level1/HANDOFF、最新hourly摘要与工作树；处理跨算子BUILD时Probe时钟停滞、AI serial/cross-operator退化。现有留出已曝光，后续必须换新seed验证，不重启已完成实验。
+
+## 第二轮补充评测与版本档案（2026-10-29）
+- 新数据固定datasets@0be508208700edae7a7b4443b122c633cc87b0e0；只读manifest/输入，不读同学算法。40+528=568 eval、73384882字节全SHA及格式校验，1704次独立动作重放通过。cyanneko重复5次、liunian重复3次。
+- 新团队平均逐例分：cyanneko纯3.317664/AI3.534258/next-build3.558065；liunian纯2.314665/AI2.296680/next-build2.294218。全部合成套件封顶50不等于隐藏成绩。AI在更大集合不领先，不晋升阶段保护候选。
+- 纯phase-best-fit在曝光val32诊断均分4.162282→4.289854，但平均成本比变差、shift最坏2.16倍。尚未做新种子外推，保留实验版本，不替换正式提交。
+- 用户要求保存全部优化过程：OPTIMIZATION_HISTORY.md记录路线、现象、失败和下一步；VERSION_LEDGER.json索引44个测量版本，43个精确源码归档。缺失早期scan源码3f2f9c1003bc32fc…明确记录，不冒充完整恢复。根目录/round2同时保留未测量候选。
+- build.py新增编译前内容寻址快照，防止后续别名覆盖丢失版本；C++14编译复核通过、框架检查仍执行，两冻结提交SHA不变。原始结果/输入仍本地保留，提交摘要与源码不含私人会话信息。
+- 小时进程保留，状态waiting、下一次15:39 UTC；未启动重复实验。下一步先读本记录和round2/RESULTS.json，考虑新seed295000起验证纯phase及scan/corner退化，禁止把曝光val当盲测。

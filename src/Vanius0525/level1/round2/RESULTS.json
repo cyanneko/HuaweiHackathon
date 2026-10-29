@@ -1,0 +1,1029 @@
+{
+  "dataset_revision": "0be508208700edae7a7b4443b122c633cc87b0e0",
+  "team_eval_cases": 568,
+  "team_input_bytes": 73384882,
+  "sha_and_input_validation_errors": 0,
+  "team_action_replays_passed": 1704,
+  "promotion": null,
+  "reports": {
+    "round2-cyanneko050.json": {
+      "benchmark_schema": 2,
+      "scheduler_sha256": {
+        "pure_v1": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+        "ai_v1": "cb13de53288303110e6e0fb0d62198f11af15402a78d8822aac7e03ef6213621",
+        "next_build": "f38cc5caef7b3c4ecb1c9de14f88649247a3aa08d9729997756f0c38a0da6ea2"
+      },
+      "repeats": 5,
+      "summary": {
+        "naive": {
+          "cases": 40,
+          "mean_single_score": 0,
+          "capped_sum_score": 0.0,
+          "mean_io_miss_score_diagnostic": 0,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 1.0,
+          "wins": 0,
+          "regressions_gt_1pct": 0,
+          "misses": 50140.0,
+          "io": 416993766251.7,
+          "decision": 136753.62800000006,
+          "total_cost": 417009305287.36993,
+          "worst_cost_ratios": [
+            [
+              1.0,
+              "r61root_07_resident_control_holdout.txt"
+            ],
+            [
+              1.0,
+              "r61root_06_phase_overlap_holdout.txt"
+            ],
+            [
+              1.0,
+              "r61root_05_next_alternation_holdout.txt"
+            ],
+            [
+              1.0,
+              "r61root_04_big_small_cycles_holdout.txt"
+            ],
+            [
+              1.0,
+              "r61root_03_burst_mix_holdout.txt"
+            ],
+            [
+              1.0,
+              "r61root_02_interleave_reverse_holdout.txt"
+            ]
+          ]
+        },
+        "pure_v1": {
+          "cases": 40,
+          "mean_single_score": 3.317663910711242,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.292514181490785,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6858365723979087,
+          "wins": 30,
+          "regressions_gt_1pct": 5,
+          "misses": 56212.0,
+          "io": 158636130715.82996,
+          "decision": 134866.144,
+          "total_cost": 158656853888.94998,
+          "worst_cost_ratios": [
+            [
+              1.2866095290298654,
+              "r54_temporal_0_eval.txt"
+            ],
+            [
+              1.1766892696107516,
+              "r54_temporal_3_eval.txt"
+            ],
+            [
+              1.1151958798159602,
+              "r58_no_op_controls_1_eval.txt"
+            ],
+            [
+              1.047069800881288,
+              "r61root_02_interleave_reverse_holdout.txt"
+            ],
+            [
+              1.0196001840986628,
+              "r54_cross_operator_0_eval.txt"
+            ],
+            [
+              1.006161438860533,
+              "r58_low_opportunity_mix_1_eval.txt"
+            ]
+          ]
+        },
+        "ai_v1": {
+          "cases": 40,
+          "mean_single_score": 3.534258115672077,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.5075846159789146,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6804286387063266,
+          "wins": 29,
+          "regressions_gt_1pct": 6,
+          "misses": 54895.0,
+          "io": 158372096314.47,
+          "decision": 164138.598,
+          "total_cost": 158392380774.078,
+          "worst_cost_ratios": [
+            [
+              1.7773913665319734,
+              "r54_cross_operator_0_eval.txt"
+            ],
+            [
+              1.1867927009015107,
+              "r54_temporal_3_eval.txt"
+            ],
+            [
+              1.1145836147051673,
+              "r58_no_op_controls_1_eval.txt"
+            ],
+            [
+              1.107821921873089,
+              "r54_temporal_0_eval.txt"
+            ],
+            [
+              1.0769277686101635,
+              "r61root_07_resident_control_holdout.txt"
+            ],
+            [
+              1.012109839618029,
+              "r61root_02_interleave_reverse_holdout.txt"
+            ]
+          ]
+        },
+        "next_build": {
+          "cases": 40,
+          "mean_single_score": 3.5580647237320395,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 3.5126688027588417,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6775075878440556,
+          "wins": 30,
+          "regressions_gt_1pct": 5,
+          "misses": 55135.0,
+          "io": 158396847548.62,
+          "decision": 159785.89399999997,
+          "total_cost": 158417337785.53204,
+          "worst_cost_ratios": [
+            [
+              1.7722310051599015,
+              "r54_cross_operator_0_eval.txt"
+            ],
+            [
+              1.2023061437271256,
+              "r54_temporal_3_eval.txt"
+            ],
+            [
+              1.135310589485247,
+              "r58_no_op_controls_1_eval.txt"
+            ],
+            [
+              1.1078063838142755,
+              "r54_temporal_0_eval.txt"
+            ],
+            [
+              1.0121087232144748,
+              "r61root_02_interleave_reverse_holdout.txt"
+            ],
+            [
+              1.0063336004127887,
+              "r58_low_opportunity_mix_1_eval.txt"
+            ]
+          ]
+        }
+      }
+    },
+    "round2-liunianwww010.json": {
+      "benchmark_schema": 2,
+      "scheduler_sha256": {
+        "pure_v1": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+        "ai_v1": "cb13de53288303110e6e0fb0d62198f11af15402a78d8822aac7e03ef6213621",
+        "next_build": "f38cc5caef7b3c4ecb1c9de14f88649247a3aa08d9729997756f0c38a0da6ea2"
+      },
+      "repeats": 3,
+      "summary": {
+        "naive": {
+          "cases": 528,
+          "mean_single_score": 0,
+          "capped_sum_score": 0.0,
+          "mean_io_miss_score_diagnostic": 0,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 1.0,
+          "wins": 0,
+          "regressions_gt_1pct": 0,
+          "misses": 295731.0,
+          "io": 73690411229096.84,
+          "decision": 1041779.9533333337,
+          "total_cost": 73690516707929.94,
+          "worst_cost_ratios": [
+            [
+              1.0,
+              "historical_validation_zipf_0748_74befbc76adb.txt"
+            ],
+            [
+              1.0,
+              "historical_validation_zipf_0720_d1817875f236.txt"
+            ],
+            [
+              1.0,
+              "historical_validation_zipf_0691_400247e33308.txt"
+            ],
+            [
+              1.0,
+              "historical_validation_zipf_0661_a3f2969c0f2b.txt"
+            ],
+            [
+              1.0,
+              "historical_validation_zipf_0631_98986397bc41.txt"
+            ],
+            [
+              1.0,
+              "historical_validation_zipf_0601_a8d49f513e78.txt"
+            ]
+          ]
+        },
+        "pure_v1": {
+          "cases": 528,
+          "mean_single_score": 2.314665429381402,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 2.306777793479326,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.8049483364062332,
+          "wins": 321,
+          "regressions_gt_1pct": 100,
+          "misses": 187017.0,
+          "io": 54367751993935.875,
+          "decision": 733275.396666667,
+          "total_cost": 54367807574441.38,
+          "worst_cost_ratios": [
+            [
+              3.3074291613942983,
+              "frozen_model_test_corners_0996_329e9db508f6.txt"
+            ],
+            [
+              2.615088011244918,
+              "frozen_model_test_corners_0990_ab5df6ce6a44.txt"
+            ],
+            [
+              2.0740837460983177,
+              "frozen_model_test_sequential_scan_0824_6b64facd68ae.txt"
+            ],
+            [
+              1.808027008945456,
+              "frozen_model_test_micro_hot_giant_cold_0931_3300c7246194.txt"
+            ],
+            [
+              1.7513221902682001,
+              "historical_validation_micro_hot_giant_cold_0678_72a46913f08b.txt"
+            ],
+            [
+              1.6613659367532323,
+              "frozen_model_test_sequential_scan_0827_14a92ccbfc53.txt"
+            ]
+          ]
+        },
+        "ai_v1": {
+          "cases": 528,
+          "mean_single_score": 2.296680102162844,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 2.2910352975859087,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.8084573703701348,
+          "wins": 304,
+          "regressions_gt_1pct": 111,
+          "misses": 188459.0,
+          "io": 54422613233661.82,
+          "decision": 867287.0599999999,
+          "total_cost": 54422670324362.16,
+          "worst_cost_ratios": [
+            [
+              2.8166285797024813,
+              "frozen_model_test_corners_0996_329e9db508f6.txt"
+            ],
+            [
+              2.615112560007342,
+              "frozen_model_test_corners_0990_ab5df6ce6a44.txt"
+            ],
+            [
+              2.4345756104111103,
+              "frozen_model_test_sequential_scan_0824_6b64facd68ae.txt"
+            ],
+            [
+              1.8109957869356736,
+              "frozen_model_test_micro_hot_giant_cold_0931_3300c7246194.txt"
+            ],
+            [
+              1.8058837155432013,
+              "frozen_model_test_bursts_0808_0112de2de247.txt"
+            ],
+            [
+              1.749370168369034,
+              "historical_validation_micro_hot_giant_cold_0678_72a46913f08b.txt"
+            ]
+          ]
+        },
+        "next_build": {
+          "cases": 528,
+          "mean_single_score": 2.2942178644541658,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 2.2867474219359414,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.8088819292102909,
+          "wins": 303,
+          "regressions_gt_1pct": 110,
+          "misses": 189158.0,
+          "io": 54422020967819.875,
+          "decision": 844360.013333333,
+          "total_cost": 54422078483087.8,
+          "worst_cost_ratios": [
+            [
+              2.845484019213457,
+              "frozen_model_test_corners_0996_329e9db508f6.txt"
+            ],
+            [
+              2.6151120550446905,
+              "frozen_model_test_corners_0990_ab5df6ce6a44.txt"
+            ],
+            [
+              2.4345753462237445,
+              "frozen_model_test_sequential_scan_0824_6b64facd68ae.txt"
+            ],
+            [
+              1.8109089079775575,
+              "frozen_model_test_micro_hot_giant_cold_0931_3300c7246194.txt"
+            ],
+            [
+              1.7547864758480973,
+              "historical_validation_interleaved_phases_0642_4f09e8ddaa18.txt"
+            ],
+            [
+              1.7493202204704947,
+              "historical_validation_micro_hot_giant_cold_0678_72a46913f08b.txt"
+            ]
+          ]
+        }
+      }
+    },
+    "round2-phase-val.json": {
+      "benchmark_schema": 2,
+      "scheduler_sha256": {
+        "ai_v1": "cb13de53288303110e6e0fb0d62198f11af15402a78d8822aac7e03ef6213621",
+        "phase": "6102a9d1bbbca0cf1f22aa320aa7a1e29f0655272802dc98d8686ced3c0165a5",
+        "phase2": "50be3fff042b44de44a5abc6c50de280e9bd3449f2a625b67016127a15d37265",
+        "next_build": "f38cc5caef7b3c4ecb1c9de14f88649247a3aa08d9729997756f0c38a0da6ea2"
+      },
+      "repeats": 5,
+      "summary": {
+        "naive": {
+          "cases": 32,
+          "mean_single_score": 0,
+          "capped_sum_score": 0.0,
+          "mean_io_miss_score_diagnostic": 0,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 1.0,
+          "wins": 0,
+          "regressions_gt_1pct": 0,
+          "misses": 37909.0,
+          "io": 6922564708.460001,
+          "decision": 68601.83999999998,
+          "total_cost": 6928692939.288001,
+          "worst_cost_ratios": [
+            [
+              1.0,
+              "031_overlap_292031.txt"
+            ],
+            [
+              1.0,
+              "030_serial_292030.txt"
+            ],
+            [
+              1.0,
+              "029_markov_292029.txt"
+            ],
+            [
+              1.0,
+              "028_burst_292028.txt"
+            ],
+            [
+              1.0,
+              "027_scan_292027.txt"
+            ],
+            [
+              1.0,
+              "026_shift_292026.txt"
+            ]
+          ]
+        },
+        "ai_v1": {
+          "cases": 32,
+          "mean_single_score": 4.443898864686668,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.387229422282876,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6228789303858091,
+          "wins": 24,
+          "regressions_gt_1pct": 6,
+          "misses": 18810.0,
+          "io": 4034580649.620001,
+          "decision": 57414.572,
+          "total_cost": 4038290408.1919985,
+          "worst_cost_ratios": [
+            [
+              1.9058577405857742,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.7525807124952988,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.1649484536082473,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.1277949463733865,
+              "002_shift_292002.txt"
+            ],
+            [
+              1.09128716988979,
+              "000_uniform_292000.txt"
+            ],
+            [
+              1.0611426089857352,
+              "030_serial_292030.txt"
+            ]
+          ]
+        },
+        "phase": {
+          "cases": 32,
+          "mean_single_score": 4.448963849837001,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.377119655782199,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6453620549919236,
+          "wins": 24,
+          "regressions_gt_1pct": 6,
+          "misses": 18778.0,
+          "io": 4031051417.1800003,
+          "decision": 56444.488,
+          "total_cost": 4034764601.6679993,
+          "worst_cost_ratios": [
+            [
+              1.9624508820332751,
+              "029_markov_292029.txt"
+            ],
+            [
+              1.7524736918250912,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.5815899581589958,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.1379749136520634,
+              "002_shift_292002.txt"
+            ],
+            [
+              1.1084840055632825,
+              "012_burst_292012.txt"
+            ],
+            [
+              1.0670103092783505,
+              "008_uniform_292008.txt"
+            ]
+          ]
+        },
+        "phase2": {
+          "cases": 32,
+          "mean_single_score": 4.4780373101051225,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.376035986949563,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.5955734845361697,
+          "wins": 26,
+          "regressions_gt_1pct": 4,
+          "misses": 18780.0,
+          "io": 4032019970.0000005,
+          "decision": 55269.136,
+          "total_cost": 4035731252.1359997,
+          "worst_cost_ratios": [
+            [
+              1.7524784138343479,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.3598326359832638,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.0544143489062594,
+              "002_shift_292002.txt"
+            ],
+            [
+              1.0372218756498233,
+              "000_uniform_292000.txt"
+            ],
+            [
+              1.0013843440441685,
+              "004_burst_292004.txt"
+            ],
+            [
+              1.0003741130464097,
+              "022_serial_292022.txt"
+            ]
+          ]
+        },
+        "next_build": {
+          "cases": 32,
+          "mean_single_score": 4.451904759357216,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.3774730806294855,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6046469873863719,
+          "wins": 24,
+          "regressions_gt_1pct": 6,
+          "misses": 18777.0,
+          "io": 4031022124.52,
+          "decision": 56054.57000000001,
+          "total_cost": 4034733919.086,
+          "worst_cost_ratios": [
+            [
+              1.7525457313152868,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.213389121338912,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.1465002712967987,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.1275534375609622,
+              "029_markov_292029.txt"
+            ],
+            [
+              1.1271284008968065,
+              "002_shift_292002.txt"
+            ],
+            [
+              1.0189228529839884,
+              "000_uniform_292000.txt"
+            ]
+          ]
+        }
+      }
+    },
+    "round2-pure-phase-val.json": {
+      "benchmark_schema": 2,
+      "scheduler_sha256": {
+        "pure_v1": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+        "pure_phase": "ac4d77a4321378e9a9a8948c9a5fa94e1c1e38e2d862def73424a84cb3d9e8c9"
+      },
+      "repeats": 5,
+      "summary": {
+        "naive": {
+          "cases": 32,
+          "mean_single_score": 0,
+          "capped_sum_score": 0.0,
+          "mean_io_miss_score_diagnostic": 0,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 1.0,
+          "wins": 0,
+          "regressions_gt_1pct": 0,
+          "misses": 37909.0,
+          "io": 6922564708.460001,
+          "decision": 67612.13,
+          "total_cost": 6928691949.582001,
+          "worst_cost_ratios": [
+            [
+              1.0,
+              "031_overlap_292031.txt"
+            ],
+            [
+              1.0,
+              "030_serial_292030.txt"
+            ],
+            [
+              1.0,
+              "029_markov_292029.txt"
+            ],
+            [
+              1.0,
+              "028_burst_292028.txt"
+            ],
+            [
+              1.0,
+              "027_scan_292027.txt"
+            ],
+            [
+              1.0,
+              "026_shift_292026.txt"
+            ]
+          ]
+        },
+        "pure_v1": {
+          "cases": 32,
+          "mean_single_score": 4.326813895192379,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.162282418998023,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.636461687040122,
+          "wins": 20,
+          "regressions_gt_1pct": 10,
+          "misses": 19814.0,
+          "io": 4484960192.390001,
+          "decision": 43731.948000000004,
+          "total_cost": 4488828614.316001,
+          "worst_cost_ratios": [
+            [
+              1.7874711340532836,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.213790970933828,
+              "002_shift_292002.txt"
+            ],
+            [
+              1.1807703973309067,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.159033078880407,
+              "012_burst_292012.txt"
+            ],
+            [
+              1.1195286195286196,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.0990674948413468,
+              "021_markov_292021.txt"
+            ]
+          ]
+        },
+        "pure_phase": {
+          "cases": 32,
+          "mean_single_score": 4.399030653298215,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.289854049351822,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6564162871292375,
+          "wins": 24,
+          "regressions_gt_1pct": 7,
+          "misses": 19885.0,
+          "io": 4475981492.680002,
+          "decision": 43556.98799999999,
+          "total_cost": 4479885297.6640005,
+          "worst_cost_ratios": [
+            [
+              2.16178107606679,
+              "002_shift_292002.txt"
+            ],
+            [
+              1.7874537694640251,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.3867684478371503,
+              "012_burst_292012.txt"
+            ],
+            [
+              1.2138047138047139,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.1004618937644342,
+              "000_uniform_292000.txt"
+            ],
+            [
+              1.0990666657354415,
+              "021_markov_292021.txt"
+            ]
+          ]
+        }
+      }
+    },
+    "round2-val.json": {
+      "benchmark_schema": 2,
+      "scheduler_sha256": {
+        "pure_v1": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+        "ai_v1": "cb13de53288303110e6e0fb0d62198f11af15402a78d8822aac7e03ef6213621",
+        "ai_skip": "298b88fdf3c9d4668ee2376ac74887c10ebb5169a8588f7c5a849e969a330149",
+        "pure_cold1": "cea7ba27848846ef6410a4b49223b44c0ccdbb1468621135e789334284a0e4b3",
+        "ai_cold1": "b72abc445d788163b3b989018351144a09449f73c3e8a1065c852d0ffd790e1b",
+        "ai_cold2": "b3abe9cccc549db8c84d7b9ae01993dc4b6e458360a682005ee263ee319e45c9",
+        "ai_cold4": "1238d2531eda1b145106faeb9810a6501821b097c78d86b412d8148c5c5e6e5e"
+      },
+      "repeats": 5,
+      "summary": {
+        "naive": {
+          "cases": 32,
+          "mean_single_score": 0,
+          "capped_sum_score": 0.0,
+          "mean_io_miss_score_diagnostic": 0,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 1.0,
+          "wins": 0,
+          "regressions_gt_1pct": 0,
+          "misses": 37909.0,
+          "io": 6922564708.460001,
+          "decision": 68802.37,
+          "total_cost": 6928693139.809999,
+          "worst_cost_ratios": [
+            [
+              1.0,
+              "031_overlap_292031.txt"
+            ],
+            [
+              1.0,
+              "030_serial_292030.txt"
+            ],
+            [
+              1.0,
+              "029_markov_292029.txt"
+            ],
+            [
+              1.0,
+              "028_burst_292028.txt"
+            ],
+            [
+              1.0,
+              "027_scan_292027.txt"
+            ],
+            [
+              1.0,
+              "026_shift_292026.txt"
+            ]
+          ]
+        },
+        "pure_v1": {
+          "cases": 32,
+          "mean_single_score": 4.257273065419332,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.162282418998023,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6391980001775471,
+          "wins": 22,
+          "regressions_gt_1pct": 7,
+          "misses": 19814.0,
+          "io": 4484960192.390001,
+          "decision": 44287.238,
+          "total_cost": 4488829169.615999,
+          "worst_cost_ratios": [
+            [
+              1.7874719044805283,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.4450651769087524,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.2584511370620775,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.11652136933872,
+              "000_uniform_292000.txt"
+            ],
+            [
+              1.0990667040836508,
+              "021_markov_292021.txt"
+            ],
+            [
+              1.0955190101903844,
+              "030_serial_292030.txt"
+            ]
+          ]
+        },
+        "ai_v1": {
+          "cases": 32,
+          "mean_single_score": 4.49061361868471,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.387229422282876,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.610869348532174,
+          "wins": 23,
+          "regressions_gt_1pct": 7,
+          "misses": 18810.0,
+          "io": 4034580649.620001,
+          "decision": 60405.33800000001,
+          "total_cost": 4038293398.9700017,
+          "worst_cost_ratios": [
+            [
+              1.7524891071717013,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.2713583282114322,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.1936685288640596,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.1246882793017459,
+              "012_burst_292012.txt"
+            ],
+            [
+              1.1201360833510523,
+              "000_uniform_292000.txt"
+            ],
+            [
+              1.0663039278716864,
+              "030_serial_292030.txt"
+            ]
+          ]
+        },
+        "ai_skip": {
+          "cases": 32,
+          "mean_single_score": 4.489497632927124,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.28392418339273,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6200384495593761,
+          "wins": 25,
+          "regressions_gt_1pct": 5,
+          "misses": 18793.0,
+          "io": 4034549846.1000004,
+          "decision": 55519.528,
+          "total_cost": 4038251509.6660004,
+          "worst_cost_ratios": [
+            [
+              1.7524337218259076,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.350093109869646,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.3408113091579592,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.241001564945227,
+              "002_shift_292002.txt"
+            ],
+            [
+              1.1760578354241973,
+              "000_uniform_292000.txt"
+            ],
+            [
+              1.0004635995210673,
+              "022_serial_292022.txt"
+            ]
+          ]
+        },
+        "pure_cold1": {
+          "cases": 32,
+          "mean_single_score": 4.2949906183078355,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.158489148497275,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.632543939907263,
+          "wins": 21,
+          "regressions_gt_1pct": 9,
+          "misses": 19795.0,
+          "io": 4485293607.500002,
+          "decision": 45188.562,
+          "total_cost": 4489154908.035998,
+          "worst_cost_ratios": [
+            [
+              1.7874435032777058,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.252919483712354,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.2271880819366852,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.0990671607712486,
+              "021_markov_292021.txt"
+            ],
+            [
+              1.0886222685909697,
+              "002_shift_292002.txt"
+            ],
+            [
+              1.0871783967680204,
+              "000_uniform_292000.txt"
+            ]
+          ]
+        },
+        "ai_cold1": {
+          "cases": 32,
+          "mean_single_score": 4.400146833697246,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.277323339709985,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6138755425098318,
+          "wins": 24,
+          "regressions_gt_1pct": 6,
+          "misses": 18798.0,
+          "io": 4034866653.0500007,
+          "decision": 60062.806000000004,
+          "total_cost": 4038575663.8800006,
+          "worst_cost_ratios": [
+            [
+              1.752477433737289,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.2737430167597765,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.2062077443146895,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.098503740648379,
+              "012_burst_292012.txt"
+            ],
+            [
+              1.0833510525196681,
+              "000_uniform_292000.txt"
+            ],
+            [
+              1.0294441546397728,
+              "002_shift_292002.txt"
+            ]
+          ]
+        },
+        "ai_cold2": {
+          "cases": 32,
+          "mean_single_score": 4.3799743216741,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.277108576149177,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6335607388372575,
+          "wins": 23,
+          "regressions_gt_1pct": 7,
+          "misses": 18802.0,
+          "io": 4035700076.000001,
+          "decision": 59090.028000000006,
+          "total_cost": 4039407434.0499997,
+          "worst_cost_ratios": [
+            [
+              1.7524303014957774,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.4283054003724394,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.3428927680798006,
+              "012_burst_292012.txt"
+            ],
+            [
+              1.300251392928265,
+              "014_serial_292014.txt"
+            ],
+            [
+              1.105101413644745,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.0946204550287049,
+              "000_uniform_292000.txt"
+            ]
+          ]
+        },
+        "ai_cold4": {
+          "cases": 32,
+          "mean_single_score": 4.464812556313265,
+          "capped_sum_score": 50,
+          "mean_io_miss_score_diagnostic": 4.381848082345941,
+          "io_miss_diagnostic_excludes_decision": true,
+          "mean_cost_ratio": 0.6422106042489335,
+          "wins": 24,
+          "regressions_gt_1pct": 6,
+          "misses": 18809.0,
+          "io": 4034752996.750001,
+          "decision": 59676.62599999999,
+          "total_cost": 4038467320.3799996,
+          "worst_cost_ratios": [
+            [
+              1.7541899441340782,
+              "007_overlap_292007.txt"
+            ],
+            [
+              1.7525042863291012,
+              "013_markov_292013.txt"
+            ],
+            [
+              1.3617086662569147,
+              "008_uniform_292008.txt"
+            ],
+            [
+              1.349127182044888,
+              "012_burst_292012.txt"
+            ],
+            [
+              1.2672762066765892,
+              "000_uniform_292000.txt"
+            ],
+            [
+              1.1850113023821944,
+              "002_shift_292002.txt"
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

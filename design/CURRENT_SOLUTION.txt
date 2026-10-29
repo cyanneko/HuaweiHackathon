@@ -1,26 +1,29 @@
-第20题当前推荐入口
+第20题当前方案 | 2026-10-30
 
-推荐：MySpillScheduler_final.cpp。
-全局跨算子选盘、动态软配额、在线规则切换、保守next_op联合加载及反馈补偿。
+本地完整785例平均Score目标推荐：MySpillScheduler_tree.cpp。
+8专家，由最大4层、29节点、15叶的小树选择；单路径最多4次比较。
+路由只读取合法当前状态和自身可见历史，阈值内嵌C++14，不依赖推理库。
+统一跨算子候选、阶段/软配额、ghost反馈与保守next_op处理。
+首次及后续miss、overflow重新选择；periodic仅下一INSERT将溢出时选择。
 
-新增神经网络候选：MySpillScheduler_neural.cpp。
-8种专家策略，由32→16→8微型网络逐次选择；664参数，权重内嵌。
-最终验证：调参集0.952349、新测试0.975361、GitHub回归1.056779、规模诊断1.012914（相对旧版）。
-最新说明：topic20_neural_selector_report.pdf；训练、依据和证据：neural_selector/README.txt。
-第二轮模型验证未改善，未采用。已完成独立动作核查与冻结后新测试；旧版继续默认。
+最新三成员eval：Vanius0525 0.1.0/209、cyanneko 0.6.0/48、liunianwww 0.1.0/528。
+数据固定e119c2326e198922243306eac062785420ed8156，每例3次，算术均值。
+平均Score 67,222,897,889.92 us，比同批Naive下降29.0629%，比父树下降0.4480%。
+Vanius平均157,477,620.08（降Naive35.87%）；cyanneko 7,064,788,139.59（47.66%）；
+liunianwww 99,238,545,814.94（28.89%）。
+平均完整决策耗时1532.47 us/例，比父树1372.02更高；I/O收益覆盖额外决策与miss代价。
+Vanius原始均值比父树升高约10.78%，已保留父模型作为不同取舍的参照。
+这是反复观察的开发/回归数据上的本地结果，不是官方隐藏测试或全输入最优保证。
 
-可选：MySpillScheduler_scan_fused.cpp。动作等价的扫描优化，并非全负载更快。
-研究组合：MySpillScheduler_holistic.cpp。
-跨算子反馈实验：holistic_20261026/pressure.cpp。
-这些文件都定义MySpillScheduler，一次只选择一个接入官方框架。
+独立核查：785例全部动作/容量/lazy特征一致性，2355次SDK记录I/O与hit/miss一致。
+源码SHA256：1e719564a213c59bab59fd162a3bf233ae0564d14c29a96766fdd340436817fd。
+算法、训练/完整Score微调、局部证明与创新：topic20_portfolio_iteration_report.pdf（5页）。
+当前模型及状态：portfolio_iter_20261029/current_model.json、published_checkpoint.json。
+各成员分数与原始证据：member_eval_20261030/members_r3_members.json、
+portfolio_iter_20261029/benchmark_measurements.zip。
 
-编译运行入口及用法：README.txt、tools/run.py。
-前版综合说明：topic20_holistic_iteration_report.pdf。
-本地实测摘要：results_summary.json；非官方隐藏测试成绩，没有全输入最优证明。
-
-仓库仅保留关键项目文件，历史实验与原始截图保留在本地。
-早期决策树方案不属于当前推荐版本，不再随精简源码分支发布。
-
-合并库完整评测：topic20_merged_dataset_report.pdf。
-568个eval各测3次，NN/旧版相对官方Naive总Score下降25.98%/25.57%。
-数据与逐例证据见dataset_integration_20261029/README.txt；旧推荐继续保留。
+运行：python design/tools/run.py --policy recommended --input <正式输入文件>
+tree等同当前推荐；rule为原MySpillScheduler_final.cpp；neural为原664参数NN。
+训练与复现：portfolio_iter_20261029/README.txt。旧568例过程独立保留progress.json。
+历史报告与其他规则实现仍保留各自日期/集合，勿把旧分数迁移为785例成绩。
+截图、批量原始输入、工作目录、二进制与临时预览不提交到源码分支。

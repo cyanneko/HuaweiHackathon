@@ -1,35 +1,32 @@
-第20题关键项目文件 | source/liunianwww
+第20题关键项目文件 | source/liunianwww | 2026-10-30
 
-当前推荐：MySpillScheduler_final.cpp。
-单文件C++14，定义MySpillScheduler，无main；使用官方参考框架接入。
+当前本地785例平均Score目标推荐：MySpillScheduler_tree.cpp。
+单文件C++14，定义MySpillScheduler、无main，接入公开2026-10-26执行器。
+8种互补专家，由4层小树按当前状态/历史逐次选择，只执行选中的专家。
+所有设计和报告均在design目录，截图与批量原始输入不在源码分支。
 
-可选版本：
-- MySpillScheduler_scan_fused.cpp：保持主版动作的扫描优化，性能收益依负载而变。
-- MySpillScheduler_holistic.cpp：预算子集搜索与强制落盘集合研究组合，非默认。
-- holistic_20261026/pressure.cpp：跨算子回读反馈实验，非默认。
-每次只选择一个调度器，不要同时直接编译这些定义同名类的文件。
+编译并运行（Python 3、g++）：
+  python design/tools/run.py --policy recommended --input <正式输入文件>
+只编译：python design/tools/run.py --policy tree
+policy：recommended/tree（本轮新树）、rule（原规则）、neural（原NN）、
+baseline（官方Naive）、scan-fused、experimental、cross-feedback。
+公开执行器仅替换调度器实例，不改变执行、容量或计时范围。
+输出写design/build，不提交；同名MySpillScheduler实现一次只接入一个。
 
-编译（需要Python 3、g++；Python仅使用标准库）：
-  python design/tools/run.py --policy recommended
-编译并运行已有正式格式输入：
-  python design/tools/run.py --policy recommended --input /path/to/input.txt
-可选policy：recommended、scan-fused、experimental、cross-feedback、baseline。
-工具保持公开框架执行和计时不变，只引用选定调度器并替换实例。
-编译产物写入design/build/，不会提交到仓库。
+本轮最新完整测试：785例×3次，三成员209/48/528。
+平均Score 67,222,897,889.92 us，比Naive下降29.0629%，比父树下降0.4480%。
+树+专家完整决策耗时1532.47 us/例；含该耗时的Score已用于比较。
+Vanius单集比父树退步约10.78%，不同取舍已完整保留，不声称各集一致改善。
+本地已观察开发/回归数据，不推断官方未知分布成绩。
 
-报告：topic20_holistic_iteration_report.pdf，13页中文说明。
-内容含算法、七项要求落实、学术借鉴、自主贡献、局部证明、实测及退化情况。
-结果摘要：results_summary.json。输入清单、完整原始结果和历史实验保留本地；
-报告中的旧目录与审计命令对应本地研究档案，不保证可仅凭此精简仓库重新运行全部历史实验。
-参考框架：holistic_20261026/reference_current.cpp。
-来源与要求：holistic_20261026/research_sources.json、requirements_coverage.json、fetch_provenance.json。
+中文PDF：topic20_portfolio_iteration_report.pdf。
+当前状态/哈希：portfolio_iter_20261029/published_checkpoint.json。
+三人分别结果：member_eval_20261030/members_r3_members.json。
+独立动作及SDK语义核查：member_eval_20261030/members_r3_action_verification.json。
+训练、完整Score搜索、原始证据解包与复现：portfolio_iter_20261029/README.txt。
+source-only程序快照和原字节测量包已提供；不包含生成输入或二进制。
+文件列表与SHA256：project_manifest.json。
 
-本分支仅发布关键项目文件。原始截图、网页缓存、历史实验副本、生成输入、完整日志与预览图保留本地。
-文件列表及字节SHA256记录于project_manifest.json；未改动任何算法源文件。
-神经网络新增候选（2026-10-29）
-  MySpillScheduler_neural.cpp：8专家、32→16→8网络、664参数。
-  python design/tools/run.py --policy neural --input <输入文件>
-  中文说明：topic20_neural_selector_report.pdf。
-  训练、来源、指标、适用边界：neural_selector/README.txt。
-  提供小型特征标签包用于复现训练；不包含原始截图与批量输入。
-  已完成150例验证、378例新测试、8例GitHub回归、6例规模测试与第二轮模型评估。
+保留历史：topic20_neural_selector_report.pdf、topic20_merged_dataset_report.pdf、
+topic20_holistic_iteration_report.pdf，以及neural_selector、dataset_integration_20261029。
+历史NN/规则/568例结果均保留原集合、重复数与口径，不改写成785例测量。

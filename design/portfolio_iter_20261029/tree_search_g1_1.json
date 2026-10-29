@@ -1,0 +1,430 @@
+{
+  "schema_version": 2,
+  "kind": "cost_sensitive_cart",
+  "classes": 8,
+  "feature_count": 32,
+  "feature_names": [
+    "used_ratio",
+    "demand_ratio",
+    "deficit_ratio",
+    "free_ratio",
+    "operators_scaled",
+    "partitions_scaled",
+    "is_build_request",
+    "requester_probe_phase",
+    "resident_fraction",
+    "largest_resident_ratio",
+    "smallest_resident_ratio",
+    "mean_resident_ratio",
+    "size_concentration",
+    "build_resident_ratio",
+    "probe_resident_ratio",
+    "requester_resident_ratio",
+    "requester_total_scaled",
+    "next_probe",
+    "next_insert",
+    "next_size_ratio",
+    "next_resident",
+    "next_same_operator",
+    "pair_fits",
+    "write_bandwidth_scaled",
+    "read_bandwidth_scaled",
+    "cumulative_miss_rate",
+    "recent_miss_pressure",
+    "target_observed_heat",
+    "resident_observed_heat",
+    "quick_return_pressure",
+    "previous_expert_scaled",
+    "mean_partition_ratio"
+  ],
+  "requested_features": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    29,
+    30
+  ],
+  "used_features": [
+    1,
+    4,
+    5,
+    6,
+    19,
+    23,
+    25,
+    26,
+    27,
+    30
+  ],
+  "threshold_dtype": "float32",
+  "comparison": "<=",
+  "node_count": 29,
+  "leaf_count": 15,
+  "max_depth": 4,
+  "configured_max_depth": 4,
+  "leaf_tie_order": [
+    7,
+    6,
+    4,
+    3,
+    2,
+    5,
+    0,
+    1
+  ],
+  "min_leaf": 64,
+  "min_distinct_groups": 3,
+  "workload_weighting": "event_total(file,kind) / event_sampled(file,kind)",
+  "objective": {
+    "name": "relative",
+    "formula": "min((C_e-min(C))/max(1,min(C)),10)",
+    "scale_us": 1.0,
+    "clip_relative": 10.0
+  },
+  "config": {
+    "feature_set": "cheap",
+    "objective": "relative",
+    "event_weighting": true,
+    "absolute_cap_quantile": 0.995
+  },
+  "input_artifacts": {
+    "training_jsonl": {
+      "path": "design/portfolio_iter_20261029/round3_labels.jsonl",
+      "sha256": "3e06db353fd96b37cccc26c1df3db06ea2521aa1fbe26845d1e1057c86f3142f"
+    },
+    "valid_npz": {
+      "path": "design/neural_selector/valid_labels.npz",
+      "sha256": "ebadf99453a29d0d766e424036a4dd075acfb15ee3ffc73b8bedc2392299f869"
+    },
+    "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee"
+  },
+  "label_caveat": "No candidate Score or validation metric has been computed. Parent base training diagnostics do not apply to mutated trees.",
+  "sampling": {
+    "rows": 15801,
+    "represented_inputs": 626,
+    "event_weighting": true,
+    "weight_formula": "event_total(file,kind) / event_sampled(file,kind)",
+    "literal_T_over_S_not_renormalized": true,
+    "training_weight_sum": 222351.0,
+    "event_frequency_weight_sum": 222351.0,
+    "estimated_events_over_represented_inputs": 222351,
+    "file_kind_groups": {
+      "omitted": true,
+      "entries": 1353,
+      "sha256": "e0b9dc8b99b682c247d7b8113902f41ebfc8c52e8e2f43e043a6d36facc1dacf"
+    }
+  },
+  "data_isolation": {
+    "train_inputs": 640,
+    "eval_inputs": 568,
+    "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
+    "cross_split_exact_input_overlap": 0,
+    "cross_split_raw_operation_overlap": 0,
+    "cross_split_partition_operation_overlap": 0,
+    "inventory": {
+      "omitted": true,
+      "entries": 1208,
+      "sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
+      "split_counts": {
+        "train": 640,
+        "eval": 568
+      }
+    }
+  },
+  "validation_role": "Original valid_labels.npz for diagnostics only; no fixed 568-eval Score reports read.",
+  "forced_cover": true,
+  "provider_note": "Training and deployment both use the common forced-cover certificate layer.",
+  "base_sha256": "efa0160a4b0ef36eadbd32be3de82bd34bd21c9e52fea91c8fd6cba107a9f8af",
+  "candidate_generation": "local_mutation_without_fitness",
+  "mutation": {
+    "generation": 1,
+    "index": 1,
+    "seed": 20261030,
+    "rng_seed_sequence": [
+      20261030,
+      1
+    ],
+    "base_path": "design/portfolio_iter_20261029/tree_search_g0_4.json",
+    "base_sha256": "efa0160a4b0ef36eadbd32be3de82bd34bd21c9e52fea91c8fd6cba107a9f8af",
+    "base_tree_fingerprint": "414c1b842d656312ca34f3e405ffbf8b4a4b3e39c79c8963c749d6aedc5cffac",
+    "candidate_tree_fingerprint": "98a31762b3478f03f11b0f17124ce5c46de160d33e0f2859101288c898301718",
+    "change_count": 1,
+    "changes": [
+      {
+        "kind": "threshold",
+        "node": 22,
+        "feature": 30,
+        "before": 0.7142857313156128,
+        "after": 0.2857142984867096,
+        "threshold_dtype": "float32",
+        "value_source": "Neighboring measured training value at base-routed node",
+        "source_samples_at_base_node": 15881
+      }
+    ],
+    "threshold_sources": [
+      {
+        "path": "design/neural_selector/train_labels.npz",
+        "sha256": "032e93eb753012e7adcc0a02ccbe5f22843f479dfed5b69990a8b68695748439",
+        "rows": 15255,
+        "use": "features and training-provenance checks only"
+      },
+      {
+        "path": "design/portfolio_iter_20261029/round3_labels.jsonl",
+        "sha256": "3e06db353fd96b37cccc26c1df3db06ea2521aa1fbe26845d1e1057c86f3142f",
+        "rows": 15801,
+        "use": "features and training-provenance checks only"
+      },
+      {
+        "path": "design/portfolio_iter_20261029/members_train_r2_labels.jsonl",
+        "sha256": "f6b00a649040e6f34af77622298c3a813d883b849ff036043407eef163596147",
+        "rows": 20764,
+        "use": "features and training-provenance checks only"
+      }
+    ],
+    "threshold_neighbor_rank_radius": 3,
+    "base_shape": {
+      "node_count": 29,
+      "leaf_count": 15,
+      "max_depth": 4,
+      "used_features": [
+        1,
+        4,
+        5,
+        6,
+        19,
+        23,
+        25,
+        26,
+        27,
+        30
+      ]
+    },
+    "unchanged_topology": true,
+    "forced_cover_unchanged": true,
+    "provider_fields_unchanged": true,
+    "inherited_diagnostics_omitted_sha256": "84f30ad2ab88e139c2ba8589bb89c3b93a5934b748a61444383fdeaafe4d51da",
+    "compacted_metadata": {},
+    "no_eval_or_validation_performance_used_for_generation": true,
+    "intended_fitness": "Full SDK Score on a separately frozen, stratified training subset; no fitness computed here."
+  },
+  "tree": [
+    {
+      "id": 0,
+      "feature": 27,
+      "threshold": 0.6604666709899902,
+      "comparison": "<=",
+      "left": 1,
+      "right": 16,
+      "depth": 0
+    },
+    {
+      "id": 1,
+      "feature": 6,
+      "threshold": 0.0,
+      "comparison": "<=",
+      "left": 2,
+      "right": 9,
+      "depth": 1
+    },
+    {
+      "id": 2,
+      "feature": 26,
+      "threshold": 0.1260504275560379,
+      "comparison": "<=",
+      "left": 3,
+      "right": 6,
+      "depth": 2
+    },
+    {
+      "id": 3,
+      "feature": 1,
+      "threshold": 0.08517849445343018,
+      "comparison": "<=",
+      "left": 4,
+      "right": 5,
+      "depth": 3
+    },
+    {
+      "id": 4,
+      "expert": 4,
+      "depth": 4
+    },
+    {
+      "id": 5,
+      "expert": 6,
+      "depth": 4
+    },
+    {
+      "id": 6,
+      "feature": 27,
+      "threshold": 0.03036879561841488,
+      "comparison": "<=",
+      "left": 7,
+      "right": 8,
+      "depth": 3
+    },
+    {
+      "id": 7,
+      "expert": 1,
+      "depth": 4
+    },
+    {
+      "id": 8,
+      "expert": 6,
+      "depth": 4
+    },
+    {
+      "id": 9,
+      "feature": 4,
+      "threshold": 0.375,
+      "comparison": "<=",
+      "left": 10,
+      "right": 13,
+      "depth": 2
+    },
+    {
+      "id": 10,
+      "feature": 25,
+      "threshold": 0.2857142984867096,
+      "comparison": "<=",
+      "left": 11,
+      "right": 12,
+      "depth": 3
+    },
+    {
+      "id": 11,
+      "expert": 5,
+      "depth": 4
+    },
+    {
+      "id": 12,
+      "expert": 2,
+      "depth": 4
+    },
+    {
+      "id": 13,
+      "feature": 23,
+      "threshold": 0.05000000074505806,
+      "comparison": "<=",
+      "left": 14,
+      "right": 15,
+      "depth": 3
+    },
+    {
+      "id": 14,
+      "expert": 1,
+      "depth": 4
+    },
+    {
+      "id": 15,
+      "expert": 2,
+      "depth": 4
+    },
+    {
+      "id": 16,
+      "feature": 19,
+      "threshold": 0.01545625925064087,
+      "comparison": "<=",
+      "left": 17,
+      "right": 22,
+      "depth": 1
+    },
+    {
+      "id": 17,
+      "feature": 19,
+      "threshold": 4.673004150390625e-05,
+      "comparison": "<=",
+      "left": 18,
+      "right": 19,
+      "depth": 2
+    },
+    {
+      "id": 18,
+      "expert": 1,
+      "depth": 3
+    },
+    {
+      "id": 19,
+      "feature": 26,
+      "threshold": 0.4000000059604645,
+      "comparison": "<=",
+      "left": 20,
+      "right": 21,
+      "depth": 3
+    },
+    {
+      "id": 20,
+      "expert": 4,
+      "depth": 4
+    },
+    {
+      "id": 21,
+      "expert": 2,
+      "depth": 4
+    },
+    {
+      "id": 22,
+      "feature": 30,
+      "threshold": 0.2857142984867096,
+      "comparison": "<=",
+      "left": 23,
+      "right": 26,
+      "depth": 2
+    },
+    {
+      "id": 23,
+      "feature": 5,
+      "threshold": 0.0625,
+      "comparison": "<=",
+      "left": 24,
+      "right": 25,
+      "depth": 3
+    },
+    {
+      "id": 24,
+      "expert": 4,
+      "depth": 4
+    },
+    {
+      "id": 25,
+      "expert": 3,
+      "depth": 4
+    },
+    {
+      "id": 26,
+      "feature": 1,
+      "threshold": 0.030696533620357513,
+      "comparison": "<=",
+      "left": 27,
+      "right": 28,
+      "depth": 3
+    },
+    {
+      "id": 27,
+      "expert": 2,
+      "depth": 4
+    },
+    {
+      "id": 28,
+      "expert": 1,
+      "depth": 4
+    }
+  ],
+  "candidate_has_measured_fitness": false
+}

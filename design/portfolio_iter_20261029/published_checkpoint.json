@@ -1,0 +1,258 @@
+{
+  "status": "completed measurement checkpoint; iteration continues",
+  "date": "2026-10-30",
+  "objective": "minimise complete raw average SDK Score including callback time",
+  "name": "tree_search_g1_1",
+  "mode": 60,
+  "model": "current_model.json",
+  "source": "design/MySpillScheduler_tree.cpp",
+  "source_sha256": "1e719564a213c59bab59fd162a3bf233ae0564d14c29a96766fdd340436817fd",
+  "dataset_commit": "e119c2326e198922243306eac062785420ed8156",
+  "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+  "cases": 785,
+  "repeats": 3,
+  "aggregation": "sum of per-case arithmetic means; mean_score=total_score/case_count",
+  "member_report": "members_r3_members.json",
+  "sdk_report": "members_r3_summary.json",
+  "sdk_runs": "members_r3_runs.jsonl",
+  "binary_sha256": "125548a2626f087d04511255b989f2c0bd2a3951ba8e77f2e4bd7fdc33128fc0",
+  "reference_sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5",
+  "audits": [
+    "members_r3_best_audit_summary.json"
+  ],
+  "summary": {
+    "cases": 785,
+    "mean_score": 67222897889.917046,
+    "total_score": 52769974843584.88,
+    "mean_decision_us": 1532.4731337579617,
+    "miss_count": 614457.0,
+    "decrease_vs_nn_percent": 4.135528079598738,
+    "worst_vs_nn": 5.900219303042986,
+    "decrease_vs_previous_percent": 4.649238764548247,
+    "worst_vs_previous": 5.987961741810423,
+    "decrease_vs_naive_percent": 29.062857278788822,
+    "worst_vs_naive": 379.39766081871346
+  },
+  "members": [
+    {
+      "member": "Vanius0525",
+      "version": "0.1.0",
+      "case_count": 209,
+      "mean_score_us": 157477620.08328548,
+      "naive_mean_score_us": 245548538.24489632,
+      "decrease_vs_naive_percent": 35.86700975339298,
+      "mean_decision_us": 1352.7061881977672,
+      "worst_score_ratio_vs_naive": 379.39766081871346,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 721.5852748789929,
+      "mean_case_points_0_10": 3.4525611238229326
+    },
+    {
+      "member": "cyanneko",
+      "version": "0.6.0",
+      "case_count": 48,
+      "mean_score_us": 7064788139.593472,
+      "naive_mean_score_us": 13498555450.248262,
+      "decrease_vs_naive_percent": 47.66263571215291,
+      "mean_decision_us": 6939.465972222222,
+      "worst_score_ratio_vs_naive": 12.483579844572574,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 171.79504101473404,
+      "mean_case_points_0_10": 3.5790633544736257
+    },
+    {
+      "member": "liunianwww",
+      "version": "0.1.0",
+      "case_count": 528,
+      "mean_score_us": 99238545814.93748,
+      "naive_mean_score_us": 139565371610.0611,
+      "decrease_vs_naive_percent": 28.894578454457044,
+      "mean_decision_us": 1112.0860795454546,
+      "worst_score_ratio_vs_naive": 98.58147321428571,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 1320.570999962854,
+      "mean_case_points_0_10": 2.5010814393235874
+    }
+  ],
+  "public_score_summary": {
+    "status": "available",
+    "score_final": 737.9837719521937,
+    "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
+    "dataset_count": 3,
+    "member_weights": {
+      "Vanius0525": 0.3333333333333333,
+      "cyanneko": 0.3333333333333333,
+      "liunianwww": 0.3333333333333333
+    },
+    "datasets": [
+      {
+        "member": "Vanius0525",
+        "version": "0.1.0",
+        "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
+        "case_count": 209,
+        "score_dataset_uncapped": 721.5852748789929,
+        "mean_case_points_aux": 3.4525611238229326,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 722.6257287389972
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 721.6755829033569
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 720.4545129946246
+          }
+        ]
+      },
+      {
+        "member": "cyanneko",
+        "version": "0.6.0",
+        "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
+        "case_count": 48,
+        "score_dataset_uncapped": 171.79504101473404,
+        "mean_case_points_aux": 3.5790633544736257,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 171.79233071661602
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 171.7942094474029
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 171.7985828801833
+          }
+        ]
+      },
+      {
+        "member": "liunianwww",
+        "version": "0.1.0",
+        "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+        "case_count": 528,
+        "score_dataset_uncapped": 1320.570999962854,
+        "mean_case_points_aux": 2.5010814393235874,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 1321.4118953191837
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 1320.2221558451345
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 1320.078948724244
+          }
+        ]
+      }
+    ],
+    "skipped_members": [
+      {
+        "member": "member2",
+        "reason": "empty evaluation set"
+      },
+      {
+        "member": "member3",
+        "reason": "empty evaluation set"
+      }
+    ],
+    "partial": false,
+    "eligible_for_full_collection_ranking": true,
+    "auxiliary": {
+      "all_cases_mean_points": 2.820320147588001,
+      "total_case_count": 785,
+      "used_for_ranking": false
+    },
+    "note": "Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.",
+    "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+    "raw_capped_average_score": 50.0,
+    "raw_scoring_unchanged": true,
+    "per_case_zero_cost_rule": "Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0."
+  },
+  "train_search": [
+    {
+      "tag": "train_g0_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        32
+      ],
+      "best_new_mode": 53,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34974818763.34594,
+        "total_score": 29378847761210.59,
+        "mean_decision_us": 1131.888880952381,
+        "miss_count": 443557.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513147798.96,
+        "decrease_vs_base30_percent": 0.45291089213234104
+      },
+      "all_modes_best": 32,
+      "candidate_count": 16,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g1_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        53
+      ],
+      "best_new_mode": 60,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34565041313.364395,
+        "total_score": 29034634703226.09,
+        "mean_decision_us": 1222.7262142857144,
+        "miss_count": 457260.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513249296.84,
+        "decrease_vs_base30_percent": 1.6192404287430073
+      },
+      "all_modes_best": 60,
+      "candidate_count": 16,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g2_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        53,
+        60
+      ],
+      "best_new_mode": 80,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34305451880.36919,
+        "total_score": 28816579579510.12,
+        "mean_decision_us": 1105.131738095238,
+        "miss_count": 489063.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513113067.97,
+        "decrease_vs_base30_percent": 2.3580964823008976
+      },
+      "all_modes_best": 80,
+      "candidate_count": 6,
+      "eval_used_for_fitness": false
+    }
+  ],
+  "search_note": "完整train微调共测试38个新变异/组合（16+16+6）。选中tree_search_g1_1：训练均值比父树下降1.619%，785例eval同批下降0.448%；Vanius单集原始均值却升高约10.78%，明确保留。训练最好组合下降2.358%，eval反而变差，未采用。",
+  "caution": "Observed development/regression inputs, not hidden tests. Training-only full-trace fitness is separate from final regression. No universal optimality or all-member improvement claim."
+}

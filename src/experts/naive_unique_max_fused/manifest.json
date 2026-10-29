@@ -1,0 +1,86 @@
+{
+  "interface_version": "1.0",
+  "method_id": "naive_unique_max_fused",
+  "expert_id": 104,
+  "namespace": "cyanneko_naive_unique_max_fused_v1",
+  "state_mode": "stateless",
+  "adaptation_status": "action_and_export_tests_passed",
+  "performance_validated": false,
+  "adapter_timing_runs": 0,
+  "candidate_only": true,
+  "replaces_official_naive_baseline": false,
+  "default_pair_registered": false,
+  "supported_ranges": {
+    "K": [
+      1,
+      8
+    ],
+    "P": [
+      2,
+      64
+    ],
+    "memory_limit": [
+      67108864,
+      4294967296
+    ],
+    "callback_kinds": [
+      "Overflow",
+      "Miss",
+      "Periodic"
+    ]
+  },
+  "feature_schema": [
+    "current memory/residency/partition sizes",
+    "callback target",
+    "overflow tuple_size; miss complete partition size"
+  ],
+  "reads_next_op": false,
+  "uses_callback_age": false,
+  "tie_break": "Frozen original size-only std::sort; no added ID tie or stable_sort. Unique final maximum only bypasses sort when sufficient.",
+  "tuple_layout": [
+    "int64_t size",
+    "int op_id",
+    "int partition_id"
+  ],
+  "fallback": "Same original candidate vector order/comparator/consumption loop; no second scan or registered BF delegation.",
+  "complexity": {
+    "reset": "O(1)",
+    "observe": "O(1)",
+    "onDispatch": "O(1)",
+    "decide": "O(KP), or O(KP+C log C) fallback"
+  },
+  "memory": {
+    "history_bytes": 0,
+    "weights_bytes": 0,
+    "expert_object_bytes": null,
+    "scratch": "Original vector<tuple<int64_t,int,int>> and owned action vector; allocation/ABI not measured"
+  },
+  "training": null,
+  "weights_sha256": null,
+  "origin": {
+    "path": "reference.hpp",
+    "sha256": "d0144b0359aa95d2103415bf9c7e6d6295bf0f81a41c2b5855e39a5c61fa58aa",
+    "kind": "frozen R59 direct scheduler header"
+  },
+  "direct_R59_evidence": {
+    "development_cases": 4,
+    "candidate_formal_runs": 6,
+    "total_paired_runs": 12,
+    "cases": [
+      "R51_A_long",
+      "R51_B_long",
+      "r58_positive_cycles_0_train",
+      "r58_low_opportunity_mix_0_train"
+    ],
+    "interface_timing_inherited": false,
+    "full_public_suite_claim": false
+  },
+  "scoring_baseline_rule": "Action equivalence does not authorize replacing official_naive: D is part of Score and changing the baseline changes normalized reference scores.",
+  "files": {
+    "expert.hpp": "2621b826e7321da8edb99a1cbc98ce457873c23ae232313872db23602349dd43",
+    "standalone.cpp": "46502d187a76ae865b0c61d50fba43e48a23f2129eeca05313f1da64d24d394b",
+    "reference.hpp": "d0144b0359aa95d2103415bf9c7e6d6295bf0f81a41c2b5855e39a5c61fa58aa"
+  },
+  "validation": "validation.json",
+  "later_direct_measurements_are_not_adapter_timing": true
+}

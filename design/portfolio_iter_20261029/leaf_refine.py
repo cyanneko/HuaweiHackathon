@@ -2,7 +2,8 @@
 
 No SDK, compilation, or eval measurement is run here. Each proposal replaces
 one parent leaf by a <= float32 split and two weighted-cost-minimizing experts.
-The parent provider is unchanged; gains are finite-window proxies, not Scores.
+The parent provider is unchanged; the declared finite-window/full-remaining
+label horizon describes an offline proxy, not a measured SDK Score improvement.
 """
 from __future__ import annotations
 import os
@@ -144,7 +145,11 @@ def apply_split(base, proposal):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--base', type=Path, default=ROOT/'tree_search_g1_1.json')
+    ap.add_argument('--max-parent-depth', type=int, choices=(4,5), default=4,
+        help='Accepted parent depth; proposals and outputs remain limited to depth 5.')
     ap.add_argument('--input', type=Path, required=True)
+    ap.add_argument('--label-horizon', choices=('finite_window','full_remaining'), default='finite_window',
+        help='Declared input-label horizon; collector provenance must separately verify full end=N.')
     ap.add_argument('--tag', required=True)
     ap.add_argument('--datasets-root', type=Path, default=ROOT.parent/'member_eval_20261030/worktree/datasets')
     ap.add_argument('--expected-train-inputs', type=int, default=840)
@@ -162,7 +167,8 @@ def main():
     if not objectives or not set(objectives) <= {'absolute','relative'}: ap.error('Unknown objective')
     base_path = args.base.resolve(); base = json.loads(base_path.read_text('utf8'))
     base_shape, _ = shape_and_routes(base['tree'])
-    if base_shape['max_depth'] > 4: raise ValueError('Expected current max-depth-4 parent')
+    if base_shape['max_depth'] > args.max_parent_depth:
+        raise ValueError(f'Parent max depth exceeds --max-parent-depth {args.max_parent_depth}')
     strict_train_rows(args.input)
     aliases, checked = inventory(args.datasets_root.resolve(), args.expected_train_inputs)
     data, sampling = load_labels(args.input.resolve(), aliases, event_weighting=True)
@@ -180,9 +186,26 @@ def main():
                 seen.add(key); chosen.append((proposal,nodes,shape,key)); progressed = True; break
             if len(chosen) >= args.count: break
         if not progressed: break
-    base_sha = hash_file(base_path); artifact = dict(path=portable(args.input), sha256=hash_file(args.input), rows=len(data['x']))
+    base_sha = hash_file(base_path)
+    artifact = dict(path=portable(args.input), sha256=hash_file(args.input), rows=len(data['x']),
+        label_horizon=args.label_horizon,
+        horizon_source='Explicit --label-horizon declaration; full end=N must be checked in collector provenance, not inferred by this generator.',
+        label_timer_scope='Offline simulator callback proxy; forced first expert bypasses classifier; not public-engine D.')
+    label_caveat=(
+        'T/S-weighted full_remaining counterfactual cost proxy under the collector continuation; '
+        'offline simulator callback timing is not public-engine D. Full suffix and true p stay offline; '
+        'this is not a global oracle. Complete training SDK fitness and separate eval are still required.'
+        if args.label_horizon=='full_remaining' else
+        'T/S-weighted finite-window cost proxy only; complete training SDK fitness and separate eval are still required.'
+    )
     outputs, entries = [], []
     for index,(proposal,nodes,shape,key) in enumerate(chosen):
+        proposal=copy.deepcopy(proposal)
+        if args.label_horizon=='full_remaining' and 'raw_finite_window_cost_delta_us' in proposal:
+            # Preserve the historical field and its exact value for consumers;
+            # the additional name states the horizon of this new artifact.
+            proposal['full_remaining_proxy_delta']=proposal['raw_finite_window_cost_delta_us']
+            proposal['full_remaining_proxy_delta_units']='T/S-weighted microseconds; positive means frozen-state cost reduction versus parent.'
         obj = compact_metadata({k:v for k,v in base.items() if k not in ['tree','mutation',*STALE_DIAGNOSTICS]})
         for key_name,value in base.items():
             if 'provider' in key_name or key_name in ['forced_cover','shared_scratch']: obj[key_name] = copy.deepcopy(value)
@@ -193,10 +216,12 @@ def main():
                    candidate_generation='single_leaf_cost_sensitive_refinement',
                    candidate_has_measured_fitness=False,
                    validation_role='No validation/eval labels or Scores used.',
-                   label_caveat='T/S-weighted finite-window cost proxy only; complete training SDK fitness and separate eval are still required.')
+                   label_horizon=args.label_horizon,label_caveat=label_caveat)
         obj['refinement'] = dict(parent_path=portable(base_path), parent_sha256=base_sha,
             parent_cpp_sha256=hash_file(base_path.with_suffix('.cpp')) if base_path.with_suffix('.cpp').is_file() else None,
-            training_artifact=artifact, proposal=proposal, candidate_tree_fingerprint=key,
+            training_artifact=artifact, label_horizon=args.label_horizon,
+            max_parent_depth=args.max_parent_depth, parent_shape=base_shape,
+            proposal=proposal, candidate_tree_fingerprint=key,
             parent_objective_sha256=hash_object(base.get('objective')),
             min_leaf=args.min_leaf, min_input_groups=args.min_groups,
             quantile_count=args.quantiles, threshold_rule='measured float32 lower quantile, <=',
@@ -211,6 +236,7 @@ def main():
                             objective=proposal['objective'],proxy_gain=proposal['weighted_proxy_gain']))
     manifest = dict(schema_version=1,parent_path=portable(base_path),parent_sha256=base_sha,
         training_artifact=artifact,output_count=len(outputs),requested_count=args.count,
+        label_horizon=args.label_horizon,max_parent_depth=args.max_parent_depth,parent_shape=base_shape,
         candidates=entries,fitness_computed=False,
         selection_note='At most eight unique single-leaf splits; no candidate if no valid positive-gain boundary.')
     outputs.append((ROOT/f'tree_refine_{args.tag}_manifest.json',(json.dumps(manifest,ensure_ascii=False,indent=2,allow_nan=False)+'\n').encode('utf8')))

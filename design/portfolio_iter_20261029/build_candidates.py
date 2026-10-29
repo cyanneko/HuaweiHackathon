@@ -48,8 +48,28 @@ def shared_scratch(source):
     source=source.replace('std::array<Victim,512> c;','auto& c=scratch_candidates_;',1)
     assert 'std::array<int64_t,1024> sums;' in source
     return source.replace('std::array<int64_t,1024> sums;','auto& sums=scratch_sums_;',1)
+def render_source(obj,code):
+    template=(DESIGN/'neural_selector/Scheduler.template').read_text('utf8')
+    old='auto f=features(s,o,p,build,bytes);selected_expert_=network(f);++inferences_;'
+    new='int next_expert=route(s,o,p,build,bytes);\n#ifdef PORTFOLIO_AUDIT\nif(next_expert!=routeReference(features(s,o,p,build,bytes)))throw std::runtime_error("route feature mismatch");\n#endif\nselected_expert_=next_expert;++inferences_;'
+    assert old in template
+    source=template.replace('@@NETWORK@@',code).replace(old,new)
+    if obj.get('forced_cover'):source=forced_cover(source)
+    if obj.get('shared_scratch'):source=shared_scratch(source)
+    if 'periodic_admission_shift' in obj:
+        from admission_patch import patch
+        source=patch(source,obj['periodic_admission_shift'])
+    if 'next_deficit_shift' in obj:
+        from next_deficit_patch import patch as patch_next_deficit
+        source=patch_next_deficit(source,obj['next_deficit_shift'])
+    return source
+
 def export(path):
     obj=json.loads(path.read_text('utf8'))
+    if obj.get('kind')=='cheap_mlp':
+        from cheap_mlp_export import export_route
+        target=ROOT/(path.stem+'.cpp');source=render_source(obj,export_route(obj));target.write_bytes(source.encode('utf8'))
+        return dict(name=path.stem,source=target.name,sha256=hashlib.sha256(target.read_bytes()).hexdigest(),used_features=sorted(obj['numeric_feature_ids']+[30]),lazy_features=False,model_kind='cheap_mlp',parameters=obj['parameters'])
     if obj.get('kind')=='bounded_reference':
         target=ROOT/(path.stem+'.cpp');source=forced_cover((DESIGN/'MySpillScheduler_neural.cpp').read_text('utf8'));target.write_bytes(source.encode('utf8'))
         return dict(name=path.stem,source=target.name,sha256=hashlib.sha256(target.read_bytes()).hexdigest(),used_features=list(range(32)),lazy_features=False)
@@ -70,21 +90,12 @@ def export(path):
     if 27 in used:
         code='float targetHeatFeature(const SystemState& s,int o,int p) const {int id=o*s.num_partitions+p;uint64_t now=tick(s),age=now>last_[id]?now-last_[id]:0;double h=double(heat_[id])/(1.0+double(age)/64.0);return float(h/(1+h));}\n'+code
     code+='#ifdef PORTFOLIO_AUDIT\nint routeReference(const std::array<float,32>& x) const {'+tree_code(node,lambda i:f'x[{i}]',lambda i:'int(x[30]*7.0f+0.5f)')+'}\n#endif\n'
-    template=(DESIGN/'neural_selector/Scheduler.template').read_text('utf8')
-    old='auto f=features(s,o,p,build,bytes);selected_expert_=network(f);++inferences_;'
-    # Reference must see the previous expert, just as the model did.
-    new='int next_expert=route(s,o,p,build,bytes);\n#ifdef PORTFOLIO_AUDIT\nif(next_expert!=routeReference(features(s,o,p,build,bytes)))throw std::runtime_error("route feature mismatch");\n#endif\nselected_expert_=next_expert;++inferences_;'
-    assert old in template
-    source=template.replace('@@NETWORK@@',code).replace(old,new)
-    if obj.get('forced_cover'):source=forced_cover(source)
-    if obj.get('shared_scratch'):source=shared_scratch(source)
-    if 'periodic_admission_shift' in obj:
-        from admission_patch import patch
-        source=patch(source,obj['periodic_admission_shift'])
+    source=render_source(obj,code)
     target=ROOT/(path.stem+'.cpp');target.write_bytes(source.encode('utf8'))
     return dict(name=path.stem,source=target.name,sha256=hashlib.sha256(target.read_bytes()).hexdigest(),used_features=used,lazy_features=is_cheap)
 def build():
-    variants=[export(p) for p in sorted(ROOT.glob('tree_*.json')) if 'training_summary' not in p.stem and not p.stem.endswith('_manifest')]
+    paths=list(ROOT.glob('tree_*.json'))+list(ROOT.glob('mlp_*.json'))
+    variants=[export(p) for p in sorted(paths) if 'training_summary' not in p.stem and not p.stem.endswith(('_manifest','_audit_summary'))]
     previous=json.loads((ROOT/'variants.json').read_text('utf8')) if (ROOT/'variants.json').exists() else []
     stable={v['name']:v['id'] for v in previous};next_id=max([2]+list(stable.values()))+1
     if any(100<=i<108 for i in stable.values()):raise RuntimeError('Tree IDs collide with reserved fixed-expert modes')

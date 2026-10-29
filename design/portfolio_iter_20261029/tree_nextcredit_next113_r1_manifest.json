@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "kind": "next_deficit_credit_manifest",
+  "tag": "next113_r1",
+  "parent": "tree_category_full108_r1_3.json",
+  "parent_json_sha256": "c28958cd93303d1370c62e2b610ec979ae0f2c43fb923099e0b18a7d28e8a7c2",
+  "parent_source": "tree_category_full108_r1_3.cpp",
+  "parent_cpp_sha256": "11745a01ca7c0aa8b30df22fa30a52be4aa1e02343c1995369cb71ba6a22a4b0",
+  "patch_module": "next_deficit_patch.py",
+  "patch_sha256": "9252e3366ad663bba5ac018095a2b5853043ba9edc13183f618140e68fe56bb3",
+  "generator": "prepare_next_deficit.py",
+  "generator_sha256": "6a5e698a2b4ea6302d6f76de8f71fe96aeb95154eb2b3c56caa00348d424f6e1",
+  "candidate_count": 3,
+  "candidates": [
+    {
+      "path": "tree_nextcredit_next113_r1_s0.json",
+      "sha256": "c3d5999e60135fedc0a407c954b09052bf68a5c2be2f00f1c6e4793dd7acb786",
+      "next_deficit_shift": 0,
+      "credit_fraction": 1.0
+    },
+    {
+      "path": "tree_nextcredit_next113_r1_s1.json",
+      "sha256": "a7724dd4bc6bb2ac26d3241a6163dcfbe6dd49db4861a2ed22d74bfe975e31ed",
+      "next_deficit_shift": 1,
+      "credit_fraction": 0.5
+    },
+    {
+      "path": "tree_nextcredit_next113_r1_s2.json",
+      "sha256": "3896a71b042d45760e469df89353ad0744653ca061e8b8feb65e7871d91a8b3c",
+      "next_deficit_shift": 2,
+      "credit_fraction": 0.25
+    }
+  ],
+  "tree_unchanged": true,
+  "classes": 8,
+  "periodic_admission_shift": 2,
+  "fit_or_sdk_executed": false,
+  "candidate_fitness_unknown": true,
+  "local_proof": {
+    "state": "Current PROBE target p is being loaded. The one known next operation is PROBE q, q is initially resident, q differs from p, and size(p)+size(q)<=M. The unprotected SPILL plan a evicts q; f1=written(a). The alternative protects q and writes f2. Plans are valid and contain only SPILL actions.",
+    "deficit": "free_after_p=M-U+f1-size(p); d=max(0,size(q)-free_after_p)",
+    "unprotected_lower_bound": "After a and LOAD(p), q is on disk. Before q can be served it must be loaded, costing size(q)/R whether this occurs in the intervening periodic callback or on miss. With no data-changing operation between these consecutive probes, capacity forces at least d additional SPILL bytes. Additional loads can only increase the required writes.",
+    "protected_cost": "Protect-q plan writes f2 and retains q while LOAD(p) completes. The existing periodic PROBE path performs no IO for an already resident q. Thus, through service of q, it needs neither a q read nor another spill.",
+    "common_costs": "Initial p read and already incurred p miss penalty are common and cancel.",
+    "local_dominance": "(f2-f1)/W <= size(q)/R+d/W implies no greater IO for this fixed p,q service prefix.",
+    "credit": "max(1us, floor(d/2^shift)/W), shift in {0,1,2}",
+    "legacy_boundary": "Keep the old size(q)/R+1us acceptance region. A decision newly accepted by the expanded comparison necessarily has credit>1us; its extra write time is then <=size(q)/R+floor(d/2^shift)/W<=size(q)/R+d/W. The inherited +1us region itself has no general IO-dominance proof.",
+    "cut": "After service of the known next q, BEFORE the periodic callback belonging to q.",
+    "not_claimed": "No claim that q must miss: periodic preloading may avoid its miss penalty. No bound on callback D, unknown operations after q, or full Score. Real-arithmetic certificate only; floating comparisons are not machine-certified.",
+    "legal_information": "Uses only current SystemState, one legal next_op and the two already computed plans.",
+    "integer_domain": "For valid plans f1,f2<=U<=M, partition sizes<=M<=4GiB. Deficit arithmetic and f2-f1 are safely int64; max(0,...) precedes the right shift."
+  },
+  "warning": "Only newly accepted region has a real-arithmetic local IO certificate; the inherited +1us tolerance and full Score have no such guarantee."
+}

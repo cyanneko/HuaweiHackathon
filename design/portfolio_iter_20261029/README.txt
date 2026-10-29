@@ -6,11 +6,11 @@
 原规则用--policy rule；原网络用--policy neural；官方Naive用--policy baseline。
 
 测量记录：published_checkpoint.json；中文说明：../topic20_portfolio_iteration_report.pdf。
-三人分别结果：../member_eval_20261030/members_standalone_r2_members.json
-完整SDK逐次数据：members_standalone_r2_runs.jsonl；每例3次，算术均值。
-当前名称：tree_admission_r8_92_s2
-源码SHA256：9bb970245906fa1e5c9b384a0ac2b51ea45aa95fef9b0fd6cf6dd2a368353141
-全785例平均Score：67004203128.744713 us；比Naive下降29.293635%。
+三人分别结果：../member_eval_20261030/members_standalone_r3_members.json
+完整SDK逐次数据：members_standalone_r3_runs.jsonl；每例3次，算术均值。
+当前名称：tree_category_full108_r1_3
+源码SHA256：11745a01ca7c0aa8b30df22fa30a52be4aa1e02343c1995369cb71ba6a22a4b0
+全785例平均Score：66918827769.943657 us；比Naive下降29.383728%。
 
 三成员：Vanius0525 0.1.0/209；cyanneko 0.6.0/48；liunianwww 0.1.0/528。
 数据固定提交：e119c2326e198922243306eac062785420ed8156
@@ -41,12 +41,12 @@ collect_on_policy.py可重采样，CPU标签重测会波动；不要同时运行
 本地实验工具：build_candidates.py导出/编译；evaluate.py串行eval；audit_candidates.py独立动作与特征核对；
 search_candidates.py生成train特征邻域变异；train_fitness.py串行完整train评分。
 variants.json固定本地mode映射；训练输入编号/成员名/真实p均非在线特征。
-当前程序源码快照：standalone_admission_sources.zip；只绑定members_standalone_r2，不同历史程序不混用身份。
-当前原字节测量包：standalone_admission_measurements.zip。旧r3/4/5/6各自的source/measurements包独立保存。
-重算本轮成员分前可解包：python -m zipfile -e design/portfolio_iter_20261029/standalone_admission_measurements.zip design/portfolio_iter_20261029
+当前程序源码快照：standalone_category_sources.zip；只绑定members_standalone_r3，不同历史程序不混用身份。
+当前原字节测量包：standalone_category_measurements.zip。旧r3/4/5/6各自的source/measurements包独立保存。
+重算本轮成员分前可解包：python -m zipfile -e design/portfolio_iter_20261029/standalone_category_measurements.zip design/portfolio_iter_20261029
 使用源快照重新编译得到的新CPU时间是复测值，不冒充历史原值。
 
 旧568例过程：progress.json；其best_model.json保留旧套件最佳，不覆盖为新套件。
 本轮最终选择模型：current_model.json。所有设计、PDF与证据均在design下。
 冻结模型JSON保留生成时candidate_has_measured_fitness=false和父模型640/568来源字段；后续840训练fitness及785实测以published_checkpoint和对应结果为准，不改写冻结原件。
-Admission factor4 retained after 840 training inputs, 785x3 evaluation and 785x3 independent standalone deployment. Aggressive factors1/2 regressed. R8 paired physical-cost reduction is only about 2412us per case on a 67b-us average; do not present this as a substantial gain. Router stays eight-expert depth5,31nodes,16leaves.
+完整后缀标签3854状态/783有事件输入，840训练输入筛选16候选。类别mask11只替换原node22，785例三遍及独立部署复测均改善；总体raw均值比上版再降约0.1274%。Vanius、cyanneko略退步，整体收益来自liunian；两种完整重拟合优胜训练树评测退化，已保留负结果。类别编号按集合判断，无须增加树深度；规范化发布元数据与原始候选导出的C++字节相同。

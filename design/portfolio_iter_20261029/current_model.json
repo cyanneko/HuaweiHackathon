@@ -93,70 +93,97 @@
   "min_distinct_groups": 3,
   "workload_weighting": "event_total(file,kind) / event_sampled(file,kind)",
   "objective": {
-    "name": "absolute",
-    "formula": "min(C_e-min(C),cap)/scale",
-    "clip_us": 15160474900.0,
-    "scale_us": 53.47289999999339,
-    "clip_quantile": 1.0,
-    "cap_is_training_only": true,
-    "cap_population": "Positive sampled training excess costs; unweighted quantile.",
-    "effectively_unclipped": true
+    "name": "relative",
+    "formula": "min((C_e-min(C))/max(1,min(C)),10)",
+    "scale_us": 1.0,
+    "clip_relative": 10.0
   },
   "config": {
-    "feature_set": "cheap",
+    "feature_set": "inherited_parent_features_with_category30_mask",
+    "update": "one existing split at category_transition.node",
     "objective": "relative",
+    "objective_spec": {
+      "name": "relative",
+      "formula": "min((C_e-min(C))/max(1,min(C)),10)",
+      "scale_us": 1.0,
+      "clip_relative": 10.0
+    },
     "event_weighting": true,
-    "absolute_cap_quantile": 0.995
+    "local_min_side_samples": 64,
+    "local_min_side_input_groups": 3,
+    "max_depth": 5,
+    "horizon": "full_remaining",
+    "train_only": true,
+    "validation_performed": false
   },
   "input_artifacts": {
     "training_jsonl": {
-      "path": "design/portfolio_iter_20261029/round3_labels.jsonl",
-      "sha256": "3e06db353fd96b37cccc26c1df3db06ea2521aa1fbe26845d1e1057c86f3142f"
+      "path": "design/portfolio_iter_20261029/members_full108_r1_labels.jsonl",
+      "sha256": "671ad54601ff86c413f15da6d0c2da24b50b88ad7db53b898d47829138d5799f",
+      "rows": 3854
     },
-    "valid_npz": {
-      "path": "design/neural_selector/valid_labels.npz",
-      "sha256": "ebadf99453a29d0d766e424036a4dd075acfb15ee3ffc73b8bedc2392299f869"
+    "common_layer_parent": {
+      "path": "design/portfolio_iter_20261029/tree_admission_r8_92_s2.json",
+      "sha256": "3f809c2aaefbc06b3c86cea518f12235428f324500805e1554bbb412e4f214ca"
     },
-    "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee"
+    "inventory_sha256": "a47ef66931d5c2d80f07c566083d108f43ff72ff583b9d51efd573b996cbd8c7"
   },
-  "label_caveat": "Tree nodes and eight expert classes are copied unchanged from the parent; inherited training diagnostics describe the parent only. This new common periodic action changes trajectories and has not been compiled or evaluated. No admission candidate fitness is read to generate these configurations.",
+  "label_caveat": "Full-remaining labels from the actual category training artifact, after one forced first expert action and a fixed parent continuation. The categorical mask search optimizes a constrained frozen-state local proxy only; T/S-weighted suffix costs overlap and CPU labels are noisy. It is neither whole-input SDK fitness nor a global oracle.",
   "sampling": {
-    "rows": 20854,
+    "rows": 3854,
     "represented_inputs": 783,
     "event_weighting": true,
     "weight_formula": "event_total(file,kind) / event_sampled(file,kind)",
     "literal_T_over_S_not_renormalized": true,
-    "training_weight_sum": 480136.0,
-    "event_frequency_weight_sum": 480136.0,
-    "estimated_events_over_represented_inputs": 480136,
+    "training_weight_sum": 480387.0,
+    "event_frequency_weight_sum": 480387.0,
+    "estimated_events_over_represented_inputs": 480387,
     "file_kind_groups": {
       "omitted": true,
-      "entries": 1718,
-      "sha256": "958e2b4879ad8a32bf958db6b87c401ac14463e556c9ab8d6c3973256d3681f9"
+      "entries": 1715,
+      "sha256": "33a06a5818dd9c56826b0eddd28a659adbb5c83dcd258feb8ffa26cb2cca5917"
     }
   },
   "data_isolation": {
-    "train_inputs": 640,
-    "eval_inputs": 568,
-    "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
-    "cross_split_exact_input_overlap": 0,
-    "cross_split_raw_operation_overlap": 0,
-    "cross_split_partition_operation_overlap": 0,
-    "inventory": {
-      "omitted": true,
-      "entries": 1208,
-      "sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
-      "split_counts": {
-        "train": 640,
-        "eval": 568
-      }
-    }
+    "train_inputs": 840,
+    "inventory_sha256": "a47ef66931d5c2d80f07c566083d108f43ff72ff583b9d51efd573b996cbd8c7",
+    "source": "category_transition.input_inventory_sha256",
+    "eval_use": "Hash exclusion only; no eval labels or costs used by category generation.",
+    "eval_costs_read": false,
+    "validation_labels_read": false,
+    "full_inventory_embedded": false,
+    "note": "Current category metadata binds the checked inventory SHA. Eval count and overlap tables are not embedded here; old 640/568 values remain historical only."
   },
-  "validation_role": "No validation/eval labels or Scores used.",
+  "validation_role": "No validation labels or costs used to generate this category change. Subsequent SDK fitness and regression are separate measurement records.",
   "forced_cover": true,
   "provider_note": "Training and deployment both use the common forced-cover certificate layer.",
-  "base_sha256": "b4268045e24a8cb21948af860e090259188f75735a4ad3f32a18217fdfbc6c2d",
-  "candidate_generation": "periodic_admission_certificate_without_fitness",
+  "base_sha256": "3f809c2aaefbc06b3c86cea518f12235428f324500805e1554bbb412e4f214ca",
+  "candidate_generation": "categorical_previous_expert_transition",
+  "periodic_admission_shift": 2,
+  "periodic_admission_experiment": {
+    "parent": "tree_refine_r6_gate60_2.json",
+    "parent_sha256": "31d047e7c5709311ee6e17342c8dbc37a8f023527f259122105e0bf1a1c288ae",
+    "parent_source_sha256": "86f603eeab1338f59c292ee6000f26fc3d4f042a2d1384d8c591b372557c88fd",
+    "tag": "r8_92",
+    "patch_module": "admission_patch.py",
+    "proof": "admission_proof.txt",
+    "official_content_sha256": "61b537b9ed5aa691f8a2bf8b628c3b7fdb45a09dd9ef4182733f1d209c7097db",
+    "shared_layer": true,
+    "expert_classes_unchanged": 8,
+    "classifier_tree_unchanged": true,
+    "local_certificate": "At periodic next-INSERT overflow, spill the positive resident target b only if s+t<=M, at least one other positive resident partition exists, and every such partition has size >= (s+t)*2^shift. Then total writes through that known INSERT are s+t, at most 2^-shift of the immediate write lower bound for keeping b resident.",
+    "shift": 2,
+    "conservatism_factor": 4,
+    "accepted_action": "one SPILL of the positive next-INSERT target",
+    "choice_timing": "Run the existing choose and requester/demand assignment before the certificate, consuming forceNext at this event; on acceptance set spilled, remember(cause=-1), increment advanced_builds, and skip plan.",
+    "callback_cost": "O(Q) worst-case certificate scan, early rejection at the first smaller eligible partition; accepted path skips plan. Full callback D and future IO/misses must be measured, not inferred from the certificate.",
+    "limitations": "Only one known next INSERT is used. Later growth, future probes, append writes and callback D can reverse the full-Score benefit. This is a common action layer, not a ninth expert or a new class.",
+    "next_validation_only": [
+      "Toy cases: zero target must reject; equality accepts; one smaller victim rejects; no eligible victim rejects.",
+      "M=64MiB, A=63MiB, B=1MiB, grow B to 10MiB, periodic interval 1: verify capacity, append bytes and target history.",
+      "840 independent train cases before candidate selection, then 785 member cases with unchanged official timers."
+    ]
+  },
   "tree": [
     {
       "id": 0,
@@ -315,11 +342,11 @@
     {
       "id": 22,
       "feature": 30,
-      "threshold": 0.2857142984867096,
-      "comparison": "<=",
+      "comparison": "in_mask",
       "left": 23,
       "right": 26,
-      "depth": 2
+      "depth": 2,
+      "category_mask": 11
     },
     {
       "id": 23,
@@ -375,108 +402,318 @@
     }
   ],
   "candidate_has_measured_fitness": false,
-  "refinement": {
-    "parent_path": "design/portfolio_iter_20261029/tree_search_g1_1.json",
-    "parent_sha256": "b4268045e24a8cb21948af860e090259188f75735a4ad3f32a18217fdfbc6c2d",
-    "parent_cpp_sha256": "1e719564a213c59bab59fd162a3bf233ae0564d14c29a96766fdd340436817fd",
+  "category_transition": {
+    "node": 22,
+    "parent_path": "design/portfolio_iter_20261029/tree_admission_r8_92_s2.json",
+    "parent_sha256": "3f809c2aaefbc06b3c86cea518f12235428f324500805e1554bbb412e4f214ca",
+    "parent_shape": {
+      "node_count": 31,
+      "leaf_count": 16,
+      "max_depth": 5,
+      "used_features": [
+        1,
+        4,
+        5,
+        6,
+        19,
+        23,
+        24,
+        25,
+        26,
+        27,
+        30
+      ]
+    },
     "training_artifact": {
-      "path": "design/portfolio_iter_20261029/members_train_r5_labels.jsonl",
-      "sha256": "ae185e0ed6be968e8d2fcfa86630c2de47857b6782d48b831eb6e1cf21a342b0",
-      "rows": 20854
+      "path": "design/portfolio_iter_20261029/members_full108_r1_labels.jsonl",
+      "sha256": "671ad54601ff86c413f15da6d0c2da24b50b88ad7db53b898d47829138d5799f",
+      "rows": 3854
     },
+    "parent_mask": 7,
     "proposal": {
-      "objective": "absolute",
+      "category_mask": 11,
+      "weighted_cost": 1102.1455510030792,
+      "changed_category_count": 2,
+      "left_samples": 455,
+      "right_samples": 339,
+      "left_input_groups": 237,
+      "right_input_groups": 214,
+      "objective": "relative",
       "objective_spec": {
-        "name": "absolute",
-        "formula": "min(C_e-min(C),cap)/scale",
-        "clip_us": 15160474900.0,
-        "scale_us": 53.47289999999339,
-        "clip_quantile": 1.0,
-        "cap_is_training_only": true,
-        "cap_population": "Positive sampled training excess costs; unweighted quantile.",
-        "effectively_unclipped": true
+        "name": "relative",
+        "formula": "min((C_e-min(C))/max(1,min(C)),10)",
+        "scale_us": 1.0,
+        "clip_relative": 10.0
       },
-      "parent_leaf": 25,
-      "parent_expert": 3,
-      "feature": 24,
-      "threshold": 9.999999747378752e-05,
-      "left_expert": 4,
-      "right_expert": 3,
-      "retained_parent_expert": 3,
-      "retained_side": "right",
-      "which_side": "left",
-      "changed_side": "left",
-      "changed_expert": 4,
-      "changed_event_mass": 4866.750000000004,
-      "parent_event_mass": 47804.166666666664,
-      "changed_event_mass_fraction": 0.10180597925564376,
-      "max_changed_event_mass_fraction": 0.25,
-      "event_mass_scope": "Frozen parent-routed training labels with literal T/S weights; not a deployment bound.",
-      "left_samples": 249,
-      "right_samples": 978,
-      "left_input_groups": 32,
-      "right_input_groups": 152,
-      "left_weight": 4866.750000000004,
-      "right_weight": 42937.41666666666,
-      "weighted_proxy_before": 39629505344.911964,
-      "weighted_proxy_after": 22554686809.01901,
-      "weighted_proxy_gain": 17074818535.892956,
-      "gain_fraction_of_global_parent_proxy": 0.11065143787059148,
-      "raw_finite_window_cost_delta_us": 913040064087.8367,
-      "gating": "One child retains parent expert; only <=25% training event mass may change."
+      "objective_rank": 1,
+      "weighted_proxy_before": 1125.5265536725824,
+      "weighted_proxy_gain": 23.381002669503232,
+      "raw_finite_window_cost_delta_us": -75488001239.72902,
+      "parent_mask": 7,
+      "observed_categories": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "unobserved_categories": [
+        0,
+        5,
+        7
+      ],
+      "unobserved_category_parent_sides_retained": true,
+      "category_costs": [
+        {
+          "previous_expert": 0,
+          "samples": 0,
+          "event_mass": 0.0,
+          "weighted_left_cost": 0.0,
+          "weighted_right_cost": 0.0,
+          "parent_side": "left",
+          "observed": false
+        },
+        {
+          "previous_expert": 1,
+          "samples": 363,
+          "event_mass": 60492.25,
+          "weighted_left_cost": 402.169835285726,
+          "weighted_right_cost": 433.24118709239036,
+          "parent_side": "left",
+          "observed": true
+        },
+        {
+          "previous_expert": 2,
+          "samples": 47,
+          "event_mass": 7659.75,
+          "weighted_left_cost": 3.4920538662670193,
+          "weighted_right_cost": 6.339974879541211,
+          "parent_side": "left",
+          "observed": true
+        },
+        {
+          "previous_expert": 3,
+          "samples": 92,
+          "event_mass": 27933.75,
+          "weighted_left_cost": 41.09534140031271,
+          "weighted_right_cost": 67.32426508309018,
+          "parent_side": "right",
+          "observed": true
+        },
+        {
+          "previous_expert": 4,
+          "samples": 217,
+          "event_mass": 42559.25,
+          "weighted_left_cost": 596.1646439741984,
+          "weighted_right_cost": 592.9496057195851,
+          "parent_side": "right",
+          "observed": true
+        },
+        {
+          "previous_expert": 5,
+          "samples": 0,
+          "event_mass": 0.0,
+          "weighted_left_cost": 0.0,
+          "weighted_right_cost": 0.0,
+          "parent_side": "right",
+          "observed": false
+        },
+        {
+          "previous_expert": 6,
+          "samples": 75,
+          "event_mass": 10371.0,
+          "weighted_left_cost": 103.85300941130744,
+          "weighted_right_cost": 59.59079371791423,
+          "parent_side": "right",
+          "observed": true
+        },
+        {
+          "previous_expert": 7,
+          "samples": 0,
+          "event_mass": 0.0,
+          "weighted_left_cost": 0.0,
+          "weighted_right_cost": 0.0,
+          "parent_side": "right",
+          "observed": false
+        }
+      ],
+      "is_constrained_local_proxy_minimum": false,
+      "tie_rule": "Prefer parent mask, then smaller Hamming distance to parent; never change for tied gain."
     },
-    "candidate_tree_fingerprint": "7954fa676e7155c51c79a6000f779314f2d471a3ecc2255c4c6f959a1dbb0edb",
-    "parent_objective_sha256": "f16b8862fcf879a28a7151c3e6c5f3c72a5b27750136418e36ee86947a64eafd",
-    "min_leaf": 64,
-    "min_input_groups": 3,
-    "quantile_count": 31,
-    "threshold_rule": "measured float32 lower quantile, <=",
-    "sampling": {
-      "rows": 20854,
-      "represented_inputs": 783,
-      "event_weighting": true,
-      "weight_formula": "event_total(file,kind) / event_sampled(file,kind)",
-      "literal_T_over_S_not_renormalized": true,
-      "training_weight_sum": 480136.0,
-      "event_frequency_weight_sum": 480136.0,
-      "estimated_events_over_represented_inputs": 480136,
-      "file_kind_groups": {
-        "omitted": true,
-        "entries": 1718,
-        "sha256": "958e2b4879ad8a32bf958db6b87c401ac14463e556c9ab8d6c3973256d3681f9"
-      }
+    "enumeration": {
+      "objective": "relative",
+      "enumerated_masks": 32,
+      "feasible_masks": 28,
+      "minimum_weighted_cost": 1099.297629989805,
+      "tie_preferred_best_mask": 15,
+      "parent_weighted_cost": 1125.5265536725824,
+      "tie_tolerance": 1.1255265536725823e-09,
+      "positive_gain_masks": 4
     },
-    "data_inventory_sha256": "a47ef66931d5c2d80f07c566083d108f43ff72ff583b9d51efd573b996cbd8c7",
+    "training_states_at_node": 794,
+    "input_inventory_sha256": "a47ef66931d5c2d80f07c566083d108f43ff72ff583b9d51efd573b996cbd8c7",
     "train_input_count": 840,
-    "eval_used_for_refinement": false,
-    "selection_policy": "round-robin objective-specific descending proxy gain; semantic-tree dedup",
+    "min_side_samples": 64,
+    "min_side_input_groups": 3,
+    "online_test": "((category_mask >> selected_expert_) & 1u) != 0; membership chooses existing left child",
+    "audit_decode": "int(std::lround(double(x[30])*7.0)); verify the historical float32(i/7) lattice",
+    "no_new_online_feature": true,
+    "other_nodes_unchanged": true,
     "provider_unchanged": true,
-    "added_nodes": 2,
-    "added_leaves": 1
+    "selection": "Alternate objective-specific positive-gain ranks; distinct masks; no SDK fitness here",
+    "raw_proxy_horizon_semantics": "This legacy finite_window field refers here to the full_remaining counterfactual suffix under the frozen parent continuation. Literal T/S weights estimate sampled exposure; suffixes overlap. It is not a short truncated window, measured whole-input SDK Score, or a global oracle."
   },
-  "periodic_admission_shift": 2,
-  "periodic_admission_experiment": {
-    "parent": "tree_refine_r6_gate60_2.json",
-    "parent_sha256": "31d047e7c5709311ee6e17342c8dbc37a8f023527f259122105e0bf1a1c288ae",
-    "parent_source_sha256": "86f603eeab1338f59c292ee6000f26fc3d4f042a2d1384d8c591b372557c88fd",
-    "tag": "r8_92",
-    "patch_module": "admission_patch.py",
-    "proof": "admission_proof.txt",
-    "official_content_sha256": "61b537b9ed5aa691f8a2bf8b628c3b7fdb45a09dd9ef4182733f1d209c7097db",
-    "shared_layer": true,
-    "expert_classes_unchanged": 8,
-    "classifier_tree_unchanged": true,
-    "local_certificate": "At periodic next-INSERT overflow, spill the positive resident target b only if s+t<=M, at least one other positive resident partition exists, and every such partition has size >= (s+t)*2^shift. Then total writes through that known INSERT are s+t, at most 2^-shift of the immediate write lower bound for keeping b resident.",
-    "shift": 2,
-    "conservatism_factor": 4,
-    "accepted_action": "one SPILL of the positive next-INSERT target",
-    "choice_timing": "Run the existing choose and requester/demand assignment before the certificate, consuming forceNext at this event; on acceptance set spilled, remember(cause=-1), increment advanced_builds, and skip plan.",
-    "callback_cost": "O(Q) worst-case certificate scan, early rejection at the first smaller eligible partition; accepted path skips plan. Full callback D and future IO/misses must be measured, not inferred from the certificate.",
-    "limitations": "Only one known next INSERT is used. Later growth, future probes, append writes and callback D can reverse the full-Score benefit. This is a common action layer, not a ninth expert or a new class.",
-    "next_validation_only": [
-      "Toy cases: zero target must reject; equality accepts; one smaller victim rejects; no eligible victim rejects.",
-      "M=64MiB, A=63MiB, B=1MiB, grow B to 10MiB, periodic interval 1: verify capacity, append bytes and target history.",
-      "840 independent train cases before candidate selection, then 785 member cases with unchanged official timers."
-    ]
+  "ancestor_metadata": {
+    "category_transition_legacy_top_level": {
+      "role": "Historical parent diagnostics, not the current category training source.",
+      "original_values": {
+        "data_isolation": {
+          "train_inputs": 640,
+          "eval_inputs": 568,
+          "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
+          "cross_split_exact_input_overlap": 0,
+          "cross_split_raw_operation_overlap": 0,
+          "cross_split_partition_operation_overlap": 0,
+          "inventory": {
+            "omitted": true,
+            "entries": 1208,
+            "sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
+            "split_counts": {
+              "train": 640,
+              "eval": 568
+            }
+          }
+        },
+        "label_caveat": "Exact mask search only optimizes a constrained local frozen-state proxy; it does not establish complete SDK Score improvement.",
+        "config": {
+          "feature_set": "cheap",
+          "objective": "relative",
+          "event_weighting": true,
+          "absolute_cap_quantile": 0.995
+        },
+        "input_artifacts": {
+          "training_jsonl": {
+            "path": "design/portfolio_iter_20261029/round3_labels.jsonl",
+            "sha256": "3e06db353fd96b37cccc26c1df3db06ea2521aa1fbe26845d1e1057c86f3142f"
+          },
+          "valid_npz": {
+            "path": "design/neural_selector/valid_labels.npz",
+            "sha256": "ebadf99453a29d0d766e424036a4dd075acfb15ee3ffc73b8bedc2392299f869"
+          },
+          "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee"
+        },
+        "objective": {
+          "name": "relative",
+          "formula": "min((C_e-min(C))/max(1,min(C)),10)",
+          "scale_us": 1.0,
+          "clip_relative": 10.0
+        },
+        "refinement": {
+          "parent_path": "design/portfolio_iter_20261029/tree_search_g1_1.json",
+          "parent_sha256": "b4268045e24a8cb21948af860e090259188f75735a4ad3f32a18217fdfbc6c2d",
+          "parent_cpp_sha256": "1e719564a213c59bab59fd162a3bf233ae0564d14c29a96766fdd340436817fd",
+          "training_artifact": {
+            "path": "design/portfolio_iter_20261029/members_train_r5_labels.jsonl",
+            "sha256": "ae185e0ed6be968e8d2fcfa86630c2de47857b6782d48b831eb6e1cf21a342b0",
+            "rows": 20854
+          },
+          "proposal": {
+            "objective": "absolute",
+            "objective_spec": {
+              "name": "absolute",
+              "formula": "min(C_e-min(C),cap)/scale",
+              "clip_us": 15160474900.0,
+              "scale_us": 53.47289999999339,
+              "clip_quantile": 1.0,
+              "cap_is_training_only": true,
+              "cap_population": "Positive sampled training excess costs; unweighted quantile.",
+              "effectively_unclipped": true
+            },
+            "parent_leaf": 25,
+            "parent_expert": 3,
+            "feature": 24,
+            "threshold": 9.999999747378752e-05,
+            "left_expert": 4,
+            "right_expert": 3,
+            "retained_parent_expert": 3,
+            "retained_side": "right",
+            "which_side": "left",
+            "changed_side": "left",
+            "changed_expert": 4,
+            "changed_event_mass": 4866.750000000004,
+            "parent_event_mass": 47804.166666666664,
+            "changed_event_mass_fraction": 0.10180597925564376,
+            "max_changed_event_mass_fraction": 0.25,
+            "event_mass_scope": "Frozen parent-routed training labels with literal T/S weights; not a deployment bound.",
+            "left_samples": 249,
+            "right_samples": 978,
+            "left_input_groups": 32,
+            "right_input_groups": 152,
+            "left_weight": 4866.750000000004,
+            "right_weight": 42937.41666666666,
+            "weighted_proxy_before": 39629505344.911964,
+            "weighted_proxy_after": 22554686809.01901,
+            "weighted_proxy_gain": 17074818535.892956,
+            "gain_fraction_of_global_parent_proxy": 0.11065143787059148,
+            "raw_finite_window_cost_delta_us": 913040064087.8367,
+            "gating": "One child retains parent expert; only <=25% training event mass may change."
+          },
+          "candidate_tree_fingerprint": "7954fa676e7155c51c79a6000f779314f2d471a3ecc2255c4c6f959a1dbb0edb",
+          "parent_objective_sha256": "f16b8862fcf879a28a7151c3e6c5f3c72a5b27750136418e36ee86947a64eafd",
+          "min_leaf": 64,
+          "min_input_groups": 3,
+          "quantile_count": 31,
+          "threshold_rule": "measured float32 lower quantile, <=",
+          "sampling": {
+            "rows": 20854,
+            "represented_inputs": 783,
+            "event_weighting": true,
+            "weight_formula": "event_total(file,kind) / event_sampled(file,kind)",
+            "literal_T_over_S_not_renormalized": true,
+            "training_weight_sum": 480136.0,
+            "event_frequency_weight_sum": 480136.0,
+            "estimated_events_over_represented_inputs": 480136,
+            "file_kind_groups": {
+              "omitted": true,
+              "entries": 1718,
+              "sha256": "958e2b4879ad8a32bf958db6b87c401ac14463e556c9ab8d6c3973256d3681f9"
+            }
+          },
+          "data_inventory_sha256": "a47ef66931d5c2d80f07c566083d108f43ff72ff583b9d51efd573b996cbd8c7",
+          "train_input_count": 840,
+          "eval_used_for_refinement": false,
+          "selection_policy": "round-robin objective-specific descending proxy gain; semantic-tree dedup",
+          "provider_unchanged": true,
+          "added_nodes": 2,
+          "added_leaves": 1
+        },
+        "validation_role": "No eval or validation labels or performance used."
+      }
+    }
+  },
+  "local_min_side_samples": 64,
+  "local_min_side_input_groups": 3,
+  "training_horizon": "full_remaining",
+  "train_only": true,
+  "validation_performed": false,
+  "metadata_normalization": {
+    "kind": "category_full_remaining_metadata_v1",
+    "publication_copy_only": true,
+    "original_candidate_not_modified": true,
+    "current_label_rows": 3854,
+    "current_represented_inputs": 783,
+    "current_inventory_train_inputs": 840,
+    "current_inventory_sha256": "a47ef66931d5c2d80f07c566083d108f43ff72ff583b9d51efd573b996cbd8c7",
+    "source_of_truth": "category_transition, current sampling, and its proposal.objective_spec",
+    "horizon": "full_remaining",
+    "legacy_proxy_fields": [
+      {
+        "path": "/category_transition/proposal/raw_finite_window_cost_delta_us",
+        "original_field_preserved": true,
+        "meaning": "This legacy finite_window field refers here to the full_remaining counterfactual suffix under the frozen parent continuation. Literal T/S weights estimate sampled exposure; suffixes overlap. It is not a short truncated window, measured whole-input SDK Score, or a global oracle."
+      }
+    ],
+    "history": "Replaced top-level metadata preserved in ancestor_metadata.",
+    "independent_horizon_or_isolation_audit_performed": false
   }
 }

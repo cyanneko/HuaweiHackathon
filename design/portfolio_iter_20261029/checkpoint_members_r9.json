@@ -1,0 +1,377 @@
+{
+  "status": "completed measurement checkpoint; iteration continues",
+  "date": "2026-10-30",
+  "objective": "minimise complete raw average SDK Score including callback time",
+  "name": "tree_category_full108_r1_3",
+  "mode": 113,
+  "model": "current_model.json",
+  "source": "design/MySpillScheduler_tree.cpp",
+  "source_sha256": "11745a01ca7c0aa8b30df22fa30a52be4aa1e02343c1995369cb71ba6a22a4b0",
+  "dataset_commit": "e119c2326e198922243306eac062785420ed8156",
+  "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+  "cases": 785,
+  "repeats": 3,
+  "aggregation": "sum of per-case arithmetic means; mean_score=total_score/case_count",
+  "member_report": "members_r9_members.json",
+  "sdk_report": "members_r9_summary.json",
+  "sdk_runs": "members_r9_runs.jsonl",
+  "binary_sha256": "aceccdafe1481aa8af29e8aeb8b447b4b5e6c5f1b9b98e1801d7d4191601841a",
+  "reference_sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5",
+  "source_bundle": "full_horizon_sources.zip",
+  "measurement_bundle": "full_horizon_measurements.zip",
+  "deployment": "combined research program; mode chosen before timed callbacks",
+  "audits": [
+    "full_r9_audit_summary.json"
+  ],
+  "summary": {
+    "cases": 785,
+    "mean_score": 66918828195.97495,
+    "total_score": 52531280133840.336,
+    "mean_decision_us": 1522.0711974522294,
+    "miss_count": 607081.0,
+    "decrease_vs_nn_percent": 4.569152207519767,
+    "worst_vs_nn": 5.900253892508739,
+    "decrease_vs_naive_percent": 29.383727559441553,
+    "worst_vs_naive": 332.7512437810945
+  },
+  "members": [
+    {
+      "member": "Vanius0525",
+      "version": "0.1.0",
+      "case_count": 209,
+      "mean_score_us": 158658981.70985645,
+      "naive_mean_score_us": 245548446.2205901,
+      "decrease_vs_naive_percent": 35.38587429409995,
+      "mean_decision_us": 1331.2329027113237,
+      "worst_score_ratio_vs_naive": 332.7512437810945,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 717.0724450535996,
+      "mean_case_points_0_10": 3.430968636620094
+    },
+    {
+      "member": "cyanneko",
+      "version": "0.6.0",
+      "case_count": 48,
+      "mean_score_us": 7060697518.619792,
+      "naive_mean_score_us": 13498555325.088472,
+      "decrease_vs_naive_percent": 47.69293936591311,
+      "mean_decision_us": 6898.089305555555,
+      "worst_score_ratio_vs_naive": 7.997442782252909,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 167.26291748534786,
+      "mean_case_points_0_10": 3.48464411427808
+    },
+    {
+      "member": "liunianwww",
+      "version": "0.1.0",
+      "case_count": 528,
+      "mean_score_us": 98786376753.35081,
+      "naive_mean_score_us": 139565371504.5963,
+      "decrease_vs_naive_percent": 29.218562105788926,
+      "mean_decision_us": 1108.882436868687,
+      "worst_score_ratio_vs_naive": 62.706378986866795,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 1325.7536363073298,
+      "mean_case_points_0_10": 2.5108970384608518
+    }
+  ],
+  "public_score_summary": {
+    "status": "available",
+    "score_final": 736.696332948759,
+    "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
+    "dataset_count": 3,
+    "member_weights": {
+      "Vanius0525": 0.3333333333333333,
+      "cyanneko": 0.3333333333333333,
+      "liunianwww": 0.3333333333333333
+    },
+    "datasets": [
+      {
+        "member": "Vanius0525",
+        "version": "0.1.0",
+        "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
+        "case_count": 209,
+        "score_dataset_uncapped": 717.0724450535996,
+        "mean_case_points_aux": 3.430968636620094,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 716.1381176069534
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 717.2088680240569
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 717.8703495297887
+          }
+        ]
+      },
+      {
+        "member": "cyanneko",
+        "version": "0.6.0",
+        "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
+        "case_count": 48,
+        "score_dataset_uncapped": 167.26291748534786,
+        "mean_case_points_aux": 3.48464411427808,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 167.25739457763328
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 167.26614967162675
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 167.26520820678357
+          }
+        ]
+      },
+      {
+        "member": "liunianwww",
+        "version": "0.1.0",
+        "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+        "case_count": 528,
+        "score_dataset_uncapped": 1325.7536363073298,
+        "mean_case_points_aux": 2.5108970384608518,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 1325.7633425487593
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 1325.9335262930504
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 1325.5640400801797
+          }
+        ]
+      }
+    ],
+    "skipped_members": [
+      {
+        "member": "member2",
+        "reason": "empty evaluation set"
+      },
+      {
+        "member": "member3",
+        "reason": "empty evaluation set"
+      }
+    ],
+    "partial": false,
+    "eligible_for_full_collection_ranking": true,
+    "auxiliary": {
+      "all_cases_mean_points": 2.8153999985302893,
+      "total_case_count": 785,
+      "used_for_ranking": false
+    },
+    "note": "Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.",
+    "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+    "raw_capped_average_score": 50.0,
+    "raw_scoring_unchanged": true,
+    "per_case_zero_cost_rule": "Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0."
+  },
+  "train_search": [
+    {
+      "tag": "train_g0_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        32
+      ],
+      "best_new_mode": 53,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34974818763.34594,
+        "total_score": 29378847761210.59,
+        "mean_decision_us": 1131.888880952381,
+        "miss_count": 443557.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513147798.96,
+        "decrease_vs_base30_percent": 0.45291089213234104
+      },
+      "all_modes_best": 32,
+      "candidate_count": 16,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g1_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        53
+      ],
+      "best_new_mode": 60,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34565041313.364395,
+        "total_score": 29034634703226.09,
+        "mean_decision_us": 1222.7262142857144,
+        "miss_count": 457260.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513249296.84,
+        "decrease_vs_base30_percent": 1.6192404287430073
+      },
+      "all_modes_best": 60,
+      "candidate_count": 16,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g2_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        53,
+        60
+      ],
+      "best_new_mode": 80,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34305451880.36919,
+        "total_score": 28816579579510.12,
+        "mean_decision_us": 1105.131738095238,
+        "miss_count": 489063.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513113067.97,
+        "decrease_vs_base30_percent": 2.3580964823008976
+      },
+      "all_modes_best": 80,
+      "candidate_count": 6,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g3_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        60
+      ],
+      "best_new_mode": 82,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34300572444.043583,
+        "total_score": 28812480852996.61,
+        "mean_decision_us": 1133.4106428571429,
+        "miss_count": 508192.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513128736.43,
+        "decrease_vs_base30_percent": 2.3719846313535298
+      },
+      "all_modes_best": 82,
+      "candidate_count": 8,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g4_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        60
+      ],
+      "best_new_mode": 94,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34132572133.67037,
+        "total_score": 28671360592283.11,
+        "mean_decision_us": 1195.0982857142858,
+        "miss_count": 463296.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513229157.6,
+        "decrease_vs_base30_percent": 2.850155899442186
+      },
+      "all_modes_best": 94,
+      "candidate_count": 8,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g5_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        92
+      ],
+      "best_new_mode": 98,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34280478441.690384,
+        "total_score": 28795601891019.92,
+        "mean_decision_us": 1048.4487738095238,
+        "miss_count": 457394.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513266633.99,
+        "decrease_vs_base30_percent": 2.429177647925318
+      },
+      "all_modes_best": 98,
+      "candidate_count": 4,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g6_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        108
+      ],
+      "best_new_mode": 121,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34227607490.08943,
+        "total_score": 28751190291675.12,
+        "mean_decision_us": 917.2042857142857,
+        "miss_count": 487564.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513178005.35,
+        "decrease_vs_base30_percent": 2.579661317686821
+      },
+      "all_modes_best": 121,
+      "candidate_count": 16,
+      "eval_used_for_fitness": false
+    }
+  ],
+  "search_note": "Full remaining rollouts: 3854 states from 783 of 840 train inputs. Sixteen candidates trained; category mask11 at node22 lowered 785x3 raw mean versus108, while complete refits118/121 regressed. Vanius and cyanneko raw means worsened slightly; overall gain comes from liunian. Standalone deployment verification follows. Metadata normalized only in publication copy, byte-identical C++ verified.",
+  "caution": "Observed development/regression inputs, not hidden tests. Training-only full-trace fitness is separate from final regression. No universal optimality or all-member improvement claim.",
+  "model_metadata_normalization": {
+    "original_candidate": "tree_category_full108_r1_3.json",
+    "original_sha256": "c28958cd93303d1370c62e2b610ec979ae0f2c43fb923099e0b18a7d28e8a7c2",
+    "canonical_model_sha256": "3e9adb6b3b593f1b86553588f0a49f140af05d84602730534867ca732d9c3729",
+    "cpp_byte_identity_verified": true
+  }
+}

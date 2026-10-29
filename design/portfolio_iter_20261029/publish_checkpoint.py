@@ -26,18 +26,30 @@ def main():
             if record['name']==v['name'] and record['source_sha256']==sha and record['cases']==785:
                 assert record['strict_actions'] and record['feature_prediction_parity'];audited.append(path.name)
     assert audited,'No independent full-suite action and feature-parity audit for this source'
+    original_model=read(ROOT/(v['name']+'.json'))
+    from normalize_candidate_metadata import normalize
+    model=normalize(original_model)
+    normalization=None
+    if model!=original_model:
+        normalized_path=ROOT/'publication_metadata_private.json'
+        dump(normalized_path,model)
+        from build_candidates import export
+        generated=export(normalized_path)
+        assert (ROOT/generated['source']).read_bytes()==source.read_bytes(),'Metadata cleanup changed deployed C++'
+        normalization=dict(original_candidate=v['name']+'.json',original_sha256=digest(ROOT/(v['name']+'.json')),
+                           canonical_model_sha256=digest(normalized_path),cpp_byte_identity_verified=True)
     shutil.copyfile(source,D/'MySpillScheduler_tree.cpp')
-    shutil.copyfile(ROOT/(v['name']+'.json'),ROOT/'current_model.json')
+    dump(ROOT/'current_model.json',model)
     train=[]
     for path in sorted(ROOT.glob('train_g*_840_summary.json')):
         report=read(path)
         if report['status']!='complete':continue
         ranking=sorted(report['summary'].items(),key=lambda pair:pair[1]['mean_score'])
-        controls={'train_g0_840':{30,32},'train_g1_840':{30,53},'train_g2_840':{30,53,60},'train_g5_840':{0,1,2,30,92}}.get(report['tag'],{0,1,2,30,60})
+        controls={'train_g0_840':{30,32},'train_g1_840':{30,53},'train_g2_840':{30,53,60},'train_g5_840':{0,1,2,30,92},'train_g6_840':{0,1,2,30,108}}.get(report['tag'],{0,1,2,30,60})
         new=[(k,v) for k,v in ranking if int(k) not in controls]
         train.append(dict(tag=report['tag'],scope='train',cases=report['case_count'],repeats=report['repeats'],train_suite_id=report['train_suite_id'],control_modes=sorted(controls),best_new_mode=int(new[0][0]),best_new=new[0][1],all_modes_best=int(ranking[0][0]),candidate_count=len(new),eval_used_for_fitness=False))
-    source_bundles={'members_r3':'benchmark_sources','members_r4':'scratch_sources','members_r5':'refine_sources','members_r6':'gate_sources','members_r8':'admission_sources','members_standalone_r1':'standalone_sources','members_standalone_r2':'standalone_admission_sources'}
-    measurement_bundles={'members_r3':'benchmark_measurements','members_r4':'scratch_measurements','members_r5':'refine_measurements','members_r6':'gate_measurements','members_r8':'admission_measurements','members_standalone_r1':'standalone_measurements','members_standalone_r2':'standalone_admission_measurements'}
+    source_bundles={'members_r3':'benchmark_sources','members_r4':'scratch_sources','members_r5':'refine_sources','members_r6':'gate_sources','members_r8':'admission_sources','members_r9':'full_horizon_sources','members_standalone_r1':'standalone_sources','members_standalone_r2':'standalone_admission_sources','members_standalone_r3':'standalone_category_sources'}
+    measurement_bundles={'members_r3':'benchmark_measurements','members_r4':'scratch_measurements','members_r5':'refine_measurements','members_r6':'gate_measurements','members_r8':'admission_measurements','members_r9':'full_horizon_measurements','members_standalone_r1':'standalone_measurements','members_standalone_r2':'standalone_admission_measurements','members_standalone_r3':'standalone_category_measurements'}
     source_bundle=source_bundles[a.tag]+'.zip';measurement_bundle=measurement_bundles[a.tag]+'.zip'
     assert (ROOT/source_bundle).is_file() and (ROOT/measurement_bundle).is_file()
     result=dict(status='completed measurement checkpoint; iteration continues',date='2026-10-30',objective='minimise complete raw average SDK Score including callback time',
@@ -50,6 +62,7 @@ def main():
         public_score_summary=member['candidates'][key]['public_score_summary'],
         train_search=train,search_note=a.search_note,
         caution='Observed development/regression inputs, not hidden tests. Training-only full-trace fitness is separate from final regression. No universal optimality or all-member improvement claim.')
+    if normalization is not None:result['model_metadata_normalization']=normalization
     dump(ROOT/'published_checkpoint.json',result)
     text=['第20题：8专家小树与三成员评测（2026-10-30）','',
         '当前本地完整785例平均Score目标的最佳交付：../MySpillScheduler_tree.cpp。',

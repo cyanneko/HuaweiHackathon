@@ -1,0 +1,96 @@
+OFFLINE BYTE LOWER BOUNDS: PROOF AND SCOPE
+Implementation status at creation: written only; not compiled or executed.
+
+Definitions
+M is memory capacity, A is the sum of all INSERT byte sizes, W and R_bw are
+write/read bandwidths. After the final SWITCH every operation is PROBE and
+partition sizes s_p are fixed. Index all suffix probes 1..n, including empty
+targets. There is no assumed predecessor before suffix probe 1.
+
+1. Disjoint windows and adjacent compulsory reads
+Place cut i immediately AFTER service of probe i and BEFORE its periodic
+callback, if any. Cut 0 is the suffix boundary. Window (j,i] includes the
+periodic work of probe j, when j>0, and ends before periodic work of probe i.
+Thus windows are disjoint; not charging the last periodic work is safe.
+
+Let D(j+1..i) be the total bytes of DISTINCT partitions served in the window.
+At its start at most M bytes are resident. Every other distinct required
+partition must be loaded during the window, so reads >= D(j+1..i)-M.
+
+When consecutive serviced targets p!=q satisfy s_p+s_q>M, q cannot be resident
+at the service instant of p. It must be loaded before service of q, even if
+the load happens in the periodic callback after p. Let F_i accumulate s_q for
+these adjacent pairs through i, with F_0=F_1=0. The service intervals belonging
+to different adjacent pairs do not overlap, so window reads >= F_i-F_j.
+Consequently each window costs at least max(F_i-F_j, D(j+1..i)-M).
+
+2. Strongest sum over window partitions
+Let B_0=0. The maximum lower bound obtainable by disjoint windows is
+ B_i = max_{0<=j<i} [B_j + max(F_i-F_j, D(j+1..i)-M)].
+All window weights are nonnegative because F is nondecreasing. Put B_i=F_i+E_i.
+Then E_0=0 and
+ E_i = max(E_{i-1}, max_{0<=j<i}(E_j+F_j+D(j+1..i)-M)-F_i).
+To see the first term, the F branch contributes max_j E_j=E_{i-1}; this follows
+inductively from monotonicity of E.
+
+Maintain G_j=E_j+F_j+D(j+1..i). Before processing probe i insert cut i-1 with
+the OLD E_{i-1}+F_{i-1}. If its target previously appeared at L (L=0 if unseen),
+only cuts j in [L,i-1] newly acquire its byte weight. A range-add/range-max lazy
+segment tree implements the recurrence in O(n log n) time and O(n) memory.
+All bytes, F/E/G values and DP operations are signed 64-bit integer exact.
+Legal N<=5,000,000 and M<=4 GiB keep their magnitudes below 2^63.
+
+3. Incompatible subsequences, independently
+Take any subsequence of service positions whose neighboring selected targets
+are different and have size sum >M. Between those two service instants the
+later target must be loaded. The selected service intervals do not overlap;
+sum the byte weights of all selected targets except the first.
+
+val[q] is the best such subsequence ending at a previously seen q. Unseen
+partitions have NEG, not zero. When q is served, its value becomes
+ max(old_val[q], 0, s_q + max_seen_p!=q,s_p+s_q>M val[p]).
+The zero term is the first REAL occurrence as an uncharged anchor. Query before
+updating q. Leaves are ordered by (size,id); a range-max tree stores the best
+two distinct owners, permitting strict size threshold and exclusion of q.
+This costs O(n log Q) time and O(Q) memory. Empty partitions cannot be part of
+an incompatible pair since every s_p<=M. Let L_path=max_q val[q].
+
+The path and window arguments can charge the same reads. Therefore use
+ L=max(B_n,L_path), NEVER B_n+L_path.
+
+4. Couple reads and writes over the entire case
+Let R_tot be actually executed LOAD bytes, S be SPILL bytes, Ap be disk append
+INSERT bytes, and m_end be final resident bytes. Starting resident byte count
+is zero, hence exactly
+ m_end = A - Ap + R_tot - S.
+Therefore total write bytes S+Ap=A+R_tot-m_end >= max(0,A+R_tot-M).
+Executed reads satisfy R_tot>=L, so
+ write_byte_LB=max(0,A+L-M),
+ IO_LB=write_byte_LB/W + L/R_bw.
+There is no final-flush assumption. This omits nonnegative miss penalties and
+decision time, giving a lower bound on actual Score. Ignored SPILL0, duplicate
+LOAD, or other ignored actions contribute no bytes and do not affect identity.
+Final-empty partitions remain resident because official SPILL0 is ignored;
+their probes contribute zero bytes but retain their positions and adjacency.
+
+5. Relation to the older small-Q suffix relaxation
+That relaxation permits a free feasible suffix resident set S_0 with prefix
+write charge A-size(S_0). Its suffix transfers obey the same capacity/service
+window/path conditions. If its suffix reads/spills are R_s/S_s, then
+ A-size(S_0)+S_s=A+R_s-m_end.
+Thus each of its feasible trajectories costs at least our raw IO bound, even
+before its nonnegative miss penalties. Taking its minimum preserves ordering:
+ new real-arithmetic raw IO LB <= old real-arithmetic suffix relaxation.
+The verifier compares RAW values with numerical tolerance. The two tools have
+different downward allowances, so their reported adjusted values need not be
+strictly ordered without accounting for the old allowance.
+
+6. Numerical and interpretation limits
+The byte lower bounds are mathematical integer statements, not an exact oracle
+for achievable scheduler cost. Only the final divisions use long double.
+The displayed lower_bound subtracts .02 + 1e-12*max(1,raw) plus a small epsilon
+term. This is a practical conservative adjustment, NOT machine certification.
+Verification allows .02+1e-12*scale for saved SDK Score and old-bound checks.
+The gap (C-LB)/C is only an UPPER BOUND on possible improvement. It is neither a
+promise of attainable savings nor a measurement of offline-optimal regret.
+No future information, true p/B, or offline result may enter online features.

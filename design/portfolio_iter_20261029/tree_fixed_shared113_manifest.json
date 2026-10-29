@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "kind": "fixed_expert_shared_layer_ablation_manifest",
+  "tag": "shared113",
+  "candidate_count": 8,
+  "expert_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "classes": 8,
+  "feature_count": 32,
+  "parent_json": "design/portfolio_iter_20261029/tree_category_full108_r1_3.json",
+  "parent_json_sha256": "c28958cd93303d1370c62e2b610ec979ae0f2c43fb923099e0b18a7d28e8a7c2",
+  "parent_cpp": "design/portfolio_iter_20261029/tree_category_full108_r1_3.cpp",
+  "parent_cpp_sha256": "11745a01ca7c0aa8b30df22fa30a52be4aa1e02343c1995369cb71ba6a22a4b0",
+  "inherited_online_fields": {
+    "forced_cover": true,
+    "periodic_admission_shift": 2
+  },
+  "missing_shared_scratch_means_disabled": true,
+  "inherited_parent_field_allowlist": [
+    "forced_cover",
+    "shared_scratch",
+    "periodic_admission_shift"
+  ],
+  "parent_tree_or_training_validation_metadata_inherited": false,
+  "all_eight_rules_included_without_selection": true,
+  "router": "One numeric leaf; returns fixed expert ID without evaluating features.",
+  "comparison_scope": "Fixed-expert controls share the current forced-cover, scratch option and admission2 layer. This avoids comparing against modes100..107 whose old neural-reference common layer differs.",
+  "fitted": false,
+  "score_artifacts_read": false,
+  "compilation_or_evaluation_performed_by_generator": false,
+  "next_step": "Separately build, audit and measure all eight controls; no selection or benefit claimed here.",
+  "catalog": {
+    "path": "design/neural_selector/catalog.json",
+    "sha256": "edac30b799e13e9eea066565f2d6af2b0efc2123aec42ffd27d0070503b4598f"
+  },
+  "generator": "design/portfolio_iter_20261029/prepare_fixed_experts.py",
+  "generator_sha256": "58604421780a15864730b1300449978fe570e8fe4b38d88e4e4ecc719cbbf229",
+  "future_builder_dependencies": [
+    {
+      "path": "design/portfolio_iter_20261029/build_candidates.py",
+      "sha256": "ce9d24e241a22783b4aa31d3d0aa2f1a276b8cd281220b82753d8e0372ba4a8a"
+    },
+    {
+      "path": "design/portfolio_iter_20261029/admission_patch.py",
+      "sha256": "30b895b89870c63d9f4b0122e3cfe03bc575c8b5d9d36f673dd147449e06c57b"
+    },
+    {
+      "path": "design/neural_selector/Scheduler.template",
+      "sha256": "f67722bd7ca8cf4485d6382d0cc21cb746d9d3a7755fb12948948d126b7015ad"
+    }
+  ],
+  "candidates": [
+    {
+      "name": "tree_fixed_shared113_e0",
+      "path": "tree_fixed_shared113_e0.json",
+      "sha256": "d8fb89aae2d7917ee318a47b8a688a19c132ac81006d41c7914b2670c9b48cc5",
+      "expert_id": 0,
+      "rule_name": "最大分区优先",
+      "engine_mode_id": null,
+      "engine_mode_id_assignment": "Later by build_candidates.py; not the expert ID"
+    },
+    {
+      "name": "tree_fixed_shared113_e1",
+      "path": "tree_fixed_shared113_e1.json",
+      "sha256": "63b7f466ba73692a6bd0755cbeac74321f0d2e1c390f2128b19ef56c0cf4b306",
+      "expert_id": 1,
+      "rule_name": "小规模精确最小写出覆盖",
+      "engine_mode_id": null,
+      "engine_mode_id_assignment": "Later by build_candidates.py; not the expert ID"
+    },
+    {
+      "name": "tree_fixed_shared113_e2",
+      "path": "tree_fixed_shared113_e2.json",
+      "sha256": "df170332a370ae7e60800b266132e7d2020034918a566b7b31b4b689c464906f",
+      "expert_id": 2,
+      "rule_name": "观测最近访问",
+      "engine_mode_id": null,
+      "engine_mode_id_assignment": "Later by build_candidates.py; not the expert ID"
+    },
+    {
+      "name": "tree_fixed_shared113_e3",
+      "path": "tree_fixed_shared113_e3.json",
+      "sha256": "7b485aa4f982ad0f833ccc397591a0d8be7506a720055f0dae7ce57aa6b75554",
+      "expert_id": 3,
+      "rule_name": "观测复用热度密度",
+      "engine_mode_id": null,
+      "engine_mode_id_assignment": "Later by build_candidates.py; not the expert ID"
+    },
+    {
+      "name": "tree_fixed_shared113_e4",
+      "path": "tree_fixed_shared113_e4.json",
+      "sha256": "c2a05fc5b88fb29d3e11246b025af9a8fc3ea33f87be51b05cfc5ee00c770ea3",
+      "expert_id": 4,
+      "rule_name": "预计恢复代价密度",
+      "engine_mode_id": null,
+      "engine_mode_id_assignment": "Later by build_candidates.py; not the expert ID"
+    },
+    {
+      "name": "tree_fixed_shared113_e5",
+      "path": "tree_fixed_shared113_e5.json",
+      "sha256": "a9ca2a98c64268baa2dbd51fa6d513db8a55c0880de6120a8a7c2ce62c227f34",
+      "expert_id": 5,
+      "rule_name": "观测版GreedyDual-Size",
+      "engine_mode_id": null,
+      "engine_mode_id_assignment": "Later by build_candidates.py; not the expert ID"
+    },
+    {
+      "name": "tree_fixed_shared113_e6",
+      "path": "tree_fixed_shared113_e6.json",
+      "sha256": "38ad89d74646a2b0f462b6de5a291e8d2805e1f75943d36a265326e2b3c58e32",
+      "expert_id": 6,
+      "rule_name": "阶段与算子软配额代价",
+      "engine_mode_id": null,
+      "engine_mode_id_assignment": "Later by build_candidates.py; not the expert ID"
+    },
+    {
+      "name": "tree_fixed_shared113_e7",
+      "path": "tree_fixed_shared113_e7.json",
+      "sha256": "8eaad9360c1971eea71812d03abad83a8389d84f3e2155932dbaa4a68a1f61e1",
+      "expert_id": 7,
+      "rule_name": "前版自适应控制器",
+      "engine_mode_id": null,
+      "engine_mode_id_assignment": "Later by build_candidates.py; not the expert ID"
+    }
+  ]
+}

@@ -44,18 +44,36 @@ def admission_evidence(result):
         lines.append(line+'；微小收益及CPU波动须与坏例共同披露。')
     return lines
 
-def full_horizon_status(record):
-    if not isinstance(record,dict):return '完整后缀采集器已准备，尚未运行。'
+def full_horizon_status(record,model=None):
+    if not isinstance(record,dict):return '完整后缀采集状态以对应provenance为准。'
     status=record.get('status')
     if status=='collected':
         validation=record.get('validation',{});details=[]
         if 'label_rows' in validation:details.append(f'{validation["label_rows"]}个状态')
         if 'represented_training_inputs' in validation:details.append(f'覆盖{validation["represented_training_inputs"]}份train')
-        return '完整后缀标签已采集'+('，'+'、'.join(details) if details else '')+'；尚未验证拟合及正式Score。'
-    if status=='collecting':return '完整后缀标签正在采集，尚未验证拟合及正式Score。'
+        if record.get('training_cases'):details.append(f'{record["training_cases"]}份train inventory')
+        suffix='；已用于当前类别节点更新，并完成完整Score回归及独立部署复测。' if isinstance(model,dict) and model.get('training_horizon')=='full_remaining' else '；训练与完整Score结论见各轮绑定记录。'
+        return '完整后缀标签已采集'+('，'+'、'.join(details) if details else '')+suffix
+    if status=='collecting':return '完整后缀标签正在采集，不能计作已完成结果。'
     if status=='prepared':return '完整后缀教师已准备，尚未开始采集。'
     if status=='failed':return '完整后缀采集未成功完成，不作为已验证训练结果。'
-    return '完整后缀采集状态见对应provenance；尚未验证拟合及正式Score。'
+    return '完整后缀采集状态见对应provenance。'
+
+
+def category_ids(mask):
+    return '{'+','.join(str(i) for i in range(8) if mask&(1<<i))+'}'
+
+
+def member_tradeoff_line(record,mode):
+    if not isinstance(record,dict):return '当前按全部案例raw平均Score选择，不要求各成员分别最优。'
+    changes=[]
+    for member,values in record.get('by_member',{}).items():
+        if str(mode) not in values or '108' not in values:continue
+        base=values['108']['mean_score'];value=values[str(mode)]['mean_score']
+        if base<=0:continue
+        change=100*(value/base-1)
+        changes.append(member+(f'上升{change:.4f}%' if change>0 else f'下降{-change:.4f}%'))
+    return ('同批相对108，成员平均Score：'+'，'.join(changes)+'。' if changes else '')+'选择目标是785例raw平均Score，而非每个成员分别最优。'
 
 def main():
     checkpoint=read(ROOT/'published_checkpoint.json')
@@ -68,6 +86,12 @@ def main():
     standalone='standalone' in checkpoint.get('sdk_report','').lower() or 'independently' in checkpoint.get('deployment','').lower()
     full_path=ROOT/'members_full108_r1_provenance.json'
     full_record=read(full_path) if full_path.is_file() else None
+    category=model.get('category_transition',{})
+    category_proposal=category.get('proposal',{})
+    round9_path=ROOT/'members_r9_summary.json'
+    round9=read(round9_path) if round9_path.is_file() else None
+    train6_path=ROOT/'train_g6_840_summary.json'
+    train6=read(train6_path) if train6_path.is_file() else None
     old=read(ROOT/'progress.json')
     candidates=[]
     if os.environ.get('CHINESE_PDF_FONT'):candidates.append(Path(os.environ['CHINESE_PDF_FONT']))
@@ -139,13 +163,16 @@ def main():
     p('例：M=100、必须保留70，驻留候选40与20、缺口30。40无法与70共存，必落盘；它单独覆盖缺口，于是无需运行复杂子集搜索。若所有候选都不构成必落盘，则继续使用被选专家。')
     h('贡献二：按决策事件频率纠正训练权重')
     p('有限采样会低估高频miss/overflow输入。对文件f、回调类k，记录完整轨迹事件数T及采样数S，给每条状态权重T/S。叶子选择argmin_e Σw_i·Loss(C_i,e)，分裂以左右叶子的最小成本下降为目标；不用普通分类准确率代替成本。')
-    p('初始父模型使用640份train采样的15,801个状态；加入三成员840份train后采集20,764个状态，后续在优胜树轨迹又采集20,854个状态。无决策事件的输入仍保留在完整评测。有限重叠窗口只是近似标签。')
+    p('早期父模型使用640份train采样的15,801个状态；扩展三成员后采集20,764个状态，后续树轨迹又采集20,854个状态。当前完整后缀来源见第4页。无决策事件的输入仍保留在完整评测；旧窗口和当前重叠后缀均为代理标签。')
     h('贡献三：沿树路径付出特征成本')
-    p(f'当前模型深度{model["max_depth"]}、{model["node_count"]}节点、{model["leaf_count"]}叶子。阈值展开为内嵌if/else，最多{model["max_depth"]}次比较；cheap特征按路径懒计算，避免先汇总全部分区统计。无需在线模型文件或推理库。')
+    p(f'当前模型深度{model["max_depth"]}、{model["node_count"]}节点、{model["leaf_count"]}叶子。路由展开为内嵌if/else，最多{model["max_depth"]}次判断（含类别位测试）；cheap特征按路径懒计算，避免先汇总全部分区统计。无需在线模型文件或推理库。')
     p('这不表示整个回调O(1)：公开getSystemState复制、专家候选收集和规划仍可能O(Q)。真正收益必须由实际回调时间和完整Score检验。')
-    h('贡献四：完整train Score闭环微调')
-    p('用840份完整train轨迹的实际Score筛选局部变更。普通细分曾训练改善、eval退步；随后限制每次只改一个子叶，另一侧保留原专家，变化侧不超过父叶25%的训练事件质量。当前采用方案实际为10.18%；这不构成部署风险界。')
-    p('小树本体只在一个原热度密度叶子中，遇到极低读带宽时改用恢复代价密度，其余保留父动作。候选冻结后在785例复测；公共周期层见第7页。上述是本项目实现贡献，不主张首次见于文献。')
+    h('贡献四：完整train Score筛选与类别切换')
+    p('前一轮曾限制每次只改一个子叶，保留另一侧原专家；变化侧约占父叶10.18%的训练事件质量。其变更是在原热度密度叶遇到极低读带宽时改用恢复代价密度。这是历史父模型调整，不是本轮唯一变化，也不构成部署风险界。')
+    if category and type(category_proposal.get('category_mask')) is int:
+        mask=category_proposal['category_mask'];parent_mask=category.get('parent_mask',7)
+        p(f'本轮把原节点{category["node"]}的上次专家数值阈值改成类别集合：左侧ID由{category_ids(parent_mask)}改为{category_ids(mask)}（mask={mask}），仍为深度{model["max_depth"]}。只改这一处路由，保留子树与8类专家。经840份完整train筛选、785例回归和独立部署复测采用；公共周期层见第7页。')
+    else:p('本轮实际采用变化以current_model与绑定测量为准；所有局部变更均经完整Score评测，不主张首次见于文献。')
 
     page(4,'在线运行与训练边界')
     periodic_insert=('先分类；证书通过时提前落盘正大小目标，让下条INSERT磁盘追加；否则按所选专家跨算子腾空间。' if admission_model else '提前分类与释放空间，减少之后的压力。')
@@ -153,13 +180,23 @@ def main():
     h('next_op只是一条已知操作')
     p('只使用接口给出的next_op，做保守的目标保护、无需额外落盘的联合加载等。没有下一步之后的未来访问流，也看不到真实miss罚分p、总操作数N或周期B。若接口中的pair_fits历史特征有同分区重复计数，它仅为训练特征，容量判断始终由精确动作层完成。')
     h('离线标签与信息隔离')
-    p('教师复制同一状态，让8个专家分别执行首动作，再由共同策略续行。成本含ΔIO+p·Δmiss及离线回调计时代理，后者不是正式引擎D。默认窗口384步，BUILD可延伸到SWITCH之后128步、最多2048步。未来流和真实p仅用于离线评分，不进入在线特征。')
+    p('教师复制同一状态，让8个专家分别执行首动作，再由共同父策略续行。成本含ΔIO+p·Δmiss及离线回调计时代理，后者不是正式引擎D。未来流和真实p只用于离线评分，不进入在线特征。')
+    if model.get('training_horizon')=='full_remaining':
+        sampling=model.get('sampling',{});inventory=model.get('data_isolation',{}).get('train_inputs',category.get('train_input_count'))
+        p(f'当前training_horizon=full_remaining：每个首动作一直续行至输入末尾，采集{sampling.get("rows",3854)}个状态、覆盖{sampling.get("represented_inputs",783)}份输入，训练inventory共{inventory or 840}份。早期384步、BUILD最多2048步属于历史标签设置。完整后缀仍有固定续行偏差及T/S重叠，不是全局oracle。')
+    else:p('历史有限窗口为384步，BUILD可延伸至SWITCH后128步且最多2048步；当前使用的标签horizon以模型及provenance记录为准。')
     p('训练检查了输入字节、原始操作流和按key%P归一的操作流，避免同一流跨train/eval；标签实际只来自train。用于比较或反复查看的eval已是开发/回归数据，不能称为未见盲测。')
     h('时间与容量边界')
     diagnosis_path=ROOT/(checkpoint['sdk_report'].replace('_summary.json','_diagnosis.json'))
     if diagnosis_path.is_file():
         dr=read(diagnosis_path)['candidates'][str(checkpoint['mode'])]['aggregate']
         p(f'本批sum(D)/sum(Score)约{dr["global_decision_share_percent"]:.8f}%，即使把D全部消除，对总体原始Score的收益也受此比例限制；但有{dr["decision_dominant_ge_90_percent_cases"]}个正成本案例的D占比≥90%，逐例归一化仍对回调开销敏感。两种目标须分别衡量。')
+    callbacks_path=ROOT/checkpoint['sdk_report'].replace('_summary.json','_callback_cost.json')
+    if callbacks_path.is_file():
+        cb=read(callbacks_path);pair=cb.get('candidates',{});key=str(checkpoint['mode'])
+        if cb.get('status')=='passed' and '0' in pair and key in pair:
+            nn=pair['0']['aggregate'];tr=pair[key]['aggregate']
+            p(f'独立计数（原NN/当前树）：回调{nn["callbacks_per_suite_pass"]:,}/{tr["callbacks_per_suite_pass"]:,}次，分类{nn["classifications_per_suite_pass"]:,}/{tr["classifications_per_suite_pass"]:,}次；混合D/回调{nn["D_per_callback_mixed_us"]:.6f}/{tr["D_per_callback_mixed_us"]:.6f} μs，D/分类{nn["D_per_classification_mixed_us"]:.5f}/{tr["D_per_classification_mixed_us"]:.5f} μs。两种比值都含其他回调与规划，不是纯推理耗时；见对应callback_cost.json。','small')
     p('完整Score=IO时间+p·miss次数+实际决策时间。保留官方计时范围，包含状态获取；不把路由比较数当成实测速度。所有动作独立核对容量、插入目标排除、LOAD阶段、miss末动作及lazy特征预测一致性。')
 
     page(5,'迭代证据与复现')
@@ -200,19 +237,31 @@ def main():
         p(f'实现已通过6个手算边界与24个随机小Q的Fraction暴力DP核对，并扫描全部785例：185例可计算，500例Q超限、100例预算超限，均明确跳过且不补0。R6开发程序中，对小树92的同一185例，总成本/计算下界≈{br["ratio_C_over_LB"]:.6f}，最多进一步降低的上限约{100*br["maximum_improvement_fraction_upper_bound"]:.4f}%。')
     p('该结论只针对这185例，不能推广到其余600例；差距不是可实现收益。数学证明按实数I/O计价；数值用long double与下调余量，未做机器认证。完整未来、真实p/B只用于这个离线工具，绝不进入在线专家或特征。')
     p('推导与源代码：portfolio_iter_20261029/offline_suffix_bound_proof.txt、expert1_cover_approx_proof.txt，以及offline_bounds_20261030。当前只实现后缀耦合松弛，并未声称求出整题全输入最优策略。','small')
-    page(7,'原创迭代：已实现与待验证' if admission_model or admission_result else '后续原创提案：已准备，待验证')
-    p(('完整标签与类别切换尚待拟合验证；第三项已实现并完成候选实验，采用状态以当前模型为准。' if admission_model or admission_result else '以下三项已准备代码与推导，采用状态以实测记录为准。')+'这里的原创指本项目自行设计和实现，不主张文献首次提出。')
+    page(7,'完整后缀与类别切换：已完成验证')
+    p('完整后缀重拟合与类别切换均已完成候选实验；当前采用类别节点更新，公共admission层继续保留。“原创”指本项目自行设计和实现，不主张文献首次提出。')
     h('一、用完整剩余轨迹提高教师标签保真度')
-    p('现有384/2048步窗口可能漏掉长时间后的重读和策略反馈。新采集器让每种首动作一直推进到输入末尾，用当前树作为共同续行；每文件最多采6个状态控制离线成本。完整未来和真实p仅在离线教师中使用，在线仍只看当前状态、历史和next_op。')
-    p(full_horizon_status(full_record)+('已拟合8棵深度3至6的小树，完整Score验证尚在进行。' if (ROOT/'tree_full108_r1_training_summary.json').is_file() else '')+'固定策略的反事实标签及离线计时代理，不能称正式引擎D或全局最优oracle。','small')
+    p('教师让每种首动作推进到输入末尾，以冻结父树共同续行，每文件最多采6个状态。已拟合8棵实际深度3至6的小树；其中118/121在840份train胜出，785例回归却比108退化，均未采用。完整后缀提高观测范围，仍不能消除固定续行与重叠采样偏差。')
+    if isinstance(round9,dict) and '108' in round9.get('summary',{}):
+        baseline=round9['summary']['108']['mean_score']
+        comparison=[['mode','840 train比108下降','785回归比108变化','785回归平均Score / μs']]
+        for mode in ['113','118','121']:
+            if mode not in round9['summary']:continue
+            rr=round9['summary'][mode];change=100*(rr['mean_score']/baseline-1)
+            training='见train_g6'
+            if isinstance(train6,dict) and all(k in train6.get('summary',{}) for k in ['108',mode]):
+                training=f'{100*(1-train6["summary"][mode]["mean_score"]/train6["summary"]["108"]["mean_score"]):.6f}%'
+            comparison.append([mode,training,(f'上升{change:.4f}%' if change>0 else f'下降{-change:.4f}%'),f'{rr["mean_score"]:,.2f}'])
+        table(comparison,[42,112,132,221])
+        p('表内成员回归取members_r9同批3次均值；train取train_g6的完整轨迹筛选，不能把训练获益当作泛化证明。','small')
     h('二、把上次专家当类别，学习策略切换集合')
-    p('专家编号没有天然大小顺序。拟将原树一个“上次编号≤阈值”节点改为“编号属于某集合”，在线只需一次位测试，保持树深度不变。离线按上次专家类别汇总左右子树成本，枚举类别掩码，可严格最小化这个固定节点、固定训练状态的代理目标。')
-    category_manifest=ROOT/'tree_category_full108_r1_manifest.json'
-    p(('已生成'+str(read(category_manifest)['output_count'])+'个类别掩码候选，完整Score验证尚在进行。' if category_manifest.is_file() else '状态：categorical_transition.py与导出支持已准备，尚未生成或评测候选。')+'代理最优不代表整个闭环Score最优。未观察类别保留父动作侧。','small')
+    if category and type(category_proposal.get('category_mask')) is int:
+        mask=category_proposal['category_mask'];parent_mask=category.get('parent_mask',7)
+        p(f'已生成8个类别掩码候选；当前采用mode {checkpoint["mode"]}，节点{category["node"]}由左侧集合{category_ids(parent_mask)}改为{category_ids(mask)}、mask={mask}，仍为深度{model["max_depth"]}。在线用一次位测试，未观察类别保留父侧。局部代理最优不等于闭环最优；本候选经完整Score回归和独立部署785例×3次确认。')
+    p(member_tradeoff_line(round9,checkpoint['mode']),'small')
     h('三、周期回调提前将增长目标转为磁盘追加')
-    p('periodic看到下一INSERT将溢出，若目标b驻留且s&gt;0，可提前SPILL b，下条t字节走磁盘追加。已知写入体的写量为s+t；保持b驻留则至少驱逐一个其他正大小分区，写量不小于其中最小值v。')
-    p('(s+t)·2^k≤v给出局部写量证书，k=0..3；窗口截止下条INSERT数据写入完成、其后新periodic动作之前。后续增长、Probe和D可反转收益，没有全Score理论保证。仅用于periodic；空分区SPILL无效。')
-    for line in admission_evidence(admission_result):p(escape(line),'small')
+    p('periodic看到下一INSERT将溢出，若正大小驻留目标b满足(s+t)·2^k≤最小其他正大小分区，可提前SPILL b，下一INSERT磁盘追加；k=0..3。该局部证书只覆盖已知写入体、截止其后periodic动作之前，后续增长、Probe与D仍可反转收益。')
+    admission_lines=admission_evidence(admission_result)
+    if admission_lines:p(escape('历史admission研究：'+' '.join(admission_lines)),'small')
     if admission_model:
         factor_text=f'、阈值factor {admission_factor}' if admission_factor is not None else ''
         state='独立接入复测已完成' if standalone else '独立接入复测待完成'
@@ -221,6 +270,81 @@ def main():
         p('候选实验已完成；当前模型未启用该公共层，结论以admission_result.json和各轮绑定记录为准。仍为8专家。','small')
     else:
         p('状态：admission_patch.py、prepare_admission.py及推导已准备，尚未评测；公共层不增加第9类专家。','small')
+
+    page(8,'新MLP对照与全785例可扩展下界')
+    h('一、微型MLP已实测，本轮仍保留小树')
+    p('在同一完整后缀标签上训练8个微型MLP：20个便宜数值特征＋8类上次专家，隐藏层8/16，参数304/600，部署仅乘加和argmax。840份完整train评分均未胜过113；按训练侧选择127/128/131，在785例各测3次仍退化，保持小树。')
+    r10_path=ROOT/'members_r10_summary.json'
+    if r10_path.is_file():
+        r10=read(r10_path);scores=r10.get('summary',{})
+        if '113' in scores:
+            base=scores['113']['mean_score']
+            compare=[['同批方法 / mode','平均Score / μs','平均D / μs每例','比树Score变化']]
+            for mode,label in [('113','小树'),('127','MLP'),('128','MLP'),('131','MLP')]:
+                if mode not in scores:continue
+                value=scores[mode];delta=100*(value['mean_score']/base-1)
+                compare.append([label+' / '+mode,f'{value["mean_score"]:,.2f}',f'{value["mean_decision_us"]:,.2f}',('基准' if mode=='113' else (f'上升{delta:.4f}%' if delta>0 else f'下降{-delta:.4f}%'))])
+            table(compare,[86,179,115,127])
+    p('以上取members_r10同批数据，与首页独立部署批次区分。差距主要来自I/O及动作选择；本批MLP的D/例更低，不能把失利归因于“NN太慢”。回调数量、类型及规划内容也会变化，D/例或混合D/分类都不能单独证明路由快慢。','small')
+    kernel_path=ROOT/'cheap_mlp_kernel_verification.json'
+    audit_path=ROOT/'mlp_r10_audit_summary.json'
+    if kernel_path.is_file() and audit_path.is_file():
+        kernel=read(kernel_path);audited=read(audit_path)
+        passed=[row for row in audited.values() if row.get('strict_actions') is True and row.get('feature_prediction_parity') is True and row.get('cases')==785]
+        comparisons=len(kernel.get('models',[]))*kernel.get('rows',0)
+        p(f'实现核查：实际C++数值内核对Windows NumPy部署语义，{len(kernel.get("models",[]))}模型×{kernel.get("rows",0)}状态、{comparisons:,}次分类，失配{kernel.get("mismatches",0)}；另有{len(passed)}模型各785例动作/特征核查通过。一致性通过不代表策略质量更优。','small')
+    h('二、字节守恒把后缀读下界扩展到完整case')
+    p('令A为全部INSERT字节，Rtot为全程LOAD字节，V为全程写出字节，m为结束时驻留字节。从空内存开始且不删除数据，逐动作守恒给出V=A+Rtot-m，且0≤m≤M。若后缀读取已有乐观下界L，则Rtot≥L，得到：')
+    p('<b>IO下界 = max(0, A+L-M)/W + L/R</b>。这里W、R为写/读带宽；忽略miss罚分与全部D仍保持乐观。L来自固定大小PROBE后缀的窗口容量与不兼容分区路径约束，允许有利初始驻留，不等于可实现策略。')
+    window_dir=D/'window_bounds_20261030'
+    suite_path=window_dir/'suite_verification.json';toy_path=window_dir/'toy_verification_final.json'
+    if suite_path.is_file() and toy_path.is_file():
+        suite=read(suite_path);toy=read(toy_path);coverage=suite['aggregate'];cross=suite.get('old_suffix_crosscheck',{})
+        p(f'验证状态{suite["status"]}：{suite["case_count"]}例中{coverage["eligible"]}例已计算，跳过{coverage["skipped"]}、错误{coverage["errors"]}；{toy["hand_cases"]}个手算例及{toy["random_cases"]}个随机toy通过，并与旧后缀工具{cross.get("compared",0)}个可算例的raw界完成交叉核对。当前113同一全库ΣC/ΣLB≈{coverage["sum_C_over_sum_LB"]:.6f}。此界较松，不能把界与现价的间隙当作可达收益，也不能据此宣称已近最优。')
+    p('整数读写字节使用int64精确计算；最终带宽除法为浮点、并非机器认证。该工具只做离线放松分析，完整未来及真实p/B绝不进入在线模型。新全库结果与第6页旧185例子集结论分别保留；来源见window_bounds_20261030的proof.txt及suite_verification.json。','small')
+
+    page(9,'同公共层八固定专家消融')
+    p('为区分动态选策与公共证书收益，本轮把分类器改为固定返回一个专家的单叶，同时保持113的专家实现、forced_cover及admission=2。旧100..107沿用历史NN公共层，因此另建134..141作同层对照；e0..e7才是专家标签，mode只是离线实验编号。')
+    fixed_path=ROOT/'members_r11_summary.json'
+    fixed_train_path=ROOT/'train_g8_840_summary.json'
+    if fixed_path.is_file():
+        fixed=read(fixed_path);fixed_summary=fixed['summary'];by_member=fixed['by_member']
+        catalog={row['id']:row['name'] for row in read(D/'neural_selector/catalog.json')}
+        fixed_modes=[str(134+i) for i in range(8)]
+        best_mode=min(fixed_modes,key=lambda mode:fixed_summary[mode]['mean_score'])
+        best_expert=int(best_mode)-134
+        tree_score=fixed_summary['113']['mean_score']
+        best_score=fixed_summary[best_mode]['mean_score']
+        gain=100*(1-tree_score/best_score)
+        p(f'members_r11：785例各{fixed["repeats"]}次，按案例等权取raw平均Score。全部785例的最佳固定方法为e{best_expert}“{catalog[best_expert]}”（mode {best_mode}）；树113相比它'+(f'下降{gain:.4f}%。' if gain>=0 else f'上升{-gain:.4f}%。'))
+        p('下表所有成本均为平均Score÷1,000,000，单位“百万微秒”；这是题面计价Score，不是程序墙钟运行时间。越低越好。','small')
+        member_columns=['Vanius0525','cyanneko','liunianwww']
+        comparison=[['方法 / 本轮mode','Vanius (209)','Cy (48)','Liun (528)','全部 (785)']]
+        for expert,mode in enumerate(fixed_modes):
+            comparison.append([f'e{expert} {catalog[expert]} / {mode}',
+                *[f'{by_member[member][mode]["mean_score"]/1e6:,.3f}' for member in member_columns],
+                f'{fixed_summary[mode]["mean_score"]/1e6:,.3f}'])
+        for mode,label in [('113','动态树113（同公共层）'),('2','官方Naive2（历史基线）'),('0','原NN0（历史公共层）')]:
+            if mode not in fixed_summary:continue
+            comparison.append([label,
+                *[f'{by_member[member][mode]["mean_score"]/1e6:,.3f}' for member in member_columns],
+                f'{fixed_summary[mode]["mean_score"]/1e6:,.3f}'])
+        table(comparison,[169,80,80,89,89])
+        h('逐成员最优不同，不能宣称树在每份集合都最好')
+        findings=[]
+        for member in member_columns:
+            values=by_member[member]
+            selected=min(fixed_modes,key=lambda mode:values[mode]['mean_score'])
+            expert=int(selected)-134;best=values[selected]['mean_score']
+            change=100*(values['113']['mean_score']/best-1)
+            findings.append(f'{member}最佳固定为e{expert}（{selected}），树相对它'+(f'上升{change:.4f}%' if change>0 else f'下降{-change:.4f}%'))
+        p('；'.join(findings)+'。逐成员最优是事后分析，成员ID和数据来源绝不进入在线特征；总体目标是785案例等权rawmean。','small')
+        if fixed_train_path.is_file():
+            ft=read(fixed_train_path)
+            p(f'固定对照另已完成train_g8的{ft["case_count"]}份train评分。观测最近访问不是全访问LRU，热度密度和观测GDS也不是标准LHD/GDS复现；Naive与原NN公共层不同，仅作历史参照，不能归入同层消融。','small')
+    fixed_check=D/'member_eval_20261030/members_r11_candidate_verification.json'
+    verified=read(fixed_check) if fixed_check.is_file() else None
+    p('可复核源码包：portfolio_iter_20261029/fixed_expert_sources.zip；测量包：fixed_expert_measurements.zip。'+('8个固定方法均通过785例严格动作/特征审计；18,840次SDK的IO、hit与miss逐条匹配独立审计，源代码与原输入哈希均绑定。' if verified and verified.get('status')=='passed' else '严格动作与特征审计状态以fixed_r11_audit_summary.json及源码绑定为准，不将评分完成等同于独立审计通过。'),'small')
     def footer(c,doc):
         c.setStrokeColor(colors.HexColor('#D1DDE2'));c.line(44,39,551,39)
         c.setFont('Song',8);c.setFillColor(blue);c.drawString(44,25,'第20题 · 三成员数据集 / 专家选择器')

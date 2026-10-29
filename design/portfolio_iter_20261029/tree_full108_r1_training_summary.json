@@ -1,0 +1,395 @@
+{
+  "kind": "full_remaining_training_summary",
+  "candidate_count": 8,
+  "train_only": true,
+  "validation_performed": false,
+  "training_horizon": "full_remaining",
+  "input_artifacts": {
+    "training_jsonl": {
+      "path": "design/portfolio_iter_20261029/members_full108_r1_labels.jsonl",
+      "sha256": "671ad54601ff86c413f15da6d0c2da24b50b88ad7db53b898d47829138d5799f"
+    },
+    "teacher_provenance": {
+      "path": "design/portfolio_iter_20261029/members_full108_r1_provenance.json",
+      "sha256": "0c42b05590975af77800147cb5120bbef9a48a767d552539f7b3fae950886fee"
+    },
+    "common_layer_parent": {
+      "path": "design/portfolio_iter_20261029/tree_admission_r8_92_s2.json",
+      "sha256": "3f809c2aaefbc06b3c86cea518f12235428f324500805e1554bbb412e4f214ca"
+    },
+    "inventory_sha256": "a47ef66931d5c2d80f07c566083d108f43ff72ff583b9d51efd573b996cbd8c7"
+  },
+  "sampling": {
+    "rows": 3854,
+    "represented_inputs": 783,
+    "event_weighting": true,
+    "weight_formula": "event_total(file,kind) / event_sampled(file,kind)",
+    "literal_T_over_S_not_renormalized": true,
+    "training_weight_sum": 480387.0,
+    "event_frequency_weight_sum": 480387.0,
+    "estimated_events_over_represented_inputs": 480387
+  },
+  "full_remaining_verification": {
+    "horizon": "full_remaining",
+    "label_rows": 3854,
+    "represented_training_inputs": 783,
+    "inventory_training_inputs": 840,
+    "unrepresented_inventory_inputs": 57,
+    "all_label_ends_equal_input_operations": true,
+    "max_states_per_input": 6,
+    "per_kind_label_rows": {
+      "0": 610,
+      "1": 2869,
+      "2": 375
+    },
+    "continuation": "Frozen parent policy after one forced first expert action",
+    "trajectory_mode": -1,
+    "continuation_mode": -1,
+    "no_eval_costs_or_validation_labels_read": true
+  },
+  "label_caveat": "Full remaining trace counterfactual cost after one forced first expert action under a fixed parent continuation; measured callback CPU is an offline simulator proxy. Literal event_total/event_sampled weights estimate sampled exposure, and the remaining suffixes overlap. This is not globally optimal action labeling or measured complete-trace SDK Score. No validation/eval label or cost was used; all candidates require separate full-input fitness and final regression.",
+  "candidates": [
+    {
+      "file": "tree_full108_r1_cheap_absolute_d3.json",
+      "sha256": "546e27a2a8088729b747b3a3c3c2e62f18ae3445daedd68588d7b9661df09e1e",
+      "nodes": 15,
+      "leaves": 8,
+      "used_features": [
+        0,
+        2,
+        5,
+        19,
+        27,
+        29
+      ],
+      "objective": "absolute",
+      "depth": 3,
+      "training_seconds": 0.03905959999974584,
+      "train_metrics": {
+        "samples": 3854,
+        "workloads": 783,
+        "strict_argmin_accuracy": 0.13700051894135962,
+        "near_best_accuracy": 0.6670991177996887,
+        "weighted_mean_relative_regret": 0.02968144180225917,
+        "weighted_mean_clipped_relative_regret": 0.022020872796919416,
+        "weighted_mean_absolute_excess_us": 8681819.058182614,
+        "weighted_mean_selected_remaining_cost_us": 43648215592.96147,
+        "weighted_mean_best_remaining_cost_us": 43639533773.90329,
+        "weighted_cost_ratio_of_sums": 1.0001989439003443,
+        "chosen_counts": {
+          "1": 269,
+          "2": 943,
+          "3": 93,
+          "4": 1063,
+          "5": 530,
+          "7": 956
+        }
+      },
+      "validation_performed": false
+    },
+    {
+      "file": "tree_full108_r1_cheap_absolute_d4.json",
+      "sha256": "82691cb12c572a7d4a93b08ad1461c6ccdffc42cb018f0ea4596c4c456e31cba",
+      "nodes": 27,
+      "leaves": 14,
+      "used_features": [
+        0,
+        1,
+        2,
+        5,
+        19,
+        23,
+        25,
+        27,
+        29
+      ],
+      "objective": "absolute",
+      "depth": 4,
+      "training_seconds": 0.03294929999901797,
+      "train_metrics": {
+        "samples": 3854,
+        "workloads": 783,
+        "strict_argmin_accuracy": 0.14737934613388687,
+        "near_best_accuracy": 0.6590555267254801,
+        "weighted_mean_relative_regret": 0.029446053487554514,
+        "weighted_mean_clipped_relative_regret": 0.02178548448221475,
+        "weighted_mean_absolute_excess_us": 6541088.586146576,
+        "weighted_mean_selected_remaining_cost_us": 43646074862.48943,
+        "weighted_mean_best_remaining_cost_us": 43639533773.90329,
+        "weighted_cost_ratio_of_sums": 1.0001498890574778,
+        "chosen_counts": {
+          "0": 169,
+          "1": 386,
+          "2": 748,
+          "3": 755,
+          "4": 831,
+          "5": 308,
+          "7": 657
+        }
+      },
+      "validation_performed": false
+    },
+    {
+      "file": "tree_full108_r1_cheap_absolute_d5.json",
+      "sha256": "2ca878c2a12d0305b676a5fa0702b2cb5055286cac7147d4639cf64be7cbbbbe",
+      "nodes": 43,
+      "leaves": 22,
+      "used_features": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        19,
+        23,
+        25,
+        27,
+        29,
+        30
+      ],
+      "objective": "absolute",
+      "depth": 5,
+      "training_seconds": 0.04052609999780543,
+      "train_metrics": {
+        "samples": 3854,
+        "workloads": 783,
+        "strict_argmin_accuracy": 0.16813700051894137,
+        "near_best_accuracy": 0.6782563570316554,
+        "weighted_mean_relative_regret": 0.03677377025118403,
+        "weighted_mean_clipped_relative_regret": 0.02465657735572305,
+        "weighted_mean_absolute_excess_us": 4345622.27283317,
+        "weighted_mean_selected_remaining_cost_us": 43643879396.17613,
+        "weighted_mean_best_remaining_cost_us": 43639533773.90329,
+        "weighted_cost_ratio_of_sums": 1.0000995799427042,
+        "chosen_counts": {
+          "0": 90,
+          "1": 896,
+          "2": 442,
+          "3": 435,
+          "4": 800,
+          "5": 684,
+          "6": 391,
+          "7": 116
+        }
+      },
+      "validation_performed": false
+    },
+    {
+      "file": "tree_full108_r1_cheap_absolute_d6.json",
+      "sha256": "0e4e59be3003cc0dcfa9893868530335d6ecfdd8a5456147dc357b5a656979df",
+      "nodes": 63,
+      "leaves": 32,
+      "used_features": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        19,
+        20,
+        23,
+        24,
+        25,
+        26,
+        27,
+        29,
+        30
+      ],
+      "objective": "absolute",
+      "depth": 6,
+      "training_seconds": 0.048598500001389766,
+      "train_metrics": {
+        "samples": 3854,
+        "workloads": 783,
+        "strict_argmin_accuracy": 0.17125064867669954,
+        "near_best_accuracy": 0.6759211209133368,
+        "weighted_mean_relative_regret": 0.03472710326225513,
+        "weighted_mean_clipped_relative_regret": 0.02334937956044993,
+        "weighted_mean_absolute_excess_us": 3037922.693306322,
+        "weighted_mean_selected_remaining_cost_us": 43642571696.596596,
+        "weighted_mean_best_remaining_cost_us": 43639533773.90329,
+        "weighted_cost_ratio_of_sums": 1.0000696140043348,
+        "chosen_counts": {
+          "0": 90,
+          "1": 1690,
+          "2": 378,
+          "3": 357,
+          "4": 314,
+          "5": 518,
+          "6": 233,
+          "7": 274
+        }
+      },
+      "validation_performed": false
+    },
+    {
+      "file": "tree_full108_r1_cheap_relative_d3.json",
+      "sha256": "d51c36aa5969c9f8c1cd589b2a46a04a2a91d625f5b8a5710ae0b85116a0e717",
+      "nodes": 15,
+      "leaves": 8,
+      "used_features": [
+        0,
+        1,
+        4,
+        23,
+        24,
+        27
+      ],
+      "objective": "relative",
+      "depth": 3,
+      "training_seconds": 0.022432100002333755,
+      "train_metrics": {
+        "samples": 3854,
+        "workloads": 783,
+        "strict_argmin_accuracy": 0.15282823040996368,
+        "near_best_accuracy": 0.6857810067462377,
+        "weighted_mean_relative_regret": 0.0115001893783013,
+        "weighted_mean_clipped_relative_regret": 0.011448026541912208,
+        "weighted_mean_absolute_excess_us": 18143857.817266993,
+        "weighted_mean_selected_remaining_cost_us": 43657677631.72056,
+        "weighted_mean_best_remaining_cost_us": 43639533773.90329,
+        "weighted_cost_ratio_of_sums": 1.0004157665366287,
+        "chosen_counts": {
+          "1": 1007,
+          "2": 1314,
+          "7": 1533
+        }
+      },
+      "validation_performed": false
+    },
+    {
+      "file": "tree_full108_r1_cheap_relative_d4.json",
+      "sha256": "a496cd80360537cd1e3223dffe3b1bbe20715c76741f3b3557382ba8a73024d6",
+      "nodes": 29,
+      "leaves": 15,
+      "used_features": [
+        0,
+        1,
+        4,
+        19,
+        23,
+        24,
+        25,
+        26,
+        27,
+        29
+      ],
+      "objective": "relative",
+      "depth": 4,
+      "training_seconds": 0.03189080000083777,
+      "train_metrics": {
+        "samples": 3854,
+        "workloads": 783,
+        "strict_argmin_accuracy": 0.1551634665282823,
+        "near_best_accuracy": 0.7016087182148417,
+        "weighted_mean_relative_regret": 0.010371124425712315,
+        "weighted_mean_clipped_relative_regret": 0.010318961589323224,
+        "weighted_mean_absolute_excess_us": 16097749.006733576,
+        "weighted_mean_selected_remaining_cost_us": 43655631522.91003,
+        "weighted_mean_best_remaining_cost_us": 43639533773.90329,
+        "weighted_cost_ratio_of_sums": 1.0003688799493171,
+        "chosen_counts": {
+          "1": 644,
+          "2": 796,
+          "4": 318,
+          "5": 108,
+          "6": 113,
+          "7": 1875
+        }
+      },
+      "validation_performed": false
+    },
+    {
+      "file": "tree_full108_r1_cheap_relative_d5.json",
+      "sha256": "a3f16d658aafe5f9ff85dc331056c7aad9b1c5b56e2ce3a6d5040889895e06a8",
+      "nodes": 45,
+      "leaves": 23,
+      "used_features": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        19,
+        23,
+        24,
+        25,
+        26,
+        27,
+        29
+      ],
+      "objective": "relative",
+      "depth": 5,
+      "training_seconds": 0.04008419999809121,
+      "train_metrics": {
+        "samples": 3854,
+        "workloads": 783,
+        "strict_argmin_accuracy": 0.1538661131292164,
+        "near_best_accuracy": 0.7013492475350286,
+        "weighted_mean_relative_regret": 0.009418221901825953,
+        "weighted_mean_clipped_relative_regret": 0.009418221901825953,
+        "weighted_mean_absolute_excess_us": 15929068.0695059,
+        "weighted_mean_selected_remaining_cost_us": 43655462841.97279,
+        "weighted_mean_best_remaining_cost_us": 43639533773.90329,
+        "weighted_cost_ratio_of_sums": 1.0003650146253174,
+        "chosen_counts": {
+          "0": 259,
+          "1": 803,
+          "2": 601,
+          "4": 484,
+          "5": 108,
+          "6": 382,
+          "7": 1217
+        }
+      },
+      "validation_performed": false
+    },
+    {
+      "file": "tree_full108_r1_cheap_relative_d6.json",
+      "sha256": "a76f4e9f974eb24518f1a3349846632c24fa73dc419da0ea0e4799cb84543386",
+      "nodes": 63,
+      "leaves": 32,
+      "used_features": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        19,
+        23,
+        24,
+        25,
+        26,
+        27,
+        29
+      ],
+      "objective": "relative",
+      "depth": 6,
+      "training_seconds": 0.04516220000004978,
+      "train_metrics": {
+        "samples": 3854,
+        "workloads": 783,
+        "strict_argmin_accuracy": 0.1554229372080955,
+        "near_best_accuracy": 0.7101712506486767,
+        "weighted_mean_relative_regret": 0.008707311740083656,
+        "weighted_mean_clipped_relative_regret": 0.008707311740083656,
+        "weighted_mean_absolute_excess_us": 14808887.216459647,
+        "weighted_mean_selected_remaining_cost_us": 43654342661.11975,
+        "weighted_mean_best_remaining_cost_us": 43639533773.90329,
+        "weighted_cost_ratio_of_sums": 1.0003393456789245,
+        "chosen_counts": {
+          "0": 179,
+          "1": 731,
+          "2": 440,
+          "3": 313,
+          "4": 433,
+          "5": 305,
+          "6": 517,
+          "7": 936
+        }
+      },
+      "validation_performed": false
+    }
+  ]
+}

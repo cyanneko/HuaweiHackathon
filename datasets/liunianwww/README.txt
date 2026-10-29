@@ -1,6 +1,6 @@
 liunianwww：Hash Join调度训练与开发评测数据（0.1.0）
 
-新增数据，不替换其他成员输入。datasets/cyanneko的16份输入、原始元数据和eval/VERSION均保留原字节。
+新增数据，不替换其他成员输入。datasets/cyanneko的80份输入、原始元数据和eval/VERSION均保留原字节。
 
 train：600份本地训练输入（580种规范化操作流），参与首轮与第二轮神经网络训练。
 eval：528份开发评测输入（524种规范化操作流）：150份历史调参验证 + 378份冻结模型后生成的测试。
@@ -17,10 +17,10 @@ eval：528份开发评测输入（524种规范化操作流）：150份历史调�
 校验（仓库根目录）：
   python evaluation/scripts/audit_datasets.py --root datasets/liunianwww --out results/liunianwww-audit.json
 
-合并后正式开发评测仅用eval，共536例：旧cyanneko 8例 + 本目录528例。
-train总计608例不进入正式eval成绩；如评估train，必须另标开发诊断。
-公共runner默认成员仍是旧名单，因此务必显式指定新成员：
-  python evaluation/evaluate.py --datasets-root datasets --members cyanneko liunianwww member2 member3 --repeats 3 --out results/merged.json --command <solver> "{input}"
+合并后正式开发评测仅用eval，共568例：旧cyanneko 40例 + 本目录528例。
+train总计640例不进入正式eval成绩；如评估train，必须另标开发诊断。
+当前公共runner默认自动发现所有非空eval，完整评测不传--members：
+  python evaluation/evaluate.py --datasets-root datasets --repeats 3 --out results/merged.json --command <solver> "{input}"
 
 合并成绩使用同一公共评测器、同一suite_id、相同公开2026-10-26引擎计时。
 原始总Score为逐案例重复算术均值之和；相对官方Naive下降%=100*(1-候选总Score/基线总Score)。

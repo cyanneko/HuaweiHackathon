@@ -2,34 +2,34 @@
 
 本目录是团队公共工具区。`evaluate.py` 对已上传的非空评测集进行批量评测；`scripts/` 复用本地 `hashjoin_lab/tools/` 中的数据校验与旧版动作核算工具。仅依赖标准库，需要 Python 3.10 及以上。
 
+首次接手请先读 [Agent 上手指南](../docs/AGENT_GUIDE.md)。本说明基于 2026-10-26 协议和当前脚本；2026-10-28 官方公开接口重新核对的来源与响应 SHA 见 [专家接口 v1](../docs/EXPERT_INTERFACE_V1.md#1-目的和依据)，响应与此前保存件相同，现有评测协议名保持不变。
+
 ## 提交与部署基线
 
 最后评测可能没有 GPU，团队统一按以下部署条件准备提交程序：
 
-- 纯 CPU 推理，最终为单个 `.cpp` 文件，使用 C++14 标准库。
+- 正式提交物为单个 `.cpp`，只定义 MySpillScheduler，无 main/engine；纯 CPU、C++14 标准库。
 - 不依赖 CUDA、第三方推理运行时或外部模型文件；训练得到的权重内嵌源码。
 - GPU 仅可用于离线训练；提交程序的推理、决策耗时和性能计时全部在 CPU 上执行。
 - 构建基线为 `g++ -std=c++14 -O2`。不擅自添加 `-march=native`，也不假定 AVX 等额外指令集可用。
 - 提交评测结果时保留报告已有的机器/CPU、程序指纹和编译身份信息，并在随附运行说明中记录实际推理线程数；未知项写 `unknown`。当前 runner 不自动检测实际推理线程数。
 - 可在随附部署说明中声明 `gpu_required=false`，但声明本身不构成认证；需结合源码、构建依赖及无 GPU 环境的实际运行证据核对。
 
-例如，先创建构建目录，再编译单文件：
+本地可测程序需要把该类接官方兼容完整框架后另行构建，仅替换 Scheduler，不修改状态、动作、计数或计时语义。main/source/cyanneko 未随方法发布完整框架和可直接编译的完整 solution.cpp；其他成员保存的框架须自行核对来源、协议和计时边界，不能对 methods 中仅含类定义的 cpp 直接编译成 exe。[接入与接口边界](../docs/AGENT_GUIDE.md#参赛提交物与本地可测程序)见指南。
 
-```sh
-g++ -std=c++14 -O2 src/solution.cpp -o build/solver
-```
-
-这些是团队提交约定。当前公共 runner 负责运行与结果记录，不自动认证标准库依赖、单文件要求、CPU 专用推理或权重内嵌。
+当前公共 runner 负责运行与结果记录，不自动认证标准库依赖、提交格式、CPU 专用推理或权重内嵌。
 
 ## 批量评测
 
-先编译好候选程序，至少一个成员提供非空的 `eval/*.txt` 与合法的 `eval/VERSION` 即可。在仓库根目录运行：
+先编译好候选程序，至少一个成员提供非空的 `eval/*.txt` 与合法的 `eval/VERSION` 即可。下例在 datasets 工作树根目录运行；main/source 工作树须把 `--datasets-root` 换成独立数据快照路径，见 [指南](../docs/AGENT_GUIDE.md#最短上手流程)：
 
 ```sh
 python evaluation/evaluate.py --datasets-root datasets --timeout 60 --repeats 3 --out results/run-001.json --command ./build/solver "{input}"
 ```
 
-默认依次检查 `cyanneko`、`member2`、`member3`，自动跳过不存在或没有 `.txt` 输入的成员评测目录。只有一个或两个成员上传了测试集，也可以完成本次评测。显式选择一人可用 `--members cyanneko`，选择两人可用 `--members cyanneko alice`；其余选项仍放在 `--command` 前。
+默认自动发现 `--datasets-root` 下所有成员目录，检查其中的 `eval/`，包括新加入的第四位或更多成员；没有 `.txt` 输入的集合会跳过。只有一个或两个成员上传了测试集，也可以完成评测。显式选择一人可用 `--members cyanneko`，选择两人可用 `--members cyanneko alice`；其余选项仍放在 `--command` 前。显式选择始终标为 `partial=true`，默认自动发现标为 `partial=false`。
+
+自动发现只能列出已存在的成员目录；尚不存在的成员不会凭空加入名单。显式请求尚未上传的成员时，会在跳过名单中记录缺失原因。
 
 只有缺失/空目录可以跳过；已存在数据却没有合法 VERSION、数据损坏、路径类型错误、无法读取等问题仍会报错，不能把坏数据静默当作未上传。
 
@@ -55,13 +55,13 @@ Total_Score: 33.00
 
 ## 版本与报告
 
-- 非空评测集必须在 `eval/VERSION` 写入版本号，如 `0.2.0`；修改评测数据后升级版本。只有 VERSION、没有任何 `.txt` 的空集合不会参与评测。
+- 非空评测集必须在 `eval/VERSION` 写入版本号，如 `0.3.0`；修改评测数据后升级版本。只有 VERSION、没有任何 `.txt` 的空集合不会参与评测。
 - 脚本对实际执行快照的每个 `.txt` 与相邻 `.meta.json` 记录完整 SHA-256，再计算每人集合指纹与本次实际参与数据的合并 `suite_id`。新增参与成员、删除参与集合、重命名、内容修改和参与版本号变化都会影响标识；被跳过的空集合占位版本不影响标识。
 - 即使忘记修改 VERSION，数据变化仍会改变指纹；`train/` 变化不会改变评测版本。
-- 报告 schema_version 为 2：`requested_members` 记录请求检查的成员，`datasets` 记录实际参与集合的版本/指纹，`skipped_members` 记录被跳过成员及原因。汇总和 suite_id 只覆盖 datasets，不能把一人数据成绩称为三人全套成绩。
+- 报告 schema_version 为 3：`requested_members` 记录自动发现或显式请求检查的成员，`selection_mode`/`partial` 记录选择方式，`datasets` 记录实际参与集合的版本/指纹，`skipped_members` 记录被跳过成员及原因。汇总和 suite_id 只覆盖 datasets，显式子集不能称为全库成绩。
 - 报告还包括逐案例逐次测量、逐成员汇总、参与数据的整体原始代价与决策耗时、协议、超时、运行命令、完整 stdout/stderr、机器信息和评测器/输入校验器代码指纹。
 - 默认 `--repeats 1`、每案例 `--timeout 60` 秒。重复测量全部保留，汇总先按案例取重复均值再对案例求和，不会重复次数翻倍就把成绩翻倍。墙钟总时间则累计全部运行。
-- 报告的 `aggregation` 字段明确标记为 `sum of per-case arithmetic mean over repeats`。这是公共评测的算术均值口径；R49 使用的重复测量中位数属于另一种聚合口径，两者不能混称或直接作为同口径成绩比较。
+- `aggregate.aggregation` 明确标记原始成本口径为 `sum of per-case arithmetic mean over repeats`；归一化评分另以 `normalization.aggregation` 标记逐集等权平均。R49/R53 研究报告的重复中位数属于不同口径，不能混称。
 - `wall_seconds` 是整个候选进程的墙钟时间，含启动和输入处理，不能作为调度器单次决策耗时。
 - 原始代价汇总越小越好，不等于官方归一化比赛总分。比较结果需要相同数据 suite_id、相同评测规则和一致环境。
 - 不存在或为空的成员集合标为 skipped；至少一个合法非空集合全部执行成功即可 `status=complete`。完全没有可用数据，或任何被选择的非空集合无版本、数据非法、候选失败、超时或输出异常：退出非零，`status=failed`，`aggregate=null`；失败集合不能被丢弃后只汇总成功案例。
@@ -71,7 +71,7 @@ Total_Score: 33.00
 
 ## 程序与构建身份
 
-自动记录命令中现有文件与可执行程序的 SHA-256。源码、编译器和编译参数不可得时写 `unknown`，不要猜测。可用 `--identity-file build-info.json` 补充，例如：
+自动记录命令中现有文件与可执行程序的 SHA-256。源码、编译器和编译参数不可得时写 `unknown`，不要猜测。可用 `--identity-file build-info.json` 补充；下例路径须替换为实际完整程序及基线源码，不代表仓库已提供这些文件：
 
 ```json
 {
@@ -102,7 +102,19 @@ Total_Score: 33.00
 
 然后添加 `--baseline-command-file baseline-command.json --baseline-kind official-naive`。候选与基线在本机、同一输入快照上逐次串行运行，并保留各自输出和身份。`official-naive` 是调用者对基线来源的声明，脚本不自动认证二进制；未明确标识的基线不会产生官方公式估分。
 
-全部成功且使用新版协议时，按每案例 `clamp(10 * (1 - VAL/BASE), 0, 10)` 计算；VAL=0 或 BASE=0 记 0，各次 Level 1 合计上限 50，再对重复测量的分数取均值。该值是**本地数据上的 Level 1 估计**，不是官方比赛最终成绩，不含专家评分。失败或超时会使本轮整体成绩无效，也不返回有效归一化分数。
+全部成功且使用新版协议时，沿 `datasets/<member>/eval` 与其 VERSION 的集合边界计算：
+
+1. 每案例、每重复先按 `clamp(10 * (1 - VAL/BASE), 0, 10)` 计分；VAL=0 或 BASE=0 记 0，未优于基线记 0。
+2. 每个集合内部，对每次重复的案例分求和并封顶 50，再对这些重复分取算术平均，得到该集合的 Level 1 估分 `S_j`。
+3. 最终平均分 `F = sum(S_j) / 参与集合数`，每集权重相同，与该集案例数无关。空/缺失集合不进入分母；只有一集时 F 就是该集分数。
+
+例如 A 集一例得 5 分，B 集六例各得 9 分，则 B 封顶后为 50，最终平均是 `(5+50)/2=27.5`。不能先合并全库案例再封顶，也不能按案例数量加权。
+
+`normalization.cases` 保存每案例每重复分数，`normalization.datasets` 保存各集成员/版本/指纹、每重复分数与 `level1_estimate`，`normalization.average_score` 是最终等权平均。旧 schema 的顶层 `normalization.level1_estimate` 已替换，避免与逐集分数混淆。终端也会逐集列分并打印最终平均。
+
+原始成本继续单独保存在 `aggregate.total_cost` 与各集的 `datasets[].aggregate` 中，越低越好；它不是这里的归一化平均分。无基线、未标识官方基线或旧协议时，归一化字段为 `unavailable`、`average_score=null`，各集同样标为不可用。任何非空集合失败都会使全轮归一化无效，不能剔除失败集后重新平均。
+
+上述结果是**本地数据上的团队评分**，不是官方隐藏集成绩，也不包含专家评分。每个集合的基础公式沿用 Level 1，跨集合等权平均是团队报告的汇总约定。
 
 计时实验应与其他研究任务协调，避免同时运行重负载；脚本记录机器信息但不会隔离系统后台负载。
 
@@ -123,7 +135,7 @@ python evaluation/scripts/audit_datasets.py --root datasets --out results/data_a
 也可指定单个文件：
 
 ```sh
-python evaluation/scripts/audit_datasets.py datasets/cyanneko/train/example.txt --out results/data_audit.json
+python evaluation/scripts/audit_datasets.py datasets/cyanneko/train/coverage_00.txt --out results/data_audit.json
 ```
 
 脚本检查字段、范围、阶段、计数、单分区容量，并记录文件和操作流 SHA-256；存在同名 `.meta.json` 时检查其中可核对的统计。目录模式会跳过首行不像数据头的 `.txt`，因此应检查报告中的 `cases`、`errors`、`skipped`，不能仅凭退出码判断所有文件都被校验。空目录没有测试案例。
@@ -138,4 +150,4 @@ python evaluation/scripts/legacy_checker.py case.txt actions.trace.jsonl output.
 
 **版本边界：本脚本是旧版本地实验核算器，不是新版官方评测器。** 它允许溢出回调落盘当前 INSERT 目标后将新元组追加到磁盘；本地保存的 2026-10-26 题面则禁止落盘当前 INSERT 目标。当前脚本没有适配该差异，也没有实现官方归一化比赛总分。团队统一正式评测前，需要按最终官方规则更新执行器和核算器。
 
-本次只初始化协作结构，不复制旧实验执行器、模型、训练数据或实验报告。数据格式与提交约定见 [DATA_SPEC.md](DATA_SPEC.md)。
+实际数据在 datasets 分支，Scheduler 源码在对应 source 分支。main/source/cyanneko 未随方法发布完整框架或 NN/融合器；其他成员分支保存的参考框架须自行核对来源、协议和计时边界。数据格式见 [DATA_SPEC.md](DATA_SPEC.md)，跨分支工作流见 [Agent 指南](../docs/AGENT_GUIDE.md)，新专家接入和门控开销验收见 [专家接口 v1](../docs/EXPERT_INTERFACE_V1.md)。

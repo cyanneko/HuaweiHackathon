@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "frozen_before_model_training": true,
+  "purpose": "R61 independent construction-parameter holdout; synthetic, no outcome selection; not a claim of unseen generator families",
+  "source_rules": {
+    "partition_layout": "pid0..P-2 each small_bytes; pidP-1 big_bytes; same layout in all operators",
+    "insert_chunks": "ascending operator then ascending pid, split each partition into chunks <=1048576; key=pid; exactly one SWITCH per operator immediately after its last INSERT",
+    "phase_overlap": "for phase_overlap mode only, after each operator SWITCH emit its first quarter of probes before building the next operator; all remaining probes use the common schedule",
+    "probe_count_per_operator": 1024,
+    "train_probe_count_per_operator": 768,
+    "seed_semantics": "Python random.Random(seed), used only for per-operator permutation of small partition IDs and optional key lifting; no method outputs read",
+    "key_lifting": "key=pid (no lifting required); semantic distinctness must be checked, not only raw hash",
+    "base_modes": {
+      "hot": "pid0 for three of every four local probe indices, pid1 otherwise",
+      "scan": "permuted small IDs followed by big pid, cyclic",
+      "big": "big pid for seven of every eight probes, permuted small[i//8 mod(P-1)] otherwise",
+      "small": "permuted small IDs cyclic",
+      "cycle": "permuted small IDs then big pid, cyclic",
+      "alternate": "big pid on even local indices and permuted small[(i//2) mod(P-1)] on odd indices"
+    },
+    "train_modes": "for case index j and operator o select base_modes[(j+o) mod6] from ordered list [hot,scan,big,small,cycle,alternate], stationary for whole case; ordinary round-robin schedule except phase_overlap",
+    "holdout_modes": "each operator first half uses base_modes[(case_index+o) mod6], second half uses base_modes[(case_index+o+3) mod6]; family is composition/reversal of known base modes, not wholly unrelated",
+    "schedule": "normally round-robin op0..K-1 over unfinished operators; burst_mix/interleave_reverse use blocks of8 per operator first half of remaining global probes, then block1 in reversed operator order; deterministic quotas respected",
+    "metadata": "save exact parameters, seed, source hashes, per-op declared/realized counts, mode segments, phase overlap, raw and modulo-P semantic hashes, validity audit",
+    "no_outcome_filter": "all8 cases must be retained regardless of method performance; invalid input may be repaired with a logged recipe version, never silently replaced for scores"
+  },
+  "train": {
+    "cases": 8,
+    "seed_base": 2061291000,
+    "K": 2,
+    "P": 8,
+    "M": 67108864,
+    "small_bytes": 2097152,
+    "big_bytes": 25165824,
+    "B_values": [1,8,31,64,127,512,4096,1],
+    "W_values": [100,400,50,500,100,800,100,100],
+    "R_values": [100,100,400,500,400,100,100,100],
+    "penalty_values": [1,10,50,100,500,1000,1,10],
+    "case7_override": {"small_bytes": 1048576,"big_bytes": 4194304},
+    "use": "new training pool for later rounds; not appended mid-R61"
+  },
+  "holdout": {
+    "cases": 8,
+    "seed_base": 2061299000,
+    "K": 3,
+    "P": 16,
+    "M": 100663296,
+    "small_bytes": 1048576,
+    "big_bytes": 41943040,
+    "B_values": [7,17,63,128,255,1024,8192,1],
+    "W_values": [80,300,40,600,150,700,200,100],
+    "R_values": [120,80,350,450,300,120,100,100],
+    "penalty_values": [5,25,75,200,750,1000,10,50],
+    "case7_override": {"small_bytes": 262144,"big_bytes": 2097152},
+    "use": "open only after R61 model freeze; then label observed development holdout for subsequent tuning"
+  },
+  "ordered_case_modes": ["operator_mix","temporal_reverse","interleave_reverse","burst_mix","big_small_cycles","next_alternation","phase_overlap","resident_control"]
+}

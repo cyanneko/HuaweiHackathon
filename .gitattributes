@@ -1,4 +1,5 @@
 * text=auto
+/.gitattributes text eol=lf
 *.py text eol=lf
 *.md text eol=lf
 *.txt text eol=lf
@@ -9,6 +10,27 @@ datasets/cyanneko/train/coverage_*.txt -text
 datasets/cyanneko/train/coverage_*.meta.json -text
 datasets/cyanneko/eval/coverage_*.txt -text
 datasets/cyanneko/eval/coverage_*.meta.json -text
+# Frozen R54 v1.1 inputs and metadata: preserve original bytes.
+datasets/cyanneko/train/r54_*.txt -text
+datasets/cyanneko/train/r54_*.meta.json -text
+datasets/cyanneko/eval/r54_*.txt -text
+datasets/cyanneko/eval/r54_*.meta.json -text
+expert_runtime/** text eol=lf
+src/experts/** text eol=lf
+# R55 frozen reference used only for adapter equivalence tests.
+src/experts/next_guard_fast/reference.cpp -text
 
-# Keep liunianwww workload bytes and audited metadata frozen.
+# Frozen R58 inputs and original metadata: preserve source bytes.
+datasets/cyanneko/train/r58_*.txt -text
+datasets/cyanneko/train/r58_*.meta.json -text
+datasets/cyanneko/eval/r58_*.txt -text
+datasets/cyanneko/eval/r58_*.meta.json -text
+
+# Frozen R61 Root-recipe inputs and original metadata.
+datasets/cyanneko/train/r61root_*.txt -text
+datasets/cyanneko/train/r61root_*.meta.json -text
+datasets/cyanneko/eval/r61root_*.txt -text
+datasets/cyanneko/eval/r61root_*.meta.json -text
+
+# Freeze liunianwww input and metadata bytes.
 datasets/liunianwww/** -text

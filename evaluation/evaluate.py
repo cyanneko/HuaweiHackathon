@@ -226,7 +226,7 @@ def program_identity(command, declared):
             'build_metadata_origin': 'user supplied; not independently verified'}
 
 
-def normalize(candidate, baseline):
+def normalize(candidate, baseline, datasets):
     rows = []
     baseline_index = {(row['member'], row['case'], row['repeat']): row for row in baseline}
     for case in candidate:
@@ -235,20 +235,35 @@ def normalize(candidate, baseline):
         score = max(0.0, min(10.0, 10 * (1 - val / base))) if val > 0 and base > 0 else 0.0
         rows.append({'member': case['member'], 'case': case['case'], 'repeat': case['repeat'],
                      'candidate_cost': val, 'baseline_cost': base, 'single_score': score})
-    repeats = sorted({row['repeat'] for row in rows})
-    per_repeat = [{'repeat': repeat, 'level1_estimate': min(50.0, math.fsum(
-        row['single_score'] for row in rows if row['repeat'] == repeat))} for repeat in repeats]
-    return {'status': 'available', 'scope': 'local Level 1 estimate only; not official contest result',
+    by_member = {}
+    for row in rows:
+        by_member.setdefault(row['member'], []).append(row)
+    dataset_scores = []
+    for dataset in datasets:
+        member_rows = by_member[dataset['member']]
+        repeats = sorted({row['repeat'] for row in member_rows})
+        per_repeat = [{'repeat': repeat, 'level1_estimate': min(50.0, math.fsum(
+            row['single_score'] for row in member_rows if row['repeat'] == repeat))} for repeat in repeats]
+        dataset_scores.append({
+            'member': dataset['member'], 'version': dataset['version'], 'sha256': dataset['sha256'],
+            'status': 'available', 'case_count': len({row['case'] for row in member_rows}),
+            'level1_estimate': math.fsum(row['level1_estimate'] / len(per_repeat) for row in per_repeat),
+            'per_repeat': per_repeat,
+        })
+    return {'status': 'available', 'scope': 'local per-dataset Level 1 estimates; not official contest result',
             'baseline_identity': 'official-naive asserted by caller; not automatically certified',
-            'level1_estimate': math.fsum(r['level1_estimate'] / len(per_repeat) for r in per_repeat),
-            'per_repeat': per_repeat, 'cases': rows}
+            'aggregation': 'equal-weight arithmetic mean of participating dataset scores',
+            'dataset_aggregation': 'per-case score -> per-repeat sum capped at 50 -> arithmetic mean over repeats',
+            'dataset_count': len(dataset_scores),
+            'average_score': math.fsum(row['level1_estimate'] / len(dataset_scores) for row in dataset_scores),
+            'datasets': dataset_scores, 'cases': rows}
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--datasets-root', type=Path, default=Path('datasets'))
-    parser.add_argument('--members', nargs='+', default=['cyanneko', 'member2', 'member3'],
-                        help='one or more members; absent or empty evaluation sets are skipped')
+    parser.add_argument('--members', nargs='+',
+                        help='explicit partial selection; default discovers all member directories')
     parser.add_argument('--out', type=Path, required=True, help='new JSON report path')
     parser.add_argument('--timeout', type=float, default=60, help='wall seconds per case')
     parser.add_argument('--repeats', type=int, default=1)
@@ -266,7 +281,8 @@ def main(argv=None):
         parser.error('--timeout must be a positive finite number')
     if args.repeats < 1:
         parser.error('--repeats must be at least 1')
-    if len(set(args.members)) != len(args.members) or any(not re.fullmatch(r'[A-Za-z0-9_-]+', m) for m in args.members):
+    if args.members is not None and (len(set(args.members)) != len(args.members) or
+                                    any(not re.fullmatch(r'[A-Za-z0-9_-]+', m) for m in args.members)):
         parser.error('--members requires distinct directory names using letters/digits/_/-')
     root, output = args.datasets_root.resolve(), args.out.resolve()
     if output.exists() or output.is_relative_to(root):
@@ -285,7 +301,7 @@ def main(argv=None):
     except (OSError, ValueError) as error:
         parser.error(str(error))
     report = {
-        'schema_version': 2, 'created_at': datetime.now(timezone.utc).isoformat(),
+        'schema_version': 3, 'created_at': datetime.now(timezone.utc).isoformat(),
         'protocol': args.protocol, 'repeats': args.repeats,
         'identity': identity, 'baseline_identity': baseline_identity,
         'machine': {'platform': platform.platform(), 'hostname': platform.node(),
@@ -298,16 +314,26 @@ def main(argv=None):
         'timeout_seconds': args.timeout, 'allow_small_memory': args.allow_small_memory,
         'evaluator_sha256': file_hash(__file__),
         'input_auditor_sha256': file_hash(Path(__file__).parent / 'scripts/audit_datasets.py'),
-        'datasets_root': str(root), 'requested_members': args.members,
+        'datasets_root': str(root), 'requested_members': [],
+        'selection_mode': 'automatic' if args.members is None else 'explicit',
+        'partial': args.members is not None,
         'datasets': [], 'skipped_members': [], 'suite_id': None,
         'cases': [], 'baseline_cases': [], 'errors': [], 'aggregate': None,
-        'normalization': {'status': 'unavailable', 'reason': 'requires valid official-naive baseline and current protocol'},
+        'normalization': {'status': 'unavailable', 'average_score': None, 'datasets': [], 'cases': [],
+                          'reason': 'requires valid official-naive baseline and current protocol'},
     }
     with tempfile.TemporaryDirectory(prefix='hashjoin-evaluation-') as temporary:
         snapshot, pending = Path(temporary), []
-        members_to_check = args.members if root.is_dir() else []
-        if not members_to_check:
+        members_to_check = []
+        if not root.is_dir():
             report['errors'].append('datasets root must be an existing directory')
+        else:
+            try:
+                members_to_check = args.members if args.members is not None else sorted(
+                    child.name for child in root.iterdir() if child.is_dir())
+            except OSError as error:
+                report['errors'].append(f'member discovery failed: {error}')
+        report['requested_members'] = members_to_check
         for member in members_to_check:
             try:
                 dataset, cases = snapshot_dataset(root, member, snapshot, args.allow_small_memory)
@@ -319,6 +345,10 @@ def main(argv=None):
                 report['errors'].append(f'{member}: {error}')
         if not report['datasets'] and not report['errors']:
             report['errors'].append('no nonempty evaluation datasets are available')
+        report['normalization']['datasets'] = [
+            {'member': dataset['member'], 'version': dataset['version'], 'sha256': dataset['sha256'],
+             'status': 'unavailable', 'level1_estimate': None}
+            for dataset in report['datasets']]
         if not report['errors']:
             report['suite_id'] = object_hash([
                 {'member': d['member'], 'version': d['version'], 'sha256': d['sha256']}
@@ -342,16 +372,19 @@ def main(argv=None):
                     for dataset in report['datasets']:
                         dataset['aggregate'] = aggregate([r for r in report['cases'] if r['member'] == dataset['member']])
                     if baseline and args.baseline_kind == 'official-naive' and args.protocol != 'legacy':
-                        report['normalization'] = normalize(report['cases'], report['baseline_cases'])
+                        report['normalization'] = normalize(report['cases'], report['baseline_cases'], report['datasets'])
                     report['status'] = 'complete'
                 except (ValueError, OverflowError) as error:
                     report['errors'].append(f'aggregation failed: {error}')
                     report['aggregate'] = None
+    if report['status'] != 'complete':
+        report['normalization']['reason'] = 'evaluation did not complete; no valid normalized score'
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open('x', encoding='utf-8', newline='\n') as stream:
         json.dump(report, stream, ensure_ascii=False, indent=2, allow_nan=False)
         stream.write('\n')
     print(f"Status: {report['status']}")
+    print(f"Selection: {report['selection_mode']}; partial={report['partial']}")
     for dataset in report['datasets']:
         print(f"{dataset['member']}: version={dataset['version']} sha256={dataset['sha256']}")
     for skipped in report['skipped_members']:
@@ -361,6 +394,12 @@ def main(argv=None):
         print(f"Total raw cost (lower is better): {report['aggregate']['total_cost']:.6f}")
     else:
         print('No valid overall score. See errors and per-case status in the report.')
+    for dataset_score in report['normalization']['datasets']:
+        score = dataset_score['level1_estimate']
+        value = 'unavailable' if score is None else f'{score:.6f}'
+        print(f"Dataset normalized score {dataset_score['member']}@{dataset_score['version']}: {value}")
+    average = report['normalization']['average_score']
+    print('Final dataset average: ' + ('unavailable' if average is None else f'{average:.6f}'))
     print(f'Report: {output}')
     return 0 if report['status'] == 'complete' else 1
 

@@ -62,7 +62,7 @@ datasets/
 
 2026-10-29 数据已发布为 **cyanneko eval0.5.0，train/eval各40，共80txt＋80原meta**。旧64对保持原字节，新增Root recipe的8/8已在冻结模型后用于R61检验，之后是开发数据。[数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/manifest.json)绑定版本与指纹`e0e014b8ceb20050a8249cf7f30863642de262870777f435142feaba7afba77d`。
 
-[新组合生成器](generators/r61_mix/README.md)可复现新增16例；[赛前结果报告](docs/PRECONTEST_RESULTS_20261029.md)保留R60/R61真实范围：0.4全32例和独立新8例分别报告，**0.5全40例尚未完整重评**，本页未收录0.5全40例的完整重评，不拼接旧测量或迁移旧分数。[R58历史发布与文档作用域](docs/R58_PUBLICATION_STATUS.md)仍定位原冻结记录。
+[新组合生成器](generators/r61_mix/README.md)可复现新增16例；[赛前结果报告](docs/PRECONTEST_RESULTS_20261029.md)保留R60/R61真实范围：0.4全32例和独立新8例分别报告，**R63已完成固定0.5全40例一次配对评测**，R63完整结果见最新进展入口，不拼接旧测量或迁移旧分数。[R58历史发布与文档作用域](docs/R58_PUBLICATION_STATUS.md)仍定位原冻结记录。
 
 **实际数据文件只在 datasets 分支。** main 保存公共工具、规范和 [R54](generators/r54/README.md)、[R58](generators/r58/README.md)生成器，source 分支保存方法源码与公共工具。评测时使用 datasets 分支的数据目录，或将 `--datasets-root` 指向其独立工作目录。
 
@@ -117,8 +117,10 @@ python evaluation/evaluate.py --datasets-root ../HuaweiHackathon-datasets/datase
 
 有当前协议的官方 Naive 基线时，先对每个测试集独立计算每案例分数、每重复求和封顶 50、再取重复均值；最终成绩为所有参与测试集分数的**等权算术平均**，与案例数无关。报告保留逐例、逐集及最终平均分。没有基线时归一化分显示 `unavailable`；原始成本另行记录，不作为最终平均分。
 
-目前可直接评测 cyanneko 已发布的 `0.5.0` 版40例评测集；该版本尚无完整评分记录，另外两人的空目录会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
+目前可直接评测 cyanneko 已发布的 `0.5.0` 版40例评测集；R63已记录该版本40例一次完整配对测量，另外两人的空目录会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
 
 当前报告/筛选主要比较实际`Total_Score`相对配对Naive的逐例倍率mean/P50/P90/worst、D和元数据家族分组；注明平均定义、样本量及完整逐例表。原始封顶归一化分保留，不作为目标或主要成果。官方数据数量/分布未知，不据本地样本预测官方成绩。见[R60/R61实际倍率与家族表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/reports/precontest_20261029/comparison_tables.md)。
 
 最新非神经网络进展与旧0.4的R62结果见[进展报告](docs/NON_NEURAL_PROGRESS_20261029.md)，论文原始来源、工程假设和适用限制见[文献路线](docs/NON_NEURAL_PAPERS_20261029.md)；新候选仅准备时不声明已实测。
+
+[R63完整0.5/40结果](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r63_ghost_refault64_20261029)已发布：Score倍率mean0.975549、P90为1.224601、worst7.458362；D倍率mean3.289162，仍保留为未推广实验候选。见[进展报告](docs/NON_NEURAL_PROGRESS_20261029.md)。

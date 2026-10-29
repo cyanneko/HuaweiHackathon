@@ -9,7 +9,7 @@
 | [MySpillScheduler.cpp](MySpillScheduler.cpp) | 无模型训练；部分观测历史、代价密度、扫描/循环检测、快速受害者选择、保留信息的预取 | C++14标准库 |
 | [MySpillSchedulerAI.cpp](MySpillSchedulerAI.cpp) | 同一合法接口，最多4个候选经过12×16×1 ReLU（负值置零的激活函数）网络重排；模型权重已内嵌 | 同上，无第三方推理依赖 |
 
-**一次只提交其中一个文件。** 两个文件都只定义 `MySpillScheduler : public SpillScheduler`，没有main或执行引擎。其他cpp是保留的实验/失败对照或独立测试工具，不能一起编译为提交物。历史v1快照保留原字节与已知空行缩进；非冻结实验的空行空白清理记录在FORMAT_NOTES.json。纯算法是较低开销的默认候选；AI的平均逐例分数略高，但不是稳定胜过纯算法，具体范围见结果。
+**一次只提交其中一个文件。** 两个文件都只定义 `MySpillScheduler : public SpillScheduler`，没有main或执行引擎。其他cpp是保留的实验/失败对照或独立测试工具，不能一起编译为提交物。历史v1快照保留原字节与已知空行缩进；非冻结实验的空行空白清理记录在FORMAT_NOTES.json。按当前实测平均逐例分数，AI略高，可作为分数优先候选；纯算法保留为较低开销的对照与备选。AI尚未稳定胜过纯算法，具体范围见结果。
 
 保存的官方参考框架未经逻辑修改。`build.py`从冻结题面提取框架并核对SHA，只插入选手类、选择其实例；额外audit仅包装调度器、输出动作，不改变engine。实际计分使用不带audit的程序。当前协议依据仓库保存版本，不认证隐藏评测实现。
 

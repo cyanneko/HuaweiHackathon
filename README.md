@@ -25,6 +25,7 @@
 - 前版综合报告：[跨算子、自适应与在线计算成本联合迭代](design/topic20_holistic_iteration_report.pdf)。
 - 编译运行与项目文件说明：[design/README.txt](design/README.txt)。
 - 本地实验结果摘要：[results_summary.json](design/results_summary.json)。
+- 合并数据集完整评测：[中文报告](design/topic20_merged_dataset_report.pdf)与[逐例证据](design/dataset_integration_20261029/README.txt)。全部568例、每例3次，神经网络/旧版相对官方Naive的总Score分别下降25.98%/25.57%；含决策耗时，属于开发回归结果。
 
 源码分支仅保留主要算法、官方参考框架、编译运行入口、项目说明、最新设计报告及必要结果摘要。截图、网页缓存、历史实验副本、生成数据、完整运行日志和编译产物保留在本地。正式共享数据按下方约定另行提交到 `datasets` 分支。
 

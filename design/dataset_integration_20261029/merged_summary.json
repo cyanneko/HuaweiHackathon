@@ -1,0 +1,927 @@
+{
+  "schema_version": 1,
+  "suite_id": "5e49bfe12077a229b8099c86bb8f67d3ba78491058d54a98b71d03acde5dea86",
+  "dataset_revision": "0be508208700edae7a7b4443b122c633cc87b0e0",
+  "case_count": 568,
+  "repeats": 3,
+  "datasets": [
+    {
+      "member": "cyanneko",
+      "version": "0.5.0",
+      "sha256": "e0e014b8ceb20050a8249cf7f30863642de262870777f435142feaba7afba77d",
+      "case_count": 40
+    },
+    {
+      "member": "liunianwww",
+      "version": "0.1.0",
+      "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+      "case_count": 528
+    }
+  ],
+  "skipped_members": [
+    {
+      "member": "member2",
+      "reason": "empty evaluation set"
+    },
+    {
+      "member": "member3",
+      "reason": "empty evaluation set"
+    }
+  ],
+  "definitions": {
+    "raw_total": "Sum of per-case arithmetic means across repeats; paired baseline from the same candidate report.",
+    "decrease_percent": "100 * (1 - candidate_total_score / baseline_total_score).",
+    "case_ratio": "Ratio of candidate and paired-baseline per-case arithmetic means; one equally weighted sample per case.",
+    "case_mean": "Arithmetic mean of per-case ratios, with all participating cases weighted equally.",
+    "D": "Total_Decision_Time: full callback cumulative time reported by public engine, in microseconds.",
+    "quantiles": "P50: ordinary median. P90: nearest rank at ceil(0.9*n), one-based. Worst: maximum.",
+    "zero_denominator": "0/0 -> 1; positive/0 -> Infinity, preserved and encoded as a JSON string.",
+    "grouping": "Metadata distribution_role containing uniform or balanced -> near_uniform_diagnostic; skew -> skewed; all other/absent roles -> unspecified.",
+    "caveat": "Current merged datasets are development/regression data, not official unseen tests; raw metrics do not independently establish action legality."
+  },
+  "candidates": {
+    "neural": {
+      "candidate": "neural",
+      "raw_report": "merged_neural.json",
+      "summary": {
+        "case_count": 568,
+        "candidate_total_score": 54856425496401.625,
+        "baseline_total_score": 74107525304316.7,
+        "total_score_ratio": 0.7402274636906042,
+        "total_score_decrease_percent": 25.97725363093958,
+        "candidate_total_decision_time": 376523.35333333333,
+        "baseline_total_decision_time": 469633.01666666666,
+        "total_decision_ratio": 0.801739528463732,
+        "score_ratios": {
+          "n": 568,
+          "mean": 0.7896339372091438,
+          "P50": 0.9636510099141828,
+          "P90": 1.0402456679998913,
+          "worst": 2.6151315271244147,
+          "infinity_count": 0
+        },
+        "decision_ratios": {
+          "n": 568,
+          "mean": 1.9661494719145933,
+          "P50": 1.5730450605946398,
+          "P90": 3.5760977220204686,
+          "worst": 14.37305614666885,
+          "infinity_count": 0
+        },
+        "wins": 404,
+        "ties": 19,
+        "losses": 145,
+        "local_zero_clipped_score": {
+          "n": 568,
+          "mean": 2.3442873021492527,
+          "uncapped_sum": 1331.5551876207755
+        }
+      },
+      "member_equal_weight": {
+        "member_count": 2,
+        "mean_member_total_score_ratio": 0.5707752102795308,
+        "mean_member_total_score_decrease_percent": 42.92247897204692,
+        "undefined_member_decrease_count": 0,
+        "mean_member_case_mean_score_ratio": 0.7668711478000579,
+        "note": "Each participating member receives equal weight. Not the global ratio of total costs and not the case-weighted mean."
+      },
+      "by_member": {
+        "cyanneko": {
+          "case_count": 40,
+          "candidate_total_score": 166551067111.8267,
+          "baseline_total_score": 417009221486.05334,
+          "total_score_ratio": 0.39939420648374535,
+          "total_score_decrease_percent": 60.060579351625464,
+          "candidate_total_decision_time": 58117.76,
+          "baseline_total_decision_time": 52952.35666666667,
+          "total_decision_ratio": 1.0975481292711744,
+          "score_ratios": {
+            "n": 40,
+            "mean": 0.7403767535698105,
+            "P50": 0.9787410795440736,
+            "P90": 1.0035650027800207,
+            "worst": 1.2363596975847062,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 40,
+            "mean": 3.012414705592686,
+            "P50": 2.040561019093381,
+            "P90": 5.631005073950124,
+            "worst": 14.37305614666885,
+            "infinity_count": 0
+          },
+          "wins": 31,
+          "ties": 0,
+          "losses": 9,
+          "local_zero_clipped_score": {
+            "n": 40,
+            "mean": 2.665494972083674,
+            "uncapped_sum": 106.61979888334695
+          }
+        },
+        "liunianwww": {
+          "case_count": 528,
+          "candidate_total_score": 54689874429289.8,
+          "baseline_total_score": 73690516082830.64,
+          "total_score_ratio": 0.7421562140753163,
+          "total_score_decrease_percent": 25.78437859246837,
+          "candidate_total_decision_time": 318405.5933333333,
+          "baseline_total_decision_time": 416680.66,
+          "total_decision_ratio": 0.7641477608615993,
+          "score_ratios": {
+            "n": 528,
+            "mean": 0.7933655420303054,
+            "P50": 0.9614355084044024,
+            "P90": 1.0473319804331551,
+            "worst": 2.6151315271244147,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 528,
+            "mean": 1.8868869542117075,
+            "P50": 1.5568686298015892,
+            "P90": 3.4730143605798673,
+            "worst": 10.122589531680442,
+            "infinity_count": 0
+          },
+          "wins": 373,
+          "ties": 19,
+          "losses": 136,
+          "local_zero_clipped_score": {
+            "n": 528,
+            "mean": 2.3199533877602816,
+            "uncapped_sum": 1224.9353887374286
+          }
+        }
+      },
+      "by_distribution": {
+        "near_uniform_diagnostic": {
+          "case_count": 15,
+          "candidate_total_score": 77145867146.48334,
+          "baseline_total_score": 86456602007.83667,
+          "total_score_ratio": 0.8923074161472436,
+          "total_score_decrease_percent": 10.769258385275638,
+          "candidate_total_decision_time": 1961.93,
+          "baseline_total_decision_time": 801.19,
+          "total_decision_ratio": 2.448769954692395,
+          "score_ratios": {
+            "n": 15,
+            "mean": 0.887636523307277,
+            "P50": 0.8876637237126902,
+            "P90": 0.9180435890602165,
+            "worst": 0.9303711768844525,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 15,
+            "mean": 2.517032427711771,
+            "P50": 2.6090503416538833,
+            "P90": 3.136943970074002,
+            "worst": 3.2308404918308913,
+            "infinity_count": 0
+          },
+          "wins": 15,
+          "ties": 0,
+          "losses": 0,
+          "local_zero_clipped_score": {
+            "n": 15,
+            "mean": 1.123634766927229,
+            "uncapped_sum": 16.854521503908437
+          }
+        },
+        "skewed": {
+          "case_count": 513,
+          "candidate_total_score": 54612728562143.31,
+          "baseline_total_score": 73604059480822.81,
+          "total_score_ratio": 0.7419798438749482,
+          "total_score_decrease_percent": 25.80201561250518,
+          "candidate_total_decision_time": 316443.66333333333,
+          "baseline_total_decision_time": 415879.47,
+          "total_decision_ratio": 0.7609023434922945,
+          "score_ratios": {
+            "n": 513,
+            "mean": 0.7906090805894583,
+            "P50": 0.9728657451149054,
+            "P90": 1.0524673605880326,
+            "worst": 2.6151315271244147,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 513,
+            "mean": 1.8684616479690153,
+            "P50": 1.5040106560496502,
+            "P90": 3.5358910384882813,
+            "worst": 10.122589531680442,
+            "infinity_count": 0
+          },
+          "wins": 358,
+          "ties": 19,
+          "losses": 136,
+          "local_zero_clipped_score": {
+            "n": 513,
+            "mean": 2.354933464392827,
+            "uncapped_sum": 1208.0808672335202
+          }
+        },
+        "unspecified": {
+          "case_count": 40,
+          "candidate_total_score": 166551067111.8267,
+          "baseline_total_score": 417009221486.05334,
+          "total_score_ratio": 0.39939420648374535,
+          "total_score_decrease_percent": 60.060579351625464,
+          "candidate_total_decision_time": 58117.76,
+          "baseline_total_decision_time": 52952.35666666667,
+          "total_decision_ratio": 1.0975481292711744,
+          "score_ratios": {
+            "n": 40,
+            "mean": 0.7403767535698105,
+            "P50": 0.9787410795440736,
+            "P90": 1.0035650027800207,
+            "worst": 1.2363596975847062,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 40,
+            "mean": 3.012414705592686,
+            "P50": 2.040561019093381,
+            "P90": 5.631005073950124,
+            "worst": 14.37305614666885,
+            "infinity_count": 0
+          },
+          "wins": 31,
+          "ties": 0,
+          "losses": 9,
+          "local_zero_clipped_score": {
+            "n": 40,
+            "mean": 2.665494972083674,
+            "uncapped_sum": 106.61979888334695
+          }
+        }
+      },
+      "by_cohort": {
+        "existing_development": {
+          "case_count": 40,
+          "candidate_total_score": 166551067111.8267,
+          "baseline_total_score": 417009221486.05334,
+          "total_score_ratio": 0.39939420648374535,
+          "total_score_decrease_percent": 60.060579351625464,
+          "candidate_total_decision_time": 58117.76,
+          "baseline_total_decision_time": 52952.35666666667,
+          "total_decision_ratio": 1.0975481292711744,
+          "score_ratios": {
+            "n": 40,
+            "mean": 0.7403767535698105,
+            "P50": 0.9787410795440736,
+            "P90": 1.0035650027800207,
+            "worst": 1.2363596975847062,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 40,
+            "mean": 3.012414705592686,
+            "P50": 2.040561019093381,
+            "P90": 5.631005073950124,
+            "worst": 14.37305614666885,
+            "infinity_count": 0
+          },
+          "wins": 31,
+          "ties": 0,
+          "losses": 9,
+          "local_zero_clipped_score": {
+            "n": 40,
+            "mean": 2.665494972083674,
+            "uncapped_sum": 106.61979888334695
+          }
+        },
+        "frozen_model_test": {
+          "case_count": 378,
+          "candidate_total_score": 46486345722886.52,
+          "baseline_total_score": 61390821887092.29,
+          "total_score_ratio": 0.7572197975844415,
+          "total_score_decrease_percent": 24.278020241555854,
+          "candidate_total_decision_time": 272426.35,
+          "baseline_total_decision_time": 378860.87,
+          "total_decision_ratio": 0.7190670020897116,
+          "score_ratios": {
+            "n": 378,
+            "mean": 0.8204058353708391,
+            "P50": 0.975829551962051,
+            "P90": 1.057298178299746,
+            "worst": 2.6151315271244147,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 378,
+            "mean": 1.900296060779384,
+            "P50": 1.5409132094421794,
+            "P90": 3.7349152542372885,
+            "worst": 10.122589531680442,
+            "infinity_count": 0
+          },
+          "wins": 262,
+          "ties": 15,
+          "losses": 101,
+          "local_zero_clipped_score": {
+            "n": 378,
+            "mean": 2.083327505669408,
+            "uncapped_sum": 787.4977971430362
+          }
+        },
+        "historical_validation": {
+          "case_count": 150,
+          "candidate_total_score": 8203528706403.273,
+          "baseline_total_score": 12299694195738.354,
+          "total_score_ratio": 0.6669701356677359,
+          "total_score_decrease_percent": 33.30298643322641,
+          "candidate_total_decision_time": 45979.24333333333,
+          "baseline_total_decision_time": 37819.79,
+          "total_decision_ratio": 1.2157456012667793,
+          "score_ratios": {
+            "n": 150,
+            "mean": 0.7252240028121607,
+            "P50": 0.9034984006239596,
+            "P90": 1.0164368579386047,
+            "worst": 1.523947174802532,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 150,
+            "mean": 1.853096005661162,
+            "P50": 1.6100032136520226,
+            "P90": 3.174828254359697,
+            "worst": 5.404371584699454,
+            "infinity_count": 0
+          },
+          "wins": 111,
+          "ties": 4,
+          "losses": 35,
+          "local_zero_clipped_score": {
+            "n": 150,
+            "mean": 2.9162506106292825,
+            "uncapped_sum": 437.43759159439236
+          }
+        }
+      },
+      "normalization": {
+        "status": "available",
+        "average_score": 50.0,
+        "aggregation": "equal-weight arithmetic mean of participating dataset scores",
+        "datasets": [
+          {
+            "member": "cyanneko",
+            "version": "0.5.0",
+            "sha256": "e0e014b8ceb20050a8249cf7f30863642de262870777f435142feaba7afba77d",
+            "case_count": 40,
+            "level1_estimate": 50.0,
+            "per_repeat": [
+              {
+                "repeat": 1,
+                "level1_estimate": 50.0
+              },
+              {
+                "repeat": 2,
+                "level1_estimate": 50.0
+              },
+              {
+                "repeat": 3,
+                "level1_estimate": 50.0
+              }
+            ]
+          },
+          {
+            "member": "liunianwww",
+            "version": "0.1.0",
+            "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+            "case_count": 528,
+            "level1_estimate": 50.0,
+            "per_repeat": [
+              {
+                "repeat": 1,
+                "level1_estimate": 50.0
+              },
+              {
+                "repeat": 2,
+                "level1_estimate": 50.0
+              },
+              {
+                "repeat": 3,
+                "level1_estimate": 50.0
+              }
+            ]
+          }
+        ],
+        "scope": "Local capped Level-1 diagnostic; not the main performance claim."
+      },
+      "candidate_identity": {
+        "binary": {
+          "path": "design/neural_selector/build/engine",
+          "sha256": "3f9d544db15fb6501a2a3e8c5b98871d58e8cb05f48115dfe8221d1fbc85781e"
+        },
+        "source_files": [
+          {
+            "path": "design/MySpillScheduler_neural.cpp",
+            "sha256": "dd02fb47e9e584ad706e2592809536b5f05aa24a86adfa7a4e244900b6ae28c0"
+          },
+          {
+            "path": "design/neural_selector/build/engine.cpp",
+            "sha256": "448ba1eb05efb8dcf2a388c81b8704dbec97449b4018d1ab73ab14947947a4a1"
+          },
+          {
+            "path": "design/holistic_20261026/reference_current.cpp",
+            "sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5"
+          }
+        ],
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "compiler_flags": [
+          "-std=c++14",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-pedantic-errors"
+        ]
+      },
+      "baseline_identity": {
+        "binary": {
+          "path": "design/neural_selector/build/engine",
+          "sha256": "3f9d544db15fb6501a2a3e8c5b98871d58e8cb05f48115dfe8221d1fbc85781e"
+        },
+        "source_files": [
+          {
+            "path": "design/holistic_20261026/reference_current.cpp",
+            "sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5"
+          }
+        ],
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "compiler_flags": [
+          "-std=c++14",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-pedantic-errors"
+        ]
+      },
+      "execution": {
+        "repeats": 3,
+        "protocol": "official-2026-10-26",
+        "evaluator_sha256": "9a1231d5dc6913b694927ab34fb34d8c59889584c1cfb596959d9eaf383e09f3",
+        "input_auditor_sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
+        "selection_mode": "automatic",
+        "partial": false,
+        "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "logical_cpus": 20,
+        "processor": "x86_64",
+        "inference_threads": 1,
+        "inference_threads_source": "Submitted C++ uses no threading or external inference runtime."
+      }
+    },
+    "previous": {
+      "candidate": "previous",
+      "raw_report": "merged_previous.json",
+      "summary": {
+        "case_count": 568,
+        "candidate_total_score": 55159208219546.414,
+        "baseline_total_score": 74107525306112.78,
+        "total_score_ratio": 0.744313185357393,
+        "total_score_decrease_percent": 25.5686814642607,
+        "candidate_total_decision_time": 322055.01333333337,
+        "baseline_total_decision_time": 471429.1566666667,
+        "total_decision_ratio": 0.6831461499125069,
+        "score_ratios": {
+          "n": 568,
+          "mean": 0.7908705427030792,
+          "P50": 0.9689941060276301,
+          "P90": 1.0478286189418784,
+          "worst": 2.6151274228586012,
+          "infinity_count": 0
+        },
+        "decision_ratios": {
+          "n": 568,
+          "mean": 1.2648433636617142,
+          "P50": 1.1790133474264444,
+          "P90": 2.02566211547952,
+          "worst": 8.851864464498552,
+          "infinity_count": 0
+        },
+        "wins": 407,
+        "ties": 16,
+        "losses": 145,
+        "local_zero_clipped_score": {
+          "n": 568,
+          "mean": 2.2948115734410806,
+          "uncapped_sum": 1303.4529737145338
+        }
+      },
+      "member_equal_weight": {
+        "member_count": 2,
+        "mean_member_total_score_ratio": 0.5838500931412114,
+        "mean_member_total_score_decrease_percent": 41.614990685878865,
+        "undefined_member_decrease_count": 0,
+        "mean_member_case_mean_score_ratio": 0.7690432471757822,
+        "note": "Each participating member receives equal weight. Not the global ratio of total costs and not the case-weighted mean."
+      },
+      "by_member": {
+        "cyanneko": {
+          "case_count": 40,
+          "candidate_total_score": 175794644318.57,
+          "baseline_total_score": 417009222045.1667,
+          "total_score_ratio": 0.4215605675491021,
+          "total_score_decrease_percent": 57.84394324508979,
+          "candidate_total_decision_time": 46884.03666666667,
+          "baseline_total_decision_time": 53511.45333333333,
+          "total_decision_ratio": 0.8761495669836663,
+          "score_ratios": {
+            "n": 40,
+            "mean": 0.7436377064800758,
+            "P50": 0.9686914644697713,
+            "P90": 1.0046804778988732,
+            "worst": 1.2363574866112335,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 40,
+            "mean": 1.9095816626106903,
+            "P50": 1.2296807898011197,
+            "P90": 4.715864759427829,
+            "worst": 8.851864464498552,
+            "infinity_count": 0
+          },
+          "wins": 29,
+          "ties": 0,
+          "losses": 11,
+          "local_zero_clipped_score": {
+            "n": 40,
+            "mean": 2.664199110343933,
+            "uncapped_sum": 106.56796441375732
+          }
+        },
+        "liunianwww": {
+          "case_count": 528,
+          "candidate_total_score": 54983413575227.84,
+          "baseline_total_score": 73690516084067.62,
+          "total_score_ratio": 0.7461396187333206,
+          "total_score_decrease_percent": 25.38603812666794,
+          "candidate_total_decision_time": 275170.9766666667,
+          "baseline_total_decision_time": 417917.7033333333,
+          "total_decision_ratio": 0.6584334056008843,
+          "score_ratios": {
+            "n": 528,
+            "mean": 0.7944487878714886,
+            "P50": 0.9698691630725228,
+            "P90": 1.0540466009178977,
+            "worst": 2.6151274228586012,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 528,
+            "mean": 1.2159995531352765,
+            "P50": 1.1769136840836396,
+            "P90": 1.9706752757600217,
+            "worst": 5.505135863626429,
+            "infinity_count": 0
+          },
+          "wins": 378,
+          "ties": 16,
+          "losses": 134,
+          "local_zero_clipped_score": {
+            "n": 528,
+            "mean": 2.2668276691302585,
+            "uncapped_sum": 1196.8850093007766
+          }
+        }
+      },
+      "by_distribution": {
+        "near_uniform_diagnostic": {
+          "case_count": 15,
+          "candidate_total_score": 77145866456.37,
+          "baseline_total_score": 86456602100.98,
+          "total_score_ratio": 0.8923074072037298,
+          "total_score_decrease_percent": 10.769259279627018,
+          "candidate_total_decision_time": 1271.7866666666666,
+          "baseline_total_decision_time": 894.3333333333334,
+          "total_decision_ratio": 1.4220499440924337,
+          "score_ratios": {
+            "n": 15,
+            "mean": 0.887632703074304,
+            "P50": 0.8876630510447793,
+            "P90": 0.9180435912637412,
+            "worst": 0.9303510385083111,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 15,
+            "mean": 1.576870698286443,
+            "P50": 1.5969119355059096,
+            "P90": 1.8331312781434015,
+            "worst": 2.4184048444697477,
+            "infinity_count": 0
+          },
+          "wins": 15,
+          "ties": 0,
+          "losses": 0,
+          "local_zero_clipped_score": {
+            "n": 15,
+            "mean": 1.123672969256961,
+            "uncapped_sum": 16.855094538854413
+          }
+        },
+        "skewed": {
+          "case_count": 513,
+          "candidate_total_score": 54906267708771.47,
+          "baseline_total_score": 73604059481966.64,
+          "total_score_ratio": 0.7459679275193208,
+          "total_score_decrease_percent": 25.403207248067915,
+          "candidate_total_decision_time": 273899.19,
+          "baseline_total_decision_time": 417023.37,
+          "total_decision_ratio": 0.6567957810134238,
+          "score_ratios": {
+            "n": 513,
+            "mean": 0.7917241119883653,
+            "P50": 0.9828489453309267,
+            "P90": 1.0543645778931645,
+            "worst": 2.6151274228586012,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 513,
+            "mean": 1.2054477652653592,
+            "P50": 1.1574211159433698,
+            "P90": 1.9706752757600217,
+            "worst": 5.505135863626429,
+            "infinity_count": 0
+          },
+          "wins": 363,
+          "ties": 16,
+          "losses": 134,
+          "local_zero_clipped_score": {
+            "n": 513,
+            "mean": 2.300253245149946,
+            "uncapped_sum": 1180.029914761922
+          }
+        },
+        "unspecified": {
+          "case_count": 40,
+          "candidate_total_score": 175794644318.57,
+          "baseline_total_score": 417009222045.1667,
+          "total_score_ratio": 0.4215605675491021,
+          "total_score_decrease_percent": 57.84394324508979,
+          "candidate_total_decision_time": 46884.03666666667,
+          "baseline_total_decision_time": 53511.45333333333,
+          "total_decision_ratio": 0.8761495669836663,
+          "score_ratios": {
+            "n": 40,
+            "mean": 0.7436377064800758,
+            "P50": 0.9686914644697713,
+            "P90": 1.0046804778988732,
+            "worst": 1.2363574866112335,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 40,
+            "mean": 1.9095816626106903,
+            "P50": 1.2296807898011197,
+            "P90": 4.715864759427829,
+            "worst": 8.851864464498552,
+            "infinity_count": 0
+          },
+          "wins": 29,
+          "ties": 0,
+          "losses": 11,
+          "local_zero_clipped_score": {
+            "n": 40,
+            "mean": 2.664199110343933,
+            "uncapped_sum": 106.56796441375732
+          }
+        }
+      },
+      "by_cohort": {
+        "existing_development": {
+          "case_count": 40,
+          "candidate_total_score": 175794644318.57,
+          "baseline_total_score": 417009222045.1667,
+          "total_score_ratio": 0.4215605675491021,
+          "total_score_decrease_percent": 57.84394324508979,
+          "candidate_total_decision_time": 46884.03666666667,
+          "baseline_total_decision_time": 53511.45333333333,
+          "total_decision_ratio": 0.8761495669836663,
+          "score_ratios": {
+            "n": 40,
+            "mean": 0.7436377064800758,
+            "P50": 0.9686914644697713,
+            "P90": 1.0046804778988732,
+            "worst": 1.2363574866112335,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 40,
+            "mean": 1.9095816626106903,
+            "P50": 1.2296807898011197,
+            "P90": 4.715864759427829,
+            "worst": 8.851864464498552,
+            "infinity_count": 0
+          },
+          "wins": 29,
+          "ties": 0,
+          "losses": 11,
+          "local_zero_clipped_score": {
+            "n": 40,
+            "mean": 2.664199110343933,
+            "uncapped_sum": 106.56796441375732
+          }
+        },
+        "frozen_model_test": {
+          "case_count": 378,
+          "candidate_total_score": 46808467292903.195,
+          "baseline_total_score": 61390821887430.17,
+          "total_score_ratio": 0.7624668615568294,
+          "total_score_decrease_percent": 23.75331384431706,
+          "candidate_total_decision_time": 240143.60333333333,
+          "baseline_total_decision_time": 379198.81666666665,
+          "total_decision_ratio": 0.633292069432882,
+          "score_ratios": {
+            "n": 378,
+            "mean": 0.8193992337891962,
+            "P50": 0.983701740249857,
+            "P90": 1.0575200377180574,
+            "worst": 2.6151274228586012,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 378,
+            "mean": 1.221572791529018,
+            "P50": 1.169433590058584,
+            "P90": 2.02566211547952,
+            "worst": 5.505135863626429,
+            "infinity_count": 0
+          },
+          "wins": 267,
+          "ties": 13,
+          "losses": 98,
+          "local_zero_clipped_score": {
+            "n": 378,
+            "mean": 2.0276030953740403,
+            "uncapped_sum": 766.4339700513872
+          }
+        },
+        "historical_validation": {
+          "case_count": 150,
+          "candidate_total_score": 8174946282324.646,
+          "baseline_total_score": 12299694196637.453,
+          "total_score_ratio": 0.6646463035283878,
+          "total_score_decrease_percent": 33.53536964716122,
+          "candidate_total_decision_time": 35027.37333333334,
+          "baseline_total_decision_time": 38718.886666666665,
+          "total_decision_ratio": 0.9046585878071909,
+          "score_ratios": {
+            "n": 150,
+            "mean": 0.7315736641588654,
+            "P50": 0.9108048081738396,
+            "P90": 1.0465694123873421,
+            "worst": 1.523952319223714,
+            "infinity_count": 0
+          },
+          "decision_ratios": {
+            "n": 150,
+            "mean": 1.201954992383048,
+            "P50": 1.2063296383770679,
+            "P90": 1.8995746691871458,
+            "worst": 4.764739091862247,
+            "infinity_count": 0
+          },
+          "wins": 111,
+          "ties": 3,
+          "losses": 36,
+          "local_zero_clipped_score": {
+            "n": 150,
+            "mean": 2.8696735949959287,
+            "uncapped_sum": 430.4510392493893
+          }
+        }
+      },
+      "normalization": {
+        "status": "available",
+        "average_score": 50.0,
+        "aggregation": "equal-weight arithmetic mean of participating dataset scores",
+        "datasets": [
+          {
+            "member": "cyanneko",
+            "version": "0.5.0",
+            "sha256": "e0e014b8ceb20050a8249cf7f30863642de262870777f435142feaba7afba77d",
+            "case_count": 40,
+            "level1_estimate": 50.0,
+            "per_repeat": [
+              {
+                "repeat": 1,
+                "level1_estimate": 50.0
+              },
+              {
+                "repeat": 2,
+                "level1_estimate": 50.0
+              },
+              {
+                "repeat": 3,
+                "level1_estimate": 50.0
+              }
+            ]
+          },
+          {
+            "member": "liunianwww",
+            "version": "0.1.0",
+            "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+            "case_count": 528,
+            "level1_estimate": 50.0,
+            "per_repeat": [
+              {
+                "repeat": 1,
+                "level1_estimate": 50.0
+              },
+              {
+                "repeat": 2,
+                "level1_estimate": 50.0
+              },
+              {
+                "repeat": 3,
+                "level1_estimate": 50.0
+              }
+            ]
+          }
+        ],
+        "scope": "Local capped Level-1 diagnostic; not the main performance claim."
+      },
+      "candidate_identity": {
+        "binary": {
+          "path": "design/neural_selector/build/engine",
+          "sha256": "3f9d544db15fb6501a2a3e8c5b98871d58e8cb05f48115dfe8221d1fbc85781e"
+        },
+        "source_files": [
+          {
+            "path": "design/MySpillScheduler_final.cpp",
+            "sha256": "af324f65c8f5e294621eab178b700731e959f5f53c98f92af370490566c1e4a5"
+          },
+          {
+            "path": "design/neural_selector/build/engine.cpp",
+            "sha256": "448ba1eb05efb8dcf2a388c81b8704dbec97449b4018d1ab73ab14947947a4a1"
+          },
+          {
+            "path": "design/holistic_20261026/reference_current.cpp",
+            "sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5"
+          }
+        ],
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "compiler_flags": [
+          "-std=c++14",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-pedantic-errors"
+        ]
+      },
+      "baseline_identity": {
+        "binary": {
+          "path": "design/neural_selector/build/engine",
+          "sha256": "3f9d544db15fb6501a2a3e8c5b98871d58e8cb05f48115dfe8221d1fbc85781e"
+        },
+        "source_files": [
+          {
+            "path": "design/holistic_20261026/reference_current.cpp",
+            "sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5"
+          }
+        ],
+        "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "compiler_flags": [
+          "-std=c++14",
+          "-O2",
+          "-Wall",
+          "-Wextra",
+          "-pedantic-errors"
+        ]
+      },
+      "execution": {
+        "repeats": 3,
+        "protocol": "official-2026-10-26",
+        "evaluator_sha256": "9a1231d5dc6913b694927ab34fb34d8c59889584c1cfb596959d9eaf383e09f3",
+        "input_auditor_sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
+        "selection_mode": "automatic",
+        "partial": false,
+        "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+        "logical_cpus": 20,
+        "processor": "x86_64",
+        "inference_threads": 1,
+        "inference_threads_source": "Submitted C++ uses no threading or external inference runtime."
+      }
+    }
+  },
+  "neural_vs_previous": {
+    "total_score_ratio": 0.9945107492852391,
+    "decrease_percent": 0.5489250714760918,
+    "case_score_ratios": {
+      "n": 568,
+      "mean": 0.981394791736623,
+      "P50": 1.0000000192920693,
+      "P90": 1.0073038239992638,
+      "worst": 1.6577777777777778,
+      "infinity_count": 0
+    },
+    "note": "Same frozen cases, separately timed candidate runs; each Naive decrease uses its own paired baseline."
+  }
+}

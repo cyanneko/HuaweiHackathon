@@ -1,0 +1,66 @@
+[
+  {
+    "id": 0,
+    "name": "最大分区优先",
+    "origin": "Velox官方分区落盘规则",
+    "url": "https://facebookincubator.github.io/velox/develop/spilling.html",
+    "implementation": "跨所有算子按大小降序释放缺口，排除当前INSERT目标。",
+    "theory": "快速可行启发式；无全局Score最优保证。"
+  },
+  {
+    "id": 1,
+    "name": "小规模精确最小写出覆盖",
+    "origin": "本题容量覆盖子问题的穷举精确求解",
+    "url": null,
+    "implementation": "候选数不超过10时O(2^n)枚举全部子集，最小化满足缺口的写出字节；更大时回退大小排序与覆盖单项比较。",
+    "theory": "仅小规模plan子问题有严格立即写出最小保证。next_op保护层可改变最终方案；大规模回退与完整Score无此保证。"
+  },
+  {
+    "id": 2,
+    "name": "观测最近访问",
+    "origin": "LRU思想在部分可见访问下的适配",
+    "url": null,
+    "implementation": "按当前接口观测到的最近访问时间排序，不给未回调的hit编造时间戳。",
+    "theory": "不是完整LRU，经典分页竞争界不直接适用。"
+  },
+  {
+    "id": 3,
+    "name": "观测复用热度密度",
+    "origin": "LFU/size与LHD单位空间价值思想",
+    "url": "https://www.usenix.org/conference/nsdi18/presentation/beckmann",
+    "implementation": "按(1+衰减观测热度)/字节保留价值选盘，并对已知下一PROBE施加保护因子；不是原LHD概率模型。",
+    "theory": "不是原LHD条件概率模型，不引用原论文命中收益作为本题收益。"
+  },
+  {
+    "id": 4,
+    "name": "预计恢复代价密度",
+    "origin": "代价感知缓存思想与本题I/O模型",
+    "url": "https://pages.cs.wisc.edu/~cao/papers/gd-size.html",
+    "implementation": "按[s/W+q*(s/R+32)]/s排序；q来自可见热度，已知下一PROBE取1。",
+    "theory": "q是启发式尺度；没有完整未来Score最优证明。"
+  },
+  {
+    "id": 5,
+    "name": "观测版GreedyDual-Size",
+    "origin": "Cao与Irani, USITS 1997",
+    "url": "https://pages.cs.wisc.edu/~cao/papers/gd-size/node8.html",
+    "implementation": "维护通胀L与分区H=L+c/s，在可见访问更新H，选择低H分区；c取本题读写恢复尺度。",
+    "theory": "缺完整hit回调且BUILD大小变化、驱逐收费，原论文竞争界不自动转移。"
+  },
+  {
+    "id": 6,
+    "name": "阶段与算子软配额代价",
+    "origin": "DuckDB动态多算子内存管理与Velox内存仲裁思想",
+    "url": "https://www.vldb.org/pvldb/vol18/p2748-kuiper.pdf",
+    "implementation": "有上界的加权水位配额；BUILD采用大小优先，PROBE使用配额修正的代价密度。",
+    "theory": "软配额为启发式，未复现论文压缩、重分区或其成本优化器。"
+  },
+  {
+    "id": 7,
+    "name": "前版自适应控制器",
+    "origin": "本项目前期验证的主策略；规则反馈借鉴LeCaR思想",
+    "url": "https://www.usenix.org/conference/hotstorage18/presentation/vietri",
+    "implementation": "在观测时间、热度密度、代价密度之间按ghost反馈切换，并使用软配额与保守next_op。",
+    "theory": "在固定选择7时已核对与旧主版I/O及miss一致；不是原版LeCaR，也不宣称无遗憾。"
+  }
+]

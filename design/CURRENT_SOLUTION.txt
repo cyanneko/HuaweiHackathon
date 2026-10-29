@@ -3,13 +3,19 @@
 推荐：MySpillScheduler_final.cpp。
 全局跨算子选盘、动态软配额、在线规则切换、保守next_op联合加载及反馈补偿。
 
+新增神经网络候选：MySpillScheduler_neural.cpp。
+8种专家策略，由32→16→8微型网络逐次选择；664参数，权重内嵌。
+最终验证：调参集0.952349、新测试0.975361、GitHub回归1.056779、规模诊断1.012914（相对旧版）。
+最新说明：topic20_neural_selector_report.pdf；训练、依据和证据：neural_selector/README.txt。
+第二轮模型验证未改善，未采用。已完成独立动作核查与冻结后新测试；旧版继续默认。
+
 可选：MySpillScheduler_scan_fused.cpp。动作等价的扫描优化，并非全负载更快。
 研究组合：MySpillScheduler_holistic.cpp。
 跨算子反馈实验：holistic_20261026/pressure.cpp。
 这些文件都定义MySpillScheduler，一次只选择一个接入官方框架。
 
 编译运行入口及用法：README.txt、tools/run.py。
-最新说明：topic20_holistic_iteration_report.pdf。
+前版综合说明：topic20_holistic_iteration_report.pdf。
 本地实测摘要：results_summary.json；非官方隐藏测试成绩，没有全输入最优证明。
 
 仓库仅保留关键项目文件，历史实验与原始截图保留在本地。

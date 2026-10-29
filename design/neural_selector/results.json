@@ -1,0 +1,254 @@
+{
+  "status": "completed local qualification; neural candidate; previous policy remains default",
+  "selected_model": "model_16.json",
+  "source_sha256": "dd02fb47e9e584ad706e2592809536b5f05aa24a86adfa7a4e244900b6ae28c0",
+  "hidden": 16,
+  "features": 32,
+  "classes": 8,
+  "parameters": 664,
+  "weight_bytes_float32": 2656,
+  "multiply_adds": 640,
+  "baseline_logit_margin": 0.5,
+  "training": {
+    "train": {
+      "states": 15255,
+      "github_states": 196,
+      "sha256": "032e93eb753012e7adcc0a02ccbe5f22843f479dfed5b69990a8b68695748439"
+    },
+    "valid": {
+      "states": 3889,
+      "github_states": 0,
+      "sha256": "ebadf99453a29d0d766e424036a4dd075acfb15ee3ffc73b8bedc2392299f869"
+    },
+    "dagger": {
+      "states": 10575,
+      "github_states": 138,
+      "sha256": "4d4463947049a6cee5a8387ab7d17df30412d6c5e757649b13bd545042e9f273"
+    }
+  },
+  "validation": {
+    "cases": 150,
+    "repeats": 3,
+    "aggregation": "median Score per case, geometric mean of paired ratios",
+    "used_for_model_selection": true,
+    "summary": {
+      "-1": {
+        "cases": 150,
+        "geometric_vs_previous": 0.9523493526891631,
+        "wins": 41,
+        "losses": 53,
+        "worst": 1.4738243977985717,
+        "cpu": 44692.34,
+        "misses": 40743.0
+      },
+      "4": {
+        "cases": 150,
+        "geometric_vs_previous": 0.9525977382404726,
+        "wins": 83,
+        "losses": 50,
+        "worst": 12.606435615154176,
+        "cpu": 36955.85,
+        "misses": 51802.0
+      },
+      "8": {
+        "cases": 150,
+        "geometric_vs_previous": 1.0,
+        "wins": 0,
+        "losses": 0,
+        "worst": 1.0,
+        "cpu": 33270.01,
+        "misses": 40301.0
+      }
+    },
+    "runs_file": "optimized_valid_runs.jsonl"
+  },
+  "pending": [],
+  "caution": [
+    "CPU time is machine dependent",
+    "finite-horizon noisy teacher is not an optimal oracle",
+    "GitHub eval has historical development exposure",
+    "final exact cover O(2^n), n<=10; first-round labels used O(n*2^n)",
+    "no universal improvement or official hidden-score claim"
+  ],
+  "final_suites": {
+    "fresh_final": {
+      "scope": "fresh generated suite after freeze; no tuning",
+      "input_cases": 378,
+      "repeats": 3,
+      "summary": {
+        "-1": {
+          "cases": 377,
+          "geometric_vs_previous": 0.975361149271526,
+          "wins": 96,
+          "losses": 130,
+          "worst": 2.241042345276873,
+          "cpu": 271365.87,
+          "misses": 107131.0
+        },
+        "4": {
+          "cases": 377,
+          "geometric_vs_previous": 0.9948627776282895,
+          "wins": 182,
+          "losses": 143,
+          "worst": 7858.035860838537,
+          "cpu": 292243.97,
+          "misses": 167848.0
+        },
+        "8": {
+          "cases": 377,
+          "geometric_vs_previous": 1.0,
+          "wins": 0,
+          "losses": 0,
+          "worst": 1.0,
+          "cpu": 233970.11,
+          "misses": 106260.0
+        },
+        "9": {
+          "cases": 377,
+          "geometric_vs_previous": 1.526896742911932,
+          "wins": 84,
+          "losses": 246,
+          "worst": 181.72240972828615,
+          "cpu": 372047.45,
+          "misses": 210021.0
+        }
+      }
+    },
+    "github_final": {
+      "scope": "historically exposed developer regression",
+      "input_cases": 8,
+      "repeats": 3,
+      "summary": {
+        "-1": {
+          "cases": 8,
+          "geometric_vs_previous": 1.0567794307167409,
+          "wins": 2,
+          "losses": 6,
+          "worst": 1.2816462995893945,
+          "cpu": 2278.92,
+          "misses": 3344.0
+        },
+        "4": {
+          "cases": 8,
+          "geometric_vs_previous": 0.9107265712498579,
+          "wins": 5,
+          "losses": 3,
+          "worst": 5.252595162708417,
+          "cpu": 1386.87,
+          "misses": 3835.0
+        },
+        "8": {
+          "cases": 8,
+          "geometric_vs_previous": 1.0,
+          "wins": 0,
+          "losses": 0,
+          "worst": 1.0,
+          "cpu": 1287.1699999999998,
+          "misses": 3299.0
+        },
+        "9": {
+          "cases": 8,
+          "geometric_vs_previous": 3.9409706898959525,
+          "wins": 0,
+          "losses": 8,
+          "worst": 72.85039291939873,
+          "cpu": 3163.7,
+          "misses": 14006.0
+        }
+      }
+    },
+    "scale_final": {
+      "scope": "six CPU/scale diagnostics, including three 5M-operation inputs",
+      "input_cases": 6,
+      "repeats": 3,
+      "summary": {
+        "-1": {
+          "cases": 6,
+          "geometric_vs_previous": 1.012913620896577,
+          "wins": 0,
+          "losses": 6,
+          "worst": 1.0258150487346176,
+          "cpu": 5615801.25,
+          "misses": 1217774.0
+        },
+        "4": {
+          "cases": 6,
+          "geometric_vs_previous": 0.9437464754807315,
+          "wins": 2,
+          "losses": 4,
+          "worst": 1.0700629033319924,
+          "cpu": 4590549.89,
+          "misses": 1540543.0
+        },
+        "8": {
+          "cases": 6,
+          "geometric_vs_previous": 1.0,
+          "wins": 0,
+          "losses": 0,
+          "worst": 1.0,
+          "cpu": 4768257.5,
+          "misses": 1217472.0
+        },
+        "9": {
+          "cases": 6,
+          "geometric_vs_previous": 1.0343265167486237,
+          "wins": 3,
+          "losses": 3,
+          "worst": 1.3957745604727163,
+          "cpu": 4289597.87,
+          "misses": 1633194.0
+        }
+      }
+    }
+  },
+  "second_round": {
+    "training_states": 25830,
+    "selected": false,
+    "reason": "inferior validation mean and worst-case Score",
+    "validation": {
+      "-1": {
+        "cases": 150,
+        "geometric_vs_previous": 0.9613230263192294,
+        "wins": 41,
+        "losses": 51,
+        "worst": 1.6056285690610086,
+        "cpu": 55151.98,
+        "misses": 40137.0
+      },
+      "4": {
+        "cases": 150,
+        "geometric_vs_previous": 0.952659536300078,
+        "wins": 81,
+        "losses": 52,
+        "worst": 12.606435708924016,
+        "cpu": 37714.23,
+        "misses": 51802.0
+      },
+      "8": {
+        "cases": 150,
+        "geometric_vs_previous": 1.0,
+        "wins": 0,
+        "losses": 0,
+        "worst": 1.0,
+        "cpu": 34384.28,
+        "misses": 40301.0
+      }
+    }
+  },
+  "completed_checks": {
+    "action_audit": "action_audit.json",
+    "source_freeze": "fresh_entropy.json",
+    "sdk_runs_final": 6054,
+    "unseen_exclusions": 10
+  },
+  "artifacts": {
+    "model_16.json": "7a9ad57e751c7fa4ec1701f938400212718ea6f2141e9aff272dd01c16aae6d4",
+    "Scheduler.template": "f67722bd7ca8cf4485d6382d0cc21cb746d9d3a7755fb12948948d126b7015ad",
+    "fresh_entropy.json": "a032d348711c88688de2ed0347925850768b5fdf90d44aee420f353bfe940886",
+    "generate_cases.py": "f6be330d851a6fb7dd6d368de71bc36dcd4de255215700ea6c160d22c3bea20c",
+    "optimized_valid_runs.jsonl": "36fd7ae13fa1acf4b728fcbc1c43661a30c16e3bd0ca7fd1a200a18ed7a56a24",
+    "fresh_final_runs.jsonl": "f199084aabaa38e43342cb5e5ae055c71246e9492ffb296885da471b41dedb0a",
+    "github_final_runs.jsonl": "b8382ddeb580e2428bfed4bb94060371f44a575a84c31f3c0252436cf700d8a2",
+    "scale_final_runs.jsonl": "fc42d0def6d43f2f7af815f9949f54490e148c5be5d835e7f75d5eeb861ff522"
+  }
+}

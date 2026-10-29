@@ -19,13 +19,16 @@
 本分支的项目代码与研究文档位于 `design/`：
 
 - 当前推荐提交：[MySpillScheduler_final.cpp](design/MySpillScheduler_final.cpp)。单文件 C++14，定义 `MySpillScheduler`，无 `main`，接入官方框架使用。
+- 神经网络候选：[MySpillScheduler_neural.cpp](design/MySpillScheduler_neural.cpp)。8种专家由32→16→8网络动态选择，664参数；使用 `--policy neural`。训练与结果见 [neural_selector/README.txt](design/neural_selector/README.txt)，中文说明见 [神经网络选择器报告](design/topic20_neural_selector_report.pdf)。最终验证中，相对旧版Score几何均值：调参集0.952349、新生成测试集0.975361、GitHub回归1.056779、规模诊断1.012914；旧版继续默认。
 - 可选扫描优化：[MySpillScheduler_scan_fused.cpp](design/MySpillScheduler_scan_fused.cpp)。与推荐版动作等价，运行速度的收益依负载而变。
 - 当前入口与版本说明：[CURRENT_SOLUTION.txt](design/CURRENT_SOLUTION.txt)。历史实验版本不代表当前推荐方案。
-- 最新中文报告：[跨算子、自适应与在线计算成本联合迭代](design/topic20_holistic_iteration_report.pdf)。
+- 前版综合报告：[跨算子、自适应与在线计算成本联合迭代](design/topic20_holistic_iteration_report.pdf)。
 - 编译运行与项目文件说明：[design/README.txt](design/README.txt)。
 - 本地实验结果摘要：[results_summary.json](design/results_summary.json)。
 
 源码分支仅保留主要算法、官方参考框架、编译运行入口、项目说明、最新设计报告及必要结果摘要。截图、网页缓存、历史实验副本、生成数据、完整运行日志和编译产物保留在本地。正式共享数据按下方约定另行提交到 `datasets` 分支。
+
+神经网络候选另提供紧凑的派生特征/成本标签包，以及用于核对最终成绩的6,054条运行记录（另保留历史对照）；这些属于训练和验证证据。原始输入仍由数据分支与本地实验档案管理。
 
 在安装 Python 3 与 g++ 的环境中，编译推荐版：
 

@@ -8,6 +8,7 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 POLICIES = {
     'recommended': ROOT / 'MySpillScheduler_final.cpp',
+    'neural': ROOT / 'MySpillScheduler_neural.cpp',
     'scan-fused': ROOT / 'MySpillScheduler_scan_fused.cpp',
     'experimental': ROOT / 'MySpillScheduler_holistic.cpp',
     'cross-feedback': ROOT / 'holistic_20261026' / 'pressure.cpp',

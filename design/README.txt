@@ -26,3 +26,10 @@
 
 本分支仅发布关键项目文件。原始截图、网页缓存、历史实验副本、生成输入、完整日志与预览图保留本地。
 文件列表及字节SHA256记录于project_manifest.json；未改动任何算法源文件。
+神经网络新增候选（2026-10-29）
+  MySpillScheduler_neural.cpp：8专家、32→16→8网络、664参数。
+  python design/tools/run.py --policy neural --input <输入文件>
+  中文说明：topic20_neural_selector_report.pdf。
+  训练、来源、指标、适用边界：neural_selector/README.txt。
+  提供小型特征标签包用于复现训练；不包含原始截图与批量输入。
+  已完成150例验证、378例新测试、8例GitHub回归、6例规模测试与第二轮模型评估。

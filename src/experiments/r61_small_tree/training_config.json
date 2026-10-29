@@ -1,0 +1,234 @@
+{
+  "seed": 20612901,
+  "sample_quotas": [
+    5,
+    5,
+    6
+  ],
+  "horizon_physical_rows": 32,
+  "continuation": "BF101",
+  "candidate_experts": [
+    "BF101",
+    "SF103"
+  ],
+  "feature_names": [
+    "miss",
+    "free_over_memory",
+    "need_over_memory",
+    "deficit_over_memory",
+    "target_size_over_memory",
+    "bf_fit_size_over_memory",
+    "largest_size_over_memory",
+    "bf_fit_probe_phase",
+    "largest_probe_phase",
+    "next_is_bf_fit",
+    "next_is_largest",
+    "next_is_probe",
+    "global_cumulative_miss_ratio",
+    "resident_nonzero_fraction",
+    "write_bandwidth_fraction",
+    "probe_resident_bytes_over_memory"
+  ],
+  "configurations": [
+    {
+      "max_depth": 1,
+      "min_leaf": 8
+    },
+    {
+      "max_depth": 1,
+      "min_leaf": 16
+    },
+    {
+      "max_depth": 2,
+      "min_leaf": 8
+    },
+    {
+      "max_depth": 2,
+      "min_leaf": 16
+    },
+    {
+      "max_depth": 3,
+      "min_leaf": 8
+    },
+    {
+      "max_depth": 3,
+      "min_leaf": 16
+    }
+  ],
+  "selected": {
+    "max_depth": 1,
+    "min_leaf": 8,
+    "macro_case_normalized_regret": 0.16666666233863417
+  },
+  "family_CV": "Leave one whole declared family out; selection by macro per-case normalized regret, ties shallower then larger leaf.",
+  "fitting_objective": "sum raw branch regret; no clipping or class balancing",
+  "rows": 452,
+  "informative_unequal_cost_rows": 17,
+  "frozen_training_inputs": [
+    {
+      "case": "coverage_00.txt",
+      "path": "datasets/cyanneko/train/coverage_00.txt",
+      "sha256": "4c3b213ac77355ac02edf64813b1ccd3dd9afc906909ac180054b573c37b1f9d"
+    },
+    {
+      "case": "coverage_03.txt",
+      "path": "datasets/cyanneko/train/coverage_03.txt",
+      "sha256": "539dd521ebdd22280f29d86404d4b18e6dcf8e34c1c80851da19df064b3a64e3"
+    },
+    {
+      "case": "coverage_05.txt",
+      "path": "datasets/cyanneko/train/coverage_05.txt",
+      "sha256": "ac061d70f9b6c006af25e617ee5a01791c4eaee6a62e4ecfc95a2119fd02764e"
+    },
+    {
+      "case": "coverage_07.txt",
+      "path": "datasets/cyanneko/train/coverage_07.txt",
+      "sha256": "c53e47d53bf76fb3a508a5eadc3572a6996fc167cc6b23523de83c11350a8a27"
+    },
+    {
+      "case": "coverage_09.txt",
+      "path": "datasets/cyanneko/train/coverage_09.txt",
+      "sha256": "d14652ae8e15099d9a8544277cc14d37fc3e107aa094969a1bed9a726413b1bf"
+    },
+    {
+      "case": "coverage_12.txt",
+      "path": "datasets/cyanneko/train/coverage_12.txt",
+      "sha256": "a9dbdef7b4e509fd0242e6c970844b0543bee1fef9e2415925dd6d1fb9a6f01e"
+    },
+    {
+      "case": "coverage_13.txt",
+      "path": "datasets/cyanneko/train/coverage_13.txt",
+      "sha256": "9ee9c19ae3f13f4a4b1a25acced6f6edcfa4fb2331def9bd187f76c69943ed35"
+    },
+    {
+      "case": "coverage_15.txt",
+      "path": "datasets/cyanneko/train/coverage_15.txt",
+      "sha256": "d84c3cd6ec0d9997b4e047dd80581ae3ff6101862b35f07d15b149083c2e487a"
+    },
+    {
+      "case": "r54_cross_operator_0_train.txt",
+      "path": "datasets/cyanneko/train/r54_cross_operator_0_train.txt",
+      "sha256": "9d83351125c36d33171bce9c47909313c2f74bab238a9de7f2f0e78f2c12d76e"
+    },
+    {
+      "case": "r54_cross_operator_1_train.txt",
+      "path": "datasets/cyanneko/train/r54_cross_operator_1_train.txt",
+      "sha256": "8cff38b1cd080f2e9f84e4c9c62d27f5afada8a70f2e4912a9dfbd11f358c6fe"
+    },
+    {
+      "case": "r54_cross_operator_2_train.txt",
+      "path": "datasets/cyanneko/train/r54_cross_operator_2_train.txt",
+      "sha256": "de7ac16f68066d1d41fc5a255f6be21818d3188ec38c0a9edd72c5bab4fee3d2"
+    },
+    {
+      "case": "r54_cross_operator_3_train.txt",
+      "path": "datasets/cyanneko/train/r54_cross_operator_3_train.txt",
+      "sha256": "b655f95cb9f65865818e8d1525067994b3f3b2a252d9e70647dc6cf7eba40432"
+    },
+    {
+      "case": "r54_temporal_0_train.txt",
+      "path": "datasets/cyanneko/train/r54_temporal_0_train.txt",
+      "sha256": "2a2412c34f19941604dbb69ccee00bb11e0372b1febeb35e4857339608e82a0e"
+    },
+    {
+      "case": "r54_temporal_1_train.txt",
+      "path": "datasets/cyanneko/train/r54_temporal_1_train.txt",
+      "sha256": "bf616df9a408bf833fe06f1372f5b2ff015a4fe0650497303fc4e0d7f4710b21"
+    },
+    {
+      "case": "r54_temporal_2_train.txt",
+      "path": "datasets/cyanneko/train/r54_temporal_2_train.txt",
+      "sha256": "365116bf7d8e2c99762e9a7c0cfc54912c0edbcc553da08cc3fa60090e19b53d"
+    },
+    {
+      "case": "r54_temporal_3_train.txt",
+      "path": "datasets/cyanneko/train/r54_temporal_3_train.txt",
+      "sha256": "188b7614ca74b1428ad0584689d95227ad8a424e4af5bf49d3cdb2d03b281b42"
+    },
+    {
+      "case": "r54_combined_0_train.txt",
+      "path": "datasets/cyanneko/train/r54_combined_0_train.txt",
+      "sha256": "59d8f378851d152975a80838614de9058f713a7fd7906aebeb9fac87009d7540"
+    },
+    {
+      "case": "r54_combined_1_train.txt",
+      "path": "datasets/cyanneko/train/r54_combined_1_train.txt",
+      "sha256": "1d98e5b56368705390c518e7b44be38ee8b25ffad88be9bb627fd56d6d124296"
+    },
+    {
+      "case": "r54_combined_2_train.txt",
+      "path": "datasets/cyanneko/train/r54_combined_2_train.txt",
+      "sha256": "c64f23903a953e1425c000f6d7df864062cdf557c0bfa4b7201ac442d06aec20"
+    },
+    {
+      "case": "r54_combined_3_train.txt",
+      "path": "datasets/cyanneko/train/r54_combined_3_train.txt",
+      "sha256": "5d77bdae6e672a78ba8a14a35a5264b07d40439d24f8722aba089caaee5bd76f"
+    },
+    {
+      "case": "r54_control_0_train.txt",
+      "path": "datasets/cyanneko/train/r54_control_0_train.txt",
+      "sha256": "0c7bd267372183e19f0e06b8929764e68d15860f78e019ae146d37be64dd472a"
+    },
+    {
+      "case": "r54_control_1_train.txt",
+      "path": "datasets/cyanneko/train/r54_control_1_train.txt",
+      "sha256": "f45adb8cddad77c8b5066d4e926ffcd042acf8db52a30bc8daf645def5709ab0"
+    },
+    {
+      "case": "r54_control_2_train.txt",
+      "path": "datasets/cyanneko/train/r54_control_2_train.txt",
+      "sha256": "2cfc7c7bec766a72b5ee9714c70e2afcea374fd92983ad158ccdc9ee1bfbbb0e"
+    },
+    {
+      "case": "r54_control_3_train.txt",
+      "path": "datasets/cyanneko/train/r54_control_3_train.txt",
+      "sha256": "312dd3d20c2846e2b893594d93decc5ed5017bdc93a9747a27be1b96743b6792"
+    },
+    {
+      "case": "r58_positive_cycles_0_train.txt",
+      "path": "datasets/cyanneko/train/r58_positive_cycles_0_train.txt",
+      "sha256": "9c598e4cdc3358621d4969f8757eb42c77480299edff11fd4da09afa00b8d002"
+    },
+    {
+      "case": "r58_positive_cycles_1_train.txt",
+      "path": "datasets/cyanneko/train/r58_positive_cycles_1_train.txt",
+      "sha256": "5b6d5c852b02d4b97e48eb658eed968943e46c4e18d446a30ee06f545cb31fc6"
+    },
+    {
+      "case": "r58_low_opportunity_mix_0_train.txt",
+      "path": "datasets/cyanneko/train/r58_low_opportunity_mix_0_train.txt",
+      "sha256": "c76750d5e0d5f8b3095931af9e0be4b4047e024a949d7b9c5dc10a7a1119e44b"
+    },
+    {
+      "case": "r58_low_opportunity_mix_1_train.txt",
+      "path": "datasets/cyanneko/train/r58_low_opportunity_mix_1_train.txt",
+      "sha256": "8f7c797458084fcd8149a78c21ab0e06f03d625125fefe3916203dc8388c0c57"
+    },
+    {
+      "case": "r58_temporal_alignment_mix_0_train.txt",
+      "path": "datasets/cyanneko/train/r58_temporal_alignment_mix_0_train.txt",
+      "sha256": "1acd7937216199355522663cfe1828d96061323a1260bf48bb2836a84c85bd7b"
+    },
+    {
+      "case": "r58_temporal_alignment_mix_1_train.txt",
+      "path": "datasets/cyanneko/train/r58_temporal_alignment_mix_1_train.txt",
+      "sha256": "0389cfb026878b735d178021f09e16dea54138aea1e654cdecd49f8b871a0454"
+    },
+    {
+      "case": "r58_no_op_controls_0_train.txt",
+      "path": "datasets/cyanneko/train/r58_no_op_controls_0_train.txt",
+      "sha256": "04e8f06f9970f38aea074dea662a004856d9afd4f8d13d40c257b2f009b5441a"
+    },
+    {
+      "case": "r58_no_op_controls_1_train.txt",
+      "path": "datasets/cyanneko/train/r58_no_op_controls_1_train.txt",
+      "sha256": "35598a05fe0f371ab1b224c504759179d423f1859bf6892fa31d17f9e937ad44"
+    }
+  ],
+  "source_main_commit": "a2436a157b5212b8a2551c659a70024c6da44f25",
+  "source_dataset_commit": "0310af59eaad7b519c80f33071ed498522d233ba",
+  "offline_label_future_suffix": true,
+  "online_features_do_not_receive_future_or_penalty": true,
+  "sparse_proxy_features_executed": false
+}

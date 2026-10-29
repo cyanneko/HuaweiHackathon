@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "categories": {
+    "validated_negative": "Completed and reviewed under stated data/CV conditions but did not meet promotion criterion or has severe tails; not a universal impossibility or implementation bug.",
+    "implementation_failure": "An identified implementation/interface error; no such error is asserted for the archived R61/R62 methods.",
+    "execution_incomplete": "A specific timeout/failed/uncompleted execution attempt without a complete valid comparison; separate from method-level outcome.",
+    "experimental_not_promoted": "An experimental candidate with recorded evidence and open limitations, not a default/SDK-promoted method."
+  },
+  "methods": [
+    {
+      "method": "R61 state_tree",
+      "status": "validated_negative",
+      "source": "src/experiments/r61_small_tree",
+      "data_version": "0.4.0",
+      "eval_cases": 32,
+      "condition": "whole-family CV tree regret0.166667 vs fixedSF0.1; public0.4 single repeat; not all trees"
+    },
+    {
+      "method": "R62 soft_guard",
+      "status": "validated_negative",
+      "source": "src/experiments/r62_rule_experts",
+      "data_version": "0.4.0",
+      "eval_cases": 32,
+      "cost_worst": 7.444634043368782
+    },
+    {
+      "method": "R62 pair8",
+      "status": "validated_negative",
+      "source": "src/experiments/r62_rule_experts",
+      "data_version": "0.4.0",
+      "eval_cases": 32,
+      "cost_worst": 43.69559005834151
+    },
+    {
+      "method": "R63 ghost64",
+      "status": "experimental_not_promoted",
+      "source": "src/experiments/r63_ghost_refault64",
+      "data_version": "0.5.0",
+      "eval_cases": 40,
+      "cost_worst": 7.4583621635396256
+    }
+  ],
+  "execution_attempts": [
+    {
+      "method": "R61 state_tree",
+      "attempt": "initial8-case heldout run",
+      "status": "execution_incomplete",
+      "summary": "src/experiments/r61_small_tree/initial_holdout_attempt.json",
+      "superseded_by_completed_retry": true
+    }
+  ],
+  "implementation_failure_items": [],
+  "all_archived_candidates_not_default_or_sdk_registered": true,
+  "new_scores_training_or_solver_runs": 0
+}

@@ -1,0 +1,42 @@
+{
+  "status": "validated_negative",
+  "methods": {
+    "soft_guard": {
+      "status": "validated_negative",
+      "data_version": "0.4.0",
+      "cases": 32,
+      "repeat": 1,
+      "cost_mean": 1.1914113019760806,
+      "cost_worst": 7.444634043368782,
+      "promoted": false
+    },
+    "pair8": {
+      "status": "validated_negative",
+      "data_version": "0.4.0",
+      "cases": 32,
+      "repeat": 1,
+      "cost_mean": 2.4774436950169862,
+      "cost_worst": 43.69559005834151,
+      "promoted": false
+    }
+  },
+  "original_header_sha256": {
+    "bounded_pair.hpp": "d1f0496710e635bfb9af01e56fc090489b3e4155e74b01d029a5aee8c31d3dc4",
+    "r53_best_fit_fast.original.hpp": "c080764785e049e35903020204d84bbad17150fec6b0fb7c33d212d12348965c",
+    "rule_core.hpp": "0da5932fd31947fdeae6daf744bc0dfd7acc157e41db9c4f665a1bf9eaff519b",
+    "soft_next.hpp": "bd23dfbf53876996843c8d9452a2e10208f31f03de438eb16b58db0322a220e9"
+  },
+  "snapshot_sha256": {
+    "pair8_snapshot.cpp": "b5238d9ccc69d5c3d262ff274261f3d4f28871c481319a1121ec7d4f5a280890",
+    "soft_guard_snapshot.cpp": "5e3f31c9e2be357689e6fa676e1f848708f538c69644036eb6b843e6663765c5"
+  },
+  "fixed_formula": "size/W + is_PROBE*size/R + is_next_PROBE_target*size/R; pair8 checks pairs among at most8 insufficient largest candidates, otherwise fixed BF fallback",
+  "formula_is_heuristic_not_exact_future_cost": true,
+  "snapshot_body_static_match": true,
+  "snapshots_recompiled": false,
+  "SDK_registered": false,
+  "new_expert_id": null,
+  "official_baseline_replaced": false,
+  "report_path": "src/reports/r62_rule_experts_20261029",
+  "review_sha256": "004510cb9ef959326188ef3947e976b10dc0459a2488aee18d6071399da5c113"
+}

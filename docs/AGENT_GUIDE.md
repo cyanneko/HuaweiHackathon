@@ -1,6 +1,6 @@
 # 公共仓库 Agent 上手指南
 
-先读根目录 [AGENTS.md](../AGENTS.md)。本指南依据仓库实际代码、清单及 **2026-10-26 协议**；2026-10-28 重新核对官方公开接口，响应与此前保存件相同，来源与 SHA 见 [专家接口 v1](EXPERT_INTERFACE_V1.md#1-目的和依据)。数据发布状态更新至 **2026-10-29**；历史方法和实验保留各自版本，后续以 datasets 分支的 manifest、VERSION、当前评测器和各方法来源记录为准。
+先读根目录 [AGENTS.md](../AGENTS.md)。本指南依据仓库实际代码、清单及 **2026-10-26 协议**；2026-10-28 重新核对官方公开接口，响应与此前保存件相同，来源与 SHA 见 [专家接口 v1](EXPERT_INTERFACE_V1.md#1-目的和依据)。数据发布状态更新至 **2026-10-30**；历史方法和实验保留各自版本，后续以 datasets 分支的 manifest、VERSION、当前评测器和各方法来源记录为准。
 
 ## 分支与事实来源
 
@@ -91,6 +91,8 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 - 容量和累计字节使用64位。按协议约束返回动作，不把参考代码静默忽略无效动作等宽松行为当成许可。
 
 ## 数据与新增数据的流程
+
+2026-10-30核对的[固定数据提交 e119c23](https://github.com/cyanneko/HuaweiHackathon/tree/e119c2326e198922243306eac062785420ed8156/datasets)共有840训练例、785评测例：Vanius0525 0.1.0为192/209，cyanneko 0.6.0为48/48，liunianwww 0.1.0为600/528。此前矩阵冻结的[提交 e4fd35e](https://github.com/cyanneko/HuaweiHackathon/tree/e4fd35e0bb2839c5b001020853fb367a73045d67/datasets)只有后两人的576评测例；两人的eval字节未变，不将新增209例插入正在执行的旧矩阵。版本、指纹与来源边界见[更新清单](GITHUB_UPDATES_20261030.md)。
 
 当前cyanneko公共数据为 **0.6.0、train/eval各48、96txt＋96meta**。R48/R54/R58旧64对不改，新R61 8/8按Root recipe971ceca冻结生成；原留出在模型freeze后开放，现属已观察开发数据，不能称官方盲测。[新增生成器](../generators/r61_mix/README.md)和[数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/manifest.json)记录来源。
 
@@ -192,12 +194,12 @@ R63已完成固定0.5全部40例一次配对评测，含80次正式运行；36�
 
 不强调总分50封顶不意味着删掉原逐例0至10分函数。报告另给`mean(max(0,min(10,10*(1-C/Cnaive))))`、未施加总封顶的sum与n；它只作本地规则诊断，不预测未知官方分，不能跨不同n/分布比较总和或忽视逐例零截断丢失的退化幅度。
 
-最新MXV1增量按固定recipe先冻结再生成，8/8加到原80对，cyanneko eval0.6.0/48；另一个非空成员liunianwww0.1.0/528，当前总576eval、约87.49MB/4,384,765操作。自动发现全部实际成员；如全量超单窗预算，分有界批次记录实际完成/未完成，不能筛成员而称完整。0.6新集合尚无完整成绩，旧R63只绑定其冻结0.5/40集合。新热点反转train压力1.0为容量无压力对照，不改样本。
+MXV1发布时的矩阵冻结旧快照包含cyanneko eval0.6.0/48与liunianwww0.1.0/528，共576eval、约87.49MB/4,384,765操作。2026-10-30核对的新数据快照另有Vanius0525 0.1.0/209，共785eval、137,224,870输入字节/8,086,312操作；新旧集合分别保留身份，不能拼接为同一轮成绩。自动发现传入快照的全部实际非空成员，无需等齐三人；全量超单窗预算时分有界批次记录完成/未完成，不能筛成员而称完整。旧R63只绑定其冻结0.5/40集合。新热点反转train压力1.0为容量无压力对照，不改样本。
 
 [负结果归档](EXPERIMENT_STATUS_20261029.md)和[Ghost64接口差异](GHOST64_INTERFACE_REVIEW_20261029.md)分别处理状态分类与未来适配。本轮只有数据生成/审计和静态归档，没有训练、编译或solver；未执行的复现入口不能写作实测通过。
 
 ## 当前最终评分与只读重算
 
-`score_dataset(m)=mean_repeat(sum_case(original single_score))`，集内sum不施加50总封顶；`score_final=mean_nonempty_members(score_dataset(m))`。当前cyanneko0.6/48与liunianwww0.1/528的成员系数各1/2，空成员列出且不占权重。每集内部仍累加原贡献，不除以各自案例数。单例均分/全576等权均分仅辅助、不用于主排名；真实成本、D、坏例和家族稳定性继续完整展示。原normalize的逐例边界和封顶raw保留，新增只读摘要不调用候选/基线，见[评分定义](../evaluation/MEMBER_SCORING.md)。
+`score_dataset(m)=mean_repeat(sum_case(original single_score))`，集内sum不施加50总封顶；`score_final=mean_nonempty_members(score_dataset(m))`。785例完整三成员快照的系数各1/3；576例冻结旧矩阵中cyanneko和liunianwww仍各1/2。空成员列出且不占权重。每集内部仍累加原贡献，不除以各自案例数。单例均分/全案例等权均分仅辅助、不用于主排名；真实成本、D、坏例和家族稳定性继续完整展示。原normalize的逐例边界和封顶raw保留，新增只读摘要不调用候选/基线，见[评分定义](../evaluation/MEMBER_SCORING.md)。
 
 全量数据/重复不齐或某非空成员失败时不计算有效完整主排名，不能丢失败成员再平均。显式子集标partial。既有solver记录只重算数学摘要，不为改汇总重跑。

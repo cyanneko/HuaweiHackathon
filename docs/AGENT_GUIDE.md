@@ -92,7 +92,7 @@ Windows 使用能在 Windows 启动的程序；WSL 建议在同一个 WSL 环境
 
 ## 数据与新增数据的流程
 
-当前公共数据为 **0.5.0、train/eval各40、80txt＋80meta**。R48/R54/R58旧64对不改，新R61 8/8按Root recipe971ceca冻结生成；原留出在模型freeze后开放，现属已观察开发数据，不能称官方盲测。[新增生成器](../generators/r61_mix/README.md)和[数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/manifest.json)记录来源。
+当前cyanneko公共数据为 **0.6.0、train/eval各48、96txt＋96meta**。R48/R54/R58旧64对不改，新R61 8/8按Root recipe971ceca冻结生成；原留出在模型freeze后开放，现属已观察开发数据，不能称官方盲测。[新增生成器](../generators/r61_mix/README.md)和[数据清单](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/manifest.json)记录来源。
 
 [R60/R61报告](PRECONTEST_RESULTS_20261029.md)覆盖冻结0.4全32例与独立8例，不是0.5全40重评；R63已另行完整评测固定0.5全部40例，见[当前进展](NON_NEURAL_PROGRESS_20261029.md)；仍自动发现全部实际非空成员集合，官方Naive基线不变。
 
@@ -191,3 +191,7 @@ schema 3的评分顺序：
 R63已完成固定0.5全部40例一次配对评测，含80次正式运行；36次开发运行另记。实验源码快照未接SDK、无新专家ID、不改默认，结果和限制见[当前进展](NON_NEURAL_PROGRESS_20261029.md)。本轮以发布收口，不据文档中的历史候选计划自动启动新实验。
 
 不强调总分50封顶不意味着删掉原逐例0至10分函数。报告另给`mean(max(0,min(10,10*(1-C/Cnaive))))`、未施加总封顶的sum与n；它只作本地规则诊断，不预测未知官方分，不能跨不同n/分布比较总和或忽视逐例零截断丢失的退化幅度。
+
+最新MXV1增量按固定recipe先冻结再生成，8/8加到原80对，cyanneko eval0.6.0/48；另一个非空成员liunianwww0.1.0/528，当前总576eval、约87.49MB/4,384,765操作。自动发现全部实际成员；如全量超单窗预算，分有界批次记录实际完成/未完成，不能筛成员而称完整。0.6新集合尚无完整成绩，旧R63只绑定其冻结0.5/40集合。新热点反转train压力1.0为容量无压力对照，不改样本。
+
+[负结果归档](EXPERIMENT_STATUS_20261029.md)和[Ghost64接口差异](GHOST64_INTERFACE_REVIEW_20261029.md)分别处理状态分类与未来适配。本轮只有数据生成/审计和静态归档，没有训练、编译或solver；未执行的复现入口不能写作实测通过。

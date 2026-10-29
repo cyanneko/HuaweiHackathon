@@ -15,10 +15,17 @@ datasets/cyanneko/train/r54_*.txt -text
 datasets/cyanneko/train/r54_*.meta.json -text
 datasets/cyanneko/eval/r54_*.txt -text
 datasets/cyanneko/eval/r54_*.meta.json -text
+# Frozen R49 submissions: preserve original bytes in Git and on checkout.
+src/methods/r49/*.cpp -text
+# Frozen R53 candidate: preserve original source bytes.
+src/methods/r53/*.cpp -text
 expert_runtime/** text eol=lf
 src/experts/** text eol=lf
 # R55 frozen reference used only for adapter equivalence tests.
 src/experts/next_guard_fast/reference.cpp -text
+src/experts/single_fit_phase/reference.cpp -text
+# Published numeric packages must retain hashes on Windows checkouts.
+src/reports/** text eol=lf
 
 # Frozen R58 inputs and original metadata: preserve source bytes.
 datasets/cyanneko/train/r58_*.txt -text
@@ -34,3 +41,8 @@ datasets/cyanneko/eval/r61root_*.meta.json -text
 
 # Freeze liunianwww input and metadata bytes.
 datasets/liunianwww/** -text
+# Frozen MXV1 input and original metadata bytes.
+datasets/cyanneko/train/mxv1_*.txt -text
+datasets/cyanneko/train/mxv1_*.meta.json -text
+datasets/cyanneko/eval/mxv1_*.txt -text
+datasets/cyanneko/eval/mxv1_*.meta.json -text

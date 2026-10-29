@@ -1,0 +1,1907 @@
+{
+  "schema_version": 1,
+  "name": "mixed-extremes-v1",
+  "case_prefix": "mxv1",
+  "target_new_eval_version": "0.6.0",
+  "frozen_before_input_generation": true,
+  "result_independent": true,
+  "no_solver_model_or_score_input": true,
+  "train": 8,
+  "eval": 8,
+  "budgets": {
+    "generation_plus_audit_seconds": 60,
+    "total_new_input_and_metadata_bytes": 100000000,
+    "max_single_input_bytes": 20000000,
+    "projected_probe_operations": 1179648,
+    "max_probe_operations": 262144
+  },
+  "common_rules": {
+    "randomness": "One random.Random(seed) per case, shuffle physical pid permutation for each operator in ascending op order; no rejection reseeding.",
+    "build": "Ascending operator, then ascending physical pid, INSERT chunks <=1048576, then exactly one SWITCH. For prelude cases emit specified PROBEs to just-switched operator before building the next.",
+    "role_mapping": "All logical pid references pass through that operator permutation; byte layouts are permuted the same way.",
+    "clocks": "Global probe ordinal and per-op probe ordinal are absolute, include build-overlap preludes, never reset at a phase/block boundary.",
+    "key": "pid + P*((seed + 104729*absolute_operation_ordinal) % (((1000000000-(P-1))//P)+1)); canonical semantic signature reduces key modulo P.",
+    "main_schedule": "Except special reuse/next-bait/boundary families, operator is main_operator_rate_cycle[absolute global probe ordinal % cycle length].",
+    "hot_cold": "Within each local period first hot_hits_per_period entries cycle listed hot ids; remaining entries cycle cold ids. Both use absolute local probe ordinal modulo eligible-list size.",
+    "reuse_anchor": "Anchor at global ordinal0, then at cumulative frozen gap-cycle distances; other requests are fillers. Truncated final gap is retained without resampling.",
+    "phase": "phase=(global ordinal + operator phase offset)//global_phase_length % 2; select A for0/B for1, swap if reverse_A_B_start.",
+    "keys_are_not_families": "Raw, operation and modulo-P stream hashes must all be unique and differ from all80 existing inputs; a collision fails, never chooses a new seed.",
+    "headers": "K operator declarations in ascending op_id; counts computed from emitted stream, N counts INSERT+SWITCH+PROBE.",
+    "metadata": "O(KP) counts/layout plus fixed parameters, measured bytes/sha/audit; no per-operation positions or copied full stream.",
+    "timing": "Monotonic generation deadline60s includes construction/write and independent public audit of all16. Retain partial outputs on failure; no automatic solver or reseeding."
+  },
+  "use": "Synthetic development/regression; train/eval share declared base families with distinct seeds/parameters/compositions; not unseen families, official distribution, or blind-test guarantee.",
+  "cases": [
+    {
+      "case_id": "mxv1_00_hot_stream_train",
+      "split": "train",
+      "family": "hot_stream",
+      "seed": 2064101000,
+      "K": 2,
+      "P": 16,
+      "M": 67108864,
+      "W": 100,
+      "R": 1000,
+      "miss_penalty": 31,
+      "B": 31,
+      "logical_partition_bytes": [
+        [
+          4194304,
+          4194304,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          25165824
+        ],
+        [
+          4194304,
+          4194304,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          25165824
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        0,
+        1
+      ],
+      "total_probe_count": 32768,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "hot_logical_ids": [
+          0,
+          1
+        ],
+        "hot_hits_per_period": 7,
+        "period": 8,
+        "cold_cycle": "all logical ids not in hot set; absolute local cold index"
+      }
+    },
+    {
+      "case_id": "mxv1_01_heterogeneous_rates_sizes_train",
+      "split": "train",
+      "family": "heterogeneous_rates_sizes",
+      "seed": 2064101001,
+      "K": 3,
+      "P": 16,
+      "M": 67108864,
+      "W": 3,
+      "R": 10000,
+      "miss_penalty": 997,
+      "B": 1,
+      "logical_partition_bytes": [
+        [
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728
+        ],
+        [
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "total_probe_count": 32768,
+      "probe_prelude_after_each_switch": 64,
+      "parameters": {
+        "hot_logical_ids": [
+          0,
+          1
+        ],
+        "hot_hits_per_period": 4,
+        "period": 5,
+        "scheduling": "weighted global cycle for main stream; build overlap prelude targets just-switched operator"
+      }
+    },
+    {
+      "case_id": "mxv1_02_reuse_cross64_train",
+      "split": "train",
+      "family": "reuse_cross64",
+      "seed": 2064101002,
+      "K": 2,
+      "P": 16,
+      "M": 67108864,
+      "W": 10000,
+      "R": 3,
+      "miss_penalty": 1,
+      "B": 64,
+      "logical_partition_bytes": [
+        [
+          16777216,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152
+        ],
+        [
+          8388608,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        0,
+        1
+      ],
+      "total_probe_count": 131072,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "anchor_operator": 0,
+        "anchor_logical_pid": 0,
+        "global_probe_interarrival_cycle": [
+          31,
+          63,
+          64,
+          65,
+          129
+        ],
+        "filler": "weighted operator cycle; each local filler walks logical pids1..P-1, excluding anchor logical0 for every operator",
+        "distance_definition": "difference between global PROBE ordinal numbers of consecutive anchor requests; all intervening operators count"
+      }
+    },
+    {
+      "case_id": "mxv1_03_hotset_phase_reverse_train",
+      "split": "train",
+      "family": "hotset_phase_reverse",
+      "seed": 2064101003,
+      "K": 2,
+      "P": 16,
+      "M": 67108864,
+      "W": 31,
+      "R": 997,
+      "miss_penalty": 1000,
+      "B": 997,
+      "logical_partition_bytes": [
+        [
+          5242880,
+          5242880,
+          5242880,
+          5242880,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          5242880,
+          5242880,
+          5242880,
+          5242880,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        0,
+        1
+      ],
+      "total_probe_count": 32768,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "hot_A": [
+          0,
+          1
+        ],
+        "hot_B": [
+          2,
+          3
+        ],
+        "global_phase_length": 2048,
+        "phase_offset_per_operator": [
+          0,
+          0
+        ],
+        "reverse_A_B_start": false,
+        "hot_hits_per_period": 4,
+        "period": 5,
+        "cold": "cycle logical ids outside the currently active hot set; absolute local index retained across phase changes"
+      }
+    },
+    {
+      "case_id": "mxv1_04_size_reuse_correlation_reverse_train",
+      "split": "train",
+      "family": "size_reuse_correlation_reverse",
+      "seed": 2064101004,
+      "K": 2,
+      "P": 16,
+      "M": 67108864,
+      "W": 1000,
+      "R": 31,
+      "miss_penalty": 7,
+      "B": 127,
+      "logical_partition_bytes": [
+        [
+          12582912,
+          12582912,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          12582912,
+          12582912,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        0,
+        1
+      ],
+      "total_probe_count": 32768,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "hot_A": [
+          0,
+          1
+        ],
+        "hot_B": [
+          2,
+          3
+        ],
+        "global_phase_length": 2048,
+        "phase_offset_per_operator": [
+          0,
+          0
+        ],
+        "reverse_A_B_start": false,
+        "hot_hits_per_period": 4,
+        "period": 5,
+        "cold": "cycle logical ids outside the currently active hot set; absolute local index retained across phase changes",
+        "explicit_size_heat_control": {
+          "large_group": "hot_A",
+          "small_group": "hot_B",
+          "train": "All operators start large-hot/small-cold, then swap each2048 global probes repeatedly.",
+          "eval": "Operator0 starts large-cold/small-hot then flips after4096; other operator phase offsets create simultaneous opposite size/heat correlation.",
+          "claim": "Predetermined probe frequency/size construction; not measured scheduler gain. Does not uniformly reward largest-partition candidates."
+        }
+      }
+    },
+    {
+      "case_id": "mxv1_05_next_bait_anticorrelation_train",
+      "split": "train",
+      "family": "next_bait_anticorrelation",
+      "seed": 2064101005,
+      "K": 2,
+      "P": 16,
+      "M": 67108864,
+      "W": 997,
+      "R": 100,
+      "miss_penalty": 500,
+      "B": 65,
+      "logical_partition_bytes": [
+        [
+          3145728,
+          3145728,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          29360128
+        ],
+        [
+          3145728,
+          3145728,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          29360128
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        0,
+        1
+      ],
+      "total_probe_count": 32768,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "global_block_length": 97,
+        "bait_operator_order": [
+          0,
+          1
+        ],
+        "bait_logical_pid": 15,
+        "hot_logical_ids": [
+          0,
+          1
+        ],
+        "rest_of_block": "weighted operator cycle; only hot ids, no extra bait",
+        "interpretation": "Fixed immediate next-bait versus frequent-small-reuse stress; negative predictive value is a hypothesis, not a measured correlation or strategy result"
+      }
+    },
+    {
+      "case_id": "mxv1_06_memory_one_partition_boundary_train",
+      "split": "train",
+      "family": "memory_one_partition_boundary",
+      "seed": 2064101006,
+      "K": 2,
+      "P": 18,
+      "M": 67108864,
+      "W": 1,
+      "R": 10000,
+      "miss_penalty": 100,
+      "B": 10000,
+      "logical_partition_bytes": [
+        [
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          1048576
+        ],
+        [
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        0,
+        1
+      ],
+      "total_probe_count": 65536,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "active_interleaved_slots": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            1,
+            10
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            0,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            0,
+            13
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            1,
+            14
+          ],
+          [
+            0,
+            15
+          ],
+          [
+            1,
+            15
+          ]
+        ],
+        "extra_slot": [
+          0,
+          16
+        ],
+        "active_bytes_without_extra": 67108864,
+        "extra_partition_bytes": 2097152,
+        "global_phase_length": 2048,
+        "first_phase_includes_extra": false,
+        "sequence": "absolute global probe index modulo current active slot count; alternate 32-slot exactly-M working set and 33-slot M+one-partition working set"
+      }
+    },
+    {
+      "case_id": "mxv1_07_fully_resident_control_train",
+      "split": "train",
+      "family": "fully_resident_control",
+      "seed": 2064101007,
+      "K": 2,
+      "P": 16,
+      "M": 67108864,
+      "W": 100,
+      "R": 100,
+      "miss_penalty": 1,
+      "B": 64,
+      "logical_partition_bytes": [
+        [
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        0,
+        1
+      ],
+      "total_probe_count": 32768,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "hot_logical_ids": [
+          0,
+          1
+        ],
+        "hot_hits_per_period": 3,
+        "period": 4,
+        "full_physical_build_fits": true,
+        "expected_io_claim": "Capacity control only, not a measured result"
+      }
+    },
+    {
+      "case_id": "mxv1_00_hot_stream_eval",
+      "split": "eval",
+      "family": "hot_stream",
+      "seed": 2064109000,
+      "K": 3,
+      "P": 24,
+      "M": 100663296,
+      "W": 1,
+      "R": 10000,
+      "miss_penalty": 1000,
+      "B": 1,
+      "logical_partition_bytes": [
+        [
+          3145728,
+          3145728,
+          3145728,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          31457280
+        ],
+        [
+          3145728,
+          3145728,
+          3145728,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          31457280
+        ],
+        [
+          3145728,
+          3145728,
+          3145728,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          31457280
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "total_probe_count": 65536,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "hot_logical_ids": [
+          0,
+          1,
+          2
+        ],
+        "hot_hits_per_period": 5,
+        "period": 7,
+        "cold_cycle": "all logical ids not in hot set; absolute local cold index"
+      }
+    },
+    {
+      "case_id": "mxv1_01_heterogeneous_rates_sizes_eval",
+      "split": "eval",
+      "family": "heterogeneous_rates_sizes",
+      "seed": 2064109001,
+      "K": 4,
+      "P": 24,
+      "M": 134217728,
+      "W": 10000,
+      "R": 31,
+      "miss_penalty": 1,
+      "B": 997,
+      "logical_partition_bytes": [
+        [
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304
+        ],
+        [
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864,
+          1572864
+        ],
+        [
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288
+        ],
+        [
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144,
+          262144
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "total_probe_count": 65536,
+      "probe_prelude_after_each_switch": 256,
+      "parameters": {
+        "hot_logical_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "hot_hits_per_period": 4,
+        "period": 5,
+        "scheduling": "weighted global cycle for main stream; build overlap prelude targets just-switched operator"
+      }
+    },
+    {
+      "case_id": "mxv1_02_reuse_cross64_eval",
+      "split": "eval",
+      "family": "reuse_cross64",
+      "seed": 2064109002,
+      "K": 3,
+      "P": 24,
+      "M": 100663296,
+      "W": 31,
+      "R": 1,
+      "miss_penalty": 100,
+      "B": 65,
+      "logical_partition_bytes": [
+        [
+          25165824,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152,
+          2097152
+        ],
+        [
+          12582912,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          16777216,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "total_probe_count": 262144,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "anchor_operator": 0,
+        "anchor_logical_pid": 0,
+        "global_probe_interarrival_cycle": [
+          47,
+          62,
+          66,
+          127,
+          257
+        ],
+        "filler": "weighted operator cycle; each local filler walks logical pids1..P-1, excluding anchor logical0 for every operator",
+        "distance_definition": "difference between global PROBE ordinal numbers of consecutive anchor requests; all intervening operators count"
+      }
+    },
+    {
+      "case_id": "mxv1_03_hotset_phase_reverse_eval",
+      "split": "eval",
+      "family": "hotset_phase_reverse",
+      "seed": 2064109003,
+      "K": 3,
+      "P": 24,
+      "M": 100663296,
+      "W": 1000,
+      "R": 100,
+      "miss_penalty": 7,
+      "B": 31,
+      "logical_partition_bytes": [
+        [
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          4194304,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "total_probe_count": 65536,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "hot_A": [
+          0,
+          1,
+          2
+        ],
+        "hot_B": [
+          3,
+          4,
+          5
+        ],
+        "global_phase_length": 4096,
+        "phase_offset_per_operator": [
+          0,
+          2048,
+          4096
+        ],
+        "reverse_A_B_start": false,
+        "hot_hits_per_period": 7,
+        "period": 9,
+        "cold": "cycle logical ids outside the currently active hot set; absolute local index retained across phase changes"
+      }
+    },
+    {
+      "case_id": "mxv1_04_size_reuse_correlation_reverse_eval",
+      "split": "eval",
+      "family": "size_reuse_correlation_reverse",
+      "seed": 2064109004,
+      "K": 3,
+      "P": 24,
+      "M": 100663296,
+      "W": 100,
+      "R": 3,
+      "miss_penalty": 500,
+      "B": 10000,
+      "logical_partition_bytes": [
+        [
+          10485760,
+          10485760,
+          10485760,
+          524288,
+          524288,
+          524288,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          10485760,
+          10485760,
+          10485760,
+          524288,
+          524288,
+          524288,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          10485760,
+          10485760,
+          10485760,
+          524288,
+          524288,
+          524288,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "total_probe_count": 65536,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "hot_A": [
+          0,
+          1,
+          2
+        ],
+        "hot_B": [
+          3,
+          4,
+          5
+        ],
+        "global_phase_length": 4096,
+        "phase_offset_per_operator": [
+          0,
+          2048,
+          4096
+        ],
+        "reverse_A_B_start": true,
+        "hot_hits_per_period": 7,
+        "period": 9,
+        "cold": "cycle logical ids outside the currently active hot set; absolute local index retained across phase changes",
+        "explicit_size_heat_control": {
+          "large_group": "hot_A",
+          "small_group": "hot_B",
+          "train": "All operators start large-hot/small-cold, then swap each2048 global probes repeatedly.",
+          "eval": "Operator0 starts large-cold/small-hot then flips after4096; other operator phase offsets create simultaneous opposite size/heat correlation.",
+          "claim": "Predetermined probe frequency/size construction; not measured scheduler gain. Does not uniformly reward largest-partition candidates."
+        }
+      }
+    },
+    {
+      "case_id": "mxv1_05_next_bait_anticorrelation_eval",
+      "split": "eval",
+      "family": "next_bait_anticorrelation",
+      "seed": 2064109005,
+      "K": 3,
+      "P": 24,
+      "M": 100663296,
+      "W": 3,
+      "R": 997,
+      "miss_penalty": 31,
+      "B": 127,
+      "logical_partition_bytes": [
+        [
+          2097152,
+          2097152,
+          2097152,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          37748736
+        ],
+        [
+          2097152,
+          2097152,
+          2097152,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          37748736
+        ],
+        [
+          2097152,
+          2097152,
+          2097152,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          37748736
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "total_probe_count": 65536,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "global_block_length": 193,
+        "bait_operator_order": [
+          1,
+          2,
+          0
+        ],
+        "bait_logical_pid": 23,
+        "hot_logical_ids": [
+          0,
+          1,
+          2
+        ],
+        "rest_of_block": "weighted operator cycle; only hot ids, no extra bait",
+        "interpretation": "Fixed immediate next-bait versus frequent-small-reuse stress; negative predictive value is a hypothesis, not a measured correlation or strategy result"
+      }
+    },
+    {
+      "case_id": "mxv1_06_memory_one_partition_boundary_eval",
+      "split": "eval",
+      "family": "memory_one_partition_boundary",
+      "seed": 2064109006,
+      "K": 3,
+      "P": 20,
+      "M": 100663296,
+      "W": 997,
+      "R": 1000,
+      "miss_penalty": 997,
+      "B": 64,
+      "logical_partition_bytes": [
+        [
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ],
+        [
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          3145728,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576,
+          1048576
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "total_probe_count": 131072,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "active_interleaved_slots": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            1,
+            10
+          ]
+        ],
+        "extra_slot": [
+          2,
+          10
+        ],
+        "active_bytes_without_extra": 100663296,
+        "extra_partition_bytes": 3145728,
+        "global_phase_length": 4096,
+        "first_phase_includes_extra": true,
+        "sequence": "absolute global probe index modulo current active slot count; alternate 32-slot exactly-M working set and 33-slot M+one-partition working set"
+      }
+    },
+    {
+      "case_id": "mxv1_07_fully_resident_control_eval",
+      "split": "eval",
+      "family": "fully_resident_control",
+      "seed": 2064109007,
+      "K": 4,
+      "P": 24,
+      "M": 100663296,
+      "W": 10000,
+      "R": 10000,
+      "miss_penalty": 1,
+      "B": 257,
+      "logical_partition_bytes": [
+        [
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288
+        ],
+        [
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288
+        ],
+        [
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288
+        ],
+        [
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288,
+          524288
+        ]
+      ],
+      "main_operator_rate_cycle": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3,
+        3
+      ],
+      "total_probe_count": 65536,
+      "probe_prelude_after_each_switch": 0,
+      "parameters": {
+        "hot_logical_ids": [
+          0,
+          1,
+          2
+        ],
+        "hot_hits_per_period": 3,
+        "period": 4,
+        "full_physical_build_fits": true,
+        "expected_io_claim": "Capacity control only, not a measured result"
+      }
+    }
+  ]
+}

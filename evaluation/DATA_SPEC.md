@@ -65,3 +65,5 @@ Total_Decision_Time 为执行框架测量的三个调度回调累计耗时，单
 schema_version=3 的归一化评分以每个成员的有 VERSION 的 eval 为一集：先每案例归一化，再每集每重复求和封顶50，再取重复均值；最终对所有参与集的分数等权平均。报告保留逐例分、逐集分及 normalization.average_score，原始成本保留在独立 aggregate 字段。无官方基线、旧协议或任何非空集失败时，不返回有效归一化均分。
 
 数据校验通过只说明满足脚本检查项，不保证数据代表性、训练评测无泄漏或新版官方引擎行为一致。
+
+当前报告主汇总单列未封顶dataset sum：每成员`mean_repeat(sum_case(original single_score))`，再对全部实际非空成员等权平均。空成员不占权重且列出，失败非空成员不静默排除；单例平均与全576均分只作辅助。原schema3封顶raw/逐例规则和evaluate.py不变。[只读重算与定义](MEMBER_SCORING.md)保证已有测量无需重跑。

@@ -18,6 +18,7 @@
 
 本分支的项目代码与研究文档位于 `design/`：
 
+- 纯算法＋在线预测融合实验：[设计与实测比较](design/pure_algorithm_goal50_20261030/FUSION_README.txt)，单文件 [MySpillScheduler_fusion.cpp](design/pure_algorithm_goal50_20261030/MySpillScheduler_fusion.cpp)。完整 50 例 × 3：融合 22.7311，同批近似循环纯算法 22.7322、p3 22.7324；未见净提升，保留为独立候选。入口 `python design/pure_algorithm_goal50_20261030/run_fusion.py`。
 - 新增近似循环纯算法：[源码与运行说明](design/pure_algorithm_goal50_20261030/README.txt)，单文件 [MySpillScheduler_near_cycle.cpp](design/pure_algorithm_goal50_20261030/MySpillScheduler_near_cycle.cpp)。20 组独立噪声诊断完整成本几何平均下降 32.9%；原 50 组测试为 22.7316 分，目标 50 尚未达到。独立入口 `python design/pure_algorithm_goal50_20261030/run_near_cycle.py`。
 - 当前推荐提交：[MySpillScheduler_final.cpp](design/MySpillScheduler_final.cpp)。单文件 C++14，定义 `MySpillScheduler`，无 `main`，接入官方框架使用。
 - 神经网络候选：[MySpillScheduler_neural.cpp](design/MySpillScheduler_neural.cpp)。8种专家由32→16→8网络动态选择，664参数；使用 `--policy neural`。训练与结果见 [neural_selector/README.txt](design/neural_selector/README.txt)，中文说明见 [神经网络选择器报告](design/topic20_neural_selector_report.pdf)。最终验证中，相对旧版Score几何均值：调参集0.952349、新生成测试集0.975361、GitHub回归1.056779、规模诊断1.012914；旧版继续默认。

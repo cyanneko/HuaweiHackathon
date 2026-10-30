@@ -1,0 +1,441 @@
+{
+  "status": "complete",
+  "cases_per_policy": 12,
+  "policies": {
+    "n6": {
+      "scheduler_sha256": "9dc2f7d28191d1ea3042a05d0801b5a3cf89db2b7458ed8f8c7f437a748eeb5d",
+      "trace_driver_sha256": "1e41f7a852368d76b0ad80c1d57a258ba26f08b3631c68846a14038d67c8235e",
+      "binary_sha256": "1571db6aea28c1aedb157f984b6ea68d483bacc0e98f2df11ed949dba391edc2",
+      "trace_sha256": "0eeb9e6fcbb4887ea5d3215d0fe4baf0fa402cd1457373b078819a2aadf285ff"
+    },
+    "pred": {
+      "scheduler_sha256": "c47359200c4e22038022c59f0b4334226bdebc5065aad6546737925e95fe9c1a",
+      "trace_driver_sha256": "169061511a41a23ee225c2a05c49af2d257d546ce993dd29442f8949941c527c",
+      "binary_sha256": "f525db761235004cd2800356b35c2319e67e696f9891138adb0607c26bf2cf32",
+      "trace_sha256": "b74c226e10611aa64c4ae57cd944f6d82dac60431885d8b28f63ad4904027bda"
+    }
+  },
+  "predictors": [
+    "past miss frequency + same cache conditioning",
+    "first-order miss Markov + same conditioning",
+    "second-order miss context + backoff + same conditioning"
+  ],
+  "evaluation": "At each real miss: score previous frozen distribution, then learn; predict after service using only that moment's resident state. First 32 misses warmup.",
+  "no_policy_actions_changed": true,
+  "not_an_sdk_score_experiment": true,
+  "scope": "Small prequential diagnostic only; policy-induced miss streams, not future observations or proof of scheduling gains. No primary eval used.",
+  "rows": {
+    "n6": [
+      {
+        "sha256": "01b7560d2dc0c1c8b19d88eff27de9925ba80626f5e76d2a6106dfb57b98c019",
+        "family": "empty_partition_probe",
+        "suite": "fit",
+        "scored_miss_events": 6796,
+        "probe_gaps_between_misses": 3531,
+        "top1": [
+          0.2192466156562684,
+          0.21718658034137728,
+          0.21336080047086523
+        ],
+        "mean_log_loss": [
+          1.6323260992449644,
+          1.628004630969676,
+          1.6477385876404307
+        ]
+      },
+      {
+        "sha256": "0ebe00175a812c87e3086e565f8fbd455ec45e9cbcbac36192e0bc24a254790f",
+        "family": "one_byte_over",
+        "suite": "fit",
+        "scored_miss_events": 12109,
+        "probe_gaps_between_misses": 6059,
+        "top1": [
+          0.8931373358658848,
+          0.8931373358658848,
+          0.8931373358658848
+        ],
+        "mean_log_loss": [
+          0.6181784476756811,
+          0.5934107433261826,
+          0.6051427806880205
+        ]
+      },
+      {
+        "sha256": "0bb16555023490c164c0fec9dddbceed4afc5ffaab35a627337bec7d6eed6e83",
+        "family": "random_hotspot",
+        "suite": "fit",
+        "scored_miss_events": 3936,
+        "probe_gaps_between_misses": 3477,
+        "top1": [
+          0.09959349593495935,
+          0.10467479674796748,
+          0.1095020325203252
+        ],
+        "mean_log_loss": [
+          2.293968769279153,
+          2.329669134216514,
+          2.398417300667165
+        ]
+      },
+      {
+        "sha256": "08d5c17b968e57fd29f2e0de8d2ca1c45583779cc72152b3a75b253b58076623",
+        "family": "random_lognormal",
+        "suite": "fit",
+        "scored_miss_events": 3848,
+        "probe_gaps_between_misses": 3749,
+        "top1": [
+          0.16813929313929313,
+          0.14527027027027026,
+          0.13227650727650728
+        ],
+        "mean_log_loss": [
+          2.47886371478561,
+          2.5932345594992263,
+          2.6669556691906813
+        ]
+      },
+      {
+        "sha256": "027e887db45a1c93fb29636aa9c6a22f5ec3f765c25edae38135f6ef0725d580",
+        "family": "random_uniform",
+        "suite": "fit",
+        "scored_miss_events": 15135,
+        "probe_gaps_between_misses": 11248,
+        "top1": [
+          0.005153617443012884,
+          0.0033696729435084244,
+          0.0035018169805087545
+        ],
+        "mean_log_loss": [
+          5.555373635406883,
+          6.067200586542247,
+          6.068893706676373
+        ]
+      },
+      {
+        "sha256": "01dc8ec19fc4596999e8904af314106f96f1cc3c7df45fd318de72dfb50171e4",
+        "family": "random_zipf",
+        "suite": "fit",
+        "scored_miss_events": 8360,
+        "probe_gaps_between_misses": 7484,
+        "top1": [
+          0.05035885167464115,
+          0.022727272727272728,
+          0.020813397129186603
+        ],
+        "mean_log_loss": [
+          4.425510435661941,
+          4.903540067572552,
+          4.922375158629983
+        ]
+      },
+      {
+        "sha256": "175ea83a7245530310fc4d1933d95f88a37b5040cb5721338183d9c0857d2e50",
+        "family": "empty_partition_probe",
+        "suite": "fit",
+        "scored_miss_events": 10025,
+        "probe_gaps_between_misses": 4534,
+        "top1": [
+          0.09655860349127182,
+          0.0970573566084788,
+          0.09815461346633417
+        ],
+        "mean_log_loss": [
+          2.4104573030421013,
+          2.4280510518526652,
+          2.4941513846086223
+        ]
+      },
+      {
+        "sha256": "1504bda57c56ef38c837adf104f95b88a940bef6d557c6957738a4ce049cc6e9",
+        "family": "one_byte_over",
+        "suite": "fit",
+        "scored_miss_events": 13858,
+        "probe_gaps_between_misses": 6287,
+        "top1": [
+          0.8233511329196133,
+          0.8237119353442055,
+          0.8232789724346947
+        ],
+        "mean_log_loss": [
+          0.7579437796097982,
+          0.7111503000142891,
+          0.7147469960923363
+        ]
+      },
+      {
+        "sha256": "d683e8cbc144313d8de21acfa0708e3d0838b2a5b55d3d8717e84175ad464a88",
+        "family": "swapped_noise",
+        "suite": "cycle_diagnostic",
+        "scored_miss_events": 18204,
+        "probe_gaps_between_misses": 4761,
+        "top1": [
+          0.07075368050977807,
+          0.7127005053834322,
+          0.7507690617446715
+        ],
+        "mean_log_loss": [
+          2.8274387161687478,
+          1.0309821772735683,
+          0.8887871076887479
+        ]
+      },
+      {
+        "sha256": "6f6e73c2e8d8f13c43fb0231f89592f374d3e167af42c342ae62f043b1a02163",
+        "family": "mixed_noise",
+        "suite": "cycle_diagnostic",
+        "scored_miss_events": 16881,
+        "probe_gaps_between_misses": 8379,
+        "top1": [
+          0.05781648006634678,
+          0.8306379953794206,
+          0.8176648302825662
+        ],
+        "mean_log_loss": [
+          2.8296897502521587,
+          1.2092964048072268,
+          1.1691934453722928
+        ]
+      },
+      {
+        "sha256": "f8e22fc2c5f83d847a24a29a5a93cff218eda7d7915e2a1f829d63356a50c5e7",
+        "family": "phase_reversal",
+        "suite": "cycle_diagnostic",
+        "scored_miss_events": 232,
+        "probe_gaps_between_misses": 6,
+        "top1": [
+          0.04741379310344827,
+          0.8060344827586207,
+          0.8103448275862069
+        ],
+        "mean_log_loss": [
+          2.90960285315031,
+          1.7268963804893545,
+          1.3742730780731915
+        ]
+      },
+      {
+        "sha256": "1f25b27b130e407625ef9a6982b835841a0b4070d54ad241ce6bc1a1582a8528",
+        "family": "iid_uniform",
+        "suite": "cycle_diagnostic",
+        "scored_miss_events": 15684,
+        "probe_gaps_between_misses": 8456,
+        "top1": [
+          0.06280285641418006,
+          0.06350420811017597,
+          0.06273909716908951
+        ],
+        "mean_log_loss": [
+          2.8555033027720613,
+          2.940110062293498,
+          3.0714805587248732
+        ]
+      }
+    ],
+    "pred": [
+      {
+        "sha256": "01b7560d2dc0c1c8b19d88eff27de9925ba80626f5e76d2a6106dfb57b98c019",
+        "family": "empty_partition_probe",
+        "suite": "fit",
+        "scored_miss_events": 7512,
+        "probe_gaps_between_misses": 3081,
+        "top1": [
+          0.20380724174653886,
+          0.209531416400426,
+          0.20593716719914804
+        ],
+        "mean_log_loss": [
+          1.6556426617516051,
+          1.6551365436565786,
+          1.6664445865249238
+        ]
+      },
+      {
+        "sha256": "0ebe00175a812c87e3086e565f8fbd455ec45e9cbcbac36192e0bc24a254790f",
+        "family": "one_byte_over",
+        "suite": "fit",
+        "scored_miss_events": 11997,
+        "probe_gaps_between_misses": 6035,
+        "top1": [
+          0.8976410769359007,
+          0.8976410769359007,
+          0.8976410769359007
+        ],
+        "mean_log_loss": [
+          0.5878063501325345,
+          0.5730736355176931,
+          0.5850299395224765
+        ]
+      },
+      {
+        "sha256": "0bb16555023490c164c0fec9dddbceed4afc5ffaab35a627337bec7d6eed6e83",
+        "family": "random_hotspot",
+        "suite": "fit",
+        "scored_miss_events": 4795,
+        "probe_gaps_between_misses": 4105,
+        "top1": [
+          0.2246089676746611,
+          0.23336809176225234,
+          0.20875912408759123
+        ],
+        "mean_log_loss": [
+          2.1954978171305872,
+          2.2138271273343304,
+          2.2786918904862774
+        ]
+      },
+      {
+        "sha256": "08d5c17b968e57fd29f2e0de8d2ca1c45583779cc72152b3a75b253b58076623",
+        "family": "random_lognormal",
+        "suite": "fit",
+        "scored_miss_events": 5171,
+        "probe_gaps_between_misses": 4794,
+        "top1": [
+          0.15316186424289305,
+          0.18642428930574356,
+          0.17656159350222395
+        ],
+        "mean_log_loss": [
+          2.472350654936457,
+          2.5595252843705203,
+          2.6234233103214826
+        ]
+      },
+      {
+        "sha256": "027e887db45a1c93fb29636aa9c6a22f5ec3f765c25edae38135f6ef0725d580",
+        "family": "random_uniform",
+        "suite": "fit",
+        "scored_miss_events": 20551,
+        "probe_gaps_between_misses": 9697,
+        "top1": [
+          0.004914602695732568,
+          0.0039414140431122575,
+          0.003746776312588195
+        ],
+        "mean_log_loss": [
+          5.6885571829408805,
+          6.322643970977138,
+          6.32562586914788
+        ]
+      },
+      {
+        "sha256": "01dc8ec19fc4596999e8904af314106f96f1cc3c7df45fd318de72dfb50171e4",
+        "family": "random_zipf",
+        "suite": "fit",
+        "scored_miss_events": 9386,
+        "probe_gaps_between_misses": 8035,
+        "top1": [
+          0.06339228638397613,
+          0.037396121883656507,
+          0.031323247389729386
+        ],
+        "mean_log_loss": [
+          4.291015560029288,
+          4.766425112766392,
+          4.7886096700140515
+        ]
+      },
+      {
+        "sha256": "175ea83a7245530310fc4d1933d95f88a37b5040cb5721338183d9c0857d2e50",
+        "family": "empty_partition_probe",
+        "suite": "fit",
+        "scored_miss_events": 8421,
+        "probe_gaps_between_misses": 4931,
+        "top1": [
+          0.11245695285595535,
+          0.11008193801211258,
+          0.1107944424652654
+        ],
+        "mean_log_loss": [
+          2.3054659995716964,
+          2.3327783747823787,
+          2.398656892432982
+        ]
+      },
+      {
+        "sha256": "1504bda57c56ef38c837adf104f95b88a940bef6d557c6957738a4ce049cc6e9",
+        "family": "one_byte_over",
+        "suite": "fit",
+        "scored_miss_events": 13789,
+        "probe_gaps_between_misses": 6292,
+        "top1": [
+          0.8195663209804916,
+          0.8194212778301545,
+          0.8203640583073465
+        ],
+        "mean_log_loss": [
+          0.7690501879887115,
+          0.7355739547676517,
+          0.7421373316747292
+        ]
+      },
+      {
+        "sha256": "d683e8cbc144313d8de21acfa0708e3d0838b2a5b55d3d8717e84175ad464a88",
+        "family": "swapped_noise",
+        "suite": "cycle_diagnostic",
+        "scored_miss_events": 16376,
+        "probe_gaps_between_misses": 16355,
+        "top1": [
+          0.13556424035173426,
+          0.8883121641426478,
+          0.9002198339032731
+        ],
+        "mean_log_loss": [
+          2.5436511241207382,
+          0.4558418276625903,
+          0.38089967325339996
+        ]
+      },
+      {
+        "sha256": "6f6e73c2e8d8f13c43fb0231f89592f374d3e167af42c342ae62f043b1a02163",
+        "family": "mixed_noise",
+        "suite": "cycle_diagnostic",
+        "scored_miss_events": 15090,
+        "probe_gaps_between_misses": 15075,
+        "top1": [
+          0.05712392312789927,
+          0.8436713055003313,
+          0.8426772697150431
+        ],
+        "mean_log_loss": [
+          2.8290539868739435,
+          0.8552906793629561,
+          0.8221143781609458
+        ]
+      },
+      {
+        "sha256": "f8e22fc2c5f83d847a24a29a5a93cff218eda7d7915e2a1f829d63356a50c5e7",
+        "family": "phase_reversal",
+        "suite": "cycle_diagnostic",
+        "scored_miss_events": 16369,
+        "probe_gaps_between_misses": 16346,
+        "top1": [
+          0.08302278697538029,
+          0.9970676278330991,
+          0.9970676278330991
+        ],
+        "mean_log_loss": [
+          2.1516335940340414,
+          0.11745213959622994,
+          0.028957227372477235
+        ]
+      },
+      {
+        "sha256": "1f25b27b130e407625ef9a6982b835841a0b4070d54ad241ce6bc1a1582a8528",
+        "family": "iid_uniform",
+        "suite": "cycle_diagnostic",
+        "scored_miss_events": 10983,
+        "probe_gaps_between_misses": 10676,
+        "top1": [
+          0.06309751434034416,
+          0.06400801238277337,
+          0.06355276336155877
+        ],
+        "mean_log_loss": [
+          2.8299427088631783,
+          2.9278055337137547,
+          3.0318256633903977
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "source_sha256": "e9f57820e9cbcc284d01416f726e296f461fd73a7221736cfcd2f13fa3f46d3d",
+  "engine_sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5",
+  "runner_sha256": "9d6397e0a4f85f533a3484a5fbc95a972e33c54d84d1626f9f132eaeab3d2852",
+  "minimal_dependency_build": true,
+  "compiler_flags": [
+    "-std=c++14",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-pedantic-errors"
+  ],
+  "checks": [
+    {
+      "input_sha256": "428444a34838de7d0695ccb6e556aa4661f0f1719c5672c15d9a8f6264a27dfe",
+      "family": "one_byte_over",
+      "I/O_hit_miss_match": true,
+      "matched_metrics": {
+        "Total_IO_Time": 1057195157.8,
+        "Hit_Count": 9916.0,
+        "Miss_Count": 10420.0
+      }
+    },
+    {
+      "input_sha256": "168849de458befb62d06a5aed795fd60e8697c53adba04109c38b4221ccb33e4",
+      "family": "swapped_noise",
+      "I/O_hit_miss_match": true,
+      "matched_metrics": {
+        "Total_IO_Time": 110495744.0,
+        "Hit_Count": 14805.0,
+        "Miss_Count": 17963.0
+      }
+    }
+  ],
+  "note": "Only published scheduler, results, runner and tracked SDK; CPU is remeasured."
+}

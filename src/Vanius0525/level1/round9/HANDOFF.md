@@ -1,3 +1,13 @@
+# 最新：R80迁移对照完整结束，见round10（2026-10-30）
+
+- 最新用户要求结合R80、检查频率/大小及少量混合BUILD，并每几分钟监督cyanneko源码/datasets。根在../round10完成3主候选（exact R80/write1/value_rank）、3当前参考的60×6同窗口单遍，加16旧小协议审核；session3737 exit0、106.016秒。独立复核通过，全部3候选未过先验门槛，不晋升、不进dev/eval、不重跑72/dyna。AI继续暂停。
+- 均分：paired3.744278、joint3.735174、R80 3.742522、write1 3.731574、value_rank3.028581。value_rank对R80最坏train600为23.565倍，Miss211→12176。mixed旧小例全部4TRACE相同，无收益证据。详见../round10/REPORT_V1.md；总费用比与逐例比均值不同，不能混用。
+- pure已完成两旧训练592/519的6首差+8完整轨迹拆账：大对象反复读写是主要累计损失，预取无额外搬运放大；首差对象≠累计最大贡献。TAIL_TRAIN_DIAGNOSTICS_FINAL_FREEZE_V1 SHA3146cd0afa88a2bb311c76ac3ee267162ee9480263e57ee6ef2c78724dc3f4ac，0solver/teacher。
+- 用户所问上游两个集是final24+dyna6，报告对照Van为原paired，未包含joint。R80 4.090298/3.911797胜原paired3.846528/3.641676，不能与本项目全72/12均分直接比较。
+- 两个监测agent继续低频refs；source/cyanneko新增a39d693的R81失败回归，datasets新增fab57b7的R81 train/已曝光dev归档，R80代码和主final/dyna/balanced未改。R82只见报告提及、未见已发布结果，勿重复未核实优化。运行边界/下一动作以round10/HANDOFF为准；当前无solver，源码/旧结果保持冻结。
+
+以下为前序记录。
+
 # 最新：联合版复杂度和耗时核查（2026-10-30）
 
 - 用户问联合版是否符合题目时间要求。已静态核源码并重算既有结果，未新增solver/编译/训练/计时。详见 JOINT_COMPLEXITY_RUNTIME_V1.md。

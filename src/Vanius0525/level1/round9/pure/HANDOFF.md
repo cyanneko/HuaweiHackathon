@@ -2,6 +2,18 @@
 
 ## 最新状态（优先于以下历史阶段）
 
+两条训练流诊断与Round10独立复核均已完成，当前本子agent无运行命令。AI仍暂停、性能比较单遍；本阶段本子agent新增solver/编译/teacher/dev/eval/dyna读取均0。
+
+train592/519六对首差重放通过（6对、4唯一共同state），再完整重放两输入×四旧TRACE，8条轨迹的全部canonical字节/Hit/Miss/动作/回调/分项核对通过。`TAIL_TRAIN_DIAGNOSTICS_FINAL_FREEZE_V1.json`绑定28文件，SHA `3146cd0afa88a2bb311c76ac3ee267162ee9480263e57ee6ef2c78724dc3f4ac`。报告分别为`RETURN_RISK_TAIL_ATTRIBUTION_REVIEW_V2.md`、`TAIL_TURNOVER_REVIEW_V1.md`；V1计划/旧freeze保持。519首差128MB→627MB受害者，但累计最大损失来自另一个1.39GB对象；592 pool首差为小对象，最大累计损失来自171MB对象。两流没有额外预取搬运放大，不能外推所有流/归因长期因果。原D/Z/h/Fh缺内部快照已明确留空，没有启动建议observer。
+
+根Round10原60训练×6方法单遍360运行已完整；本子agent的`review_r80_round10_v1.py`持锁只读复核360原输出/执行记录、60完整输入SHA/真实罚值/PROBE头部、源/二进制/freeze及16小协议。180个基线method×case的IO/Hit/Miss与原main60三次物理结果精确相同。`R80_ROUND10_REVIEW_V1.json` SHA `c344eac7c909b9e2dc0d429277cb68361b93b9347979c249c02787051508cbc8`，passed。三新候选全部未过训练门槛：r80均分3.742522417，对paired平均物理比0.991367437但最坏1.313889790；write1均分3.731574493；value_rank均分3.028581033，最坏train600对r80达23.565158727倍（Miss12176 vs211）。value_rank对r80每例比均值1.577965104，而总成本比1.018161637，两口径不可混用。60条均无mixed phase；已有合法64MiB混合小协议的四新版本TRACE全同，无机制收益证据。根统一报告/发布；不据失败自动扫参、扩池、重测eval或恢复AI。
+
+用户最新范围已覆盖此前内部“不入eval”限制：AI更新/测试暂停，后续比较每方法每题单遍；用户先指定原final_dataset2.1 eval72随机20，再明确完整72。root统一完成：原20共60次，72扩展仅新增52×3=156次、复用60次、有效216次；方法只有paired100/risk_pool100及Naive参考，0新audit/compile/AI。本子agent没有启动任何solver、抽样或重测。
+
+`EVAL20_SINGLE_REVIEW_V1.json`与`EVAL72_SINGLE_REVIEW_V1.json`已由独立只读脚本`review_single_evals_v1.py`生成，exit0/passed；绑定源RESULTS/SUMMARY/PLAN/FREEZE SHA，核对源码/二进制/生成源、输入plan身份、原始输出哈希与解析、整数PROBE计数、费用公式、退出/资源及等权指标。72中的20份canonical与原20逐字节一致，完整复用60条run；未重新读取大输入/TRACE，不宣称新增完整动作审计。
+
+全72复算：paired均分3.4813891299618427、pool3.4814741729504077，差0.000085042988565；pool物理均比0.9985694927062685、最坏1.0547540577993408（eval44），42好7平23坏；分数33好8平31坏。单遍分数差极小，不作显著性或晋升判断；约35.7%的平均决策耗时差包含轨迹变化，不能称纯统计组件的因果开销。此前主60负结果与freeze不改，未据此次eval拟参，最坏案例归因继续未执行。当前无本子agent运行任务，root统一报告与发布。
+
 两项新阶段均已闭合、无运行命令。main60根独立审核passed，正式报告已链接已完成费用诊断；11文件 `RETURN_RISK_MAIN60_FINAL_FREEZE_V1.json` SHA `90a8479327cabecb5b97c6590430a4930281ddd268a6d33a961ab93a1a601b7b`。coscale14文件最终freeze SHA `d154a41af8b874f1298d7a60ea7229e50235f93c02e0daae405ae435c978ea57`。本阶段精确发布清单为两份FINAL_FREEZE各自files键＋两份freeze＋本HANDOFF，共28文件；既有dyna闭合文件全保持。main60三候选全部停止晋升，主dev/eval新增solver0；coscale无匹配teacher，停止收益推论。root后续已只允许另写最坏592/519的小型归因计划，不读大TRACE、不新solver/改候选；未来balanced数据口径不能追溯改写本轮。此HANDOFF与闭合报告暂保持稳定，待root统一发布。
 
 main60 session15934已正常exit0，60/60、180新审核、900同窗口计时全部完成，stderr为空；summary已持公共锁生成。**三冻结候选均未过先验晋升门槛，停止本组三候选晋升，不进主108dev/72eval、不改参数或门槛。** pool平均物理比1.002451890/最坏1.119007461/均分差−0.009326424；flat0.996517056/1.051619874/+0.014236458，仅分数门槛通过；global1.014977481/1.559984822/−0.052816429。全部合法性/计数/runtime检查通过，BUILD差0。dyna12的改善不能外推主60，这两个面板还同时不同N、压力、带宽和罚值等，不能单独归因于动态/静态热度。root独立复核待执行，正式负结果报告/FINAL_FREEZE待收尾。当前无本路线运行任务。

@@ -1,0 +1,58 @@
+{
+  "observed_utc": "2026-10-30T13:22:33.315209+00:00",
+  "baseline_revision": "2932ce972289b8744f5355c9692fe9cb2c93b5f4",
+  "revision": "a39d69342b7cd61f3c1489f0d9408ebe717414d6",
+  "changed_file_count": 2354,
+  "changed_experiment_paths": [
+    "src/experiments/r81_two_timescale_20261030/.gitattributes",
+    "src/experiments/r81_two_timescale_20261030/R81_op256_cond2048.cpp",
+    "src/experiments/r81_two_timescale_20261030/R81_op512_cond2048.cpp",
+    "src/experiments/r81_two_timescale_20261030/README.md",
+    "src/experiments/r81_two_timescale_20261030/manifest.json"
+  ],
+  "all_changes_in_r81_archives": true,
+  "r80_sources_changed": false,
+  "files_read": [
+    {
+      "path": "src/experiments/r81_two_timescale_20261030/README.md",
+      "bytes": 429,
+      "sha256": "6e3f894845f5bab65064e33d42fb1defca8b3faa4f20d46891492a1e0a57bf87"
+    },
+    {
+      "path": "src/experiments/r81_two_timescale_20261030/manifest.json",
+      "bytes": 1480,
+      "sha256": "594d7471edb15c6473fa2b442b2b8a8b10a2b1d3a56d2372118fdbc14b183596"
+    },
+    {
+      "path": "src/reports/r81_20261030/report_zh.md",
+      "bytes": 19213,
+      "sha256": "3c4e43876bf19255391e0602c34969262411d37ac7e95105ca24ab14fa7f9e3f"
+    },
+    {
+      "path": "src/experiments/r81_two_timescale_20261030/R81_op256_cond2048.cpp",
+      "bytes": 27134,
+      "sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764"
+    }
+  ],
+  "manifest_selected_variant": "R81_op256_cond2048",
+  "manifest_tail_guard_passed": false,
+  "manifest_default_changed": false,
+  "publisher_reported_regression": {
+    "dyna6": {
+      "R80_hier_score": 3.91179,
+      "R81_256_score": 4.007351
+    },
+    "final24": {
+      "R80_hier_score": 4.090157,
+      "R81_256_score": 4.09414,
+      "R81_over_R80_mean_cost": 1.011696,
+      "worst_cost_ratio": 1.270355,
+      "worse_case": "eval_059_random_zipf"
+    }
+  },
+  "source_delta_verified": "Fast operator mass/normalization added; slow within-operator statistics remain 2048; only hier probability factor changed.",
+  "reported_next_R82": "all-single-fit coverage and immediate-write calibration; no R82 result in this archive.",
+  "independent_solver_runs": 0,
+  "input_downloaded_bytes": 0,
+  "scope": "Source and small-report inspection; no independently reproduced R81 performance or automatic adoption."
+}

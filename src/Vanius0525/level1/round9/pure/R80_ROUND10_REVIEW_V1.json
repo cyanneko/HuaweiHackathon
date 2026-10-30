@@ -1,0 +1,4220 @@
+{
+  "passed": true,
+  "stage": "round10-existing-train60-single-pass",
+  "source_sha256": {
+    "round10/PLAN_V1.json": "255d497edaf83379b8974d798f2e104bad3d09a21c0aff62d64878cb4cd5bec3",
+    "round10/RESULTS_V1.json": "84956f2cc6d783e28bdb562f3004894f08c9f6a8600fc80a2f43f32066892942",
+    "round10/SUMMARY_V1.json": "bfe79c275079d9ec44a6442b73ab514aa2db075ef885c22632cdabef8785c588",
+    "round10/EXECUTION_FREEZE_V1.json": "7480004c3602f23e55d6856de09af261c3cb8924df706d4ee0d79a6e4215d556",
+    "round10/PROTOCOL_RESULTS_V1.json": "7204d113f7fe469a5f33071049f3622d26a3875d51741f0dc3b7293e22933498",
+    "round9/pure/RETURN_RISK_MAIN60_RESULTS_V1.json": "33bb2d0501828a70bd8b411c4d159fdbaea1a4b8c63d0e22f08aa9dc17d1f25d",
+    "round9/pure/RETURN_RISK_MAIN60_PLAN_V1.json": "1ec0293ad3b20e41146a55a98a7f7b2c97d8194e095c4c656aa29cc4872b04fb",
+    "round9/V21_DATASET_LOCK.json": "79e1f003fe808ea1380a7cd1bc679cb0ebccb75718fd0a485115e108472e0b08"
+  },
+  "script_sha256": "92444d4cccd48c06648f9b13b3b42037a5c956966d0c25509f8ab901de460223",
+  "counts": {
+    "cases": 60,
+    "methods": 6,
+    "repeats": 1,
+    "raw_timed_runs_checked": 360,
+    "old_three_method_case_physical_matches": 180,
+    "old_repeats_matched_per_case_method": 3,
+    "protocol_outputs_checked": 16,
+    "input_hashes_checked": 60,
+    "mixed_main_train_cases": 0,
+    "new_solver_runs": 0,
+    "new_compiles": 0,
+    "new_action_replays": 0
+  },
+  "maximum_printed_cost_formula_residual_us": "0.01",
+  "methods": {
+    "naive": {
+      "mean_score": 0.0,
+      "mean_decision_us": 52986.90833333333,
+      "max_wall_seconds": 3.1757268850051332,
+      "physical": {
+        "paired100": {
+          "mean_of_case_ratios": 2.362310677120528,
+          "ratio_of_total_costs": 1.4962449814188448,
+          "worst": 25.88126249132241,
+          "better_equal_worse": [
+            2,
+            1,
+            57
+          ],
+          "worst_case": "train/train_637_random_hotspot.txt",
+          "worst_case_method_physical_us": 41528139.48,
+          "worst_case_reference_physical_us": 1604563.9,
+          "worst_case_method_misses": 3275,
+          "worst_case_reference_misses": 820
+        },
+        "r80": {
+          "mean_of_case_ratios": 2.387833461191677,
+          "ratio_of_total_costs": 1.4592320779315513,
+          "worst": 26.21444271310693,
+          "better_equal_worse": [
+            1,
+            1,
+            58
+          ],
+          "worst_case": "train/train_637_random_hotspot.txt",
+          "worst_case_method_physical_us": 41528139.48,
+          "worst_case_reference_physical_us": 1584170.22,
+          "worst_case_method_misses": 3275,
+          "worst_case_reference_misses": 691
+        }
+      },
+      "gate_components": {}
+    },
+    "paired100": {
+      "mean_score": 3.7442784775849236,
+      "mean_decision_us": 47244.171,
+      "max_wall_seconds": 2.022018545001629,
+      "physical": {
+        "paired100": {
+          "mean_of_case_ratios": 1.0,
+          "ratio_of_total_costs": 1.0,
+          "worst": 1.0,
+          "better_equal_worse": [
+            0,
+            60,
+            0
+          ],
+          "worst_case": "train/train_548_random_zipf.txt",
+          "worst_case_method_physical_us": 119485556.61,
+          "worst_case_reference_physical_us": 119485556.61,
+          "worst_case_method_misses": 47938,
+          "worst_case_reference_misses": 47938
+        },
+        "r80": {
+          "mean_of_case_ratios": 1.0201499946360706,
+          "ratio_of_total_costs": 0.9752628052578695,
+          "worst": 1.78245376821445,
+          "better_equal_worse": [
+            33,
+            1,
+            26
+          ],
+          "worst_case": "train/train_600_random_zipf.txt",
+          "worst_case_method_physical_us": 836124.75,
+          "worst_case_reference_physical_us": 469086.36,
+          "worst_case_method_misses": 690,
+          "worst_case_reference_misses": 211
+        }
+      },
+      "gate_components": {}
+    },
+    "risk_pool100": {
+      "mean_score": 3.735174131272528,
+      "mean_decision_us": 63780.971999999994,
+      "max_wall_seconds": 2.4232263599988073,
+      "physical": {
+        "paired100": {
+          "mean_of_case_ratios": 1.0024518902341983,
+          "ratio_of_total_costs": 1.0003492022972738,
+          "worst": 1.119007461032662,
+          "better_equal_worse": [
+            31,
+            4,
+            25
+          ],
+          "worst_case": "train/train_592_random_zipf.txt",
+          "worst_case_method_physical_us": 14265389.92,
+          "worst_case_reference_physical_us": 12748252.73,
+          "worst_case_method_misses": 5247,
+          "worst_case_reference_misses": 5388
+        },
+        "r80": {
+          "mean_of_case_ratios": 1.0225018492072186,
+          "ratio_of_total_costs": 0.9756033692699112,
+          "worst": 1.78245376821445,
+          "better_equal_worse": [
+            30,
+            1,
+            29
+          ],
+          "worst_case": "train/train_600_random_zipf.txt",
+          "worst_case_method_physical_us": 836124.75,
+          "worst_case_reference_physical_us": 469086.36,
+          "worst_case_method_misses": 690,
+          "worst_case_reference_misses": 211
+        }
+      },
+      "gate_components": {}
+    },
+    "r80": {
+      "mean_score": 3.7425224170554356,
+      "mean_decision_us": 37457.59783333333,
+      "max_wall_seconds": 1.770283367994125,
+      "physical": {
+        "paired100": {
+          "mean_of_case_ratios": 0.9913674374968584,
+          "ratio_of_total_costs": 1.0253646449026523,
+          "worst": 1.3138897904193336,
+          "better_equal_worse": [
+            26,
+            1,
+            33
+          ],
+          "worst_case": "train/train_565_random_zipf.txt",
+          "worst_case_method_physical_us": 288902641.02,
+          "worst_case_reference_physical_us": 219883465.97,
+          "worst_case_method_misses": 1915,
+          "worst_case_reference_misses": 5998
+        },
+        "r80": {
+          "mean_of_case_ratios": 1.0,
+          "ratio_of_total_costs": 1.0,
+          "worst": 1.0,
+          "better_equal_worse": [
+            0,
+            60,
+            0
+          ],
+          "worst_case": "train/train_548_random_zipf.txt",
+          "worst_case_method_physical_us": 102207176.95,
+          "worst_case_reference_physical_us": 102207176.95,
+          "worst_case_method_misses": 37158,
+          "worst_case_reference_misses": 37158
+        }
+      },
+      "gate_components": {
+        "paired100": {
+          "mean_physical": true,
+          "worst_physical": false,
+          "mean_score": false
+        }
+      }
+    },
+    "write1": {
+      "mean_score": 3.73157449291416,
+      "mean_decision_us": 38609.233499999995,
+      "max_wall_seconds": 1.8712570130010135,
+      "physical": {
+        "paired100": {
+          "mean_of_case_ratios": 0.9937942297684826,
+          "ratio_of_total_costs": 1.0270202197608371,
+          "worst": 1.315137766245026,
+          "better_equal_worse": [
+            30,
+            1,
+            29
+          ],
+          "worst_case": "train/train_565_random_zipf.txt",
+          "worst_case_method_physical_us": 289177050.27,
+          "worst_case_reference_physical_us": 219883465.97,
+          "worst_case_method_misses": 1928,
+          "worst_case_reference_misses": 5998
+        },
+        "r80": {
+          "mean_of_case_ratios": 1.002301733976692,
+          "ratio_of_total_costs": 1.0016146205805077,
+          "worst": 1.1129442076597007,
+          "better_equal_worse": [
+            24,
+            2,
+            34
+          ],
+          "worst_case": "train/train_591_random_zipf.txt",
+          "worst_case_method_physical_us": 48361878.49,
+          "worst_case_reference_physical_us": 43454000.8,
+          "worst_case_method_misses": 3184,
+          "worst_case_reference_misses": 3203
+        }
+      },
+      "gate_components": {
+        "paired100": {
+          "mean_physical": true,
+          "worst_physical": false,
+          "mean_score": false
+        },
+        "r80": {
+          "mean_physical": false,
+          "worst_physical": false,
+          "mean_score": false
+        }
+      }
+    },
+    "value_rank": {
+      "mean_score": 3.028581033355027,
+      "mean_decision_us": 60619.64083333334,
+      "max_wall_seconds": 2.272406231990317,
+      "physical": {
+        "paired100": {
+          "mean_of_case_ratios": 1.3927157294996886,
+          "ratio_of_total_costs": 1.0439869457150306,
+          "worst": 13.220628297392226,
+          "better_equal_worse": [
+            8,
+            1,
+            51
+          ],
+          "worst_case": "train/train_600_random_zipf.txt",
+          "worst_case_method_physical_us": 11054094.53,
+          "worst_case_reference_physical_us": 836124.75,
+          "worst_case_method_misses": 12176,
+          "worst_case_reference_misses": 690
+        },
+        "r80": {
+          "mean_of_case_ratios": 1.5779651037876927,
+          "ratio_of_total_costs": 1.018161637330636,
+          "worst": 23.565158726849358,
+          "better_equal_worse": [
+            12,
+            2,
+            46
+          ],
+          "worst_case": "train/train_600_random_zipf.txt",
+          "worst_case_method_physical_us": 11054094.53,
+          "worst_case_reference_physical_us": 469086.36,
+          "worst_case_method_misses": 12176,
+          "worst_case_reference_misses": 211
+        }
+      },
+      "gate_components": {
+        "paired100": {
+          "mean_physical": false,
+          "worst_physical": false,
+          "mean_score": false
+        },
+        "r80": {
+          "mean_physical": false,
+          "worst_physical": false,
+          "mean_score": false
+        }
+      }
+    }
+  },
+  "mixed_protocol": [
+    {
+      "method": "r80",
+      "trace_sha256": "28927e61e6f0d5c2c2de5588ae297db46dd572ea8b7c6131f4abd0b92a285aa8",
+      "misses": 464
+    },
+    {
+      "method": "write1",
+      "trace_sha256": "28927e61e6f0d5c2c2de5588ae297db46dd572ea8b7c6131f4abd0b92a285aa8",
+      "misses": 464
+    },
+    {
+      "method": "value_rank",
+      "trace_sha256": "28927e61e6f0d5c2c2de5588ae297db46dd572ea8b7c6131f4abd0b92a285aa8",
+      "misses": 464
+    },
+    {
+      "method": "mixed_build0",
+      "trace_sha256": "28927e61e6f0d5c2c2de5588ae297db46dd572ea8b7c6131f4abd0b92a285aa8",
+      "misses": 464
+    }
+  ],
+  "cases": [
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 10730359742581714376,
+      "penalty": 855,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 3.2234722960326647,
+        "risk_pool100": 3.2205527667868807,
+        "r80": 4.204569418002303,
+        "write1": 4.1540803345414785,
+        "value_rank": 0.41858205937407017
+      },
+      "physical_us": {
+        "naive": 176461477.71,
+        "paired100": 119485556.61,
+        "risk_pool100": 119498385.3,
+        "r80": 102207176.95,
+        "write1": 103080152.21,
+        "value_rank": 168972739.61
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.4768435844172279,
+          "paired100": 1.0,
+          "risk_pool100": 1.000107366031209,
+          "r80": 0.8553935709870231,
+          "write1": 0.8626996863432864,
+          "value_rank": 1.4141687447757876
+        },
+        "r80": {
+          "naive": 1.7265076971681292,
+          "paired100": 1.1690525085968535,
+          "risk_pool100": 1.1691780251249764,
+          "r80": 1.0,
+          "write1": 1.0085412324853378,
+          "value_rank": 1.6532375186593977
+        }
+      },
+      "misses": {
+        "naive": 21896,
+        "paired100": 47938,
+        "risk_pool100": 47643,
+        "r80": 37158,
+        "write1": 37074,
+        "value_rank": 85996
+      },
+      "decision_us": {
+        "naive": 24954.39,
+        "paired100": 110963.04,
+        "risk_pool100": 149660.07,
+        "r80": 74309.64,
+        "write1": 92398.2,
+        "value_rank": 126287.07
+      },
+      "wall_seconds": {
+        "naive": 0.5164791620045435,
+        "paired100": 0.6171942649962148,
+        "risk_pool100": 0.6669134830008261,
+        "r80": 0.56709146600042,
+        "write1": 0.5662293170025805,
+        "value_rank": 0.7168755780003266
+      },
+      "canonical_sha256": "038efd8489a786fd5b6b6f0bbdc928dcb162f3825f41cf3c6027c7e6c4594eba"
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 7256044700735148566,
+      "penalty": 814,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 1.6248669496666306,
+        "risk_pool100": 1.6426620082569527,
+        "r80": 0.697871473116666,
+        "write1": 0.5875528093551632,
+        "value_rank": 0.3864113913211036
+      },
+      "physical_us": {
+        "naive": 6842711802.51,
+        "paired100": 5730844377.77,
+        "risk_pool100": 5718664808.24,
+        "r80": 6365161852.5,
+        "write1": 6440648264.69,
+        "value_rank": 6578282850.03
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.1940145904245707,
+          "paired100": 1.0,
+          "risk_pool100": 0.997874733856455,
+          "r80": 1.1106848193593466,
+          "write1": 1.1238567722538997,
+          "value_rank": 1.1478732306093011
+        },
+        "r80": {
+          "naive": 1.0750255784654457,
+          "paired100": 0.9003454288470507,
+          "risk_pool100": 0.8984319551896265,
+          "r80": 1.0,
+          "write1": 1.0118593075775995,
+          "value_rank": 1.0334824160749807
+        }
+      },
+      "misses": {
+        "naive": 17893,
+        "paired100": 20882,
+        "risk_pool100": 20709,
+        "r80": 26281,
+        "write1": 26826,
+        "value_rank": 28267
+      },
+      "decision_us": {
+        "naive": 7044.52,
+        "paired100": 23699.22,
+        "risk_pool100": 26610.46,
+        "r80": 23166.34,
+        "write1": 24714.12,
+        "value_rank": 25545.98
+      },
+      "wall_seconds": {
+        "naive": 0.21539487100380939,
+        "paired100": 0.21541426800831687,
+        "risk_pool100": 0.21524984399729874,
+        "r80": 0.21530442600487731,
+        "write1": 0.2156247070088284,
+        "value_rank": 0.21535096899606287
+      },
+      "canonical_sha256": "537bdde36a7b5f59771baa95a34c6e6d6cfb06ec3f9f91d4bd87a57ee4897d96"
+    },
+    {
+      "case": "train/train_545_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 14907611417084751774,
+      "penalty": 495,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.0,
+        "risk_pool100": 0.0,
+        "r80": 0.5585200444009908,
+        "write1": 0.5463295167853635,
+        "value_rank": 0.0
+      },
+      "physical_us": {
+        "naive": 27480316.78,
+        "paired100": 29395682.69,
+        "risk_pool100": 29383864.95,
+        "r80": 25913244.07,
+        "write1": 25947683.44,
+        "value_rank": 46017952.56
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 0.9348419313747872,
+          "paired100": 1.0,
+          "risk_pool100": 0.9995979770184409,
+          "r80": 0.8815323101448269,
+          "write1": 0.8827038893308996,
+          "value_rank": 1.5654663661087438
+        },
+        "r80": {
+          "naive": 1.0604738143077275,
+          "paired100": 1.1343883695377088,
+          "risk_pool100": 1.1339323193431412,
+          "r80": 1.0,
+          "write1": 1.0013290258026732,
+          "value_rank": 1.7758468386162196
+        }
+      },
+      "misses": {
+        "naive": 2750,
+        "paired100": 15212,
+        "risk_pool100": 15662,
+        "r80": 8780,
+        "write1": 8918,
+        "value_rank": 39069
+      },
+      "decision_us": {
+        "naive": 6844.61,
+        "paired100": 77626.23,
+        "risk_pool100": 92201.81,
+        "r80": 38704.26,
+        "write1": 37773.19,
+        "value_rank": 150826.86
+      },
+      "wall_seconds": {
+        "naive": 0.33245094800076913,
+        "paired100": 0.41611934699176345,
+        "risk_pool100": 0.41603266599122435,
+        "r80": 0.36563703999854624,
+        "write1": 0.3164188989903778,
+        "value_rank": 0.4660959579923656
+      },
+      "canonical_sha256": "22cb2a22b626c997e9dfb64136d06324d4a065b2f7bc1cfe37dba6df9e2dbc99"
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 13085705622311950649,
+      "penalty": 600,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 3.7205423347766797,
+        "risk_pool100": 3.720435554454808,
+        "r80": 3.7233901020173534,
+        "write1": 3.7229627678491335,
+        "value_rank": 3.7227328062009337
+      },
+      "physical_us": {
+        "naive": 642138757.95,
+        "paired100": 403221528.7,
+        "risk_pool100": 403226323.07,
+        "r80": 403038668.56,
+        "write1": 403066164.82,
+        "value_rank": 403079582.56
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.592521014491159,
+          "paired100": 1.0,
+          "risk_pool100": 1.0000118901637407,
+          "r80": 0.99954650204172,
+          "write1": 0.999614693489951,
+          "value_rank": 0.9996479698381739
+        },
+        "r80": {
+          "naive": 1.5932435471868511,
+          "paired100": 1.0004537037119872,
+          "risk_pool100": 1.000465599270339,
+          "r80": 1.0,
+          "write1": 1.0000682223869442,
+          "value_rank": 1.0001015138327698
+        }
+      },
+      "misses": {
+        "naive": 15380,
+        "paired100": 14492,
+        "risk_pool100": 14493,
+        "r80": 14478,
+        "write1": 14481,
+        "value_rank": 14491
+      },
+      "decision_us": {
+        "naive": 4839.28,
+        "paired100": 9824.69,
+        "risk_pool100": 11887.14,
+        "r80": 9817.26,
+        "write1": 9761.99,
+        "value_rank": 11111.1
+      },
+      "wall_seconds": {
+        "naive": 0.11476803300320171,
+        "paired100": 0.11533556900394615,
+        "risk_pool100": 0.11499878599715885,
+        "r80": 0.1147791350085754,
+        "write1": 0.1150201959972037,
+        "value_rank": 0.16481048399873544
+      },
+      "canonical_sha256": "ed1561c6cdd56c27d54afb7420b28daa8e47f1c8a8e9b80df59692de1dd82152"
+    },
+    {
+      "case": "train/train_543_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 13985279295355576155,
+      "penalty": 531,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 3.1242423773323966,
+        "risk_pool100": 3.150046246327124,
+        "r80": 3.041123292711599,
+        "write1": 3.027618001000547,
+        "value_rank": 2.876169126540496
+      },
+      "physical_us": {
+        "naive": 786509696.52,
+        "paired100": 540762914.01,
+        "risk_pool100": 538728184.2,
+        "r80": 547303564.7,
+        "write1": 548365787.02,
+        "value_rank": 560272269.5
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.4544445932648693,
+          "paired100": 1.0,
+          "risk_pool100": 0.996237297793017,
+          "r80": 1.0120952279095807,
+          "write1": 1.014059531105085,
+          "value_rank": 1.0360774657147425
+        },
+        "r80": {
+          "naive": 1.4370629888937758,
+          "paired100": 0.9880493183091449,
+          "risk_pool100": 0.9843315829585351,
+          "r80": 1.0,
+          "write1": 1.0019408284332705,
+          "value_rank": 1.0236956337149177
+        }
+      },
+      "misses": {
+        "naive": 19120,
+        "paired100": 22781,
+        "risk_pool100": 22536,
+        "r80": 23625,
+        "write1": 23971,
+        "value_rank": 26752
+      },
+      "decision_us": {
+        "naive": 10774.66,
+        "paired100": 29498.5,
+        "risk_pool100": 34701.19,
+        "r80": 26333.96,
+        "write1": 26330.49,
+        "value_rank": 31612.02
+      },
+      "wall_seconds": {
+        "naive": 0.3155431620107265,
+        "paired100": 0.3160402100038482,
+        "risk_pool100": 0.31545816399739124,
+        "r80": 0.3157192670041695,
+        "write1": 0.31549155298853293,
+        "value_rank": 0.3157870319992071
+      },
+      "canonical_sha256": "a00642488d21880f9dbc21afcea807679e52acfdec9b6c3d2a765376fbec66ff"
+    },
+    {
+      "case": "train/train_591_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 12122591336764498052,
+      "penalty": 10,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.847986889998956,
+        "risk_pool100": 4.909441502757478,
+        "r80": 3.9386206972553985,
+        "write1": 3.254301476898269,
+        "value_rank": 2.072559765185251
+      },
+      "physical_us": {
+        "naive": 71713697.73,
+        "paired100": 36923403.25,
+        "risk_pool100": 36472403.69,
+        "r80": 43454000.8,
+        "write1": 48361878.49,
+        "value_rank": 56779999.3
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.9422288147287723,
+          "paired100": 1.0,
+          "risk_pool100": 0.9877855365350159,
+          "r80": 1.1768687871424746,
+          "write1": 1.3097892998257141,
+          "value_rank": 1.5377780567938304
+        },
+        "r80": {
+          "naive": 1.6503359048587305,
+          "paired100": 0.8497123986337295,
+          "risk_pool100": 0.8393336175848738,
+          "r80": 1.0,
+          "write1": 1.1129442076597007,
+          "value_rank": 1.3066690812046011
+        }
+      },
+      "misses": {
+        "naive": 588,
+        "paired100": 5514,
+        "risk_pool100": 5643,
+        "r80": 3203,
+        "write1": 3184,
+        "value_rank": 28862
+      },
+      "decision_us": {
+        "naive": 5582.6,
+        "paired100": 26464.0,
+        "risk_pool100": 36715.5,
+        "r80": 17775.34,
+        "write1": 17785.85,
+        "value_rank": 75031.54
+      },
+      "wall_seconds": {
+        "naive": 0.2653761859983206,
+        "paired100": 0.3158002790005412,
+        "risk_pool100": 0.31555076999939047,
+        "r80": 0.3156581829971401,
+        "write1": 0.31550916700507514,
+        "value_rank": 0.3661112090048846
+      },
+      "canonical_sha256": "ca3c23b5beabfc8d711a1efab966e70d3242fec2efb1ca6871caab782c518d73"
+    },
+    {
+      "case": "train/train_532_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 17108583945564347376,
+      "penalty": 953,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.4890197781257869,
+        "risk_pool100": 0.5587691342455857,
+        "r80": 0.6490684033907534,
+        "write1": 0.6121280699154,
+        "value_rank": 0.23389826085583
+      },
+      "physical_us": {
+        "naive": 265894058.94,
+        "paired100": 252888520.44,
+        "risk_pool100": 251032499.31,
+        "r80": 248632462.39,
+        "write1": 249616074.06,
+        "value_rank": 259670751.0
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.051427951246548,
+          "paired100": 1.0,
+          "risk_pool100": 0.992660714188328,
+          "r80": 0.9831702204489358,
+          "write1": 0.9870597274470732,
+          "value_rank": 1.0268190527122372
+        },
+        "r80": {
+          "naive": 1.0694261577272393,
+          "paired100": 1.0171178695214949,
+          "risk_pool100": 1.0096529507729177,
+          "r80": 1.0,
+          "write1": 1.0039560870714346,
+          "value_rank": 1.0443960072787501
+        }
+      },
+      "misses": {
+        "naive": 722,
+        "paired100": 1774,
+        "risk_pool100": 1749,
+        "r80": 1262,
+        "write1": 1270,
+        "value_rank": 2961
+      },
+      "decision_us": {
+        "naive": 1475.18,
+        "paired100": 4196.17,
+        "risk_pool100": 5613.08,
+        "r80": 4632.76,
+        "write1": 3248.05,
+        "value_rank": 5532.82
+      },
+      "wall_seconds": {
+        "naive": 0.11557166599959601,
+        "paired100": 0.1652613280020887,
+        "risk_pool100": 0.16501456098922063,
+        "r80": 0.1649281419959152,
+        "write1": 0.1147750889940653,
+        "value_rank": 0.11499146399728488
+      },
+      "canonical_sha256": "a2a1418f77d7dbb52c0228b2056f9110edad773003f072b7fedb1444087ab619"
+    },
+    {
+      "case": "train/train_588_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 2357249348037649374,
+      "penalty": 945,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 5.413779766170461,
+        "risk_pool100": 5.35860154230155,
+        "r80": 5.35865933593873,
+        "write1": 5.364331265073693,
+        "value_rank": 5.476928189201162
+      },
+      "physical_us": {
+        "naive": 1283386256.93,
+        "paired100": 588576433.39,
+        "risk_pool100": 595650898.59,
+        "r80": 595653826.07,
+        "write1": 594925854.71,
+        "value_rank": 580471536.36
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.180492089257009,
+          "paired100": 1.0,
+          "risk_pool100": 1.0120196202203569,
+          "r80": 1.012024594051849,
+          "write1": 1.010787760025371,
+          "value_rank": 0.9862296609748397
+        },
+        "r80": {
+          "naive": 2.1545840902215225,
+          "paired100": 0.9881182788219541,
+          "risk_pool100": 0.9999950852661867,
+          "r80": 1.0,
+          "write1": 0.9987778616905678,
+          "value_rank": 0.9745115551256178
+        }
+      },
+      "misses": {
+        "naive": 7879,
+        "paired100": 9260,
+        "risk_pool100": 9270,
+        "r80": 8845,
+        "write1": 8935,
+        "value_rank": 11909
+      },
+      "decision_us": {
+        "naive": 5888.28,
+        "paired100": 15469.04,
+        "risk_pool100": 22533.75,
+        "r80": 12189.09,
+        "write1": 12229.51,
+        "value_rank": 15947.06
+      },
+      "wall_seconds": {
+        "naive": 0.11505115899490193,
+        "paired100": 0.16576384101063013,
+        "risk_pool100": 0.16509179899003357,
+        "r80": 0.16577669298567344,
+        "write1": 0.1653130369959399,
+        "value_rank": 0.16586921400448773
+      },
+      "canonical_sha256": "9e912a673be2e35132a44d86eb807d32905406eede9994b911932099bd8a3a26"
+    },
+    {
+      "case": "train/train_528_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 17042152183881719979,
+      "penalty": 449,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.165022759896191,
+        "risk_pool100": 2.015925332241517,
+        "r80": 2.7673339952445164,
+        "write1": 2.7365341333336666,
+        "value_rank": 0.0
+      },
+      "physical_us": {
+        "naive": 22487760.12,
+        "paired100": 17596410.43,
+        "risk_pool100": 17928752.47,
+        "r80": 16255636.79,
+        "write1": 16324596.93,
+        "value_rank": 32355511.15
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.2779742896688049,
+          "paired100": 1.0,
+          "risk_pool100": 1.0188869224960446,
+          "r80": 0.9238041391831754,
+          "write1": 0.9277231282448554,
+          "value_rank": 1.8387563349191554
+        },
+        "r80": {
+          "naive": 1.3833822944317888,
+          "paired100": 1.0824805362792558,
+          "risk_pool100": 1.1029252622714387,
+          "r80": 1.0,
+          "write1": 1.0042422293811597,
+          "value_rank": 1.9904179435101663
+        }
+      },
+      "misses": {
+        "naive": 1735,
+        "paired100": 9030,
+        "risk_pool100": 8666,
+        "r80": 2989,
+        "write1": 3118,
+        "value_rank": 35749
+      },
+      "decision_us": {
+        "naive": 4723.84,
+        "paired100": 26399.56,
+        "risk_pool100": 29414.67,
+        "r80": 12425.62,
+        "write1": 12742.01,
+        "value_rank": 74347.04
+      },
+      "wall_seconds": {
+        "naive": 0.4663317350059515,
+        "paired100": 0.5162439749983605,
+        "risk_pool100": 0.5165665249951417,
+        "r80": 0.4662574779940769,
+        "write1": 0.48247310500300955,
+        "value_rank": 0.5162252330046613
+      },
+      "canonical_sha256": "16cde3544e22f9d61bec8728fbc2c568b86a88848482ff2848e991196463dfe3"
+    },
+    {
+      "case": "train/train_603_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 17205284488478511419,
+      "penalty": 250,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 6.072539381946169,
+        "risk_pool100": 6.06925304439848,
+        "r80": 5.966221204569842,
+        "write1": 5.964425423294268,
+        "value_rank": 6.352367218969632
+      },
+      "physical_us": {
+        "naive": 3313445363.83,
+        "paired100": 1301325398.05,
+        "risk_pool100": 1302411135.24,
+        "r80": 1336557180.43,
+        "write1": 1337150918.52,
+        "value_rank": 1208603714.58
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.546208172679259,
+          "paired100": 1.0,
+          "risk_pool100": 1.0008343318217157,
+          "r80": 1.0270737683540134,
+          "write1": 1.0275300247914039,
+          "value_rank": 0.9287482718704017
+        },
+        "r80": {
+          "naive": 2.479089867867824,
+          "paired100": 0.9736398989165094,
+          "risk_pool100": 0.9744522376670676,
+          "r80": 1.0,
+          "write1": 1.0004442294715807,
+          "value_rank": 0.9042663735427806
+        }
+      },
+      "misses": {
+        "naive": 16377,
+        "paired100": 14031,
+        "risk_pool100": 14017,
+        "r80": 14244,
+        "write1": 14377,
+        "value_rank": 15466
+      },
+      "decision_us": {
+        "naive": 8607.95,
+        "paired100": 20600.33,
+        "risk_pool100": 23775.98,
+        "r80": 16856.67,
+        "write1": 18142.44,
+        "value_rank": 22618.01
+      },
+      "wall_seconds": {
+        "naive": 0.16531238399329595,
+        "paired100": 0.16487229999620467,
+        "risk_pool100": 0.16502309699717443,
+        "r80": 0.1674082880053902,
+        "write1": 0.16628080199006945,
+        "value_rank": 0.16507535899290815
+      },
+      "canonical_sha256": "ff17754241546e8ba4c5df536f953442c7f8cbdcdf423d004958c0dced579e74"
+    },
+    {
+      "case": "train/train_563_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 4015835430883768950,
+      "penalty": 949,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.303964763982382,
+        "risk_pool100": 4.196943613951617,
+        "r80": 4.697733827100483,
+        "write1": 4.742571220402774,
+        "value_rank": 1.9662663825446367
+      },
+      "physical_us": {
+        "naive": 120651265.29,
+        "paired100": 68705935.17,
+        "risk_pool100": 69991940.01,
+        "r80": 63957755.81,
+        "write1": 63419136.35,
+        "value_rank": 96894129.8
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.7560530249893402,
+          "paired100": 1.0,
+          "risk_pool100": 1.0187175218096955,
+          "r80": 0.9308912781952313,
+          "write1": 0.9230517886567033,
+          "value_rank": 1.4102730653509565
+        },
+        "r80": {
+          "naive": 1.8864211816377676,
+          "paired100": 1.0742393053018537,
+          "risk_pool100": 1.0943464029276733,
+          "r80": 1.0,
+          "write1": 0.9915785122042104,
+          "value_rank": 1.5149707580085274
+        }
+      },
+      "misses": {
+        "naive": 1148,
+        "paired100": 5812,
+        "risk_pool100": 5895,
+        "r80": 5069,
+        "write1": 4796,
+        "value_rank": 14931
+      },
+      "decision_us": {
+        "naive": 1770.07,
+        "paired100": 18458.91,
+        "risk_pool100": 23696.73,
+        "r80": 15695.0,
+        "write1": 13337.7,
+        "value_rank": 35304.83
+      },
+      "wall_seconds": {
+        "naive": 0.16548060599598102,
+        "paired100": 0.21518431599542964,
+        "risk_pool100": 0.21517528800177388,
+        "r80": 0.21509082200645935,
+        "write1": 0.1651271760056261,
+        "value_rank": 0.21515851700678468
+      },
+      "canonical_sha256": "d451dec73ab353417c84b08757bd82ce9a8d34d00736432a11738375733d8f63"
+    },
+    {
+      "case": "train/train_565_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 12707438246821282913,
+      "penalty": 632,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.8941656426954436,
+        "risk_pool100": 2.934842521018283,
+        "r80": 0.6639711128714929,
+        "write1": 0.6551036531219788,
+        "value_rank": 4.789455326598304
+      },
+      "physical_us": {
+        "naive": 309452307.38,
+        "paired100": 219883465.97,
+        "risk_pool100": 218622702.28,
+        "r80": 288902641.02,
+        "write1": 289177050.27,
+        "value_rank": 161231265.67
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.4073468690102438,
+          "paired100": 1.0,
+          "risk_pool100": 0.994266218769846,
+          "r80": 1.3138897904193336,
+          "write1": 1.315137766245026,
+          "value_rank": 0.7332577961637086
+        },
+        "r80": {
+          "naive": 1.071130074434236,
+          "paired100": 0.7610988435193226,
+          "risk_pool100": 0.7567348692560595,
+          "r80": 1.0,
+          "write1": 1.0009498329576745,
+          "value_rank": 0.5580816606617257
+        }
+      },
+      "misses": {
+        "naive": 975,
+        "paired100": 5998,
+        "risk_pool100": 5664,
+        "r80": 1915,
+        "write1": 1928,
+        "value_rank": 8181
+      },
+      "decision_us": {
+        "naive": 1107.4,
+        "paired100": 9004.71,
+        "risk_pool100": 11008.52,
+        "r80": 3960.95,
+        "write1": 3958.27,
+        "value_rank": 10818.54
+      },
+      "wall_seconds": {
+        "naive": 0.2654809759987984,
+        "paired100": 0.2655628229986178,
+        "risk_pool100": 0.2657001829938963,
+        "r80": 0.2652735910087358,
+        "write1": 0.2653566709923325,
+        "value_rank": 0.2655631390080089
+      },
+      "canonical_sha256": "7e53f8515bcca7ad935adaac45939c9a245c4a72db711c94f281ea9f6c40702c"
+    },
+    {
+      "case": "train/train_592_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 18068038998795579627,
+      "penalty": 179,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 7.597872020941536,
+        "risk_pool100": 7.311947313113254,
+        "r80": 7.685941133299951,
+        "write1": 7.648938537665549,
+        "value_rank": 7.37933885197438
+      },
+      "physical_us": {
+        "naive": 53111950.2,
+        "paired100": 12748252.73,
+        "risk_pool100": 14265389.92,
+        "r80": 12283553.3,
+        "write1": 12479995.22,
+        "value_rank": 13902554.87
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 4.166214094188263,
+          "paired100": 1.0,
+          "risk_pool100": 1.119007461032662,
+          "r80": 0.9635479904703772,
+          "write1": 0.9789573115875936,
+          "value_rank": 1.0905459096589467
+        },
+        "r80": {
+          "naive": 4.323826249852313,
+          "paired100": 1.03783102646691,
+          "risk_pool100": 1.1613406619076583,
+          "r80": 1.0,
+          "write1": 1.015992271552239,
+          "value_rank": 1.1318023808306348
+        }
+      },
+      "misses": {
+        "naive": 1258,
+        "paired100": 5388,
+        "risk_pool100": 5247,
+        "r80": 3704,
+        "write1": 3920,
+        "value_rank": 13231
+      },
+      "decision_us": {
+        "naive": 1288.65,
+        "paired100": 10226.99,
+        "risk_pool100": 11728.52,
+        "r80": 7162.83,
+        "write1": 7253.68,
+        "value_rank": 16625.28
+      },
+      "wall_seconds": {
+        "naive": 0.3157324229978258,
+        "paired100": 0.31547786899318453,
+        "risk_pool100": 0.26550358600798063,
+        "r80": 0.31565793699701317,
+        "write1": 0.26574055399396457,
+        "value_rank": 0.3155647660023533
+      },
+      "canonical_sha256": "23b0f47c955a466eaec06dfcadd7de882067c236f02c3abf862c7777ee3f3ce5"
+    },
+    {
+      "case": "train/train_600_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 13204245464263753359,
+      "penalty": 870,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.0,
+        "risk_pool100": 0.0,
+        "r80": 0.0,
+        "write1": 0.0,
+        "value_rank": 0.0
+      },
+      "physical_us": {
+        "naive": 245177.67,
+        "paired100": 836124.75,
+        "risk_pool100": 836124.75,
+        "r80": 469086.36,
+        "write1": 469086.36,
+        "value_rank": 11054094.53
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 0.29323096822573425,
+          "paired100": 1.0,
+          "risk_pool100": 1.0,
+          "r80": 0.5610243686722586,
+          "write1": 0.5610243686722586,
+          "value_rank": 13.220628297392226
+        },
+        "r80": {
+          "naive": 0.5226706442711316,
+          "paired100": 1.78245376821445,
+          "risk_pool100": 1.78245376821445,
+          "r80": 1.0,
+          "write1": 1.0,
+          "value_rank": 23.565158726849358
+        }
+      },
+      "misses": {
+        "naive": 34,
+        "paired100": 690,
+        "risk_pool100": 690,
+        "r80": 211,
+        "write1": 211,
+        "value_rank": 12176
+      },
+      "decision_us": {
+        "naive": 840.39,
+        "paired100": 7987.31,
+        "risk_pool100": 8538.04,
+        "r80": 4302.66,
+        "write1": 3727.9,
+        "value_rank": 46226.24
+      },
+      "wall_seconds": {
+        "naive": 0.215360011003213,
+        "paired100": 0.26554750600189436,
+        "risk_pool100": 0.21610290299577173,
+        "r80": 0.21554722399741877,
+        "write1": 0.215082551992964,
+        "value_rank": 0.26546786300605163
+      },
+      "canonical_sha256": "2b2bc6627715e3eaf90ce077008883889af41d60fd5664352f8848b252513612"
+    },
+    {
+      "case": "train/train_586_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 16880273796992981695,
+      "penalty": 499,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.0,
+        "risk_pool100": 0.0,
+        "r80": 0.0,
+        "write1": 0.0,
+        "value_rank": 0.0
+      },
+      "physical_us": {
+        "naive": 375860.01,
+        "paired100": 375860.01,
+        "risk_pool100": 375860.01,
+        "r80": 375860.01,
+        "write1": 375860.01,
+        "value_rank": 375860.01
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.0,
+          "paired100": 1.0,
+          "risk_pool100": 1.0,
+          "r80": 1.0,
+          "write1": 1.0,
+          "value_rank": 1.0
+        },
+        "r80": {
+          "naive": 1.0,
+          "paired100": 1.0,
+          "risk_pool100": 1.0,
+          "r80": 1.0,
+          "write1": 1.0,
+          "value_rank": 1.0
+        }
+      },
+      "misses": {
+        "naive": 3,
+        "paired100": 3,
+        "risk_pool100": 3,
+        "r80": 3,
+        "write1": 3,
+        "value_rank": 3
+      },
+      "decision_us": {
+        "naive": 484.63,
+        "paired100": 681.27,
+        "risk_pool100": 796.68,
+        "r80": 652.67,
+        "write1": 638.65,
+        "value_rank": 726.66
+      },
+      "wall_seconds": {
+        "naive": 0.1651986179931555,
+        "paired100": 0.1650095070071984,
+        "risk_pool100": 0.1649666720040841,
+        "r80": 0.16497643300681375,
+        "write1": 0.16511217699735425,
+        "value_rank": 0.1652476529998239
+      },
+      "canonical_sha256": "f0eb0e0d652ab1b4fc81f8eb9499efca126cfd4bb6f0589b9796151a5eed5514"
+    },
+    {
+      "case": "train/train_597_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 9053799892522796550,
+      "penalty": 139,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.8545024952471474,
+        "risk_pool100": 2.8574073584107533,
+        "r80": 2.8128549391429063,
+        "write1": 2.8122329916117224,
+        "value_rank": 2.8093994099738335
+      },
+      "physical_us": {
+        "naive": 7763277771.47,
+        "paired100": 5547239595.19,
+        "risk_pool100": 5544982022.97,
+        "r80": 5579573970.29,
+        "write1": 5580054745.92,
+        "value_rank": 5582253218.7
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.3994848497623074,
+          "paired100": 1.0,
+          "risk_pool100": 0.9995930278147788,
+          "r80": 1.0058289126591966,
+          "write1": 1.0059155820055896,
+          "value_rank": 1.0063119003441567
+        },
+        "r80": {
+          "naive": 1.3913746484602123,
+          "paired100": 0.9942048666668507,
+          "risk_pool100": 0.9938002529397058,
+          "r80": 1.0,
+          "write1": 1.0000861670859746,
+          "value_rank": 1.0004801887069275
+        }
+      },
+      "misses": {
+        "naive": 7738,
+        "paired100": 8732,
+        "risk_pool100": 8729,
+        "r80": 8538,
+        "write1": 8546,
+        "value_rank": 10062
+      },
+      "decision_us": {
+        "naive": 4431.47,
+        "paired100": 11765.79,
+        "risk_pool100": 14210.76,
+        "r80": 9563.8,
+        "write1": 11623.59,
+        "value_rank": 12940.19
+      },
+      "wall_seconds": {
+        "naive": 0.11502314500103239,
+        "paired100": 0.16511552399606444,
+        "risk_pool100": 0.16549080499680713,
+        "r80": 0.11488132299564313,
+        "write1": 0.16564104999997653,
+        "value_rank": 0.16520850099914242
+      },
+      "canonical_sha256": "f5db4336eafdd3f7391af572615e48c01a8055104c34b4b45ecd71dc5c998003"
+    },
+    {
+      "case": "train/train_534_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 6047589661445266902,
+      "penalty": 339,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.3829712455880805,
+        "risk_pool100": 2.3378481799814836,
+        "r80": 2.6737203746070795,
+        "write1": 2.7370835918773238,
+        "value_rank": 1.2886313751181264
+      },
+      "physical_us": {
+        "naive": 1305475793.93,
+        "paired100": 994320838.74,
+        "risk_pool100": 1000166169.82,
+        "r80": 956389069.97,
+        "write1": 948117237.93,
+        "value_rank": 1137158375.43
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.3129321473180573,
+          "paired100": 1.0,
+          "risk_pool100": 1.0058787172633405,
+          "r80": 0.9618515802021539,
+          "write1": 0.9535325027799386,
+          "value_rank": 1.1436533673286011
+        },
+        "r80": {
+          "naive": 1.365004928350917,
+          "paired100": 1.0396614411028242,
+          "risk_pool100": 1.0457733167646648,
+          "r80": 1.0,
+          "write1": 0.9913509759785738,
+          "value_rank": 1.189012307998951
+        }
+      },
+      "misses": {
+        "naive": 9005,
+        "paired100": 23232,
+        "risk_pool100": 23380,
+        "r80": 18868,
+        "write1": 18939,
+        "value_rank": 44776
+      },
+      "decision_us": {
+        "naive": 22545.07,
+        "paired100": 80999.96,
+        "risk_pool100": 126477.59,
+        "r80": 55518.23,
+        "write1": 55292.78,
+        "value_rank": 109351.6
+      },
+      "wall_seconds": {
+        "naive": 0.3158098610001616,
+        "paired100": 0.36587237200001255,
+        "risk_pool100": 0.416163702000631,
+        "r80": 0.36566677199152764,
+        "write1": 0.31595311099954415,
+        "value_rank": 0.41582447598921135
+      },
+      "canonical_sha256": "e2e995100e6c570788c66d6b6202d007f0e0404f62f2f8c49c6404bb5fdd0e3d"
+    },
+    {
+      "case": "train/train_569_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 12887940269125001850,
+      "penalty": 534,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 1.182823049870395,
+        "risk_pool100": 1.1925544539657296,
+        "r80": 1.5517405717932893,
+        "write1": 1.523645240912493,
+        "value_rank": 0.0
+      },
+      "physical_us": {
+        "naive": 91905013.9,
+        "paired100": 80997214.88,
+        "risk_pool100": 80886974.35,
+        "r80": 77622349.21,
+        "write1": 77877726.31,
+        "value_rank": 97848391.84
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.1346688159112663,
+          "paired100": 1.0,
+          "risk_pool100": 0.9986389590041667,
+          "r80": 0.9583335590612594,
+          "write1": 0.961486471175316,
+          "value_rank": 1.2080463752360568
+        },
+        "r80": {
+          "naive": 1.184001963807609,
+          "paired100": 1.0434780150864749,
+          "risk_pool100": 1.0420577987296913,
+          "r80": 1.0,
+          "write1": 1.003289994474518,
+          "value_rank": 1.2605698337637312
+        }
+      },
+      "misses": {
+        "naive": 17851,
+        "paired100": 22433,
+        "risk_pool100": 22314,
+        "r80": 18319,
+        "write1": 18368,
+        "value_rank": 36571
+      },
+      "decision_us": {
+        "naive": 30475.7,
+        "paired100": 63933.1,
+        "risk_pool100": 84707.49,
+        "r80": 47137.47,
+        "write1": 50056.17,
+        "value_rank": 62691.0
+      },
+      "wall_seconds": {
+        "naive": 0.2152459470089525,
+        "paired100": 0.21509294300631154,
+        "risk_pool100": 0.2654995719931321,
+        "r80": 0.21542119400692172,
+        "write1": 0.2154908130032709,
+        "value_rank": 0.21519675799936522
+      },
+      "canonical_sha256": "f7e154b885dd5f1e5c07ef8694c245a2f5c1f26e6d406b88fe5e45d6d6f7fecf"
+    },
+    {
+      "case": "train/train_575_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 16743426090438616031,
+      "penalty": 75,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.7841599383116638,
+        "risk_pool100": 2.8356433439578845,
+        "r80": 2.639040086362834,
+        "write1": 2.660568536228729,
+        "value_rank": 1.8195503476643047
+      },
+      "physical_us": {
+        "naive": 252295214.45,
+        "paired100": 182030067.74,
+        "risk_pool100": 180725979.29,
+        "r80": 185695328.65,
+        "write1": 185153143.17,
+        "value_rank": 206360401.98
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.3860084632301637,
+          "paired100": 1.0,
+          "risk_pool100": 0.9928358624144299,
+          "r80": 1.0201354696809497,
+          "write1": 1.0171569206602769,
+          "value_rank": 1.133661073371416
+        },
+        "r80": {
+          "naive": 1.3586513795698543,
+          "paired100": 0.9802619649258474,
+          "risk_pool100": 0.9732392333392174,
+          "r80": 1.0,
+          "write1": 0.9970802416843673,
+          "value_rank": 1.1112848313430097
+        }
+      },
+      "misses": {
+        "naive": 10875,
+        "paired100": 16341,
+        "risk_pool100": 15964,
+        "r80": 16536,
+        "write1": 16427,
+        "value_rank": 25954
+      },
+      "decision_us": {
+        "naive": 7391.35,
+        "paired100": 27457.32,
+        "risk_pool100": 32606.03,
+        "r80": 23608.09,
+        "write1": 22625.16,
+        "value_rank": 34474.4
+      },
+      "wall_seconds": {
+        "naive": 0.1650328130053822,
+        "paired100": 0.2150893520010868,
+        "risk_pool100": 0.2154828519996954,
+        "r80": 0.16547538799932227,
+        "write1": 0.16597055600141175,
+        "value_rank": 0.21574404199782293
+      },
+      "canonical_sha256": "e8eec3c2489d5bdfdf62e27a287b638a096aa29dc0796e006a9f0db245163ea4"
+    },
+    {
+      "case": "train/train_524_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 8790685556193460957,
+      "penalty": 367,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.188914238717088,
+        "risk_pool100": 4.183837611548223,
+        "r80": 4.409254105543556,
+        "write1": 4.400011120781735,
+        "value_rank": 2.108454425653109
+      },
+      "physical_us": {
+        "naive": 42900305.24,
+        "paired100": 24900196.32,
+        "risk_pool100": 24906820.11,
+        "r80": 23962199.03,
+        "write1": 24002547.26,
+        "value_rank": 33829135.75
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.722890241051722,
+          "paired100": 1.0,
+          "risk_pool100": 1.0002660135653099,
+          "r80": 0.9623297231095888,
+          "write1": 0.9639501211771972,
+          "value_rank": 1.3585891177423455
+        },
+        "r80": {
+          "naive": 1.7903325644816663,
+          "paired100": 1.0391448751771761,
+          "risk_pool100": 1.0394213018102956,
+          "r80": 1.0,
+          "write1": 1.0016838283477023,
+          "value_rank": 1.4117709191734396
+        }
+      },
+      "misses": {
+        "naive": 9785,
+        "paired100": 13561,
+        "risk_pool100": 13471,
+        "r80": 12080,
+        "write1": 12249,
+        "value_rank": 20955
+      },
+      "decision_us": {
+        "naive": 16102.21,
+        "paired100": 38896.1,
+        "risk_pool100": 54059.37,
+        "r80": 31273.84,
+        "write1": 30593.18,
+        "value_rank": 38542.77
+      },
+      "wall_seconds": {
+        "naive": 0.11675977800041437,
+        "paired100": 0.16525298600026872,
+        "risk_pool100": 0.16517053500865586,
+        "r80": 0.11548172299808357,
+        "write1": 0.11485630601237062,
+        "value_rank": 0.16518783300125506
+      },
+      "canonical_sha256": "b3ad2ed2d0d60d263011f481a611acfee853f80884bcf5dca7b136c515e6fbb3"
+    },
+    {
+      "case": "train/train_519_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 3378975529217722178,
+      "penalty": 119,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 3.1102678656262097,
+        "risk_pool100": 2.7840284163393125,
+        "r80": 1.3279231461576444,
+        "write1": 1.6176660997589125,
+        "value_rank": 1.2843804233557383
+      },
+      "physical_us": {
+        "naive": 66207359.14,
+        "paired100": 45583343.16,
+        "risk_pool100": 47731474.18,
+        "r80": 57399911.06,
+        "write1": 55482486.79,
+        "value_rank": 57638072.44
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.4524463225000541,
+          "paired100": 1.0,
+          "risk_pool100": 1.0471253504259208,
+          "r80": 1.2592299528914148,
+          "write1": 1.2171658097839264,
+          "value_rank": 1.2644546986755063
+        },
+        "r80": {
+          "naive": 1.1534400997728653,
+          "paired100": 0.7941361287537856,
+          "risk_pool100": 0.8315600721071918,
+          "r80": 1.0,
+          "write1": 0.9665953442332738,
+          "value_rank": 1.004149159390701
+        }
+      },
+      "misses": {
+        "naive": 328,
+        "paired100": 6539,
+        "risk_pool100": 6346,
+        "r80": 3766,
+        "write1": 3904,
+        "value_rank": 21524
+      },
+      "decision_us": {
+        "naive": 1619.41,
+        "paired100": 32869.55,
+        "risk_pool100": 44736.6,
+        "r80": 17023.97,
+        "write1": 16089.75,
+        "value_rank": 67154.52
+      },
+      "wall_seconds": {
+        "naive": 0.16530042899830732,
+        "paired100": 0.21525866400043014,
+        "risk_pool100": 0.21526643600373063,
+        "r80": 0.21531102500739507,
+        "write1": 0.21552270899701398,
+        "value_rank": 0.26583227700029965
+      },
+      "canonical_sha256": "264d23452ddfc8dbdd42bfca6389003cbae6686c8f5df01127ce291ddb44aa96"
+    },
+    {
+      "case": "train/train_583_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 333890524145506579,
+      "penalty": 59,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.9078640467289528,
+        "risk_pool100": 0.7272714454439553,
+        "r80": 1.0990858187401968,
+        "write1": 1.103573360446921,
+        "value_rank": 1.5985546093894396
+      },
+      "physical_us": {
+        "naive": 1957511426.88,
+        "paired100": 1779783783.11,
+        "risk_pool100": 1815131981.55,
+        "r80": 1742355826.28,
+        "write1": 1741477007.44,
+        "value_rank": 1644568315.29
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.0998591207856936,
+          "paired100": 1.0,
+          "risk_pool100": 1.0198609509623873,
+          "r80": 0.9789705035043087,
+          "write1": 0.9784767250755243,
+          "value_rank": 0.924027025584128
+        },
+        "r80": {
+          "naive": 1.1234854542079191,
+          "paired100": 1.0214812360744419,
+          "risk_pool100": 1.0417688248131152,
+          "r80": 1.0,
+          "write1": 0.9994956146002184,
+          "value_rank": 0.943876268259865
+        }
+      },
+      "misses": {
+        "naive": 1025,
+        "paired100": 6289,
+        "risk_pool100": 6084,
+        "r80": 4484,
+        "write1": 4515,
+        "value_rank": 16763
+      },
+      "decision_us": {
+        "naive": 5733.76,
+        "paired100": 17432.43,
+        "risk_pool100": 20545.6,
+        "r80": 13399.24,
+        "write1": 13774.09,
+        "value_rank": 29037.35
+      },
+      "wall_seconds": {
+        "naive": 0.33142622699961066,
+        "paired100": 0.36590164600056596,
+        "risk_pool100": 0.3159175400069216,
+        "r80": 0.3155080020078458,
+        "write1": 0.31566289300099015,
+        "value_rank": 0.3673359189997427
+      },
+      "canonical_sha256": "c8ffa730acd8b6e67e32b5eb5dca903e70cba59bdacb8733978d35c46b4c173c"
+    },
+    {
+      "case": "train/train_594_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 12992850910945189016,
+      "penalty": 780,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.3736277426829444,
+        "risk_pool100": 2.368710062749485,
+        "r80": 2.262876155453779,
+        "write1": 2.2721421947612397,
+        "value_rank": 1.9755553323214858
+      },
+      "physical_us": {
+        "naive": 394935962.54,
+        "paired100": 301168993.14,
+        "risk_pool100": 301353866.91,
+        "r80": 305547530.18,
+        "write1": 305180658.26,
+        "value_rank": 316882135.94
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.3113433704525217,
+          "paired100": 1.0,
+          "risk_pool100": 1.0006138539298899,
+          "r80": 1.014538472219033,
+          "write1": 1.0133203125533417,
+          "value_rank": 1.0521738397972984
+        },
+        "r80": {
+          "naive": 1.2925516442804845,
+          "paired100": 0.9856698660355049,
+          "risk_pool100": 0.9862749233563449,
+          "r80": 1.0,
+          "write1": 0.9987992967255083,
+          "value_rank": 1.0370960477190658
+        }
+      },
+      "misses": {
+        "naive": 18630,
+        "paired100": 27838,
+        "risk_pool100": 27805,
+        "r80": 27037,
+        "write1": 26971,
+        "value_rank": 44797
+      },
+      "decision_us": {
+        "naive": 6739.36,
+        "paired100": 29013.37,
+        "risk_pool100": 38359.77,
+        "r80": 24529.43,
+        "write1": 25445.89,
+        "value_rank": 37449.89
+      },
+      "wall_seconds": {
+        "naive": 0.26540407800348476,
+        "paired100": 0.3157490140001755,
+        "risk_pool100": 0.31559398700483143,
+        "r80": 0.31549060399993323,
+        "write1": 0.31551077199401334,
+        "value_rank": 0.3155668079998577
+      },
+      "canonical_sha256": "0ac20bfa7bdb82eeb205665271a635c4ed4bd1c710819e1e227a125269494e65"
+    },
+    {
+      "case": "train/train_562_random_zipf.txt",
+      "family": "random_zipf",
+      "seed": 5641382687939364132,
+      "penalty": 172,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 1.5068884156645015,
+        "risk_pool100": 1.5071207063520176,
+        "r80": 1.489479784784819,
+        "write1": 1.4881004001213232,
+        "value_rank": 1.470795022794166
+      },
+      "physical_us": {
+        "naive": 6958401809.55,
+        "paired100": 5909832933.12,
+        "risk_pool100": 5909667645.45,
+        "r80": 5921949156.79,
+        "write1": 5922910081.88,
+        "value_rank": 5934948582.03
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.1774278373511355,
+          "paired100": 1.0,
+          "risk_pool100": 0.9999720317525266,
+          "r80": 1.002050180403933,
+          "write1": 1.0022127780781607,
+          "value_rank": 1.0042498069225014
+        },
+        "r80": {
+          "naive": 1.1750188367577628,
+          "paired100": 0.9979540142359872,
+          "risk_pool100": 0.9979261032111499,
+          "r80": 1.0,
+          "write1": 1.000162265001701,
+          "value_rank": 1.0021951261140254
+        }
+      },
+      "misses": {
+        "naive": 16449,
+        "paired100": 17293,
+        "risk_pool100": 17220,
+        "r80": 17376,
+        "write1": 17480,
+        "value_rank": 18335
+      },
+      "decision_us": {
+        "naive": 6714.19,
+        "paired100": 21071.05,
+        "risk_pool100": 24721.36,
+        "r80": 18483.92,
+        "write1": 17391.04,
+        "value_rank": 20679.39
+      },
+      "wall_seconds": {
+        "naive": 0.21536051700240932,
+        "paired100": 0.21512020099908113,
+        "risk_pool100": 0.2155681470030686,
+        "r80": 0.21544214199821,
+        "write1": 0.21547105099307373,
+        "value_rank": 0.2153388300066581
+      },
+      "canonical_sha256": "466dc8276e36d4920b2281f783204b542fab7089e9ce668f3a409abc91e92b88"
+    },
+    {
+      "case": "train/train_669_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 12796682547846436763,
+      "penalty": 2,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 7.389471112109442,
+        "risk_pool100": 7.3968251128250175,
+        "r80": 7.775025784837635,
+        "write1": 7.7746554222285305,
+        "value_rank": 6.731383882839273
+      },
+      "physical_us": {
+        "naive": 5350673407.7,
+        "paired100": 1396498848.52,
+        "risk_pool100": 1392189158.71,
+        "r80": 1190339587.61,
+        "write1": 1190492228.4,
+        "value_rank": 1748503739.16
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 3.831491456917854,
+          "paired100": 1.0,
+          "risk_pool100": 0.9969139324285391,
+          "r80": 0.8523741991420285,
+          "write1": 0.8524835016238471,
+          "value_rank": 1.2520624281309307
+        },
+        "r80": {
+          "naive": 4.495081456917051,
+          "paired100": 1.173193652513845,
+          "risk_pool100": 1.1695730976277785,
+          "r80": 1.0,
+          "write1": 1.0001282329778736,
+          "value_rank": 1.4689116932342803
+        }
+      },
+      "misses": {
+        "naive": 173763,
+        "paired100": 80430,
+        "risk_pool100": 80125,
+        "r80": 66616,
+        "write1": 66668,
+        "value_rank": 159370
+      },
+      "decision_us": {
+        "naive": 1969789.17,
+        "paired100": 824120.68,
+        "risk_pool100": 1197476.3,
+        "r80": 609721.99,
+        "write1": 655323.09,
+        "value_rank": 1069843.1
+      },
+      "wall_seconds": {
+        "naive": 3.1757268850051332,
+        "paired100": 2.022018545001629,
+        "risk_pool100": 2.4232263599988073,
+        "r80": 1.770283367994125,
+        "write1": 1.8712570130010135,
+        "value_rank": 2.272406231990317
+      },
+      "canonical_sha256": "4b2c8ab058fb36da38361721f3a03a857f2e9e07b63cd8e99ad860db3a4fef59"
+    },
+    {
+      "case": "train/train_680_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 16867375401207270052,
+      "penalty": 535,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.5539775546101021,
+        "risk_pool100": 0.5819520387591236,
+        "r80": 0.35922405381316747,
+        "write1": 0.5651588081727313,
+        "value_rank": 0.8015640380554722
+      },
+      "physical_us": {
+        "naive": 392954436.68,
+        "paired100": 371175643.24,
+        "risk_pool100": 370072154.25,
+        "r80": 378830905.49,
+        "write1": 370738841.49,
+        "value_rank": 361444251.23
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.0586751685802778,
+          "paired100": 1.0,
+          "risk_pool100": 0.9970270436379726,
+          "r80": 1.020624365820928,
+          "write1": 0.9988231939300026,
+          "value_rank": 0.9737822451789819
+        },
+        "r80": {
+          "naive": 1.0372818874735996,
+          "paired100": 0.9797924030509119,
+          "risk_pool100": 0.9768795229927956,
+          "r80": 1.0,
+          "write1": 0.9786393774036644,
+          "value_rank": 0.954104446052227
+        }
+      },
+      "misses": {
+        "naive": 1544,
+        "paired100": 5779,
+        "risk_pool100": 5374,
+        "r80": 5665,
+        "write1": 5679,
+        "value_rank": 9409
+      },
+      "decision_us": {
+        "naive": 1288.31,
+        "paired100": 11216.59,
+        "risk_pool100": 15432.21,
+        "r80": 8904.65,
+        "write1": 8644.58,
+        "value_rank": 13555.99
+      },
+      "wall_seconds": {
+        "naive": 0.16515878000063822,
+        "paired100": 0.16518580800038762,
+        "risk_pool100": 0.16537378399516456,
+        "r80": 0.16504896500555333,
+        "write1": 0.16525174700655043,
+        "value_rank": 0.16541520500322804
+      },
+      "canonical_sha256": "ba0652f888dd11f75f1669ec3ac0665dac98ed82e43d3505e0b83706d2fc5238"
+    },
+    {
+      "case": "train/train_659_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 7047099415850805085,
+      "penalty": 244,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.196089897351125,
+        "risk_pool100": 4.196088331864335,
+        "r80": 4.195505090751749,
+        "write1": 4.193874159727768,
+        "value_rank": 4.196004805775418
+      },
+      "physical_us": {
+        "naive": 11027041535.84,
+        "paired100": 6399985111.8,
+        "risk_pool100": 6399985111.8,
+        "r80": 6400631583.82,
+        "write1": 6402430407.33,
+        "value_rank": 6400080680.63
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.722979248109319,
+          "paired100": 1.0,
+          "risk_pool100": 1.0,
+          "r80": 1.0001010114881062,
+          "write1": 1.000382078315384,
+          "value_rank": 1.000014932664425
+        },
+        "r80": {
+          "naive": 1.7228052249898258,
+          "paired100": 0.9998989987141841,
+          "risk_pool100": 0.9998989987141841,
+          "r80": 1.0,
+          "write1": 1.000281038439167,
+          "value_rank": 0.9999139298703908
+        }
+      },
+      "misses": {
+        "naive": 18221,
+        "paired100": 14055,
+        "risk_pool100": 14055,
+        "r80": 14076,
+        "write1": 14105,
+        "value_rank": 14076
+      },
+      "decision_us": {
+        "naive": 7760.26,
+        "paired100": 15169.4,
+        "risk_pool100": 16895.67,
+        "r80": 13566.51,
+        "write1": 13178.67,
+        "value_rank": 13431.48
+      },
+      "wall_seconds": {
+        "naive": 0.11488070800260175,
+        "paired100": 0.16489330198965035,
+        "risk_pool100": 0.16519026400055736,
+        "r80": 0.16511164901021402,
+        "write1": 0.16500149999046698,
+        "value_rank": 0.16517348600609694
+      },
+      "canonical_sha256": "b44f5db5b19f916bebff0afd71f226b19c411fce262826b642b2b0b69c8340d8"
+    },
+    {
+      "case": "train/train_630_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 7771266016699031858,
+      "penalty": 329,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 3.444423492804188,
+        "risk_pool100": 3.4066086964362112,
+        "r80": 3.386908324030043,
+        "write1": 3.4101225270907634,
+        "value_rank": 3.3451416354521055
+      },
+      "physical_us": {
+        "naive": 61830369.42,
+        "paired100": 40509569.5,
+        "risk_pool100": 40738621.11,
+        "r80": 40867249.53,
+        "write1": 40723819.01,
+        "value_rank": 41120455.95
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.526315144375948,
+          "paired100": 1.0,
+          "risk_pool100": 1.0056542592979172,
+          "r80": 1.0088295194052852,
+          "write1": 1.0052888616848916,
+          "value_rank": 1.015080052874914
+        },
+        "r80": {
+          "naive": 1.512956465900924,
+          "paired100": 0.9912477586792957,
+          "risk_pool100": 0.9968525305353477,
+          "r80": 1.0,
+          "write1": 0.9964903309704092,
+          "value_rank": 1.0061958272923193
+        }
+      },
+      "misses": {
+        "naive": 9090,
+        "paired100": 11082,
+        "risk_pool100": 10893,
+        "r80": 12494,
+        "write1": 12501,
+        "value_rank": 14551
+      },
+      "decision_us": {
+        "naive": 12309.24,
+        "paired100": 31871.64,
+        "risk_pool100": 36676.85,
+        "r80": 29880.81,
+        "write1": 29748.48,
+        "value_rank": 34970.78
+      },
+      "wall_seconds": {
+        "naive": 0.31577909900806844,
+        "paired100": 0.31556159499450587,
+        "risk_pool100": 0.31573816599848215,
+        "r80": 0.3157709080114728,
+        "write1": 0.3157142150012078,
+        "value_rank": 0.31571561000600923
+      },
+      "canonical_sha256": "7e2fbf554e2d6708db274a995fe79917a8bea90ca230267bc358168eef13bceb"
+    },
+    {
+      "case": "train/train_701_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 8316641183263191257,
+      "penalty": 99,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.7876175279849753,
+        "risk_pool100": 2.8000796215101658,
+        "r80": 2.0642100983977567,
+        "write1": 1.9898642749175188,
+        "value_rank": 1.29186259491764
+      },
+      "physical_us": {
+        "naive": 141625776.57,
+        "paired100": 102138773.74,
+        "risk_pool100": 101961050.67,
+        "r80": 112384693.38,
+        "write1": 113437388.86,
+        "value_rank": 123321299.46
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.3866014970036393,
+          "paired100": 1.0,
+          "risk_pool100": 0.9982599842988873,
+          "r80": 1.1003137130477165,
+          "write1": 1.110620234669757,
+          "value_rank": 1.2073896615786803
+        },
+        "r80": {
+          "naive": 1.2601874179709578,
+          "paired100": 0.9088317160295482,
+          "risk_pool100": 0.9072503345739875,
+          "r80": 1.0,
+          "write1": 1.0093668937320546,
+          "value_rank": 1.0973140180488874
+        }
+      },
+      "misses": {
+        "naive": 7500,
+        "paired100": 7741,
+        "risk_pool100": 7694,
+        "r80": 9170,
+        "write1": 9259,
+        "value_rank": 11998
+      },
+      "decision_us": {
+        "naive": 3388.42,
+        "paired100": 9596.97,
+        "risk_pool100": 10820.45,
+        "r80": 9236.35,
+        "write1": 9494.57,
+        "value_rank": 11323.47
+      },
+      "wall_seconds": {
+        "naive": 0.11488911499327514,
+        "paired100": 0.11482142499880865,
+        "risk_pool100": 0.11495388300681952,
+        "r80": 0.11555919899547007,
+        "write1": 0.11482599400915205,
+        "value_rank": 0.11511287599569187
+      },
+      "canonical_sha256": "3958ba45cd1094df5ddbc48a6687339304fdc5c0c45d702758efff82c6262f3b"
+    },
+    {
+      "case": "train/train_634_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 9797070455358673938,
+      "penalty": 936,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 8.10723740155509,
+        "risk_pool100": 8.080512725639638,
+        "r80": 8.16877773745429,
+        "write1": 8.166140032939873,
+        "value_rank": 7.280619917457863
+      },
+      "physical_us": {
+        "naive": 1729238586.8,
+        "paired100": 327286841.37,
+        "risk_pool100": 331901916.34,
+        "r80": 316652550.68,
+        "write1": 317107609.0,
+        "value_rank": 470220418.93
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 5.283556709953652,
+          "paired100": 1.0,
+          "risk_pool100": 1.0141010098379808,
+          "r80": 0.9675077352774539,
+          "write1": 0.9688981312924454,
+          "value_rank": 1.4367226527094397
+        },
+        "r80": {
+          "naive": 5.460996865765086,
+          "paired100": 1.0335834676435205,
+          "risk_pool100": 1.048158038289136,
+          "r80": 1.0,
+          "write1": 1.0014370903345726,
+          "value_rank": 1.48497278142942
+        }
+      },
+      "misses": {
+        "naive": 19699,
+        "paired100": 6993,
+        "risk_pool100": 7090,
+        "r80": 6648,
+        "write1": 6675,
+        "value_rank": 17308
+      },
+      "decision_us": {
+        "naive": 36119.7,
+        "paired100": 23807.33,
+        "risk_pool100": 30162.96,
+        "r80": 16083.38,
+        "write1": 17156.64,
+        "value_rank": 35100.48
+      },
+      "wall_seconds": {
+        "naive": 0.21542954500182532,
+        "paired100": 0.1648826220043702,
+        "risk_pool100": 0.16526376400724985,
+        "r80": 0.1650878840009682,
+        "write1": 0.16497892000188585,
+        "value_rank": 0.21520721200795379
+      },
+      "canonical_sha256": "8fdb3320a3a65af5e82e49776ec219003bc6f0234fa60e55c37591ae41d23848"
+    },
+    {
+      "case": "train/train_626_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 12184351322767587522,
+      "penalty": 383,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.15403738809029918,
+        "risk_pool100": 0.10962164409440166,
+        "r80": 1.1022966478931164,
+        "write1": 1.0889198498193036,
+        "value_rank": 0.0
+      },
+      "physical_us": {
+        "naive": 4527969.75,
+        "paired100": 4421059.93,
+        "risk_pool100": 4432798.31,
+        "r80": 4002264.59,
+        "write1": 4007560.42,
+        "value_rank": 6888871.33
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.0241819431748802,
+          "paired100": 1.0,
+          "risk_pool100": 1.0026551053787682,
+          "r80": 0.9052726389981327,
+          "write1": 0.9064705033301822,
+          "value_rank": 1.5581945142281752
+        },
+        "r80": {
+          "naive": 1.1313519254357944,
+          "paired100": 1.1046395935557074,
+          "risk_pool100": 1.1075725280821576,
+          "r80": 1.0,
+          "write1": 1.0013232083688899,
+          "value_rank": 1.7212433548777444
+        }
+      },
+      "misses": {
+        "naive": 1843,
+        "paired100": 4789,
+        "risk_pool100": 4906,
+        "r80": 3475,
+        "write1": 3489,
+        "value_rank": 11421
+      },
+      "decision_us": {
+        "naive": 22977.32,
+        "paired100": 59785.54,
+        "risk_pool100": 68260.52,
+        "r80": 47033.12,
+        "write1": 47825.0,
+        "value_rank": 111978.86
+      },
+      "wall_seconds": {
+        "naive": 0.26564840399078093,
+        "paired100": 0.2653628060070332,
+        "risk_pool100": 0.26540284500515554,
+        "r80": 0.26653244900808204,
+        "write1": 0.2654033869912382,
+        "value_rank": 0.31555189299979247
+      },
+      "canonical_sha256": "7710e3668e1cc69a6d570da60b91d80d24751c8f65f0248c311be173482a1781"
+    },
+    {
+      "case": "train/train_686_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 12068026078797343614,
+      "penalty": 112,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 5.502812656156318,
+        "risk_pool100": 5.489950628498325,
+        "r80": 5.3928601028119685,
+        "write1": 5.342555825021185,
+        "value_rank": 5.4371157530368395
+      },
+      "physical_us": {
+        "naive": 1900484680.98,
+        "paired100": 854668149.29,
+        "risk_pool100": 857107797.43,
+        "r80": 875566989.92,
+        "write1": 885124292.52,
+        "value_rank": 867154833.25
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.223652165532076,
+          "paired100": 1.0,
+          "risk_pool100": 1.0028544975520928,
+          "r80": 1.0244525792231305,
+          "write1": 1.0356350511661174,
+          "value_rank": 1.014609979288889
+        },
+        "r80": {
+          "naive": 2.17057598431577,
+          "paired100": 0.9761310774953844,
+          "risk_pool100": 0.9789174412666167,
+          "r80": 1.0,
+          "write1": 1.0109155583867697,
+          "value_rank": 0.9903923323208329
+        }
+      },
+      "misses": {
+        "naive": 19258,
+        "paired100": 14127,
+        "risk_pool100": 14096,
+        "r80": 14440,
+        "write1": 14718,
+        "value_rank": 15330
+      },
+      "decision_us": {
+        "naive": 11022.33,
+        "paired100": 20373.12,
+        "risk_pool100": 25147.81,
+        "r80": 17968.01,
+        "write1": 20971.78,
+        "value_rank": 19357.36
+      },
+      "wall_seconds": {
+        "naive": 0.1650959149992559,
+        "paired100": 0.1652896699961275,
+        "risk_pool100": 0.1649632709886646,
+        "r80": 0.16504662699298933,
+        "write1": 0.16508597899519373,
+        "value_rank": 0.16521554699284025
+      },
+      "canonical_sha256": "5fb94ab0ad19de89fee734ba35eefe0c600259f3faaf2c7e32efb1fb01e4e2f5"
+    },
+    {
+      "case": "train/train_675_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 7658318111382599390,
+      "penalty": 551,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.801577431678255,
+        "risk_pool100": 4.801556256705329,
+        "r80": 4.79575036373878,
+        "write1": 4.79730203144689,
+        "value_rank": 4.79575305029455
+      },
+      "physical_us": {
+        "naive": 2176873152.31,
+        "paired100": 1131626326.14,
+        "risk_pool100": 1131626326.14,
+        "r80": 1132894325.36,
+        "write1": 1132557050.3,
+        "value_rank": 1132894325.36
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.9236678239320906,
+          "paired100": 1.0,
+          "risk_pool100": 1.0,
+          "r80": 1.001120510534891,
+          "write1": 1.0008224659841334,
+          "value_rank": 1.001120510534891
+        },
+        "r80": {
+          "naive": 1.9215147464157831,
+          "paired100": 0.9988807436036922,
+          "risk_pool100": 0.9988807436036922,
+          "r80": 1.0,
+          "write1": 0.9997022890375121,
+          "value_rank": 1.0
+        }
+      },
+      "misses": {
+        "naive": 9119,
+        "paired100": 7090,
+        "risk_pool100": 7090,
+        "r80": 7112,
+        "write1": 7110,
+        "value_rank": 7112
+      },
+      "decision_us": {
+        "naive": 3302.84,
+        "paired100": 6043.15,
+        "risk_pool100": 10652.68,
+        "r80": 6524.63,
+        "write1": 6020.8,
+        "value_rank": 5939.81
+      },
+      "wall_seconds": {
+        "naive": 0.21552316499582957,
+        "paired100": 0.2151925609941827,
+        "risk_pool100": 0.26580323099915404,
+        "r80": 0.21564405898971017,
+        "write1": 0.2156272779975552,
+        "value_rank": 0.21538666301057674
+      },
+      "canonical_sha256": "8ea05d16ae00bfd14e7ebbbf4ed4a3a2672ea427cd85daae5aea4fc2a1912cbe"
+    },
+    {
+      "case": "train/train_639_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 5273789601856846796,
+      "penalty": 31,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 1.245384155180291,
+        "risk_pool100": 1.2258150140103643,
+        "r80": 1.2314175221902228,
+        "write1": 1.2149965886967877,
+        "value_rank": 1.2260901201388228
+      },
+      "physical_us": {
+        "naive": 928739978.65,
+        "paired100": 813070418.41,
+        "risk_pool100": 814885837.35,
+        "r80": 814368192.13,
+        "write1": 815893682.64,
+        "value_rank": 814862752.05
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.1422626596921306,
+          "paired100": 1.0,
+          "risk_pool100": 1.0022327942314642,
+          "r80": 1.0015961393879484,
+          "write1": 1.0034723489701187,
+          "value_rank": 1.002204401487764
+        },
+        "r80": {
+          "naive": 1.140442354730061,
+          "paired100": 0.9984064042130555,
+          "risk_pool100": 1.0006356402730392,
+          "r80": 1.0,
+          "write1": 1.0018732196624847,
+          "value_rank": 1.000607292775896
+        }
+      },
+      "misses": {
+        "naive": 7015,
+        "paired100": 7267,
+        "risk_pool100": 7282,
+        "r80": 7256,
+        "write1": 7305,
+        "value_rank": 7418
+      },
+      "decision_us": {
+        "naive": 2690.35,
+        "paired100": 8110.16,
+        "risk_pool100": 10160.86,
+        "r80": 7477.24,
+        "write1": 7068.9,
+        "value_rank": 7695.88
+      },
+      "wall_seconds": {
+        "naive": 0.16507489599462133,
+        "paired100": 0.165066597997793,
+        "risk_pool100": 0.165297339000972,
+        "r80": 0.16512855999462772,
+        "write1": 0.16510879900306463,
+        "value_rank": 0.16539173800265417
+      },
+      "canonical_sha256": "b410378fd2552a83016d6c0f68347b596de96819be62e916742fc1e6626fa5c3"
+    },
+    {
+      "case": "train/train_693_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 13061813804494280177,
+      "penalty": 806,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 1.0772863081211237,
+        "risk_pool100": 1.077790865933656,
+        "r80": 1.0686337917030768,
+        "write1": 1.069776571356297,
+        "value_rank": 1.0537204196166807
+      },
+      "physical_us": {
+        "naive": 159557906.24,
+        "paired100": 142363058.42,
+        "risk_pool100": 142352801.0,
+        "r80": 142501739.04,
+        "write1": 142483578.83,
+        "value_rank": 142738518.19
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.1207816691411032,
+          "paired100": 1.0,
+          "risk_pool100": 0.9999279488645872,
+          "r80": 1.0009741334693083,
+          "write1": 1.000846570812243,
+          "value_rank": 1.002637339870097
+        },
+        "r80": {
+          "naive": 1.1196909407204663,
+          "paired100": 0.9990268145432171,
+          "risk_pool100": 0.9989548335269214,
+          "r80": 1.0,
+          "write1": 0.9998725614850573,
+          "value_rank": 1.001661587792508
+        }
+      },
+      "misses": {
+        "naive": 7439,
+        "paired100": 8727,
+        "risk_pool100": 8723,
+        "r80": 8752,
+        "write1": 8754,
+        "value_rank": 8747
+      },
+      "decision_us": {
+        "naive": 2600.01,
+        "paired100": 8212.96,
+        "risk_pool100": 10419.63,
+        "r80": 7592.33,
+        "write1": 7518.29,
+        "value_rank": 8771.71
+      },
+      "wall_seconds": {
+        "naive": 0.16502994300390128,
+        "paired100": 0.16532227900461294,
+        "risk_pool100": 0.21582749499066267,
+        "r80": 0.16501041599258315,
+        "write1": 0.16494290599075612,
+        "value_rank": 0.21550575899891555
+      },
+      "canonical_sha256": "4d0362e1def353d02794326d6f34d15103d07b0e37828c0787eb429b28b37f01"
+    },
+    {
+      "case": "train/train_632_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 15036253120801571029,
+      "penalty": 888,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.449455472960372,
+        "risk_pool100": 4.476153890715749,
+        "r80": 4.444697346335286,
+        "write1": 4.462279318557899,
+        "value_rank": 4.400841250727454
+      },
+      "physical_us": {
+        "naive": 1490393924.74,
+        "paired100": 827224923.83,
+        "risk_pool100": 823225562.19,
+        "r80": 827942422.76,
+        "write1": 825320870.16,
+        "value_rank": 834479150.58
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.80167918277845,
+          "paired100": 1.0,
+          "risk_pool100": 0.9951653274402285,
+          "r80": 1.0008673565185608,
+          "write1": 0.9976982636582269,
+          "value_rank": 1.0087693522535726
+        },
+        "r80": {
+          "naive": 1.8001178388367571,
+          "paired100": 0.9991333951368162,
+          "risk_pool100": 0.9943029123277969,
+          "r80": 1.0,
+          "write1": 0.9968336534909507,
+          "value_rank": 1.0078951478270788
+        }
+      },
+      "misses": {
+        "naive": 16065,
+        "paired100": 13787,
+        "risk_pool100": 13757,
+        "r80": 13530,
+        "write1": 13544,
+        "value_rank": 16030
+      },
+      "decision_us": {
+        "naive": 30281.85,
+        "paired100": 41668.45,
+        "risk_pool100": 61833.28,
+        "r80": 33332.23,
+        "write1": 34425.13,
+        "value_rank": 33023.06
+      },
+      "wall_seconds": {
+        "naive": 0.16511143300158437,
+        "paired100": 0.16500935899966862,
+        "risk_pool100": 0.2155081499950029,
+        "r80": 0.16538001599838026,
+        "write1": 0.16505490700365044,
+        "value_rank": 0.1651661840005545
+      },
+      "canonical_sha256": "53d5df4dd6506de38d548b5e87cb47d9f5ac98c109bc697f7e2c89de5e531643"
+    },
+    {
+      "case": "train/train_703_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 13276871011667907917,
+      "penalty": 695,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 7.67169040546738,
+        "risk_pool100": 7.728334965237383,
+        "r80": 7.692576020695061,
+        "write1": 7.695592795796531,
+        "value_rank": 7.6659137593862114
+      },
+      "physical_us": {
+        "naive": 254337305.17,
+        "paired100": 59204192.38,
+        "risk_pool100": 57760172.74,
+        "r80": 58675368.69,
+        "write1": 58599152.43,
+        "value_rank": 59351445.68
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 4.2959340368591645,
+          "paired100": 1.0,
+          "risk_pool100": 0.9756095036187368,
+          "r80": 0.9910677999523114,
+          "write1": 0.9897804542942403,
+          "value_rank": 1.0024872106869538
+        },
+        "r80": {
+          "naive": 4.33465201580142,
+          "paired100": 1.0090127033166836,
+          "risk_pool100": 0.9844023826277895,
+          "r80": 1.0,
+          "write1": 0.9987010518774466,
+          "value_rank": 1.0115223304956449
+        }
+      },
+      "misses": {
+        "naive": 10700,
+        "paired100": 4264,
+        "risk_pool100": 4204,
+        "r80": 4093,
+        "write1": 4091,
+        "value_rank": 5763
+      },
+      "decision_us": {
+        "naive": 14005.15,
+        "paired100": 16667.25,
+        "risk_pool100": 19925.08,
+        "r80": 14262.57,
+        "write1": 13746.76,
+        "value_rank": 16343.7
+      },
+      "wall_seconds": {
+        "naive": 0.16496499300410505,
+        "paired100": 0.16522296699986327,
+        "risk_pool100": 0.16506121298880316,
+        "r80": 0.16502119100186974,
+        "write1": 0.16488332800508942,
+        "value_rank": 0.16535878599097487
+      },
+      "canonical_sha256": "ccf5d86de4f998a4ec20c9f5c029e1fb6596ece9ea2240b70fcaea7c45c03ce8"
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 7805621927825823651,
+      "penalty": 281,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 5.359036677195698,
+        "risk_pool100": 5.35241700073584,
+        "r80": 5.311939091671456,
+        "write1": 5.282376843307625,
+        "value_rank": 5.328195352820737
+      },
+      "physical_us": {
+        "naive": 14670776.55,
+        "paired100": 6803765.95,
+        "risk_pool100": 6809592.6,
+        "r80": 6871719.42,
+        "write1": 6918111.19,
+        "value_rank": 6850523.22
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.1562729608592726,
+          "paired100": 1.0,
+          "risk_pool100": 1.0008563860136899,
+          "r80": 1.0099876260440734,
+          "write1": 1.0168061689423635,
+          "value_rank": 1.0068722631471472
+        },
+        "r80": {
+          "naive": 2.1349498798366247,
+          "paired100": 0.990111140189714,
+          "risk_pool100": 0.9909590575221711,
+          "r80": 1.0,
+          "write1": 1.0067511152834585,
+          "value_rank": 0.9969154444900197
+        }
+      },
+      "misses": {
+        "naive": 3326,
+        "paired100": 2092,
+        "risk_pool100": 2074,
+        "r80": 2033,
+        "write1": 2056,
+        "value_rank": 2398
+      },
+      "decision_us": {
+        "naive": 9351.79,
+        "paired100": 9227.77,
+        "risk_pool100": 13118.89,
+        "r80": 10414.16,
+        "write1": 7420.16,
+        "value_rank": 7745.96
+      },
+      "wall_seconds": {
+        "naive": 0.11497787000553217,
+        "paired100": 0.11501069299993105,
+        "risk_pool100": 0.11520409298827872,
+        "r80": 0.11488477300736122,
+        "write1": 0.11519546501222067,
+        "value_rank": 0.11521940201055259
+      },
+      "canonical_sha256": "6a949f0239b3b9e8e6e15d33db20eb1fffaa92cb428c546458b276fcad85d41e"
+    },
+    {
+      "case": "train/train_637_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 11675549367671170609,
+      "penalty": 137,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 9.611529471171536,
+        "risk_pool100": 9.612525967729692,
+        "r80": 9.616599025822753,
+        "write1": 9.618395299070821,
+        "value_rank": 9.58635410130638
+      },
+      "physical_us": {
+        "naive": 41528139.48,
+        "paired100": 1604563.9,
+        "risk_pool100": 1597422.68,
+        "r80": 1584170.22,
+        "write1": 1576753.59,
+        "value_rank": 1702812.58
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 25.88126249132241,
+          "paired100": 1.0,
+          "risk_pool100": 0.995549432465731,
+          "r80": 0.9872902038990158,
+          "write1": 0.9826679947118342,
+          "value_rank": 1.061230768061029
+        },
+        "r80": {
+          "naive": 26.21444271310693,
+          "paired100": 1.0128734145753604,
+          "risk_pool100": 1.0083655530401272,
+          "r80": 1.0,
+          "write1": 0.9953182871976978,
+          "value_rank": 1.0748924316984068
+        }
+      },
+      "misses": {
+        "naive": 3275,
+        "paired100": 820,
+        "risk_pool100": 820,
+        "r80": 691,
+        "write1": 687,
+        "value_rank": 1771
+      },
+      "decision_us": {
+        "naive": 15706.97,
+        "paired100": 9292.1,
+        "risk_pool100": 12293.49,
+        "r80": 8624.91,
+        "write1": 8579.12,
+        "value_rank": 15631.59
+      },
+      "wall_seconds": {
+        "naive": 0.21555193899257574,
+        "paired100": 0.2157021680031903,
+        "risk_pool100": 0.21557962500082795,
+        "r80": 0.21647535800002515,
+        "write1": 0.21526099799666554,
+        "value_rank": 0.21535774199583102
+      },
+      "canonical_sha256": "c865613f130c6f073f58bca6ef2e95f49d9da775b7873e1cebcfa7a9dbfb43c7"
+    },
+    {
+      "case": "train/train_712_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 17153028246340973513,
+      "penalty": 994,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 8.502379387631212,
+        "risk_pool100": 8.500725006311123,
+        "r80": 8.502325725269916,
+        "write1": 8.497361120992021,
+        "value_rank": 8.3697459675976
+      },
+      "physical_us": {
+        "naive": 179737980.12,
+        "paired100": 26912552.95,
+        "risk_pool100": 26940870.31,
+        "r80": 26914278.59,
+        "write1": 27005319.67,
+        "value_rank": 29297693.16
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 6.678592716712147,
+          "paired100": 1.0,
+          "risk_pool100": 1.001052198951642,
+          "r80": 1.0000641202639975,
+          "write1": 1.0034469684155327,
+          "value_rank": 1.088625564970788
+        },
+        "r80": {
+          "naive": 6.678164511040681,
+          "paired100": 0.9999358838471472,
+          "risk_pool100": 1.0009880153358404,
+          "r80": 1.0,
+          "write1": 1.003382631256326,
+          "value_rank": 1.0885557664876648
+        }
+      },
+      "misses": {
+        "naive": 18614,
+        "paired100": 3722,
+        "risk_pool100": 3680,
+        "r80": 3796,
+        "write1": 3823,
+        "value_rank": 4816
+      },
+      "decision_us": {
+        "naive": 17434.42,
+        "paired100": 7988.45,
+        "risk_pool100": 9409.49,
+        "r80": 7227.41,
+        "write1": 5427.79,
+        "value_rank": 7005.78
+      },
+      "wall_seconds": {
+        "naive": 0.21541655699547846,
+        "paired100": 0.21568006501183845,
+        "risk_pool100": 0.21553198699257337,
+        "r80": 0.21645262200036086,
+        "write1": 0.2155613840004662,
+        "value_rank": 0.16536411199194845
+      },
+      "canonical_sha256": "b0ff7116312a6da564b4ed81fdd36615c5b3ffbed39d45ff4a919b965fa3d331"
+    },
+    {
+      "case": "train/train_610_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 8391175329616906048,
+      "penalty": 152,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 6.083664402347366,
+        "risk_pool100": 6.118580773987922,
+        "r80": 6.051008117277633,
+        "write1": 6.048715637618378,
+        "value_rank": 6.068457834573089
+      },
+      "physical_us": {
+        "naive": 773455064.36,
+        "paired100": 302903458.62,
+        "risk_pool100": 300200359.37,
+        "r80": 305429051.74,
+        "write1": 305604081.68,
+        "value_rank": 304077420.36
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.5534705608307986,
+          "paired100": 1.0,
+          "risk_pool100": 0.9910760370240899,
+          "r80": 1.00833794744869,
+          "write1": 1.0089157881270283,
+          "value_rank": 1.0038756960562565
+        },
+        "r80": {
+          "naive": 2.532355910329095,
+          "paired100": 0.9917309990467117,
+          "risk_pool100": 0.9828808283291565,
+          "r80": 1.0,
+          "write1": 1.0005730625132183,
+          "value_rank": 0.9955746469685844
+        }
+      },
+      "misses": {
+        "naive": 3262,
+        "paired100": 4061,
+        "risk_pool100": 4017,
+        "r80": 4796,
+        "write1": 4780,
+        "value_rank": 5892
+      },
+      "decision_us": {
+        "naive": 3139.67,
+        "paired100": 8731.16,
+        "risk_pool100": 11194.99,
+        "r80": 8965.19,
+        "write1": 11248.97,
+        "value_rank": 10933.87
+      },
+      "wall_seconds": {
+        "naive": 0.26577739798813127,
+        "paired100": 0.2153760290093487,
+        "risk_pool100": 0.26551620599639136,
+        "r80": 0.2661978039977839,
+        "write1": 0.26610922800318804,
+        "value_rank": 0.2656140589970164
+      },
+      "canonical_sha256": "ac3ff78002b531a513c8eb89fc15f1e38d9f90e10b0c2ea5b668d7ca497f185a"
+    },
+    {
+      "case": "train/train_710_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 10407809955601357732,
+      "penalty": 611,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.337258216584299,
+        "risk_pool100": 2.365448493440261,
+        "r80": 3.6070505706587745,
+        "write1": 3.5880298296621516,
+        "value_rank": 0.21966769982220583
+      },
+      "physical_us": {
+        "naive": 7230450.82,
+        "paired100": 5543629.75,
+        "risk_pool100": 5488416.67,
+        "r80": 4611527.48,
+        "write1": 4623205.45,
+        "value_rank": 7089128.91
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.3042809758353722,
+          "paired100": 1.0,
+          "risk_pool100": 0.9900402655859187,
+          "r80": 0.8318606559177225,
+          "write1": 0.8339672125469779,
+          "value_rank": 1.278788308328131
+        },
+        "r80": {
+          "naive": 1.5679079982409647,
+          "paired100": 1.2021244097628145,
+          "risk_pool100": 1.1901515699088927,
+          "r80": 1.0,
+          "write1": 1.0025323431445756,
+          "value_rank": 1.5372626403605427
+        }
+      },
+      "misses": {
+        "naive": 8441,
+        "paired100": 7300,
+        "risk_pool100": 7232,
+        "r80": 5812,
+        "write1": 5824,
+        "value_rank": 9881
+      },
+      "decision_us": {
+        "naive": 103017.42,
+        "paired100": 75817.6,
+        "risk_pool100": 110357.42,
+        "r80": 76721.67,
+        "write1": 78992.51,
+        "value_rank": 83246.72
+      },
+      "wall_seconds": {
+        "naive": 0.21540174300025683,
+        "paired100": 0.21559277799678966,
+        "risk_pool100": 0.2153457120002713,
+        "r80": 0.21611066900368314,
+        "write1": 0.2151516059966525,
+        "value_rank": 0.21544401100254618
+      },
+      "canonical_sha256": "ba497e1f17f5cdb6fa9838463bb3d59a99a92d4a8d0829ac12eb007650581032"
+    },
+    {
+      "case": "train/train_614_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 18421727982335587192,
+      "penalty": 404,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 3.046643697665585,
+        "risk_pool100": 3.047209922178498,
+        "r80": 2.9663950246118347,
+        "write1": 2.9393197186398687,
+        "value_rank": 2.9455253635992755
+      },
+      "physical_us": {
+        "naive": 967828393.37,
+        "paired100": 672943153.79,
+        "risk_pool100": 672882657.09,
+        "r80": 680713559.84,
+        "write1": 683332379.01,
+        "value_rank": 682729665.57
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.4382023027044903,
+          "paired100": 1.0,
+          "risk_pool100": 0.9999101013218438,
+          "r80": 1.0115468981387763,
+          "write1": 1.015438488617483,
+          "value_rank": 1.0145428506477592
+        },
+        "r80": {
+          "naive": 1.4217850950368693,
+          "paired100": 0.9885849107342207,
+          "risk_pool100": 0.9884960382575005,
+          "r80": 1.0,
+          "write1": 1.0038471676260063,
+          "value_rank": 1.0029617534436568
+        }
+      },
+      "misses": {
+        "naive": 34741,
+        "paired100": 31098,
+        "risk_pool100": 31044,
+        "r80": 31692,
+        "write1": 32000,
+        "value_rank": 32150
+      },
+      "decision_us": {
+        "naive": 14198.22,
+        "paired100": 32284.6,
+        "risk_pool100": 37979.68,
+        "r80": 28686.92,
+        "write1": 30331.18,
+        "value_rank": 32435.87
+      },
+      "wall_seconds": {
+        "naive": 0.2655840929946862,
+        "paired100": 0.2654835249995813,
+        "risk_pool100": 0.3157558829989284,
+        "r80": 0.2654521710064728,
+        "write1": 0.31659217400010675,
+        "value_rank": 0.31556614900182467
+      },
+      "canonical_sha256": "83fc4b8190efcd0b31256e33128bf1f16dd7070c86b6f7a5a50808d533746e95"
+    },
+    {
+      "case": "train/train_624_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 3287595351938215816,
+      "penalty": 448,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 7.802427420503496,
+        "risk_pool100": 7.787216521491468,
+        "r80": 7.808096313405644,
+        "write1": 7.813693323812591,
+        "value_rank": 7.7097829373686215
+      },
+      "physical_us": {
+        "naive": 865427665.26,
+        "paired100": 190098766.43,
+        "risk_pool100": 191371068.27,
+        "r80": 189612432.93,
+        "write1": 189122337.29,
+        "value_rank": 198124063.51
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 4.55251594480323,
+          "paired100": 1.0,
+          "risk_pool100": 1.006692846376089,
+          "r80": 0.9974416798744505,
+          "write1": 0.9948635692995959,
+          "value_rank": 1.042216460583689
+        },
+        "r80": {
+          "naive": 4.564192610615853,
+          "paired100": 1.0025648819145712,
+          "risk_pool100": 1.009274894651287,
+          "r80": 1.0,
+          "write1": 0.9974152768759582,
+          "value_rank": 1.0448896227345086
+        }
+      },
+      "misses": {
+        "naive": 87864,
+        "paired100": 37434,
+        "risk_pool100": 37707,
+        "r80": 37485,
+        "write1": 37485,
+        "value_rank": 47400
+      },
+      "decision_us": {
+        "naive": 178068.47,
+        "paired100": 124376.08,
+        "risk_pool100": 168738.38,
+        "r80": 120006.96,
+        "write1": 125622.16,
+        "value_rank": 118438.58
+      },
+      "wall_seconds": {
+        "naive": 0.7673987690068316,
+        "paired100": 0.7174201079906197,
+        "risk_pool100": 0.7675896540022222,
+        "r80": 0.7681260149984155,
+        "write1": 0.7175839929986978,
+        "value_rank": 0.6672252319986001
+      },
+      "canonical_sha256": "fe075818ed152b4041d79f9cf09fe4cbb05b530f173ab8317cb033ae035a60fd"
+    },
+    {
+      "case": "train/train_663_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 18360302353483021581,
+      "penalty": 67,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 6.427434166873939,
+        "risk_pool100": 6.36936574261152,
+        "r80": 6.4195819389864495,
+        "write1": 6.425111364022763,
+        "value_rank": 6.446632406283724
+      },
+      "physical_us": {
+        "naive": 708181625.11,
+        "paired100": 252986642.55,
+        "risk_pool100": 257094547.02,
+        "r80": 253543100.57,
+        "write1": 253153418.81,
+        "value_rank": 251611657.91
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.7992846498606574,
+          "paired100": 1.0,
+          "risk_pool100": 1.0162376338473607,
+          "r80": 1.002199554942471,
+          "write1": 1.0006592295084,
+          "value_rank": 0.9945649911547079
+        },
+        "r80": {
+          "naive": 2.793140982806906,
+          "paired100": 0.9978052724812901,
+          "risk_pool100": 1.0140072691468072,
+          "r80": 1.0,
+          "write1": 0.9984630551605469,
+          "value_rank": 0.9923821919994752
+        }
+      },
+      "misses": {
+        "naive": 3209,
+        "paired100": 3789,
+        "risk_pool100": 3819,
+        "r80": 3554,
+        "write1": 3529,
+        "value_rank": 7592
+      },
+      "decision_us": {
+        "naive": 7793.19,
+        "paired100": 18689.38,
+        "risk_pool100": 23129.26,
+        "r80": 18317.82,
+        "write1": 16411.54,
+        "value_rank": 34075.01
+      },
+      "wall_seconds": {
+        "naive": 0.21524297399446368,
+        "paired100": 0.266197179997107,
+        "risk_pool100": 0.21582697999838274,
+        "r80": 0.21573912199528422,
+        "write1": 0.21528198799933307,
+        "value_rank": 0.26577810099115595
+      },
+      "canonical_sha256": "9efde46f770c1d966d731f95d619b5c14b68fd70d89b179c00cf0ec61e1b8604"
+    },
+    {
+      "case": "train/train_655_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 1374537716614863167,
+      "penalty": 211,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 5.089890790573859,
+        "risk_pool100": 5.064911620472257,
+        "r80": 5.082420964306437,
+        "write1": 5.105820483997879,
+        "value_rank": 4.907178149818655
+      },
+      "physical_us": {
+        "naive": 12853963.99,
+        "paired100": 6306141.16,
+        "risk_pool100": 6336419.3,
+        "r80": 6316891.42,
+        "write1": 6286414.1,
+        "value_rank": 6539374.53
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.038324811301877,
+          "paired100": 1.0,
+          "risk_pool100": 1.0048013736501895,
+          "r80": 1.0017047287282734,
+          "write1": 0.9968717699938071,
+          "value_rank": 1.0369851172186573
+        },
+        "r80": {
+          "naive": 2.034855933933403,
+          "paired100": 0.9982981724260823,
+          "risk_pool100": 1.0030913749662014,
+          "r80": 1.0,
+          "write1": 0.9951752661279716,
+          "value_rank": 1.0352203473524324
+        }
+      },
+      "misses": {
+        "naive": 2853,
+        "paired100": 3169,
+        "risk_pool100": 3166,
+        "r80": 2931,
+        "write1": 2938,
+        "value_rank": 4874
+      },
+      "decision_us": {
+        "naive": 2171.7,
+        "paired100": 6361.86,
+        "risk_pool100": 8197.28,
+        "r80": 5214.91,
+        "write1": 5609.49,
+        "value_rank": 8026.34
+      },
+      "wall_seconds": {
+        "naive": 0.21526010100205895,
+        "paired100": 0.2154606599942781,
+        "risk_pool100": 0.2154899140005,
+        "r80": 0.21506555400264915,
+        "write1": 0.21581588398839813,
+        "value_rank": 0.26552775100572035
+      },
+      "canonical_sha256": "f06a4529a92de21bcb860c8b9d1734978948fddbeabe625899816be014b7d946"
+    },
+    {
+      "case": "train/train_689_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 16502994169396141754,
+      "penalty": 226,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.4598808763033535,
+        "risk_pool100": 4.456704134325662,
+        "r80": 4.443212372495959,
+        "write1": 4.493678807706526,
+        "value_rank": 4.451250149213911
+      },
+      "physical_us": {
+        "naive": 2053612176.08,
+        "paired100": 1137700683.2,
+        "risk_pool100": 1138344506.95,
+        "r80": 1141127577.61,
+        "write1": 1130765313.79,
+        "value_rank": 1139473336.56
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.8050548851775534,
+          "paired100": 1.0,
+          "risk_pool100": 1.000565899062475,
+          "r80": 1.0030121230131999,
+          "write1": 0.9939040474244131,
+          "value_rank": 1.001558101692454
+        },
+        "r80": {
+          "naive": 1.7996341656917325,
+          "paired100": 0.996996922625271,
+          "risk_pool100": 0.997561122249075,
+          "r80": 1.0,
+          "write1": 0.9909192766669412,
+          "value_rank": 0.9985503452177847
+        }
+      },
+      "misses": {
+        "naive": 9323,
+        "paired100": 15555,
+        "risk_pool100": 15698,
+        "r80": 15557,
+        "write1": 15703,
+        "value_rank": 20832
+      },
+      "decision_us": {
+        "naive": 7584.61,
+        "paired100": 29127.7,
+        "risk_pool100": 37685.96,
+        "r80": 25310.17,
+        "write1": 23687.13,
+        "value_rank": 28897.51
+      },
+      "wall_seconds": {
+        "naive": 0.21539834000577684,
+        "paired100": 0.2655777599866269,
+        "risk_pool100": 0.2654197959927842,
+        "r80": 0.2653028839995386,
+        "write1": 0.2656607660028385,
+        "value_rank": 0.26562608900712803
+      },
+      "canonical_sha256": "926f2a0ebee6685d34e1dd20003a1c582c743c3c5044c4ad511e15e732cfa003"
+    },
+    {
+      "case": "train/train_676_random_hotspot.txt",
+      "family": "random_hotspot",
+      "seed": 13881337440408004601,
+      "penalty": 297,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.5582409033548262,
+        "risk_pool100": 0.5048534098846749,
+        "r80": 0.47436276107440734,
+        "write1": 0.5052977685871348,
+        "value_rank": 0.5814198533499692
+      },
+      "physical_us": {
+        "naive": 1223027186.31,
+        "paired100": 1154739396.58,
+        "risk_pool100": 1161265999.95,
+        "r80": 1165002645.73,
+        "write1": 1161218558.96,
+        "value_rank": 1151906942.08
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.0591369705859595,
+          "paired100": 1.0,
+          "risk_pool100": 1.005652014116198,
+          "r80": 1.0088879353907876,
+          "write1": 1.0056109303962344,
+          "value_rank": 0.9975471049932227
+        },
+        "r80": {
+          "naive": 1.0498063594899747,
+          "paired100": 0.9911903640840498,
+          "risk_pool100": 0.9967925860136921,
+          "r80": 1.0,
+          "write1": 0.9967518642263435,
+          "value_rank": 0.9887590781892224
+        }
+      },
+      "misses": {
+        "naive": 3912,
+        "paired100": 8119,
+        "risk_pool100": 7952,
+        "r80": 7855,
+        "write1": 7877,
+        "value_rank": 10240
+      },
+      "decision_us": {
+        "naive": 3210.06,
+        "paired100": 16440.45,
+        "risk_pool100": 19289.82,
+        "r80": 11743.07,
+        "write1": 12384.4,
+        "value_rank": 14038.92
+      },
+      "wall_seconds": {
+        "naive": 0.2656469740031753,
+        "paired100": 0.3155834539938951,
+        "risk_pool100": 0.2654491880093701,
+        "r80": 0.26534026399895083,
+        "write1": 0.2653796179947676,
+        "value_rank": 0.26572578999912366
+      },
+      "canonical_sha256": "c447eee208e50fbac82ac45245c2113cffdcae92ae5bfb3e0dde74b392e8fb50"
+    },
+    {
+      "case": "train/train_758_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 6300307795782966787,
+      "penalty": 317,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.4273534458408372,
+        "risk_pool100": 2.4293198511487257,
+        "r80": 2.1062343726990402,
+        "write1": 2.0924908522048713,
+        "value_rank": 2.105233076293535
+      },
+      "physical_us": {
+        "naive": 38603140423.77,
+        "paired100": 29232712309.63,
+        "risk_pool100": 29225101961.74,
+        "r80": 30472346696.26,
+        "write1": 30525400306.64,
+        "value_rank": 30476210961.14
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.3205459696961865,
+          "paired100": 1.0,
+          "risk_pool100": 0.9997396632987937,
+          "r80": 1.0424057259381174,
+          "write1": 1.0442205972308685,
+          "value_rank": 1.0425379156863375
+        },
+        "r80": {
+          "naive": 1.2668253222685972,
+          "paired100": 0.9593193658832273,
+          "risk_pool100": 0.95906961984411,
+          "r80": 1.0,
+          "write1": 1.0017410411777217,
+          "value_rank": 1.0001268121854388
+        }
+      },
+      "misses": {
+        "naive": 151225,
+        "paired100": 135056,
+        "risk_pool100": 135074,
+        "r80": 146978,
+        "write1": 147423,
+        "value_rank": 147003
+      },
+      "decision_us": {
+        "naive": 53483.14,
+        "paired100": 122022.23,
+        "risk_pool100": 141417.59,
+        "r80": 109820.39,
+        "write1": 110588.67,
+        "value_rank": 110879.43
+      },
+      "wall_seconds": {
+        "naive": 0.6167085449997103,
+        "paired100": 0.6668617599934805,
+        "risk_pool100": 0.7172865419997834,
+        "r80": 0.6667045109934406,
+        "write1": 0.6668869249988347,
+        "value_rank": 0.6666075550019741
+      },
+      "canonical_sha256": "59babb072333f9e10150c66f72777c9817853b223966e5fac23c336b5d7f63b5"
+    },
+    {
+      "case": "train/train_722_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 14469534270711647131,
+      "penalty": 619,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 2.456230006480436,
+        "risk_pool100": 2.4883877418088347,
+        "r80": 3.195609029159324,
+        "write1": 3.2002313138244545,
+        "value_rank": 0.25754706104753916
+      },
+      "physical_us": {
+        "naive": 71196347.17,
+        "paired100": 53683466.54,
+        "risk_pool100": 53314350.43,
+        "r80": 48417775.21,
+        "write1": 48391172.25,
+        "value_rank": 69405238.83
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.326224846470207,
+          "paired100": 1.0,
+          "risk_pool100": 0.9931242124663285,
+          "r80": 0.9019122335165057,
+          "write1": 0.9014166813155282,
+          "value_rank": 1.2928606012856039
+        },
+        "r80": {
+          "naive": 1.4704588730317252,
+          "paired100": 1.1087553343201206,
+          "risk_pool100": 1.1011317682145108,
+          "r80": 1.0,
+          "write1": 0.999450553853732,
+          "value_rank": 1.433466088207732
+        }
+      },
+      "misses": {
+        "naive": 31058,
+        "paired100": 34811,
+        "risk_pool100": 34561,
+        "r80": 29781,
+        "write1": 29695,
+        "value_rank": 53214
+      },
+      "decision_us": {
+        "naive": 324842.88,
+        "paired100": 270474.21,
+        "risk_pool100": 409594.36,
+        "r80": 248038.77,
+        "write1": 241582.61,
+        "value_rank": 273944.0
+      },
+      "wall_seconds": {
+        "naive": 0.5669646809983533,
+        "paired100": 0.516281798001728,
+        "risk_pool100": 0.6674311719980324,
+        "r80": 0.4663062110048486,
+        "write1": 0.46617095700639766,
+        "value_rank": 0.5163024509965908
+      },
+      "canonical_sha256": "e790cc648ddfda4b22cf056aa27798fae9aceb1f5b624aac19821293c593761f"
+    },
+    {
+      "case": "train/train_768_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 8336829129886712639,
+      "penalty": 70,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 1.14812660052301,
+        "risk_pool100": 1.1523884986731558,
+        "r80": 1.1094114677303837,
+        "write1": 1.1017822797721593,
+        "value_rank": 1.0682064785431729
+      },
+      "physical_us": {
+        "naive": 149721459.55,
+        "paired100": 132514721.94,
+        "risk_pool100": 132446273.74,
+        "r80": 133098504.38,
+        "write1": 133211192.33,
+        "value_rank": 133713868.49
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.129847743391039,
+          "paired100": 1.0,
+          "risk_pool100": 0.9994834672027536,
+          "r80": 1.0044054157262943,
+          "write1": 1.005255796335711,
+          "value_rank": 1.009049157198873
+        },
+        "r80": {
+          "naive": 1.1248921259290863,
+          "paired100": 0.9956139068375007,
+          "risk_pool100": 0.9950996396012245,
+          "r80": 1.0,
+          "write1": 1.00084665076084,
+          "value_rank": 1.0046233735898573
+        }
+      },
+      "misses": {
+        "naive": 23468,
+        "paired100": 25819,
+        "risk_pool100": 25776,
+        "r80": 25798,
+        "write1": 25867,
+        "value_rank": 26901
+      },
+      "decision_us": {
+        "naive": 8420.78,
+        "paired100": 24272.55,
+        "risk_pool100": 28907.39,
+        "r80": 20171.32,
+        "write1": 21715.11,
+        "value_rank": 21769.02
+      },
+      "wall_seconds": {
+        "naive": 0.16501160799816716,
+        "paired100": 0.16521208100311924,
+        "risk_pool100": 0.21531101199798286,
+        "r80": 0.21548783899925184,
+        "write1": 0.2151541890052613,
+        "value_rank": 0.1650047269940842
+      },
+      "canonical_sha256": "14aabc097ca446fcdf82e0dce509c98939c75a6efd98a2bed8cade0f9f61b8a4"
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 184502648514716924,
+      "penalty": 751,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 8.259282005300289,
+        "risk_pool100": 8.205647619341311,
+        "r80": 8.167130837623267,
+        "write1": 8.171189501345685,
+        "value_rank": 4.320428713338671
+      },
+      "physical_us": {
+        "naive": 152835461.84,
+        "paired100": 26588659.82,
+        "risk_pool100": 27401539.19,
+        "r80": 27999234.64,
+        "write1": 27937434.01,
+        "value_rank": 86741344.01
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 5.748144617843322,
+          "paired100": 1.0,
+          "risk_pool100": 1.030572408519385,
+          "r80": 1.053051745727288,
+          "write1": 1.0507274228611347,
+          "value_rank": 3.262343592991217
+        },
+        "r80": {
+          "naive": 5.458558557227763,
+          "paired100": 0.9496209507818175,
+          "risk_pool100": 0.9786531504276861,
+          "r80": 1.0,
+          "write1": 0.9977927743099195,
+          "value_rank": 3.09798982455329
+        }
+      },
+      "misses": {
+        "naive": 2451,
+        "paired100": 3760,
+        "risk_pool100": 3822,
+        "r80": 2435,
+        "write1": 2453,
+        "value_rank": 35642
+      },
+      "decision_us": {
+        "naive": 8637.21,
+        "paired100": 17187.54,
+        "risk_pool100": 24078.11,
+        "r80": 15088.95,
+        "write1": 14855.29,
+        "value_rank": 67551.62
+      },
+      "wall_seconds": {
+        "naive": 0.3163011809956515,
+        "paired100": 0.3158607000077609,
+        "risk_pool100": 0.31558162199507933,
+        "r80": 0.3659803449991159,
+        "write1": 0.3159042619954562,
+        "value_rank": 0.3658136449957965
+      },
+      "canonical_sha256": "c2a5f4aeacf4091dfc6b7d32f917ad72e585fea7c5bcdc53e084c305b79a6fa3"
+    },
+    {
+      "case": "train/train_747_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 7185949811230088012,
+      "penalty": 104,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.571346015491966,
+        "risk_pool100": 4.624115971598351,
+        "r80": 4.763180198341295,
+        "write1": 4.755718561148399,
+        "value_rank": 2.525775287412489
+      },
+      "physical_us": {
+        "naive": 107886077.03,
+        "paired100": 58501766.73,
+        "risk_pool100": 57925863.8,
+        "r80": 56461563.07,
+        "write1": 56542948.47,
+        "value_rank": 80572277.76
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.8441507506588768,
+          "paired100": 1.0,
+          "risk_pool100": 0.9901558027698901,
+          "r80": 0.9651257769801032,
+          "write1": 0.9665169383851188,
+          "value_rank": 1.3772622993056058
+        },
+        "r80": {
+          "naive": 1.9107879974248116,
+          "paired100": 1.0361343814989783,
+          "risk_pool100": 1.0259344702906044,
+          "r80": 1.0,
+          "write1": 1.001441430161951,
+          "value_rank": 1.4270288206528747
+        }
+      },
+      "misses": {
+        "naive": 27633,
+        "paired100": 28738,
+        "risk_pool100": 28380,
+        "r80": 25648,
+        "write1": 25706,
+        "value_rank": 52646
+      },
+      "decision_us": {
+        "naive": 28979.58,
+        "paired100": 81583.47,
+        "risk_pool100": 88019.12,
+        "r80": 51607.45,
+        "write1": 50744.36,
+        "value_rank": 85860.53
+      },
+      "wall_seconds": {
+        "naive": 0.31567716199788265,
+        "paired100": 0.4161428610095754,
+        "risk_pool100": 0.3661634669988416,
+        "r80": 0.36563120200298727,
+        "write1": 0.31580002699047327,
+        "value_rank": 0.41597358499711845
+      },
+      "canonical_sha256": "b7b992997b5135c87a8c846892b216b685dde709fe264dbb01ada05df9017933"
+    },
+    {
+      "case": "train/train_754_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 6706213157847051871,
+      "penalty": 533,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 4.674603241138049,
+        "risk_pool100": 4.723799777161179,
+        "r80": 4.892778884570051,
+        "write1": 4.757302368199076,
+        "value_rank": 0.0
+      },
+      "physical_us": {
+        "naive": 17307026.9,
+        "paired100": 9211568.53,
+        "risk_pool100": 9125726.29,
+        "r80": 8835330.8,
+        "write1": 9070240.33,
+        "value_rank": 19802229.1
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.878836035756008,
+          "paired100": 1.0,
+          "risk_pool100": 0.9906810398554349,
+          "r80": 0.9591559538666321,
+          "write1": 0.9846575315007725,
+          "value_rank": 2.149713052180919
+        },
+        "r80": {
+          "naive": 1.9588431142838478,
+          "paired100": 1.0425833212719098,
+          "risk_pool100": 1.0328675288535887,
+          "r80": 1.0,
+          "write1": 1.0265875195074756,
+          "value_rank": 2.241254973724357
+        }
+      },
+      "misses": {
+        "naive": 1241,
+        "paired100": 2292,
+        "risk_pool100": 2293,
+        "r80": 1797,
+        "write1": 1811,
+        "value_rank": 11206
+      },
+      "decision_us": {
+        "naive": 998.6,
+        "paired100": 5641.76,
+        "risk_pool100": 6334.51,
+        "r80": 4260.52,
+        "write1": 3834.1,
+        "value_rank": 16341.23
+      },
+      "wall_seconds": {
+        "naive": 0.26557834999402985,
+        "paired100": 0.2656177009921521,
+        "risk_pool100": 0.3155440529953921,
+        "r80": 0.31572927099477965,
+        "write1": 0.26554693600337487,
+        "value_rank": 0.3157885740074562
+      },
+      "canonical_sha256": "f3afb66d728b89e2c9aeef271f578b068f98e4a95dca7f68f20e13d5a1b21ff4"
+    },
+    {
+      "case": "train/train_752_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 5798404805832685362,
+      "penalty": 1000,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 3.3033610085139173,
+        "risk_pool100": 3.5334535502975806,
+        "r80": 3.8473462869716157,
+        "write1": 3.8156391732486292,
+        "value_rank": 1.4531671479245365
+      },
+      "physical_us": {
+        "naive": 184153883.81,
+        "paired100": 123274596.59,
+        "risk_pool100": 119022768.25,
+        "r80": 113269005.22,
+        "write1": 113850852.9,
+        "value_rank": 157316186.12
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.4938510358503052,
+          "paired100": 1.0,
+          "risk_pool100": 0.9655092901732123,
+          "r80": 0.9188349291194383,
+          "write1": 0.9235548608498594,
+          "value_rank": 1.2761444001574729
+        },
+        "r80": {
+          "naive": 1.6258100214822386,
+          "paired100": 1.088334768638308,
+          "risk_pool100": 1.0507973299388,
+          "r80": 1.0,
+          "write1": 1.0051368658078164,
+          "value_rank": 1.3888723204944555
+        }
+      },
+      "misses": {
+        "naive": 17516,
+        "paired100": 19917,
+        "risk_pool100": 19367,
+        "r80": 17665,
+        "write1": 17826,
+        "value_rank": 34461
+      },
+      "decision_us": {
+        "naive": 20416.98,
+        "paired100": 60283.79,
+        "risk_pool100": 74398.84,
+        "r80": 47064.33,
+        "write1": 49180.21,
+        "value_rank": 94510.34
+      },
+      "wall_seconds": {
+        "naive": 0.26541242899838835,
+        "paired100": 0.26566736299719196,
+        "risk_pool100": 0.31578179099597037,
+        "r80": 0.26574286801042035,
+        "write1": 0.26547898500575684,
+        "value_rank": 0.3159471940016374
+      },
+      "canonical_sha256": "3c7fa09d48cb187fcbe5b4bbf5ceede76c6ac88fb8ff541a3dd9e05ae27b6099"
+    },
+    {
+      "case": "train/train_766_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 5577302901459224310,
+      "penalty": 959,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 6.9551830784557485,
+        "risk_pool100": 6.965538602456228,
+        "r80": 7.198817569495303,
+        "write1": 7.150233197905648,
+        "value_rank": 6.030508862574595
+      },
+      "physical_us": {
+        "naive": 341730725.84,
+        "paired100": 104021378.12,
+        "risk_pool100": 103648535.56,
+        "r80": 95699845.88,
+        "write1": 97359185.0,
+        "value_rank": 135597764.46
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 3.2851970625285927,
+          "paired100": 1.0,
+          "risk_pool100": 0.9964157121666867,
+          "r80": 0.9200017112790007,
+          "write1": 0.9359536160700117,
+          "value_rank": 1.3035567006579474
+        },
+        "r80": {
+          "naive": 3.5708597302079585,
+          "paired100": 1.0869544999104235,
+          "risk_pool100": 1.0830585421210295,
+          "r80": 1.0,
+          "write1": 1.0173389946947322,
+          "value_rank": 1.4169068216685408
+        }
+      },
+      "misses": {
+        "naive": 6086,
+        "paired100": 7686,
+        "risk_pool100": 7618,
+        "r80": 6186,
+        "write1": 6287,
+        "value_rank": 20401
+      },
+      "decision_us": {
+        "naive": 36170.73,
+        "paired100": 40384.87,
+        "risk_pool100": 59309.9,
+        "r80": 35296.73,
+        "write1": 36410.59,
+        "value_rank": 66302.25
+      },
+      "wall_seconds": {
+        "naive": 0.16503273899434134,
+        "paired100": 0.16530705901095644,
+        "risk_pool100": 0.16480027099896688,
+        "r80": 0.16515544999856502,
+        "write1": 0.16497656899446156,
+        "value_rank": 0.1653045330021996
+      },
+      "canonical_sha256": "3081734a29798dc5539d1da0e3f09cb0faee6b18ca8eec660769c4c4d3089bc8"
+    },
+    {
+      "case": "train/train_723_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 11576382454364312072,
+      "penalty": 415,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 1.829844859953926,
+        "risk_pool100": 1.8591610594073,
+        "r80": 1.8820595065689019,
+        "write1": 1.8501180254979608,
+        "value_rank": 0.023018704033778356
+      },
+      "physical_us": {
+        "naive": 145924208.43,
+        "paired100": 119212644.14,
+        "risk_pool100": 118779499.69,
+        "r80": 118453863.11,
+        "write1": 118919333.71,
+        "value_rank": 145575139.07
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.22406653658844,
+          "paired100": 1.0,
+          "risk_pool100": 0.9963666232460097,
+          "r80": 0.9936350624929609,
+          "write1": 0.9975396030168113,
+          "value_rank": 1.221138412960966
+        },
+        "r80": {
+          "naive": 1.2319075511660618,
+          "paired100": 1.00640570944736,
+          "risk_pool100": 1.0027490583375707,
+          "r80": 1.0,
+          "write1": 1.0039295518759717,
+          "value_rank": 1.228960670829404
+        }
+      },
+      "misses": {
+        "naive": 5152,
+        "paired100": 8345,
+        "risk_pool100": 8228,
+        "r80": 7146,
+        "write1": 7120,
+        "value_rank": 14736
+      },
+      "decision_us": {
+        "naive": 4250.23,
+        "paired100": 13170.52,
+        "risk_pool100": 18508.19,
+        "r80": 9991.26,
+        "write1": 10637.77,
+        "value_rank": 17411.19
+      },
+      "wall_seconds": {
+        "naive": 0.11502255400409922,
+        "paired100": 0.11485253499995451,
+        "risk_pool100": 0.1149580560013419,
+        "r80": 0.11494674399727955,
+        "write1": 0.11477559700142592,
+        "value_rank": 0.11507569398963824
+      },
+      "canonical_sha256": "fcbb73319d241f4f118a542088e19af73208533a43edf6d398fbc0f398c5bd68"
+    },
+    {
+      "case": "train/train_760_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 3496239285171780787,
+      "penalty": 662,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 0.3591852323253124,
+        "risk_pool100": 0.3614224218099756,
+        "r80": 0.22727915996652823,
+        "write1": 0.23257894801163315,
+        "value_rank": 0.0
+      },
+      "physical_us": {
+        "naive": 145737567.0,
+        "paired100": 140494304.91,
+        "risk_pool100": 140458129.61,
+        "r80": 142417049.09,
+        "write1": 142340957.05,
+        "value_rank": 154977586.42
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 1.0373201041377358,
+          "paired100": 1.0,
+          "risk_pool100": 0.999742514118112,
+          "r80": 1.0136855666941924,
+          "write1": 1.0131439643847695,
+          "value_rank": 1.1030880327802464
+        },
+        "r80": {
+          "naive": 1.0233154522665444,
+          "paired100": 0.9864991994126705,
+          "risk_pool100": 0.9862451897963279,
+          "r80": 1.0,
+          "write1": 0.9994657097553544,
+          "value_rank": 1.0881954612194107
+        }
+      },
+      "misses": {
+        "naive": 7228,
+        "paired100": 10208,
+        "risk_pool100": 10058,
+        "r80": 10453,
+        "write1": 10484,
+        "value_rank": 15052
+      },
+      "decision_us": {
+        "naive": 3016.1,
+        "paired100": 11491.67,
+        "risk_pool100": 15062.04,
+        "r80": 11154.29,
+        "write1": 10006.9,
+        "value_rank": 14630.2
+      },
+      "wall_seconds": {
+        "naive": 0.21547606999229174,
+        "paired100": 0.21582057600608096,
+        "risk_pool100": 0.21548824600176886,
+        "r80": 0.21527423399675172,
+        "write1": 0.215295863992651,
+        "value_rank": 0.2150811900064582
+      },
+      "canonical_sha256": "3004c6008bc64b62bb15832310d0410d86e2853fee1f95631407ab5ed36685cc"
+    },
+    {
+      "case": "train/train_726_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 14532149210305815137,
+      "penalty": 47,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 5.529794155985263,
+        "risk_pool100": 5.585581568977415,
+        "r80": 5.15073172971758,
+        "write1": 5.2104719081218756,
+        "value_rank": 3.727552431175725
+      },
+      "physical_us": {
+        "naive": 502606351.03,
+        "paired100": 224671886.4,
+        "risk_pool100": 221867242.39,
+        "r80": 243724289.44,
+        "write1": 240721973.19,
+        "value_rank": 315246975.54
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.2370682824782655,
+          "paired100": 1.0,
+          "risk_pool100": 0.9875167113476464,
+          "r80": 1.0848010106884471,
+          "write1": 1.0714378957117263,
+          "value_rank": 1.4031438494211175
+        },
+        "r80": {
+          "naive": 2.0621922918919067,
+          "paired100": 0.9218280497041297,
+          "risk_pool100": 0.9103206040718368,
+          "r80": 1.0,
+          "write1": 0.9876815057830373,
+          "value_rank": 1.2934573581662137
+        }
+      },
+      "misses": {
+        "naive": 2729,
+        "paired100": 2851,
+        "risk_pool100": 2714,
+        "r80": 2729,
+        "write1": 2752,
+        "value_rank": 9370
+      },
+      "decision_us": {
+        "naive": 1619.05,
+        "paired100": 4222.11,
+        "risk_pool100": 4946.28,
+        "r80": 3798.73,
+        "write1": 3526.0,
+        "value_rank": 11238.46
+      },
+      "wall_seconds": {
+        "naive": 0.1147268350032391,
+        "paired100": 0.11479262899956666,
+        "risk_pool100": 0.11495113199634943,
+        "r80": 0.11485991100198589,
+        "write1": 0.11483879500883631,
+        "value_rank": 0.16500492100021802
+      },
+      "canonical_sha256": "68fa2993990a84323f40477170bd30c751e5356db9e3181f7d84ad9307111824"
+    },
+    {
+      "case": "train/train_725_random_lognormal.txt",
+      "family": "random_lognormal",
+      "seed": 10481288076045297175,
+      "penalty": 268,
+      "scores": {
+        "naive": 0.0,
+        "paired100": 5.7134581908102575,
+        "risk_pool100": 5.746540669670629,
+        "r80": 5.830892167743266,
+        "write1": 5.835774296641674,
+        "value_rank": 5.3331728704690855
+      },
+      "physical_us": {
+        "naive": 173334393.92,
+        "paired100": 74255198.8,
+        "risk_pool100": 73674375.75,
+        "r80": 72233988.68,
+        "write1": 72149475.77,
+        "value_rank": 80848007.45
+      },
+      "physical_ratio": {
+        "paired100": {
+          "naive": 2.3343065094588367,
+          "paired100": 1.0,
+          "risk_pool100": 0.9921780150159668,
+          "r80": 0.9727802207432781,
+          "write1": 0.9716420794229966,
+          "value_rank": 1.0887858191283974
+        },
+        "r80": {
+          "naive": 2.399623737903767,
+          "paired100": 1.027981427537583,
+          "risk_pool100": 1.0199405722475188,
+          "r80": 1.0,
+          "write1": 0.9988300118608375,
+          "value_rank": 1.1192516006302866
+        }
+      },
+      "misses": {
+        "naive": 24534,
+        "paired100": 23187,
+        "risk_pool100": 23020,
+        "r80": 21084,
+        "write1": 21215,
+        "value_rank": 30517
+      },
+      "decision_us": {
+        "naive": 21188.78,
+        "paired100": 54396.51,
+        "risk_pool100": 61716.32,
+        "r80": 39823.08,
+        "write1": 39701.56,
+        "value_rank": 54046.19
+      },
+      "wall_seconds": {
+        "naive": 0.26599929500662256,
+        "paired100": 0.2654563170071924,
+        "risk_pool100": 0.3155919839919079,
+        "r80": 0.2655419249931583,
+        "write1": 0.2658124070003396,
+        "value_rank": 0.31597943999804556
+      },
+      "canonical_sha256": "65ea7323d4c0b304a63b7cd96ef574c6d7f4bfc2e8d941919ef8a5441d6b41d2"
+    }
+  ],
+  "limits": [
+    "Three new candidates all fail the predeclared training gates; no promotion or eval access.",
+    "Mean of per-case physical ratios is not ratio of total costs; both are reported.",
+    "Single-pass timing has no repeat uncertainty estimate; changed trajectories confound component overhead.",
+    "Raw outputs checked for all60, full action correctness was audited only on the five separate small protocols.",
+    "One mixed protocol has identical four candidate traces; this is no evidence of benefit or broad equivalence.",
+    "Training panel was already used for development; this is not independent holdout evidence."
+  ]
+}

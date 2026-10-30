@@ -1,0 +1,21 @@
+{
+  "status": "PASS_STATIC_NO_BLOCKER",
+  "producer_sha256": "f462cb492526e487ad12daede3aa65d5fb6ccdfd4d0d33b19aee6f41ff704aa8",
+  "test_summary_sha256": "3cc548bce2ce3a6bef452c7d27fc43b9ec0cf08e45afda1772bebece6ff80b41",
+  "source_SHA_checks": 2,
+  "findings": [],
+  "native_tests_by_reviewer": 0,
+  "checks": [
+    "Both variants inherit R80 hierarchy, not R81; probabilities/prior/horizon/proxy100/top4 unchanged.",
+    "singlefit resets active/id before every propose and early return; only all-PROBE ordinary non-scan/non-cycle enables cached candidate loss.",
+    "Each candidate loss is cached from its already calculated priority; added singlefit excludes callback target and legal next and requires bytes>=need.",
+    "finishSingle compares against the actually pruned original action sum, uses strict less-than, and preserves cheaper greedy fallback or ties. No second propose/risk update or hypothetical intent recording occurs on MODE2 production path.",
+    "write1 changes only top4 subset lambda on the same ordinary guard; fallback ranking/search remains unchanged.",
+    "Producer tests cover expected-red counterexamples, cheaper greedy when top4 cannot fill, strict ties, no-fit/prune idempotence, next/target, early-return cache reset, BUILD/mixed/scan/cycle equality, inherited callback/intent tests and400-step legality. Test summaries read, no reruns."
+  ],
+  "limits": [
+    "Local cached surrogate improvement is not proof of lower realized total cost or score.",
+    "Singlefit adds candidate cache/storage and per-candidate arithmetic; actual D must be measured.",
+    "One-repeat exposed TRAIN and reserved paired DEV remain separate evidence; DEV12 has only6 independent seeds."
+  ]
+}

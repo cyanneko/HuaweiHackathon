@@ -1,0 +1,757 @@
+{
+  "status": "PASS_STATIC_RECOMPUTATION",
+  "source_revision": "caafb937039e74a27e7e6e18269f01825fce2411",
+  "source_artifact_commit": "b7482004d5313c6654629324cb465ef36d6554b1",
+  "dataset_commit": "d144cdd1c3b78f9a73702b4facb382e6a3e31212",
+  "dataset_versions": {
+    "dyna": "1.0.0",
+    "final": "2.1.0"
+  },
+  "publisher_manifest_files_verified": 3067,
+  "method_class_files_verified": 7,
+  "stdout_reparsed": 588,
+  "stdout_stderr_sha_checks": 1176,
+  "invalid_cells": 0,
+  "missing_cells": 0,
+  "max_display_rounding_error_us": 0.01025390625,
+  "windows": {
+    "dyna": {
+      "cases": 12,
+      "cells": 84,
+      "valid": 84,
+      "wall_seconds": 620.2623048119999,
+      "started_unix": 1793368306.5408106,
+      "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+      "campaign_cpu_model_recorded": false,
+      "repeats": 1,
+      "parallelism": 1,
+      "input_hashes_manifest_verified": 12
+    },
+    "final": {
+      "cases": 72,
+      "cells": 504,
+      "valid": 504,
+      "wall_seconds": 278.550807201,
+      "started_unix": 1793368957.6739626,
+      "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+      "campaign_cpu_model_recorded": false,
+      "repeats": 1,
+      "parallelism": 1,
+      "input_hashes_manifest_verified": 72
+    }
+  },
+  "methods": {
+    "Naive": {
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+      "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    "R75_dense_switch": {
+      "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+      "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+      "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    "R79_adaptive": {
+      "source_sha256": "8eb171503ce6c30d8e99939dffef33b751dd96f7b276c1d4509c090d439d982d",
+      "translation_unit_sha256": "0a8a66174dbb42b0fbbf163a479e170a57115a8be286e338e761e40565693d96",
+      "binary_sha256": "9c77744aab4cb0180c1fdb017f9426e0931955265a57373ec1d81573f305f4ab",
+      "framework_sha256": null,
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    "R80_next_hier_fast100": {
+      "source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+      "binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+      "framework_sha256": null,
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    "R80_paired_hier_fast100": {
+      "source_sha256": "5c5c5412fe1f56a64a97fc2a9bba2860b0f30cd51b1ace86e6fc258a60a0cbe0",
+      "translation_unit_sha256": "a9a6bd9cae5520f64493edfdda800834f5e6bfa0e5f4419993af164caada33f4",
+      "binary_sha256": "287795281d7748615a77e6d5b210a7a7d83ca6caff96687c9d343dea26ebf3ea",
+      "framework_sha256": null,
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    "R81_op256_cond2048": {
+      "source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+      "translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+      "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "framework_sha256": null,
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    "Van_latest": {
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "translation_unit_sha256": "d89c9455e9519be89aca25c30b274c64b6f668e2eeebfb0d3623efc5065edefd",
+      "binary_sha256": "c01849371905fa3460ed979ab6deaf0333f585e968397d95de92848096cc9edc",
+      "framework_sha256": null,
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    }
+  },
+  "framework_skeleton_sha256": "98314988f2ecfed20e41a9d72a187d7271949e9d5ea3eb498331503ef4da75c9",
+  "framework_patch_scope": "All seven normalized TUs identical after replacing the exact submitted class by <SCHEDULER>; no extra engine patch between methods.",
+  "Van": {
+    "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+    "source_bytes": 18804,
+    "upstream_commit": "d92ceb0262b556eb57aae61127d062174ffe6016",
+    "upstream_path": "src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp",
+    "byte_equal_upstream": true,
+    "joint_included": false
+  },
+  "scores": [
+    {
+      "method": "Naive",
+      "dyna12": 0,
+      "final72": 0,
+      "equal_dataset_score": 0.0
+    },
+    {
+      "method": "R75_dense_switch",
+      "dyna12": 4.247082107783627,
+      "final72": 2.965897507993767,
+      "equal_dataset_score": 3.606489807888697
+    },
+    {
+      "method": "R79_adaptive",
+      "dyna12": 4.286924716411388,
+      "final72": 3.312406004175643,
+      "equal_dataset_score": 3.7996653602935155
+    },
+    {
+      "method": "R80_next_hier_fast100",
+      "dyna12": 4.306760474195173,
+      "final72": 3.7092534757989712,
+      "equal_dataset_score": 4.0080069749970715
+    },
+    {
+      "method": "R80_paired_hier_fast100",
+      "dyna12": 4.380690559494376,
+      "final72": 3.6255745467343052,
+      "equal_dataset_score": 4.003132553114341
+    },
+    {
+      "method": "R81_op256_cond2048",
+      "dyna12": 4.455872346277313,
+      "final72": 3.713171308421542,
+      "equal_dataset_score": 4.084521827349428
+    },
+    {
+      "method": "Van_latest",
+      "dyna12": 4.049649788428984,
+      "final72": 3.4836311774767053,
+      "equal_dataset_score": 3.7666404829528446
+    }
+  ],
+  "phase_comparisons": {
+    "dyna": {
+      "Naive": {
+        "score": 0,
+        "raw_points": 0.0,
+        "cost_to_naive": {
+          "n": 12,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p90": 1.0,
+          "worst": 1.0,
+          "wins": 0,
+          "ties": 12,
+          "losses": 0
+        },
+        "cost_to_van": {
+          "n": 12,
+          "mean": 2.922558546164947,
+          "p50": 1.3035581586964817,
+          "p90": 7.285704969033401,
+          "worst": 12.498106900309773,
+          "wins": 0,
+          "ties": 0,
+          "losses": 12
+        },
+        "physical_to_van": {
+          "n": 12,
+          "mean": 2.9227721614322166,
+          "p50": 1.303565874648105,
+          "p90": 7.285872062507607,
+          "worst": 12.499693542842703,
+          "wins": 0,
+          "ties": 0,
+          "losses": 12
+        }
+      },
+      "R75_dense_switch": {
+        "score": 4.247082107783627,
+        "raw_points": 4.247082107783627,
+        "cost_to_naive": {
+          "n": 12,
+          "mean": 0.5752917892216373,
+          "p50": 0.6364251027926175,
+          "p90": 0.8198446516050625,
+          "worst": 0.8310866169822279,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "cost_to_van": {
+          "n": 12,
+          "mean": 0.9506415962031354,
+          "p50": 0.9595925615711909,
+          "p90": 0.9997004627285083,
+          "worst": 1.0465926850752805,
+          "wins": 11,
+          "ties": 0,
+          "losses": 1
+        },
+        "physical_to_van": {
+          "n": 12,
+          "mean": 0.9506632802950825,
+          "p50": 0.9596023683575393,
+          "p90": 0.999702991304763,
+          "worst": 1.046606445392148,
+          "wins": 11,
+          "ties": 0,
+          "losses": 1
+        }
+      },
+      "R79_adaptive": {
+        "score": 4.286924716411388,
+        "raw_points": 4.286924716411388,
+        "cost_to_naive": {
+          "n": 12,
+          "mean": 0.5713075283588611,
+          "p50": 0.623252585476254,
+          "p90": 0.8175710307314309,
+          "worst": 0.8322539518590999,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "cost_to_van": {
+          "n": 12,
+          "mean": 0.942364660690996,
+          "p50": 0.9397312305544143,
+          "p90": 1.0000019270934677,
+          "worst": 1.043690238898046,
+          "wins": 10,
+          "ties": 0,
+          "losses": 2
+        },
+        "physical_to_van": {
+          "n": 12,
+          "mean": 0.9423887943611805,
+          "p50": 0.9397418610680344,
+          "p90": 1.000004176835394,
+          "worst": 1.0437041804080587,
+          "wins": 10,
+          "ties": 0,
+          "losses": 2
+        }
+      },
+      "R80_next_hier_fast100": {
+        "score": 4.306760474195173,
+        "raw_points": 4.306760474195173,
+        "cost_to_naive": {
+          "n": 12,
+          "mean": 0.5693239525804827,
+          "p50": 0.6190496030694345,
+          "p90": 0.8210446764384081,
+          "worst": 0.8630498592607867,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "cost_to_van": {
+          "n": 12,
+          "mean": 0.9359545600678356,
+          "p50": 0.9333940344942633,
+          "p90": 0.9961876748247541,
+          "worst": 0.9973810378819359,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "physical_to_van": {
+          "n": 12,
+          "mean": 0.9359753548437352,
+          "p50": 0.9334034670184492,
+          "p90": 0.9961899074992145,
+          "worst": 0.9973822950594843,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        }
+      },
+      "R80_paired_hier_fast100": {
+        "score": 4.380690559494376,
+        "raw_points": 4.380690559494376,
+        "cost_to_naive": {
+          "n": 12,
+          "mean": 0.5619309440505624,
+          "p50": 0.6161419263672957,
+          "p90": 0.8178600045090401,
+          "worst": 0.8394863418585912,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "cost_to_van": {
+          "n": 12,
+          "mean": 0.9225037989988724,
+          "p50": 0.9290098816338829,
+          "p90": 0.9825377700851337,
+          "worst": 0.998225935651774,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "physical_to_van": {
+          "n": 12,
+          "mean": 0.9224833238325191,
+          "p50": 0.9290006224757187,
+          "p90": 0.9825353380666455,
+          "worst": 0.9982250028488804,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        }
+      },
+      "R81_op256_cond2048": {
+        "score": 4.455872346277313,
+        "raw_points": 4.455872346277313,
+        "cost_to_naive": {
+          "n": 12,
+          "mean": 0.5544127653722687,
+          "p50": 0.604729409419887,
+          "p90": 0.8135928659400088,
+          "worst": 0.8316879203902853,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "cost_to_van": {
+          "n": 12,
+          "mean": 0.9146234662188896,
+          "p50": 0.9120758356550005,
+          "p90": 0.9790146834198808,
+          "worst": 0.9963982252095682,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "physical_to_van": {
+          "n": 12,
+          "mean": 0.9146399253157238,
+          "p50": 0.9120786889307929,
+          "p90": 0.9790184594437299,
+          "worst": 0.9964003665697811,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        }
+      },
+      "Van_latest": {
+        "score": 4.049649788428984,
+        "raw_points": 4.049649788428984,
+        "cost_to_naive": {
+          "n": 12,
+          "mean": 0.5950350211571016,
+          "p50": 0.6632242977692174,
+          "p90": 0.8384005783700231,
+          "worst": 0.8653160893188642,
+          "wins": 12,
+          "ties": 0,
+          "losses": 0
+        },
+        "cost_to_van": {
+          "n": 12,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p90": 1.0,
+          "worst": 1.0,
+          "wins": 0,
+          "ties": 12,
+          "losses": 0
+        },
+        "physical_to_van": {
+          "n": 12,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p90": 1.0,
+          "worst": 1.0,
+          "wins": 0,
+          "ties": 12,
+          "losses": 0
+        }
+      }
+    },
+    "final": {
+      "Naive": {
+        "score": 0,
+        "raw_points": 0.0,
+        "cost_to_naive": {
+          "n": 72,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p90": 1.0,
+          "worst": 1.0,
+          "wins": 0,
+          "ties": 72,
+          "losses": 0
+        },
+        "cost_to_van": {
+          "n": 72,
+          "mean": 2.0371896504017704,
+          "p50": 1.3852082416720524,
+          "p90": 4.128249633939344,
+          "worst": 7.982762610660919,
+          "wins": 8,
+          "ties": 0,
+          "losses": 64
+        },
+        "physical_to_van": {
+          "n": 72,
+          "mean": 2.0381545284965643,
+          "p50": 1.385211225556734,
+          "p90": 4.128822794555842,
+          "worst": 7.983064016684012,
+          "wins": 8,
+          "ties": 0,
+          "losses": 64
+        }
+      },
+      "R75_dense_switch": {
+        "score": 2.965897507993767,
+        "raw_points": 2.3308230018939375,
+        "cost_to_naive": {
+          "n": 72,
+          "mean": 0.7669176998106062,
+          "p50": 0.7586727593238183,
+          "p90": 1.1703223512423322,
+          "worst": 2.852538380171767,
+          "wins": 61,
+          "ties": 0,
+          "losses": 11
+        },
+        "cost_to_van": {
+          "n": 72,
+          "mean": 1.1587364966889273,
+          "p50": 1.0841413144912586,
+          "p90": 1.4127369983366778,
+          "worst": 2.2208940864284115,
+          "wins": 5,
+          "ties": 0,
+          "losses": 67
+        },
+        "physical_to_van": {
+          "n": 72,
+          "mean": 1.1591274344747504,
+          "p50": 1.0841768136284502,
+          "p90": 1.4142258371703091,
+          "worst": 2.2302512906201537,
+          "wins": 5,
+          "ties": 0,
+          "losses": 67
+        }
+      },
+      "R79_adaptive": {
+        "score": 3.312406004175643,
+        "raw_points": 2.894886868228575,
+        "cost_to_naive": {
+          "n": 72,
+          "mean": 0.7105113131771426,
+          "p50": 0.6599525281401545,
+          "p90": 1.1197556024664026,
+          "worst": 2.1583426430722605,
+          "wins": 61,
+          "ties": 0,
+          "losses": 11
+        },
+        "cost_to_van": {
+          "n": 72,
+          "mean": 1.0444479993729066,
+          "p50": 1.020067588106114,
+          "p90": 1.168373910547365,
+          "worst": 1.5631437781119,
+          "wins": 16,
+          "ties": 0,
+          "losses": 56
+        },
+        "physical_to_van": {
+          "n": 72,
+          "mean": 1.0447246273278687,
+          "p50": 1.0202320862416923,
+          "p90": 1.1683937670013034,
+          "worst": 1.5640874808019505,
+          "wins": 16,
+          "ties": 0,
+          "losses": 56
+        }
+      },
+      "R80_next_hier_fast100": {
+        "score": 3.7092534757989712,
+        "raw_points": 3.5936140607540983,
+        "cost_to_naive": {
+          "n": 72,
+          "mean": 0.6406385939245902,
+          "p50": 0.6599370835786947,
+          "p90": 0.9893469756906589,
+          "worst": 1.4034328782360772,
+          "wins": 67,
+          "ties": 0,
+          "losses": 5
+        },
+        "cost_to_van": {
+          "n": 72,
+          "mean": 0.9498037833496679,
+          "p50": 0.9899099591374655,
+          "p90": 1.0246597656648415,
+          "worst": 1.167521621196484,
+          "wins": 46,
+          "ties": 0,
+          "losses": 26
+        },
+        "physical_to_van": {
+          "n": 72,
+          "mean": 0.9499571222999041,
+          "p50": 0.9908066040753135,
+          "p90": 1.0246620093086163,
+          "worst": 1.1675601836731329,
+          "wins": 46,
+          "ties": 0,
+          "losses": 26
+        }
+      },
+      "R80_paired_hier_fast100": {
+        "score": 3.6255745467343052,
+        "raw_points": 3.4008136254187225,
+        "cost_to_naive": {
+          "n": 72,
+          "mean": 0.6599186374581277,
+          "p50": 0.6345684092277553,
+          "p90": 0.9975486962812533,
+          "worst": 1.7103633491859966,
+          "wins": 65,
+          "ties": 0,
+          "losses": 7
+        },
+        "cost_to_van": {
+          "n": 72,
+          "mean": 0.9698853144853344,
+          "p50": 0.9955918266205339,
+          "p90": 1.0280602966253196,
+          "worst": 1.0801825324019354,
+          "wins": 42,
+          "ties": 0,
+          "losses": 30
+        },
+        "physical_to_van": {
+          "n": 72,
+          "mean": 0.9695854325590846,
+          "p50": 0.9955769487366967,
+          "p90": 1.0280597244409386,
+          "worst": 1.0776258572185329,
+          "wins": 43,
+          "ties": 0,
+          "losses": 29
+        }
+      },
+      "R81_op256_cond2048": {
+        "score": 3.713171308421542,
+        "raw_points": 3.5515906010908886,
+        "cost_to_naive": {
+          "n": 72,
+          "mean": 0.6448409398909111,
+          "p50": 0.6530214595339039,
+          "p90": 0.9530995231946409,
+          "worst": 1.422299446322659,
+          "wins": 67,
+          "ties": 0,
+          "losses": 5
+        },
+        "cost_to_van": {
+          "n": 72,
+          "mean": 0.9529113012286665,
+          "p50": 0.9885819877765188,
+          "p90": 1.0250145263362775,
+          "worst": 1.3284007850718218,
+          "wins": 44,
+          "ties": 0,
+          "losses": 28
+        },
+        "physical_to_van": {
+          "n": 72,
+          "mean": 0.9530317262017296,
+          "p50": 0.9885906963128525,
+          "p90": 1.0250164543262856,
+          "worst": 1.3284608820663804,
+          "wins": 44,
+          "ties": 0,
+          "losses": 28
+        }
+      },
+      "Van_latest": {
+        "score": 3.4836311774767053,
+        "raw_points": 3.1551256110683723,
+        "cost_to_naive": {
+          "n": 72,
+          "mean": 0.6844874388931628,
+          "p50": 0.7005431004372997,
+          "p90": 1.0659897253949042,
+          "worst": 1.9278741362226783,
+          "wins": 64,
+          "ties": 0,
+          "losses": 8
+        },
+        "cost_to_van": {
+          "n": 72,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p90": 1.0,
+          "worst": 1.0,
+          "wins": 0,
+          "ties": 72,
+          "losses": 0
+        },
+        "physical_to_van": {
+          "n": 72,
+          "mean": 1.0,
+          "p50": 1.0,
+          "p90": 1.0,
+          "worst": 1.0,
+          "wins": 0,
+          "ties": 72,
+          "losses": 0
+        }
+      }
+    }
+  },
+  "essential_artifacts": [
+    {
+      "path": "src/reports/r84_20261030/manifest.json",
+      "sha256": "53042e6ba28f83596ddb98bb0f52525e8064d7bb514e5b0a30d478d20029540c",
+      "bytes": 1502658
+    },
+    {
+      "path": "src/reports/r84_20261030/report_zh.md",
+      "sha256": "1700213e35c31fb77207c4e3cb733631b667e4a8b6890cb1125c94ae6a554558",
+      "bytes": 21324
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/combined_dataset_equal.json",
+      "sha256": "3dd31fb156b99a2c3760ed1078d77f9c624f8deb69e61eed156a33d2baa68e35",
+      "bytes": 5800
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/release.json",
+      "sha256": "5ccbf1ff750a38fc0175ef126380085fbcadd1308fe26958c8746039640c5227",
+      "bytes": 5014
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/failed_preparation.json",
+      "sha256": "c996cbd08f097f9786094c0efffb9e0d9907ab36da7ccf1e1ac637c5e3bddfad",
+      "bytes": 1025
+    },
+    {
+      "path": "src/reports/r84_20261030/van_binding/latest_proof.json",
+      "sha256": "13e23973c1f3aca1aad7b0398d00563579c52c94fb6ddcc2d4c523a57ed3f17b",
+      "bytes": 685
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/dyna/rows.json",
+      "sha256": "8e80b1c5832e142b835bfcf358c4101af7485c4cebf5635aa96e68caf8561aef",
+      "bytes": 89493
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/dyna/selection.json",
+      "sha256": "b09755bb2cccc9f45326e010b55204a6069c17d4bf37ee9adc4c20849dc208a2",
+      "bytes": 33282
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/dyna/input_gate.json",
+      "sha256": "bd67adcf214f7cd960c99e8f51315303c311031a49b52cd3e6585f4a75332ecf",
+      "bytes": 12079
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/dyna/campaign.json",
+      "sha256": "1755bf02e7344bb35db77a6341bddefdce8b6f4d0e469b12d60ab73815b3cbb2",
+      "bytes": 303
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/dyna/completion.json",
+      "sha256": "14cb51b5d2862a9a8748498a6bd64a27bed658a94497c220200c32e6a23ac994",
+      "bytes": 361
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/dyna/summary.json",
+      "sha256": "ba0c061a6ef4efa49b6be32b01cb6b4751c8c0bbfdb661e32ff6bbbbda1a5b0e",
+      "bytes": 795207
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/final/rows.json",
+      "sha256": "cac6949ad72226a13ffc72c29748a69320a7dfb30a5dab179db0481730a8c5d0",
+      "bytes": 532420
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/final/selection.json",
+      "sha256": "03c117a71bdae750f4ff2cc4be4d9acb3d9410ffcd83e3fa3448622ce5789aed",
+      "bytes": 121348
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/final/input_gate.json",
+      "sha256": "9b0327eba6982e7746a7c634dfc0e7843ea7644cf80b8b1efe2e1d57ee3d0ced",
+      "bytes": 55266
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/final/campaign.json",
+      "sha256": "4801bf07fbd6a44defb4678a9c45c6a2b7d1ce07e822751e6ba1af20f9ccc242",
+      "bytes": 303
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/final/completion.json",
+      "sha256": "cc6e24cee674c126d7975563bf91a71261dbc25bfb80d7c23330f6ec9889d536",
+      "bytes": 360
+    },
+    {
+      "path": "src/reports/r84_20261030/full_v2/final/summary.json",
+      "sha256": "8b4e4395c85125768c36078bba320526f255e38e45acae36df0b38c835d00543",
+      "bytes": 1443075
+    }
+  ],
+  "scope": "Independent read-only reparse of saved Git artifacts, not independent scheduler execution or raw input body rehash. ELF hash bindings and original pre-sanitization hashes checked as archive records, not regenerated binaries.",
+  "new_solver_runs": 0,
+  "new_training_runs": 0,
+  "new_compile_runs": 0,
+  "input_downloaded_bytes": 0,
+  "network_during_audit": false,
+  "fetch_note": "First default-negotiation explicit blob batches partly failed with bad revision; explicit OID stdin plus fetch.negotiationAlgorithm=noop and blob:none succeeded. No broad lazy fetch or input objects.",
+  "environment_disclosure": {
+    "path": "src/reports/r84_20261030/van_binding/environment.json",
+    "sha256": "9710156957cbcefe271343652867fcc4738efb127a1b6ac0f46818aaa5b054ba",
+    "compiler_current": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+    "cpu_model": "Intel(R) Core(TM) i7-14700HX",
+    "scope": "WSL CPU serial single repeat; no GPU; current environment disclosure does not replace immutable prior compiler record"
+  }
+}

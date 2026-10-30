@@ -1,6 +1,6 @@
 # 方法与评测结果比较入口
 
-维护分支：`source/Vanius0525`。2026-10-30用户要求后续每轮完整测试将协议、结果、代码版本同步到本分支；本入口随阶段完成更新。最新性能阶段为Round12，软核心/冷侧折扣候选未晋升；Round11为共同状态机制观察。AI更新与测试暂停，后续默认每方法每题单遍。
+维护分支：`source/Vanius0525`。2026-10-30用户要求后续每轮完整测试将协议、结果、代码版本同步到本分支；本入口随阶段完成更新。最新本地性能阶段为Round12，软核心/冷侧折扣候选未晋升；Round13增加R84全量归档审核和联合版物理成本对齐，没有新solver。AI更新与测试暂停，后续默认每方法每题单遍。第三方重测的当前入口、联合版和R80强对照见[固定版本清单](round13/THIRD_PARTY_RETEST_V1.md)。
 
 ## 当前可对齐的完整结果
 
@@ -48,9 +48,9 @@ Round10为CPU单线程、C++14/O2、g++11.4；每例60秒wall限制。任务锁�
 - [运行前代数分析](round11/MECHANISM_NOTES_V1.md)：单算子概率排序在共享下保持，但大小和离散集合仍可改变动作。观察结果和此推导的适用范围分开记录。
 - [R82负结果与write1源码差异](round9/source_monitor/R82_UPDATE_REVIEW_V1.md)、[R82 reserved DEV来源审核](round9/dataset_monitor/R82_RESERVED_DEV_REVIEW_f4a7fcf6e957.md)：上游TRAIN38与本分支主60不同；其DEV12未下载/接入。资料来自发布归档，未独立重跑上游228格。
 
-最新工作交接见[Round12](round12/HANDOFF.md)。旧性能结果和代码保持原字节，后续诊断与R12候选没有产生新冠军或替换方法。上游R84全72+12报告仍待正式归档，文档中的完成声明不等于本分支已经核验其方法身份或成绩。
+最新工作交接见[Round13](round13/HANDOFF.md)。旧性能结果和代码保持原字节，后续诊断与R12候选没有产生新冠军或替换方法。上游R84现已正式归档到caafb937，并完成本分支独立静态审核，具体范围见下节；当前paired100正式入口未因新平均分改变。
 
-与上游R84对齐时，其冻结口径为dyna全12、final eval全72各自逐例均分，再对两个数据集各赋50%权重；不是将84例混合等权，且保留dyna原train/dev/holdout标记，不称新盲测。需核Van确切branch/commit/path/SHA及同窗Naive。本文原60训练诊断仍单独报告，不按新口径重写旧结果。政策来源记录见[source文档更新](round9/source_monitor/UPDATE_8e380ad4c664.json)和[datasets文档更新](round9/dataset_monitor/UPDATE_c65c7b32b06a.json)；该口径是上游比较合同，不冒称官方隐藏评测规则。
+与上游R84对齐时，其冻结口径为dyna全12、final eval全72各自逐例均分，再对两个数据集各赋50%权重；不是将84例混合等权，且保留dyna原train/dev/holdout标记，不称新盲测。Van已核为原paired100、源码3f8dfaee8b3e…，不含joint。本文原60训练诊断仍单独报告，不按新口径重写旧结果。政策来源记录见[source文档更新](round9/source_monitor/UPDATE_8e380ad4c664.json)和[datasets文档更新](round9/dataset_monitor/UPDATE_c65c7b32b06a.json)；该口径是上游比较合同，不冒称官方隐藏评测规则。
 
 ## Round12：软核心/冷侧折扣负结果与复现
 
@@ -61,3 +61,11 @@ Round10为CPU单线程、C++14/O2、g++11.4；每例60秒wall限制。任务锁�
 [执行器](round12/pure/run_v1.py)的prepare/run分离，正式运行受固定执行清单约束。复现需恢复与Round10相同的冻结输入缓存、参考二进制及官方框架；缺少build依赖时不是一键可运行承诺。已完成输出不能覆盖或自动重跑；新环境应另建执行版本并记录编译/TU/二进制指纹。发布的245项[原始stdout/小协议TRACE/执行元数据](round12/pure/RAW_OUTPUTS_V1.json)可直接核读，root的[独立复核脚本](round12/review_results_v1.py)不调用solver。
 
 15:05 UTC监测到datasets提交`e6613435d59690d6dd768813332387108f7e83c2`，题名标记final_dataset3.0，具体新规模与划分仍在做元数据审核。此更新没有进入上述任何本分支性能成绩；R12保持旧final2.1快照`42fbd682f6fadc54e23c4ee7cc0bef6563a4513d`。后续比较须另绑定新版输入指纹，不能把旧72或旧60自动视为新版覆盖。
+
+## Round13：R84全量审核与联合版归档比较
+
+[R84独立审核](round9/source_monitor/R84_REVIEW_V1.md)、[588条重算CSV](round9/source_monitor/R84_RECOMPUTED_PER_CASE_V1.csv)、[证据](round9/source_monitor/R84_SOURCE_EVIDENCE_V1.json)固定上游caafb937。七方法、588 stdout和1176日志SHA、3067报告文件及七份实际TU经过核查；本分支0新增solver。数据固定d144cdd1下的dyna1.0全12＋final2.1全72。上游同窗含D两集等权分：R80共享4.008007、R80双方案4.003133、Van原paired3.766640；R81为4.084522，但其final尾部退化仍在，未据此替换默认方案。
+
+[联合版额外物理比较](round13/ARCHIVE_JOINT_COMPARISON_V1.md)独立核84输入/罚值、216历史原paired/Naive物理记录与框架非空代码一致，再用既有joint结果对照。R80共享/joint的逐例物理比均值：dyna0.953902、final0.951179；final总成本比却为1.001610，最坏1.157591。平均收益不能解释为每例都改善。该项排除跨次D，只是归档物理比较，不是R84新增joint同窗得分，更不含final3.0。
+
+正式保留入口仍是paired100；联合risk_pool100和R80共享版作为不同身份的重测候选，固定提交/文件/SHA见[第三方重测清单](round13/THIRD_PARTY_RETEST_V1.md)。R12负结果不推荐作为最新最佳版。新纯算法设计和3.0元数据核查仍在独立推进，不与这一已完成审核混作新增性能成绩。

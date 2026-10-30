@@ -1,0 +1,38 @@
+{
+  "stage": "round13-conditional-archive-physical-comparison",
+  "new_solver_runs": 0,
+  "new_compiles": 0,
+  "source_commit": "caafb937039e74a27e7e6e18269f01825fce2411",
+  "purpose": "Compare archived joint with R84 R80 hierarchy and paired variants only if exact input and physical-accounting prerequisites pass.",
+  "historical_dependencies": {
+    "round9/eval72/PLAN_V1.json": "e1647c7ec28a15c70647bb1dec47eedcc16b3ac25c870c4db0152c26de99ea01",
+    "round9/eval72/RESULTS_V1.json": "e37afbdc44427b5fec53b952e28e7c7b7cff250a78ead1fea3a6f6f6f23c3973",
+    "round9/DYNA_FULL_EVALUATION_PLAN_V1.json": "1225cc3b8e0c5b7e1cbfd410995cf2033cfce1be2d0886ff49ef29da1aebdffe",
+    "round9/DYNA_FULL_RESULTS_V1.json": "29db5032227faad6443e57fea7a24934edf16fc6630c68afbc96da87ba55ba39",
+    "round9/pure/return_risk_pooling100_v1.cpp": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e",
+    "round9/candidates/paired_penalty100.cpp": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+    "build.py": "fb67b8754ec527f01c543192db3424de9200b17f6308c873583416eff6471b17"
+  },
+  "required_before_comparison": [
+    "All 72 final2.1 eval and 12 dyna1.0 input SHA and actual penalty match exactly.",
+    "R84 Van source equals original paired100, not joint; R84 method identities and compilation context checked.",
+    "Official physical accounting and request/callback semantics unchanged; inspect engine provenance and relevant code, not just report title.",
+    "Original paired and Naive IO/Hit/Miss agree across all matched records (rounded output precision explicitly accounted for).",
+    "Historical joint repetitions agree in physical fields; no selection of favorable repeat."
+  ],
+  "predeclared_comparisons": [
+    "R80 hierarchy / joint",
+    "R80 paired / joint"
+  ],
+  "metrics": [
+    "Per dataset mean of per-case physical ratios, ratio of summed costs, better/equal/worse, worst cases.",
+    "Physical cost = recorded IO + actual input penalty * Miss.",
+    "Optional physical-only normalized score using matched Naive physical cost; dyna12/final72 each equal-case mean then 50/50 datasets."
+  ],
+  "exclusions": [
+    "No joining archived decision times with new timing into a same-window result.",
+    "No claim that joint was included in R84 or independently rerun.",
+    "No final3.0 input or result, no AI evaluation, no parameter choice from this post hoc analysis."
+  ],
+  "failure_policy": "If prerequisites fail, preserve discrepancy and report non-comparability; do not silently relax tolerances or rerun."
+}

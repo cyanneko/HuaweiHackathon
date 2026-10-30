@@ -1,4 +1,4 @@
-"""Independently benchmark this release with standard Python3 and g++.
+"""Independently benchmark v2 Naive/latest-Vanius with standard Python3 and g++.
 
 Default: legal-range eval/ cases only. Explicit --include-diagnostics is needed
 for diagnostics/ or out-of-range inputs. --case ID --repeats 1 is a smoke run.
@@ -21,6 +21,10 @@ import subprocess
 import tempfile
 
 REFERENCE_SHA = '90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5'
+SELECTOR = 'vanius_latest'
+SOURCE_COMMIT = '28094bdec34ff7110d9f1614703d0b09d383d4a6'
+SOURCE_PATH = 'src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp'
+SOURCE_SHA = '3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15'
 FIELDS = {'Total_IO_Time', 'Total_Decision_Time', 'Hit_Count', 'Miss_Count', 'Total_Score'}
 FLAGS = ['-std=c++14', '-O2', '-Wall', '-Wextra', '-pedantic-errors']
 
@@ -87,9 +91,16 @@ def prepare_input(root, item, target):
 def benchmark(args):
     root = args.root.resolve(); manifest_path = root / 'manifest.json'
     manifest = json.loads(manifest_path.read_text(encoding='utf-8-sig'))
+    require(manifest.get('version') == '2.0.0', 'Only corner_case v2.0.0 is accepted')
+    require(manifest.get('selector_method') == SELECTOR, 'Expected the latest-Vanius-only selection rule')
+    entry = manifest['source_entry']
+    require(entry['commit'] == SOURCE_COMMIT and entry['path'] == SOURCE_PATH and entry['sha256'] == SOURCE_SHA,
+        'Latest Vanius source provenance differs')
     require(args.repeats > 0 and args.timeout > 0, 'Repeats and timeout must be positive')
     methods = manifest['methods']; ids = [item['id'] for item in methods]
-    require(len(ids) == len(set(ids)) and 'naive' in ids and len(ids) > 1, 'Invalid method panel')
+    require(len(ids) == 2 and set(ids) == {'naive', SELECTOR}, 'Expected exactly Naive and latest Vanius; old multi-method schemas are rejected')
+    require(next(item for item in methods if item['id'] == SELECTOR)['source_sha256'] == SOURCE_SHA,
+        'Latest Vanius source differs from the pinned Git blob')
     require(all(re.fullmatch(r'[A-Za-z][A-Za-z0-9_]*', name) for name in ids), 'Invalid method id')
     all_cases = manifest['cases']; require(len({item['id'] for item in all_cases}) == len(all_cases), 'Duplicate case id')
     if args.case is not None:
@@ -111,7 +122,8 @@ def benchmark(args):
     require(output not in protected and not output.exists(), 'Output must be a new, independent file')
     if output.is_relative_to(root):
         require(output.relative_to(root).parts[0] not in {'eval', 'diagnostics', 'algorithms', 'tools', 'evidence'}, 'Output cannot be written into release data/source/evidence folders')
-    report = dict(status='incomplete', version=manifest['version'], manifest_sha256=sha(manifest_path),
+    report = dict(status='incomplete', version=manifest['version'], selector_method=SELECTOR, source_entry=entry,
+        manifest_sha256=sha(manifest_path),
         repeats=args.repeats, timeout_seconds=args.timeout, methods=ids, cases=[item['id'] for item in cases],
         actual_callback_D_included=True, published_measurements_modified=False, published_threshold_reselection=False,
         source_sha256={item['id']: item.get('source_sha256') for item in methods}, reference_sha256=REFERENCE_SHA,

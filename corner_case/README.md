@@ -1,52 +1,64 @@
-# corner_case 1.0.0
+# corner_case 2.0.0：针对最新Vanius的低分回归集
 
-收集得到 **190** 份既有输入：`eval/` 有 **179** 份基础参数处于官方范围的输入，`diagnostics/` 有 **11** 份范围外微型诊断。输入原字节不改，50MiB以上使用可逆gzip。
+共 **207** 份既有输入：`eval/` **192** 份基础参数范围内样本，`diagnostics/` **15** 份范围外微型诊断。输入原字节保留，大文件无损gzip。
 
-## 筛选定义
+## 唯一筛选算法
 
-每例每遍用同遍Naive完整成本计算 `clamp(10*(1-VAL/BASE),0,10)`，先平均三遍。完整成本包含I/O、实际Miss罚项与SDK实测回调耗时D。
-按用户“目前最好算法低于1.5分”的要求，本包采用更保守、可复核的口径：**mix、clock、R75、R74、已发布小树、原Vanius六个冻结候选中，逐例最高均分仍严格小于1.5/10**。Naive只用于配对基线。不是数学意义的全局最优算法结论。
+**只按最新Vanius纯算法的分数筛选，不取其他算法最高分。**
+- 分支：`source/Vanius0525`；固定提交：`28094bdec34ff7110d9f1614703d0b09d383d4a6`。
+- 当前推荐入口：[src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp](https://github.com/cyanneko/HuaweiHackathon/blob/28094bdec34ff7110d9f1614703d0b09d383d4a6/src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp)。
+- 实测源码SHA256：`3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15`，保存原Git blob字节。
+- 发布前复查分支头`27b8faf0fa27deaa43e2f2b8b0f3e26e2ca24e05`：当前推荐pure入口与本次实测源码完全相同，详见`evidence/latest_source_confirmation.json`。
+- 此为Round9的paired_penalty100，固定100us Miss代理保持原样；引擎计分仍使用输入真实罚项。旧MySpillSchedulerBest.cpp是历史原件，本版未使用。
 
-从声明范围内371份去重候选实测，7种方法各3遍，共7791条有效SDK记录；另排除16份普通均匀IID对照及其派生版本。非均匀IID Zipf/热点/长尾保留，结构化循环和资源边界也保留。
-来源覆盖旧成员显式corners、cyanneko结构覆盖、Vanius合法edges、旧22个资源边界、当前主集已知低分、R70/R73/R74/R75开发输入；不是对仓库所有输入的穷举。
+每例每遍以同遍Naive完整成本计算 `clamp(10*(1-VAL/BASE),0,10)`，先平均三遍；零VAL/BASE按规则计零。**Vanius均分严格<1.5/10才入选。** 完整成本包含I/O、真实Miss罚项及SDK实测回调D。
+419份候选×2方法×3遍=2514条全新测量，Naive只作配对基线。排除16份普通均匀IID对照及派生版本，保留非均匀IID的Zipf/热点/长尾、结构化循环和资源边界。
+候选覆盖旧成员显式corners、cyanneko结构覆盖、Vanius合法edges、22个资源边界、完整72例主测试，以及R70/R73/R74/R75开发样本。取消了上一版按mix低分只取主集24例的预筛；不是对全仓库所有输入的穷举。
 
-## 样本长什么样
+## 类型
 
 | 类型 | 数量 |
 |---|---:|
-| 参数极值与混合阶段 | 80 |
-| 倾斜访问与其他结构 | 43 |
-| 容量临界与空分区 | 25 |
-| 低改善空间与结构化控制 | 21 |
-| 算子竞争与阶段交错 | 11 |
-| 周期扫描与重用距离 | 6 |
+| 参数极值与混合阶段 | 83 |
+| 倾斜访问与其他结构 | 46 |
+| 容量临界与空分区 | 26 |
+| 低改善空间与结构化控制 | 25 |
+| 算子竞争与阶段交错 | 16 |
+| 周期扫描与重用距离 | 7 |
 | 热点迁移与大小热度反转 | 4 |
 
-- 参数极值：冷热分区大小差异、读写带宽反转、罚值和周期极端组合，以及BUILD/PROBE交错。
-- 容量临界：活跃分区组合恰好超过内存、空构建分区仍被探测，或必须淘汰的目标分区。
-- 时间结构：周期扫描、长重用距离、热点迁移/反转、算子竞争和下一请求保护。
-- 低改善空间控制：有些低分表示Naive已经接近该轨迹的成本下界，不能把所有低分都解释为算法错误。
-本定义的1.5分阈值表示：按逐遍配对、截断后平均，相对Naive的得分不足15%；不是绝对延迟，也不是官方总分。
+这些样本分别考查参数极值、BUILD/PROBE阶段交错、容量临界、空分区、周期扫描、热点迁移及大小热度取舍。低分不自动证明算法错误：Naive本身可能已经接近该轨迹的可达成本。
+其中14例Naive的I/O和Miss均为零，已逐例标注。
 
-其中14例Naive的I/O和Miss本身均为零；30例在已测算法间I/O与Miss完全一致。已在manifest逐例标注，不能把这些全部解释为缓存策略失效。
+## 优先排查的样本
 
-## 文件和复核
+入选样本中，有**60例**最新Vanius的I/O加真实Miss罚项高于已实测Naive。按该物理成本比排序，挑三个不同类型的代表：
 
-- `manifest.json`：每例SHA、原GitHub提交/路径、参数、六法得分、最高分、参数范围与配对标记。
-- `evidence/measurements.jsonl`：入选样本的完整三遍数值；`all_candidate_measurements.jsonl`保留全部实测候选，`candidate_decisions.json`保留未入选分数。
-- `algorithms/`：本次实测源码原字节；mix/clock基于Vanius，R74/R75来源source/cyanneko，已发布小树仅作强对照。原作者和源码内说明保留。
-- `tools/verify.py`：不运行算法，核对输入/源码SHA、三遍矩阵、计分与阈值。
-- `tools/benchmark.py`：接同一官方兼容框架，用CPU/C++14/O2重测；默认只测eval，显式参数才包含diagnostics。
+| 样本 | Vanius三遍均分 | 物理成本/Naive | Miss：Vanius / Naive |
+|---|---:|---:|---:|
+| [cc_0005_burst_mixture](eval/cc_0005_burst_mixture.txt) | 0.0000 | 200.35倍 | 1185 / 0 |
+| [cc_0049_operator_competition](eval/cc_0049_operator_competition.txt) | 0.0000 | 103.09倍 | 610 / 0 |
+| [cc_0001_build_probe_overlap](eval/cc_0001_build_probe_overlap.txt) | 0.0000 | 30.00倍 | 177 / 0 |
 
-在仓库根目录执行：
+这些仅表明相对Naive存在已测回归，不代表离线最优差距或新方法收益。表中物理成本比单独排除D以辨别I/O与Miss问题；入选分数仍包含实测D。完整60例统计见`evidence/improvement_priorities.json`。
+
+## 证据与复现
+
+- `manifest.json`：唯一Vanius版本、来源、参数、SHA、三遍平均分与筛选分。
+- `evidence/measurements.jsonl`：入选样本的三遍完整指标；`all_candidate_measurements.jsonl`保留全部419候选，两者均只有Naive和最新Vanius。
+- `candidate_decisions.json`保留未入选分数；`changes_from_v1.json`记录口径纠正前后的移入移出。
+- `algorithms/vanius_latest.cpp`：本次实际测试的最新Vanius原字节。
+- `tools/verify.py`：不执行算法，校验输入/源码SHA、单法三遍计分与阈值，拒绝旧多算法schema。
+- `tools/benchmark.py`：CPU/C++14/O2独立复测；默认仅eval，显式选项才含微型diagnostics。
+
 ```sh
 python corner_case/tools/verify.py
 python corner_case/tools/benchmark.py --repeats 3
 ```
 
-## 边界
+419次Vanius动作/容量严格重放通过，匹配1257条Vanius SDK物理记录；1257条Naive另核完整矩阵。重放CPU时间不替换真实D。统一逻辑CPU计时、60s/次上限，不保证硬件独占。
 
-这是按已观察算法成绩筛选的困难回归集，不能称独立盲测或用其均分证明泛化。配对罚值/周期/规模版本不算额外独立seed。微型输入即使引擎可执行，也不冒充官方范围数据。范围标记先核header参数，并由本次动作/容量严格重放补充执行验证，不是对所有题面约束的形式证明。
-动作容量严格重放2226次通过，物理指标匹配6678条SDK记录；重放CPU时间不替代实测D。所有算法同一逻辑CPU计时，未宣称硬件独占。
-原数据、现有默认方法、其他成员文件及旧测量均不覆盖；本目录不自动加入默认成员suite。
-数据固定提交：[0f3000f015d8ef96b9a1e45a75b0672fcbf97925](https://github.com/cyanneko/HuaweiHackathon/tree/0f3000f015d8ef96b9a1e45a75b0672fcbf97925)；R74/R75源码固定提交：[bacc6cdc0bc8b19a0ea9d545bc1e5e5cbb57162e](https://github.com/cyanneko/HuaweiHackathon/tree/bacc6cdc0bc8b19a0ea9d545bc1e5e5cbb57162e)。
+## 与旧版的区别
+
+旧1.0.0是六算法最高分筛选190例，不符合“针对最新Vanius”的目标。本2.0.0纠正为最新Vanius单法，新增20例、移出3例。旧版保留在原Git提交历史中。
+这是一套按已观察Vanius成绩选择的困难回归集，不是独立盲测，也不能据换集后的均分推断算法提升。配对费用/周期/规模版本不是额外独立seed。范围标签只说明基础参数，动作与容量另经执行核查；微型诊断不冒充官方范围数据。

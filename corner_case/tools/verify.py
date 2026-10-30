@@ -1,4 +1,4 @@
-"""Verify this release's bytes and three-repeat scores without running a policy.
+"""Verify v2 latest-Vanius bytes and three-repeat scores without running a policy.
 
 This checks integrity and arithmetic, not scheduler actions or hardware timing.
 Recorded binary fingerprints are checked for consistency; binaries are not
@@ -16,6 +16,10 @@ import re
 import statistics
 
 REFERENCE_SHA = '90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5'
+SELECTOR = 'vanius_latest'
+SOURCE_COMMIT = '28094bdec34ff7110d9f1614703d0b09d383d4a6'
+SOURCE_PATH = 'src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp'
+SOURCE_SHA = '3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15'
 METRICS = {'Total_IO_Time', 'Total_Decision_Time', 'Hit_Count', 'Miss_Count', 'Total_Score'}
 
 
@@ -78,10 +82,15 @@ def close(actual, expected, label):
 
 def verify(root):
     manifest = load(root / 'manifest.json')
-    require(bool(manifest.get('version')), 'Release version missing')
+    require(manifest.get('version') == '2.0.0', 'Only corner_case v2.0.0 is accepted; v1 uses a different selection rule')
+    require(manifest.get('selector_method') == SELECTOR, 'Selection must use latest Vanius alone')
+    entry = manifest['source_entry']
+    require(entry['commit'] == SOURCE_COMMIT and entry['path'] == SOURCE_PATH and entry['sha256'] == SOURCE_SHA,
+        'Latest Vanius source provenance differs')
     require(manifest['threshold'] == 1.5, 'This release must use the strict1.5 threshold')
     methods = {item['id']: item for item in manifest['methods']}
-    require(len(methods) == len(manifest['methods']) and 'naive' in methods and len(methods) > 1, 'Invalid method panel')
+    require(len(manifest['methods']) == 2 and set(methods) == {'naive', SELECTOR}, 'Expected exactly Naive and latest Vanius; multi-method v1 schemas are rejected')
+    require(methods[SELECTOR]['source_sha256'] == SOURCE_SHA, 'Selector source differs from the pinned latest Vanius blob')
     reference = inside(root, manifest['reference']['path'])
     require(digest(reference) == manifest['reference']['sha256'] == REFERENCE_SHA, 'Official reference SHA differs')
     for name, method in methods.items():
@@ -127,7 +136,7 @@ def verify(root):
         require(abs(values['Total_Score']-expected) <= .015001, 'Complete Score formula differs')
         index[key] = row
     require(len(index) == len(cases)*len(methods)*3, 'Incomplete method/case/repeat matrix')
-    maxima = []
+    selected_scores = []
     for name, item in cases.items():
         require(set(item['scores']) == set(methods), 'Manifest scores omit a declared method')
         scores = {}
@@ -136,12 +145,13 @@ def verify(root):
                 index[name, 'naive', repeat]['metrics']['Total_Score']) for repeat in range(3)]
             scores[method] = statistics.mean(values)
             close(scores[method], item['scores'][method], name+'/'+method+' score')
-        maximum = max(score for method, score in scores.items() if method != 'naive')
-        close(maximum, item['selection_score'], name+' panel maximum')
-        require(maximum < manifest['threshold'], 'Case does not meet strict panel maximum<1.5: '+name)
-        maxima.append(maximum)
+        selection_score = scores[SELECTOR]
+        close(selection_score, item['selection_score'], name+' latest-Vanius score')
+        require(selection_score < manifest['threshold'], 'Case does not meet strict latest-Vanius mean<1.5: '+name)
+        selected_scores.append(selection_score)
     return dict(status='passed', version=manifest['version'], cases=len(cases), methods=len(methods),
-        measurements=len(index), repeats=3, maximum_selection_score=max(maxima), threshold=manifest['threshold'],
+        measurements=len(index), repeats=3, selector_method=SELECTOR,
+        maximum_selection_score=max(selected_scores), threshold=manifest['threshold'], source_entry=entry,
         manifest_sha256=digest(root / 'manifest.json'), measurements_sha256=digest(measurement_path),
         sdk_executions=0, files_modified=False,
         scope='Input/source integrity and full-score arithmetic; not action replay or independent timing verification.')

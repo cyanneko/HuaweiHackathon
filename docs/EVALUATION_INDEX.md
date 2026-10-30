@@ -8,6 +8,7 @@
 | R80 | TRAIN26×6+26×3；final24抽样×5+dyna6抽样×5 | 384 | [experimental_not_promoted](https://github.com/cyanneko/HuaweiHackathon/blob/56aa71d45288e57d575f462a76ed5c5c9986bf31/docs/R80_RESULTS_20261030.md) · [源码/日志](https://github.com/cyanneko/HuaweiHackathon/tree/388183be301a09157730d3a4b1e966e7d036bf9e/src/reports/r80_20261030) |
 | R81 | TRAIN38×6+DEV6×5；dyna6抽样×6+final24抽样×6 | 438 | [regression_tail_guard_failed_not_promoted](https://github.com/cyanneko/HuaweiHackathon/blob/c38d71f18dde9d656c652ae5b8222c0be68f4081/docs/R81_RESULTS_20261030.md) · [源码/日志](https://github.com/cyanneko/HuaweiHackathon/tree/a39d69342b7cd61f3c1489f0d9408ebe717414d6/src/reports/r81_20261030) |
 | R82 | TRAIN38×6；DEV12未运行策略 | 228 | [FAILED_ON_TRAIN38 / experimental_not_promoted](R82_RESULTS_20261030.md) · [源码/日志](https://github.com/cyanneko/HuaweiHackathon/tree/b1246ae64a006c679e57789766dc401da2a9ecb9/src/reports/r82_20261030) |
+| R83 | 完整新增TRAIN12×8+DEV6×8；未混原始回归 | 144 | [FULL_NEW_PANEL_12_6_COMPLETE](R83_RESULTS_20261030.md) · [源码/日志](https://github.com/cyanneko/HuaweiHackathon/tree/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030) |
 | R84 | **完整dyna12×7+final全部eval72×7** | 588 | [FULL_12_72_COMPLETE](R84_RESULTS_20261030.md) · [源码/日志](https://github.com/cyanneko/HuaweiHackathon/tree/b7482004d5313c6654629324cb465ef36d6554b1/src/reports/r84_20261030) |
 
 R79/R80/R81 的 final24、dyna6 都是历史抽样，保持原集合与字节；R82失败的是预先性能门槛，228格执行均有效。R79 TRAIN无同轮Naive且不含正式D主评分；R80训练只报同轮成本倍率。不能把这些诊断分与正式样本均分混榜。

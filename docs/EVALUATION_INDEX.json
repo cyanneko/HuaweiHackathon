@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_date": "2026-10-30",
-  "coverage": "R79-R82 and R84 published; R83 separately queued. Historical sample scopes remain immutable.",
+  "coverage": "R79-R84 published; historical sample scopes remain immutable; R83 is a distinct 18-case development panel.",
   "primary_formula": "mean_case(clamp(10*(1-C/Naive),0,10)); special nonpositive branches follow frozen evaluator",
   "combined_formula": "0.5*mean_case(final)+0.5*mean_case(dyna); never pool all cases equally",
   "comparison_rule": "Use matching input set/version/hash, protocol, scorer, same-window Naive, flags, platform and repeats. Separate campaigns are not same-window D comparisons. No cross-scope leaderboard.",
@@ -5596,6 +5596,863 @@
       }
     },
     {
+      "round": "R83",
+      "status": "FULL_NEW_PANEL_12_6_COMPLETE",
+      "artifact_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+      "artifact_manifest": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/manifest.json",
+      "report": "R83_RESULTS_20261030.md",
+      "source_report": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/report_zh.md",
+      "cells": 144,
+      "default_changed": false,
+      "windows": [
+        {
+          "id": "train12",
+          "scope": "FULL new coverage panel; 6 seed lineages with paired bw1/bw64",
+          "cases": [
+            {
+              "case_id": "r83_train_b06_random_lognormal_bw1",
+              "input_sha256": "cc3a56899a99ca7487779237528624d268ebf312a265fdfd8afacfd7cd255a80",
+              "metadata_sha256": "893f97af1e6f1416c78d40156d8ec6844972865df8d0ddbd4c7a62958ce2c7fb",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b06_random_lognormal_bw1.txt",
+                "input_sha256": "cc3a56899a99ca7487779237528624d268ebf312a265fdfd8afacfd7cd255a80",
+                "split": "train",
+                "body_sha256": "fd8d339b54f0cc932bdd9ee40a2d893d77a4d98b8a4d7b7245384ffd954c9369",
+                "lineage_id": "r83_train_202610310406",
+                "bandwidth_scale": 1,
+                "track": "iid",
+                "metadata_published_sha256": "893f97af1e6f1416c78d40156d8ec6844972865df8d0ddbd4c7a62958ce2c7fb"
+              }
+            },
+            {
+              "case_id": "r83_train_b03_burst_shared_bw64",
+              "input_sha256": "3b8c0ab41d7f25034a4ffa1dd0bda4cea997c9718d240e0adeb50150adc40cab",
+              "metadata_sha256": "47f04b6bc0a150a8ea7c3cc49e298e94fe8684e4b3932762d83e62ded7883d79",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b03_burst_shared_bw64.txt",
+                "input_sha256": "3b8c0ab41d7f25034a4ffa1dd0bda4cea997c9718d240e0adeb50150adc40cab",
+                "split": "train",
+                "body_sha256": "4d1bfb483584b8f5eb11a9ee9db3279ca5ab965dc7ba4311446d6deed5c1f9c5",
+                "lineage_id": "r83_train_202610310403",
+                "bandwidth_scale": 64,
+                "track": "dynamic",
+                "metadata_published_sha256": "47f04b6bc0a150a8ea7c3cc49e298e94fe8684e4b3932762d83e62ded7883d79"
+              }
+            },
+            {
+              "case_id": "r83_train_b01_slow_shared_bw1",
+              "input_sha256": "f2e16d3d008999d789070ad9dea8163cbcecddcbc980b0e2b17363db2ac369f2",
+              "metadata_sha256": "e33338ef0c301628a78bb9e81662f726feeb32f9a7968e2938c3c0f6cc9a0ad6",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b01_slow_shared_bw1.txt",
+                "input_sha256": "f2e16d3d008999d789070ad9dea8163cbcecddcbc980b0e2b17363db2ac369f2",
+                "split": "train",
+                "body_sha256": "2db88d648563c45bc3aaa35fbf1e6046677cfbb9e82fa70fa298713801f22cc4",
+                "lineage_id": "r83_train_202610310401",
+                "bandwidth_scale": 1,
+                "track": "dynamic",
+                "metadata_published_sha256": "e33338ef0c301628a78bb9e81662f726feeb32f9a7968e2938c3c0f6cc9a0ad6"
+              }
+            },
+            {
+              "case_id": "r83_train_b06_random_lognormal_bw64",
+              "input_sha256": "ff80ae75f429593c22caaa02e61bcf7fe02803c8b53734fc540c02e6d6d99c00",
+              "metadata_sha256": "7a513de1520df54b738dbf0a98eb2a8249fcd83e77436b0205f6db5985a7fa22",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b06_random_lognormal_bw64.txt",
+                "input_sha256": "ff80ae75f429593c22caaa02e61bcf7fe02803c8b53734fc540c02e6d6d99c00",
+                "split": "train",
+                "body_sha256": "fd8d339b54f0cc932bdd9ee40a2d893d77a4d98b8a4d7b7245384ffd954c9369",
+                "lineage_id": "r83_train_202610310406",
+                "bandwidth_scale": 64,
+                "track": "iid",
+                "metadata_published_sha256": "7a513de1520df54b738dbf0a98eb2a8249fcd83e77436b0205f6db5985a7fa22"
+              }
+            },
+            {
+              "case_id": "r83_train_b04_random_zipf_bw64",
+              "input_sha256": "787ffe6eb9c5eb3f0c64cb36b8237f87e6a4434719aa6d177935c0cc3a0254f1",
+              "metadata_sha256": "4411ae9a239024a52b822f409637ff0fac1e446bd2106d42921627559d2e3b63",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b04_random_zipf_bw64.txt",
+                "input_sha256": "787ffe6eb9c5eb3f0c64cb36b8237f87e6a4434719aa6d177935c0cc3a0254f1",
+                "split": "train",
+                "body_sha256": "f9f8a4af9c793b4bee460e6f26471df9d0b34ba6a26eec875c10834282419bd7",
+                "lineage_id": "r83_train_202610310404",
+                "bandwidth_scale": 64,
+                "track": "iid",
+                "metadata_published_sha256": "4411ae9a239024a52b822f409637ff0fac1e446bd2106d42921627559d2e3b63"
+              }
+            },
+            {
+              "case_id": "r83_train_b01_slow_shared_bw64",
+              "input_sha256": "6b7a4e98c1fc33624fb95a3bd442c16ad0426853415437e17edc1e34ac2e1406",
+              "metadata_sha256": "c355a51f67dda6b5348d26dc5f5fa31f0a5803438fc380651f3906efad4e1abd",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b01_slow_shared_bw64.txt",
+                "input_sha256": "6b7a4e98c1fc33624fb95a3bd442c16ad0426853415437e17edc1e34ac2e1406",
+                "split": "train",
+                "body_sha256": "2db88d648563c45bc3aaa35fbf1e6046677cfbb9e82fa70fa298713801f22cc4",
+                "lineage_id": "r83_train_202610310401",
+                "bandwidth_scale": 64,
+                "track": "dynamic",
+                "metadata_published_sha256": "c355a51f67dda6b5348d26dc5f5fa31f0a5803438fc380651f3906efad4e1abd"
+              }
+            },
+            {
+              "case_id": "r83_train_b02_fast_staggered_bw1",
+              "input_sha256": "e78ef6218e4bc8b84ce0f92947a8ea6c76108623c16d975b87a44500f4a7518d",
+              "metadata_sha256": "b98c4024c89c5390ad3ecc15fe221f51f03c6673a75d641d4454c1fe4cc9d8a4",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b02_fast_staggered_bw1.txt",
+                "input_sha256": "e78ef6218e4bc8b84ce0f92947a8ea6c76108623c16d975b87a44500f4a7518d",
+                "split": "train",
+                "body_sha256": "b84f4d51c705e0f15c81cf8f15d236e6aae3618fdd6f68692978fbe7cedf7839",
+                "lineage_id": "r83_train_202610310402",
+                "bandwidth_scale": 1,
+                "track": "dynamic",
+                "metadata_published_sha256": "b98c4024c89c5390ad3ecc15fe221f51f03c6673a75d641d4454c1fe4cc9d8a4"
+              }
+            },
+            {
+              "case_id": "r83_train_b05_random_hotspot_bw64",
+              "input_sha256": "8b3ab2cfa9b41975a4b7370527db73b04f3fe0ff1e44eb638473245f3923028b",
+              "metadata_sha256": "17191d36b7bd18e809c947cc560e216e5a28b40b90fb19d22e4d5cebeadf6917",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b05_random_hotspot_bw64.txt",
+                "input_sha256": "8b3ab2cfa9b41975a4b7370527db73b04f3fe0ff1e44eb638473245f3923028b",
+                "split": "train",
+                "body_sha256": "872c4d648902e931e88eac063e98cf8d4ea77b5fda6dce9cbcb719b3f014587b",
+                "lineage_id": "r83_train_202610310405",
+                "bandwidth_scale": 64,
+                "track": "iid",
+                "metadata_published_sha256": "17191d36b7bd18e809c947cc560e216e5a28b40b90fb19d22e4d5cebeadf6917"
+              }
+            },
+            {
+              "case_id": "r83_train_b04_random_zipf_bw1",
+              "input_sha256": "fe59a0fd47ae0240aa70bd73e8b17b97d30e509debdd4834fd82531911f19f5e",
+              "metadata_sha256": "e9f36f7b652e720a8dbfd357985ed3f7f425ee4647ac9862f367b2082c2d5dc7",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b04_random_zipf_bw1.txt",
+                "input_sha256": "fe59a0fd47ae0240aa70bd73e8b17b97d30e509debdd4834fd82531911f19f5e",
+                "split": "train",
+                "body_sha256": "f9f8a4af9c793b4bee460e6f26471df9d0b34ba6a26eec875c10834282419bd7",
+                "lineage_id": "r83_train_202610310404",
+                "bandwidth_scale": 1,
+                "track": "iid",
+                "metadata_published_sha256": "e9f36f7b652e720a8dbfd357985ed3f7f425ee4647ac9862f367b2082c2d5dc7"
+              }
+            },
+            {
+              "case_id": "r83_train_b02_fast_staggered_bw64",
+              "input_sha256": "fa4f01bf3a65ce9b27d291443c3aa53138384ad83c916334074ff6a8fa226435",
+              "metadata_sha256": "146abea8361e7eea49448d413ac5ce7d7d062f11c9494564b726bfb49ee18fc2",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b02_fast_staggered_bw64.txt",
+                "input_sha256": "fa4f01bf3a65ce9b27d291443c3aa53138384ad83c916334074ff6a8fa226435",
+                "split": "train",
+                "body_sha256": "b84f4d51c705e0f15c81cf8f15d236e6aae3618fdd6f68692978fbe7cedf7839",
+                "lineage_id": "r83_train_202610310402",
+                "bandwidth_scale": 64,
+                "track": "dynamic",
+                "metadata_published_sha256": "146abea8361e7eea49448d413ac5ce7d7d062f11c9494564b726bfb49ee18fc2"
+              }
+            },
+            {
+              "case_id": "r83_train_b05_random_hotspot_bw1",
+              "input_sha256": "197d89c6f962ee390b9012b5c0bf601de8567945f8ff9801a6a36e8264185e77",
+              "metadata_sha256": "15a194bdfa62aa80650b086a11a17b532d173581e3c02f89c571f3b7db3720a7",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b05_random_hotspot_bw1.txt",
+                "input_sha256": "197d89c6f962ee390b9012b5c0bf601de8567945f8ff9801a6a36e8264185e77",
+                "split": "train",
+                "body_sha256": "872c4d648902e931e88eac063e98cf8d4ea77b5fda6dce9cbcb719b3f014587b",
+                "lineage_id": "r83_train_202610310405",
+                "bandwidth_scale": 1,
+                "track": "iid",
+                "metadata_published_sha256": "15a194bdfa62aa80650b086a11a17b532d173581e3c02f89c571f3b7db3720a7"
+              }
+            },
+            {
+              "case_id": "r83_train_b03_burst_shared_bw1",
+              "input_sha256": "fb028e4f5b768280de83c9b4e234510d46cd358391ca3d6990f787e21372bca2",
+              "metadata_sha256": "235859af878938852be7508e63045b69647718744b3b53440bbb25f2dcdb5630",
+              "original_split": "train",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/train/r83_train_b03_burst_shared_bw1.txt",
+                "input_sha256": "fb028e4f5b768280de83c9b4e234510d46cd358391ca3d6990f787e21372bca2",
+                "split": "train",
+                "body_sha256": "4d1bfb483584b8f5eb11a9ee9db3279ca5ab965dc7ba4311446d6deed5c1f9c5",
+                "lineage_id": "r83_train_202610310403",
+                "bandwidth_scale": 1,
+                "track": "dynamic",
+                "metadata_published_sha256": "235859af878938852be7508e63045b69647718744b3b53440bbb25f2dcdb5630"
+              }
+            }
+          ],
+          "case_count": 12,
+          "method_count": 8,
+          "methods": [
+            {
+              "name": "Naive",
+              "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+              "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+              "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/Naive.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/Naive.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/Naive.tu.cpp",
+              "upstream_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+              "upstream_path": "src/methods/r49/official_naive.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/336291b14976b3f0c58c3f3213ef444bc20fb5d8/src/methods/r49/official_naive.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R75_dense_switch",
+              "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+              "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+              "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R75_dense_switch.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R75_dense_switch.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R75_dense_switch.tu.cpp",
+              "upstream_commit": "028a443daac34ee258e40478f25ca532b996e9b9",
+              "upstream_path": "src/experiments/r75_dense_switch_20261030/MySpillScheduler.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/028a443daac34ee258e40478f25ca532b996e9b9/src/experiments/r75_dense_switch_20261030/MySpillScheduler.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R79_adaptive",
+              "source_sha256": "8eb171503ce6c30d8e99939dffef33b751dd96f7b276c1d4509c090d439d982d",
+              "translation_unit_sha256": "0a8a66174dbb42b0fbbf163a479e170a57115a8be286e338e761e40565693d96",
+              "binary_sha256": "9c77744aab4cb0180c1fdb017f9426e0931955265a57373ec1d81573f305f4ab",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R79_adaptive.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R79_adaptive.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R79_adaptive.tu.cpp",
+              "upstream_commit": "7da7f9eac56c6dbce521086dbc73ae4650c4d6dd",
+              "upstream_path": "src/experiments/r79_adaptive_operator_20261030/R79_adaptive.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/7da7f9eac56c6dbce521086dbc73ae4650c4d6dd/src/experiments/r79_adaptive_operator_20261030/R79_adaptive.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R80_next_hier_fast100",
+              "source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+              "translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+              "binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R80_next_hier_fast100.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R80_next_hier_fast100.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R80_next_hier_fast100.tu.cpp",
+              "upstream_commit": "388183be301a09157730d3a4b1e966e7d036bf9e",
+              "upstream_path": "src/experiments/r80_van_transfer_20261030/R80_next_hier_fast100.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/388183be301a09157730d3a4b1e966e7d036bf9e/src/experiments/r80_van_transfer_20261030/R80_next_hier_fast100.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R80_paired_hier_fast100",
+              "source_sha256": "5c5c5412fe1f56a64a97fc2a9bba2860b0f30cd51b1ace86e6fc258a60a0cbe0",
+              "translation_unit_sha256": "a9a6bd9cae5520f64493edfdda800834f5e6bfa0e5f4419993af164caada33f4",
+              "binary_sha256": "287795281d7748615a77e6d5b210a7a7d83ca6caff96687c9d343dea26ebf3ea",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R80_paired_hier_fast100.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R80_paired_hier_fast100.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R80_paired_hier_fast100.tu.cpp",
+              "upstream_commit": "388183be301a09157730d3a4b1e966e7d036bf9e",
+              "upstream_path": "src/experiments/r80_van_transfer_20261030/R80_paired_hier_fast100.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/388183be301a09157730d3a4b1e966e7d036bf9e/src/experiments/r80_van_transfer_20261030/R80_paired_hier_fast100.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R81_op256_cond2048",
+              "source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+              "translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+              "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R81_op256_cond2048.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R81_op256_cond2048.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R81_op256_cond2048.tu.cpp",
+              "upstream_commit": "a39d69342b7cd61f3c1489f0d9408ebe717414d6",
+              "upstream_path": "src/experiments/r81_two_timescale_20261030/R81_op256_cond2048.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/a39d69342b7cd61f3c1489f0d9408ebe717414d6/src/experiments/r81_two_timescale_20261030/R81_op256_cond2048.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R82_singlefit025",
+              "source_sha256": "f51a53c07ef19bedcadfce06b6f2d2ed985095ed54cd198d03b960325af4249e",
+              "translation_unit_sha256": "b1520e5810fa0fc14523821e11aad627645f822459796d9e833e8e18c9b9c3c7",
+              "binary_sha256": "0d45660a5f5b1f669b3db028e2e564249f80875a3a9be0493d2a54b35f4af78d",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R82_singlefit025.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R82_singlefit025.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R82_singlefit025.tu.cpp",
+              "upstream_commit": "b1246ae64a006c679e57789766dc401da2a9ecb9",
+              "upstream_path": "src/experiments/r82_victim_search_20261030/R82_singlefit025.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/b1246ae64a006c679e57789766dc401da2a9ecb9/src/experiments/r82_victim_search_20261030/R82_singlefit025.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R82_write1",
+              "source_sha256": "d23b0fa17bbec229fae40343b502b31160fda6a155ce4357afec40b0d977c44e",
+              "translation_unit_sha256": "1d0dd604943360ec10a87c5008ea834d49158dce7b70f813f040d6b0708c7579",
+              "binary_sha256": "74f1e43b89eb112c2d11367d54ef211e1c987862b4fc05f03419aee206677499",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R82_write1.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R82_write1.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R82_write1.tu.cpp",
+              "upstream_commit": "b1246ae64a006c679e57789766dc401da2a9ecb9",
+              "upstream_path": "src/experiments/r82_victim_search_20261030/R82_write1.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/b1246ae64a006c679e57789766dc401da2a9ecb9/src/experiments/r82_victim_search_20261030/R82_write1.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            }
+          ],
+          "cells": 96,
+          "protocol": "official-2026-10-26",
+          "scoring_version": "case-mean-v1",
+          "same_window_naive": {
+            "name": "Naive",
+            "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+            "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+            "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+            "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+            "class_path": "src/experiments/r83_coverage_panel_20261030/Naive.cpp",
+            "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/Naive.cpp",
+            "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/Naive.tu.cpp",
+            "upstream_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+            "upstream_path": "src/methods/r49/official_naive.cpp",
+            "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/336291b14976b3f0c58c3f3213ef444bc20fb5d8/src/methods/r49/official_naive.cpp",
+            "compile_flags": [
+              "-std=c++14",
+              "-O2"
+            ],
+            "instrumented": false,
+            "binary_distributed": false
+          },
+          "metric_note": "D-inclusive clipped case score; raw negative gains retained; DEV not gated by selector",
+          "repeats": 1,
+          "parallelism": 1,
+          "environment": {
+            "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+            "processor": "x86_64",
+            "cpu_model": "not recorded in frozen campaign",
+            "compiler_version": "not recorded for reused ELF builds",
+            "cpu_only": true
+          },
+          "quantiles": "nearest-rank ceil(q*n)",
+          "scorer_bound_dependencies": {
+            "tmp/r79_final_eval/config.json": "09bd7391eb445a7b5d0d3a03694ec7a4b94f3ee2fa34fad9e024e015f5ad54ab",
+            "tmp/r79_final_eval/dependencies/evaluation/evaluate.py": "e506579cb7fdef842601ec6e0ca1d7162da2df7178f8b2fc6d933eb2552b3ef6",
+            "tmp/r79_final_eval/dependencies/evaluation/scripts/audit_datasets.py": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
+            "tmp/r79_final_eval/dependencies/evaluation/scripts/summarize_member_scores.py": "c28d4833bca804111e25653023f1dff377dcd5effafac653bea99e49b112af74",
+            "tmp/r79_final_eval/dependencies/evaluation/README.md": "f43af50a55e5f6794fea0b54fa53edac492959519f5ba4ffcbb7b4cca30f8ca7",
+            "tmp/r79_final_eval/dependencies/evaluation/MEMBER_SCORING.md": "ae7a09c157a7af71c09265fb895f1608b1c50bdc6852c67f96cd7da7ccbdf8b0",
+            "tmp/r79_final_eval/dependencies/final_dataset/eval/VERSION": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+            "tmp/r79_final_eval/dependencies/final_dataset/README.md": "1a9ac470483b86e738fc31758303a9bc70a85139c5f1e2c5be8febeb41d70f27",
+            "tmp/r80_eval/experiment.py": "ebfe95a63b954eee4d9208aa9fbdec7916e68d08505e57d8ed71256036381da0",
+            "tmp/r79_final_eval/process_helper.py": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+            "tmp/r81_regression_eval/final/selection.json": "5e86c6ed7670c7eb987ab90fba6a2adfeba822a104b4ff6a277ccd771db6c797",
+            "tmp/r82_victim_search/producer.json": "f462cb492526e487ad12daede3aa65d5fb6ccdfd4d0d33b19aee6f41ff704aa8",
+            "tmp/r82_victim_search/release.json": "2336ab24ba97275917d1c3212a4645d459ce9fdc317073ed958c501b582f9c46",
+            "tmp/r82_victim_search/test_summary.json": "3cc548bce2ce3a6bef452c7d27fc43b9ec0cf08e45afda1772bebece6ff80b41",
+            "tmp/r83_eval/experiment.py": "a675d33f04cb1ba48fd511df4d0dc6d90b8a13d44359b5ea5eadc1e1b7882aee",
+            "tmp/r83_eval/test_protocol.py": "2879c7dca96cdbc9d35a5e5127c2ccfa0e57f8f1ab447c9ba17f71aeff67d4d5",
+            "docs/superpowers/plans/2026-10-30-r83-coverage-panel.md": "fc97bdffd6df2c068dde80b3813c865dea2e25f18869d3dca161a8990152d5c0",
+            "tmp/r83_data_panel/data_manifest.json": "3deef933b71b6f3415ad67bc251e119f85c060ca0f7268210486966615434b6b",
+            "tmp/r83_data_panel/config.json": "20538313993fa3b9e286ea196e5f25422f9aaec8858f81235acb736b4d37180d",
+            "tmp/r83_data_panel/selection.json": "7ad7f29f6c5836f91a4b1cbb120549839cad4cab609c6b5d0b8e07c0b53cb082",
+            "tmp/r83_data_panel/commands.json": "5a338cce3391cf924870b6e3765dfac1de5f53925add5fc699216d86f21a6cb3",
+            "tmp/r83_data_panel/prior_registry.json": "42c85bf543cb3e230517ffe65f3271da6b83a448398969abba5d34337a43af9a",
+            "tmp/r83_data_panel/prepare_data.py": "d94c236a08df8c8e23cda60e6a9d30c10e8b88080ed053ed710e8df384a501fa",
+            "tmp/r83_data_panel/cpu_released.json": "2c144c692edb201c25322f3f2f08182e58cf81e1a0b41b2a30bf5a52c98894c2",
+            "tmp/r83_data_panel/review.json": "5694546ab84cf5aecc1c1386f8cee7877c4a01e1bfb5f03573231298dc72616f",
+            "tmp/r83_data_panel/generation_audit_summary.json": "99c2f17fe9d74a488cdd8925edfbf0b6575b347fbcf03c874a32d7bf514bf71f",
+            "tmp/r83_data_panel/artifacts.json": "c7b8cc36667f36ba3f36bb9468b4e079cdf028828a96312ed9abbee965eb29ed",
+            "tmp/r83_review/runner_review.json": "a42666b6aaa8b3030d27055d0987281ad1757394b29b2542d1a984782a8e732a",
+            "tmp/r83_eval/release.json": "c2771f272b2eee19d833ddb059598112dc58127c2b421e96ec7c3290adf5801e",
+            "tmp/r83_eval/method_identities.json": "4f3af08131cac7a361383f105c8b316a43912cc0c263903cfaec5b4dec3e3a03",
+            "docs/superpowers/plans/2026-10-30-r83-full-evaluation-amendment.md": "5e69b82e2f444f7452d4815fa6f094136b86ee97f5f4c3678af0b4879e52c893",
+            "tmp/r82_eval/train/selection.json": "7b860aed97f8eb125da156a05b2404234f11fb196b8bbe9e6f7c2df01daf4436",
+            "tmp/r82_eval/train/summary.json": "7fb689f37072c3f03a802045fe1be6be34da67872d9fa3d6f3e4fd1152150b31",
+            "tmp/r81_eval/train/summary.json": "1d13a9f39e4095765542f4e8a16c107842b1f520a0f1b46962d030e19f3c25ce"
+          },
+          "selection_original_sha256": "73ab0707be1bafa669efb6614715ca6a385b1524dac1a0622d8bc82cebd42ead",
+          "selection_published_sha256": "1a9b6aaf695ee98eafd628761be71ebae2650d1afe7c96eaddce44ce5ffbeda2",
+          "selection": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/train/selection.json",
+          "rows": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/train/rows.json",
+          "rows_original_sha256": "6b46a59f25f706e866d4340e14e42f018bb5f86d677cf316a31288f322303754",
+          "summary": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/train/summary.json",
+          "summary_original_sha256": "4727de8fbc14eb2a2e51425d773768613fdc53b9e83e5072390ac9930bc02e8b",
+          "raw_logs": [
+            "https://github.com/cyanneko/HuaweiHackathon/tree/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/train/cells"
+          ],
+          "campaign": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/train/campaign.json",
+          "campaign_original_sha256": "304184b25f44f9ae77c35d82f938a38cfbb677da6afd50c8193b6df6aa2bf397",
+          "seconds": 34.674706918000005,
+          "internal_budget_seconds": 180,
+          "official_per_case_seconds": 60
+        },
+        {
+          "id": "dev6",
+          "scope": "FULL new coverage panel; 6 separate seeds bw8, exposed development validation",
+          "cases": [
+            {
+              "case_id": "r83_dev_b05_random_hotspot_bw8",
+              "input_sha256": "931b8247cd52a4f00677c1d44076ca68759a64e3f3ad75451c92ffb27e5bb369",
+              "metadata_sha256": "b6648627321d7d3d878f474d7db193ad44fa5a7847793b418dec9d5ebc039390",
+              "original_split": "dev",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/dev/r83_dev_b05_random_hotspot_bw8.txt",
+                "input_sha256": "931b8247cd52a4f00677c1d44076ca68759a64e3f3ad75451c92ffb27e5bb369",
+                "split": "dev",
+                "body_sha256": "043a8d86663b20bae18a762c06477cc5f86a9436b53abb66abb3a8c2e6a7e0f3",
+                "lineage_id": "r83_dev_202610310505",
+                "bandwidth_scale": 8,
+                "track": "iid",
+                "metadata_published_sha256": "b6648627321d7d3d878f474d7db193ad44fa5a7847793b418dec9d5ebc039390"
+              }
+            },
+            {
+              "case_id": "r83_dev_b06_random_lognormal_bw8",
+              "input_sha256": "04e44150676355649520b29d47b2834e3adcb5a7e085643e9d77870d07bbdc3a",
+              "metadata_sha256": "3e589831c53865f722d56167b791b16ce0ef38711ae4dd53e585b3e188c59f9b",
+              "original_split": "dev",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/dev/r83_dev_b06_random_lognormal_bw8.txt",
+                "input_sha256": "04e44150676355649520b29d47b2834e3adcb5a7e085643e9d77870d07bbdc3a",
+                "split": "dev",
+                "body_sha256": "7f05d3e980909cb6232c43995664ad690ad3f32eb38d1f259127673cfd5c1b4e",
+                "lineage_id": "r83_dev_202610310506",
+                "bandwidth_scale": 8,
+                "track": "iid",
+                "metadata_published_sha256": "3e589831c53865f722d56167b791b16ce0ef38711ae4dd53e585b3e188c59f9b"
+              }
+            },
+            {
+              "case_id": "r83_dev_b04_random_zipf_bw8",
+              "input_sha256": "49aa42eb23f7fcc03013cb5a5a5a2221018fe60e21660c181a85867d74bf06c7",
+              "metadata_sha256": "e588d877dd651b3ca9b7506283da8121ea8e2cd9be20625453b19074af787638",
+              "original_split": "dev",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/dev/r83_dev_b04_random_zipf_bw8.txt",
+                "input_sha256": "49aa42eb23f7fcc03013cb5a5a5a2221018fe60e21660c181a85867d74bf06c7",
+                "split": "dev",
+                "body_sha256": "f1d02d2bdc26158697b9f7d2b80c3baea34c687ee490aa7415d04cb9a88c134c",
+                "lineage_id": "r83_dev_202610310504",
+                "bandwidth_scale": 8,
+                "track": "iid",
+                "metadata_published_sha256": "e588d877dd651b3ca9b7506283da8121ea8e2cd9be20625453b19074af787638"
+              }
+            },
+            {
+              "case_id": "r83_dev_b01_slow_shared_bw8",
+              "input_sha256": "609a7529c52839571775a0af48daa27d92da29c89c1a9542a6536413fa8710f5",
+              "metadata_sha256": "c6ab0f281fab139ce08f3a023fc713bf292e9250ba2409f6c90c3b88807fb457",
+              "original_split": "dev",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/dev/r83_dev_b01_slow_shared_bw8.txt",
+                "input_sha256": "609a7529c52839571775a0af48daa27d92da29c89c1a9542a6536413fa8710f5",
+                "split": "dev",
+                "body_sha256": "b645ba944b3a991290a5772a4b7b7aa4120f2ba48ba89ec57c02942c2a7b1889",
+                "lineage_id": "r83_dev_202610310501",
+                "bandwidth_scale": 8,
+                "track": "dynamic",
+                "metadata_published_sha256": "c6ab0f281fab139ce08f3a023fc713bf292e9250ba2409f6c90c3b88807fb457"
+              }
+            },
+            {
+              "case_id": "r83_dev_b02_fast_staggered_bw8",
+              "input_sha256": "078303aadd8c35503290c864240f3b4b0a0df45f4bb2b7f4533ae5623a16ade1",
+              "metadata_sha256": "7577db102ee6bfbb9ae3d1b7ee7c637145921590a6d5807206cf794230692967",
+              "original_split": "dev",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/dev/r83_dev_b02_fast_staggered_bw8.txt",
+                "input_sha256": "078303aadd8c35503290c864240f3b4b0a0df45f4bb2b7f4533ae5623a16ade1",
+                "split": "dev",
+                "body_sha256": "03326415c50859e5818ff71a44d6253cadc636a79095a60828f74794e2b6bc77",
+                "lineage_id": "r83_dev_202610310502",
+                "bandwidth_scale": 8,
+                "track": "dynamic",
+                "metadata_published_sha256": "7577db102ee6bfbb9ae3d1b7ee7c637145921590a6d5807206cf794230692967"
+              }
+            },
+            {
+              "case_id": "r83_dev_b03_burst_shared_bw8",
+              "input_sha256": "9d621d026c4e704450e33b4040362dfb5c211a2f32627debf8dcd5f10f8437d7",
+              "metadata_sha256": "5ca7c18e392311b34bff0e9be6afb0f91b7012f337f9b0db8a3e5ac6795d63d2",
+              "original_split": "dev",
+              "input_git_ref": {
+                "dataset": "experiments/r83_coverage_panel_150k_20261030",
+                "version": "1.0.0",
+                "commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+                "path": "experiments/r83_coverage_panel_150k_20261030/dev/r83_dev_b03_burst_shared_bw8.txt",
+                "input_sha256": "9d621d026c4e704450e33b4040362dfb5c211a2f32627debf8dcd5f10f8437d7",
+                "split": "dev",
+                "body_sha256": "f747fb2d63c90af75dcbba190ea16f187ef9ef7a90710fec3daa64ecb54f08ee",
+                "lineage_id": "r83_dev_202610310503",
+                "bandwidth_scale": 8,
+                "track": "dynamic",
+                "metadata_published_sha256": "5ca7c18e392311b34bff0e9be6afb0f91b7012f337f9b0db8a3e5ac6795d63d2"
+              }
+            }
+          ],
+          "case_count": 6,
+          "method_count": 8,
+          "methods": [
+            {
+              "name": "Naive",
+              "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+              "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+              "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/Naive.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/Naive.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/Naive.tu.cpp",
+              "upstream_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+              "upstream_path": "src/methods/r49/official_naive.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/336291b14976b3f0c58c3f3213ef444bc20fb5d8/src/methods/r49/official_naive.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R75_dense_switch",
+              "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+              "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+              "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R75_dense_switch.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R75_dense_switch.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R75_dense_switch.tu.cpp",
+              "upstream_commit": "028a443daac34ee258e40478f25ca532b996e9b9",
+              "upstream_path": "src/experiments/r75_dense_switch_20261030/MySpillScheduler.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/028a443daac34ee258e40478f25ca532b996e9b9/src/experiments/r75_dense_switch_20261030/MySpillScheduler.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R79_adaptive",
+              "source_sha256": "8eb171503ce6c30d8e99939dffef33b751dd96f7b276c1d4509c090d439d982d",
+              "translation_unit_sha256": "0a8a66174dbb42b0fbbf163a479e170a57115a8be286e338e761e40565693d96",
+              "binary_sha256": "9c77744aab4cb0180c1fdb017f9426e0931955265a57373ec1d81573f305f4ab",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R79_adaptive.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R79_adaptive.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R79_adaptive.tu.cpp",
+              "upstream_commit": "7da7f9eac56c6dbce521086dbc73ae4650c4d6dd",
+              "upstream_path": "src/experiments/r79_adaptive_operator_20261030/R79_adaptive.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/7da7f9eac56c6dbce521086dbc73ae4650c4d6dd/src/experiments/r79_adaptive_operator_20261030/R79_adaptive.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R80_next_hier_fast100",
+              "source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+              "translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+              "binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R80_next_hier_fast100.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R80_next_hier_fast100.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R80_next_hier_fast100.tu.cpp",
+              "upstream_commit": "388183be301a09157730d3a4b1e966e7d036bf9e",
+              "upstream_path": "src/experiments/r80_van_transfer_20261030/R80_next_hier_fast100.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/388183be301a09157730d3a4b1e966e7d036bf9e/src/experiments/r80_van_transfer_20261030/R80_next_hier_fast100.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R80_paired_hier_fast100",
+              "source_sha256": "5c5c5412fe1f56a64a97fc2a9bba2860b0f30cd51b1ace86e6fc258a60a0cbe0",
+              "translation_unit_sha256": "a9a6bd9cae5520f64493edfdda800834f5e6bfa0e5f4419993af164caada33f4",
+              "binary_sha256": "287795281d7748615a77e6d5b210a7a7d83ca6caff96687c9d343dea26ebf3ea",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R80_paired_hier_fast100.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R80_paired_hier_fast100.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R80_paired_hier_fast100.tu.cpp",
+              "upstream_commit": "388183be301a09157730d3a4b1e966e7d036bf9e",
+              "upstream_path": "src/experiments/r80_van_transfer_20261030/R80_paired_hier_fast100.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/388183be301a09157730d3a4b1e966e7d036bf9e/src/experiments/r80_van_transfer_20261030/R80_paired_hier_fast100.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R81_op256_cond2048",
+              "source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+              "translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+              "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R81_op256_cond2048.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R81_op256_cond2048.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R81_op256_cond2048.tu.cpp",
+              "upstream_commit": "a39d69342b7cd61f3c1489f0d9408ebe717414d6",
+              "upstream_path": "src/experiments/r81_two_timescale_20261030/R81_op256_cond2048.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/a39d69342b7cd61f3c1489f0d9408ebe717414d6/src/experiments/r81_two_timescale_20261030/R81_op256_cond2048.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R82_singlefit025",
+              "source_sha256": "f51a53c07ef19bedcadfce06b6f2d2ed985095ed54cd198d03b960325af4249e",
+              "translation_unit_sha256": "b1520e5810fa0fc14523821e11aad627645f822459796d9e833e8e18c9b9c3c7",
+              "binary_sha256": "0d45660a5f5b1f669b3db028e2e564249f80875a3a9be0493d2a54b35f4af78d",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R82_singlefit025.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R82_singlefit025.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R82_singlefit025.tu.cpp",
+              "upstream_commit": "b1246ae64a006c679e57789766dc401da2a9ecb9",
+              "upstream_path": "src/experiments/r82_victim_search_20261030/R82_singlefit025.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/b1246ae64a006c679e57789766dc401da2a9ecb9/src/experiments/r82_victim_search_20261030/R82_singlefit025.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            },
+            {
+              "name": "R82_write1",
+              "source_sha256": "d23b0fa17bbec229fae40343b502b31160fda6a155ce4357afec40b0d977c44e",
+              "translation_unit_sha256": "1d0dd604943360ec10a87c5008ea834d49158dce7b70f813f040d6b0708c7579",
+              "binary_sha256": "74f1e43b89eb112c2d11367d54ef211e1c987862b4fc05f03419aee206677499",
+              "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+              "class_path": "src/experiments/r83_coverage_panel_20261030/R82_write1.cpp",
+              "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/R82_write1.cpp",
+              "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/R82_write1.tu.cpp",
+              "upstream_commit": "b1246ae64a006c679e57789766dc401da2a9ecb9",
+              "upstream_path": "src/experiments/r82_victim_search_20261030/R82_write1.cpp",
+              "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/b1246ae64a006c679e57789766dc401da2a9ecb9/src/experiments/r82_victim_search_20261030/R82_write1.cpp",
+              "compile_flags": [
+                "-std=c++14",
+                "-O2"
+              ],
+              "instrumented": false,
+              "binary_distributed": false
+            }
+          ],
+          "cells": 48,
+          "protocol": "official-2026-10-26",
+          "scoring_version": "case-mean-v1",
+          "same_window_naive": {
+            "name": "Naive",
+            "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+            "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+            "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+            "class_commit": "6bfb4861b664c366e0bc38624e1b6e7e980780f8",
+            "class_path": "src/experiments/r83_coverage_panel_20261030/Naive.cpp",
+            "class_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/experiments/r83_coverage_panel_20261030/Naive.cpp",
+            "translation_unit_url": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/measured_sources/Naive.tu.cpp",
+            "upstream_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+            "upstream_path": "src/methods/r49/official_naive.cpp",
+            "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/336291b14976b3f0c58c3f3213ef444bc20fb5d8/src/methods/r49/official_naive.cpp",
+            "compile_flags": [
+              "-std=c++14",
+              "-O2"
+            ],
+            "instrumented": false,
+            "binary_distributed": false
+          },
+          "metric_note": "D-inclusive clipped case score; raw negative gains retained; DEV not gated by selector",
+          "repeats": 1,
+          "parallelism": 1,
+          "environment": {
+            "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+            "processor": "x86_64",
+            "cpu_model": "not recorded in frozen campaign",
+            "compiler_version": "not recorded for reused ELF builds",
+            "cpu_only": true
+          },
+          "quantiles": "nearest-rank ceil(q*n)",
+          "scorer_bound_dependencies": {
+            "tmp/r79_final_eval/config.json": "09bd7391eb445a7b5d0d3a03694ec7a4b94f3ee2fa34fad9e024e015f5ad54ab",
+            "tmp/r79_final_eval/dependencies/evaluation/evaluate.py": "e506579cb7fdef842601ec6e0ca1d7162da2df7178f8b2fc6d933eb2552b3ef6",
+            "tmp/r79_final_eval/dependencies/evaluation/scripts/audit_datasets.py": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
+            "tmp/r79_final_eval/dependencies/evaluation/scripts/summarize_member_scores.py": "c28d4833bca804111e25653023f1dff377dcd5effafac653bea99e49b112af74",
+            "tmp/r79_final_eval/dependencies/evaluation/README.md": "f43af50a55e5f6794fea0b54fa53edac492959519f5ba4ffcbb7b4cca30f8ca7",
+            "tmp/r79_final_eval/dependencies/evaluation/MEMBER_SCORING.md": "ae7a09c157a7af71c09265fb895f1608b1c50bdc6852c67f96cd7da7ccbdf8b0",
+            "tmp/r79_final_eval/dependencies/final_dataset/eval/VERSION": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+            "tmp/r79_final_eval/dependencies/final_dataset/README.md": "1a9ac470483b86e738fc31758303a9bc70a85139c5f1e2c5be8febeb41d70f27",
+            "tmp/r80_eval/experiment.py": "ebfe95a63b954eee4d9208aa9fbdec7916e68d08505e57d8ed71256036381da0",
+            "tmp/r79_final_eval/process_helper.py": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+            "tmp/r81_regression_eval/final/selection.json": "5e86c6ed7670c7eb987ab90fba6a2adfeba822a104b4ff6a277ccd771db6c797",
+            "tmp/r82_victim_search/producer.json": "f462cb492526e487ad12daede3aa65d5fb6ccdfd4d0d33b19aee6f41ff704aa8",
+            "tmp/r82_victim_search/release.json": "2336ab24ba97275917d1c3212a4645d459ce9fdc317073ed958c501b582f9c46",
+            "tmp/r82_victim_search/test_summary.json": "3cc548bce2ce3a6bef452c7d27fc43b9ec0cf08e45afda1772bebece6ff80b41",
+            "tmp/r83_eval/experiment.py": "a675d33f04cb1ba48fd511df4d0dc6d90b8a13d44359b5ea5eadc1e1b7882aee",
+            "tmp/r83_eval/test_protocol.py": "2879c7dca96cdbc9d35a5e5127c2ccfa0e57f8f1ab447c9ba17f71aeff67d4d5",
+            "docs/superpowers/plans/2026-10-30-r83-coverage-panel.md": "fc97bdffd6df2c068dde80b3813c865dea2e25f18869d3dca161a8990152d5c0",
+            "tmp/r83_data_panel/data_manifest.json": "3deef933b71b6f3415ad67bc251e119f85c060ca0f7268210486966615434b6b",
+            "tmp/r83_data_panel/config.json": "20538313993fa3b9e286ea196e5f25422f9aaec8858f81235acb736b4d37180d",
+            "tmp/r83_data_panel/selection.json": "7ad7f29f6c5836f91a4b1cbb120549839cad4cab609c6b5d0b8e07c0b53cb082",
+            "tmp/r83_data_panel/commands.json": "5a338cce3391cf924870b6e3765dfac1de5f53925add5fc699216d86f21a6cb3",
+            "tmp/r83_data_panel/prior_registry.json": "42c85bf543cb3e230517ffe65f3271da6b83a448398969abba5d34337a43af9a",
+            "tmp/r83_data_panel/prepare_data.py": "d94c236a08df8c8e23cda60e6a9d30c10e8b88080ed053ed710e8df384a501fa",
+            "tmp/r83_data_panel/cpu_released.json": "2c144c692edb201c25322f3f2f08182e58cf81e1a0b41b2a30bf5a52c98894c2",
+            "tmp/r83_data_panel/review.json": "5694546ab84cf5aecc1c1386f8cee7877c4a01e1bfb5f03573231298dc72616f",
+            "tmp/r83_data_panel/generation_audit_summary.json": "99c2f17fe9d74a488cdd8925edfbf0b6575b347fbcf03c874a32d7bf514bf71f",
+            "tmp/r83_data_panel/artifacts.json": "c7b8cc36667f36ba3f36bb9468b4e079cdf028828a96312ed9abbee965eb29ed",
+            "tmp/r83_review/runner_review.json": "a42666b6aaa8b3030d27055d0987281ad1757394b29b2542d1a984782a8e732a",
+            "tmp/r83_eval/release.json": "c2771f272b2eee19d833ddb059598112dc58127c2b421e96ec7c3290adf5801e",
+            "tmp/r83_eval/method_identities.json": "4f3af08131cac7a361383f105c8b316a43912cc0c263903cfaec5b4dec3e3a03",
+            "docs/superpowers/plans/2026-10-30-r83-full-evaluation-amendment.md": "5e69b82e2f444f7452d4815fa6f094136b86ee97f5f4c3678af0b4879e52c893",
+            "tmp/r82_eval/train/selection.json": "7b860aed97f8eb125da156a05b2404234f11fb196b8bbe9e6f7c2df01daf4436",
+            "tmp/r82_eval/train/summary.json": "7fb689f37072c3f03a802045fe1be6be34da67872d9fa3d6f3e4fd1152150b31",
+            "tmp/r81_eval/train/summary.json": "1d13a9f39e4095765542f4e8a16c107842b1f520a0f1b46962d030e19f3c25ce",
+            "tmp/r83_eval/train/selection.json": "73ab0707be1bafa669efb6614715ca6a385b1524dac1a0622d8bc82cebd42ead",
+            "tmp/r83_eval/train/advance.json": "1ae6bad71d3ac93a828935273257a1ee2bbfc1f8722f2e87f879208f53439498",
+            "tmp/r83_eval/train/summary.json": "4727de8fbc14eb2a2e51425d773768613fdc53b9e83e5072390ac9930bc02e8b",
+            "tmp/r83_eval/train/completion.json": "b1d878371b871f04cac12de145128fe37b482bacb888a6ff95edb0d8dd7e2abe",
+            "tmp/r83_eval/train/campaign.json": "304184b25f44f9ae77c35d82f938a38cfbb677da6afd50c8193b6df6aa2bf397",
+            "tmp/r83_eval/train/rows.json": "6b46a59f25f706e866d4340e14e42f018bb5f86d677cf316a31288f322303754"
+          },
+          "selection_original_sha256": "056147d47161ba9c96026559bffd1a254252908530f2d254966e1d5182367f92",
+          "selection_published_sha256": "6a90b502247a49464b0b499d860ffb3adc39c38e6a90cee43701937037a6ca9a",
+          "selection": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/dev/selection.json",
+          "rows": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/dev/rows.json",
+          "rows_original_sha256": "ee4fbd1f5d91d1ce17fd3f7e521f70212492dd3a1e1c18bcad2fff18772001e0",
+          "summary": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/dev/summary.json",
+          "summary_original_sha256": "066793dd64497afead69f517d7d7e56013b67cecb874cb76a48e7019c8f3c605",
+          "raw_logs": [
+            "https://github.com/cyanneko/HuaweiHackathon/tree/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/dev/cells"
+          ],
+          "campaign": "https://github.com/cyanneko/HuaweiHackathon/blob/6bfb4861b664c366e0bc38624e1b6e7e980780f8/src/reports/r83_20261030/evaluation/dev/campaign.json",
+          "campaign_original_sha256": "9f6cd503310a509ad58dbf81398a96002cffae415ae766759bcf19d1e969778d",
+          "seconds": 17.175264044000002,
+          "internal_budget_seconds": 180,
+          "official_per_case_seconds": 60
+        }
+      ],
+      "data_commit": "0a0bfc248b77b1d685123dad42dc90db5174c71e",
+      "data_path": "experiments/r83_coverage_panel_150k_20261030",
+      "TRAIN_selector_diagnostic_only": true,
+      "DEV_all_eight_methods": true,
+      "original_dataset_full_regression_included": false
+    },
+    {
       "round": "R84",
       "status": "FULL_12_72_COMPLETE",
       "artifact_commit": "b7482004d5313c6654629324cb465ef36d6554b1",
@@ -8084,10 +8941,5 @@
       "published_sha256": "c5d6e25c0bd1ccdcde15d9595d274be2ab44312aa871c078c44e14b783a2f288"
     }
   ],
-  "pending_publication": [
-    {
-      "round": "R83",
-      "scope": "complete new TRAIN12x8 and DEV6x8; report frozen, archive queued; no original-data full regression in this round"
-    }
-  ]
+  "pending_publication": []
 }

@@ -1,0 +1,14 @@
+{
+  "status": "PASS_STATIC_FROZEN_GENERATOR_AND_AUDIT_IDENTITY",
+  "source_hashes": {
+    "tmp/r72_hierarchical/generator.cpp": "0611bdecc3640cffe06efbb9956fa2d3271d8d579c2318e1c1f938121709a175",
+    "tmp/r72_hierarchical/build/generator": "774f700a909e6252443bcfe14cc8d2ebe59677b20db44684622298e840c30705",
+    "tmp/d70/final_dataset/tools/random_workloads.py": "1d38c7fa79d02f0d5c0a223fb427b40f5a50cf0c8e6783a429a2074b19d64da4",
+    "tmp/r83_data_panel/prepare_data.py": "d94c236a08df8c8e23cda60e6a9d30c10e8b88080ed053ed710e8df384a501fa"
+  },
+  "source_changed": false,
+  "original_dynamic_sampling_unchanged": true,
+  "IID_preallocated_bytes_and_counts_explicit": true,
+  "model_boundary": "Dynamic R72 naturally samples operator/partition counts; IID frozen constructor preallocates partition bytes/build counts, shuffles INSERT then SWITCH barrier and IID probes. Separate tracks, not the same stochastic model. Rare-hot affects both INSERT/PROBE and partition bytes.",
+  "scheduler_source_review_in_scope": false
+}

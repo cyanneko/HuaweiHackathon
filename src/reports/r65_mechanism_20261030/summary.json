@@ -1,0 +1,193 @@
+{
+  "status": "completed_offline_mechanism_diagnosis",
+  "input": {
+    "member": "cyanneko",
+    "version": "0.6.0",
+    "case": "mxv1_00_hot_stream_eval.txt",
+    "sha256": "4b3fa83e1e4266c3991619a911f09de0b42d24c981f10e21c5579f621b669dee",
+    "data_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd"
+  },
+  "formal_performance_measurement": false,
+  "formal_D_reported": false,
+  "rows": [
+    {
+      "method": "Naive",
+      "total_misses": 5492,
+      "spill_bytes": 42567991296,
+      "read_bytes": 42473619456,
+      "hot_class": {
+        "partitions": 9,
+        "total_final_bytes": 28311552,
+        "probes": 46813,
+        "spill_count": 4602,
+        "spill_bytes": 14476640256,
+        "misses": 4602,
+        "read_bytes": 14476640256
+      },
+      "giant_class": {
+        "partitions": 3,
+        "total_final_bytes": 94371840,
+        "spill_count": 893,
+        "spill_bytes": 28091351040,
+        "probes": 890,
+        "misses": 890,
+        "read_bytes": 27996979200
+      },
+      "probe_operation_residency": {
+        "probes": 65536,
+        "hot_3MiB_resident_fraction": 0.9235602484809028,
+        "giant_30MiB_resident_fraction": 0.009440104166666666,
+        "definition": "Exact input PROBE-operation average immediately after demand load, before periodic callback. Equal weight per eligible partition per probe; not elapsed wall-time average and not callback sampling."
+      }
+    },
+    {
+      "method": "SF",
+      "total_misses": 14576,
+      "spill_bytes": 24386732032,
+      "read_bytes": 24301797376,
+      "hot_class": {
+        "partitions": 9,
+        "total_final_bytes": 28311552,
+        "spill_count": 8,
+        "spill_bytes": 25165824,
+        "probes": 46813,
+        "misses": 8,
+        "read_bytes": 25165824
+      },
+      "giant_class": {
+        "partitions": 3,
+        "total_final_bytes": 94371840,
+        "spill_count": 297,
+        "spill_bytes": 9342812160,
+        "probes": 890,
+        "misses": 296,
+        "read_bytes": 9311354880
+      },
+      "probe_operation_residency": {
+        "probes": 65536,
+        "hot_3MiB_resident_fraction": 0.9999338785807291,
+        "giant_30MiB_resident_fraction": 0.6666666666666666,
+        "definition": "Exact input PROBE-operation average immediately after demand load, before periodic callback. Equal weight per eligible partition per probe; not elapsed wall-time average and not callback sampling."
+      }
+    },
+    {
+      "method": "R63",
+      "total_misses": 63757,
+      "spill_bytes": 165112971264,
+      "read_bytes": 165028036608,
+      "hot_class": {
+        "partitions": 9,
+        "total_final_bytes": 28311552,
+        "spill_count": 46821,
+        "spill_bytes": 147286130688,
+        "probes": 46813,
+        "misses": 46813,
+        "read_bytes": 147260964864
+      },
+      "giant_class": {
+        "partitions": 3,
+        "total_final_bytes": 94371840,
+        "probes": 890
+      },
+      "probe_operation_residency": {
+        "probes": 65536,
+        "hot_3MiB_resident_fraction": 0.1111111111111111,
+        "giant_30MiB_resident_fraction": 1.0,
+        "definition": "Exact input PROBE-operation average immediately after demand load, before periodic callback. Equal weight per eligible partition per probe; not elapsed wall-time average and not callback sampling."
+      }
+    },
+    {
+      "method": "BF",
+      "total_misses": 63755,
+      "spill_bytes": 165110874112,
+      "read_bytes": 165025939456,
+      "hot_class": {
+        "partitions": 9,
+        "total_final_bytes": 28311552,
+        "spill_count": 46821,
+        "spill_bytes": 147286130688,
+        "probes": 46813,
+        "misses": 46813,
+        "read_bytes": 147260964864
+      },
+      "giant_class": {
+        "partitions": 3,
+        "total_final_bytes": 94371840,
+        "probes": 890
+      },
+      "probe_operation_residency": {
+        "probes": 65536,
+        "hot_3MiB_resident_fraction": 0.1111111111111111,
+        "giant_30MiB_resident_fraction": 1.0,
+        "definition": "Exact input PROBE-operation average immediately after demand load, before periodic callback. Equal weight per eligible partition per probe; not elapsed wall-time average and not callback sampling."
+      }
+    }
+  ],
+  "first_SF_R63_action_divergence": {
+    "same_visible_state_before": true,
+    "SF": {
+      "step": 181,
+      "kind": 1,
+      "target": [
+        0,
+        12
+      ],
+      "deficit": 3145728,
+      "released_bytes": 31457280,
+      "spill_victim_count": 1,
+      "action_sizes": [
+        {
+          "action": [
+            "SPILL",
+            0,
+            7
+          ],
+          "bytes": 31457280
+        },
+        {
+          "action": [
+            "LOAD",
+            0,
+            12
+          ],
+          "bytes": 3145728
+        }
+      ]
+    },
+    "R63": {
+      "step": 181,
+      "kind": 1,
+      "target": [
+        0,
+        12
+      ],
+      "deficit": 3145728,
+      "released_bytes": 3145728,
+      "spill_victim_count": 1,
+      "action_sizes": [
+        {
+          "action": [
+            "SPILL",
+            1,
+            21
+          ],
+          "bytes": 3145728
+        },
+        {
+          "action": [
+            "LOAD",
+            0,
+            12
+          ],
+          "bytes": 3145728
+        }
+      ]
+    }
+  },
+  "interpretation": "Confirmed hot-object churn while large partitions remain resident; not exact future-cost knowledge.",
+  "source_evidence_sha256": {
+    "analysis/analysis.json": "66122924a227b8466c4c76b757667b673a5d8ce338a2e20d4e82206cc2007112",
+    "analysis/all_pair_first_divergences.json": "8886dcee59d638d2def96d70d2ea2c7171186ce25ff26e9c9f655df24455ac0e",
+    "analysis/numerical_IO_proof_with_bound.json": "2f0d6707433fa8c305c8c1da496deecb2d0bd6b95d6852c58aa81dec777d0608"
+  }
+}

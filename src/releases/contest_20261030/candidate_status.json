@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-30",
+  "default_change": false,
+  "focus": "Advance methods with mechanism evidence and necessary targeted validation, not comprehensive ranking.",
+  "deployment": "MySpillScheduler class and helpers only; official framework supplies types; CPU/C++14/O2/standard library.",
+  "candidates": [
+    {
+      "method": "official Naive",
+      "status": "published_reference_baseline_source",
+      "source": "src/methods/r49/official_naive.cpp",
+      "source_commit": "07f24f20eebb7f8713d9f8f5c7287fa6652947d6",
+      "entry_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "standalone_scheduler_file": true,
+      "new_submission_build_in_this_release": false
+    },
+    {
+      "method": "Single-Fit direct",
+      "status": "published_rule_reference_source",
+      "source": "src/experts/single_fit_phase/reference.cpp",
+      "source_commit": "07f24f20eebb7f8713d9f8f5c7287fa6652947d6",
+      "entry_sha256": "2ee28d494c4d7d3b0edf9b130d776e30b1fb7dc2fff41b738833de41593707f8",
+      "standalone_scheduler_file": true,
+      "new_submission_build_in_this_release": false
+    },
+    {
+      "method": "R63 Ghost64",
+      "status": "experimental_not_promoted",
+      "source": "src/experiments/r63_ghost_refault64/scheduler_snapshot.cpp",
+      "source_commit": "07f24f20eebb7f8713d9f8f5c7287fa6652947d6",
+      "entry_sha256": "81f4e90a5284b1ec9bda2ecd05772fb6b77ed38dc03822a5810ef52a4bd3242e",
+      "standalone_scheduler_file": true,
+      "new_submission_build_in_this_release": false
+    },
+    {
+      "method": "R65TurnoverRisk",
+      "status": "implementation_in_progress",
+      "description": "Bounded confirmed-refault full-turnover heat proxy; not complete access frequency.",
+      "green_contracts_verified": false,
+      "independent_source_review_verified": false,
+      "single_file_artifact": null,
+      "formal_targeted_result": null,
+      "default_promoted": false
+    }
+  ],
+  "negative_archive": "src/experiments/status_index.json",
+  "negative_statuses": {
+    "R61 state_tree": "validated_negative_under_recorded_conditions",
+    "R62 soft_guard/pair8": "validated_negative_with_severe_tails"
+  },
+  "mechanism_evidence": "src/reports/r65_mechanism_20261030"
+}

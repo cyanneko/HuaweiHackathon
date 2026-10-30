@@ -1,0 +1,88 @@
+{
+  "status": "DRAFT_TESTS_PASS_AWAIT_PRODUCER_AND_ROOT_APPROVAL",
+  "linux_protocol_tests": {
+    "status": "PASS",
+    "candidate_actual_score_and_parent_delta": true,
+    "hard_fixed_dataset_identity": true,
+    "producer_parent_and_single_variant_guards": true,
+    "inherited": {
+      "status": "PASS",
+      "full_inventory_and_method_guards": true,
+      "method_and_case_value_mutation_rejected": true,
+      "controller_exception_and_last_cell_gate": true,
+      "expected_cells": [
+        96,
+        576
+      ],
+      "path_tests": {
+        "status": "PASS",
+        "checks": [
+          "Windows/POSIX key positive",
+          "real dependency SHA difference negative",
+          "actual tiny-file byte mutation recomputed SHA negative",
+          "input SHA difference negative",
+          "case parameter difference negative",
+          "duplicate canonical key rejected even if SHA same",
+          "non-relative keys rejected"
+        ]
+      },
+      "score_tests": {
+        "status": "PASS",
+        "synthetic_only": true,
+        "checks": [
+          "official zero-cost rules",
+          "D included; physical separate",
+          "dyna mode same-run Naive scoring",
+          "missing/invalid/duplicate/unknown cells",
+          "negative raw loss retained despite clipping",
+          "nearest-rank P90 n6/n12",
+          "undefined denominator reported",
+          "12/72 dataset means weighted equally; incomplete combined null",
+          "post-last-cell controller failure blocks complete aggregate"
+        ]
+      },
+      "native_runs": 0
+    },
+    "native_runs": 0,
+    "compile_runs": 0,
+    "input_body_scans": 0
+  },
+  "metadata_case_counts": {
+    "dyna": 12,
+    "final": 72
+  },
+  "files": {
+    "tmp/r87_eval/freeze.py": "0571343068a540cfca57fdd8e93dc37f0606c8093963ce27ff9892c2dc10870f",
+    "tmp/r87_eval/inventory.py": "904a43181a0a63359aefa8c0c0d19cb8d536fe384550142c504e985265a2aa73",
+    "tmp/r87_eval/prepare_static.py": "39d3db3df39b69e58abe03333563e8c7b6115b6fafccbc3e669004e93815638f",
+    "tmp/r87_eval/protocol.md": "08b62e6da3c57e12794c4ccc59cab6926d44282f2828ddaf507b93061a714259",
+    "tmp/r87_eval/README.md": "e78c7ce17aaad2d2156c58f5bc69eeb456f135a443834025d93954f101dabbb2",
+    "tmp/r87_eval/regression.py": "31c9f52164fca0a7d2ab2a2c0c7ebe136a8710f366c039d0fba1adfe923fc5d4",
+    "tmp/r87_eval/scoring.py": "0809699a5fa41bb8c8f4408dbbb6ed05f7771520e3387e2b1b3a2e94b5beae97",
+    "tmp/r87_eval/test_full_contract.py": "aacf033f85f86dff6e29ac1bd9d1c60b3eb066cbe798aae8c328fe06b365fe6e",
+    "tmp/r87_eval/test_paths.py": "c70de5b16d79f5f91e24367521620abd12d3d508614c5a04e8862b261f682a06",
+    "tmp/r87_eval/test_protocol.py": "a1151c1d71332c1e1f5e34cfff99a20643238dd04cad9f9af00054044d9b1680",
+    "tmp/r87_eval/test_r87.py": "bd56f5b87b44f269b07d7791d03da41fc093aa1e261adda6dc797f7b6c035056"
+  },
+  "missing_contracts": [
+    "Exact R87 producer SHA and READY framework_unchanged single variant",
+    "Source/TU/ELF hashes, g++ C++14/O2 flags, noninstrumented, parent A three hashes",
+    "PASS test_summary SHA, source manifest SHA, final ready RELEASED active0 producer release",
+    "Root approval before freeze.py --root-approved"
+  ],
+  "not_created": [
+    "release.json",
+    "methods.prepared.json",
+    "dyna/selection.json",
+    "final/selection.json"
+  ],
+  "pre_execution_failures": [
+    "parent_red.stderr: expected unsupported new method matrix on old scorer",
+    "inventory_red.stderr: repaired incorrect assumption that dyna raw inputs use d70"
+  ],
+  "runtime_failures": 0,
+  "native_runs": 0,
+  "compile_runs": 0,
+  "input_body_scans": 0,
+  "active_child_processes": 0
+}

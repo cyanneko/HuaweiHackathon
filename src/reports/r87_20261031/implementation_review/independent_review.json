@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "blocking_findings": [],
+  "checks": [
+    {
+      "topic": "persistent totals",
+      "lines": [
+        78,
+        86,
+        129,
+        138
+      ],
+      "finding": "Tfast/Tslow and operator_total_q are independent members. ensureProbabilities only lazily decays them; it separately resets and sums temporary probability totals. Extra accepted-event work O(1); probability queries retain O(K), no new KP scan."
+    },
+    {
+      "topic": "pre-insertion predictive update",
+      "lines": [
+        88,
+        101,
+        222,
+        236
+      ],
+      "finding": "New next ordinal is deduplicated before any refresh/share/count. Both persistent totals and selected fast/slow mass advance to common q. pf/ps use matching priors and counts excluding current label; rational posterior is log-loss eta1 update; alpha+(1-2alpha)posterior is sharing to OTHER expert."
+    },
+    {
+      "topic": "clock and observations",
+      "lines": [
+        132,
+        133,
+        223,
+        225,
+        366,
+        381
+      ],
+      "finding": "Only accepted public next PROBE inserts mass; current miss refresh/observe/refault does not add expert sample. Legal callbacks have monotonic hit+miss and next=q+1. max(ordinal,total_q) prevents rewind; max query q includes last accepted next and total clock. Arbitrarily delayed labels supplied through private test entry are outside official callback semantics, not an official engine bug."
+    },
+    {
+      "topic": "query probabilities and conditional",
+      "lines": [
+        147,
+        165
+      ],
+      "finding": "Query operator marginal is w*fast+(1-w)*slow. operator_scale divides by slow operator mass+64/K; unchanged ensureProbability supplies original adaptive slow conditional numerator. Joint sum is 1 up to roundoff under legal finite counts. No mixed probability feeds raw counts."
+    },
+    {
+      "topic": "cache and reset",
+      "lines": [
+        142,
+        145,
+        235,
+        351,
+        356,
+        514
+      ],
+      "finding": "Accepted sample invalidates probability cache; release already invalidates before any proposal; epoch wrap is unchanged. Dimension reset clears both totals, clock, weight=.5 and probability cache. Duplicate removal of refresh is harmless for legal callbacks: miss refresh and query refresh retain lazy aging without a learning trial."
+    },
+    {
+      "topic": "legality and action boundary",
+      "lines": [
+        348,
+        381,
+        539,
+        563
+      ],
+      "finding": "Added behavior uses public next and hit/miss counters and its own statistics only. Callback/action bodies, actual record, scan/cycle guards, partition refault base, H estimator, horizon64/proxy100 and official framework are unchanged. Positive K/P and valid IDs are inherited official legal-input assumptions."
+    },
+    {
+      "topic": "numerical and theory limits",
+      "lines": [
+        92,
+        101,
+        151,
+        156
+      ],
+      "finding": "Positive prior keeps legal prequential forecasts positive; finite/weight guards fall back to .5, clamp within alpha..1-alpha. This is not a general repair for corrupt/infinite state, nor bit identity with either endpoint. Prediction objective is on policy-selected observed next labels; no claim of IO/D improvement, unbiased full-access estimation or universal prior optimality."
+    }
+  ],
+  "unchanged_function_bodies": [
+    "void ensureProbability(",
+    "void refreshSharing(",
+    "double partitionBase(",
+    "double refaultReuse(",
+    "void release(",
+    "void pruneSpills(",
+    "std::vector<Action> onMemoryOverflow(",
+    "std::vector<Action> onPartitionMiss(",
+    "std::vector<Action> onPeriodicAdjust("
+  ],
+  "identities": {
+    "tmp/r87_fixedshare/producer.json": "2545e0d110a1685094a85e93b8525f336c47e60b1db5094326811f3f15a50d4f",
+    "tmp/r87_fixedshare/R87_fixedshare_op/MySpillScheduler.cpp": "c18b92a1ec0df7d36c68c0a424f7414abd000abce650c4f4d20183eb9699ef55",
+    "tmp/r87_fixedshare/R87_fixedshare_op/main.cpp": "4c11857cd2520dd7ff8141449fc32e8e3a60c2cf4ea79c90324520bb935d91a8",
+    "tmp/r85_ablations/R85_fast_prior8/MySpillScheduler.cpp": "a0ebc08399a8cd8c039dae59a779231df0c35306af3ea3269df3067c321779b5",
+    "tmp/r87_fixedshare/R87_fixedshare_op/parent.diff": "037b0ed7e874e09b60148851a97bd44824db9981043765adc74ac5a41b6518df",
+    "tmp/r87_fixedshare/test_statistics.cpp": "80bbbc64b6e377c0d9162e8b1553dcfeb59a9a683ab5da2b85ff88b442912c27",
+    "tmp/r87_fixedshare/test_behavior.cpp": "5ac2028a9f88cf912b5e9881db312ed2baa26977961dfdb241b2f1f767de3b7b",
+    "tmp/r87_fixedshare/oracle.hpp": "0d15d10b400c4826339bfb24b751e9d67935e1f66cd590e546d361eb03747e88",
+    "tmp/r87_fixedshare/test_summary.json": "56d23dfa632987843eb2ffb50d8bc9895ee18f77235c78581fa2f9906619f8b5",
+    "tmp/r87_fixedshare/release.json": "172e065c37891431e6080531c16bfb6349b33e4e3a3b961afc76c35074fd1b45",
+    "docs/superpowers/plans/2026-10-30-r87-fixed-share-operator.md": "0e3641da02e86d76ebba01f3c7a0cfaed6ff83a534d8af78f25c0d933eaf8c0d"
+  },
+  "tests_scope": "Read original test/oracle code and bound Root successful build summary; no tests or native re-executed by this reviewer.",
+  "producer_test_status": "PASS",
+  "compile_test_seconds": 14.777639476000019,
+  "native_runs_by_reviewer": 0,
+  "compile_runs_by_reviewer": 0,
+  "input_body_scans": 0,
+  "active_child_processes": 0
+}

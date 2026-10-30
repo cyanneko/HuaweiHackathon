@@ -1,26 +1,38 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "passed",
-  "manifest_sha256": "82594ce156b3220a73595d9255cd790a610fb094384cd26118fdfb580f286cfb",
-  "validator_sha256": "c36cae4d0a05517507920e1c9a79df2d40439ded9347c9144bbfe0b9ef8de5cc",
+  "manifest_sha256": "f9dffebc2dfeb770fda0f210883f437d04d816cc7ab3de72f5808ac97ebc38cb",
+  "recipe_sha256": "b575c96d5db253496ea161b3cbb0fa855317266ddc668604dbca4d0dc2cdd727",
+  "validator_sha256": "83c05a3428c50b79dbd97b5c80f75f1bc9127c056e7406c9b4ed3cdd35b222ae",
   "input_auditor_sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "counts": {
     "train": 500,
     "eval": 50
   },
   "expected_edge_counts": {
-    "train": 75,
-    "eval": 8
+    "train": 20,
+    "eval": 2
   },
   "checked_package_inputs": 550,
   "checked_old_source_inputs": 1625,
+  "preaudited_inputs_reused_after_raw_byte_recheck": {
+    "package_inputs": 550,
+    "original_inputs": 1625
+  },
+  "checked_v1_manifest_cases": 550,
+  "previous_final_dataset_commit": "ee2ed4d5b10ac88b08d02a9d0fe10aefb09d38aa",
   "duplicates": {
     "sha256": [],
     "operation_stream_sha256": [],
     "partition_stream_sha256": []
   },
-  "new_eval_vs_old_source_collisions": {
+  "new_inputs_vs_old_source_collisions": {
+    "sha256": [],
+    "operation_stream_sha256": [],
+    "partition_stream_sha256": []
+  },
+  "new_inputs_vs_v1_collisions": {
     "sha256": [],
     "operation_stream_sha256": [],
     "partition_stream_sha256": []
@@ -29,154 +41,151 @@
   "summary": {
     "train": {
       "cases": 500,
-      "edge_cases": 75,
-      "routine_cases": 425,
-      "edge_fraction": 0.15,
+      "edge_cases": 20,
+      "routine_cases": 480,
+      "edge_fraction": 0.04,
       "source_counts": {
-        "Vanius0525": 160,
-        "cyanneko": 48,
-        "liunianwww": 292
-      },
-      "business_scenarios": {
-        "moving_hotspot": 116,
-        "hotspot_queries": 79,
-        "build_probe_overlap": 55,
-        "heterogeneous_partitions": 140,
-        "scan_hot_mix": 67,
-        "multi_operator_competition": 24,
-        "zipf_analytics": 19
+        "cyanneko": 2,
+        "liunianwww": 70,
+        "Vanius0525": 48,
+        "new_synthetic": 380
       },
       "families": {
-        "burst": 20,
-        "hot": 20,
-        "markov": 20,
-        "overlap": 20,
-        "scan": 20,
-        "serial": 20,
-        "shift": 20,
-        "uniform": 20,
-        "combined": 4,
-        "control": 4,
-        "cross_operator": 4,
-        "fully_resident_control": 1,
-        "giant_hot_small_cold": 1,
-        "heterogeneous_rates_sizes": 1,
-        "hot_stream": 1,
-        "hotset_phase_reverse": 1,
-        "long_burst": 1,
-        "low_opportunity_mix": 2,
-        "memory_one_partition_boundary": 1,
+        "partition_zipf": 1,
         "moving_hotspot": 1,
-        "next_bait_anticorrelation": 1,
-        "no_op_controls": 2,
-        "over_by_one": 1,
-        "partition_zipf": 2,
-        "phase_overlap": 2,
-        "positive_cycles": 2,
-        "reuse_cross64": 1,
-        "size_reuse_correlation_reverse": 1,
-        "temporal": 4,
-        "temporal_alignment_mix": 2,
-        "unspecified": 8,
-        "advance_build": 3,
-        "almost_M": 5,
-        "anchor_new": 10,
-        "anchor_refined": 7,
-        "bandwidth_reversal": 7,
-        "build_heavy": 15,
-        "builder_vs_prober": 9,
-        "bursts": 15,
-        "capacity_cliff": 5,
-        "capacity_cycle": 15,
-        "corners": 5,
-        "cpu_tiny_io": 4,
-        "empty_partitions": 4,
-        "grow_after_overlap": 9,
-        "hot_handoff": 9,
-        "hot_large": 12,
-        "hot_plus_scan": 14,
-        "hot_small": 13,
-        "interleaved_phases": 14,
-        "mandatory_prefetch": 3,
-        "micro_hot_giant_cold": 4,
-        "moving_hot": 16,
-        "near_uniform": 13,
-        "one_time_tail": 14,
-        "operator_competition": 14,
-        "operator_size_skew": 6,
-        "overlap_new": 8,
-        "pair_exceeds": 5,
-        "pair_fits": 4,
-        "sequential_scan": 13,
-        "zipf": 17
+        "build_heavy": 9,
+        "near_uniform": 11,
+        "zipf": 7,
+        "hot_small": 11,
+        "hot_large": 10,
+        "moving_hot": 13,
+        "operator_competition": 9,
+        "uniform": 16,
+        "hot": 16,
+        "markov": 16,
+        "random_hotspot": 108,
+        "random_lognormal": 54,
+        "random_zipf": 108,
+        "random_uniform": 90,
+        "one_byte_over": 10,
+        "empty_partition_probe": 10
       },
-      "total_operations": 3772881,
-      "max_operations": 131268,
-      "total_input_bytes": 59511856,
-      "phase_overlap_cases": 93
+      "total_operations": 36332735,
+      "operations": {
+        "min": 306,
+        "p50": 67628.5,
+        "max": 487220
+      },
+      "actual_build_record_count": {
+        "min": 83,
+        "p50": 35031.5,
+        "max": 257687
+      },
+      "actual_probe_record_count": {
+        "min": 148,
+        "p50": 30743.5,
+        "max": 274968
+      },
+      "operation_threshold_counts": {
+        "32768": 380,
+        "65536": 260,
+        "262144": 8
+      },
+      "total_build_bytes": 273475089125,
+      "total_input_bytes": 765714977,
+      "build_pressure": {
+        "min": 0.699999213218689,
+        "p50": 2.3012364991009235,
+        "max": 7.999999582767487
+      },
+      "positive_partition_size_ratio": {
+        "min": 1.5840000194072725,
+        "p50": 35.4801250272572,
+        "max": 2883514.6666666665
+      },
+      "top_20pct_partition_probe_share": {
+        "min": 0.20963166960629595,
+        "p50": 0.7410816355862355,
+        "max": 1.0
+      },
+      "observed_probe_skew_cases": 366,
+      "phase_overlap_cases": 0
     },
     "eval": {
       "cases": 50,
-      "edge_cases": 8,
-      "routine_cases": 42,
-      "edge_fraction": 0.16,
+      "edge_cases": 2,
+      "routine_cases": 48,
+      "edge_fraction": 0.04,
       "source_counts": {
         "new_synthetic": 50
       },
-      "business_scenarios": {
-        "hotspot_queries": 6,
-        "zipf_analytics": 6,
-        "scan_hot_mix": 6,
-        "moving_hotspot": 6,
-        "multi_operator_competition": 6,
-        "build_probe_overlap": 6,
-        "heterogeneous_partitions": 6,
-        "exact_fit": 1,
-        "one_byte_over": 1,
-        "near_full_partition": 1,
-        "empty_partition_probe": 1,
-        "bandwidth_asymmetry": 1,
-        "callback_alias": 1,
-        "long_reuse_distance": 1,
-        "all_resident_control": 1
-      },
       "families": {
-        "hotspot_queries": 6,
-        "zipf_analytics": 6,
-        "scan_hot_mix": 6,
-        "moving_hotspot": 6,
-        "multi_operator_competition": 6,
-        "build_probe_overlap": 6,
-        "heterogeneous_partitions": 6,
-        "exact_fit": 1,
+        "random_hotspot": 14,
+        "random_uniform": 12,
+        "random_zipf": 14,
+        "random_lognormal": 8,
         "one_byte_over": 1,
-        "near_full_partition": 1,
-        "empty_partition_probe": 1,
-        "bandwidth_asymmetry": 1,
-        "callback_alias": 1,
-        "long_reuse_distance": 1,
-        "all_resident_control": 1
+        "empty_partition_probe": 1
       },
-      "total_operations": 2271543,
-      "max_operations": 251291,
-      "total_input_bytes": 40916306,
-      "phase_overlap_cases": 6
+      "total_operations": 8376500,
+      "operations": {
+        "min": 35937,
+        "p50": 156456.5,
+        "max": 465295
+      },
+      "actual_build_record_count": {
+        "min": 15600,
+        "p50": 78698.5,
+        "max": 217145
+      },
+      "actual_probe_record_count": {
+        "min": 20336,
+        "p50": 68671.5,
+        "max": 257286
+      },
+      "operation_threshold_counts": {
+        "32768": 50,
+        "65536": 48,
+        "262144": 8
+      },
+      "total_build_bytes": 25157605917,
+      "total_input_bytes": 176534476,
+      "build_pressure": {
+        "min": 1.2236220017075539,
+        "p50": 2.654529499821365,
+        "max": 3.964339002966881
+      },
+      "positive_partition_size_ratio": {
+        "min": 2.5026990560831894,
+        "p50": 28.944359839510113,
+        "max": 21630.56418000604
+      },
+      "top_20pct_partition_probe_share": {
+        "min": 0.2105163807206678,
+        "p50": 0.7401221609685504,
+        "max": 0.9466120631650649
+      },
+      "observed_probe_skew_cases": 37,
+      "phase_overlap_cases": 0
     }
   },
   "checks": [
     "strict public input and metadata audit",
     "ascending operator declarations",
-    "exact manifest and input/metadata file sets",
-    "raw and metadata SHA-256",
-    "unchanged member train-only lineage",
+    "exact file sets and SHA-256",
+    "unchanged source train-only lineage for 120 inputs",
+    "430 new inputs match frozen per-case specifications and seeds",
     "three signatures unique inside package",
-    "new eval differs from every existing member train/eval input",
-    "exact 500/50 cases and 75/8 edge cases",
+    "new inputs differ from all old member and v1 final inputs",
+    "500/50 inputs with 20/2 corners, each strictly below 5%",
+    "actual build/probe record counts and operation-scale thresholds",
+    "observed input/probe skew",
     "no local absolute paths in metadata"
   ],
   "limitations": [
-    "Synthetic business scenarios are assumptions, not sampled production traffic.",
-    "Shared family construction can remain despite exact operation-stream isolation.",
+    "Synthetic random workloads are engineering assumptions, not sampled production traffic.",
+    "Hash isolation excludes repeated traces, not shared generation families.",
+    "Observed skew is descriptive, not a statistical randomness certificate.",
     "No solver or model was run by this validator."
   ]
 }

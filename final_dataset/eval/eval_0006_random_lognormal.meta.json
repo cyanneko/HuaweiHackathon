@@ -1,0 +1,176 @@
+{
+  "schema_version": 4,
+  "family": "random_lognormal",
+  "business_scenario": "random_lognormal",
+  "split": "eval",
+  "seed": 508888117547793652,
+  "spec": {
+    "family": "random_lognormal",
+    "k": 1,
+    "p": 8,
+    "memory": 268435456,
+    "write": 4040,
+    "read": 3132,
+    "penalty": 424,
+    "period": 451,
+    "build_count": 92739,
+    "probe_count": 67517,
+    "pressure": 3.542784,
+    "tuple_cv": 1.105804,
+    "shape_alpha": 1.029965,
+    "hot_fraction": 0.201844,
+    "hot_probability": 0.781368,
+    "split": "eval"
+  },
+  "is_edge": false,
+  "edge_reason": [],
+  "source_member": "strict_partition_synthetic",
+  "generator_source": "final_dataset/tools/generate.py",
+  "generator_sha256": "c84a912aa033ea2744c2e491931aa2ee62c2de795b8e231d0016cb00bc2c6362",
+  "generation_method": "Parent BUILD recipe; independently seeded strict per-operator conditional PROBE probabilities; IID joint draws.",
+  "provenance_inspirations": {
+    "cyanneko": "Independent partition-size skew and mixed operator memory pressure.",
+    "liunianwww": "Broad K/P/memory/cost parameters and hot-versus-large partition separation.",
+    "Vanius0525": "Seeded random workloads, explicit distribution families, independent test seeds."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "k": 1,
+  "p": 8,
+  "memory": 268435456,
+  "write": 4040,
+  "read": 3132,
+  "penalty": 424,
+  "period": 451,
+  "operations": 160257,
+  "insert_count": 92739,
+  "probe_count": 67517,
+  "switch_count": 1,
+  "per_operator_counts": [
+    [
+      92739,
+      67517
+    ]
+  ],
+  "build_bytes": 951008839,
+  "realized_pressure": 3.5427840016782284,
+  "max_partition_bytes": 214748364,
+  "min_positive_partition_bytes": 46616928,
+  "partition_sizes": [
+    51870165,
+    185631758,
+    214748364,
+    214748364,
+    51537982,
+    103979951,
+    81875327,
+    46616928
+  ],
+  "probe_counts": [
+    19971,
+    1952,
+    5727,
+    24262,
+    2399,
+    6921,
+    769,
+    5516
+  ],
+  "tuple_size_min": 167,
+  "tuple_size_max": 311248,
+  "tuple_size_cv_observed": 1.0904536668079987,
+  "max_probe_partition_share": 0.35934653494675417,
+  "top_20pct_partition_probe_share": 0.6551387058074263,
+  "sha256": "24188f35002ce197ed6c114bbd7f641c68c27d42d02191d9cf88148479bcac75",
+  "operation_stream_sha256": "f596dd0e572faa6baa901819a3525fca0a740f5c9ec1102c48d4cbcc812a1621",
+  "partition_stream_sha256": "27cc6c33d99ec04b7c7f5f0a8dd366d83dd47952c9e30a5f02d06b9345ebba45",
+  "phase_overlap": false,
+  "no_score_based_selection": true,
+  "version": "3.0.0",
+  "recipe_sha256": "2581e0ea892d125aeabd85ff798eca82dc28cc9b069bbeda759b3d19de7b3ba6",
+  "base_generator_sha256": "1d38c7fa79d02f0d5c0a223fb427b40f5a50cf0c8e6783a429a2074b19d64da4",
+  "strict_weights_sha256": "74ef7bc6bd62ff12bb290aecb561ce1b50f52d82bbcbadba50a1beba8f78e0d0",
+  "probability_certificate": {
+    "schema_version": 1,
+    "family": "random_lognormal",
+    "k": 1,
+    "p": 8,
+    "joint_probabilities": [
+      0.29457472720031924,
+      0.029706895319268116,
+      0.08456230870240569,
+      0.36005192445680306,
+      0.03538679051002545,
+      0.10296630909372027,
+      0.01089569223740654,
+      0.08185535248005171
+    ],
+    "operator_probabilities": [
+      1.0
+    ],
+    "conditional_probabilities": [
+      [
+        0.29457472720031924,
+        0.029706895319268116,
+        0.08456230870240569,
+        0.36005192445680306,
+        0.03538679051002545,
+        0.10296630909372027,
+        0.01089569223740654,
+        0.08185535248005171
+      ]
+    ],
+    "per_operator": [
+      {
+        "op_id": 0,
+        "tv_from_uniform": 0.40462665165712225,
+        "hot_cold_ratio": 33.045346418715,
+        "minimum_conditional_probability": 0.01089569223740654,
+        "maximum_conditional_probability": 0.36005192445680306,
+        "conditional_probabilities_pairwise_distinct": true,
+        "entropy_nats": 1.6476139038512363,
+        "hot_partition_ids": [],
+        "contrast_power": 1.0,
+        "base_tv_from_uniform": 0.40462665165712225
+      }
+    ],
+    "operator_probability_targets": [
+      1.0
+    ],
+    "operator_probability_rule": "0.5/K + 0.5*normalized_lognormal_draw",
+    "conditional_uniform_floor_before_float_separation": 0.01,
+    "contrast_tv_target": 0.215,
+    "target_tv_required": 0.2,
+    "target_hot_cold_ratio_required": 2.0,
+    "shape_alpha": 1.029965,
+    "exact_joint_probability_sum": 1.0,
+    "joint_probabilities_pairwise_distinct": true,
+    "float_separation_adjusted_entries": 0,
+    "float_separation_relative_spacing": 1e-12,
+    "maximum_relative_probability_adjustment": 1.9608712188638213e-16,
+    "independent_probability_rng_required": true,
+    "rng_or_sample_retries": 0,
+    "no_score_input": true,
+    "finite_count_uniqueness_or_coverage_claim": false
+  },
+  "observed_partition_heat": [
+    {
+      "op_id": 0,
+      "probes": 67517,
+      "tv_from_uniform": 0.4051387058074263,
+      "distinct_observed_partitions": 8,
+      "zero_count_partitions": 0
+    }
+  ],
+  "probe_seed": 12424198821994059039,
+  "parent": {
+    "commit": "c65c7b32b06a5764ce9ad4881133a3c6eb33ed17",
+    "path": "eval/eval_009_random_lognormal.txt",
+    "sha256": "61a79bd4a3566cb0806234bdf2f101f1a9d458afc6b18f0b5a8667989954b035",
+    "metadata_sha256": "fe05c385c4d0f6aeb40e98cd577c8d0039385356f23a55096a8d20b486dfd3f7"
+  },
+  "per_operator_target_tv_min": 0.40462665165712225,
+  "per_operator_observed_tv_min": 0.4051387058074263
+}

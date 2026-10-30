@@ -1,470 +1,522 @@
-"""Independent, read-only validation of final_dataset inputs and their lineage.
+"""Independently audit final_dataset 3.0.0, streaming inputs without running a policy.
 
-Only validation.json is written. No solver, benchmark, or model is executed.
+Only the Python standard library is required. Target probability certificates
+and observed PROBE frequencies are checked separately. This tool never imports
+the generator, changes inputs, or measures scheduler performance.
 """
 import argparse
-from collections import Counter, defaultdict
+from collections import Counter
+from datetime import datetime, timezone
 import hashlib
 import json
-from pathlib import Path, PurePosixPath
-import re
-import sys
 import math
-import statistics
-import subprocess
+from pathlib import Path, PurePosixPath
+import sys
 import time
 
 
-MEMBERS = ('cyanneko', 'liunianwww', 'Vanius0525')
-EXPECTED_SOURCES = {'cyanneko': 2, 'liunianwww': 70, 'Vanius0525': 48, 'new_synthetic': 380}
-EXPECTED_COUNTS = {'train': 500, 'eval': 50}
-EXPECTED_EDGES = {'train': 20, 'eval': 2}
-HASH_KEYS = ('sha256', 'operation_stream_sha256', 'partition_stream_sha256')
-EVAL_ROUTINE = ('random_uniform', 'random_zipf', 'random_hotspot', 'random_lognormal')
-EVAL_EDGE = ('one_byte_over', 'empty_partition_probe')
-V1_COMMIT = 'ee2ed4d5b10ac88b08d02a9d0fe10aefb09d38aa'
-SOURCE_EDGES = {'almost_M', 'pair_fits', 'pair_exceeds', 'capacity_cliff', 'corners',
-    'empty_partitions', 'cpu_tiny_io', 'mandatory_prefetch', 'advance_build',
-    'micro_hot_giant_cold', 'memory_one_partition_boundary', 'fully_resident_control',
-    'no_op_controls', 'next_bait_anticorrelation'}
+VERSION = '3.0.0'
+MIB = 1 << 20
+TOL = 1e-12
+EXPECTED = {
+    'train': {'random_zipf': 216, 'random_hotspot': 216, 'random_lognormal': 108},
+    'eval': {'random_zipf': 28, 'random_hotspot': 28, 'random_lognormal': 16},
+}
+HASH_FIELDS = ('sha256', 'operation_stream_sha256', 'partition_stream_sha256')
 
 
-def sha256(path):
+class Invalid(ValueError):
+    pass
+
+
+def require(condition, message):
+    if not condition:
+        raise Invalid(message)
+
+
+def sha_bytes(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def sha_file(path):
     digest = hashlib.sha256()
-    with path.open('rb') as stream:
-        for block in iter(lambda: stream.read(1024 * 1024), b''):
+    with path.open('rb', buffering=1 << 20) as stream:
+        for block in iter(lambda: stream.read(1 << 20), b''):
             digest.update(block)
     return digest.hexdigest()
 
 
-def load(path):
-    return json.loads(path.read_text(encoding='utf-8-sig'))
-
-
-def relative_target(root, relative):
-    """Manifest paths are portable relative POSIX paths within their root."""
-    if not isinstance(relative, str) or '\\' in relative:
-        raise ValueError('path must be a relative POSIX path')
-    value = PurePosixPath(relative)
-    if value.is_absolute() or '..' in value.parts or re.match(r'^[A-Za-z]:', relative):
-        raise ValueError('path must stay within its declared root')
-    result = root.joinpath(*value.parts)
-    if not result.resolve().is_relative_to(root.resolve()):
-        raise ValueError('path resolves outside its declared root')
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        require(key not in result, 'Duplicate JSON key: ' + key)
+        result[key] = value
     return result
 
 
-def signatures(path):
-    """Compute raw, exact-operation, and modulo-P signatures from input bytes.
-
-    Partition signature prefixes K and P and then canonical operation lines;
-    cost headers are excluded. Integer keys are reduced modulo P. SWITCH is
-    retained. This deliberately detects cost-only and key-only duplication.
-    """
-    raw = hashlib.sha256()
-    operation = hashlib.sha256()
-    partition = hashlib.sha256()
-    with path.open('rb') as stream:
-        def read():
-            line = stream.readline()
-            raw.update(line)
-            return line
-        header = read().removeprefix(b'\xef\xbb\xbf').split()
-        k, p = map(int, header[:2])
-        partition.update(f'{k} {p}\n'.encode('ascii'))
-        n, _ = map(int, read().split())
-        order = [int(read().split()[0]) for _ in range(k)]
-        if order != list(range(k)):
-            raise ValueError('operator count declarations must be ascending')
-        for _ in range(n):
-            fields = read().split()
-            if not fields:
-                raise ValueError('operation missing from declared stream')
-            integers = list(map(int, fields[1:]))
-            canonical = fields[0] + b' ' + b' '.join(str(x).encode('ascii') for x in integers) + b'\n'
-            operation.update(canonical)
-            if fields[0] in (b'INSERT', b'PROBE'):
-                integers[1] %= p
-            semantic = fields[0] + b' ' + b' '.join(str(x).encode('ascii') for x in integers) + b'\n'
-            partition.update(semantic)
-        for line in stream:
-            raw.update(line)
-            if line.strip():
-                raise ValueError('nonempty data after declared operation count')
-    return dict(sha256=raw.hexdigest(), operation_stream_sha256=operation.hexdigest(),
-                partition_stream_sha256=partition.hexdigest())
+def bad_constant(value):
+    raise Invalid('Non-finite JSON constant: ' + value)
 
 
-def no_local_paths(value):
-    if isinstance(value, dict):
-        return all(no_local_paths(x) for x in value.values())
-    if isinstance(value, list):
-        return all(no_local_paths(x) for x in value)
-    if isinstance(value, str):
-        return not (re.match(r'^[A-Za-z]:[\\/]', value) or value.startswith(('\\\\', '/Users/', '/home/')))
-    return True
+def load_json(raw):
+    return json.loads(raw.decode('utf-8-sig'), object_pairs_hook=unique_object,
+                      parse_constant=bad_constant)
 
 
-def describe(values):
-    return dict(min=min(values), p50=statistics.median(values), max=max(values)) if values else None
+def integer(value, label, low=0, high=None):
+    require(type(value) is int and value >= low and (high is None or value <= high),
+            label + ' must be an integer in range')
+    return value
 
 
-def observed_skew(observed):
-    sizes, probes = observed['partition_sizes'], observed['probe_counts']
-    positive = [x for x in sizes if x > 0]
-    nprobe = sum(probes)
-    width = max(1, math.ceil(len(probes) * .2))
-    mean = sum(sizes) / len(sizes)
-    return dict(
-        positive_partition_size_ratio=max(positive)/min(positive) if positive else 0,
-        partition_size_cv=statistics.pstdev(sizes)/mean if mean else 0,
-        top_20pct_partition_probe_share=sum(sorted(probes, reverse=True)[:width])/nprobe if nprobe else 0,
-        max_partition_probe_share=max(probes)/nprobe if nprobe else 0)
+def digest_value(value, label):
+    require(isinstance(value, str) and len(value) == 64 and
+            all(c in '0123456789abcdef' for c in value), label + ' is not a SHA256')
+    return value
 
 
-def prepare_cache(package, cache_path, follow):
-    """Pre-audit immutable completed files while the separate builder proceeds."""
-    repo = package.parent
-    sys.path.insert(0, str(repo/'evaluation/scripts'))
-    from audit_datasets import audit_case
-    cache = dict(validator_sha256=sha256(Path(__file__)),
-                 auditor_sha256=sha256(repo/'evaluation/scripts/audit_datasets.py'),
-                 sources={}, cases={})
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    def save():
-        temporary = cache_path.with_suffix('.tmp')
-        temporary.write_text(json.dumps(cache, ensure_ascii=False, allow_nan=False)+'\n', encoding='utf-8')
-        temporary.replace(cache_path)
-    for member in MEMBERS:
-        for row in load(repo/'datasets'/member/'manifest.json')['cases']:
-            if row['split'] not in ('train','eval'):
-                continue
-            observed = signatures(relative_target(repo,row['path']))
-            if observed['sha256'] != row['sha256']:
-                raise ValueError('Frozen source changed: '+row['path'])
-            cache['sources'][row['path']] = observed
-        save()
-        print(f'Pre-audited original inputs: {len(cache["sources"])}/1625',flush=True)
-    while True:
-        for split in EXPECTED_COUNTS:
-            for path in sorted((package/split).glob('*.txt')):
-                relative = path.relative_to(package).as_posix()
-                if relative in cache['cases'] or not path.with_suffix('.meta.json').exists():
-                    continue
-                try:
-                    metadata_path = path.with_suffix('.meta.json')
-                    observed = audit_case(path,load(metadata_path),enforce_limits=True)
-                    hashes = signatures(path)
-                    cache['cases'][relative] = dict(observed=observed,hashes=hashes,
-                        metadata_sha256=sha256(metadata_path))
-                except (OSError,ValueError,KeyError,TypeError):
-                    # The builder may not have finished writing a new sidecar.
-                    if not follow:
-                        raise
-                    continue
-                if len(cache['cases'])%50 == 0:
-                    save()
-                    print(f'Pre-audited completed package inputs: {len(cache["cases"])}/550',flush=True)
-        save()
-        if not follow or ((package/'manifest.json').exists() and len(cache['cases'])>=550):
-            break
-        time.sleep(2)
-    print(f'Prepared validation cache for {len(cache["cases"])} package inputs',flush=True)
+def inside(package, relative):
+    require(isinstance(relative, str) and relative and '\\' not in relative,
+            'Invalid package-relative path')
+    parts = PurePosixPath(relative)
+    require(not parts.is_absolute() and not any(x in ('..', '.') for x in parts.parts),
+            'Unsafe package-relative path: ' + relative)
+    result = (package / relative).resolve()
+    require(result.is_relative_to(package), 'Path escapes package: ' + relative)
+    return result
 
 
-def validate(package, cache_path=None):
-    repo = package.parent
-    sys.path.insert(0, str(repo / 'evaluation/scripts'))
-    from audit_datasets import audit_case
-    errors, details, sources = [], [], []
-    cache = {}
-    if cache_path and cache_path.exists():
-        candidate = load(cache_path)
-        if (candidate.get('validator_sha256') == sha256(Path(__file__)) and
-                candidate.get('auditor_sha256') == sha256(repo/'evaluation/scripts/audit_datasets.py')):
-            cache = candidate
-    cache_reuse = Counter()
-    def require(condition, scope, message):
-        if not condition:
-            errors.append({'scope': scope, 'error': message})
-        return condition
+def probabilities(values, length, label):
+    require(isinstance(values, list) and len(values) == length, label + ' has wrong shape')
+    result = []
+    for value in values:
+        require(type(value) in (float, int) and math.isfinite(value) and value > 0,
+                label + ' must contain positive finite numbers')
+        result.append(float(value))
+    require(abs(math.fsum(result) - 1.0) <= TOL, label + ' does not sum to one')
+    return result
 
-    manifest_path = package / 'manifest.json'
-    manifest = load(manifest_path)
-    recipe = load(package/'recipe.json')
-    require(no_local_paths(manifest) and no_local_paths(recipe), 'package', 'local absolute path found')
-    version = (package/'eval/VERSION').read_text(encoding='utf-8-sig').strip()
-    require(version == manifest.get('version') == recipe.get('version') == '2.0.0',
-            'version', 'VERSION, manifest and recipe must all be 2.0.0')
-    require(manifest.get('recipe_sha256') == sha256(package/'recipe.json'), 'manifest', 'recipe SHA differs')
-    cases = manifest['cases']
-    paths = [r['path'] for r in cases]
-    require(len(paths) == len(set(paths)), 'manifest', 'duplicate input paths')
-    actual_paths = {p.relative_to(package).as_posix() for split in EXPECTED_COUNTS
-                    for p in (package/split).glob('*.txt')}
-    require(set(paths) == actual_paths, 'manifest', 'input file set differs from manifest')
-    actual_metas = {p.relative_to(package).as_posix() for split in EXPECTED_COUNTS
-                    for p in (package/split).glob('*.meta.json')}
-    require({str(PurePosixPath(p).with_suffix('.meta.json')) for p in paths} == actual_metas,
-            'manifest', 'metadata file set differs from manifest')
-    counts = Counter(r['split'] for r in cases)
-    edges = Counter(r['split'] for r in cases if r['is_edge'])
-    require(dict(counts) == EXPECTED_COUNTS, 'manifest', 'expected exactly 500 train and 50 eval')
-    require(dict(edges) == EXPECTED_EDGES, 'manifest', 'expected 20 train and 2 eval corners (4% each)')
-    require(dict(Counter(r['source_member'] for r in cases if r['split']=='train')) == EXPECTED_SOURCES,
-            'manifest', 'expected source reuse 2/70/48 and 380 new training inputs')
-    for split, each_corner in (('train',10), ('eval',1)):
-        cs = Counter(r['family'] for r in cases if r['split']==split and r['is_edge'])
-        require(dict(cs) == {f:each_corner for f in EVAL_EDGE}, split, 'corner family quotas differ')
-    require(dict(Counter(r['family'] for r in cases if r['split']=='eval' and not r['is_edge'])) ==
-            {'random_uniform':12, 'random_zipf':14, 'random_hotspot':14, 'random_lognormal':8},
-            'eval', 'random family quotas differ from 12/14/14/8')
-    require(dict(Counter(r['family'] for r in cases if r['split']=='train' and not r['is_edge']
-                        and r.get('source_member')=='new_synthetic')) ==
-            {'random_uniform':90, 'random_zipf':108, 'random_hotspot':108, 'random_lognormal':54},
-            'train', 'new routine family quotas differ from 90/108/108/54')
-    frozen = {r['path']:r for r in recipe['generated_cases']}
-    new_paths = {r['path'] for r in cases if r['source_member']=='new_synthetic'}
-    require(set(frozen) == new_paths, 'recipe', 'frozen specifications must cover exactly 430 new inputs')
-    reused = [r['source_path'] for r in cases if r['source_member'] != 'new_synthetic']
-    require(set(reused) == set(recipe['reused_training_paths']) and len(reused) == 120,
-            'recipe', 'reused input set differs from frozen source selection')
-    selection_path = Path(__file__).resolve().parent / 'source_selection_v2.json'
-    require(recipe.get('source_selection_sha256') == sha256(selection_path),
-            'recipe', 'source selection manifest SHA differs')
-    require(recipe.get('generator_sha256') == sha256(Path(__file__).resolve().parent/'random_workloads.py'),
-            'recipe', 'random generator differs from frozen source identity')
 
-    originals = {}
-    for member in MEMBERS:
-        for row in load(repo/'datasets'/member/'manifest.json')['cases']:
-            if row['split'] in ('train','eval'):
-                originals[row['path']] = row
-    historical = json.loads(subprocess.check_output(
-        ['git','show',f'{V1_COMMIT}:final_dataset/manifest.json'],cwd=repo).decode('utf-8-sig'))
-    require(len(historical['cases']) == 550, 'history', 'v1 frozen manifest must contain 550 inputs')
+def close(actual, declared, label):
+    require(type(declared) in (float, int) and math.isfinite(declared) and
+            math.isclose(actual, declared, rel_tol=1e-10, abs_tol=TOL),
+            label + ' differs from independent calculation')
 
-    for number,row in enumerate(cases,1):
-        relative = row.get('path','<missing>')
+
+def certificate(meta, k, p):
+    cert = meta['probability_certificate']
+    require(isinstance(cert, dict), 'Probability certificate must be an object')
+    joint = probabilities(cert['joint_probabilities'], k * p, 'Joint probabilities')
+    operators = probabilities(cert['operator_probabilities'], k, 'Operator probabilities')
+    require(len(set(joint)) == k * p, 'Two partitions have the same target joint probability')
+    conditional = cert['conditional_probabilities']
+    require(isinstance(conditional, list) and len(conditional) == k,
+            'Conditional probabilities have wrong operator dimension')
+    records = cert['per_operator']
+    require(isinstance(records, list) and len(records) == k,
+            'Certificate per_operator has wrong length')
+    by_op = {}
+    for record in records:
+        require(isinstance(record, dict), 'Invalid per_operator certificate record')
+        op = integer(record['op_id'], 'Certificate op_id', 0, k - 1)
+        require(op not in by_op, 'Duplicate certificate op_id')
+        by_op[op] = record
+    result = []
+    for op in range(k):
+        weights = probabilities(conditional[op], p, 'Conditional probabilities')
+        require(len(set(weights)) == p, 'Two partitions of one operator have the same conditional probability')
+        require(operators[op] + TOL >= .5 / k, 'Target operator mass is below 0.5/K')
+        require(abs(math.fsum(joint[op*p:(op+1)*p]) - operators[op]) <= TOL,
+                'Joint operator marginal differs from declared operator probability')
+        for pid in range(p):
+            require(abs(joint[op*p+pid] - operators[op] * weights[pid]) <= TOL,
+                    'Joint probability is not operator_probability * conditional_probability')
+        tv = .5 * math.fsum(abs(value - 1.0/p) for value in weights)
+        ratio = max(weights) / min(weights)
+        require(math.isfinite(ratio), 'Target hot/cold ratio is not finite')
+        require(tv + TOL >= .20, 'Target conditional TV is below 0.20')
+        require(ratio + TOL >= 2, 'Target conditional hot/cold ratio is below two')
+        close(tv, by_op[op]['tv_from_uniform'], 'Target TV certificate')
+        close(ratio, by_op[op]['hot_cold_ratio'], 'Target hot/cold certificate')
+        result.append(dict(op_id=op, probability=operators[op],
+                           tv_from_uniform=tv, hot_cold_ratio=ratio))
+    ordered = sorted(joint)
+    return dict(per_operator=result, unique_joint_probabilities=len(set(joint)),
+                minimum_joint_probability=min(joint), maximum_joint_probability=max(joint),
+                minimum_joint_probability_gap=min(b-a for a, b in zip(ordered, ordered[1:])))
+
+
+def header_numbers(line, length, label):
+    values = line.split()
+    require(len(values) == length, label + ' has wrong field count')
+    try:
+        return [int(value) for value in values]
+    except ValueError:
+        raise Invalid(label + ' contains a non-integer') from None
+
+
+def scan_stream(stream):
+    """Parse one binary stream; memory usage is O(K*P), independent of N."""
+    raw_hash = hashlib.sha256()
+    operation_hash = hashlib.sha256()
+    first = stream.readline()
+    raw_hash.update(first)
+    k, p, memory, write, read, penalty = header_numbers(first, 6, 'First header')
+    integer(k, 'K', 1, 8)
+    integer(p, 'P', 2, 64)
+    integer(memory, 'M', 64*MIB, 4096*MIB)
+    integer(write, 'W', 1, 10000)
+    integer(read, 'R', 1, 10000)
+    integer(penalty, 'Miss penalty', 1, 1000)
+    second = stream.readline()
+    raw_hash.update(second)
+    n, period = header_numbers(second, 2, 'Second header')
+    integer(n, 'N', 1, 5_000_000)
+    integer(period, 'B', 1, 10000)
+    declared = []
+    for expected_op in range(k):
+        line = stream.readline()
+        raw_hash.update(line)
+        op, builds, probes = header_numbers(line, 3, 'Operator header')
+        require(op == expected_op, 'Operator headers are not unique ascending op_id=0..K-1')
+        integer(builds, 'Declared build count', 0, n)
+        integer(probes, 'Declared probe count', 0, n)
+        declared.append([builds, probes])
+    require(sum(sum(value) for value in declared) + k == n,
+            'N differs from the sum of declared operation counts plus K')
+    partition_hash = hashlib.sha256(f'{k} {p}\n'.encode('ascii'))
+    switched = [False] * k
+    counts = [[0, 0] for _ in range(k)]
+    sizes = [0] * (k * p)
+    probe_counts = [0] * (k * p)
+    operations = 0
+    for operations, line in enumerate(stream, 1):
+        if operations > n:
+            raise Invalid('Input contains more than N operation lines')
+        raw_hash.update(line)
+        operation_hash.update(line)
+        fields = line.split()
         try:
-            path = relative_target(package,relative)
-            require(PurePosixPath(relative).parts[0] == row['split'],relative,'split and path differ')
-            metadata = load(path.with_suffix('.meta.json'))
-            require(no_local_paths(metadata),relative,'local absolute path in metadata')
-            require(type(row['is_edge']) is bool,relative,'corner flag must be boolean')
-            require(bool(row.get('edge_reason')) == row['is_edge'],relative,'corner reason and flag differ')
-            require(bool(row.get('business_scenario')),relative,'business scenario missing')
-            for key in ('family','business_scenario','is_edge','edge_reason'):
-                require(metadata.get(key)==row.get(key),relative,f'metadata {key} differs')
-            cached = cache.get('cases',{}).get(relative)
-            current_metadata_sha = sha256(path.with_suffix('.meta.json'))
-            if (cached and cached['metadata_sha256'] == current_metadata_sha and
-                    cached['hashes']['sha256'] == sha256(path)):
-                observed, hashes = cached['observed'], cached['hashes']
-                cache_reuse['package_inputs'] += 1
+            kind = fields[0]
+            if kind == b'INSERT':
+                if len(fields) != 4:
+                    raise Invalid('INSERT has wrong field count')
+                op, key, size = int(fields[1]), int(fields[2]), int(fields[3])
+                if not 0 <= op < k or not 0 <= key <= 1_000_000_000 or not 1 <= size <= MIB:
+                    raise Invalid('INSERT argument outside the input contract')
+                if switched[op]:
+                    raise Invalid('INSERT appears after this operator SWITCH')
+                pid = key % p
+                flat = op * p + pid
+                sizes[flat] += size
+                if sizes[flat] > memory:
+                    raise Invalid('A complete partition exceeds M')
+                counts[op][0] += 1
+                semantic = f'INSERT {op} {pid} {size}\n'.encode('ascii')
+            elif kind == b'PROBE':
+                if len(fields) != 3:
+                    raise Invalid('PROBE has wrong field count')
+                op, key = int(fields[1]), int(fields[2])
+                if not 0 <= op < k or not 0 <= key <= 1_000_000_000:
+                    raise Invalid('PROBE argument outside the input contract')
+                if not switched[op]:
+                    raise Invalid('PROBE appears before this operator SWITCH')
+                pid = key % p
+                probe_counts[op*p+pid] += 1
+                counts[op][1] += 1
+                semantic = f'PROBE {op} {pid}\n'.encode('ascii')
+            elif kind == b'SWITCH':
+                if len(fields) != 2:
+                    raise Invalid('SWITCH has wrong field count')
+                op = int(fields[1])
+                if not 0 <= op < k:
+                    raise Invalid('SWITCH operator outside the input contract')
+                if switched[op]:
+                    raise Invalid('An operator SWITCH occurs more than once')
+                switched[op] = True
+                semantic = f'SWITCH {op}\n'.encode('ascii')
             else:
-                observed = audit_case(path,metadata,enforce_limits=True)
-                hashes = signatures(path)
-            require(hashes['operation_stream_sha256']==observed['operation_stream_sha256'],
-                    relative,'independent and public operation hashes disagree')
-            for key in HASH_KEYS:
-                require(row.get(key)==hashes[key],relative,f'manifest {key} differs')
-                if key in metadata:
-                    require(metadata[key]==hashes[key],relative,f'metadata {key} differs')
-            require(row['metadata_sha256']==sha256(path.with_suffix('.meta.json')),relative,'metadata SHA differs')
-            for key in ('operations','k','p','memory','pressure','phase_overlap','file_bytes'):
-                if key in row:
-                    require(row[key]==observed[key],relative,f'manifest {key} differs from actual input')
-            if not row['is_edge']:
-                ratio = max(observed['write'],observed['read'])/min(observed['write'],observed['read'])
-                require(ratio<1000 and observed['pressure']<=8,relative,'extreme numeric case labelled routine')
-                require(row['family'] not in SOURCE_EDGES,relative,'explicit adversarial/boundary family labelled routine')
-            is_new = row['source_member']=='new_synthetic'
-            if not is_new:
-                source_relative = row.get('source_path')
-                source = relative_target(repo,source_relative)
-                source_row = originals.get(source_relative)
-                require(source_row is not None,relative,'source absent from original manifests')
-                if source_row is None:
-                    raise ValueError('source input missing from original manifests')
-                require(row['split']=='train' and not row['is_edge'],relative,'reused cases must be routine train')
-                require(PurePosixPath(source_relative).parts[:3]==('datasets',row['source_member'],'train'),
-                        relative,'reused case is not member train data')
-                require(source_row['split']=='train',relative,'source manifest split is not train')
-                require(observed['sha256']==source_row['sha256']==row.get('source_sha256')==sha256(source),
-                        relative,'reused source bytes changed')
-                original_meta = load(source.with_suffix('.meta.json'))
-                require(metadata.get('original_metadata')==original_meta,relative,'original metadata differs')
-                require(sha256(source.with_suffix('.meta.json'))==source_row['metadata_sha256'],
-                        relative,'source metadata bytes changed')
-                require('r61root_07_resident_control_' not in source_relative,
-                        relative,'explicit no-pressure corner labelled routine')
-                require(observed['period'] > 1 and observed['max_partition_bytes'] < .9*observed['memory'],
-                        relative,'reused input violates ordinary-source parameter limits')
-                audit_case(path,original_meta,enforce_limits=True)
-            else:
-                family = row['family']
-                require(not row.get('source_path'),relative,'new input claims copied source path')
-                require(family in EVAL_ROUTINE+EVAL_EDGE,relative,'new input is outside random/corner families')
-                require(row['is_edge']==(family in EVAL_EDGE),relative,'new family corner flag differs')
-                spec = metadata.get('spec',metadata.get('parameters'))
-                fixed = frozen.get(relative)
-                if not isinstance(spec,dict) or fixed is None:
-                    raise ValueError('new input lacks frozen spec')
-                require(isinstance(metadata.get('seed'), (int, str)), relative, 'new input seed is missing')
-                require(metadata.get('seed')==fixed['seed'],relative,'seed differs from frozen recipe')
-                require(spec==fixed['spec'],relative,'spec differs from frozen recipe')
-                require(spec.get('split', row['split']) == row['split'], relative, 'spec split differs from input split')
-                require(family==fixed.get('family',fixed['spec'].get('family')),relative,'family differs from frozen recipe')
-                for key,actual in (
-                    ('k',observed['k']),('p',observed['p']),('memory',observed['memory']),
-                    ('write',observed['write']),('read',observed['read']),
-                    ('penalty',observed['penalty']),('period',observed['period']),
-                    ('build_count',observed['insert_count']),('probe_count',observed['probe_count'])):
-                    require(spec.get(key)==actual,relative,f'actual {key} differs from frozen spec')
-                require(observed['operations']==spec['build_count']+spec['probe_count']+spec['k'],
-                        relative,'actual record count differs from frozen workload size')
-                if not row['is_edge']:
-                    require(observed['operations']>=32768 and observed['insert_count']>=12000,
-                            relative,'new routine lacks required actual operation/build record counts')
-                    require(1.1<=observed['pressure']<=4.000001,relative,'routine pressure outside 1.1..4')
-                    require(observed['max_partition_bytes']<=observed['memory']*.8+1,
-                            relative,'near-capacity partition corner labelled routine')
-                    require(all(n>0 for n in observed['partition_sizes']),
-                            relative,'empty partition corner labelled routine')
-                elif family=='one_byte_over':
-                    accessed = [n for n,q in zip(observed['partition_sizes'],observed['probe_counts']) if n>0 and q>0]
-                    available = Counter(accessed)
-                    require(any(observed['memory']+1-a in available and
-                                (observed['memory']+1!=2*a or available[a]>1) for a in accessed),
-                            relative,'no accessed pair totals M+1')
-                elif family=='empty_partition_probe':
-                    require(any(n==0 and q>0 for n,q in zip(observed['partition_sizes'],observed['probe_counts'])),
-                            relative,'empty-partition corner has no probes to empty partition')
-            details.append(dict(path=relative,split=row['split'],family=row['family'],
-                business_scenario=row['business_scenario'],is_edge=row['is_edge'],
-                source_member=row['source_member'],is_new=is_new,**hashes,
-                operations=observed['operations'],build_count=observed['insert_count'],
-                probe_count=observed['probe_count'],build_bytes=observed['build_bytes'],
-                memory=observed['memory'],pressure=observed['pressure'],
-                phase_overlap=observed['phase_overlap'],file_bytes=observed['file_bytes'],**observed_skew(observed)))
-        except (OSError,ValueError,KeyError,TypeError,ZeroDivisionError) as exc:
-            errors.append({'scope':relative,'error':type(exc).__name__+': '+str(exc).replace(str(repo),'<repo>')})
-        if number%50==0 or number==len(cases):
-            print(f'Validated package inputs: {number}/{len(cases)}',flush=True)
+                raise Invalid('Unknown or empty operation')
+        except (ValueError, IndexError) as exc:
+            if isinstance(exc, Invalid):
+                raise Invalid(f'Operation {operations}: {exc}') from None
+            raise Invalid(f'Operation {operations}: invalid integer or missing argument') from None
+        partition_hash.update(semantic)
+    require(operations == n, 'Operation line count differs from N')
+    require(all(switched), 'An operator does not SWITCH exactly once')
+    require(counts == declared, 'Actual INSERT/PROBE counts differ from the operator header')
+    require(all(size > 0 for size in sizes), 'Strict v3 contract requires positive BUILD size for every partition')
+    size_ratio = max(sizes) / min(sizes)
+    require(size_ratio > 1, 'BUILD partition sizes are all equal')
+    observed = []
+    for op in range(k):
+        values = probe_counts[op*p:(op+1)*p]
+        total = sum(values)
+        visited = sum(value > 0 for value in values)
+        require(total > 0 and visited >= 2, 'An operator has fewer than two observed PROBE partitions')
+        tv = .5 * math.fsum(abs(value/total - 1.0/p) for value in values)
+        require(tv + TOL >= .10, 'Observed conditional PROBE TV is below 0.10')
+        observed.append(dict(op_id=op, probe_count=total, visited_partitions=visited,
+                             coverage=visited/p, tv_from_uniform=tv,
+                             hottest_partition_share=max(values)/total))
+    return dict(k=k, p=p, memory=memory, write=write, read=read, penalty=penalty,
+                period=period, operations=n, insert_count=sum(c[0] for c in counts),
+                probe_count=sum(c[1] for c in counts), switch_count=k,
+                per_operator_counts=counts, partition_sizes=sizes, probe_counts=probe_counts,
+                build_bytes=sum(sizes), sha256=raw_hash.hexdigest(),
+                operation_stream_sha256=operation_hash.hexdigest(),
+                partition_stream_sha256=partition_hash.hexdigest(),
+                build_partition_size_ratio=size_ratio, observed_per_operator=observed)
 
-    duplicates = {}
-    for key in HASH_KEYS:
-        grouped = defaultdict(list)
-        for r in details:
-            grouped[r[key]].append(r['path'])
-        duplicates[key] = [v for v in grouped.values() if len(v)>1]
-        require(not duplicates[key],'duplicates',f'package contains repeated {key}')
-    new_hashes = {key:{r[key] for r in details if r['is_new']} for key in HASH_KEYS}
-    old_collisions = {key:[] for key in HASH_KEYS}
-    v1_collisions = {key:[r['path'] for r in historical['cases'] if r[key] in new_hashes[key]]
-                     for key in HASH_KEYS}
-    for key in HASH_KEYS:
-        require(not v1_collisions[key],'history',f'new input collides with v1 {key}')
-    for number,(relative,source_row) in enumerate(sorted(originals.items()),1):
-        try:
-            source = relative_target(repo,relative)
-            cached = cache.get('sources',{}).get(relative)
-            if cached and cached['sha256'] == sha256(source):
-                hashes = cached
-                cache_reuse['original_inputs'] += 1
-            else:
-                hashes = signatures(source)
-            require(hashes['sha256']==source_row['sha256'],relative,'frozen source bytes changed')
-            sources.append(dict(path=relative,**hashes))
-            for key in HASH_KEYS:
-                if hashes[key] in new_hashes[key]:
-                    old_collisions[key].append(relative)
-        except (OSError,ValueError,KeyError,TypeError) as exc:
-            errors.append({'scope':relative,'error':type(exc).__name__+': '+str(exc).replace(str(repo),'<repo>')})
-        if number%400==0 or number==len(originals):
-            print(f'Checked frozen source inputs: {number}/{len(originals)}',flush=True)
-    require(len(sources)==1625,'sources','expected all 1625 original member inputs')
-    for key in HASH_KEYS:
-        require(not old_collisions[key],'sources',f'new input collides with original {key}')
 
-    summary = {}
-    for split,total in EXPECTED_COUNTS.items():
-        selected = [r for r in details if r['split']==split]
-        thresholds = {str(n):sum(r['operations']>=n for r in selected) for n in (32768,65536,262144)}
-        require(len(selected)==total,split,'not all expected cases passed input validation')
-        fraction = sum(r['is_edge'] for r in selected)/len(selected) if selected else 1
-        require(fraction<.05,split,'corner fraction must be strictly below 5%')
-        require(thresholds['65536']>=total//2,split,'fewer than half have 65536 actual operations')
-        require(thresholds['262144']>=1,split,'no actual long case >=262144 operations')
-        summary[split] = dict(cases=len(selected),edge_cases=sum(r['is_edge'] for r in selected),
-            routine_cases=sum(not r['is_edge'] for r in selected),edge_fraction=fraction,
-            source_counts=dict(Counter(r['source_member'] for r in selected)),
-            families=dict(Counter(r['family'] for r in selected)),
-            total_operations=sum(r['operations'] for r in selected),
-            operations=describe([r['operations'] for r in selected]),
-            actual_build_record_count=describe([r['build_count'] for r in selected]),
-            actual_probe_record_count=describe([r['probe_count'] for r in selected]),
-            operation_threshold_counts=thresholds,total_build_bytes=sum(r['build_bytes'] for r in selected),
-            total_input_bytes=sum(r['file_bytes'] for r in selected),
-            build_pressure=describe([r['pressure'] for r in selected]),
-            positive_partition_size_ratio=describe([r['positive_partition_size_ratio'] for r in selected]),
-            top_20pct_partition_probe_share=describe([r['top_20pct_partition_probe_share'] for r in selected]),
-            observed_probe_skew_cases=sum(r['top_20pct_partition_probe_share']>=.35 for r in selected),
-            phase_overlap_cases=sum(r['phase_overlap'] for r in selected))
-    return dict(schema_version=2,status='passed' if not errors else 'failed',
-        manifest_sha256=sha256(manifest_path),recipe_sha256=sha256(package/'recipe.json'),
-        validator_sha256=sha256(Path(__file__)),
-        input_auditor_sha256=sha256(repo/'evaluation/scripts/audit_datasets.py'),
-        version=version,counts=dict(counts),expected_edge_counts=EXPECTED_EDGES,
-        checked_package_inputs=len(details),checked_old_source_inputs=len(sources),
-        preaudited_inputs_reused_after_raw_byte_recheck=dict(cache_reuse),
-        checked_v1_manifest_cases=len(historical['cases']),previous_final_dataset_commit=V1_COMMIT,
-        duplicates=duplicates,new_inputs_vs_old_source_collisions=old_collisions,
-        new_inputs_vs_v1_collisions=v1_collisions,errors=errors,summary=summary,
-        checks=['strict public input and metadata audit','ascending operator declarations',
-            'exact file sets and SHA-256','unchanged source train-only lineage for 120 inputs',
-            '430 new inputs match frozen per-case specifications and seeds',
-            'three signatures unique inside package',
-            'new inputs differ from all old member and v1 final inputs',
-            '500/50 inputs with 20/2 corners, each strictly below 5%',
-            'actual build/probe record counts and operation-scale thresholds','observed input/probe skew',
-            'no local absolute paths in metadata'],
-        limitations=['Synthetic random workloads are engineering assumptions, not sampled production traffic.',
-            'Hash isolation excludes repeated traces, not shared generation families.',
-            'Observed skew is descriptive, not a statistical randomness certificate.',
-            'No solver or model was run by this validator.'])
+def scan_input(path):
+    before = path.stat()
+    with path.open('rb', buffering=1 << 20) as stream:
+        actual = scan_stream(stream)
+        actual['file_bytes'] = stream.tell()
+    after = path.stat()
+    require(before.st_size == after.st_size == actual['file_bytes'] and
+            before.st_mtime_ns == after.st_mtime_ns, 'Input changed during verification')
+    return actual
+
+
+def verify_case(package, row, recipe_sha256):
+    relative = row['path']
+    require(relative.endswith('.txt') and relative.startswith(row['split'] + '/'),
+            'Input path does not match its split')
+    path = inside(package, relative)
+    meta_path = path.with_suffix('.meta.json')
+    require(meta_path.resolve().is_relative_to(package), 'Metadata path escapes package')
+    meta_raw = meta_path.read_bytes()
+    require(sha_bytes(meta_raw) == digest_value(row['metadata_sha256'], 'metadata_sha256'),
+            'Metadata byte SHA differs from manifest')
+    meta = load_json(meta_raw)
+    require(isinstance(meta, dict), 'Case metadata must be an object')
+    require(meta['version'] == VERSION, 'Case metadata version differs from strict v3 contract')
+    require(meta['recipe_sha256'] == recipe_sha256, 'Case metadata recipe SHA differs from actual package recipe')
+    require(meta['family'] == row['family'] and meta['split'] == row['split'],
+            'Metadata family/split differs from manifest')
+    k = integer(meta['k'], 'Metadata K', 1, 8)
+    p = integer(meta['p'], 'Metadata P', 2, 64)
+    target = certificate(meta, k, p)
+    actual = scan_input(path)
+    fields = ('k', 'p', 'memory', 'write', 'read', 'penalty', 'period', 'operations',
+              'insert_count', 'probe_count', 'per_operator_counts', 'partition_sizes', 'probe_counts')
+    for key in fields:
+        require(meta[key] == actual[key], 'Metadata differs from raw input: ' + key)
+        if key not in ('per_operator_counts', 'partition_sizes', 'probe_counts'):
+            require(type(meta[key]) is int, 'Metadata integer field has wrong type: ' + key)
+    for key in ('switch_count', 'build_bytes', 'file_bytes'):
+        if key in meta:
+            require(meta[key] == actual[key], 'Metadata differs from raw input: ' + key)
+    for key in HASH_FIELDS:
+        require(digest_value(row[key], 'Manifest ' + key) == actual[key],
+                'Manifest differs from raw input: ' + key)
+        require(digest_value(meta[key], 'Metadata ' + key) == actual[key],
+                'Metadata differs from raw input: ' + key)
+    for key in fields + ('switch_count', 'build_bytes', 'file_bytes'):
+        if key in row:
+            require(row[key] == actual[key], 'Manifest differs from raw input: ' + key)
+    spec = meta['spec']
+    require(isinstance(spec, dict) and spec['family'] == row['family'], 'Invalid metadata spec')
+    for key in ('k', 'p', 'memory', 'write', 'read', 'penalty', 'period'):
+        require(spec[key] == actual[key], 'Spec differs from raw input: ' + key)
+    require(spec['build_count'] == actual['insert_count'] and spec['probe_count'] == actual['probe_count'],
+            'Spec record counts differ from raw input')
+    for key in ('per_operator_counts', 'partition_sizes', 'probe_counts'):
+        values = meta[key]
+        flat = [x for row_values in values for x in row_values] if key == 'per_operator_counts' else values
+        require(all(type(x) is int and x >= 0 for x in flat), 'Non-integer or negative metadata counts/sizes')
+    checks = dict(max_partition_bytes=max(actual['partition_sizes']),
+                  min_positive_partition_bytes=min(actual['partition_sizes']),
+                  realized_pressure=actual['build_bytes']/actual['memory'],
+                  max_probe_partition_share=max(actual['probe_counts'])/actual['probe_count'],
+                  top_20pct_partition_probe_share=math.fsum(sorted(actual['probe_counts'], reverse=True)[:max(1, math.ceil(k*p*.2))])/actual['probe_count'],
+                  per_operator_target_tv_min=min(op['tv_from_uniform'] for op in target['per_operator']),
+                  per_operator_observed_tv_min=min(op['tv_from_uniform'] for op in actual['observed_per_operator']))
+    for key, value in checks.items():
+        if key in meta:
+            close(value, meta[key], 'Metadata ' + key)
+        if key in row:
+            close(value, row[key], 'Manifest ' + key)
+    for key, value in (('pressure', checks['realized_pressure']),
+                       ('positive_partition_size_ratio', actual['build_partition_size_ratio'])):
+        if key in row:
+            close(value, row[key], 'Manifest ' + key)
+    if 'observed_partition_heat' in meta:
+        observed_records = meta['observed_partition_heat']
+        require(isinstance(observed_records, list) and len(observed_records) == k,
+                'Metadata observed_partition_heat has wrong shape')
+        seen_ops = set()
+        for record in observed_records:
+            op = integer(record['op_id'], 'Observed heat op_id', 0, k-1)
+            require(op not in seen_ops, 'Duplicate observed heat op_id')
+            seen_ops.add(op)
+            observed = actual['observed_per_operator'][op]
+            require(record['probes'] == observed['probe_count'] and
+                    record['distinct_observed_partitions'] == observed['visited_partitions'] and
+                    record['zero_count_partitions'] == p-observed['visited_partitions'],
+                    'Metadata observed heat counts differ from raw input')
+            close(observed['tv_from_uniform'], record['tv_from_uniform'], 'Metadata observed heat TV')
+    return dict(path=relative, split=row['split'], family=row['family'], status='passed',
+                **{key: actual[key] for key in HASH_FIELDS}, metadata_sha256=sha_bytes(meta_raw),
+                operations=actual['operations'], file_bytes=actual['file_bytes'], k=k, p=p,
+                build_bytes=actual['build_bytes'], build_partition_size_ratio=actual['build_partition_size_ratio'],
+                probability_certificate=target, observed_per_operator=actual['observed_per_operator'])
+
+
+def safe_error(exc, package):
+    return (type(exc).__name__ + ': ' + str(exc)).replace(str(package), '<package>')
+
+
+def audit(package):
+    started = time.monotonic()
+    report = dict(status='incomplete', dataset='final_dataset', expected_version=VERSION,
+                  checked_at_utc=datetime.now(timezone.utc).isoformat(),
+                  verifier_sha256=sha_file(Path(__file__).resolve()),
+                  scope='Independent static input/probability audit; no generator import, policy execution, or performance measurement.',
+                  limits=dict(target_conditional_tv_min=.20, observed_conditional_tv_min=.10,
+                              target_hot_cold_ratio_min=2, operator_mass_min='0.5/K',
+                              build_partition_size_ratio_strictly_above=1,
+                              build_size_rule_note='Unequal BUILD sizes only; this is not an official quantitative skew threshold.',
+                              probability_absolute_tolerance=TOL,
+                              observed_partition_coverage_min=2,
+                              observed_counts_need_not_be_unique_or_all_positive=True),
+                  global_errors=[], duplicates=[], cases=[])
+    errors = report['global_errors']
+    try:
+        manifest_raw = (package/'manifest.json').read_bytes()
+        manifest = load_json(manifest_raw)
+        require(isinstance(manifest, dict), 'Manifest must be an object')
+        report['manifest_sha256'] = sha_bytes(manifest_raw)
+        report['version'] = manifest.get('version')
+        require(manifest.get('name') == 'final_dataset' and manifest.get('version') == VERSION,
+                'Expected final_dataset version ' + VERSION)
+        report['recipe_sha256'] = sha_file(package/'recipe.json')
+        require(report['recipe_sha256'] == digest_value(manifest['recipe_sha256'], 'recipe_sha256'),
+                'Recipe byte SHA differs from manifest')
+        recipe = load_json((package/'recipe.json').read_bytes())
+        require(recipe['version'] == VERSION, 'Recipe version differs from strict v3 contract')
+        tool_hashes = recipe['tool_sha256']
+        require(isinstance(tool_hashes, dict) and 'verify.py' in tool_hashes,
+                'Recipe must bind all tools, including verify.py')
+        report['tool_sha256'] = {}
+        for name, expected in tool_hashes.items():
+            require(isinstance(name, str) and name, 'Invalid tool name')
+            tool = inside(package, 'tools/' + name)
+            actual = sha_file(tool)
+            require(actual == digest_value(expected, 'Tool ' + name), 'Frozen tool SHA differs: ' + name)
+            report['tool_sha256'][name] = actual
+        require((package/'eval/VERSION').read_text(encoding='utf-8-sig').strip() == VERSION,
+                'eval/VERSION differs from manifest')
+        if (package/'VERSION').exists():
+            require((package/'VERSION').read_text(encoding='utf-8-sig').strip() == VERSION,
+                    'Root VERSION differs from manifest')
+        rows = manifest['cases']
+        require(isinstance(rows, list), 'Manifest cases must be a list')
+        report['expected_cases'] = sum(sum(counts.values()) for counts in EXPECTED.values())
+        report['manifest_cases'] = len(rows)
+        if len(rows) != report['expected_cases']:
+            errors.append('Expected 612 manifest cases')
+        paths = [row['path'] for row in rows]
+        require(len(paths) == len(set(paths)), 'Duplicate input path in manifest')
+        wanted = set(paths)
+        for relative in paths:
+            inside(package, relative)
+        for split, expected in EXPECTED.items():
+            observed = Counter(row['family'] for row in rows if row['split'] == split)
+            if dict(observed) != expected:
+                errors.append('Unexpected ' + split + ' family counts: ' + repr(dict(observed)))
+        if any(row['split'] not in EXPECTED for row in rows):
+            errors.append('Unexpected split in manifest')
+        actual_inputs = {path.relative_to(package).as_posix() for split in EXPECTED
+                         for path in (package/split).rglob('*.txt')}
+        actual_meta = {path.relative_to(package).as_posix() for split in EXPECTED
+                       for path in (package/split).rglob('*.meta.json')}
+        wanted_meta = {str(PurePosixPath(path).with_suffix('.meta.json')) for path in paths}
+        if actual_inputs != wanted:
+            errors.append('Input inventory differs: missing=' + repr(sorted(wanted-actual_inputs)) +
+                          '; extra=' + repr(sorted(actual_inputs-wanted)))
+        if actual_meta != wanted_meta:
+            errors.append('Metadata inventory differs: missing=' + repr(sorted(wanted_meta-actual_meta)) +
+                          '; extra=' + repr(sorted(actual_meta-wanted_meta)))
+        seen = {key: {} for key in HASH_FIELDS}
+        for index, row in enumerate(rows, 1):
+            try:
+                for key in HASH_FIELDS:
+                    digest = digest_value(row[key], 'Manifest ' + key)
+                    if digest in seen[key]:
+                        report['duplicates'].append(dict(kind=key, first=seen[key][digest], second=row['path']))
+                    else:
+                        seen[key][digest] = row['path']
+                result = verify_case(package, row, report['recipe_sha256'])
+            except Exception as exc:
+                result = dict(path=row.get('path'), split=row.get('split'), family=row.get('family'),
+                              status='failed', error=safe_error(exc, package))
+            report['cases'].append(result)
+            if index % 10 == 0 or index == len(rows):
+                print(json.dumps(dict(audited=index, total=len(rows), failed=sum(x['status'] != 'passed' for x in report['cases']))), flush=True)
+        require(sha_file(package/'manifest.json') == report['manifest_sha256'], 'Manifest changed during audit')
+        require(sha_file(package/'recipe.json') == report['recipe_sha256'], 'Recipe changed during audit')
+        for name, expected in report['tool_sha256'].items():
+            require(sha_file(inside(package, 'tools/' + name)) == expected, 'Tool changed during audit: ' + name)
+    except KeyboardInterrupt:
+        errors.append('Audit interrupted; unprocessed cases are not passed')
+        report['interrupted'] = True
+    except Exception as exc:
+        errors.append(safe_error(exc, package))
+    passed = [row for row in report['cases'] if row['status'] == 'passed']
+    observed_ops = [op for row in passed for op in row['observed_per_operator']]
+    target_ops = [op for row in passed for op in row['probability_certificate']['per_operator']]
+    report['summary'] = dict(processed_cases=len(report['cases']), passed_cases=len(passed),
+                            failed_cases=len(report['cases'])-len(passed),
+                            by_split=dict(Counter(row['split'] for row in passed)),
+                            by_family=dict(Counter(row['family'] for row in passed)),
+                            operations=sum(row['operations'] for row in passed),
+                            input_bytes=sum(row['file_bytes'] for row in passed),
+                            checked_operators=len(observed_ops),
+                            minimum_target_tv=min((op['tv_from_uniform'] for op in target_ops), default=None),
+                            minimum_observed_tv=min((op['tv_from_uniform'] for op in observed_ops), default=None),
+                            minimum_target_hot_cold_ratio=min((op['hot_cold_ratio'] for op in target_ops), default=None),
+                            minimum_build_size_ratio=min((row['build_partition_size_ratio'] for row in passed), default=None),
+                            minimum_observed_partition_count=min((op['visited_partitions'] for op in observed_ops), default=None),
+                            elapsed_seconds=time.monotonic()-started)
+    if not errors and not report['duplicates'] and len(passed) == report.get('expected_cases') == len(report['cases']):
+        report['status'] = 'passed'
+    else:
+        report['status'] = 'failed'
+    return report
 
 
 def main(argv=None):
-    # Dispatch by the requested package, preserving the historical v2 validator.
-    version_parser = argparse.ArgumentParser(add_help=False)
-    version_parser.add_argument('--package', type=Path, default=Path(__file__).resolve().parents[1])
-    known, _ = version_parser.parse_known_args(argv)
-    if (known.package/'recipe.json').is_file() and load(known.package/'recipe.json').get('version') == '2.1.0':
-        from verify_v21 import main as current_main
-        return current_main(argv)
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--package', type=Path, default=Path(__file__).resolve().parents[1])
-    parser.add_argument('--cache', type=Path, help='optional local pre-audit cache, never a substitute for raw-byte checks')
-    parser.add_argument('--prepare-cache', action='store_true')
-    parser.add_argument('--follow-build', action='store_true')
+    parser.add_argument('--package', type=Path, required=True)
+    parser.add_argument('--report', type=Path, required=True,
+                        help='new report path; an existing file is never overwritten')
     args = parser.parse_args(argv)
     package = args.package.resolve()
-    cache_path = args.cache.resolve() if args.cache else package.parent/'results/final_dataset_v2_validation_cache.json'
-    if args.prepare_cache:
-        prepare_cache(package,cache_path,args.follow_build)
-        return 0
-    try:
-        report = validate(package,cache_path)
-    except (OSError, ValueError, KeyError, TypeError, subprocess.CalledProcessError) as exc:
-        report = dict(schema_version=2, status='failed', errors=[{
-            'scope': 'package', 'error': type(exc).__name__ + ': ' + str(exc).replace(str(package.parent), '<repo>')}])
-    (package / 'validation.json').write_text(json.dumps(report, ensure_ascii=False,
-        indent=2, allow_nan=False) + '\n', encoding='utf-8', newline='\n')
-    print(json.dumps({'status': report['status'], 'error_count': len(report['errors'])}, ensure_ascii=False), flush=True)
+    output = args.report.resolve()
+    require(package.is_dir(), 'Package directory does not exist')
+    require(not output.exists(), 'Report path already exists; use a new report path')
+    require(output != Path(__file__).resolve(), 'Report may not replace the verifier')
+    if output.is_relative_to(package):
+        relative = output.relative_to(package)
+        require(relative.parts[0] not in ('train', 'eval', 'tools') and
+                relative.as_posix() not in ('manifest.json', 'recipe.json', 'VERSION'),
+                'Report may not replace package inputs, metadata, source, or contract files')
+    report = audit(package)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with output.open('x', encoding='utf-8', newline='\n') as stream:
+        json.dump(report, stream, ensure_ascii=False, indent=2, allow_nan=False)
+        stream.write('\n')
+    print(json.dumps(dict(status=report['status'], summary=report['summary'],
+                          global_errors=report['global_errors'], duplicate_count=len(report['duplicates'])), ensure_ascii=False))
     return 0 if report['status'] == 'passed' else 1
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except Invalid as error:
+        print('Verification refused: ' + str(error), file=sys.stderr)
+        raise SystemExit(2)

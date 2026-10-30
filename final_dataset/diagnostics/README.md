@@ -1,1 +1,0 @@
-此处保留原2.0.0的`eval_048_one_byte_over`输入及sidecar原字节，用于容量边界正确性诊断，不参加2.1.0的72例主均分。sidecar中的`split=eval`是历史来源，当前位置及manifest的diagnostics字段决定本版用途。不要放回eval子目录，否则公共runner递归发现后会改变评测集合。

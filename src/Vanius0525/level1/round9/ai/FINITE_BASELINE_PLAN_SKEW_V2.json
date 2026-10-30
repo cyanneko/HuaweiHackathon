@@ -1,0 +1,70 @@
+{
+  "scope_version": "skew_only_v2_after_user_update",
+  "cases": [
+    {
+      "id": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "legal_observation_log_sha256": "b0ff0922c38b30f77f9f95699d9c0553c8b6691df6d8fd1822202e224dcb7d73"
+    },
+    {
+      "id": "learning_train_zipf_negative_s860109_b257_lengthbalanced_v2",
+      "seed": 860109,
+      "legal_observation_log_sha256": "78a826f9316e07e62d16e5b44aab0d21641d3b9d67f5c5c11b86738426120f51"
+    },
+    {
+      "id": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "legal_observation_log_sha256": "774108eb9812965fa59350d410e14a8e038f5a994a068734a177de833391023e"
+    },
+    {
+      "id": "learning_train_hotspot_independent_s860118_b17_lengthbalanced_v2",
+      "seed": 860118,
+      "legal_observation_log_sha256": "528d966325ee3b46b6e3930a729c1350a1ce1958574e4bd5d2183a9972af63e8"
+    },
+    {
+      "id": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "legal_observation_log_sha256": "4e548bb43b3bda0c34bb5fd13357c1c90e76e700e8ce411ddc098a58c73ba5fc"
+    },
+    {
+      "id": "learning_train_lognormal_positive_s860127_b257_lengthbalanced_v2",
+      "seed": 860127,
+      "legal_observation_log_sha256": "3cb5b842d756aa8225ec27d738dc07eab3abc7e3216683ffc0a696938072be81"
+    }
+  ],
+  "methods": [
+    "next_only",
+    "incremental",
+    "em1",
+    "em4",
+    "em16",
+    "full_mle"
+  ],
+  "prefixes": [
+    64,
+    256,
+    1024,
+    4096
+  ],
+  "prior_pseudocount": 64,
+  "forgetting": "none",
+  "batch_map_prior": "Dirichlet alpha_i=1+64/n",
+  "few_steps": [
+    1,
+    4,
+    16
+  ],
+  "few_step_initialization": "next-only posterior",
+  "full_reference": "uniform initialization, max1000, max probability change<1e-10; retain failures",
+  "causal_incremental_order": "anonymous segment under old weights, then unique current Miss, then unique next; exact source ordering preserved from audited callback log",
+  "timing": "standard-library C++14 -O2, one warm-up, three fixed repeats with rotated method order; median and all values; event-file parsing excluded",
+  "storage": "method-specific vector capacities, history members and packed keys, buckets; excludes allocator metadata and benchmark output copies; not RSS",
+  "policy_source_sha256": "05affbdcd52a958fa13c1a8f265a026ab89113c760e378df8b36e250140a15eb",
+  "manifest_sha256": "680bbfeb665937588d6e5ff7200b2ea772754efb0383dc9725e253aa494cdef2",
+  "no_ai_training": true,
+  "new_hashjoin_solver_calls": 0,
+  "uniform_performance_queries": 0,
+  "dev_queries": 0,
+  "eval_queries": 0,
+  "learning_validation_queries": 0
+}

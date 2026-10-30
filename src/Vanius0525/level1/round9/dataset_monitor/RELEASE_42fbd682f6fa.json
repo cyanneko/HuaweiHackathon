@@ -1,0 +1,78 @@
+{
+  "checked_utc": "2026-10-30T07:18:09.974869+00:00",
+  "commit": "42fbd682f6fadc54e23c4ee7cc0bef6563a4513d",
+  "version": "2.1.0",
+  "metadata_audit_passed": true,
+  "metadata_sha256": {
+    "manifest.json": "217e8e24ad6fcf6c1c057bb2031d5cde23fe2e2b35595b095d119922a47aee87",
+    "recipe.json": "d1108eb643b5419fc10952c7e3ae7e592288ac6a8a9d6b50f8fc5329bcb26871",
+    "selection.json": "2080df06a8448fc29ad3e9eafdeca6145d5a370470746cc5fb6ab5ca007a5cc1",
+    "expansion.json": "8ffd2351fddb99a12ef6ec5e9275e7ab9bd4ab429408bf0bf8d3ffcb3d5f0784",
+    "expansion_manifest.json": "53b64cd983def311a5f9764d95a5bf805772e22bd65c7bf29f8a267ff3ce3716",
+    "validation.json": "93f54d887420a8bff86a90b71b5babd766c8051bbe0878589577fdc1a7278955",
+    "eval/VERSION": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+    "tools/random_workloads.py": "1d38c7fa79d02f0d5c0a223fb427b40f5a50cf0c8e6783a429a2074b19d64da4",
+    "tools/fast_allocation.py": "3b7439b612d350e3c313132637d2e5874eebc94c2d594e5d323002c00dc1b681",
+    "tools/expand_v21.py": "4e03065ab440436342b708c16eedc82ee239e4bf1bed4a2d6f46536449849041",
+    "tools/release_v21.py": "6af7c77c80532992c60bf84b86ae66f014e5c0647e285fd93df446795c970674",
+    "tools/verify_v21.py": "1cca146e1d5c562d7a2d7281b7086bf5a6c52fb123999c15f17966a7b65202b9",
+    "tools/verify.py": "d156a2aaf153fc6058466d26baa5553ede3aabd4b27b64a316d7228a29327bd3",
+    "provenance/v2.1-initial-plan/expansion.json": "da6d4dcf9cc8c53c9260ede7c47110f0c84deca289d2b59b384b180613f6656c"
+  },
+  "counts": {
+    "train": 770,
+    "eval": 72,
+    "diagnostics": 1
+  },
+  "recommended_train": 540,
+  "eval_families": {
+    "random_hotspot": 28,
+    "random_zipf": 28,
+    "random_lognormal": 16
+  },
+  "recommended_train_families": {
+    "random_hotspot": 216,
+    "random_lognormal": 108,
+    "random_zipf": 216
+  },
+  "manifest_signature_cross_split_overlaps": {
+    "train/eval": {
+      "sha256": 0,
+      "operation_stream_sha256": 0,
+      "partition_stream_sha256": 0
+    },
+    "train/diagnostics": {
+      "sha256": 0,
+      "operation_stream_sha256": 0,
+      "partition_stream_sha256": 0
+    },
+    "eval/diagnostics": {
+      "sha256": 0,
+      "operation_stream_sha256": 0,
+      "partition_stream_sha256": 0
+    }
+  },
+  "old_eval_retained": 36,
+  "new_eval_added": 36,
+  "new_train_added": 270,
+  "primary_metric": "Equal-weight per-case average score across all 72 eval cases; diagnostic excluded.",
+  "publisher_input_checks": {
+    "checked_raw_inputs": 843,
+    "checked_sidecars": 843,
+    "independently_audited_eval_inputs": 72,
+    "independently_audited_new_training_inputs": 270,
+    "independently_audited_diagnostic_inputs": 1,
+    "training_legality_inherited_after_raw_recheck": 500
+  },
+  "dataset_sha256": "41843f70bd19e28bdbcfc175dc598ea0cab78d163e23810987d22d4a6851ebc7",
+  "suite_id_if_only_final_dataset": "8b8ce80f6ee27d077dd2eb531d9780b8d0128bef83c8dcdb37e96fee173a814f",
+  "input_downloads_bytes": 0,
+  "solver_runs": 0,
+  "scope": "Frozen-commit small-metadata/source audit only. No actual input content or algorithm-score reads; no independent full-input or allocator execution. Publisher passed validation is bound to exact sources and manifest. Remote publication is checked separately.",
+  "limitations": [
+    "Original 500 training cases inherit the fixed v2 audit after raw-byte recheck; all 270 added training cases are independently audited. Historical-source isolation is inherited only for retained parent cases; expansion is checked against all 550 parent cases, not every historical source trace.",
+    "Contains 36 already exposed eval cases plus 36 new traces; the combined suite is not a fresh blind holdout.",
+    "This validator runs no solver; separate official-reference runtime smoke checks do not establish arbitrary candidate speed or score attainability.",
+    "No interleaved BUILD/PROBE phases or 5M-operation limit cases; distribution weights are engineering choices; family also affects build-size distribution."
+  ]
+}

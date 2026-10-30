@@ -1,0 +1,9 @@
+{
+  "previous_results_sha256": "bf630480376418001ef6b40b35e6fe51854325622f892d8b0abbad5237d65449",
+  "original_kernel_sha256": "05affbdcd52a958fa13c1a8f265a026ab89113c760e378df8b36e250140a15eb",
+  "new_kernel_sha256": "7cd3ccf25ab48b8480d6decf93539d2ed3726f98e5ed88b64763f59f87cf1278",
+  "change": "Add std::clock process CPU total; preserve original steady_clock wall timing and statistical calculations.",
+  "background": "Coordinator reported another datasets worktree generating 2.1 inputs outside experiment_lock. No host-wide exclusive window claimed, no other task stopped.",
+  "limitations": "Process CPU excludes descheduling but not frequency/cache/memory contention. Short timings have clock overhead/granularity. Precise deployment timing needs a clean window.",
+  "protocol": "same six skew legal traces, one warmup, three measured repeats, rotated method order; no HashJoin engine reruns or uniform/test evaluation"
+}

@@ -1,0 +1,25 @@
+{
+  "host_process_check_utc": "2026-10-30T07:12:21.671707+00:00",
+  "host_python_processes_examined": 2,
+  "recognized_dataset_python_processes": [],
+  "matched_entrypoints": [
+    "verify_v21.py",
+    "expand_v21.py",
+    "release_v21.py",
+    "runtime_smoke.py",
+    "final_dataset/tools/verify.py",
+    "final_dataset/tools/build.py",
+    "final_dataset/tools/tests"
+  ],
+  "process_scope": "Read-only elevated host snapshot. No matching live process at this instant; does not independently prove past completion or whole-host idleness. No tasks started/stopped.",
+  "publisher_validation": "passed, matches manifest 217e8e24ad6fcf6c1c057bb2031d5cde23fe2e2b35595b095d119922a47aee87",
+  "equivalence_evidence": {
+    "test_source": "final_dataset/tools/tests/test_release_v21.py:test_fast_allocation_matches_frozen_generator_exactly",
+    "test_source_cases": 400,
+    "source_test_scope": "Fixed random seed, n=1..40, bounded integer totals; finite comparison, not a universal proof.",
+    "publisher_readme_claim": "400 allocation comparisons and first25 complete input/metadata exact replays passed.",
+    "separate_machine_readable_equivalence_result_found": false,
+    "monitor_reran_test": false
+  },
+  "scope": "Reports small source/document observations only; no new raw input or solver access."
+}

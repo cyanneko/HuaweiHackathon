@@ -1,0 +1,71 @@
+{
+  "observed_utc": "2026-10-30T06:43:30.643161+00:00",
+  "publication_status": "uncommitted local worktree; remote remains 53e7aed / v2.0.0",
+  "draft_version": "2.1.0",
+  "selection": {
+    "retained_eval_count": 36,
+    "family_counts": {
+      "random_zipf": 14,
+      "random_hotspot": 14,
+      "random_lognormal": 8
+    },
+    "retired_eval_count": 13,
+    "diagnostic_moves": 1,
+    "recommended_train_count": 270,
+    "policy": "Retain every non-edge eval case from the three declared nonuniform iid families; no score threshold or seed replacement."
+  },
+  "expansion_plan": {
+    "added_train": 270,
+    "added_eval": 36,
+    "frozen_before_generation": true,
+    "no_solver_or_score_selection": true
+  },
+  "metadata_sha256": {
+    "selection.json": "37a4e03c2411b33fce54bf9836db049d8e142713ee49efcad21713a879a47ea6",
+    "expansion.json": "da6d4dcf9cc8c53c9260ede7c47110f0c84deca289d2b59b384b180613f6656c",
+    "manifest.json": "4ba88d8a8e85069bebfcc76936331b97f1c06923f327bf0ae18a248b2fc14e6c",
+    "recipe.json": "2222d0cd548d808a378c366ac529e067cd0ea6deb0d3c92eae31c4834ab99b81",
+    "eval/VERSION": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c"
+  },
+  "planned_ranges": {
+    "train": {
+      "cases": 270,
+      "family_counts": {
+        "random_zipf": 108,
+        "random_hotspot": 108,
+        "random_lognormal": 54
+      },
+      "operation_min_median_max": [
+        65947,
+        156402.5,
+        1048576
+      ],
+      "total_operations": 50980651,
+      "memory_min_max": [
+        67108864,
+        4294967296
+      ],
+      "millions_or_more": 5
+    },
+    "eval": {
+      "cases": 36,
+      "family_counts": {
+        "random_zipf": 14,
+        "random_hotspot": 14,
+        "random_lognormal": 8
+      },
+      "operation_min_median_max": [
+        133339,
+        415599.5,
+        1048576
+      ],
+      "total_operations": 16187302,
+      "memory_min_max": [
+        67108864,
+        4294967296
+      ],
+      "millions_or_more": 3
+    }
+  },
+  "scope": "Draft metadata only. Existing manifest/README reflect selected36 before expansion, while expansion plan adds270 train/36 eval. Do not treat interim counts or mutable hashes as final released identity. No solver or raw input reads."
+}

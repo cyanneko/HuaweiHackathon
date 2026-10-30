@@ -1,0 +1,95 @@
+{
+  "observed_utc": "2026-10-30T07:27:39.107240+00:00",
+  "commit": "28db22e42d710755cee793d480cecac4f45a510e",
+  "dataset_id": "dyna_dataset",
+  "version": "1.0.0",
+  "metadata_sha256": {
+    "README.md": "636fe8bcc70c37e5a18fc3427aca633e19c263d97600d6bcc9d8ef16cfe7984b",
+    "VERSION": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "dataset.json": "4ff12f2e8f6441c2a4040535c4782ede6cd7b7adde6340a7a1702701091206cf",
+    "manifest.json": "2ddcec4fd7ce5b7f37e92bb850a24abf66a5769de55cb543854ae412f035d038",
+    "publication_manifest.json": "8bfeabdbc6bf6ec6729ae2cc83cb07cc055e242daff7b954b7d37e2df7bc0244",
+    "source/README.md": "458ac221317bf63ff0b03ecc249046271331dfe3f06171ca3692bb4f1606e725",
+    "source/config.json": "00b5a6f009f3c8c32c27df7feb611023b5a85db95b5c8e4f3afa35a173797962",
+    "audit/report.json": "08f70e04edebbffcd2ad5eb780c8c27c52116a70e8b0253daa793343ba292029",
+    "audit/source_review.md": "bc8a208add3023116895116c7944052d7c516841c9c4e14e6f6d9ef7b90326d0"
+  },
+  "metadata_bytes_read": 122823,
+  "cases": 12,
+  "operations": 60000000,
+  "splits": {
+    "train": 6,
+    "dev": 3,
+    "holdout": 3
+  },
+  "raw_bytes": 1170613062,
+  "gzip_bytes": 386133668,
+  "input_collection_sha256": "532e5a5333c4ce63c01381043a23ffcfbd07484ea529790db3a4a5a76da4c65a",
+  "default_member_suite": false,
+  "holdout_policy_runs_in_this_release": 0,
+  "role_evidence": "Published root README says independent dataset; existing member VERSION/default leaderboard unchanged. Source README calls R72 its main dataset within that research lineage, but no statement replaces final_dataset main comparison.",
+  "phase_modes": {
+    "shared": 6,
+    "staggered": 6
+  },
+  "operator_profiles": {
+    "slow": 4,
+    "fast": 4,
+    "burst": 4
+  },
+  "rare_profiles": {
+    "hot": 2,
+    "none": 9,
+    "cold": 1
+  },
+  "parameter_ranges": {
+    "n": [
+      5000000,
+      5000000
+    ],
+    "k": [
+      2,
+      8
+    ],
+    "p": [
+      32,
+      64
+    ],
+    "memory": [
+      67108864,
+      1073741824
+    ],
+    "pressure": [
+      1.5,
+      12
+    ],
+    "period": [
+      31,
+      1000
+    ],
+    "write": [
+      100,
+      100
+    ],
+    "read": [
+      80,
+      80
+    ],
+    "penalty": [
+      100,
+      100
+    ]
+  },
+  "phase_semantics": "Shared uses common time threshold but no all-operator barrier; each operator SWITCHes on its next sampled visit. Staggered has separate randomized thresholds, allowing BUILD/PROBE overlap. This is source-contract evidence, not an independent input replay.",
+  "heat_semantics": "Operator probabilities evolve on the global clock; per-operator partition probabilities evolve on local visits and stay near uniform in ordinary operators, with three persistent hot/cold scenarios. Partition speed .0025, separate RNG streams, no per-operator Build/Probe quotas.",
+  "publisher_audit": {
+    "status": "complete",
+    "cases": 12,
+    "operations": 60000000,
+    "all_rows_valid": true,
+    "manifest_binding_verified": true
+  },
+  "revision_dependence": "R71 v1/v2 and R72 share base seeds/splits and are paired revisions, not additional independent samples.",
+  "task_scope": "Only pre-sized small metadata/docs. No archive/input contents or algorithm results read. No explicit input download or solver runs. Earlier aborted git diff --stat uncertainty remains separately recorded; this report does not erase it.",
+  "adoption_recommendation": "Treat as separately versioned supplemental dynamic/maximum-N set unless user explicitly changes primary standard. Preserve train/dev/holdout separation and freeze candidate before holdout access."
+}

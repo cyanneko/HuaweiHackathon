@@ -1,0 +1,22 @@
+{
+  "version": "round9-v21-split-v1",
+  "dataset_version": "2.1.0",
+  "public_revision": "c33270386e6899a878e12f3b0031e33737e9d960",
+  "snapshot_revision": "42fbd682f6fadc54e23c4ee7cc0bef6563a4513d",
+  "recommended_training_count": 540,
+  "dev_eligible": "Only the 270 added_training_paths in selection.json; never retained old training or eval.",
+  "dev_family_quotas": {"random_zipf": 42, "random_hotspot": 42, "random_lognormal": 24},
+  "dev_order": "Ascending SHA256 of UTF-8 round9-v21-dev-v1:<decimal seed>, then path; whole seed groups.",
+  "remaining_train_count": 432,
+  "pilot_eligible": "Only added_training_paths remaining in train after dev removal.",
+  "pilot_family_quotas": {"random_zipf": 24, "random_hotspot": 24, "random_lognormal": 12},
+  "pilot_order": "For each family include the longest remaining input by operation count (path breaks ties), then fill the quota by SHA256 of round9-v21-pilot-v1:<decimal seed>, then path.",
+  "pilot_reason": "Include a long flow from every family without looking at solver outcomes; avoid the earlier <=100k-operation selection bias. This pilot is not the official evaluation distribution.",
+  "eval_policy": "All 72 eval cases sealed for one future frozen nomination wave; 36 retained exposed cases plus 36 new cases, not a fully blind test.",
+  "old_training_exposure": "The retained 270 training cases may have participated in earlier train/dev experiments. They remain development data; only newly added training seeds can enter the new reserved dev.",
+  "disjointness": ["seed", "sha256", "operation_stream_sha256", "partition_stream_sha256"],
+  "online_feature_boundary": "Split, seed, family, file names, generator specifications, future N/B, true probabilities and hidden penalty are offline-only. Scheduler inputs remain the original legal callbacks and SystemState.",
+  "solver_results_used_for_split": false,
+  "new_solver_eval_accesses": 0,
+  "new_solver_dev_accesses": 0
+}

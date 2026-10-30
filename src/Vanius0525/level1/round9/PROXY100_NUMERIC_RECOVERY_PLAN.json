@@ -1,0 +1,22 @@
+{
+  "reason": "Case49 official Naive sequential double I/O and exact integer-byte ledger differ by0.030174us at3.8555e10us; the fixed0.01us absolute check was invalid at this scale.",
+  "failure_diagnosis_sha256": "ce4e22579e794e1dddb6a2840efd2c328dc70ad0fc94f1d3b86933b7c5d746a8",
+  "old_execution_freeze_sha256": "2be70f7046b0550b1645d8cc36862a239ae1a305184d002a63ae35395e61c1df",
+  "old_replay_sha256": "0e8de180d51183e0f8e874dd98b052ff862269c5ad498f083071a1bc1430938b",
+  "new_replay_sha256": "9c83b075ab092a3711ec4aeee7a3eeec242bb8cacfced864f5f067b6eb8c9b01",
+  "new_runner_sha256": "ad7a769ecc91feee46f826b22d1a126ddbdf20d1179dc79834e47b1e7a4e44ee",
+  "preparer_sha256": "139d366899142dbb1ba842b91775cbf3196454b0cd92285dad5b40d13eb0d97d",
+  "unchanged": [
+    "scheduler sources100-only",
+    "input selection/order",
+    "engine and true penalty",
+    "all action/capacity/byte checks",
+    "Hit/Miss checks",
+    "sequential Python I/O versus official output0.011us tolerance",
+    "three uninstrumented timed repeats and score formula"
+  ],
+  "new_check": "Exact Fraction(total_written_bytes/W + total_read_bytes/R) against sequential sum with gamma_(io_additions+2)*exact+4ulp(exact), unit roundoff2^-53. Nonnegative terms; no arbitrary performance-dependent tolerance.",
+  "resume": "Reuse48 completedV2 cases that passed the stricter old absolute check. Retry only incompletecase49 and later cases; preserve failedattempt0 and use freshattempt1.",
+  "new_dev_eval_accesses": 0,
+  "runs_of_1us_schedulers": 0
+}

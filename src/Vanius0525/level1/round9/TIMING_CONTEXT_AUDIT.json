@@ -1,0 +1,63 @@
+{
+  "no_solver_runs": true,
+  "new_test_accesses": 0,
+  "reports": {
+    "VALIDATION_RESULTS.json": {
+      "sha256": "e565704684804b1d80640a6f4dd96a133e7b4649a2711c81dcba8ae71b98a88a",
+      "methods": {
+        "best": {
+          "measured_mean_score": 3.5055900896622387,
+          "mean_score_excluding_decision_for_all_methods": 3.505854296610527,
+          "difference": 0.0002642069482883258,
+          "max_measured_decision_fraction": 0.000892633583190917
+        },
+        "fixed": {
+          "measured_mean_score": 3.619998742985229,
+          "mean_score_excluding_decision_for_all_methods": 3.620249838312812,
+          "difference": 0.0002510953275827177,
+          "max_measured_decision_fraction": 0.0009570905028708414
+        },
+        "paired": {
+          "measured_mean_score": 3.7205414983564595,
+          "mean_score_excluding_decision_for_all_methods": 3.721241866559259,
+          "difference": 0.0007003682027995062,
+          "max_measured_decision_fraction": 0.0018276077948206793
+        },
+        "ai_best": {
+          "measured_mean_score": 3.5045165076647264,
+          "mean_score_excluding_decision_for_all_methods": 3.505226663368237,
+          "difference": 0.0007101557035107398,
+          "max_measured_decision_fraction": 0.0012421418228735104
+        }
+      }
+    },
+    "FINAL50_RESULTS.json": {
+      "sha256": "8c749130248de4e4dd23385c21579798155a7231aa82f2a607d8d0542ce2a1b6",
+      "methods": {
+        "best": {
+          "measured_mean_score": 2.6477648672366545,
+          "mean_score_excluding_decision_for_all_methods": 2.6488380161797402,
+          "difference": 0.0010731489430857444,
+          "max_measured_decision_fraction": 0.0051826661570821275
+        },
+        "paired": {
+          "measured_mean_score": 2.8554738341718875,
+          "mean_score_excluding_decision_for_all_methods": 2.8589211515117134,
+          "difference": 0.0034473173398259505,
+          "max_measured_decision_fraction": 0.010194548619324074
+        },
+        "ai_best": {
+          "measured_mean_score": 2.5870301877020982,
+          "mean_score_excluding_decision_for_all_methods": 2.5895846491926746,
+          "difference": 0.002554461490576365,
+          "max_measured_decision_fraction": 0.007571143651516817
+        }
+      }
+    }
+  },
+  "timestamp_evidence_path": "dataset_monitor/GENERATION_TIME_EVIDENCE.json",
+  "timestamp_evidence_sha256": "f3c93576093fb5c4dc297be6b7e621451b5d34815971af2131a0b8bca957175b",
+  "timing_scope": "Our experiment lock serializes our own solver/learning jobs, not independent dataset generation elsewhere. File timestamps alone cannot prove exclusive host CPU.",
+  "evidence_interpretation": "Recorded final50 execution ended before the first observed new-expansion sidecar write. No demonstrated overlap with that expansion, but earlier selection/validation work or unrelated CPU load cannot be excluded.",
+  "metric_interpretation": "Removing decision time is a sensitivity calculation, not a corrected official score. Pure paired gain and physical-byte evidence remain positive; no precise clean-host timing claim or official deadline guarantee follows."
+}

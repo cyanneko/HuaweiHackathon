@@ -1,0 +1,77 @@
+{
+  "observed_utc": "2026-10-30T07:07:30.509232+00:00",
+  "status": "draft metadata audit passed, publisher full input validation still pending",
+  "version": "2.1.0",
+  "metadata_sha256": {
+    "manifest.json": "217e8e24ad6fcf6c1c057bb2031d5cde23fe2e2b35595b095d119922a47aee87",
+    "recipe.json": "d1108eb643b5419fc10952c7e3ae7e592288ac6a8a9d6b50f8fc5329bcb26871",
+    "selection.json": "2080df06a8448fc29ad3e9eafdeca6145d5a370470746cc5fb6ab5ca007a5cc1",
+    "expansion.json": "8ffd2351fddb99a12ef6ec5e9275e7ab9bd4ab429408bf0bf8d3ffcb3d5f0784",
+    "validation.json": "03f4b086bd1a846a85762a77fcf0bb534efc1dcfbdcc3e48fe879089be80f957"
+  },
+  "stable_during_read": true,
+  "counts": {
+    "train": 770,
+    "eval": 72,
+    "diagnostics": 1
+  },
+  "families": {
+    "train": {
+      "partition_zipf": 1,
+      "moving_hotspot": 1,
+      "build_heavy": 9,
+      "near_uniform": 11,
+      "zipf": 7,
+      "hot_small": 11,
+      "hot_large": 10,
+      "moving_hot": 13,
+      "operator_competition": 9,
+      "uniform": 16,
+      "hot": 16,
+      "markov": 16,
+      "random_hotspot": 216,
+      "random_lognormal": 108,
+      "random_zipf": 216,
+      "random_uniform": 90,
+      "one_byte_over": 10,
+      "empty_partition_probe": 10
+    },
+    "eval": {
+      "random_hotspot": 28,
+      "random_zipf": 28,
+      "random_lognormal": 16
+    },
+    "diagnostics": {
+      "one_byte_over": 1
+    }
+  },
+  "recommended_training_cases": 540,
+  "recommended_training_families": {
+    "random_hotspot": 216,
+    "random_lognormal": 108,
+    "random_zipf": 216
+  },
+  "cross_split_manifest_signature_overlaps": {
+    "train/eval": {
+      "sha256": 0,
+      "operation_stream_sha256": 0,
+      "partition_stream_sha256": 0
+    },
+    "train/diagnostics": {
+      "sha256": 0,
+      "operation_stream_sha256": 0,
+      "partition_stream_sha256": 0
+    },
+    "eval/diagnostics": {
+      "sha256": 0,
+      "operation_stream_sha256": 0,
+      "partition_stream_sha256": 0
+    }
+  },
+  "manifest_declared_count_range_errors": [],
+  "generated_specs_checked": 722,
+  "generated_spec_range_errors": [],
+  "publisher_status": "pending",
+  "publisher_manifest_matches": true,
+  "scope": "No input reads or solver runs. Range/count/hash checks use manifest and recipe declarations; no independent proof of actual key/tuple/partition/phase legality. Diagnostic1 is separate; training recommendation excludes preserved historical uniform/corner rows. All metadata remains uncommitted and mutable."
+}

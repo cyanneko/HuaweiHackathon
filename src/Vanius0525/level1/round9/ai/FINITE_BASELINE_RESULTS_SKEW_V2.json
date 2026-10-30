@@ -1,0 +1,3573 @@
+{
+  "scope": "skew-only user-directed target; six independent seeds, 24 prefixes; fixed statistical kernels, no AI or closed-loop gain",
+  "rows": [
+    {
+      "id": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "family": "zipf",
+      "relation": "positive",
+      "objects": 128,
+      "events": 3229,
+      "source_log_sha256": "b0ff0922c38b30f77f9f95699d9c0553c8b6691df6d8fd1822202e224dcb7d73",
+      "causal_incremental_reference_matches": true,
+      "round8_next_and_full_metrics_match": true,
+      "timing": {
+        "next_only": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 26.411,
+              "update_us": 23.827,
+              "query_us": 1.642
+            },
+            {
+              "repeat": 1,
+              "total_us": 24.267,
+              "update_us": 21.3,
+              "query_us": 1.842
+            },
+            {
+              "repeat": 2,
+              "total_us": 21.641,
+              "update_us": 19.156,
+              "query_us": 1.5239999999999998
+            }
+          ],
+          "median_total_us": 24.267,
+          "median_update_us": 21.3,
+          "median_query_us": 1.642,
+          "estimated_payload_bytes": 2048,
+          "anonymous_groups": 0
+        },
+        "incremental": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 286.618,
+              "update_us": 282.97,
+              "query_us": 2.565
+            },
+            {
+              "repeat": 1,
+              "total_us": 626.894,
+              "update_us": 621.7139999999999,
+              "query_us": 4.0280000000000005
+            },
+            {
+              "repeat": 2,
+              "total_us": 252.722,
+              "update_us": 250.128,
+              "query_us": 1.984
+            }
+          ],
+          "median_total_us": 286.618,
+          "median_update_us": 282.97,
+          "median_query_us": 2.565,
+          "estimated_payload_bytes": 2048,
+          "anonymous_groups": 0
+        },
+        "em1": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 480.698,
+              "update_us": 451.292,
+              "query_us": 28.063
+            },
+            {
+              "repeat": 1,
+              "total_us": 773.821,
+              "update_us": 738.144,
+              "query_us": 33.954
+            },
+            {
+              "repeat": 2,
+              "total_us": 535.904,
+              "update_us": 503.752,
+              "query_us": 31.46
+            }
+          ],
+          "median_total_us": 535.904,
+          "median_update_us": 503.752,
+          "median_query_us": 31.46,
+          "estimated_payload_bytes": 118152,
+          "anonymous_groups": 596
+        },
+        "em4": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 654.299,
+              "update_us": 551.694,
+              "query_us": 100.963
+            },
+            {
+              "repeat": 1,
+              "total_us": 902.233,
+              "update_us": 751.836,
+              "query_us": 149.426
+            },
+            {
+              "repeat": 2,
+              "total_us": 559.589,
+              "update_us": 459.668,
+              "query_us": 99.15
+            }
+          ],
+          "median_total_us": 654.299,
+          "median_update_us": 551.694,
+          "median_query_us": 100.963,
+          "estimated_payload_bytes": 118152,
+          "anonymous_groups": 596
+        },
+        "em16": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 953.031,
+              "update_us": 500.91700000000003,
+              "query_us": 450.881
+            },
+            {
+              "repeat": 1,
+              "total_us": 1046.624,
+              "update_us": 542.135,
+              "query_us": 503.538
+            },
+            {
+              "repeat": 2,
+              "total_us": 866.384,
+              "update_us": 479.816,
+              "query_us": 385.907
+            }
+          ],
+          "median_total_us": 953.031,
+          "median_update_us": 500.91700000000003,
+          "median_query_us": 450.881,
+          "estimated_payload_bytes": 118152,
+          "anonymous_groups": 596
+        },
+        "full_mle": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 1384.644,
+              "update_us": 487.51099999999997,
+              "query_us": 895.902
+            },
+            {
+              "repeat": 1,
+              "total_us": 1601.248,
+              "update_us": 568.906,
+              "query_us": 1031.159
+            },
+            {
+              "repeat": 2,
+              "total_us": 1447.915,
+              "update_us": 481.77,
+              "query_us": 965.133
+            }
+          ],
+          "median_total_us": 1447.915,
+          "median_update_us": 487.51099999999997,
+          "median_query_us": 965.133,
+          "estimated_payload_bytes": 118152,
+          "anonymous_groups": 596
+        }
+      },
+      "states": [
+        {
+          "prefix": 64,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 98,
+          "largest_ambiguous_class": 39,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.079195099651418,
+              "future_logloss": 4.08358544929506,
+              "true_squared_error": 0.03647578705504632,
+              "resident_true_mass_abs_error": 0.26245132033792284,
+              "l1_distance_to_full_mle": 0.3004957507438016,
+              "retained_true_probability_mass": 0.5079396353104231,
+              "retained_true_cost_proxy": 13709.865157336826,
+              "retained_future_cost_proxy": 13724.338530273439,
+              "retained_symmetric_difference_to_full_mle": 13,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 4.050013314156875,
+              "future_logloss": 4.059316614808941,
+              "true_squared_error": 0.03523430247918622,
+              "resident_true_mass_abs_error": 0.19875812185090458,
+              "l1_distance_to_full_mle": 0.03560782501409024,
+              "retained_true_probability_mass": 0.5490144381392009,
+              "retained_true_cost_proxy": 14537.517935582644,
+              "retained_future_cost_proxy": 14444.951096435545,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.019909494204401,
+              "future_logloss": 4.029702848254869,
+              "true_squared_error": 0.03110233406606506,
+              "resident_true_mass_abs_error": 0.18895089189205572,
+              "l1_distance_to_full_mle": 0.03905025535528674,
+              "retained_true_probability_mass": 0.5456788840271872,
+              "retained_true_cost_proxy": 14456.426583831679,
+              "retained_future_cost_proxy": 14378.41037548828,
+              "retained_symmetric_difference_to_full_mle": 3,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.014402008090420845,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.016888810541575,
+              "future_logloss": 4.026399925515921,
+              "true_squared_error": 0.031259586138644976,
+              "resident_true_mass_abs_error": 0.18553544242201925,
+              "l1_distance_to_full_mle": 0.0009493498754741215,
+              "retained_true_probability_mass": 0.5490144381392009,
+              "retained_true_cost_proxy": 14537.517935582644,
+              "retained_future_cost_proxy": 14444.951096435545,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0003314311539193912,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.016877700414571,
+              "future_logloss": 4.026367122247663,
+              "true_squared_error": 0.031281971407748334,
+              "resident_true_mass_abs_error": 0.1854583178400726,
+              "l1_distance_to_full_mle": 3.0330085613178293e-09,
+              "retained_true_probability_mass": 0.5490144381392009,
+              "retained_true_cost_proxy": 14537.517935582644,
+              "retained_future_cost_proxy": 14444.951096435545,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 1.448166545015006e-09,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.016877700562194,
+              "future_logloss": 4.026367122351966,
+              "true_squared_error": 0.03128197153346173,
+              "resident_true_mass_abs_error": 0.1854583177227403,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.5490144381392009,
+              "retained_true_cost_proxy": 14537.517935582644,
+              "retained_future_cost_proxy": 14444.951096435545,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 19,
+                "last_step": 9.602384165585676e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 256,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 54,
+          "largest_ambiguous_class": 22,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 3.807112764252043,
+              "future_logloss": 3.813061249693562,
+              "true_squared_error": 0.01022323089077929,
+              "resident_true_mass_abs_error": 0.15858934424213472,
+              "l1_distance_to_full_mle": 0.3003871584916898,
+              "retained_true_probability_mass": 0.5911780488457747,
+              "retained_true_cost_proxy": 15293.629024814181,
+              "retained_future_cost_proxy": 15164.655995361327,
+              "retained_symmetric_difference_to_full_mle": 14,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 3.7871383447869387,
+              "future_logloss": 3.7903102350233246,
+              "true_squared_error": 0.0117756062270795,
+              "resident_true_mass_abs_error": 0.14255737254341355,
+              "l1_distance_to_full_mle": 0.07682258741244509,
+              "retained_true_probability_mass": 0.6149069784722497,
+              "retained_true_cost_proxy": 15790.96929869438,
+              "retained_future_cost_proxy": 15778.729277099608,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 3.769508926572159,
+              "future_logloss": 3.7740844529878523,
+              "true_squared_error": 0.007012203732557157,
+              "resident_true_mass_abs_error": 0.11473192910013769,
+              "l1_distance_to_full_mle": 0.02526946263802607,
+              "retained_true_probability_mass": 0.6139038512959447,
+              "retained_true_cost_proxy": 15749.952991174545,
+              "retained_future_cost_proxy": 15722.53653930664,
+              "retained_symmetric_difference_to_full_mle": 5,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0140079583703063,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 3.7671554877605606,
+              "future_logloss": 3.770730246597645,
+              "true_squared_error": 0.0070565158185783294,
+              "resident_true_mass_abs_error": 0.11643649719483856,
+              "l1_distance_to_full_mle": 0.001038782848235893,
+              "retained_true_probability_mass": 0.6149069784722498,
+              "retained_true_cost_proxy": 15790.96929869438,
+              "retained_future_cost_proxy": 15778.729277099608,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0003939723463372846,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 3.766988259707179,
+              "future_logloss": 3.7705065634338175,
+              "true_squared_error": 0.007061702693832011,
+              "resident_true_mass_abs_error": 0.11652291984850333,
+              "l1_distance_to_full_mle": 7.246978419141528e-08,
+              "retained_true_probability_mass": 0.6149069784722498,
+              "retained_true_cost_proxy": 15790.96929869438,
+              "retained_future_cost_proxy": 15778.729277099608,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 3.686562680127459e-08,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 3.76698824783675,
+              "future_logloss": 3.7705065474758017,
+              "true_squared_error": 0.007061703187111356,
+              "resident_true_mass_abs_error": 0.11652291923677244,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.6149069784722498,
+              "retained_true_cost_proxy": 15790.96929869438,
+              "retained_future_cost_proxy": 15778.729277099608,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 26,
+                "last_step": 6.14698292267235e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 1024,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 15,
+          "largest_ambiguous_class": 6,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 3.6982906768589148,
+              "future_logloss": 3.726189216827968,
+              "true_squared_error": 0.0026163230225656965,
+              "resident_true_mass_abs_error": 0.05023647479644999,
+              "l1_distance_to_full_mle": 0.21774412280197097,
+              "retained_true_probability_mass": 0.6155287623375593,
+              "retained_true_cost_proxy": 15820.659713373288,
+              "retained_future_cost_proxy": 15547.932318359373,
+              "retained_symmetric_difference_to_full_mle": 2,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 3.6641790119369544,
+              "future_logloss": 3.6976614746843786,
+              "true_squared_error": 0.002411426180349231,
+              "resident_true_mass_abs_error": 0.033371675518112265,
+              "l1_distance_to_full_mle": 0.06778044119077144,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15648.291093749998,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 3.66206059812858,
+              "future_logloss": 3.6953716059321042,
+              "true_squared_error": 0.0013809040896952374,
+              "resident_true_mass_abs_error": 0.014036618814516011,
+              "l1_distance_to_full_mle": 0.02172117529545378,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15648.291093749998,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.011280308818954365,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 3.6608319967885317,
+              "future_logloss": 3.6941959809279306,
+              "true_squared_error": 0.0013609761349529196,
+              "resident_true_mass_abs_error": 0.015018640288067764,
+              "l1_distance_to_full_mle": 0.0016039738193310742,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15648.291093749998,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.00024328490394387448,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 3.660724540850018,
+              "future_logloss": 3.6940609418654247,
+              "true_squared_error": 0.001358400571917902,
+              "resident_true_mass_abs_error": 0.015096532466949864,
+              "l1_distance_to_full_mle": 1.404031284146757e-06,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15648.291093749998,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 3.831846712709641e-07,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 3.6607244650327107,
+              "future_logloss": 3.69406083125467,
+              "true_squared_error": 0.001358401363936668,
+              "resident_true_mass_abs_error": 0.015096529317331187,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15648.291093749998,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 37,
+                "last_step": 8.23158208262953e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 4096,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 0,
+          "largest_ambiguous_class": 0,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 3.6374685931328825,
+              "future_logloss": 3.6747177771201223,
+              "true_squared_error": 0.00058546248228486,
+              "resident_true_mass_abs_error": 0.028201821885261436,
+              "l1_distance_to_full_mle": 0.1163143363116431,
+              "retained_true_probability_mass": 0.6160207446960227,
+              "retained_true_cost_proxy": 15783.145639068263,
+              "retained_future_cost_proxy": 15334.356630126953,
+              "retained_symmetric_difference_to_full_mle": 4,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 3.6180079582054563,
+              "future_logloss": 3.657713585518165,
+              "true_squared_error": 0.0006957627880518682,
+              "resident_true_mass_abs_error": 0.018663974893432522,
+              "l1_distance_to_full_mle": 0.047471000341670566,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15484.085487304688,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 3.6169751404739845,
+              "future_logloss": 3.6587937441623533,
+              "true_squared_error": 0.0002396661309181264,
+              "resident_true_mass_abs_error": 0.009008682807255197,
+              "l1_distance_to_full_mle": 0.009192027178966186,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15484.085487304688,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.00668731826828442,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 3.616753726402102,
+              "future_logloss": 3.6585049109974093,
+              "true_squared_error": 0.00022905194749543262,
+              "resident_true_mass_abs_error": 0.00906942664736865,
+              "l1_distance_to_full_mle": 0.0006382656737785402,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15484.085487304688,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.00018532133203536666,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 3.61675427350075,
+              "future_logloss": 3.6585312061549775,
+              "true_squared_error": 0.00022874126724579735,
+              "resident_true_mass_abs_error": 0.009097148311341674,
+              "l1_distance_to_full_mle": 5.184108897182162e-07,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15484.085487304688,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 1.6266069528814153e-07,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 3.616754287523766,
+              "future_logloss": 3.658531240575832,
+              "true_squared_error": 0.00022874319690973778,
+              "resident_true_mass_abs_error": 0.009097145066417456,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.6195157453722032,
+              "retained_true_cost_proxy": 15881.6620237284,
+              "retained_future_cost_proxy": 15484.085487304688,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 39,
+                "last_step": 7.72452379838029e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "learning_train_zipf_negative_s860109_b257_lengthbalanced_v2",
+      "seed": 860109,
+      "family": "zipf",
+      "relation": "negative",
+      "objects": 512,
+      "events": 52,
+      "source_log_sha256": "78a826f9316e07e62d16e5b44aab0d21641d3b9d67f5c5c11b86738426120f51",
+      "causal_incremental_reference_matches": true,
+      "round8_next_and_full_metrics_match": true,
+      "timing": {
+        "next_only": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 11.753,
+              "update_us": 0.921,
+              "query_us": 6.773000000000001
+            },
+            {
+              "repeat": 1,
+              "total_us": 7.725,
+              "update_us": 0.681,
+              "query_us": 5.1
+            },
+            {
+              "repeat": 2,
+              "total_us": 9.208,
+              "update_us": 0.751,
+              "query_us": 5.4190000000000005
+            }
+          ],
+          "median_total_us": 9.208,
+          "median_update_us": 0.751,
+          "median_query_us": 5.4190000000000005,
+          "estimated_payload_bytes": 8192,
+          "anonymous_groups": 0
+        },
+        "incremental": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 59.354,
+              "update_us": 48.543,
+              "query_us": 8.736
+            },
+            {
+              "repeat": 1,
+              "total_us": 45.707,
+              "update_us": 35.449,
+              "query_us": 7.845000000000001
+            },
+            {
+              "repeat": 2,
+              "total_us": 43.764,
+              "update_us": 35.578,
+              "query_us": 7.234000000000001
+            }
+          ],
+          "median_total_us": 45.707,
+          "median_update_us": 35.578,
+          "median_query_us": 7.845000000000001,
+          "estimated_payload_bytes": 8192,
+          "anonymous_groups": 0
+        },
+        "em1": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 143.784,
+              "update_us": 53.792,
+              "query_us": 87.39800000000001
+            },
+            {
+              "repeat": 1,
+              "total_us": 68.101,
+              "update_us": 34.335,
+              "query_us": 32.482
+            },
+            {
+              "repeat": 2,
+              "total_us": 64.142,
+              "update_us": 31.25,
+              "query_us": 31.721
+            }
+          ],
+          "median_total_us": 68.101,
+          "median_update_us": 34.335,
+          "median_query_us": 32.482,
+          "estimated_payload_bytes": 33960,
+          "anonymous_groups": 8
+        },
+        "em4": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 183.3,
+              "update_us": 52.178999999999995,
+              "query_us": 128.196
+            },
+            {
+              "repeat": 1,
+              "total_us": 121.512,
+              "update_us": 30.047,
+              "query_us": 90.10300000000001
+            },
+            {
+              "repeat": 2,
+              "total_us": 117.514,
+              "update_us": 29.156000000000002,
+              "query_us": 87.17699999999999
+            }
+          ],
+          "median_total_us": 121.512,
+          "median_update_us": 30.047,
+          "median_query_us": 90.10300000000001,
+          "estimated_payload_bytes": 33960,
+          "anonymous_groups": 8
+        },
+        "em16": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 535.533,
+              "update_us": 51.328,
+              "query_us": 481.46000000000004
+            },
+            {
+              "repeat": 1,
+              "total_us": 367.953,
+              "update_us": 29.456,
+              "query_us": 337.315
+            },
+            {
+              "repeat": 2,
+              "total_us": 386.609,
+              "update_us": 29.286,
+              "query_us": 356.201
+            }
+          ],
+          "median_total_us": 386.609,
+          "median_update_us": 29.456,
+          "median_query_us": 356.201,
+          "estimated_payload_bytes": 33960,
+          "anonymous_groups": 8
+        },
+        "full_mle": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 10831.192,
+              "update_us": 40.096000000000004,
+              "query_us": 10788.221
+            },
+            {
+              "repeat": 1,
+              "total_us": 10035.747,
+              "update_us": 32.161,
+              "query_us": 10002.322
+            },
+            {
+              "repeat": 2,
+              "total_us": 10412.726,
+              "update_us": 74.32300000000001,
+              "query_us": 10336.259
+            }
+          ],
+          "median_total_us": 10412.726,
+          "median_update_us": 40.096000000000004,
+          "median_query_us": 10336.259,
+          "estimated_payload_bytes": 33960,
+          "anonymous_groups": 8
+        }
+      },
+      "states": [
+        {
+          "prefix": 64,
+          "resident_snapshot_available": false,
+          "ambiguous_objects": 512,
+          "largest_ambiguous_class": 512,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 6.238324625039507,
+              "future_logloss": 6.238324625039507,
+              "true_squared_error": 0.14638137959367256,
+              "resident_true_mass_abs_error": null,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": null,
+              "retained_true_cost_proxy": null,
+              "retained_future_cost_proxy": null,
+              "retained_symmetric_difference_to_full_mle": null,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 6.238324625039507,
+              "future_logloss": 6.238324625039507,
+              "true_squared_error": 0.14638137959367256,
+              "resident_true_mass_abs_error": null,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": null,
+              "retained_true_cost_proxy": null,
+              "retained_future_cost_proxy": null,
+              "retained_symmetric_difference_to_full_mle": null,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 6.238324625039507,
+              "future_logloss": 6.238324625039507,
+              "true_squared_error": 0.14638137959367256,
+              "resident_true_mass_abs_error": null,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": null,
+              "retained_true_cost_proxy": null,
+              "retained_future_cost_proxy": null,
+              "retained_symmetric_difference_to_full_mle": null,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em4": {
+              "true_logloss": 6.238324625039507,
+              "future_logloss": 6.238324625039507,
+              "true_squared_error": 0.14638137959367256,
+              "resident_true_mass_abs_error": null,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": null,
+              "retained_true_cost_proxy": null,
+              "retained_future_cost_proxy": null,
+              "retained_symmetric_difference_to_full_mle": null,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em16": {
+              "true_logloss": 6.238324625039507,
+              "future_logloss": 6.238324625039507,
+              "true_squared_error": 0.14638137959367256,
+              "resident_true_mass_abs_error": null,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": null,
+              "retained_true_cost_proxy": null,
+              "retained_future_cost_proxy": null,
+              "retained_symmetric_difference_to_full_mle": null,
+              "fit": {
+                "iterations": 16,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "full_mle": {
+              "true_logloss": 6.238324625039507,
+              "future_logloss": 6.238324625039507,
+              "true_squared_error": 0.14638137959367256,
+              "resident_true_mass_abs_error": null,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": null,
+              "retained_true_cost_proxy": null,
+              "retained_future_cost_proxy": null,
+              "retained_symmetric_difference_to_full_mle": null,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 256,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 511,
+          "largest_ambiguous_class": 511,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 5.496022661799797,
+              "future_logloss": 5.5199901343791975,
+              "true_squared_error": 0.1360656247260235,
+              "resident_true_mass_abs_error": 0.06152741476052681,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9985042056805935,
+              "retained_true_cost_proxy": 25.81781406551696,
+              "retained_future_cost_proxy": 26.502420166015625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 5.496022661799797,
+              "future_logloss": 5.5199901343791975,
+              "true_squared_error": 0.1360656247260235,
+              "resident_true_mass_abs_error": 0.06152741476052681,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9985042056805935,
+              "retained_true_cost_proxy": 25.81781406551696,
+              "retained_future_cost_proxy": 26.502420166015625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 5.496022661799797,
+              "future_logloss": 5.5199901343791975,
+              "true_squared_error": 0.1360656247260235,
+              "resident_true_mass_abs_error": 0.06152741476052681,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9985042056805935,
+              "retained_true_cost_proxy": 25.81781406551696,
+              "retained_future_cost_proxy": 26.502420166015625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em4": {
+              "true_logloss": 5.496022661799797,
+              "future_logloss": 5.5199901343791975,
+              "true_squared_error": 0.1360656247260235,
+              "resident_true_mass_abs_error": 0.06152741476052681,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9985042056805935,
+              "retained_true_cost_proxy": 25.81781406551696,
+              "retained_future_cost_proxy": 26.502420166015625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em16": {
+              "true_logloss": 5.496022661799797,
+              "future_logloss": 5.5199901343791975,
+              "true_squared_error": 0.1360656247260235,
+              "resident_true_mass_abs_error": 0.06152741476052681,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9985042056805935,
+              "retained_true_cost_proxy": 25.81781406551696,
+              "retained_future_cost_proxy": 26.502420166015625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "full_mle": {
+              "true_logloss": 5.496022661799797,
+              "future_logloss": 5.5199901343791975,
+              "true_squared_error": 0.1360656247260235,
+              "resident_true_mass_abs_error": 0.06152741476052681,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9985042056805935,
+              "retained_true_cost_proxy": 25.81781406551696,
+              "retained_future_cost_proxy": 26.502420166015625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 2,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 1024,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 506,
+          "largest_ambiguous_class": 474,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.881809722771753,
+              "future_logloss": 4.909017478045214,
+              "true_squared_error": 0.12213387961142654,
+              "resident_true_mass_abs_error": 0.05784375368350925,
+              "l1_distance_to_full_mle": 0.10909910484954019,
+              "retained_true_probability_mass": 0.9985042056805935,
+              "retained_true_cost_proxy": 25.81781406551696,
+              "retained_future_cost_proxy": 26.310549804687497,
+              "retained_symmetric_difference_to_full_mle": 13,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 5.288826092019539,
+              "future_logloss": 5.296743581930375,
+              "true_squared_error": 0.1338379514527016,
+              "resident_true_mass_abs_error": 0.00460047823216736,
+              "l1_distance_to_full_mle": 0.1052407421570041,
+              "retained_true_probability_mass": 0.9980658762989852,
+              "retained_true_cost_proxy": 25.792597607239156,
+              "retained_future_cost_proxy": 26.115363281249998,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.831121013965817,
+              "future_logloss": 4.858503067650865,
+              "true_squared_error": 0.12073270437038346,
+              "resident_true_mass_abs_error": 0.0045049755969570615,
+              "l1_distance_to_full_mle": 0.0020014053241640332,
+              "retained_true_probability_mass": 0.9980658762989852,
+              "retained_true_cost_proxy": 25.792597607239156,
+              "retained_future_cost_proxy": 26.11536328125,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0017573946833314043,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.830607333461882,
+              "future_logloss": 4.857966336066306,
+              "true_squared_error": 0.12071837747468352,
+              "resident_true_mass_abs_error": 0.004019598607489572,
+              "l1_distance_to_full_mle": 0.0009342078015134273,
+              "retained_true_probability_mass": 0.9980658762989852,
+              "retained_true_cost_proxy": 25.792597607239156,
+              "retained_future_cost_proxy": 26.11536328125,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.00012522704075604968,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.83019375182991,
+              "future_logloss": 4.85752383408459,
+              "true_squared_error": 0.12070698175718508,
+              "resident_true_mass_abs_error": 0.0035797186343607956,
+              "l1_distance_to_full_mle": 5.3937746812661295e-05,
+              "retained_true_probability_mass": 0.9980658762989852,
+              "retained_true_cost_proxy": 25.792597607239156,
+              "retained_future_cost_proxy": 26.11536328125,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 7.232004028365885e-06,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.830168965338467,
+              "future_logloss": 4.857496743014937,
+              "true_squared_error": 0.12070629700085196,
+              "resident_true_mass_abs_error": 0.0035527583431071985,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9980658762989852,
+              "retained_true_cost_proxy": 25.792597607239156,
+              "retained_future_cost_proxy": 26.11536328125,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 211,
+                "last_step": 9.3257228328536e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 4096,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 489,
+          "largest_ambiguous_class": 460,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.14896554962079,
+              "future_logloss": 4.122372751568047,
+              "true_squared_error": 0.08328954190737024,
+              "resident_true_mass_abs_error": 0.04546458135247178,
+              "l1_distance_to_full_mle": 0.10090864569308941,
+              "retained_true_probability_mass": 0.9985042056805935,
+              "retained_true_cost_proxy": 25.81781406551696,
+              "retained_future_cost_proxy": 25.74692626953125,
+              "retained_symmetric_difference_to_full_mle": 21,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 5.1521606021992765,
+              "future_logloss": 5.149013071161612,
+              "true_squared_error": 0.13149681325797696,
+              "resident_true_mass_abs_error": 0.005303623436510252,
+              "l1_distance_to_full_mle": 0.47997807667472386,
+              "retained_true_probability_mass": 0.9981242184313266,
+              "retained_true_cost_proxy": 25.802019759412488,
+              "retained_future_cost_proxy": 26.51825146484375,
+              "retained_symmetric_difference_to_full_mle": 7,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.110060677090208,
+              "future_logloss": 4.085786493566431,
+              "true_squared_error": 0.08080598608806909,
+              "resident_true_mass_abs_error": 0.0036860318042510887,
+              "l1_distance_to_full_mle": 0.01320265289040871,
+              "retained_true_probability_mass": 0.9980583592100463,
+              "retained_true_cost_proxy": 25.783325228057713,
+              "retained_future_cost_proxy": 26.518251464843747,
+              "retained_symmetric_difference_to_full_mle": 4,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0038043308068180376,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.105807120208635,
+              "future_logloss": 4.081587785065109,
+              "true_squared_error": 0.08053490966578389,
+              "resident_true_mass_abs_error": 0.000655691367366984,
+              "l1_distance_to_full_mle": 0.0034889930181004588,
+              "retained_true_probability_mass": 0.9980583592100463,
+              "retained_true_cost_proxy": 25.783325228057713,
+              "retained_future_cost_proxy": 26.518251464843747,
+              "retained_symmetric_difference_to_full_mle": 4,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0001447045955993932,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.104446648060881,
+              "future_logloss": 4.080278351530992,
+              "true_squared_error": 0.08044167062555195,
+              "resident_true_mass_abs_error": 0.0005233490015829068,
+              "l1_distance_to_full_mle": 0.00012226683511127852,
+              "retained_true_probability_mass": 0.9980507882490116,
+              "retained_true_cost_proxy": 25.791642875646733,
+              "retained_future_cost_proxy": 26.426321777343748,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 9.779226533448672e-06,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.104406736597054,
+              "future_logloss": 4.0802456122795565,
+              "true_squared_error": 0.08043832164393551,
+              "resident_true_mass_abs_error": 0.0005794452316557619,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9980507882490116,
+              "retained_true_cost_proxy": 25.791642875646737,
+              "retained_future_cost_proxy": 26.426321777343748,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 785,
+                "last_step": 9.96489141202872e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "family": "hotspot",
+      "relation": "negative",
+      "objects": 128,
+      "events": 1067,
+      "source_log_sha256": "774108eb9812965fa59350d410e14a8e038f5a994a068734a177de833391023e",
+      "causal_incremental_reference_matches": true,
+      "round8_next_and_full_metrics_match": true,
+      "timing": {
+        "next_only": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 7.624,
+              "update_us": 4.73,
+              "query_us": 1.533
+            },
+            {
+              "repeat": 1,
+              "total_us": 8.417,
+              "update_us": 5.601,
+              "query_us": 1.543
+            },
+            {
+              "repeat": 2,
+              "total_us": 7.204,
+              "update_us": 4.4990000000000006,
+              "query_us": 1.593
+            }
+          ],
+          "median_total_us": 7.624,
+          "median_update_us": 4.73,
+          "median_query_us": 1.543,
+          "estimated_payload_bytes": 2048,
+          "anonymous_groups": 0
+        },
+        "incremental": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 184.182,
+              "update_us": 180.966,
+              "query_us": 2.2649999999999997
+            },
+            {
+              "repeat": 1,
+              "total_us": 209.35,
+              "update_us": 205.122,
+              "query_us": 2.795
+            },
+            {
+              "repeat": 2,
+              "total_us": 182.278,
+              "update_us": 179.673,
+              "query_us": 2.014
+            }
+          ],
+          "median_total_us": 184.182,
+          "median_update_us": 180.966,
+          "median_query_us": 2.2649999999999997,
+          "estimated_payload_bytes": 2048,
+          "anonymous_groups": 0
+        },
+        "em1": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 404.883,
+              "update_us": 346.411,
+              "query_us": 57.369
+            },
+            {
+              "repeat": 1,
+              "total_us": 441.523,
+              "update_us": 374.826,
+              "query_us": 65.947
+            },
+            {
+              "repeat": 2,
+              "total_us": 476.791,
+              "update_us": 417.69800000000004,
+              "query_us": 58.431
+            }
+          ],
+          "median_total_us": 441.523,
+          "median_update_us": 374.826,
+          "median_query_us": 58.431,
+          "estimated_payload_bytes": 128096,
+          "anonymous_groups": 313
+        },
+        "em4": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 572.774,
+              "update_us": 352.602,
+              "query_us": 219.07
+            },
+            {
+              "repeat": 1,
+              "total_us": 612.42,
+              "update_us": 384.113,
+              "query_us": 227.494
+            },
+            {
+              "repeat": 2,
+              "total_us": 614.815,
+              "update_us": 394.08299999999997,
+              "query_us": 219.89999999999998
+            }
+          ],
+          "median_total_us": 612.42,
+          "median_update_us": 384.113,
+          "median_query_us": 219.89999999999998,
+          "estimated_payload_bytes": 128096,
+          "anonymous_groups": 313
+        },
+        "em16": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 1239.607,
+              "update_us": 318.177,
+              "query_us": 920.317
+            },
+            {
+              "repeat": 1,
+              "total_us": 1226.612,
+              "update_us": 354.427,
+              "query_us": 871.354
+            },
+            {
+              "repeat": 2,
+              "total_us": 1297.268,
+              "update_us": 322.30600000000004,
+              "query_us": 974.201
+            }
+          ],
+          "median_total_us": 1239.607,
+          "median_update_us": 322.30600000000004,
+          "median_query_us": 920.317,
+          "estimated_payload_bytes": 128096,
+          "anonymous_groups": 313
+        },
+        "full_mle": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 9134.093,
+              "update_us": 341.483,
+              "query_us": 8791.409
+            },
+            {
+              "repeat": 1,
+              "total_us": 9204.73,
+              "update_us": 409.413,
+              "query_us": 8794.174
+            },
+            {
+              "repeat": 2,
+              "total_us": 8383.17,
+              "update_us": 356.52,
+              "query_us": 8025.497
+            }
+          ],
+          "median_total_us": 9134.093,
+          "median_update_us": 356.52,
+          "median_query_us": 8791.409,
+          "estimated_payload_bytes": 128096,
+          "anonymous_groups": 313
+        }
+      },
+      "states": [
+        {
+          "prefix": 64,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 122,
+          "largest_ambiguous_class": 76,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.722748466444429,
+              "future_logloss": 4.728327356972824,
+              "true_squared_error": 0.03413944403780678,
+              "resident_true_mass_abs_error": 0.29392324093816835,
+              "l1_distance_to_full_mle": 0.2900154400411735,
+              "retained_true_probability_mass": 0.9491071428571464,
+              "retained_true_cost_proxy": 287.2046571428571,
+              "retained_future_cost_proxy": 282.16492700195306,
+              "retained_symmetric_difference_to_full_mle": 14,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 4.621577852119468,
+              "future_logloss": 4.626062850216759,
+              "true_squared_error": 0.033487314461164916,
+              "resident_true_mass_abs_error": 0.15172894569446516,
+              "l1_distance_to_full_mle": 0.023873752431514683,
+              "retained_true_probability_mass": 0.9410714285714317,
+              "retained_true_cost_proxy": 286.6455107142857,
+              "retained_future_cost_proxy": 285.5848325195313,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.591043292604281,
+              "future_logloss": 4.596633952291815,
+              "true_squared_error": 0.03216346560483451,
+              "resident_true_mass_abs_error": 0.1517523172197881,
+              "l1_distance_to_full_mle": 0.02643453925183141,
+              "retained_true_probability_mass": 0.9410714285714317,
+              "retained_true_cost_proxy": 286.64551071428576,
+              "retained_future_cost_proxy": 285.58483251953123,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.010039087806274594,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.605011194114633,
+              "future_logloss": 4.610727829769074,
+              "true_squared_error": 0.03270787593731492,
+              "resident_true_mass_abs_error": 0.1514739593645319,
+              "l1_distance_to_full_mle": 0.0027741215553148714,
+              "retained_true_probability_mass": 0.9410714285714317,
+              "retained_true_cost_proxy": 286.64551071428576,
+              "retained_future_cost_proxy": 285.58483251953123,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.00110087024553783,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.6066810048190785,
+              "future_logloss": 4.612407224262027,
+              "true_squared_error": 0.03278428818879723,
+              "resident_true_mass_abs_error": 0.15144133026246587,
+              "l1_distance_to_full_mle": 6.478795489990585e-07,
+              "retained_true_probability_mass": 0.9410714285714317,
+              "retained_true_cost_proxy": 286.64551071428576,
+              "retained_future_cost_proxy": 285.58483251953123,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 3.1383913432284083e-07,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.606681396550941,
+              "future_logloss": 4.6124076174524085,
+              "true_squared_error": 0.03278430696924133,
+              "resident_true_mass_abs_error": 0.15144132264746923,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9410714285714317,
+              "retained_true_cost_proxy": 286.64551071428576,
+              "retained_future_cost_proxy": 285.58483251953123,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 28,
+                "last_step": 8.499343936985149e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 256,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 80,
+          "largest_ambiguous_class": 31,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.145736439983066,
+              "future_logloss": 4.14642761177954,
+              "true_squared_error": 0.02009038800705469,
+              "resident_true_mass_abs_error": 0.24875992063492403,
+              "l1_distance_to_full_mle": 0.40548547464705753,
+              "retained_true_probability_mass": 0.9477678571428606,
+              "retained_true_cost_proxy": 287.40585133928573,
+              "retained_future_cost_proxy": 278.2588996582031,
+              "retained_symmetric_difference_to_full_mle": 48,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 4.316559883164288,
+              "future_logloss": 4.3190213678224705,
+              "true_squared_error": 0.026393406827026664,
+              "resident_true_mass_abs_error": 0.14269351587024293,
+              "l1_distance_to_full_mle": 0.30604068664964523,
+              "retained_true_probability_mass": 0.9290178571428597,
+              "retained_true_cost_proxy": 286.9461924107144,
+              "retained_future_cost_proxy": 286.52534814453116,
+              "retained_symmetric_difference_to_full_mle": 18,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.030431990448858,
+              "future_logloss": 4.028477609657992,
+              "true_squared_error": 0.01663976980652047,
+              "resident_true_mass_abs_error": 0.1051894936051978,
+              "l1_distance_to_full_mle": 0.09941455235264292,
+              "retained_true_probability_mass": 0.9263392857142884,
+              "retained_true_cost_proxy": 287.47059375000003,
+              "retained_future_cost_proxy": 291.07891870117186,
+              "retained_symmetric_difference_to_full_mle": 6,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.007929933125061697,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.034127402054203,
+              "future_logloss": 4.031220847584187,
+              "true_squared_error": 0.01697091606769041,
+              "resident_true_mass_abs_error": 0.07369875532692483,
+              "l1_distance_to_full_mle": 0.02679864875563693,
+              "retained_true_probability_mass": 0.9209821428571453,
+              "retained_true_cost_proxy": 287.39757053571435,
+              "retained_future_cost_proxy": 290.9587795410157,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0013759044995075194,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.045423163724706,
+              "future_logloss": 4.042524434378179,
+              "true_squared_error": 0.017480946905538586,
+              "resident_true_mass_abs_error": 0.06806584515354153,
+              "l1_distance_to_full_mle": 0.0004972661735590076,
+              "retained_true_probability_mass": 0.9209821428571453,
+              "retained_true_cost_proxy": 287.39757053571435,
+              "retained_future_cost_proxy": 290.9587795410157,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 4.9643142016563696e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.045743030786339,
+              "future_logloss": 4.042846532953799,
+              "true_squared_error": 0.017495126497807788,
+              "resident_true_mass_abs_error": 0.0680444974992267,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9209821428571453,
+              "retained_true_cost_proxy": 287.39757053571435,
+              "retained_future_cost_proxy": 290.9587795410157,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 67,
+                "last_step": 8.202638568377552e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 1024,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 20,
+          "largest_ambiguous_class": 14,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 3.7593497596244374,
+              "future_logloss": 3.7499018164421987,
+              "true_squared_error": 0.008906726206550631,
+              "resident_true_mass_abs_error": 0.13606366459627717,
+              "l1_distance_to_full_mle": 0.3918333511199275,
+              "retained_true_probability_mass": 0.939732142857146,
+              "retained_true_cost_proxy": 287.4647049107143,
+              "retained_future_cost_proxy": 287.1036149902344,
+              "retained_symmetric_difference_to_full_mle": 46,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 3.941292856460973,
+              "future_logloss": 3.9342382923748014,
+              "true_squared_error": 0.014776850926334654,
+              "resident_true_mass_abs_error": 0.20640939635186695,
+              "l1_distance_to_full_mle": 0.5285229249265715,
+              "retained_true_probability_mass": 0.9142857142857165,
+              "retained_true_cost_proxy": 287.4009709821429,
+              "retained_future_cost_proxy": 286.38639257812497,
+              "retained_symmetric_difference_to_full_mle": 9,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 3.6869407647619212,
+              "future_logloss": 3.6753836939749482,
+              "true_squared_error": 0.00617640564559612,
+              "resident_true_mass_abs_error": 0.06546652166957956,
+              "l1_distance_to_full_mle": 0.15662063619084055,
+              "retained_true_probability_mass": 0.9142857142857165,
+              "retained_true_cost_proxy": 287.28250044642857,
+              "retained_future_cost_proxy": 288.569486328125,
+              "retained_symmetric_difference_to_full_mle": 15,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.008841502466225948,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 3.6602280625370813,
+              "future_logloss": 3.6490334795044985,
+              "true_squared_error": 0.00534178319228463,
+              "resident_true_mass_abs_error": 0.03566274045090656,
+              "l1_distance_to_full_mle": 0.027262839866064467,
+              "retained_true_probability_mass": 0.9129464285714307,
+              "retained_true_cost_proxy": 287.608884375,
+              "retained_future_cost_proxy": 287.7068776855469,
+              "retained_symmetric_difference_to_full_mle": 8,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0010790130482733612,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 3.657789625280527,
+              "future_logloss": 3.6466039564460853,
+              "true_squared_error": 0.005387729156583715,
+              "resident_true_mass_abs_error": 0.03072861598445431,
+              "l1_distance_to_full_mle": 0.0019039225778368475,
+              "retained_true_probability_mass": 0.9156250000000022,
+              "retained_true_cost_proxy": 287.45246517857146,
+              "retained_future_cost_proxy": 290.5129328613281,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 0.0001143914163796167,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 3.6582924340672904,
+              "future_logloss": 3.647141957206572,
+              "true_squared_error": 0.005424928679204475,
+              "resident_true_mass_abs_error": 0.030711257103784417,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9156250000000022,
+              "retained_true_cost_proxy": 287.45246517857146,
+              "retained_future_cost_proxy": 290.5129328613281,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 133,
+                "last_step": 8.8240630080616e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 4096,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 0,
+          "largest_ambiguous_class": 0,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 3.56924627479274,
+              "future_logloss": 3.5650069269209372,
+              "true_squared_error": 0.002594510974237715,
+              "resident_true_mass_abs_error": 0.04499766063630861,
+              "l1_distance_to_full_mle": 0.18975152152398858,
+              "retained_true_probability_mass": 0.9075892857142877,
+              "retained_true_cost_proxy": 287.16590892857147,
+              "retained_future_cost_proxy": 294.354509765625,
+              "retained_symmetric_difference_to_full_mle": 42,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 3.6616956874665467,
+              "future_logloss": 3.6601844871213527,
+              "true_squared_error": 0.005784606784170201,
+              "resident_true_mass_abs_error": 0.12627757563854558,
+              "l1_distance_to_full_mle": 0.4080354640057934,
+              "retained_true_probability_mass": 0.9075892857142877,
+              "retained_true_cost_proxy": 287.2098883928572,
+              "retained_future_cost_proxy": 281.38788061523434,
+              "retained_symmetric_difference_to_full_mle": 18,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 3.540724641527258,
+              "future_logloss": 3.536587268653613,
+              "true_squared_error": 0.002202239410828236,
+              "resident_true_mass_abs_error": 0.02458976320392059,
+              "l1_distance_to_full_mle": 0.077622433965127,
+              "retained_true_probability_mass": 0.9049107142857161,
+              "retained_true_cost_proxy": 287.29734241071424,
+              "retained_future_cost_proxy": 295.2037331542968,
+              "retained_symmetric_difference_to_full_mle": 24,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0032255042286993274,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 3.5335038363128244,
+              "future_logloss": 3.5304540863758844,
+              "true_squared_error": 0.00211067925899264,
+              "resident_true_mass_abs_error": 0.016100658141721014,
+              "l1_distance_to_full_mle": 0.014846302855954476,
+              "retained_true_probability_mass": 0.9089285714285734,
+              "retained_true_cost_proxy": 287.32572053571425,
+              "retained_future_cost_proxy": 290.9146022949219,
+              "retained_symmetric_difference_to_full_mle": 3,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.000398000641058242,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 3.5323935772923623,
+              "future_logloss": 3.52945313921761,
+              "true_squared_error": 0.0020650221582685212,
+              "resident_true_mass_abs_error": 0.01574835494754312,
+              "l1_distance_to_full_mle": 0.00284194567136361,
+              "retained_true_probability_mass": 0.9075892857142877,
+              "retained_true_cost_proxy": 287.30624330357136,
+              "retained_future_cost_proxy": 290.8795095214844,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 8.994183200574171e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 3.5320327567197802,
+              "future_logloss": 3.5290930827301867,
+              "true_squared_error": 0.0020415638321164033,
+              "resident_true_mass_abs_error": 0.015747332763480504,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9075892857142877,
+              "retained_true_cost_proxy": 287.30624330357136,
+              "retained_future_cost_proxy": 290.8795095214844,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 154,
+                "last_step": 9.638492087793438e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "learning_train_hotspot_independent_s860118_b17_lengthbalanced_v2",
+      "seed": 860118,
+      "family": "hotspot",
+      "relation": "independent",
+      "objects": 128,
+      "events": 1689,
+      "source_log_sha256": "528d966325ee3b46b6e3930a729c1350a1ce1958574e4bd5d2183a9972af63e8",
+      "causal_incremental_reference_matches": true,
+      "round8_next_and_full_metrics_match": true,
+      "timing": {
+        "next_only": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 16.271,
+              "update_us": 13.484,
+              "query_us": 1.593
+            },
+            {
+              "repeat": 1,
+              "total_us": 11.773,
+              "update_us": 9.248,
+              "query_us": 1.554
+            },
+            {
+              "repeat": 2,
+              "total_us": 11.381,
+              "update_us": 8.936,
+              "query_us": 1.461
+            }
+          ],
+          "median_total_us": 11.773,
+          "median_update_us": 9.248,
+          "median_query_us": 1.554,
+          "estimated_payload_bytes": 2048,
+          "anonymous_groups": 0
+        },
+        "incremental": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 260.708,
+              "update_us": 257.44100000000003,
+              "query_us": 2.225
+            },
+            {
+              "repeat": 1,
+              "total_us": 267.16,
+              "update_us": 263.294,
+              "query_us": 2.6550000000000002
+            },
+            {
+              "repeat": 2,
+              "total_us": 260.257,
+              "update_us": 257.632,
+              "query_us": 2.0140000000000002
+            }
+          ],
+          "median_total_us": 260.708,
+          "median_update_us": 257.632,
+          "median_query_us": 2.225,
+          "estimated_payload_bytes": 2048,
+          "anonymous_groups": 0
+        },
+        "em1": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 474.957,
+              "update_us": 426.73400000000004,
+              "query_us": 46.989999999999995
+            },
+            {
+              "repeat": 1,
+              "total_us": 516.206,
+              "update_us": 468.06500000000005,
+              "query_us": 47.39
+            },
+            {
+              "repeat": 2,
+              "total_us": 470.969,
+              "update_us": 423.779,
+              "query_us": 46.468
+            }
+          ],
+          "median_total_us": 474.957,
+          "median_update_us": 426.73400000000004,
+          "median_query_us": 46.989999999999995,
+          "estimated_payload_bytes": 127056,
+          "anonymous_groups": 395
+        },
+        "em4": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 764.941,
+              "update_us": 576.501,
+              "query_us": 187.018
+            },
+            {
+              "repeat": 1,
+              "total_us": 670.511,
+              "update_us": 438.077,
+              "query_us": 231.573
+            },
+            {
+              "repeat": 2,
+              "total_us": 629.272,
+              "update_us": 453.55699999999996,
+              "query_us": 175.043
+            }
+          ],
+          "median_total_us": 670.511,
+          "median_update_us": 453.55699999999996,
+          "median_query_us": 187.018,
+          "estimated_payload_bytes": 127056,
+          "anonymous_groups": 395
+        },
+        "em16": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 1429.53,
+              "update_us": 570.1890000000001,
+              "query_us": 858.1179999999999
+            },
+            {
+              "repeat": 1,
+              "total_us": 1724.132,
+              "update_us": 625.715,
+              "query_us": 1097.5169999999998
+            },
+            {
+              "repeat": 2,
+              "total_us": 1136.961,
+              "update_us": 454.548,
+              "query_us": 681.642
+            }
+          ],
+          "median_total_us": 1429.53,
+          "median_update_us": 570.1890000000001,
+          "median_query_us": 858.1179999999999,
+          "estimated_payload_bytes": 127056,
+          "anonymous_groups": 395
+        },
+        "full_mle": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 4349.476,
+              "update_us": 477.89300000000003,
+              "query_us": 3870.311
+            },
+            {
+              "repeat": 1,
+              "total_us": 4104.659,
+              "update_us": 544.841,
+              "query_us": 3558.195
+            },
+            {
+              "repeat": 2,
+              "total_us": 3986.193,
+              "update_us": 429.44,
+              "query_us": 3555.921
+            }
+          ],
+          "median_total_us": 4104.659,
+          "median_update_us": 477.89300000000003,
+          "median_query_us": 3558.195,
+          "estimated_payload_bytes": 127056,
+          "anonymous_groups": 395
+        }
+      },
+      "states": [
+        {
+          "prefix": 64,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 106,
+          "largest_ambiguous_class": 50,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.435090399661816,
+              "future_logloss": 4.44334800894843,
+              "true_squared_error": 0.026683538581271322,
+              "resident_true_mass_abs_error": 0.32433883363472227,
+              "l1_distance_to_full_mle": 0.29331432975547816,
+              "retained_true_probability_mass": 0.7683035714285733,
+              "retained_true_cost_proxy": 3392.393153125,
+              "retained_future_cost_proxy": 3371.110961181641,
+              "retained_symmetric_difference_to_full_mle": 20,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 4.160019206377485,
+              "future_logloss": 4.173934176207384,
+              "true_squared_error": 0.021323285957748957,
+              "resident_true_mass_abs_error": 0.20057524590278508,
+              "l1_distance_to_full_mle": 0.045828598614429596,
+              "retained_true_probability_mass": 0.9102678571428591,
+              "retained_true_cost_proxy": 5160.8191642857155,
+              "retained_future_cost_proxy": 5067.174395507814,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.1778582427287345,
+              "future_logloss": 4.190492054523682,
+              "true_squared_error": 0.021910111262624106,
+              "resident_true_mass_abs_error": 0.20111408421607935,
+              "l1_distance_to_full_mle": 0.06357476502731646,
+              "retained_true_probability_mass": 0.9102678571428591,
+              "retained_true_cost_proxy": 5160.8191642857155,
+              "retained_future_cost_proxy": 5067.174395507814,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.012575974613050267,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.131056155547838,
+              "future_logloss": 4.146109979606169,
+              "true_squared_error": 0.020476955741497792,
+              "resident_true_mass_abs_error": 0.19564392752761806,
+              "l1_distance_to_full_mle": 0.0029369550564307383,
+              "retained_true_probability_mass": 0.9102678571428591,
+              "retained_true_cost_proxy": 5160.8191642857155,
+              "retained_future_cost_proxy": 5067.174395507814,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0004257368073377378,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.12888831275345,
+              "future_logloss": 4.1440759889439525,
+              "true_squared_error": 0.020402446049954306,
+              "resident_true_mass_abs_error": 0.1954904691848799,
+              "l1_distance_to_full_mle": 2.476507190377758e-08,
+              "retained_true_probability_mass": 0.9102678571428591,
+              "retained_true_cost_proxy": 5160.8191642857155,
+              "retained_future_cost_proxy": 5067.174395507814,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 4.775089407216271e-09,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.128888295514573,
+              "future_logloss": 4.144075973322423,
+              "true_squared_error": 0.02040244544354747,
+              "resident_true_mass_abs_error": 0.19549046833747774,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9102678571428591,
+              "retained_true_cost_proxy": 5160.8191642857155,
+              "retained_future_cost_proxy": 5067.174395507814,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 22,
+                "last_step": 6.513063699475907e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 256,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 77,
+          "largest_ambiguous_class": 39,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 3.895356346080967,
+              "future_logloss": 3.8851876893382,
+              "true_squared_error": 0.013501275510204061,
+              "resident_true_mass_abs_error": 0.3147321428571438,
+              "l1_distance_to_full_mle": 0.43925919341271813,
+              "retained_true_probability_mass": 0.9142857142857165,
+              "retained_true_cost_proxy": 5159.292045089285,
+              "retained_future_cost_proxy": 5053.837829833985,
+              "retained_symmetric_difference_to_full_mle": 42,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 3.850961003164228,
+              "future_logloss": 3.8486449014109603,
+              "true_squared_error": 0.012257057283380838,
+              "resident_true_mass_abs_error": 0.23500505670516902,
+              "l1_distance_to_full_mle": 0.2335117529648048,
+              "retained_true_probability_mass": 0.8848214285714296,
+              "retained_true_cost_proxy": 5161.662129464287,
+              "retained_future_cost_proxy": 5063.15238696289,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 3.766578784236536,
+              "future_logloss": 3.7556021273011604,
+              "true_squared_error": 0.009170348960508178,
+              "resident_true_mass_abs_error": 0.1717595854061439,
+              "l1_distance_to_full_mle": 0.13914162226181884,
+              "retained_true_probability_mass": 0.8848214285714296,
+              "retained_true_cost_proxy": 5161.662129464287,
+              "retained_future_cost_proxy": 5063.152386962889,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.011227362236606947,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 3.7472329932678967,
+              "future_logloss": 3.73819812187116,
+              "true_squared_error": 0.00837880789471643,
+              "resident_true_mass_abs_error": 0.14341678638360045,
+              "l1_distance_to_full_mle": 0.025675154182307255,
+              "retained_true_probability_mass": 0.8848214285714296,
+              "retained_true_cost_proxy": 5161.662129464287,
+              "retained_future_cost_proxy": 5063.15238696289,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0015198601861939748,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 3.7464144830429844,
+              "future_logloss": 3.737862759652754,
+              "true_squared_error": 0.008323564100408819,
+              "resident_true_mass_abs_error": 0.1401928953127367,
+              "l1_distance_to_full_mle": 0.0001370769560399285,
+              "retained_true_probability_mass": 0.8848214285714296,
+              "retained_true_cost_proxy": 5161.662129464287,
+              "retained_future_cost_proxy": 5063.15238696289,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 8.215660915786294e-06,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 3.746427685442284,
+              "future_logloss": 3.737878438205814,
+              "true_squared_error": 0.008323822269439729,
+              "resident_true_mass_abs_error": 0.14019072707980595,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.8848214285714296,
+              "retained_true_cost_proxy": 5161.662129464287,
+              "retained_future_cost_proxy": 5063.152386962889,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 47,
+                "last_step": 8.441102677947399e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 1024,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 17,
+          "largest_ambiguous_class": 15,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 3.628792697808742,
+              "future_logloss": 3.6031558273900766,
+              "true_squared_error": 0.005271512485378646,
+              "resident_true_mass_abs_error": 0.13284198113207635,
+              "l1_distance_to_full_mle": 0.27340013008878217,
+              "retained_true_probability_mass": 0.8968750000000015,
+              "retained_true_cost_proxy": 5162.374736607144,
+              "retained_future_cost_proxy": 5120.640860351563,
+              "retained_symmetric_difference_to_full_mle": 30,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 3.618828765696909,
+              "future_logloss": 3.5971856274309237,
+              "true_squared_error": 0.003849327938403353,
+              "resident_true_mass_abs_error": 0.10940792261593724,
+              "l1_distance_to_full_mle": 0.26215025993369095,
+              "retained_true_probability_mass": 0.8888392857142869,
+              "retained_true_cost_proxy": 5162.500045535717,
+              "retained_future_cost_proxy": 5124.946809326171,
+              "retained_symmetric_difference_to_full_mle": 10,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 3.590804638057184,
+              "future_logloss": 3.561683588431615,
+              "true_squared_error": 0.004060625675313655,
+              "resident_true_mass_abs_error": 0.06064506995712504,
+              "l1_distance_to_full_mle": 0.07812610565489955,
+              "retained_true_probability_mass": 0.8928571428571442,
+              "retained_true_cost_proxy": 5162.475460267857,
+              "retained_future_cost_proxy": 5127.15973046875,
+              "retained_symmetric_difference_to_full_mle": 9,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.00805205932972014,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 3.5794989182731562,
+              "future_logloss": 3.5506351501570705,
+              "true_squared_error": 0.003730920372730293,
+              "resident_true_mass_abs_error": 0.04608285273496904,
+              "l1_distance_to_full_mle": 0.01826120582034486,
+              "retained_true_probability_mass": 0.8915178571428585,
+              "retained_true_cost_proxy": 5162.773037500001,
+              "retained_future_cost_proxy": 5121.331137451172,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.000842899683169071,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 3.5778501707022268,
+              "future_logloss": 3.5495793278976304,
+              "true_squared_error": 0.0036088109654687345,
+              "resident_true_mass_abs_error": 0.04534810604093731,
+              "l1_distance_to_full_mle": 0.0006371884585411401,
+              "retained_true_probability_mass": 0.8915178571428585,
+              "retained_true_cost_proxy": 5162.773037500002,
+              "retained_future_cost_proxy": 5121.331137451172,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 3.3668310147137726e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 3.5777979682928756,
+              "future_logloss": 3.549545473179983,
+              "true_squared_error": 0.0036031436994452114,
+              "resident_true_mass_abs_error": 0.045346739443813955,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.8915178571428585,
+              "retained_true_cost_proxy": 5162.773037500002,
+              "retained_future_cost_proxy": 5121.331137451172,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 69,
+                "last_step": 8.931620720797895e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 4096,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 0,
+          "largest_ambiguous_class": 0,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 3.5450701399180367,
+              "future_logloss": 3.5502535060874694,
+              "true_squared_error": 0.0014218048014882963,
+              "resident_true_mass_abs_error": 0.051955594184577625,
+              "l1_distance_to_full_mle": 0.1632251266188074,
+              "retained_true_probability_mass": 0.8955357142857158,
+              "retained_true_cost_proxy": 5162.858501339286,
+              "retained_future_cost_proxy": 5103.380093505859,
+              "retained_symmetric_difference_to_full_mle": 33,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 3.524075883031283,
+              "future_logloss": 3.5327727798073747,
+              "true_squared_error": 0.0014538231715787442,
+              "resident_true_mass_abs_error": 0.0372233767879,
+              "l1_distance_to_full_mle": 0.17208864540619964,
+              "retained_true_probability_mass": 0.871428571428572,
+              "retained_true_cost_proxy": 5162.213225446429,
+              "retained_future_cost_proxy": 5084.733786376953,
+              "retained_symmetric_difference_to_full_mle": 9,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 3.5146234092430695,
+              "future_logloss": 3.517874218623569,
+              "true_squared_error": 0.001111458087983923,
+              "resident_true_mass_abs_error": 0.012374236150059281,
+              "l1_distance_to_full_mle": 0.034190075985622785,
+              "retained_true_probability_mass": 0.8767857142857151,
+              "retained_true_cost_proxy": 5162.718379910714,
+              "retained_future_cost_proxy": 5073.072087402344,
+              "retained_symmetric_difference_to_full_mle": 9,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0038467634398040157,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 3.5126727975106444,
+              "future_logloss": 3.5164708332146093,
+              "true_squared_error": 0.001063334731363598,
+              "resident_true_mass_abs_error": 0.006264383399027573,
+              "l1_distance_to_full_mle": 0.00894895433457053,
+              "retained_true_probability_mass": 0.8700892857142862,
+              "retained_true_cost_proxy": 5162.657072767857,
+              "retained_future_cost_proxy": 5083.409540771484,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0003114977559716889,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 3.512324077970462,
+              "future_logloss": 3.516324836683351,
+              "true_squared_error": 0.0010352383498390882,
+              "resident_true_mass_abs_error": 0.006214205003368112,
+              "l1_distance_to_full_mle": 0.0007365289649802759,
+              "retained_true_probability_mass": 0.8700892857142862,
+              "retained_true_cost_proxy": 5162.657072767857,
+              "retained_future_cost_proxy": 5083.409540771483,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 2.5526547440535285e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 3.512301979252877,
+              "future_logloss": 3.5163206876020143,
+              "true_squared_error": 0.0010332098284867599,
+              "resident_true_mass_abs_error": 0.006213987864046477,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.8700892857142862,
+              "retained_true_cost_proxy": 5162.657072767857,
+              "retained_future_cost_proxy": 5083.409540771483,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 88,
+                "last_step": 8.525918859803028e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "family": "lognormal",
+      "relation": "independent",
+      "objects": 128,
+      "events": 1094,
+      "source_log_sha256": "4e548bb43b3bda0c34bb5fd13357c1c90e76e700e8ce411ddc098a58c73ba5fc",
+      "causal_incremental_reference_matches": true,
+      "round8_next_and_full_metrics_match": true,
+      "timing": {
+        "next_only": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 16.762,
+              "update_us": 11.652000000000001,
+              "query_us": 1.9749999999999999
+            },
+            {
+              "repeat": 1,
+              "total_us": 8.717,
+              "update_us": 6.082000000000001,
+              "query_us": 1.533
+            },
+            {
+              "repeat": 2,
+              "total_us": 10.109,
+              "update_us": 6.782,
+              "query_us": 1.7229999999999999
+            }
+          ],
+          "median_total_us": 10.109,
+          "median_update_us": 6.782,
+          "median_query_us": 1.7229999999999999,
+          "estimated_payload_bytes": 2048,
+          "anonymous_groups": 0
+        },
+        "incremental": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 185.795,
+              "update_us": 182.536,
+              "query_us": 2.233
+            },
+            {
+              "repeat": 1,
+              "total_us": 211.814,
+              "update_us": 207.977,
+              "query_us": 2.706
+            },
+            {
+              "repeat": 2,
+              "total_us": 183.37,
+              "update_us": 180.696,
+              "query_us": 2.0540000000000003
+            }
+          ],
+          "median_total_us": 185.795,
+          "median_update_us": 182.536,
+          "median_query_us": 2.233,
+          "estimated_payload_bytes": 2048,
+          "anonymous_groups": 0
+        },
+        "em1": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 410.473,
+              "update_us": 333.087,
+              "query_us": 76.144
+            },
+            {
+              "repeat": 1,
+              "total_us": 663.53,
+              "update_us": 573.287,
+              "query_us": 89.351
+            },
+            {
+              "repeat": 2,
+              "total_us": 434.489,
+              "update_us": 358.826,
+              "query_us": 74.93299999999999
+            }
+          ],
+          "median_total_us": 434.489,
+          "median_update_us": 358.826,
+          "median_query_us": 76.144,
+          "estimated_payload_bytes": 140440,
+          "anonymous_groups": 222
+        },
+        "em4": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 596.95,
+              "update_us": 288.112,
+              "query_us": 307.687
+            },
+            {
+              "repeat": 1,
+              "total_us": 601.77,
+              "update_us": 313.368,
+              "query_us": 287.329
+            },
+            {
+              "repeat": 2,
+              "total_us": 763.609,
+              "update_us": 332.766,
+              "query_us": 429.639
+            }
+          ],
+          "median_total_us": 601.77,
+          "median_update_us": 313.368,
+          "median_query_us": 307.687,
+          "estimated_payload_bytes": 140440,
+          "anonymous_groups": 222
+        },
+        "em16": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 1440.351,
+              "update_us": 301.415,
+              "query_us": 1137.784
+            },
+            {
+              "repeat": 1,
+              "total_us": 1518.951,
+              "update_us": 300.525,
+              "query_us": 1217.775
+            },
+            {
+              "repeat": 2,
+              "total_us": 1450.03,
+              "update_us": 277.591,
+              "query_us": 1146.951
+            }
+          ],
+          "median_total_us": 1450.03,
+          "median_update_us": 300.525,
+          "median_query_us": 1146.951,
+          "estimated_payload_bytes": 140440,
+          "anonymous_groups": 222
+        },
+        "full_mle": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 8178.819,
+              "update_us": 337.16200000000003,
+              "query_us": 7840.334
+            },
+            {
+              "repeat": 1,
+              "total_us": 8339.607,
+              "update_us": 304.01099999999997,
+              "query_us": 8034.094
+            },
+            {
+              "repeat": 2,
+              "total_us": 9047.059,
+              "update_us": 322.477,
+              "query_us": 8723.44
+            }
+          ],
+          "median_total_us": 8339.607,
+          "median_update_us": 322.477,
+          "median_query_us": 8034.094,
+          "estimated_payload_bytes": 140440,
+          "anonymous_groups": 222
+        }
+      },
+      "states": [
+        {
+          "prefix": 64,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 110,
+          "largest_ambiguous_class": 104,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.884237167060265,
+              "future_logloss": 4.874582890196412,
+              "true_squared_error": 0.010698566684310335,
+              "resident_true_mass_abs_error": 0.0023776247216461543,
+              "l1_distance_to_full_mle": 0.10700394262513147,
+              "retained_true_probability_mass": 0.982382661065869,
+              "retained_true_cost_proxy": 605.7251802710117,
+              "retained_future_cost_proxy": 619.1735959472658,
+              "retained_symmetric_difference_to_full_mle": 3,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 4.852096961118132,
+              "future_logloss": 4.847025459647239,
+              "true_squared_error": 0.009740867002254799,
+              "resident_true_mass_abs_error": 0.022475414104703995,
+              "l1_distance_to_full_mle": 0.04533435672689183,
+              "retained_true_probability_mass": 0.9442895414291065,
+              "retained_true_cost_proxy": 556.6521078885703,
+              "retained_future_cost_proxy": 564.1396403808592,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.860001505899438,
+              "future_logloss": 4.853450864866927,
+              "true_squared_error": 0.01007570543548367,
+              "resident_true_mass_abs_error": 0.022797810097951787,
+              "l1_distance_to_full_mle": 0.02778828415865639,
+              "retained_true_probability_mass": 0.9442895414291065,
+              "retained_true_cost_proxy": 556.6521078885703,
+              "retained_future_cost_proxy": 564.1396403808592,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.008314751606708562,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.856039913177874,
+              "future_logloss": 4.850110339281178,
+              "true_squared_error": 0.009908669746402017,
+              "resident_true_mass_abs_error": 0.023577478005041397,
+              "l1_distance_to_full_mle": 0.000625962422093328,
+              "retained_true_probability_mass": 0.9442895414291065,
+              "retained_true_cost_proxy": 556.6521078885703,
+              "retained_future_cost_proxy": 564.1396403808592,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0002569389914712228,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.85592515481097,
+              "future_logloss": 4.850021753794384,
+              "true_squared_error": 0.009903460942738956,
+              "resident_true_mass_abs_error": 0.023582561997316787,
+              "l1_distance_to_full_mle": 4.3443553962574377e-10,
+              "retained_true_probability_mass": 0.9442895414291065,
+              "retained_true_cost_proxy": 556.6521078885703,
+              "retained_future_cost_proxy": 564.1396403808592,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 2.418175416851742e-10,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.855925154592919,
+              "future_logloss": 4.850021753612809,
+              "true_squared_error": 0.00990346093344155,
+              "resident_true_mass_abs_error": 0.023582561996440488,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9442895414291065,
+              "retained_true_cost_proxy": 556.6521078885703,
+              "retained_future_cost_proxy": 564.1396403808592,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 19,
+                "last_step": 6.742843089435624e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 256,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 79,
+          "largest_ambiguous_class": 77,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.8487005032274,
+              "future_logloss": 4.83383723137287,
+              "true_squared_error": 0.009603957355688678,
+              "resident_true_mass_abs_error": 0.024315337475542598,
+              "l1_distance_to_full_mle": 0.1735786795743953,
+              "retained_true_probability_mass": 0.9823826610658689,
+              "retained_true_cost_proxy": 605.7251802710117,
+              "retained_future_cost_proxy": 616.9297990722655,
+              "retained_symmetric_difference_to_full_mle": 10,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 4.799004462491393,
+              "future_logloss": 4.7871794650392525,
+              "true_squared_error": 0.00859141745203217,
+              "resident_true_mass_abs_error": 0.004715753453311877,
+              "l1_distance_to_full_mle": 0.20734619593944204,
+              "retained_true_probability_mass": 0.9680007521499538,
+              "retained_true_cost_proxy": 594.2083113056606,
+              "retained_future_cost_proxy": 605.9867453613278,
+              "retained_symmetric_difference_to_full_mle": 3,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.832496602254199,
+              "future_logloss": 4.817142625086027,
+              "true_squared_error": 0.009282394077590763,
+              "resident_true_mass_abs_error": 0.0002656647998313666,
+              "l1_distance_to_full_mle": 0.09928671492029673,
+              "retained_true_probability_mass": 0.9665025134542145,
+              "retained_true_cost_proxy": 594.9918973223562,
+              "retained_future_cost_proxy": 605.7353889160156,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0034632034632034636,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.831571708709348,
+              "future_logloss": 4.816706532356394,
+              "true_squared_error": 0.009113174791332173,
+              "resident_true_mass_abs_error": 0.005662115638832899,
+              "l1_distance_to_full_mle": 0.02338736249826069,
+              "retained_true_probability_mass": 0.9665025134542143,
+              "retained_true_cost_proxy": 594.9918973223562,
+              "retained_future_cost_proxy": 605.7353889160156,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0008927926921084694,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.833472955760816,
+              "future_logloss": 4.819011982314448,
+              "true_squared_error": 0.009126693049666715,
+              "resident_true_mass_abs_error": 0.006133968789067912,
+              "l1_distance_to_full_mle": 0.00012189006012001285,
+              "retained_true_probability_mass": 0.9665025134542145,
+              "retained_true_cost_proxy": 594.9918973223561,
+              "retained_future_cost_proxy": 605.7353889160156,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 6.823265794120639e-06,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.833485412820169,
+              "future_logloss": 4.819027195076994,
+              "true_squared_error": 0.009126865160137113,
+              "resident_true_mass_abs_error": 0.006134691276713289,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9665025134542145,
+              "retained_true_cost_proxy": 594.9918973223562,
+              "retained_future_cost_proxy": 605.7353889160156,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 46,
+                "last_step": 9.3997240546706e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 1024,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 5,
+          "largest_ambiguous_class": 3,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.671193742945567,
+              "future_logloss": 4.6525821262122635,
+              "true_squared_error": 0.005580137875147641,
+              "resident_true_mass_abs_error": 0.013667099262580695,
+              "l1_distance_to_full_mle": 0.2464255320899689,
+              "retained_true_probability_mass": 0.9696572649715425,
+              "retained_true_cost_proxy": 589.2852459748117,
+              "retained_future_cost_proxy": 591.9275668945314,
+              "retained_symmetric_difference_to_full_mle": 23,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 4.66744154031047,
+              "future_logloss": 4.654812167927108,
+              "true_squared_error": 0.00623490727686978,
+              "resident_true_mass_abs_error": 0.04356636149586812,
+              "l1_distance_to_full_mle": 0.30285379137124585,
+              "retained_true_probability_mass": 0.954640738308101,
+              "retained_true_cost_proxy": 601.987335213473,
+              "retained_future_cost_proxy": 603.3563789062499,
+              "retained_symmetric_difference_to_full_mle": 7,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.639401244150367,
+              "future_logloss": 4.61754606708266,
+              "true_squared_error": 0.005275554296503509,
+              "resident_true_mass_abs_error": 0.009413560528760634,
+              "l1_distance_to_full_mle": 0.17268170701677932,
+              "retained_true_probability_mass": 0.9534288735143837,
+              "retained_true_cost_proxy": 604.7151837243432,
+              "retained_future_cost_proxy": 607.7472639160156,
+              "retained_symmetric_difference_to_full_mle": 5,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.004086869357103975,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.623071802026345,
+              "future_logloss": 4.599188225770442,
+              "true_squared_error": 0.0049909492022628755,
+              "resident_true_mass_abs_error": 0.025940267132644412,
+              "l1_distance_to_full_mle": 0.07104088582716664,
+              "retained_true_probability_mass": 0.9494496066650362,
+              "retained_true_cost_proxy": 604.8386512579428,
+              "retained_future_cost_proxy": 609.1416865234374,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.00048314419871569366,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.618506004615757,
+              "future_logloss": 4.5949214116225985,
+              "true_squared_error": 0.004851613551134374,
+              "resident_true_mass_abs_error": 0.027318718134860642,
+              "l1_distance_to_full_mle": 0.003941863564874623,
+              "retained_true_probability_mass": 0.9494496066650362,
+              "retained_true_cost_proxy": 604.8386512579427,
+              "retained_future_cost_proxy": 609.1416865234374,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 3.509247387762423e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.618397847493568,
+              "future_logloss": 4.5948719806709395,
+              "true_squared_error": 0.0048470106769455705,
+              "resident_true_mass_abs_error": 0.02724954162089288,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9494496066650362,
+              "retained_true_cost_proxy": 604.8386512579428,
+              "retained_future_cost_proxy": 609.1416865234373,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 84,
+                "last_step": 9.880371520942788e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 4096,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 0,
+          "largest_ambiguous_class": 0,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 4.511226527012616,
+              "future_logloss": 4.505020276302645,
+              "true_squared_error": 0.0018366693829982,
+              "resident_true_mass_abs_error": 0.0011369171157454838,
+              "l1_distance_to_full_mle": 0.1558066435384144,
+              "retained_true_probability_mass": 0.9736358411536881,
+              "retained_true_cost_proxy": 612.1597226509906,
+              "retained_future_cost_proxy": 618.3691997070313,
+              "retained_symmetric_difference_to_full_mle": 14,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 4.5680465754183555,
+              "future_logloss": 4.568003775192199,
+              "true_squared_error": 0.0043932191633277995,
+              "resident_true_mass_abs_error": 0.02471069515410229,
+              "l1_distance_to_full_mle": 0.35899127733590497,
+              "retained_true_probability_mass": 0.9671628306350887,
+              "retained_true_cost_proxy": 616.9654914265685,
+              "retained_future_cost_proxy": 619.5154372558593,
+              "retained_symmetric_difference_to_full_mle": 7,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 4.492484656640476,
+              "future_logloss": 4.486912133177697,
+              "true_squared_error": 0.0017149942970594214,
+              "resident_true_mass_abs_error": 0.00433628209390069,
+              "l1_distance_to_full_mle": 0.11400197632380903,
+              "retained_true_probability_mass": 0.9741076340132049,
+              "retained_true_cost_proxy": 616.0034055721073,
+              "retained_future_cost_proxy": 621.6049208984375,
+              "retained_symmetric_difference_to_full_mle": 7,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0018765541266376994,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 4.479951159243182,
+              "future_logloss": 4.475725308702869,
+              "true_squared_error": 0.0015907506934456645,
+              "resident_true_mass_abs_error": 0.006573702122067759,
+              "l1_distance_to_full_mle": 0.05338041472734168,
+              "retained_true_probability_mass": 0.9702724748424391,
+              "retained_true_cost_proxy": 620.219100825003,
+              "retained_future_cost_proxy": 620.8792839355469,
+              "retained_symmetric_difference_to_full_mle": 4,
+              "fit": {
+                "iterations": 4,
+                "last_step": 0.0005278486796847469,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 4.476304295107548,
+              "future_logloss": 4.472818912488334,
+              "true_squared_error": 0.0015121865642796297,
+              "resident_true_mass_abs_error": 0.00764620524632087,
+              "l1_distance_to_full_mle": 0.00556635584418381,
+              "retained_true_probability_mass": 0.9738296400307247,
+              "retained_true_cost_proxy": 621.7247607429906,
+              "retained_future_cost_proxy": 624.2260703124998,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 5.662710767842787e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 4.475974870903311,
+              "future_logloss": 4.472463727198982,
+              "true_squared_error": 0.0015011409700221767,
+              "resident_true_mass_abs_error": 0.0076743435519420755,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.9738296400307247,
+              "retained_true_cost_proxy": 621.7247607429907,
+              "retained_future_cost_proxy": 624.2260703124999,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 122,
+                "last_step": 9.155753238898612e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "learning_train_lognormal_positive_s860127_b257_lengthbalanced_v2",
+      "seed": 860127,
+      "family": "lognormal",
+      "relation": "positive",
+      "objects": 512,
+      "events": 3778,
+      "source_log_sha256": "3cb5b842d756aa8225ec27d738dc07eab3abc7e3216683ffc0a696938072be81",
+      "causal_incremental_reference_matches": true,
+      "round8_next_and_full_metrics_match": true,
+      "timing": {
+        "next_only": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 37.793,
+              "update_us": 29.404999999999998,
+              "query_us": 7.004
+            },
+            {
+              "repeat": 1,
+              "total_us": 28.644,
+              "update_us": 21.43,
+              "query_us": 5.111
+            },
+            {
+              "repeat": 2,
+              "total_us": 28.233,
+              "update_us": 21.430999999999997,
+              "query_us": 5.019
+            }
+          ],
+          "median_total_us": 28.644,
+          "median_update_us": 21.430999999999997,
+          "median_query_us": 5.111,
+          "estimated_payload_bytes": 8192,
+          "anonymous_groups": 0
+        },
+        "incremental": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 776.062,
+              "update_us": 764.8620000000001,
+              "query_us": 9.096
+            },
+            {
+              "repeat": 1,
+              "total_us": 709.034,
+              "update_us": 698.714,
+              "query_us": 8.236
+            },
+            {
+              "repeat": 2,
+              "total_us": 702.01,
+              "update_us": 693.2529999999999,
+              "query_us": 7.805
+            }
+          ],
+          "median_total_us": 709.034,
+          "median_update_us": 698.714,
+          "median_query_us": 8.236,
+          "estimated_payload_bytes": 8192,
+          "anonymous_groups": 0
+        },
+        "em1": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 945.576,
+              "update_us": 853.329,
+              "query_us": 90.262
+            },
+            {
+              "repeat": 1,
+              "total_us": 924.756,
+              "update_us": 845.885,
+              "query_us": 77.278
+            },
+            {
+              "repeat": 2,
+              "total_us": 1011.732,
+              "update_us": 908.7639999999999,
+              "query_us": 101.515
+            }
+          ],
+          "median_total_us": 945.576,
+          "median_update_us": 853.329,
+          "median_query_us": 90.262,
+          "estimated_payload_bytes": 194608,
+          "anonymous_groups": 429
+        },
+        "em4": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 1301.005,
+              "update_us": 966.4559999999999,
+              "query_us": 332.255
+            },
+            {
+              "repeat": 1,
+              "total_us": 1148.073,
+              "update_us": 869.23,
+              "query_us": 277.019
+            },
+            {
+              "repeat": 2,
+              "total_us": 1582.583,
+              "update_us": 1204.19,
+              "query_us": 375.95799999999997
+            }
+          ],
+          "median_total_us": 1301.005,
+          "median_update_us": 966.4559999999999,
+          "median_query_us": 332.255,
+          "estimated_payload_bytes": 194608,
+          "anonymous_groups": 429
+        },
+        "em16": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 2048.552,
+              "update_us": 938.732,
+              "query_us": 1107.4740000000002
+            },
+            {
+              "repeat": 1,
+              "total_us": 2066.225,
+              "update_us": 813.283,
+              "query_us": 1251.138
+            },
+            {
+              "repeat": 2,
+              "total_us": 2076.896,
+              "update_us": 979.913,
+              "query_us": 1095.021
+            }
+          ],
+          "median_total_us": 2066.225,
+          "median_update_us": 938.732,
+          "median_query_us": 1107.4740000000002,
+          "estimated_payload_bytes": 194608,
+          "anonymous_groups": 429
+        },
+        "full_mle": {
+          "raw": [
+            {
+              "repeat": 0,
+              "total_us": 3203.369,
+              "update_us": 1480.758,
+              "query_us": 1720.146
+            },
+            {
+              "repeat": 1,
+              "total_us": 2813.953,
+              "update_us": 1267.4609999999998,
+              "query_us": 1543.757
+            },
+            {
+              "repeat": 2,
+              "total_us": 2313.989,
+              "update_us": 919.927,
+              "query_us": 1391.819
+            }
+          ],
+          "median_total_us": 2813.953,
+          "median_update_us": 1267.4609999999998,
+          "median_query_us": 1543.757,
+          "estimated_payload_bytes": 194608,
+          "anonymous_groups": 429
+        }
+      },
+      "states": [
+        {
+          "prefix": 64,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 462,
+          "largest_ambiguous_class": 236,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 6.003082345303467,
+              "future_logloss": 5.977011506846523,
+              "true_squared_error": 0.0055335341589764385,
+              "resident_true_mass_abs_error": 0.14739104334899883,
+              "l1_distance_to_full_mle": 0.2044961706440113,
+              "retained_true_probability_mass": 0.3305039183422703,
+              "retained_true_cost_proxy": 2177.566473534383,
+              "retained_future_cost_proxy": 2247.797150146484,
+              "retained_symmetric_difference_to_full_mle": 91,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 5.9757594042761,
+              "future_logloss": 5.9432359879930985,
+              "true_squared_error": 0.004969536930552818,
+              "resident_true_mass_abs_error": 0.20351736736439047,
+              "l1_distance_to_full_mle": 0.00494033425218266,
+              "retained_true_probability_mass": 0.3798947770559182,
+              "retained_true_cost_proxy": 2511.3585813521045,
+              "retained_future_cost_proxy": 2610.668860839844,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 5.975283399387374,
+              "future_logloss": 5.942824544806511,
+              "true_squared_error": 0.004974531535642765,
+              "resident_true_mass_abs_error": 0.20334444803774293,
+              "l1_distance_to_full_mle": 0.008599068865340903,
+              "retained_true_probability_mass": 0.37989477705591806,
+              "retained_true_cost_proxy": 2511.3585813521045,
+              "retained_future_cost_proxy": 2610.668860839844,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.00768103576551882,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 5.975236556478692,
+              "future_logloss": 5.942827458369351,
+              "true_squared_error": 0.004981912921127244,
+              "resident_true_mass_abs_error": 0.20448394725707536,
+              "l1_distance_to_full_mle": 2.3337169139862717e-06,
+              "retained_true_probability_mass": 0.3798947770559182,
+              "retained_true_cost_proxy": 2511.3585813521045,
+              "retained_future_cost_proxy": 2610.668860839844,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 3.0677600234285674e-06,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 5.975236531534259,
+              "future_logloss": 5.942827450811283,
+              "true_squared_error": 0.0049819155078795405,
+              "resident_true_mass_abs_error": 0.204484231124532,
+              "l1_distance_to_full_mle": 2.6907283692811923e-11,
+              "retained_true_probability_mass": 0.3798947770559182,
+              "retained_true_cost_proxy": 2511.3585813521045,
+              "retained_future_cost_proxy": 2610.668860839844,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "full_mle": {
+              "true_logloss": 5.9752365315416185,
+              "future_logloss": 5.942827450818875,
+              "true_squared_error": 0.0049819155077853615,
+              "resident_true_mass_abs_error": 0.20448423111602615,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.3798947770559182,
+              "retained_true_cost_proxy": 2511.3585813521045,
+              "retained_future_cost_proxy": 2610.668860839844,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 9,
+                "last_step": 2.051007627623669e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 256,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 379,
+          "largest_ambiguous_class": 162,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 5.884562551078773,
+              "future_logloss": 5.840858828282712,
+              "true_squared_error": 0.002994821349786119,
+              "resident_true_mass_abs_error": 0.08154152605791398,
+              "l1_distance_to_full_mle": 0.3552196040483912,
+              "retained_true_probability_mass": 0.37485481194509185,
+              "retained_true_cost_proxy": 2558.6261658018875,
+              "retained_future_cost_proxy": 2612.8576909179687,
+              "retained_symmetric_difference_to_full_mle": 48,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 5.810765721847534,
+              "future_logloss": 5.767844735772101,
+              "true_squared_error": 0.0024091047107990273,
+              "resident_true_mass_abs_error": 0.11244713391011485,
+              "l1_distance_to_full_mle": 0.03541367089930844,
+              "retained_true_probability_mass": 0.4126885836815545,
+              "retained_true_cost_proxy": 2837.8812280328707,
+              "retained_future_cost_proxy": 2906.652698486328,
+              "retained_symmetric_difference_to_full_mle": 8,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 5.8091529378297135,
+              "future_logloss": 5.76625535712237,
+              "true_squared_error": 0.002421572408930623,
+              "resident_true_mass_abs_error": 0.1264675656764228,
+              "l1_distance_to_full_mle": 0.034730077430901646,
+              "retained_true_probability_mass": 0.4129088355545351,
+              "retained_true_cost_proxy": 2841.2077132859786,
+              "retained_future_cost_proxy": 2915.8730378417968,
+              "retained_symmetric_difference_to_full_mle": 8,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.006200094987791337,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 5.809079712713377,
+              "future_logloss": 5.766204853977403,
+              "true_squared_error": 0.0024257509385306832,
+              "resident_true_mass_abs_error": 0.12769604280264302,
+              "l1_distance_to_full_mle": 0.0002600527141913642,
+              "retained_true_probability_mass": 0.40693560194782347,
+              "retained_true_cost_proxy": 2804.6117203136246,
+              "retained_future_cost_proxy": 2877.6505754394534,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 7.596336358762015e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 5.8090921987357405,
+              "future_logloss": 5.766209974445973,
+              "true_squared_error": 0.0024259941057795074,
+              "resident_true_mass_abs_error": 0.12769176194169662,
+              "l1_distance_to_full_mle": 1.026023599306862e-10,
+              "retained_true_probability_mass": 0.40693560194782347,
+              "retained_true_cost_proxy": 2804.6117203136246,
+              "retained_future_cost_proxy": 2877.6505754394534,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 9.392465971647113e-12,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "full_mle": {
+              "true_logloss": 5.809092198736027,
+              "future_logloss": 5.766209974442094,
+              "true_squared_error": 0.002425994105696064,
+              "resident_true_mass_abs_error": 0.12769176192847465,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.40693560194782347,
+              "retained_true_cost_proxy": 2804.6117203136246,
+              "retained_future_cost_proxy": 2877.6505754394534,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 5.662220692315145e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 1024,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 233,
+          "largest_ambiguous_class": 122,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 5.625086781559611,
+              "future_logloss": 5.625558073931986,
+              "true_squared_error": 0.0014144089096896882,
+              "resident_true_mass_abs_error": 0.03771611182152723,
+              "l1_distance_to_full_mle": 0.28938997603398803,
+              "retained_true_probability_mass": 0.4260114606132559,
+              "retained_true_cost_proxy": 2945.837847331692,
+              "retained_future_cost_proxy": 2936.9408354492184,
+              "retained_symmetric_difference_to_full_mle": 20,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 5.537808024912289,
+              "future_logloss": 5.540504863844318,
+              "true_squared_error": 0.0010040576114794873,
+              "resident_true_mass_abs_error": 0.023482739507101336,
+              "l1_distance_to_full_mle": 0.032880628758785634,
+              "retained_true_probability_mass": 0.4343934184005413,
+              "retained_true_cost_proxy": 3060.597047064015,
+              "retained_future_cost_proxy": 3043.375463623047,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 5.5383999211311625,
+              "future_logloss": 5.541368679179327,
+              "true_squared_error": 0.001092467152398347,
+              "resident_true_mass_abs_error": 0.04000617864285938,
+              "l1_distance_to_full_mle": 0.02012352688338254,
+              "retained_true_probability_mass": 0.4343934184005413,
+              "retained_true_cost_proxy": 3060.597047064015,
+              "retained_future_cost_proxy": 3043.375463623047,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.003212850205263959,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 5.538567853352925,
+              "future_logloss": 5.541751620497327,
+              "true_squared_error": 0.0010859411041314968,
+              "resident_true_mass_abs_error": 0.03824902494206994,
+              "l1_distance_to_full_mle": 0.0002033961306049793,
+              "retained_true_probability_mass": 0.43439341840054135,
+              "retained_true_cost_proxy": 3060.597047064015,
+              "retained_future_cost_proxy": 3043.3754636230465,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 4.979344562112617e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 5.538571750149327,
+              "future_logloss": 5.541746476019986,
+              "true_squared_error": 0.0010859259985994886,
+              "resident_true_mass_abs_error": 0.03823319233868899,
+              "l1_distance_to_full_mle": 2.8437327849234386e-10,
+              "retained_true_probability_mass": 0.43439341840054135,
+              "retained_true_cost_proxy": 3060.597047064015,
+              "retained_future_cost_proxy": 3043.3754636230465,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 1.0110762921344829e-10,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 5.538571750154307,
+              "future_logloss": 5.541746476009555,
+              "true_squared_error": 0.0010859259988415778,
+              "resident_true_mass_abs_error": 0.0382331923332756,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.43439341840054135,
+              "retained_true_cost_proxy": 3060.597047064015,
+              "retained_future_cost_proxy": 3043.3754636230465,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 19,
+                "last_step": 3.581834828736419e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        },
+        {
+          "prefix": 4096,
+          "resident_snapshot_available": true,
+          "ambiguous_objects": 91,
+          "largest_ambiguous_class": 72,
+          "metrics": {
+            "next_only": {
+              "true_logloss": 5.461763337341358,
+              "future_logloss": 5.468491606460458,
+              "true_squared_error": 0.0004384217835853476,
+              "resident_true_mass_abs_error": 0.01037282126176764,
+              "l1_distance_to_full_mle": 0.16374887650554662,
+              "retained_true_probability_mass": 0.4376424522826668,
+              "retained_true_cost_proxy": 3088.770695846247,
+              "retained_future_cost_proxy": 3016.3980393066404,
+              "retained_symmetric_difference_to_full_mle": 7,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "incremental": {
+              "true_logloss": 5.408473109962507,
+              "future_logloss": 5.406251730391116,
+              "true_squared_error": 0.00033638522379410816,
+              "resident_true_mass_abs_error": 0.010436511494598955,
+              "l1_distance_to_full_mle": 0.02381682717947827,
+              "retained_true_probability_mass": 0.43949776779397104,
+              "retained_true_cost_proxy": 3129.6096213303063,
+              "retained_future_cost_proxy": 3060.1841181640625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 0,
+                "last_step": 0.0,
+                "stationary_tolerance_reached": true
+              }
+            },
+            "em1": {
+              "true_logloss": 5.408783715663075,
+              "future_logloss": 5.407697514359095,
+              "true_squared_error": 0.0003264951770120015,
+              "resident_true_mass_abs_error": 0.006054756591381327,
+              "l1_distance_to_full_mle": 0.01134407026344834,
+              "retained_true_probability_mass": 0.4394977677939711,
+              "retained_true_cost_proxy": 3129.6096213303063,
+              "retained_future_cost_proxy": 3060.1841181640625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 1,
+                "last_step": 0.0026730402664767137,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em4": {
+              "true_logloss": 5.408542092305664,
+              "future_logloss": 5.407094968260816,
+              "true_squared_error": 0.00032360350014021055,
+              "resident_true_mass_abs_error": 0.00594688507857799,
+              "l1_distance_to_full_mle": 0.0001843171542749826,
+              "retained_true_probability_mass": 0.43949776779397104,
+              "retained_true_cost_proxy": 3129.6096213303063,
+              "retained_future_cost_proxy": 3060.1841181640625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 4,
+                "last_step": 3.224700749683562e-05,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "em16": {
+              "true_logloss": 5.408544177586599,
+              "future_logloss": 5.407089616467795,
+              "true_squared_error": 0.0003237860079252658,
+              "resident_true_mass_abs_error": 0.005948911792569178,
+              "l1_distance_to_full_mle": 1.6062475823161101e-09,
+              "retained_true_probability_mass": 0.43949776779397104,
+              "retained_true_cost_proxy": 3129.6096213303063,
+              "retained_future_cost_proxy": 3060.1841181640625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 16,
+                "last_step": 5.601702678104115e-10,
+                "stationary_tolerance_reached": false
+              }
+            },
+            "full_mle": {
+              "true_logloss": 5.408544177697839,
+              "future_logloss": 5.407089616525773,
+              "true_squared_error": 0.00032378601304298055,
+              "resident_true_mass_abs_error": 0.005948911918098598,
+              "l1_distance_to_full_mle": 0.0,
+              "retained_true_probability_mass": 0.43949776779397104,
+              "retained_true_cost_proxy": 3129.6096213303063,
+              "retained_future_cost_proxy": 3060.1841181640625,
+              "retained_symmetric_difference_to_full_mle": 0,
+              "fit": {
+                "iterations": 22,
+                "last_step": 4.759528188236217e-11,
+                "stationary_tolerance_reached": true
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "methods": [
+    "next_only",
+    "incremental",
+    "em1",
+    "em4",
+    "em16",
+    "full_mle"
+  ],
+  "no_uniform_new_evaluation": true,
+  "no_validation_queries": true
+}

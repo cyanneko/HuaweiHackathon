@@ -1,0 +1,42 @@
+{
+  "scope": "Fixed core, one cold resident, all individual cold objects fit. No next, BUILD, prefetch, or core breaks. Hand-specified rational toy cases only.",
+  "complete": true,
+  "cases": [
+    {
+      "case": "two_equal_cold_hot_core_80pct",
+      "states": 2,
+      "cold_probability": "1/5",
+      "transition_stationarity_exact": true,
+      "enumerated_cost_exact": "3/10",
+      "formula_cost_exact": "3/10",
+      "independent_access_proxy_exact": "3/5"
+    },
+    {
+      "case": "two_skew_cold",
+      "states": 2,
+      "cold_probability": "1/5",
+      "transition_stationarity_exact": true,
+      "enumerated_cost_exact": "361/4000",
+      "formula_cost_exact": "361/4000",
+      "independent_access_proxy_exact": "109/200"
+    },
+    {
+      "case": "three_cold",
+      "states": 3,
+      "cold_probability": "1/5",
+      "transition_stationarity_exact": true,
+      "enumerated_cost_exact": "389/375",
+      "formula_cost_exact": "389/375",
+      "independent_access_proxy_exact": "122/75"
+    },
+    {
+      "case": "four_cold",
+      "states": 4,
+      "cold_probability": "6/25",
+      "transition_stationarity_exact": true,
+      "enumerated_cost_exact": "16679/16800",
+      "formula_cost_exact": "16679/16800",
+      "independent_access_proxy_exact": "537/350"
+    }
+  ]
+}

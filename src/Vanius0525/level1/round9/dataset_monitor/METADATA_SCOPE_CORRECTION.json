@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-10-30T07:23:50.642151+00:00",
+  "command": "git diff --stat 53e7aed05bad46aac4048950d9f8aedef020ef8d 28db22e42d710755cee793d480cecac4f45a510e",
+  "reason_for_attempt": "Inspect changed paths after unexpected remote update",
+  "issue": "--stat may read changed input blobs and trigger lazy fetch in a promisor repository; this exceeded the intended metadata-only monitoring operation.",
+  "response": "Interrupted promptly with Ctrl-C, exit130, no statistics/output returned. No solver/training launched.",
+  "repository_config": {
+    "remote.origin.promisor": true,
+    "remote.origin.partialclonefilter": "blob:none"
+  },
+  "observed_pack_evidence": {
+    "since_utc": "2026-10-30T07:15:00+00:00",
+    "pack_count": 1,
+    "pack_bytes": 205128,
+    "pack_mtime_utc": "2026-10-30T07:18:23.593987+00:00"
+  },
+  "limits": "Pack observation cannot attribute transfer to this command, prove zero blob access/download, or reconstruct transient fetch activity. No dyna input contents or algorithm-score data were returned to model context.",
+  "prevention": "Use only explicit small paths with diff-tree --no-renames; no --stat/similarity detection/full data fetch. Remote and local metadata reads remain separated. Parent notified."
+}

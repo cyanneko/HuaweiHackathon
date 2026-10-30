@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "version": "2.1.0",
+  "status": "passed",
+  "scope": "All 72 eval, five million-operation training cases, and one capacity diagnostic; official reference only.",
+  "manifest_sha256": "217e8e24ad6fcf6c1c057bb2031d5cde23fe2e2b35595b095d119922a47aee87",
+  "dataset_sha256": "41843f70bd19e28bdbcfc175dc598ea0cab78d163e23810987d22d4a6851ebc7",
+  "reference_source_sha256": "177e41584848e920dba7d4ddc5e3696d15bb0395ce43c5714a57a36b3a580835",
+  "executable_sha256": "c99e55e47d12a0fe10304302da445074b769e19d274b9ee65deb379a5a7f218a",
+  "checker_sha256": "43738e912c1ecd6527223500d97a5db4ad4adaa4995b4de75d86e470a321c6da",
+  "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "compile_flags": [
+    "-std=c++14",
+    "-O2"
+  ],
+  "cpu": "AMD Ryzen 5 7535U with Radeon Graphics",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "timeout_seconds": 60,
+  "expected_cases": 78,
+  "passed_cases": 78,
+  "errors": [],
+  "wall_seconds": {
+    "mean": 0.6422676411542246,
+    "median": 0.31601171150032314,
+    "max": 4.032987261998642
+  },
+  "limitations": [
+    "Single-run functional/runtime smoke check, not a candidate comparison or score ranking.",
+    "CPU exclusivity was not established; host timings do not guarantee the official machine or another scheduler.",
+    "No five-million-operation case; simulated IO is arithmetic cost, not real sleep.",
+    "This script checks protocol metrics and completion, not an independent full action trace audit."
+  ],
+  "case_status_counts": {
+    "passed": 78
+  },
+  "case_split_counts": {
+    "train": 5,
+    "eval": 72,
+    "diagnostics": 1
+  },
+  "manifest_matches_frozen_v21": true,
+  "reference_matches_release_declaration": true,
+  "observed_utc": "2026-10-30T07:43:26.119893+00:00",
+  "source_report": "huawei-dataset-review-20261030/runtime_smoke_v21.json",
+  "source_report_sha256": "586a9e4e81cb0bce4c03551129a3551ab135cc3dcc340d7487faae1a384350aa",
+  "source_report_mtime_utc": "2026-10-30T07:36:57.851544+00:00",
+  "monitor_scope": "Read stable local official-reference runtime/protocol summary only. No per-case metrics, candidate scores, raw inputs, or archives emitted/inspected; monitor did not execute reference."
+}

@@ -1,0 +1,62 @@
+{
+  "pure": {
+    "replacements": [
+      {
+        "before": "class MySpillScheduler : public SpillScheduler {",
+        "after": "class MySpillScheduler : public SpillScheduler {\n    static constexpr double penalty_proxy_us = 100.0;"
+      },
+      {
+        "before": "// The true penalty is absent from SystemState. Only its documented\n            // lower bound (1 microsecond) is used in this cost-density heuristic.",
+        "after": "// The true penalty is absent from SystemState. This fixed 100 us\n            // proxy is a user-selected heuristic, not the scoring penalty."
+      },
+      {
+        "before": "1.0 / part.data_size",
+        "after": "penalty_proxy_us / part.data_size"
+      },
+      {
+        "before": "1.0/x.data_size",
+        "after": "penalty_proxy_us/x.data_size"
+      },
+      {
+        "before": "1.0/part.data_size",
+        "after": "penalty_proxy_us/part.data_size"
+      },
+      {
+        "before": "size/s.read_bandwidth+size/s.write_bandwidth+1.0",
+        "after": "size/s.read_bandwidth+size/s.write_bandwidth+penalty_proxy_us"
+      },
+      {
+        "before": "size/s.read_bandwidth+1.0",
+        "after": "size/s.read_bandwidth+penalty_proxy_us"
+      }
+    ],
+    "exact_inverse_recovers_released_source": true,
+    "diff": "--- round8/pure/paired_confidence.cpp\n+++ round9/candidates/paired_penalty100.cpp\n@@ -6,6 +6,7 @@\n #include <cstdint>\n #include <vector>\n class MySpillScheduler : public SpillScheduler {\n+    static constexpr double penalty_proxy_us = 100.0;\n     struct History { int64_t last = -1; double count = 0; };\n     struct Victim { int op, pid; int64_t bytes; double priority, pool_priority; };\n     std::vector<History> history_;\n@@ -64,7 +65,7 @@\n         for(const auto& o:s.operators) for(const auto& x:o.partitions) {\n             if(o.phase!=Phase::PROBE || x.data_size<=0)continue;\n             int id=o.op_id*p_+x.partition_id;\n-            double d=probability(id)*(1.0/s.read_bandwidth+1.0/s.write_bandwidth+1.0/x.data_size);\n+            double d=probability(id)*(1.0/s.read_bandwidth+1.0/s.write_bandwidth+penalty_proxy_us/x.data_size);\n             items.push_back({id,x.data_size,d*(core_[id]?1.1:1.0)});\n             sizes.push_back(x.data_size);\n         }\n@@ -197,17 +198,17 @@\n                 const int delta = (part.partition_id - last_pid_ + p_) % p_;\n                 reuse = 1.0 - static_cast<double>(step_distance_[delta]) / p_;\n             }\n-            double pool_priority=reuse*(1.0/s.read_bandwidth+1.0/s.write_bandwidth+1.0/part.data_size);\n+            double pool_priority=reuse*(1.0/s.read_bandwidth+1.0/s.write_bandwidth+penalty_proxy_us/part.data_size);\n             if(o.op_id==next_op && part.partition_id==next_pid)pool_priority+=1e12;\n             // A 64-request retention horizon fixes the scale against immediate write cost.\n             // This is a proxy, not a claim of unbiased estimates for correlated requests.\n             if(o.phase==Phase::PROBE && !scan) {\n                 reuse=64.0*probability(o.op_id*p_+part.partition_id);\n             }\n-            // The true penalty is absent from SystemState. Only its documented\n-            // lower bound (1 microsecond) is used in this cost-density heuristic.\n+            // The true penalty is absent from SystemState. This fixed 100 us\n+            // proxy is a user-selected heuristic, not the scoring penalty.\n             double priority = reuse * (1.0 / s.read_bandwidth +\n-                1.0 / s.write_bandwidth + 1.0 / part.data_size);\n+                1.0 / s.write_bandwidth + penalty_proxy_us / part.data_size);\n             if (o.op_id == next_op && part.partition_id == next_pid) priority += 1e12;\n             victims_.push_back({o.op_id, part.partition_id, part.data_size, priority, pool_priority});\n         }\n@@ -286,12 +287,12 @@\n             if(!sign[id])continue;\n             different=true;\n             const double size=static_cast<double>(part.data_size);\n-            const double coefficient=sign[id]*(size/s.read_bandwidth+size/s.write_bandwidth+1.0);\n+            const double coefficient=sign[id]*(size/s.read_bandwidth+size/s.write_bandwidth+penalty_proxy_us);\n             immediate+=sign[id]*size/s.write_bandwidth;\n             // Exact next request is additional known immediate read/miss exposure.\n             if(s.next_op.type==\"PROBE\" && s.next_op.op_id==o.op_id &&\n                s.next_op.key%p_==part.partition_id)\n-                immediate+=sign[id]*(size/s.read_bandwidth+1.0);\n+                immediate+=sign[id]*(size/s.read_bandwidth+penalty_proxy_us);\n             const double prob=probability(id);\n             mean+=prob*coefficient;second+=prob*coefficient*coefficient;\n             const double pp=(periodic_mass_[id]+64.0/periodic_mass_.size())/(periodic_total_+64.0);\n",
+    "ai_weights_changed": false,
+    "note": "Pure unused refreshCore uses the same named constant for consistency; still never called."
+  },
+  "ai": {
+    "replacements": [
+      {
+        "before": "class MySpillScheduler : public SpillScheduler {",
+        "after": "class MySpillScheduler : public SpillScheduler {\n    static constexpr double penalty_proxy_us = 100.0;"
+      },
+      {
+        "before": "// The true penalty is absent from SystemState. Only its documented\n            // lower bound (1 microsecond) is used in this cost-density heuristic.",
+        "after": "// The true penalty is absent from SystemState. This fixed 100 us\n            // proxy is a user-selected heuristic, not the scoring penalty."
+      },
+      {
+        "before": "1.0 / part.data_size",
+        "after": "penalty_proxy_us / part.data_size"
+      },
+      {
+        "before": "1.0/v.bytes",
+        "after": "penalty_proxy_us/v.bytes"
+      }
+    ],
+    "exact_inverse_recovers_released_source": true,
+    "diff": "--- round4/ai_prefetch_budget2048.cpp\n+++ round9/candidates/ai_penalty100.cpp\n@@ -5,6 +5,7 @@\n #include <cstdint>\n #include <vector>\n class MySpillScheduler : public SpillScheduler {\n+    static constexpr double penalty_proxy_us = 100.0;\n     struct History { int64_t previous = -1; int64_t last = -1; double count = 0; };\n     struct Victim { int op, pid; int64_t bytes; double priority; };\n     std::vector<History> history_;\n@@ -176,10 +177,10 @@\n                 const int delta = (part.partition_id - last_pid_ + p_) % p_;\n                 reuse = 1.0 - static_cast<double>(step_distance_[delta]) / p_;\n             }\n-            // The true penalty is absent from SystemState. Only its documented\n-            // lower bound (1 microsecond) is used in this cost-density heuristic.\n+            // The true penalty is absent from SystemState. This fixed 100 us\n+            // proxy is a user-selected heuristic, not the scoring penalty.\n             double priority = reuse * (1.0 / s.read_bandwidth +\n-                1.0 / s.write_bandwidth + 1.0 / part.data_size);\n+                1.0 / s.write_bandwidth + penalty_proxy_us / part.data_size);\n             if (o.op_id == next_op && part.partition_id == next_pid) priority += 1e12;\n             victims_.push_back({o.op_id, part.partition_id, part.data_size, priority});\n         }\n@@ -192,7 +193,7 @@\n             std::partial_sort(victims_.begin(),victims_.begin()+cap,victims_.end(),less);\n             for (int j=0;j<cap;++j) {\n                 auto& v=victims_[j];float f[12];features(s,v.op,v.pid,need,op,f);\n-                v.priority=neural(f)*(1/s.read_bandwidth+1/s.write_bandwidth+1.0/v.bytes);\n+                v.priority=neural(f)*(1/s.read_bandwidth+1/s.write_bandwidth+penalty_proxy_us/v.bytes);\n                 if (v.op==next_op && v.pid==next_pid) v.priority+=1e12;\n             }\n             // Fixed four-candidate subset search, not a global knapsack oracle.\n",
+    "ai_weights_changed": false,
+    "note": "Neural weights and prefetch budget2048 unchanged; no retraining."
+  }
+}

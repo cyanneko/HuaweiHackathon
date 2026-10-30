@@ -1,4 +1,15 @@
-# 最新交接：Round8完成，双路线持续探索（2026-10-30）
+# 最新交接：Round9统一100μs，新训练基线完成（2026-10-30）
+
+当前入口：[level1/round9/README.md](level1/round9/README.md)、[level1/round9/HANDOFF.md](level1/round9/HANDOFF.md)及CURRENT_WORKING_SOURCES.json。用户最新要求后续不再运行1μs版本，纯与AI统一100μs代理；旧源码/成绩保留历史。
+
+- 纯源码level1/round9/candidates/paired_penalty100.cpp，AI源码level1/round9/candidates/ai_penalty100.cpp。60新增倾斜train同批3重复均分3.744318/3.268412；180完整动作字节审核和540计时完成。存在明显尾部退化，训练均分不是新72最终成绩或最优性证明。
+- final_dataset2.1.0推荐540train已固定为432train/108dev；主eval72含36旧已曝光例。612输入逐行审核完成；新dev/eval策略访问0。后续远端新增独立诊断不自动改变主数据锁。
+- 纯算法下一步审核驱逐后重访风险、未返回暴露与算子/分区校准；AI下一步采真实压力决策与合法证据，先证明动作互补再训练。用户明确允许Python训练后内嵌权重到C++14；跨语言推理与实际调度成本需核查。
+- 三个子agent分别推进两路线和数据监测；主agent统一评测、资源与发布。接管先查最新日志/进程，不重复启动，不改旧小时服务。只提交本人本次产物，Round4/6无关文件保持。
+
+以下为各历史阶段的交接，旧“当前”或进程状态不覆盖本段。
+
+# 历史交接：Round8完成，双路线持续探索（2026-10-30）
 
 当前入口：[level1/round8/README.md](level1/round8/README.md)、[level1/round8/HANDOFF.md](level1/round8/HANDOFF.md)及其CURRENT_BEST.json。用户明确授权持续探索/监督和两个子agent，纯算法与含AI路径继续保留。
 

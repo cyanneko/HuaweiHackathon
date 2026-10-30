@@ -1,15 +1,19 @@
 # Level 1：纯算法与学习增强调度器
 
-**当前发布入口（Round8，2026-10-30）**：两条路线继续独立探索。新纯算法在综合50例同批3重复中均分2.855474，旧Best为2.647765；通过冻结门槛后晋升。含AI路线没有新模型晋升，保留原最佳。完整证据、负结果与限制见 [round8/README.md](round8/README.md) 和 [round8/CURRENT_BEST.json](round8/CURRENT_BEST.json)。
+**当前工作入口（Round9，2026-10-30）**：用户要求后续两条路线统一100μs Miss代理，不再运行1μs版本。纯算法使用 [paired_penalty100.cpp](round9/candidates/paired_penalty100.cpp)，含AI使用 [ai_penalty100.cpp](round9/candidates/ai_penalty100.cpp)；AI权重未重训。新60倾斜训练面板均分分别3.744318与3.268412，180条完整动作/字节审核、540次未插桩计时通过，另保留一次数值容差失败及修复。**这些不是新72例主评测成绩，也不证明100优于其他代理。** 数据划分、尾部退化、完成证据和下一阶段见 [round9/README.md](round9/README.md)、[round9/HANDOFF.md](round9/HANDOFF.md)。
 
-| 路线 | 当前单文件提交入口 | 综合50例平均分 |
+当前主标准final_dataset2.1.0含72例，推荐train540已固定分为432train/108dev；新dev与eval尚未运行策略。纯算法和AI分别由子agent继续推进，第三个agent监测数据更新；重型运行经公共锁串行。以下旧50例分数及1μs源码仅保留历史，不作为当前运行入口或新数据选型依据。
+
+**历史发布入口（Round8）**：纯算法在旧综合50例同批3重复中均分2.855474，旧Best为2.647765；当时通过冻结门槛晋升。含AI路线当时没有新模型晋升。完整历史证据见 [round8/README.md](round8/README.md) 和 [round8/CURRENT_BEST.json](round8/CURRENT_BEST.json)。
+
+| 路线 | 历史单文件入口（不再运行） | 旧综合50例平均分 |
 |---|---|---:|
 | 纯算法 | [paired_confidence.cpp](round8/pure/paired_confidence.cpp) | 2.855474 |
 | 包含AI | [ai_prefetch_budget2048.cpp](round4/ai_prefetch_budget2048.cpp) | 2.587030 |
 
 一次只提交一个`MySpillScheduler`类，C++14标准库CPU。根目录`MySpillSchedulerBest.cpp`和`MySpillSchedulerAI.cpp`保留历史原件，不是最新入口。上述综合集已曝光，均分按全部50例等权计算，不使用旧三成员等权，也不代表隐藏正式评测成绩或全局最优。
 
-**持续工作**：两个子agent分别推进纯算法与含AI路径；训练/求解器经公共锁串行。Round8已完成，新工作转入Round9；运行进度应读取最新交接并核查进程，不从历史“已停止/已恢复”文字推断。见 [round8/HANDOFF.md](round8/HANDOFF.md)。本阶段未恢复旧小时服务，未新建定时服务。
+**持续工作**：运行进度应读取 [round9/HANDOFF.md](round9/HANDOFF.md) 并核查实际进程，不从历史“已停止/已恢复”文字推断。本阶段未恢复旧小时服务，未新建定时服务。
 
 ## 以下为早期方法、结果和复现记录
 

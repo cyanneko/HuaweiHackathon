@@ -1,0 +1,27 @@
+{
+  "status": "VALIDATED_STAGE0_EXACT_LEDGER_AVAILABLE_WITH_HARD_PRECONDITIONS",
+  "files": {
+    "protocol.json": "656b08646ec8ed0aa4c1a09244ced2c8d02c6932c4f69c1cd0895cf984000200",
+    "validate.py": "960230d794ce3b3efe82a9463133244a1e3fe378fbde7c25dd7456bbb3bfd1a6",
+    "adapter_ledger.cpp": "cfad1939c51caddbe00313ef01780a7e2615c269684d2493141900de658d3eaf",
+    "adapter_ledger": "12876c01534f2ea0075705f7adf79c8f84668db750edad7a0bec23e0d44df177",
+    "validation_report.json": "130b31518ee8cd19ee573585d9bad78535d2c041352a2a3a0988fd1c785ab84f"
+  },
+  "checked_branches": 89,
+  "seconds": 11.576449617000002,
+  "formal_D": null,
+  "required_at_every_new_branch": [
+    "verify frozen input/source/binary/force SHA",
+    "input canonical ids and legal ranges; INSERT only before unique per-operator SWITCH; PROBE only afterwards",
+    "all forced action types and ids validated before native commit_actual can access them",
+    "normal native exit and exactly one complete END and LEDGER line",
+    "override_count exactly 1 for forced branches",
+    "last callback all operators PROBE; nonnegative integral write/read/miss",
+    "new anchor requires own original-R75-action forced control, not inherited stage0 control",
+    "compute integer G from byte ledger, never rounded stdout IO",
+    "capacity acceptance depends on successful original engine execution, not wrapper prediction"
+  ],
+  "rejection": "Never produce approximate labels on any failed condition; keep failure artifact and use explicitly budgeted full replay only if scheduled.",
+  "scope": "89 existing branches compared to independent full physical replay; future fast branches use native passive ledger with the stated conditions, not independent full Python replay.",
+  "prepared_protocol_status_is_historical": true
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PREPARED_NOT_VALIDATED_NOT_USABLE_FOR_TRAINING",
+  "base_adapter_sha256": "fbd3d00c6a12662b0c5d6f1f9b88941ae729853bc2ce60ce3eaa7d2fbe744be4",
+  "ledger_source_sha256": "cfad1939c51caddbe00313ef01780a7e2615c269684d2493141900de658d3eaf",
+  "algorithm": "same R75 one-call proposal/commit; only passive action accounting and optional diagnostic trace/hash skipping added",
+  "exactness_conditions": [
+    "input statically verified to contain INSERT only before operator SWITCH, and only PROBE after SWITCH",
+    "last real callback sees all operators PROBE",
+    "native process succeeds and all forced actions jointly identify target with override_count=1",
+    "all reads are actual LOAD actions, accounted with engine-equivalent ordered residency/phase checks",
+    "no callback after last => all remaining legal operations have no IO; last entry totalIO plus its actions equals EOF totalIO"
+  ],
+  "rejection": "ledger_all_probe=false or failed input validity or override-count rejects fast label, never approximate or fill zero",
+  "comparison_required": "all stage0 primary branches against previously independently replayed exact write/read/miss/G before adoption",
+  "scope_limit": "does not independently replay every new branch in Python; separate native ledger validation scope; no formal D"
+}

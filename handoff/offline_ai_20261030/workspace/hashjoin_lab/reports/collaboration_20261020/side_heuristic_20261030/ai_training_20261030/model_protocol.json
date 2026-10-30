@@ -1,0 +1,72 @@
+{
+  "status": "PRETRAIN_SPEC_NO_MODEL_RESULTS",
+  "feature_dim": 32,
+  "pool": "frozen r66-eight-plans-v1; held fixed across network controls",
+  "models": [
+    {
+      "name": "small_full",
+      "hidden": [
+        16
+      ],
+      "zero_columns": [],
+      "base_skip": true
+    },
+    {
+      "name": "large_full",
+      "hidden": [
+        256,
+        128
+      ],
+      "zero_columns": [],
+      "base_skip": true
+    },
+    {
+      "name": "large_no_score_inputs",
+      "hidden": [
+        256,
+        128
+      ],
+      "zero_columns": [
+        13,
+        28,
+        30,
+        31
+      ],
+      "base_skip": true
+    },
+    {
+      "name": "large_no_score_or_skip",
+      "hidden": [
+        256,
+        128
+      ],
+      "zero_columns": [
+        13,
+        28,
+        30,
+        31
+      ],
+      "base_skip": false
+    }
+  ],
+  "ablation_scope": "Explicit scoring columns only. Raw history remains. All controls retain heuristic-generated candidate pool. No-score-inputs retains x13 skip; no-score-or-skip removes that additional path separately.",
+  "seed": 20261030,
+  "epochs": 200,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "weight_decay": 0,
+  "batch": "full labelled state batch if memory permits; same updates for all controls",
+  "activation": "ReLU",
+  "output_initialization": "zero final weights and bias; same initial zero residual",
+  "residual_clip": [
+    -1,
+    1
+  ],
+  "loss": "R70 Huber + 0.25 normalized-gap-weighted pair softplus, pair temperature0.25; equal informative-case weights; missing/padding/ties excluded as documented",
+  "precision": "FP32 training; disable CUDA TF32 and AMP; deterministic seed/settings recorded",
+  "device": "cuda required for the actual training experiment; CPU allowed only in small contract tests and deployment reference",
+  "timing_priority": "Quality first; record training wall time, parameters, MACs and later CPU D without assuming original tiny timing budget",
+  "data_gate": "No actual training before complete teacher pilot quality review, explicit train-only identity checks and training resource coordination",
+  "model_selection": "Compare fixed final epoch of all four on explicit dev labels and full Python rollouts; no holdout access or retroactive hyperparameter search",
+  "label_normalization_limit": "Per-state normalized losses do not measure absolute microsecond improvements; report absolute regret and complete rollout G separately"
+}

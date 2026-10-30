@@ -1,0 +1,19 @@
+{
+  "status": "DRAFT_NOT_TRAINED_OR_FROZEN_FOR_MODEL_SELECTION",
+  "condition": "Proceed only after exact one-deviation Q_R75 headroom passes; stage0 N8000 is interface evidence, not corner-performance validation.",
+  "proposed_features": "65 = current candidate causal32 + same-state actual R75 candidate causal32 + is_R75 flag; no case/seed/N/future/teacher cost input",
+  "baseline": "Frozen R75 cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458, maintained through one proposal plus actual-action commit every real callback",
+  "proposed_target": "(G_candidate - G_R75) / (M * (W + R)); G=write_bytes*R+read_bytes*W+misses*penalty*W*R; W/R are bandwidths. R75 candidate target is exactly zero.",
+  "interpretation": "One deviation followed by real R75, not optimal Q and not the learned policy's repeated-intervention cost.",
+  "fallback": "R75 remains a candidate and executes normally when no alternative is selected; a negative predicted advantage is not a performance guarantee.",
+  "runtime_budget_direction": "Use a predeclared cheap visible-event eligibility rule before computing network features, e.g. at most one network event per 512 new public probes; exact rate/threshold must be frozen before calibration. Training states must use the same eligibility rule.",
+  "calibration_boundary": "Threshold and model selection only within training/calibration seeds. Do not tune on stage0 dev and then call it unseen validation.",
+  "future_evidence": "New >=100k scale batch and distinct-seed validation before claiming corner advantage over R75. Include ordinary controls, every regression, false override loss, IO+miss separately from D.",
+  "features_hpp_status": "Uncompiled new-experiment glue, not deployed. Requires selected-anchor native/Python pool, execution-order, auxiliary-observer and FP32 parity tests before use.",
+  "do_not_modify": [
+    "stage0 config/input/trace/binaries",
+    "original R75 source",
+    "official engine",
+    "old R70 shared sources"
+  ]
+}

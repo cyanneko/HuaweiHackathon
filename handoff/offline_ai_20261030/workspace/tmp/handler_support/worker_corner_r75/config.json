@@ -1,0 +1,29 @@
+{
+  "stage": "corner-stage0-true-R75-headroom",
+  "teacher_handoff_sha256": "b6363dfa00c42581a27151422b14f0346fcc27236bbdc45e37fe0a04e34ed686",
+  "handler_config_sha256": "5b5cdf27111fcaf14528f39f06e74a6d2f8302d65ccc722aaa481975564c2d13",
+  "sources": {
+    "tmp/handler_support/worker_corner_r75/run_native_teacher.py": "bb78b2d019e00feb72c1e55affaaed2726cf555fd8aabebc78c8e6ffcedea95f",
+    "tmp/handler_support/worker_corner_r75/corner_state.py": "e95e20e836ca8d821078a0b26fc9d3389efb6808f0de723b028f72505bba3520",
+    "tmp/handler_support/worker_corner_r75/trace_io.py": "e45fc2d34b078266161adbd8050f5161f437df685a68029138997b52721868b5",
+    "tmp/handler_support/worker_corner_r75/test_corner_state.py": "c7243a1c8667f66d1b3eef276d00c480fcf125ab2b6590a4178471fd5ec2493b",
+    "tmp/handler_support/worker_corner_r75/test_trace_io.py": "fbe8caf970619adc503a044e02797fbe7d03b44a03eb342fcbd5d67f002aecc2",
+    "tmp/r70_nn_pipeline/pipeline.py": "744c7874bc00af9ec9d5170b99778adba1130763e7e5071d969d69fe08a7f529",
+    "hashjoin_lab/reports/collaboration_20261020/round66_offline_oracle/core.py": "e26b3bf6ca1aeb6841cd295023d1fcf218bfb56625738c8ca6080bb8ab6d5637",
+    "tmp/r75_release/MySpillScheduler.cpp": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+    "hashjoin_lab/reports/collaboration_20261020/round49_latency_baseline/reference_compilable.cpp": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da"
+  },
+  "anchor_seed": "corner-r75-native-headroom-v1",
+  "anchor_rule": "per train input lowest hash eligible O and M, selected before any branch costs",
+  "scope": "8 train inputs only, <=16 O/M anchors, union exact R75 actions and old pool",
+  "total_seconds": 180,
+  "per_native_branch_seconds": 20,
+  "continuations": [
+    "native-r75-propose-once-commit-actual-v1"
+  ],
+  "reverse_check": "lowest selection-hash anchor, reversed pool order after primary matrix if >=10s remains",
+  "no_old_future_H": true,
+  "no_dev_inputs": true,
+  "no_training": true,
+  "formal_D": null
+}

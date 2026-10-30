@@ -1,0 +1,13 @@
+{
+  "feature_version": "r70-causal32-v2-sequential-sums",
+  "normalization": "fixed dimensionless formulas; no fitted scaler",
+  "cast": "double calculations then float32",
+  "max_plans": 8,
+  "tie": [
+    "spill_count",
+    "integer_bytes",
+    "sorted_partition_ids"
+  ],
+  "label_normalization": "integer G subtraction before division by same-state maxgap",
+  "inference": "base x13 plus clipped [-1,1] residual; lower wins"
+}

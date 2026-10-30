@@ -1,0 +1,92 @@
+{
+  "status": "PRODUCER_COMPLETE_INDEPENDENT_REVIEW_PENDING_NOT_A_TRAINING_GATE",
+  "source_directory": "tmp\\r78_scale_teacher",
+  "source_files": {
+    "config.json": "8fcbbe22b4d3653b91df0dc71f2d014c36565aa837d1763bf446d0a684f38a30",
+    "selection_protocol.json": "07a712f4b00495188f1d1441ae73d2e524464973d9cbf62be90c6a4debf099c1",
+    "selection.json": "7171421d36f8abe273f98d10efe85689a8fc7ea650333154f28435fea08b5ad4",
+    "baselines.json": "ac64c2cb7bf45403d5692f6ca8ca11140859f4c1e64472beb6a0ce7d1b4bd98a",
+    "report.json": "79682881cf553decee248b136784b837992b4961ba59df3fe0c89f7c75c9e0f8",
+    "results.json": "29ff89efd16083004d39abe692543b0b37b43592f036715c4d650b59018ab9ea",
+    "cpu_released.json": "14eb386a007bbeec6d87fd46035ca6636f5707bc9831e047308fb23b70d889d2",
+    "run.py": "4fc5e4848614699de61959e3e620a7689b20714aa830da1febb5665968bd6884"
+  },
+  "producer_report": {
+    "status": "COMPLETE",
+    "fatal": null,
+    "elapsed_seconds": 14.362346230000002,
+    "budget_seconds": 90,
+    "planned_strata": 4,
+    "selected_anchors": 4,
+    "complete_anchors": 4,
+    "completed_branches": 11,
+    "planned_branches": 11,
+    "config_sha256": "8fcbbe22b4d3653b91df0dc71f2d014c36565aa837d1763bf446d0a684f38a30",
+    "results_sha256": "29ff89efd16083004d39abe692543b0b37b43592f036715c4d650b59018ab9ea",
+    "no_retries": true,
+    "no_replacement": true,
+    "formal_D": null
+  },
+  "selection_rule": "minimum SHA256 canonical JSON [salt,input_sha256,callback_index,kind] over ALL native callbacks of predeclared kind; no pool eligibility filter, no replacement",
+  "candidate_rule": "original ordered R75; smallest sufficient resident positive non-target single (protect valid next PROBE), if distinct and legal; then minimum x13 old-union different ordered action with deterministic (x13,len,bytes,ids) tie; at most3, no backfill anchor",
+  "producer_headroom_summary": [
+    {
+      "anchor_id": "a00",
+      "case_id": "r78_scale_train_fast_shared_p3",
+      "control_valid": true,
+      "complete_matrix": true,
+      "best_indices": [
+        2
+      ],
+      "r75_regret_G": 50318087280,
+      "r75_regret_us": 6289760.91,
+      "branches": 3
+    },
+    {
+      "anchor_id": "a01",
+      "case_id": "r78_scale_train_fast_staggered_p3",
+      "control_valid": true,
+      "complete_matrix": true,
+      "best_indices": [
+        1
+      ],
+      "r75_regret_G": 26931978040,
+      "r75_regret_us": 3366497.255,
+      "branches": 3
+    },
+    {
+      "anchor_id": "a02",
+      "case_id": "r78_scale_train_slow_shared_p12",
+      "control_valid": true,
+      "complete_matrix": true,
+      "best_indices": [
+        0,
+        2
+      ],
+      "r75_regret_G": 0,
+      "r75_regret_us": 0.0,
+      "branches": 3
+    },
+    {
+      "anchor_id": "a03",
+      "case_id": "r78_scale_train_burst_staggered_p12",
+      "control_valid": true,
+      "complete_matrix": true,
+      "best_indices": [
+        1
+      ],
+      "r75_regret_G": 4691030040,
+      "r75_regret_us": 586378.755,
+      "branches": 2
+    }
+  ],
+  "scope": [
+    "Four purpose-selected 100k TRAIN strata; not an aggregate performance estimate across eight scale cases.",
+    "One forced deviation followed by native R75; no trained AI results, no repeated-intervention result.",
+    "Exact passive native ledger and selected Python prefix verification; no independent full Python suffix replay.",
+    "Independent review is ongoing per Root; archiving metadata does not accept labels for training."
+  ],
+  "current_root_direction": "Do not start new NN training or experiments. Root is preparing R79 adaptive within-operator homogeneity weighting with independent partition statistics.",
+  "van_commit_root_reported_not_verified_here": "28094bdec34ff7110d9f1614703d0b09d383d4a6",
+  "formal_D": null
+}

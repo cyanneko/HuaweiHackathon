@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "offline_component_prepared_read_only_inventory",
+  "component": "tmp/github_handoff_20261030/offline_component",
+  "code_file_count": 38,
+  "file_count": 79,
+  "public_bytes": 884785,
+  "required_inputs": {
+    "count": 56,
+    "bytes": 25923787,
+    "r70_count": 40,
+    "corner_train_count": 8,
+    "r78_train_count": 8,
+    "r70_metadata_count": 40
+  },
+  "pure_teacher_minimum": [
+    "hashjoin_lab/reports/collaboration_20261020/round66_offline_oracle/core.py",
+    "hashjoin_lab/reports/collaboration_20261020/round67_offline_quality/future_rollouts.py",
+    "hashjoin_lab/reports/collaboration_20261020/round70_offline_optimization/teacher_portfolio.py",
+    "tmp/r70_interval/interval_teacher.py",
+    "hashjoin_lab/reports/collaboration_20261020/round70_offline_optimization/dynamic_teacher.py"
+  ],
+  "validation_framework_minimum": [
+    "hashjoin_lab/reports/collaboration_20261020/round69_offline_scale/compact_harness.py",
+    "hashjoin_lab/reports/collaboration_20261020/round49_latency_baseline/reference_compilable.cpp",
+    "hashjoin_lab/reports/collaboration_20261020/round65_deficit_risk/dependencies/frozen_helpers.hpp",
+    "hashjoin_lab/reports/collaboration_20261020/round65_deficit_risk/policy.hpp"
+  ],
+  "optional_store_dependencies": [
+    "hashjoin_lab/reports/collaboration_20261020/round69_offline_scale/run_scale.py",
+    "hashjoin_lab/reports/collaboration_20261020/round67_offline_quality/baselines.py",
+    "hashjoin_lab/reports/collaboration_20261020/round67_offline_quality/official_harness.py",
+    "hashjoin_lab/reports/collaboration_20261020/round66_offline_oracle/shared_pool.hpp"
+  ],
+  "method_boundaries": {
+    "teacher_portfolio": "3 old complete greedy heuristics; static inputs additionally admit density/short/sqrt_time interval packing; spill-only overflow, demand LOAD-last, periodic empty; privileged future, not online OPT",
+    "dynamic_teacher": "6 fixed (alpha,beta,gamma) priority controls; exact integer cross-products; future size at next probe, not current size; no prefetch/NN/optimality guarantee",
+    "objective": "G=write_bytes*R+read_bytes*W+misses*penalty*W*R; physical simulated cost=G/(W*R); D excluded"
+  },
+  "existing_findings": {
+    "r70": "24/24 train complete teachers beat actual VanBest, mean per-case reduction 44.16086895010111%; 10/24 improve old three controls. Selected paths official compact aggregate/public/action replay checked, not full partition-state parity. Not NN benefit, OPT gap, or disk speed.",
+    "student46": "46 paired train states, 1152 complete branches; 91 official compact replays, remaining1061 reference-only. Four first actions and five best sets changed. Not closed-loop benefit; fixed vs finite-H complete suffix minima are not Q*.",
+    "corner_stage0": "8 train N8000 inputs from4 seed lineages; 16 anchors89 branches;12/16 local better first actions under actual R75 continuation,1 all-tie zero weight. Not full input or deployed model benefit.",
+    "r78": "4 train N100000 selected anchors11 branches including4 controls;3/4 local headroom,7 alternatives4 better/2 worse/1 tie. Independent review PASS limited to saved evidence, not global minhash rewalk/full suffix trace equality.",
+    "r79": "latest mathematical candidate independent and not merged into prior AI label provenance"
+  },
+  "next_steps": [
+    "Root maps required inputs to fixed published refs and restores local relative paths without reuploading raw data.",
+    "Assemble with AI component, verify distributed public SHA separately from original frozen SHA.",
+    "Use pure teacher API in a fresh output directory for a new experiment; independently gate complete selected paths with the official-compatible compact engine before any new physical-cost claim.",
+    "Keep dev/holdout boundaries, label feature whitelist, actual R75 private history distinction, and D-inclusive deployment checks. No new experiment executed for this handoff."
+  ],
+  "not_distributed": [
+    "private full callback traces",
+    "private full trajectory witnesses",
+    "native executables",
+    "ELF/PE binaries",
+    "cache and machine state"
+  ],
+  "validation": {
+    "status": "PASS",
+    "public_sha_checked_files": 79,
+    "python_ast_parsed": 29,
+    "json_parsed": 32,
+    "machine_paths_or_conversation_uuids_found": 0,
+    "excluded_binary_witness_trace_files_found": 0,
+    "executed_experiments": 0
+  }
+}

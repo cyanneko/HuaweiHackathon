@@ -1,0 +1,140 @@
+{
+  "status": "PASS_WITH_EXPLICIT_SCOPE",
+  "teacher_status": "COMPLETE",
+  "elapsed_seconds": 14.362346230000002,
+  "review_policy_runs": 0,
+  "dev_read": false,
+  "large_traces_read_or_rehashed": false,
+  "raw_log_sha_checks": 30,
+  "source_sha_checks": 10,
+  "controls_pass": 4,
+  "anchors": 4,
+  "branches": 11,
+  "maximum_branches": 12,
+  "candidate_shortfall": 1,
+  "improvable_anchors": 3,
+  "alternative_denominator": 7,
+  "alternative_outcomes": {
+    "better": 4,
+    "worse": 2,
+    "tie": 1
+  },
+  "all_tie_anchors": 0,
+  "config_sha256": "8fcbbe22b4d3653b91df0dc71f2d014c36565aa837d1763bf446d0a684f38a30",
+  "selection_sha256": "7171421d36f8abe273f98d10efe85689a8fc7ea650333154f28435fea08b5ad4",
+  "results_sha256": "29ff89efd16083004d39abe692543b0b37b43592f036715c4d650b59018ab9ea",
+  "details": [
+    {
+      "anchor": "a00",
+      "case_id": "r78_scale_train_fast_shared_p3",
+      "index": 413,
+      "raw": 28290,
+      "kind": "O",
+      "eligible_kind_callbacks": 289,
+      "candidates": 3,
+      "shortfall": 0,
+      "best_indices": [
+        2
+      ],
+      "best_origins": [
+        "old_union_min_x13_different"
+      ],
+      "r75_regret_G": 50318087280,
+      "r75_regret_us": 6289760.91,
+      "gain_over_control_suffix_pct": 2.52987593442676,
+      "gain_over_baseline_whole_case_pct": 2.522240761833726,
+      "all_tie": false,
+      "costs_G": [
+        1988954738660,
+        1960575456040,
+        1938636651380
+      ]
+    },
+    {
+      "anchor": "a01",
+      "case_id": "r78_scale_train_fast_staggered_p3",
+      "index": 22962,
+      "raw": 81344,
+      "kind": "M",
+      "eligible_kind_callbacks": 30917,
+      "candidates": 3,
+      "shortfall": 0,
+      "best_indices": [
+        1
+      ],
+      "best_origins": [
+        "minimum_singlefit"
+      ],
+      "r75_regret_G": 26931978040,
+      "r75_regret_us": 3366497.255,
+      "gain_over_control_suffix_pct": 4.225455837398178,
+      "gain_over_baseline_whole_case_pct": 1.116186646038944,
+      "all_tie": false,
+      "costs_G": [
+        637374500560,
+        610442522520,
+        666111521620
+      ]
+    },
+    {
+      "anchor": "a02",
+      "case_id": "r78_scale_train_slow_shared_p12",
+      "index": 28,
+      "raw": 3363,
+      "kind": "O",
+      "eligible_kind_callbacks": 439,
+      "candidates": 3,
+      "shortfall": 0,
+      "best_indices": [
+        0,
+        2
+      ],
+      "best_origins": [
+        "r75_original",
+        "old_union_min_x13_different"
+      ],
+      "r75_regret_G": 0,
+      "r75_regret_us": 0.0,
+      "gain_over_control_suffix_pct": 0.0,
+      "gain_over_baseline_whole_case_pct": 0.0,
+      "all_tie": false,
+      "costs_G": [
+        14159971966100,
+        14164719574680,
+        14159971966100
+      ]
+    },
+    {
+      "anchor": "a03",
+      "case_id": "r78_scale_train_burst_staggered_p12",
+      "index": 35856,
+      "raw": 81938,
+      "kind": "M",
+      "eligible_kind_callbacks": 50448,
+      "candidates": 2,
+      "shortfall": 1,
+      "best_indices": [
+        1
+      ],
+      "best_origins": [
+        "old_union_min_x13_different"
+      ],
+      "r75_regret_G": 4691030040,
+      "r75_regret_us": 586378.755,
+      "gain_over_control_suffix_pct": 0.0853256421945192,
+      "gain_over_baseline_whole_case_pct": 0.027580985307412455,
+      "all_tie": false,
+      "costs_G": [
+        5497796347440,
+        5493105317400
+      ]
+    }
+  ],
+  "scope": [
+    "Selection algorithm read: cost-independent minhash over all callbacks of predeclared kind. Selected hash independently recomputed; global minimum enumeration and eligible counts not independently replayed without large trace read.",
+    "Python prefix restores from start to selected callback, checks args/q along prefix and physical hash only at selected point. No full-prefix physical hash or full-suffix Python replay claim.",
+    "Native guarded one-force private/physical identity, actual actions committed and true R75 continues. Four controls match baseline EOF integer ledger/hits/callback count, not full trajectory trace.",
+    "G = write_bytes*read_bw + read_bytes*write_bw + misses*penalty*write_bw*read_bw. Label costs are suffix G. Report both suffix-normalized and whole-case-normalized local gains.",
+    "Four train anchors, not four independent policies or test cases. Candidate-dependent local opportunity does not prove a deployable policy gain. D excluded; no training."
+  ]
+}

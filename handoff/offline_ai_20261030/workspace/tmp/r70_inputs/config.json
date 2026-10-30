@@ -1,0 +1,430 @@
+{
+  "schema_version": 1,
+  "artifact_status": "frozen_before_generation",
+  "purpose": "R70 offline teacher and heuristic-input small-network independent-case pilot",
+  "generator": {
+    "path": "hashjoin_lab/tools/generate.py",
+    "sha256": "5c290dc800ed0312f10e1e81182a6343ea32b381f2195f21b8832902965af59d"
+  },
+  "validator": {
+    "path": "hashjoin_lab/tools/audit_datasets.py",
+    "sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3"
+  },
+  "common": {
+    "operators": 4,
+    "partitions": 16,
+    "memory": 67108864,
+    "period": 1000,
+    "write": 1000,
+    "read": 100,
+    "penalty": 100
+  },
+  "split_policy": {
+    "train": "offline complete teacher and same-state suffix labels; network fitting allowed",
+    "dev": "model and teacher parameter selection; no optimizer gradients from dev labels",
+    "holdout": "once frozen model, online evaluation only; no fitting or candidate selection",
+    "independence_claim": "fresh distinct seeds and complete-case splits, same generator families, not official data"
+  },
+  "cases": [
+    {
+      "id": "train_uniform_01",
+      "split": "train",
+      "scenario": "uniform",
+      "seed": 910307001,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.2,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_uniform_02",
+      "split": "train",
+      "scenario": "uniform",
+      "seed": 910307002,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.5,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_uniform_03",
+      "split": "train",
+      "scenario": "uniform",
+      "seed": 910307003,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 2.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_uniform_04",
+      "split": "train",
+      "scenario": "uniform",
+      "seed": 910307004,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 3.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_uniform_05",
+      "split": "train",
+      "scenario": "uniform",
+      "seed": 910307005,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 4.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_uniform_06",
+      "split": "train",
+      "scenario": "uniform",
+      "seed": 910307006,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 6.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_hotset_07",
+      "split": "train",
+      "scenario": "hotset",
+      "seed": 910307007,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.2,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_hotset_08",
+      "split": "train",
+      "scenario": "hotset",
+      "seed": 910307008,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.5,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_hotset_09",
+      "split": "train",
+      "scenario": "hotset",
+      "seed": 910307009,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 2.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_hotset_10",
+      "split": "train",
+      "scenario": "hotset",
+      "seed": 910307010,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 3.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_hotset_11",
+      "split": "train",
+      "scenario": "hotset",
+      "seed": 910307011,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 4.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_hotset_12",
+      "split": "train",
+      "scenario": "hotset",
+      "seed": 910307012,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 6.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_skewed_13",
+      "split": "train",
+      "scenario": "skewed",
+      "seed": 910307013,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.2,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_skewed_14",
+      "split": "train",
+      "scenario": "skewed",
+      "seed": 910307014,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.5,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_skewed_15",
+      "split": "train",
+      "scenario": "skewed",
+      "seed": 910307015,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 2.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_skewed_16",
+      "split": "train",
+      "scenario": "skewed",
+      "seed": 910307016,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 3.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_skewed_17",
+      "split": "train",
+      "scenario": "skewed",
+      "seed": 910307017,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 4.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_skewed_18",
+      "split": "train",
+      "scenario": "skewed",
+      "seed": 910307018,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 6.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_mixed_19",
+      "split": "train",
+      "scenario": "mixed",
+      "seed": 910307019,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.2,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_mixed_20",
+      "split": "train",
+      "scenario": "mixed",
+      "seed": 910307020,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.5,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_mixed_21",
+      "split": "train",
+      "scenario": "mixed",
+      "seed": 910307021,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 2.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_mixed_22",
+      "split": "train",
+      "scenario": "mixed",
+      "seed": 910307022,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 3.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_mixed_23",
+      "split": "train",
+      "scenario": "mixed",
+      "seed": 910307023,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 4.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_mixed_24",
+      "split": "train",
+      "scenario": "mixed",
+      "seed": 910307024,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 6.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "dev_uniform_01",
+      "split": "dev",
+      "scenario": "uniform",
+      "seed": 910308001,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 1.5,
+      "expected_N": 17028
+    },
+    {
+      "id": "dev_uniform_02",
+      "split": "dev",
+      "scenario": "uniform",
+      "seed": 910308002,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 3.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "dev_hotset_03",
+      "split": "dev",
+      "scenario": "hotset",
+      "seed": 910308003,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 1.5,
+      "expected_N": 17028
+    },
+    {
+      "id": "dev_hotset_04",
+      "split": "dev",
+      "scenario": "hotset",
+      "seed": 910308004,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 3.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "dev_skewed_05",
+      "split": "dev",
+      "scenario": "skewed",
+      "seed": 910308005,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 1.5,
+      "expected_N": 17028
+    },
+    {
+      "id": "dev_skewed_06",
+      "split": "dev",
+      "scenario": "skewed",
+      "seed": 910308006,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 3.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "dev_mixed_07",
+      "split": "dev",
+      "scenario": "mixed",
+      "seed": 910308007,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 1.5,
+      "expected_N": 17028
+    },
+    {
+      "id": "dev_mixed_08",
+      "split": "dev",
+      "scenario": "mixed",
+      "seed": 910308008,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 3.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "holdout_uniform_01",
+      "split": "holdout",
+      "scenario": "uniform",
+      "seed": 910309001,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 2.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "holdout_uniform_02",
+      "split": "holdout",
+      "scenario": "uniform",
+      "seed": 910309002,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 4.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "holdout_hotset_03",
+      "split": "holdout",
+      "scenario": "hotset",
+      "seed": 910309003,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 2.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "holdout_hotset_04",
+      "split": "holdout",
+      "scenario": "hotset",
+      "seed": 910309004,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 4.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "holdout_skewed_05",
+      "split": "holdout",
+      "scenario": "skewed",
+      "seed": 910309005,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 2.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "holdout_skewed_06",
+      "split": "holdout",
+      "scenario": "skewed",
+      "seed": 910309006,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 4.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "holdout_mixed_07",
+      "split": "holdout",
+      "scenario": "mixed",
+      "seed": 910309007,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 2.0,
+      "expected_N": 17028
+    },
+    {
+      "id": "holdout_mixed_08",
+      "split": "holdout",
+      "scenario": "mixed",
+      "seed": 910309008,
+      "builds": 256,
+      "probes": 4000,
+      "pressure": 4.0,
+      "expected_N": 17028
+    }
+  ]
+}

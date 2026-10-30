@@ -1,0 +1,247 @@
+{
+  "status": "FROZEN_BEFORE_NATIVE_EXECUTION",
+  "budget_seconds": 90,
+  "per_process_seconds": 20,
+  "selection_salt": "r78-scale-four-strata-predeclared-hash-v1",
+  "selection_rule": "minimum SHA256 canonical JSON [salt,input_sha256,callback_index,kind] over ALL native callbacks of predeclared kind; no pool eligibility filter, no replacement",
+  "candidate_rule": "original ordered R75; smallest sufficient resident positive non-target single (protect valid next PROBE), if distinct and legal; then minimum x13 old-union different ordered action with deterministic (x13,len,bytes,ids) tie; at most3, no backfill anchor",
+  "strata": [
+    [
+      "fast_shared",
+      3,
+      "O"
+    ],
+    [
+      "fast_staggered",
+      3,
+      "M"
+    ],
+    [
+      "slow_shared",
+      12,
+      "O"
+    ],
+    [
+      "burst_staggered",
+      12,
+      "M"
+    ]
+  ],
+  "cases": [
+    {
+      "case_id": "r78_scale_train_fast_shared_p3",
+      "split": "train",
+      "mechanism": "fast_shared",
+      "pressure": 3,
+      "parameters": {
+        "n": 100000,
+        "k": 8,
+        "p": 64,
+        "memory": 67108864,
+        "build-fraction": 0.4,
+        "period": 127,
+        "window": 1000,
+        "partition-window": 1000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610309601,
+        "profile": "fast",
+        "phase": "shared",
+        "pressure": 3
+      },
+      "lineage_id": "r78_202610309601",
+      "status": "generated_and_validated",
+      "input_path": "tmp/r78_scale_data/data/r78_scale_train_fast_shared_p3/input.txt",
+      "input_path_linux": "tmp/r78_scale_data/data/r78_scale_train_fast_shared_p3/input.txt",
+      "input_sha256": "b5a1c2bb1a943e9251e3a1d57ac3d9caf8fcd7570ec63723a7baaf770c4576a1",
+      "metadata_path": "tmp/r78_scale_data/data/r78_scale_train_fast_shared_p3/meta.json",
+      "metadata_path_linux": "tmp/r78_scale_data/data/r78_scale_train_fast_shared_p3/meta.json",
+      "meta_sha256": "9bccd8c992596a7c1026f2a439792d1ab81c8d581caf460fa9de025a274237b1",
+      "stats": {
+        "penalty": 100,
+        "probe_count": 59993,
+        "build_count": 39999,
+        "switch_count": 8,
+        "actual_operations": 100000
+      },
+      "validation": {
+        "format_phase_partition_bounds": true,
+        "actual_header_meta_counts_equal": true,
+        "partition_bytes_meta_equal": true,
+        "no_stage0_or_dyna_input_sha_overlap": true
+      },
+      "selected_kind": "O"
+    },
+    {
+      "case_id": "r78_scale_train_fast_staggered_p3",
+      "split": "train",
+      "mechanism": "fast_staggered",
+      "pressure": 3,
+      "parameters": {
+        "n": 100000,
+        "k": 8,
+        "p": 64,
+        "memory": 67108864,
+        "build-fraction": 0.4,
+        "period": 127,
+        "window": 1000,
+        "partition-window": 1000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610309602,
+        "profile": "fast",
+        "phase": "staggered",
+        "pressure": 3
+      },
+      "lineage_id": "r78_202610309602",
+      "status": "generated_and_validated",
+      "input_path": "tmp/r78_scale_data/data/r78_scale_train_fast_staggered_p3/input.txt",
+      "input_path_linux": "tmp/r78_scale_data/data/r78_scale_train_fast_staggered_p3/input.txt",
+      "input_sha256": "bd97412167940a3440ba4a3f71b6a0526b346bb6ee97eadf27a6a3021b70a543",
+      "metadata_path": "tmp/r78_scale_data/data/r78_scale_train_fast_staggered_p3/meta.json",
+      "metadata_path_linux": "tmp/r78_scale_data/data/r78_scale_train_fast_staggered_p3/meta.json",
+      "meta_sha256": "3e993a84c3d3a2fe6fa647b8b9f0213e0451e7e0a8dfb154aa9d14f2cbaf51d2",
+      "stats": {
+        "penalty": 100,
+        "probe_count": 61263,
+        "build_count": 38729,
+        "switch_count": 8,
+        "actual_operations": 100000
+      },
+      "validation": {
+        "format_phase_partition_bounds": true,
+        "actual_header_meta_counts_equal": true,
+        "partition_bytes_meta_equal": true,
+        "no_stage0_or_dyna_input_sha_overlap": true
+      },
+      "selected_kind": "M"
+    },
+    {
+      "case_id": "r78_scale_train_slow_shared_p12",
+      "split": "train",
+      "mechanism": "slow_shared",
+      "pressure": 12,
+      "parameters": {
+        "n": 100000,
+        "k": 8,
+        "p": 64,
+        "memory": 67108864,
+        "build-fraction": 0.4,
+        "period": 127,
+        "window": 1000,
+        "partition-window": 1000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610309604,
+        "profile": "slow",
+        "phase": "shared",
+        "pressure": 12
+      },
+      "lineage_id": "r78_202610309604",
+      "status": "generated_and_validated",
+      "input_path": "tmp/r78_scale_data/data/r78_scale_train_slow_shared_p12/input.txt",
+      "input_path_linux": "tmp/r78_scale_data/data/r78_scale_train_slow_shared_p12/input.txt",
+      "input_sha256": "6b32ac39bc5b96a61f32d0b22e1b736211e309cf6a31dbb947561144670f9457",
+      "metadata_path": "tmp/r78_scale_data/data/r78_scale_train_slow_shared_p12/meta.json",
+      "metadata_path_linux": "tmp/r78_scale_data/data/r78_scale_train_slow_shared_p12/meta.json",
+      "meta_sha256": "4611fd873042726b48911ea9452231493e6c53bce91937c0bc0987d8f6c19ab8",
+      "stats": {
+        "penalty": 100,
+        "probe_count": 59993,
+        "build_count": 39999,
+        "switch_count": 8,
+        "actual_operations": 100000
+      },
+      "validation": {
+        "format_phase_partition_bounds": true,
+        "actual_header_meta_counts_equal": true,
+        "partition_bytes_meta_equal": true,
+        "no_stage0_or_dyna_input_sha_overlap": true
+      },
+      "selected_kind": "O"
+    },
+    {
+      "case_id": "r78_scale_train_burst_staggered_p12",
+      "split": "train",
+      "mechanism": "burst_staggered",
+      "pressure": 12,
+      "parameters": {
+        "n": 100000,
+        "k": 8,
+        "p": 64,
+        "memory": 67108864,
+        "build-fraction": 0.4,
+        "period": 127,
+        "window": 1000,
+        "partition-window": 1000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610309603,
+        "profile": "burst",
+        "phase": "staggered",
+        "pressure": 12
+      },
+      "lineage_id": "r78_202610309603",
+      "status": "generated_and_validated",
+      "input_path": "tmp/r78_scale_data/data/r78_scale_train_burst_staggered_p12/input.txt",
+      "input_path_linux": "tmp/r78_scale_data/data/r78_scale_train_burst_staggered_p12/input.txt",
+      "input_sha256": "c79e2801f0c549db0df06107c3aefd4e80ddc3b0866ab5b7a1cf7ba92df66786",
+      "metadata_path": "tmp/r78_scale_data/data/r78_scale_train_burst_staggered_p12/meta.json",
+      "metadata_path_linux": "tmp/r78_scale_data/data/r78_scale_train_burst_staggered_p12/meta.json",
+      "meta_sha256": "dcc9a936617b4f34d454907bc7f6ceaf75cc5f10b111c724d6fcade04b25eeff",
+      "stats": {
+        "penalty": 100,
+        "probe_count": 59531,
+        "build_count": 40461,
+        "switch_count": 8,
+        "actual_operations": 100000
+      },
+      "validation": {
+        "format_phase_partition_bounds": true,
+        "actual_header_meta_counts_equal": true,
+        "partition_bytes_meta_equal": true,
+        "no_stage0_or_dyna_input_sha_overlap": true
+      },
+      "selected_kind": "M"
+    }
+  ],
+  "data_manifest_sha256": "703b48a3522a09872728b018140613a28a74481ced3084fdd9cc9235720aacdb",
+  "sources": {
+    "tmp/r78_scale_teacher/run.py": "4fc5e4848614699de61959e3e620a7689b20714aa830da1febb5665968bd6884",
+    "tmp/handler_support/worker_corner_r75/corner_state.py": "e95e20e836ca8d821078a0b26fc9d3389efb6808f0de723b028f72505bba3520",
+    "tmp/handler_support/worker_corner_r75/trace_io.py": "e45fc2d34b078266161adbd8050f5161f437df685a68029138997b52721868b5",
+    "tmp/handler_support/worker_corner_r75/run_native_teacher.py": "bb78b2d019e00feb72c1e55affaaed2726cf555fd8aabebc78c8e6ffcedea95f",
+    "hashjoin_lab/reports/collaboration_20261020/round66_offline_oracle/core.py": "e26b3bf6ca1aeb6841cd295023d1fcf218bfb56625738c8ca6080bb8ab6d5637",
+    "tmp/r70_nn_pipeline/pipeline.py": "744c7874bc00af9ec9d5170b99778adba1130763e7e5071d969d69fe08a7f529",
+    "hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/fast_ledger_v1/validate.py": "960230d794ce3b3efe82a9463133244a1e3fe378fbde7c25dd7456bbb3bfd1a6",
+    "hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/fast_ledger_v1/adapter_ledger.cpp": "cfad1939c51caddbe00313ef01780a7e2615c269684d2493141900de658d3eaf",
+    "tmp/r75_release/MySpillScheduler.cpp": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+    "hashjoin_lab/reports/collaboration_20261020/round49_latency_baseline/reference_compilable.cpp": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da"
+  },
+  "native_binary": "hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/fast_ledger_v1/adapter_ledger",
+  "native_binary_sha256": "12876c01534f2ea0075705f7adf79c8f84668db750edad7a0bec23e0d44df177",
+  "fast_validation_report_sha256": "130b31518ee8cd19ee573585d9bad78535d2c041352a2a3a0988fd1c785ab84f",
+  "prefix_scope": "Python restores selected prefix only; cheap callback args/q checks along prefix, physical hash only selected point; private hash from native guarded force, never Python private reimplementation",
+  "control": "forced original exact EOF ledger+hits+callback count equal baseline, override1; FAST no full control trace comparison",
+  "feature_scope": "existing causal32 with auxiliary R65 reset on nonempty P; no dynamic64 augmentation",
+  "split": "train",
+  "training": false,
+  "dev": false,
+  "formal_D": null
+}

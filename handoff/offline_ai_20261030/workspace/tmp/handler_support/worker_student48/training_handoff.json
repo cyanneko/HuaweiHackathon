@@ -1,0 +1,55 @@
+{
+  "status": "READY_FOR_HANDLER_THREE_ARM_TRAINING",
+  "scope": "same 46 frozen student train anchors, fixed vs finite-portfolio suffix labels",
+  "labels": {
+    "fixed": {
+      "path": "tmp\\handler_support\\worker_student48\\fixed_labels.jsonl",
+      "sha256": "b8a1a2331014d8e8b907134092d91e890b8aa7bb32622f0947b2d368e6b5e66e",
+      "rows": 46
+    },
+    "portfolio": {
+      "path": "tmp\\handler_support\\worker_student48\\portfolio_labels.jsonl",
+      "sha256": "daeb66d910f11838fd61ba26ee74eee7e54f09d0906be6c1653dfaaf17fe3b90",
+      "rows": 46
+    }
+  },
+  "audit_path": "tmp\\handler_support\\worker_student48\\artifact_audit.json",
+  "audit_sha256": "5525185c54fa708988de41b22d279ae290e9c7c5e9b5ae9430860676d17773d9",
+  "report_sha256": "822093c0bb8bc5b5f831b88acac477e70790f9430e13544e830a65789bb7104a",
+  "selection_sha256": "8c9d9bc06399c411da9bfc74f153ae46d7365f0a445f2347b04ac129ed5a3f3a",
+  "config_sha256": "51b00ac466654451e977ed1b96c52520c8de0b924b7f22af29dfe51e915784d4",
+  "paired_rows": 46,
+  "complete_branches": 1152,
+  "native_verified_branches": 91,
+  "unverified_native_branches": 1061,
+  "changed_best_endpoint_coverage": [
+    24,
+    24
+  ],
+  "reversal_endpoint_coverage": [
+    38,
+    38
+  ],
+  "fixed_all_tie_rows": 4,
+  "portfolio_all_tie_rows": 4,
+  "fixed_feature_alias_conflict_groups": 0,
+  "portfolio_feature_alias_conflict_groups": 0,
+  "source_student_model_sha256": "36bcae2785fbcf79de3349cccbc59881bcb4607e660ed04a256598f2cbfb8f64",
+  "training_protocol": {
+    "A": "old370 fixed labels, exact reproduction of original student weights required",
+    "B": "old370 + these same46 fixed labels",
+    "C": "old370 + these same46 portfolio labels",
+    "model": "large_no_score_inputs",
+    "seed": 20261030,
+    "epochs": 200,
+    "original_train_cases": 24,
+    "case_total_weights_equal": true,
+    "all_tie_rows_zero_training_weight": true,
+    "dev_no_gradients": true,
+    "holdout_not_for_training": true
+  },
+  "active_teacher_solver_native_gpu_children": 0,
+  "every_branch_independently_official_replayed": false,
+  "full_partition_state_compared": false,
+  "formal_D": null
+}

@@ -1,0 +1,1038 @@
+{
+  "status": "complete",
+  "cases": 12,
+  "operations": 60000000,
+  "seconds": 37.961593166,
+  "generator_manifest_sha256": "2ddcec4fd7ce5b7f37e92bb850a24abf66a5769de55cb543854ae412f035d038",
+  "validator_source_sha256": "605cf1dc76ce06e2d24412fd3850806f1f8afe70c3890af66a800f25a39bb70f",
+  "validator_binary_sha256": "53bc0fa5b7673db319f98a3c038012964cd8ed71be8fb400a5744ae9db3bf536",
+  "runner_sha256": "58e444e703ed02c0e84291998c61e4c74c15a075cdb2ec4c2403ea7b519c4663",
+  "generator_source_sha256": {
+    "generator.cpp": "0611bdecc3640cffe06efbb9956fa2d3271d8d579c2318e1c1f938121709a175",
+    "test_generator.py": "564a1b4da770719137a2bd1baafd2a08f5987e6fc788877ddb1650d4b40bd7de",
+    "run_batch.py": "39b4d73cf57f166acfa9b8b686576e3b970b620c7423bd092e9c98a6fdf1fc80",
+    "config.json": "00b5a6f009f3c8c32c27df7feb611023b5a85db95b5c8e4f3afa35a173797962",
+    "README.md": "458ac221317bf63ff0b03ecc249046271331dfe3f06171ca3692bb4f1606e725",
+    "build/generator": "774f700a909e6252443bcfe14cc8d2ebe59677b20db44684622298e840c30705"
+  },
+  "frozen_generator_sources_unchanged_before_and_after_audit": true,
+  "rows": [
+    {
+      "case_id": "train_slow_shared_01",
+      "split": "train",
+      "valid": true,
+      "input": "data/train/train_slow_shared_01.txt",
+      "build_counts": [
+        223430,
+        234153,
+        247061,
+        295355
+      ],
+      "probe_counts": [
+        959694,
+        948753,
+        1158439,
+        933111
+      ],
+      "sha256": "450ef4467b69add26999b54684fe106d2c197a2f235881a961fdd8e0dfc7121c",
+      "operations": 5000000,
+      "K": 4,
+      "P": 32,
+      "pressure": 1.4999683648347855,
+      "max_partition_fraction": 0.23257862031459808,
+      "operator_mean_l1_step": 9.575916281843459e-05,
+      "partition_mean_l1_steps": [
+        8.688719254096325e-07,
+        8.653375723366992e-07,
+        8.635033580587123e-07,
+        8.457606303284124e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 1183124,
+          "mean_probability_l1_per_local_update": 8.688719254096325e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00907351213018715
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 1182906,
+          "mean_probability_l1_per_local_update": 8.653375723366992e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.009036603358546835
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 1405500,
+          "mean_probability_l1_per_local_update": 8.635033580587123e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.009017448906648956
+        },
+        {
+          "op": 3,
+          "regime": "rare_hot",
+          "local_visits": 1228466,
+          "mean_probability_l1_per_local_update": 8.457606303284124e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.008832163998050275,
+          "rare_pid": 29,
+          "target_probability": 0.5258202439518322,
+          "initial_probability": 0.5258202439518322,
+          "insert_count": 155310,
+          "probe_count": 490549,
+          "bytes": 15608087,
+          "fraction_of_memory": 0.23257862031459808
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 3.4779787589999955
+    },
+    {
+      "case_id": "train_slow_staggered_02",
+      "split": "train",
+      "valid": true,
+      "input": "data/train/train_slow_staggered_02.txt",
+      "build_counts": [
+        231920,
+        219823,
+        153633,
+        222216,
+        280686,
+        188070,
+        250297,
+        204448
+      ],
+      "probe_counts": [
+        441374,
+        367733,
+        436628,
+        413412,
+        380752,
+        421290,
+        424879,
+        362831
+      ],
+      "sha256": "de7ac3e3621bcc6ef9560ee6ec0f6e07b69ed707df98f6fd9cc4a1546d06646b",
+      "operations": 5000000,
+      "K": 8,
+      "P": 64,
+      "pressure": 5.988268584012985,
+      "max_partition_fraction": 0.015605293214321136,
+      "operator_mean_l1_step": 0.00019036208520830614,
+      "partition_mean_l1_steps": [
+        8.684668752683924e-07,
+        8.73563770651229e-07,
+        8.83699201252231e-07,
+        8.791425422289504e-07,
+        8.77158593110179e-07,
+        8.815454947716742e-07,
+        8.616017778505118e-07,
+        8.693751331503282e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 673294,
+          "mean_probability_l1_per_local_update": 8.684668752683924e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004562184083653325
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 587556,
+          "mean_probability_l1_per_local_update": 8.73563770651229e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004588958823892482
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 590261,
+          "mean_probability_l1_per_local_update": 8.83699201252231e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004642201729851992
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 635628,
+          "mean_probability_l1_per_local_update": 8.791425422289504e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004618264930576577
+        },
+        {
+          "op": 4,
+          "regime": "normal",
+          "local_visits": 661438,
+          "mean_probability_l1_per_local_update": 8.77158593110179e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004607842954390508
+        },
+        {
+          "op": 5,
+          "regime": "normal",
+          "local_visits": 609360,
+          "mean_probability_l1_per_local_update": 8.815454947716742e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004630887993305136
+        },
+        {
+          "op": 6,
+          "regime": "normal",
+          "local_visits": 675176,
+          "mean_probability_l1_per_local_update": 8.616017778505118e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0045261207183546716
+        },
+        {
+          "op": 7,
+          "regime": "normal",
+          "local_visits": 567279,
+          "mean_probability_l1_per_local_update": 8.693751331503282e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004566955295740764
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 2.6976271450000127
+    },
+    {
+      "case_id": "train_fast_shared_03",
+      "split": "train",
+      "valid": true,
+      "input": "data/train/train_fast_shared_03.txt",
+      "build_counts": [
+        780134,
+        719865
+      ],
+      "probe_counts": [
+        1637640,
+        1862359
+      ],
+      "sha256": "572297ce49b732d7c04f36201860db1ad9b53b3576d49421441501e53d2a3b0e",
+      "operations": 5000000,
+      "K": 2,
+      "P": 64,
+      "pressure": 2.9999898597598076,
+      "max_partition_fraction": 0.02502933144569397,
+      "operator_mean_l1_step": 0.0005307047745802938,
+      "partition_mean_l1_steps": [
+        8.714731921088223e-07,
+        8.786863272856943e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 2417774,
+          "mean_probability_l1_per_local_update": 8.714731921088223e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0016421054300821472
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 2582224,
+          "mean_probability_l1_per_local_update": 8.786863272856943e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0016556970454629895
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 3.372359789000029
+    },
+    {
+      "case_id": "train_fast_staggered_04",
+      "split": "train",
+      "valid": true,
+      "input": "data/train/train_fast_staggered_04.txt",
+      "build_counts": [
+        284194,
+        211004,
+        307521,
+        199244,
+        279898,
+        201423,
+        226802,
+        322452
+      ],
+      "probe_counts": [
+        354038,
+        381008,
+        330494,
+        417605,
+        364385,
+        409517,
+        413794,
+        296613
+      ],
+      "sha256": "50464251e93169c4b4b57b352f2a864901cca736ec586412a3ffadcd70b5247c",
+      "operations": 5000000,
+      "K": 8,
+      "P": 64,
+      "pressure": 11.919907814823091,
+      "max_partition_fraction": 0.03039598371833563,
+      "operator_mean_l1_step": 0.0027469227011871675,
+      "partition_mean_l1_steps": [
+        8.890699990017371e-07,
+        8.566822120337808e-07,
+        8.811882561653458e-07,
+        8.716359358377791e-07,
+        8.704409904281443e-07,
+        8.719643778171785e-07,
+        8.675531664586689e-07,
+        8.717137055596801e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 638232,
+          "mean_probability_l1_per_local_update": 8.890699990017371e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00032366036314654867
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 592012,
+          "mean_probability_l1_per_local_update": 8.566822120337808e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003118697922091288
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 638015,
+          "mean_probability_l1_per_local_update": 8.811882561653458e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00032079106404578225
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 616849,
+          "mean_probability_l1_per_local_update": 8.716359358377791e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003173136016754584
+        },
+        {
+          "op": 4,
+          "regime": "normal",
+          "local_visits": 644283,
+          "mean_probability_l1_per_local_update": 8.704409904281443e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003168785892853688
+        },
+        {
+          "op": 5,
+          "regime": "normal",
+          "local_visits": 610940,
+          "mean_probability_l1_per_local_update": 8.719643778171785e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003174331689203821
+        },
+        {
+          "op": 6,
+          "regime": "normal",
+          "local_visits": 640596,
+          "mean_probability_l1_per_local_update": 8.675531664586689e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00031582729506138957
+        },
+        {
+          "op": 7,
+          "regime": "normal",
+          "local_visits": 619065,
+          "mean_probability_l1_per_local_update": 8.717137055596801e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003173419132554921
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 3.511208073999967
+    },
+    {
+      "case_id": "train_burst_shared_05",
+      "split": "train",
+      "valid": true,
+      "input": "data/train/train_burst_shared_05.txt",
+      "build_counts": [
+        132210,
+        167886,
+        132998,
+        222884,
+        145563,
+        246955,
+        167526,
+        533977
+      ],
+      "probe_counts": [
+        569305,
+        357730,
+        568862,
+        433998,
+        297052,
+        362333,
+        354799,
+        305914
+      ],
+      "sha256": "a9f4099282c63b346709483da683640bf1023581179a150029b9ae96c67342af",
+      "operations": 5000000,
+      "K": 8,
+      "P": 64,
+      "pressure": 6.000838254578412,
+      "max_partition_fraction": 0.029553632251918316,
+      "operator_mean_l1_step": 4.6087183472867556e-05,
+      "partition_mean_l1_steps": [
+        8.689433236927966e-07,
+        8.702316408840832e-07,
+        8.681460139264141e-07,
+        8.802348428776644e-07,
+        8.818121772948246e-07,
+        8.787833869973035e-07,
+        8.783395650358085e-07,
+        8.677870155428057e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 701515,
+          "mean_probability_l1_per_local_update": 8.689433236927966e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.018854337761915106
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 525616,
+          "mean_probability_l1_per_local_update": 8.702316408840832e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0188822916765223
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 701860,
+          "mean_probability_l1_per_local_update": 8.681460139264141e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.01883703772953513
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 656882,
+          "mean_probability_l1_per_local_update": 8.802348428776644e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.019099341216975783
+        },
+        {
+          "op": 4,
+          "regime": "normal",
+          "local_visits": 442615,
+          "mean_probability_l1_per_local_update": 8.818121772948246e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.019133566229187448
+        },
+        {
+          "op": 5,
+          "regime": "normal",
+          "local_visits": 609288,
+          "mean_probability_l1_per_local_update": 8.787833869973035e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.01906784751805588
+        },
+        {
+          "op": 6,
+          "regime": "normal",
+          "local_visits": 522325,
+          "mean_probability_l1_per_local_update": 8.783395650358085e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0190582174663137
+        },
+        {
+          "op": 7,
+          "regime": "normal",
+          "local_visits": 839891,
+          "mean_probability_l1_per_local_update": 8.677870155428057e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.018829248180325213
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 3.8451142470000264
+    },
+    {
+      "case_id": "train_burst_staggered_06",
+      "split": "train",
+      "valid": true,
+      "input": "data/train/train_burst_staggered_06.txt",
+      "build_counts": [
+        381580,
+        413388,
+        112399,
+        150640
+      ],
+      "probe_counts": [
+        825830,
+        1813680,
+        472015,
+        830464
+      ],
+      "sha256": "b2c0134d67da7c3b6d35ac6ef9c653bdbd8e437e24988ba274cf1e0560179b79",
+      "operations": 5000000,
+      "K": 4,
+      "P": 64,
+      "pressure": 3.0548744797706604,
+      "max_partition_fraction": 0.019282102584838867,
+      "operator_mean_l1_step": 2.213140888766394e-05,
+      "partition_mean_l1_steps": [
+        8.671611258438909e-07,
+        8.70898706951777e-07,
+        8.782417836732381e-07,
+        8.803440516658896e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 1207410,
+          "mean_probability_l1_per_local_update": 8.671611258438909e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.03918237335207552
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 2227068,
+          "mean_probability_l1_per_local_update": 8.70898706951777e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.03935125465226104
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 584414,
+          "mean_probability_l1_per_local_update": 8.782417836732381e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.03968304901559026
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 981104,
+          "mean_probability_l1_per_local_update": 8.803440516658896e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.03977803926240746
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 3.029564007000033
+    },
+    {
+      "case_id": "dev_slow_staggered_07",
+      "split": "dev",
+      "valid": true,
+      "input": "data/dev/dev_slow_staggered_07.txt",
+      "build_counts": [
+        124609,
+        275260,
+        217517,
+        215407,
+        166323,
+        145586,
+        183198,
+        162039
+      ],
+      "probe_counts": [
+        455640,
+        393457,
+        454439,
+        392214,
+        457768,
+        490587,
+        381164,
+        484784
+      ],
+      "sha256": "87527853c2eeb49c6e05d8d387cd646b88ffd45dbec27f7d133c15e9f1b5c895",
+      "operations": 5000000,
+      "K": 8,
+      "P": 64,
+      "pressure": 3.0335543751716614,
+      "max_partition_fraction": 0.009553253650665283,
+      "operator_mean_l1_step": 0.00019238123421574469,
+      "partition_mean_l1_steps": [
+        8.711719824439665e-07,
+        8.633888151526661e-07,
+        8.785245624644202e-07,
+        8.831201703837465e-07,
+        8.725305370723181e-07,
+        8.717307518282758e-07,
+        8.753043715613398e-07,
+        8.67229646362631e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 580249,
+          "mean_probability_l1_per_local_update": 8.711719824439665e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004528362581700647
+        },
+        {
+          "op": 1,
+          "regime": "rare_cold",
+          "local_visits": 668717,
+          "mean_probability_l1_per_local_update": 8.633888151526661e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004487905583267151,
+          "rare_pid": 49,
+          "target_probability": 1.5625e-05,
+          "initial_probability": 1.5625e-05,
+          "insert_count": 10,
+          "probe_count": 5,
+          "bytes": 1338,
+          "fraction_of_memory": 1.9937753677368164e-05
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 671956,
+          "mean_probability_l1_per_local_update": 8.785245624644202e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004566581382252723
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 607621,
+          "mean_probability_l1_per_local_update": 8.831201703837465e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00459046940822397
+        },
+        {
+          "op": 4,
+          "regime": "normal",
+          "local_visits": 624091,
+          "mean_probability_l1_per_local_update": 8.725305370723181e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004535424365215499
+        },
+        {
+          "op": 5,
+          "regime": "normal",
+          "local_visits": 636173,
+          "mean_probability_l1_per_local_update": 8.717307518282758e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004531267071769999
+        },
+        {
+          "op": 6,
+          "regime": "normal",
+          "local_visits": 564362,
+          "mean_probability_l1_per_local_update": 8.753043715613398e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004549842790694104
+        },
+        {
+          "op": 7,
+          "regime": "normal",
+          "local_visits": 646823,
+          "mean_probability_l1_per_local_update": 8.67229646362631e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0045078702707046885
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 3.0325820400000225
+    },
+    {
+      "case_id": "dev_fast_shared_08",
+      "split": "dev",
+      "valid": true,
+      "input": "data/dev/dev_fast_shared_08.txt",
+      "build_counts": [
+        202827,
+        207556,
+        233191,
+        236136,
+        208850,
+        215814,
+        236908,
+        208717
+      ],
+      "probe_counts": [
+        417447,
+        383201,
+        385902,
+        430650,
+        416372,
+        422336,
+        405666,
+        388419
+      ],
+      "sha256": "a416a050242c2c49afb39d898a9ca34357e10b0e12ebc5f114de32a8836c7f87",
+      "operations": 5000000,
+      "K": 8,
+      "P": 64,
+      "pressure": 5.99883933365345,
+      "max_partition_fraction": 0.013215824961662292,
+      "operator_mean_l1_step": 0.002744272091772089,
+      "partition_mean_l1_steps": [
+        8.730333877237053e-07,
+        8.707006248684364e-07,
+        8.853319664993724e-07,
+        8.724153830220159e-07,
+        8.729837914402564e-07,
+        8.767308336975994e-07,
+        8.741630370740902e-07,
+        8.813333507588627e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 620274,
+          "mean_probability_l1_per_local_update": 8.730333877237053e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00031812931026090486
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 590757,
+          "mean_probability_l1_per_local_update": 8.707006248684364e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003172792623147617
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 619093,
+          "mean_probability_l1_per_local_update": 8.853319664993724e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003226108552259763
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 666786,
+          "mean_probability_l1_per_local_update": 8.724153830220159e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003179041122189387
+        },
+        {
+          "op": 4,
+          "regime": "normal",
+          "local_visits": 625222,
+          "mean_probability_l1_per_local_update": 8.729837914402564e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00031811123760564685
+        },
+        {
+          "op": 5,
+          "regime": "normal",
+          "local_visits": 638150,
+          "mean_probability_l1_per_local_update": 8.767308336975994e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00031947664239498146
+        },
+        {
+          "op": 6,
+          "regime": "normal",
+          "local_visits": 642574,
+          "mean_probability_l1_per_local_update": 8.741630370740902e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00031854094923568866
+        },
+        {
+          "op": 7,
+          "regime": "normal",
+          "local_visits": 597136,
+          "mean_probability_l1_per_local_update": 8.813333507588627e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0003211537782282185
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 2.539889075000019
+    },
+    {
+      "case_id": "dev_burst_staggered_09",
+      "split": "dev",
+      "valid": true,
+      "input": "data/dev/dev_burst_staggered_09.txt",
+      "build_counts": [
+        123265,
+        941528
+      ],
+      "probe_counts": [
+        1214558,
+        2720647
+      ],
+      "sha256": "74be2de1aaa29b1acef1a0b63c9ba4d9637d303acf174ac7333f61022f6e49f2",
+      "operations": 5000000,
+      "K": 2,
+      "P": 32,
+      "pressure": 1.6138443499803543,
+      "max_partition_fraction": 0.045295730233192444,
+      "operator_mean_l1_step": 9.319412329502403e-06,
+      "partition_mean_l1_steps": [
+        8.687476013705513e-07,
+        8.625309359025964e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 1337823,
+          "mean_probability_l1_per_local_update": 8.687476013705513e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.09321913986146559
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 3662175,
+          "mean_probability_l1_per_local_update": 8.625309359025964e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.09255207360791279
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 2.7558947850000095
+    },
+    {
+      "case_id": "holdout_slow_shared_10",
+      "split": "holdout",
+      "valid": true,
+      "input": "data/holdout/holdout_slow_shared_10.txt",
+      "build_counts": [
+        301865,
+        214975,
+        226004,
+        268801,
+        245750,
+        188714,
+        275139,
+        278751
+      ],
+      "probe_counts": [
+        282488,
+        384891,
+        412424,
+        363473,
+        370833,
+        420774,
+        409337,
+        355773
+      ],
+      "sha256": "2fab7a9bc3ab6a2d07c1a2996caa7d50d03be13ac891421b580c2a5390315a13",
+      "operations": 5000000,
+      "K": 8,
+      "P": 64,
+      "pressure": 12.001860974356532,
+      "max_partition_fraction": 0.029472955502569675,
+      "operator_mean_l1_step": 0.00019030276737321914,
+      "partition_mean_l1_steps": [
+        8.863284770315964e-07,
+        8.684948197721638e-07,
+        8.771072157463781e-07,
+        8.782626317709031e-07,
+        8.663624395562267e-07,
+        8.680931123090815e-07,
+        8.686925304911572e-07,
+        8.638097675095995e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 584353,
+          "mean_probability_l1_per_local_update": 8.863284770315964e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004657464992578597
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 599866,
+          "mean_probability_l1_per_local_update": 8.684948197721638e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004563752969860306
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 638428,
+          "mean_probability_l1_per_local_update": 8.771072157463781e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004609009253271696
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 632274,
+          "mean_probability_l1_per_local_update": 8.782626317709031e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004615080715292315
+        },
+        {
+          "op": 4,
+          "regime": "normal",
+          "local_visits": 616583,
+          "mean_probability_l1_per_local_update": 8.663624395562267e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.00455254777171542
+        },
+        {
+          "op": 5,
+          "regime": "normal",
+          "local_visits": 609488,
+          "mean_probability_l1_per_local_update": 8.680931123090815e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004561642083777948
+        },
+        {
+          "op": 6,
+          "regime": "normal",
+          "local_visits": 684476,
+          "mean_probability_l1_per_local_update": 8.686925304911572e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0045647918970483994
+        },
+        {
+          "op": 7,
+          "regime": "normal",
+          "local_visits": 634524,
+          "mean_probability_l1_per_local_update": 8.638097675095995e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.004539134030644483
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 2.932590785000002
+    },
+    {
+      "case_id": "holdout_fast_staggered_11",
+      "split": "holdout",
+      "valid": true,
+      "input": "data/holdout/holdout_fast_staggered_11.txt",
+      "build_counts": [
+        224743,
+        335701,
+        246719,
+        313764
+      ],
+      "probe_counts": [
+        1011425,
+        971559,
+        928382,
+        967703
+      ],
+      "sha256": "2dd39a0c493441cf6a187fab3723d430071478886560775336f8ccfbe8d364b5",
+      "operations": 5000000,
+      "K": 4,
+      "P": 32,
+      "pressure": 1.4923947155475616,
+      "max_partition_fraction": 0.014449119567871094,
+      "operator_mean_l1_step": 0.0012923298745969528,
+      "partition_mean_l1_steps": [
+        8.645531983640127e-07,
+        8.702012468394483e-07,
+        8.69335283260652e-07,
+        8.668008098018969e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 1236168,
+          "mean_probability_l1_per_local_update": 8.645531983640127e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.000668988015643952
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 1307260,
+          "mean_probability_l1_per_local_update": 8.702012468394483e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0006733584543271845
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 1175101,
+          "mean_probability_l1_per_local_update": 8.69335283260652e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0006726883749644626
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 1281467,
+          "mean_probability_l1_per_local_update": 8.668008098018969e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.000670727208927389
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 2.6572805039999707
+    },
+    {
+      "case_id": "holdout_burst_shared_12",
+      "split": "holdout",
+      "valid": true,
+      "input": "data/holdout/holdout_burst_shared_12.txt",
+      "build_counts": [
+        157519,
+        169657,
+        288429,
+        169327,
+        194105,
+        209048,
+        224509,
+        87405
+      ],
+      "probe_counts": [
+        411350,
+        318689,
+        327891,
+        338398,
+        465094,
+        609917,
+        320802,
+        707852
+      ],
+      "sha256": "1bf36c5cee0255bb908ec15b07a74dd01b4a2a8c741312a5f0219f75d4705d1e",
+      "operations": 5000000,
+      "K": 8,
+      "P": 64,
+      "pressure": 2.9994482127949595,
+      "max_partition_fraction": 0.12272001337260008,
+      "operator_mean_l1_step": 4.6461816496706334e-05,
+      "partition_mean_l1_steps": [
+        8.774571192712627e-07,
+        8.715693801877268e-07,
+        8.556854715714821e-07,
+        8.800189026645106e-07,
+        8.806861629160482e-07,
+        8.658498695679804e-07,
+        8.765164834259253e-07,
+        8.286025832696903e-07
+      ],
+      "partition_process_quality": [
+        {
+          "op": 0,
+          "regime": "normal",
+          "local_visits": 568869,
+          "mean_probability_l1_per_local_update": 8.774571192712627e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.018885553459440513
+        },
+        {
+          "op": 1,
+          "regime": "normal",
+          "local_visits": 488346,
+          "mean_probability_l1_per_local_update": 8.715693801877268e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.018758831356701523
+        },
+        {
+          "op": 2,
+          "regime": "normal",
+          "local_visits": 616320,
+          "mean_probability_l1_per_local_update": 8.556854715714821e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.01841696119720462
+        },
+        {
+          "op": 3,
+          "regime": "normal",
+          "local_visits": 507725,
+          "mean_probability_l1_per_local_update": 8.800189026645106e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.0189406908515274
+        },
+        {
+          "op": 4,
+          "regime": "normal",
+          "local_visits": 659199,
+          "mean_probability_l1_per_local_update": 8.806861629160482e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.01895505232729073
+        },
+        {
+          "op": 5,
+          "regime": "normal",
+          "local_visits": 818965,
+          "mean_probability_l1_per_local_update": 8.658498695679804e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.018635730043601723
+        },
+        {
+          "op": 6,
+          "regime": "normal",
+          "local_visits": 545311,
+          "mean_probability_l1_per_local_update": 8.765164834259253e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.018865308107100402
+        },
+        {
+          "op": 7,
+          "regime": "rare_hot",
+          "local_visits": 795257,
+          "mean_probability_l1_per_local_update": 8.286025832696903e-07,
+          "q_l1_per_local_update_over_operator_l1_per_global_update": 0.017834054837878102,
+          "rare_pid": 57,
+          "target_probability": 0.701330592295712,
+          "initial_probability": 0.701330592295712,
+          "insert_count": 61437,
+          "probe_count": 497310,
+          "bytes": 131769611,
+          "fraction_of_memory": 0.12272001337260008
+        }
+      ],
+      "metadata_and_windows_match": true,
+      "seconds": 3.3216386529999795
+    }
+  ]
+}

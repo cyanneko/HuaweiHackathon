@@ -1,8 +1,13 @@
-#define R81_FAST_HALF 256
-#define R80_MODE 2
-#define R79_ADAPTIVE 1
-#define R74_MODE 3
-#define R74_SIZE 0
+// 算子边际的快速衰减半衰期：单位为 hit_count + miss_count 的 PROBE 序号步数。
+#define HASHJOIN_OPERATOR_HALF_LIFE 256
+// 复用估计模式：0 为历史/回访，1 为扁平频率，2 为分层频率，3 为原有双方案比较。
+#define HASHJOIN_REUSE_ESTIMATOR 2
+// 自适应共享仅控制回访风险路径中的算子池混合；不控制分层频率的共享公式。
+#define HASHJOIN_ADAPTIVE_RISK_SHARING 1
+// 回访模型值 3：按观测覆盖率选择历史观测与回访风险的混合权重；小于 3 时固定为 .25。
+#define HASHJOIN_REFAULT_MODEL 3
+// 大小偏置开关：0 关闭额外的平方根大小修正；原有 IO/大小代价项仍保留。
+#define HASHJOIN_SIZE_BIAS 0
 
 // Submit this class (and standard-library includes) after the official declarations.
 // No input access, engine changes, training, external data, or C++17 features.
@@ -144,14 +149,14 @@ class MySpillScheduler : public SpillScheduler {
             for (int i = 0; i <= 8192; ++i)
                 a[i] = std::exp(
                     -0.693147180559945309417232121458176568 * static_cast<double>(i)
-                    / R81_FAST_HALF);
+                    / HASHJOIN_OPERATOR_HALF_LIFE);
             return a;
         }();
         return delta >= 0 && delta <= 8192
             ? table[static_cast<std::size_t>(delta)]
             : std::exp(
                   -0.693147180559945309417232121458176568 * static_cast<double>(delta)
-                  / R81_FAST_HALF);
+                  / HASHJOIN_OPERATOR_HALF_LIFE);
     }
 
     void advanceFast(int op, int64_t q) {
@@ -414,7 +419,7 @@ class MySpillScheduler : public SpillScheduler {
     }
 
     double demandWeight(int64_t q) const {
-        if (R74_MODE < 3)
+        if (HASHJOIN_REFAULT_MODEL < 3)
             return .25;
         const double elapsed = static_cast<double>(std::max<int64_t>(1, q));
         const double cov = std::min(
@@ -437,7 +442,7 @@ class MySpillScheduler : public SpillScheduler {
         }
         double reuse = part;
         if (pool.starts >= 1e-9) {
-            const double alpha = R79_ADAPTIVE ? sharing_[op].share : .75;
+            const double alpha = HASHJOIN_ADAPTIVE_RISK_SHARING ? sharing_[op].share : .75;
             const double pooled = 64. / (64. + cached_priors_[op]);
             reuse = (1. - alpha) * part + alpha * pooled;
         }
@@ -683,7 +688,7 @@ class MySpillScheduler : public SpillScheduler {
                 // surrogate is used here; it is not the hidden scoring penalty.
                 double priority = reuse * (1.0 / s.read_bandwidth
                     + 1.0 / s.write_bandwidth + 100.0 / part.data_size);
-                if (R74_SIZE && evidence) {
+                if (HASHJOIN_SIZE_BIAS && evidence) {
                     const double typical =
                         std::max(1., static_cast<double>(s.memory_limit) / history_.size());
                     priority *= std::sqrt(1. + part.data_size / typical);
@@ -762,8 +767,8 @@ class MySpillScheduler : public SpillScheduler {
     void release(const SystemState& s, int op, int pid, int64_t required,
                  std::vector<Action>& actions) {
         probability_cache_valid_ = false;
-        propose(s, op, pid, required, actions, R80_MODE == 1 ? 1 : (R80_MODE == 2 ? 2 : 0));
-        if (R80_MODE != 3 || required <= s.memory_limit - s.memory_used)
+        propose(s, op, pid, required, actions, HASHJOIN_REUSE_ESTIMATOR == 1 ? 1 : (HASHJOIN_REUSE_ESTIMATOR == 2 ? 2 : 0));
+        if (HASHJOIN_REUSE_ESTIMATOR != 3 || required <= s.memory_limit - s.memory_used)
             return;
         for (const auto& o : s.operators)
             if (o.phase != Phase::PROBE)

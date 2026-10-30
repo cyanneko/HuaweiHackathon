@@ -13,3 +13,5 @@
 [submission_check.json](submission_check.json)只证明单文件按官方类型定义编译、三个回调可调用以及少量接口动作/空间检查通过，不替代执行方的物理动作审核或正式性能结果。接口测试体见[tests/interface_smoke_body.inc](tests/interface_smoke_body.inc)，使用官方类型前缀并包含本单文件构建；没有随包发布框架、ELF或宿主路径。
 
 [热流机制证据](../../reports/r65_mechanism_20261030/README.md)保留原核算器FAIL与补充有序重放PASS的区别。24例仅为回归池；当前不恢复全方法矩阵。尚未完成或失败的针对验证须按实际状态另记，不以单测、平均分或未来计划晋升默认。
+
+[30例开发回归报告](../../reports/r65_sampled30_development_20261030/README.md)已另行完成：三成员各10，90记录含9复用+81新测，成员未封顶SUM均值R65为39.019057、R63为33.992676。原九格独立不变。R65有7/30成本回退、20/30 D回退，普通median/原nearest-rank P50分别报告；empty最差倍率只来自1.44/0.68微秒的单次D，Int64和growth实际退化保留。仍experimental、不作全785或稳定D优势结论。

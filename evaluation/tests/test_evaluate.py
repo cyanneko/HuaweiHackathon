@@ -275,7 +275,8 @@ class EvaluationTests(unittest.TestCase):
         (folder / 'one.txt').write_bytes(CASE.encode())
         process, report = self.run_eval()
         self.assertEqual(process.returncode, 0, process.stderr)
-        self.assertEqual(report['schema_version'], 3)
+        self.assertEqual(report['schema_version'], 4)
+        self.assertEqual(report['scoring_version'], 'case-mean-v1')
         self.assertEqual(report['aggregate']['case_count'], 4)
         self.assertEqual(report['requested_members'], [*MEMBERS, 'newcomer'])
         self.assertFalse(report['partial'])
@@ -298,7 +299,7 @@ class EvaluationTests(unittest.TestCase):
         self.assertEqual(report['cases'], [])
         self.assertEqual(report['normalization']['status'], 'unavailable')
 
-    def test_unequal_case_counts_still_get_equal_dataset_weight(self):
+    def test_unequal_case_counts_get_equal_case_weight(self):
         (self.data / 'member3/eval/one.txt').unlink()
         for i in range(1, 6):
             (self.data / 'member2/eval' / f'case{i}.txt').write_bytes(CASE.encode())
@@ -314,10 +315,12 @@ class EvaluationTests(unittest.TestCase):
         scores = report['normalization']
         self.assertEqual(scores['dataset_count'], 2)
         self.assertEqual([row['level1_estimate'] for row in scores['datasets']], [5.0, 50.0])
-        self.assertEqual(scores['average_score'], 27.5)
+        self.assertAlmostEqual(scores['average_score'], 59/7)
+        self.assertEqual(scores['legacy_capped_member_average'], 27.5)
+        self.assertEqual([row['average_score'] for row in scores['datasets']], [5.0, 9.0])
         self.assertEqual(report['aggregate']['total_cost'], 11.0)
         self.assertEqual(len(scores['cases']), 7)
-        self.assertIn('27.500000', process.stdout)
+        self.assertIn('Final mean case score (0..10): 8.428571', process.stdout)
 
     def test_case_repeat_and_clip_order_has_literal_expected_score(self):
         candidate, baseline = [], []
@@ -333,7 +336,22 @@ class EvaluationTests(unittest.TestCase):
         self.assertEqual(scores['datasets'][0]['per_repeat'], [
             {'repeat': 1, 'level1_estimate': 50.0}, {'repeat': 2, 'level1_estimate': 0.0}])
         self.assertEqual([row['level1_estimate'] for row in scores['datasets']], [25.0, 2.5])
-        self.assertEqual(scores['average_score'], 13.75)
+        self.assertAlmostEqual(scores['average_score'], 59/14)
+        self.assertEqual(scores['legacy_capped_member_average'], 13.75)
+
+    def test_eight_cases_target_is_not_a_cap_on_mean(self):
+        datasets = [{'member':'all', 'version':'1', 'sha256':'s', 'case_count':8}]
+        baseline = [{'member':'all','case':str(i),'repeat':1,'metrics':{'Total_Score':100}}
+                    for i in range(8)]
+        candidate = [{**r,'metrics':{'Total_Score':37.5}} for r in baseline]
+        scores = evaluator.normalize(candidate, baseline, datasets)
+        self.assertEqual(scores['average_score'], 6.25)
+        self.assertEqual(scores['uncapped_sum_score'], 50.0)
+        self.assertEqual(scores['target_average_score'], 6.25)
+        better = [{**r,'metrics':{'Total_Score':20}} for r in baseline]
+        scores = evaluator.normalize(better, baseline, datasets)
+        self.assertEqual(scores['average_score'], 8.0)
+        self.assertEqual(scores['legacy_capped_member_average'], 50.0)
 
     def test_zero_cost_and_no_improvement_cases_score_zero(self):
         candidate, baseline = [], []

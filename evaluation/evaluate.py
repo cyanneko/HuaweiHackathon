@@ -17,6 +17,7 @@ import tempfile
 import time
 
 from scripts.audit_datasets import audit_case
+from scripts.summarize_member_scores import SCORING_VERSION, TARGET_AVERAGE_SCORE, summarize_contributions
 
 
 def file_hash(path):
@@ -238,6 +239,11 @@ def normalize(candidate, baseline, datasets):
     by_member = {}
     for row in rows:
         by_member.setdefault(row['member'], []).append(row)
+    identities = [{**dataset, 'case_count': dataset.get('case_count', len({
+        row['case'] for row in by_member[dataset['member']]}))} for dataset in datasets]
+    summary = summarize_contributions(identities, rows,
+        repeats=len({row['repeat'] for row in rows}))
+    mean_by_member = {row['member']: row['average_score'] for row in summary['datasets']}
     dataset_scores = []
     for dataset in datasets:
         member_rows = by_member[dataset['member']]
@@ -247,15 +253,23 @@ def normalize(candidate, baseline, datasets):
         dataset_scores.append({
             'member': dataset['member'], 'version': dataset['version'], 'sha256': dataset['sha256'],
             'status': 'available', 'case_count': len({row['case'] for row in member_rows}),
+            'average_score': mean_by_member[dataset['member']],
             'level1_estimate': math.fsum(row['level1_estimate'] / len(per_repeat) for row in per_repeat),
             'per_repeat': per_repeat,
         })
-    return {'status': 'available', 'scope': 'local per-dataset Level 1 estimates; not official contest result',
+    return {'status': 'available', 'scoring_version': SCORING_VERSION,
+            'scope': 'local mean case score (0..10); not official contest result',
             'baseline_identity': 'official-naive asserted by caller; not automatically certified',
-            'aggregation': 'equal-weight arithmetic mean of participating dataset scores',
-            'dataset_aggregation': 'per-case score -> per-repeat sum capped at 50 -> arithmetic mean over repeats',
+            'aggregation': summary['primary_formula'],
+            'dataset_aggregation': 'per-case score -> mean over repeats -> mean over cases; no sum cap',
             'dataset_count': len(dataset_scores),
-            'average_score': math.fsum(row['level1_estimate'] / len(dataset_scores) for row in dataset_scores),
+            'case_count': summary['case_count'],
+            'average_score': summary['score_final'],
+            'target_average_score': TARGET_AVERAGE_SCORE,
+            'target_basis': summary['target_basis'],
+            'uncapped_sum_score': summary['auxiliary']['uncapped_sum_score'],
+            'legacy_capped_member_average': math.fsum(row['level1_estimate'] / len(dataset_scores) for row in dataset_scores),
+            'legacy_fields': 'level1_estimate, per_repeat.level1_estimate and legacy_capped_member_average are diagnostics only',
             'datasets': dataset_scores, 'cases': rows}
 
 
@@ -301,13 +315,14 @@ def main(argv=None):
     except (OSError, ValueError) as error:
         parser.error(str(error))
     report = {
-        'schema_version': 3, 'created_at': datetime.now(timezone.utc).isoformat(),
+        'schema_version': 4, 'scoring_version': SCORING_VERSION,
+        'created_at': datetime.now(timezone.utc).isoformat(),
         'protocol': args.protocol, 'repeats': args.repeats,
         'identity': identity, 'baseline_identity': baseline_identity,
         'machine': {'platform': platform.platform(), 'hostname': platform.node(),
                     'processor': platform.processor() or 'unknown', 'logical_cpus': os.cpu_count(),
                     'python': sys.version},
-        'status': 'failed', 'metric': 'sum of raw Total_Score; lower is better; not official normalized score',
+        'status': 'failed', 'metric': 'normalization.average_score: mean case score (0..10), higher is better; raw Total_Score is a cost',
         'verification': 'input and output consistency only; candidate-reported metrics, no action replay',
         'timing': 'whole subprocess wall time including startup and input; not scheduler decision latency',
         'command': args.command, 'working_directory': str(Path.cwd()),
@@ -319,7 +334,9 @@ def main(argv=None):
         'partial': args.members is not None,
         'datasets': [], 'skipped_members': [], 'suite_id': None,
         'cases': [], 'baseline_cases': [], 'errors': [], 'aggregate': None,
-        'normalization': {'status': 'unavailable', 'average_score': None, 'datasets': [], 'cases': [],
+        'normalization': {'status': 'unavailable', 'scoring_version': SCORING_VERSION,
+                          'target_average_score': TARGET_AVERAGE_SCORE,
+                          'average_score': None, 'datasets': [], 'cases': [],
                           'reason': 'requires valid official-naive baseline and current protocol'},
     }
     with tempfile.TemporaryDirectory(prefix='hashjoin-evaluation-') as temporary:
@@ -347,7 +364,7 @@ def main(argv=None):
             report['errors'].append('no nonempty evaluation datasets are available')
         report['normalization']['datasets'] = [
             {'member': dataset['member'], 'version': dataset['version'], 'sha256': dataset['sha256'],
-             'status': 'unavailable', 'level1_estimate': None}
+             'status': 'unavailable', 'average_score': None, 'level1_estimate': None}
             for dataset in report['datasets']]
         if not report['errors']:
             report['suite_id'] = object_hash([
@@ -395,11 +412,12 @@ def main(argv=None):
     else:
         print('No valid overall score. See errors and per-case status in the report.')
     for dataset_score in report['normalization']['datasets']:
-        score = dataset_score['level1_estimate']
+        score = dataset_score['average_score']
         value = 'unavailable' if score is None else f'{score:.6f}'
-        print(f"Dataset normalized score {dataset_score['member']}@{dataset_score['version']}: {value}")
+        print(f"Dataset mean case score {dataset_score['member']}@{dataset_score['version']}: {value}")
     average = report['normalization']['average_score']
-    print('Final dataset average: ' + ('unavailable' if average is None else f'{average:.6f}'))
+    print('Final mean case score (0..10): ' + ('unavailable' if average is None else f'{average:.6f}'))
+    print(f'Eight-case Level 1 target mean: {TARGET_AVERAGE_SCORE:.2f} (50/8; not a hidden-score prediction)')
     print(f'Report: {output}')
     return 0 if report['status'] == 'complete' else 1
 

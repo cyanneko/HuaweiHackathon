@@ -1,4 +1,4 @@
-"""Read-only member-equal uncapped summaries from existing case contributions."""
+"""Read-only case-mean scores from existing reports; never rerun a solver."""
 import argparse
 from collections import defaultdict
 import hashlib
@@ -6,9 +6,12 @@ import json
 import math
 from pathlib import Path
 
+SCORING_VERSION = 'case-mean-v1'
+TARGET_AVERAGE_SCORE = 6.25
+
 
 def summarize_contributions(datasets, rows, *, repeats, partial=False, skipped_members=()):
-    """Aggregate original single_score rows; never divide dataset sums by n.
+    """Average each case's repeated single_score, then equally average all cases.
 
     rows use (member, dataset-relative case, repeat, single_score). Every declared
     nonempty dataset/case/repeat must be present; failed/missing rows are not
@@ -43,21 +46,25 @@ def summarize_contributions(datasets, rows, *, repeats, partial=False, skipped_m
             per_repeat.append(dict(repeat=repeat,score_dataset_uncapped=math.fsum(values[(case,repeat)] for case in cases)))
         score=math.fsum(row['score_dataset_uncapped'] for row in per_repeat)/repeats
         summaries.append(dict(member=member,version=dataset['version'],sha256=dataset['sha256'],case_count=len(cases),
-            score_dataset_uncapped=score,mean_case_points_aux=score/len(cases),per_repeat=per_repeat))
+            average_score=score/len(cases),score_dataset_uncapped=score,per_repeat=per_repeat))
     count=len(summaries);total_cases=sum(row['case_count'] for row in summaries)
-    return dict(status='available',score_final=math.fsum(row['score_dataset_uncapped'] for row in summaries)/count,
-        primary_formula='mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap',
-        dataset_count=count,member_weights={row['member']:1/count for row in summaries},datasets=summaries,
+    total=math.fsum(row['score_dataset_uncapped'] for row in summaries)
+    return dict(summary_schema_version=2,scoring_version=SCORING_VERSION,
+        status='available',score_final=total/total_cases,case_count=total_cases,
+        primary_formula='mean_cases(mean_repeats(original single_score)); every case has equal weight',
+        target_average_score=TARGET_AVERAGE_SCORE,
+        target_basis='8 official cases: 50 / 8 = 6.25; local means do not predict hidden results',
+        dataset_count=count,member_weights={row['member']:row['case_count']/total_cases for row in summaries},datasets=summaries,
         skipped_members=list(skipped_members),partial=bool(partial),eligible_for_full_collection_ranking=not partial,
-        auxiliary=dict(all_cases_mean_points=math.fsum(row['score_dataset_uncapped'] for row in summaries)/total_cases,
-            total_case_count=total_cases,used_for_ranking=False),
+        auxiliary=dict(uncapped_sum_score=total,legacy_uncapped_member_average=total/count,used_for_ranking=False),
         note='Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.')
 
 
 def summarize_report(report):
     normalization=report.get('normalization',{})
     if report.get('status')!='complete' or normalization.get('status')!='available' or report.get('protocol')!='official-2026-10-26':
-        return dict(status='unavailable',score_final=None,suite_id=report.get('suite_id'),skipped_members=report.get('skipped_members',[]),
+        return dict(summary_schema_version=2,scoring_version=SCORING_VERSION,status='unavailable',score_final=None,
+            target_average_score=TARGET_AVERAGE_SCORE,suite_id=report.get('suite_id'),skipped_members=report.get('skipped_members',[]),
             reason='A complete current-protocol report with available original paired case contributions is required; failures are not discarded.')
     rows=normalization['cases']
     for row in rows:
@@ -67,7 +74,11 @@ def summarize_report(report):
             expected=max(0.0,min(10.0,10*(1-val/base))) if val>0 and base>0 else 0.0
             if not math.isclose(row['single_score'],expected,rel_tol=1e-12,abs_tol=1e-12):raise ValueError('original contribution/cost mismatch')
     summary=summarize_contributions(report['datasets'],rows,repeats=report['repeats'],partial=report.get('partial',False),skipped_members=report.get('skipped_members',[]))
-    summary.update(suite_id=report['suite_id'],raw_capped_average_score=normalization['average_score'],
+    raw_schema=report.get('schema_version',3)
+    if raw_schema not in (3,4):raise ValueError('supported raw report schemas are 3 and 4')
+    raw_capped=normalization.get('legacy_capped_member_average') if raw_schema==4 else normalization['average_score']
+    summary.update(suite_id=report['suite_id'],raw_report_schema_version=raw_schema,
+        raw_average_score=normalization['average_score'],raw_capped_average_score=raw_capped,
         raw_scoring_unchanged=True,per_case_zero_cost_rule='Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0.')
     return summary
 

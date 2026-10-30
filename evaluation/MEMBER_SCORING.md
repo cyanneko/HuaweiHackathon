@@ -1,30 +1,49 @@
-# 当前主评分：先逐成员数据集求分，再等权平均
+# 当前评分标准：所有案例逐例均分
 
-规则日期：2026-10-29；集合说明更新至2026-10-30。原始评测器、逐例函数和raw报告保持不变；下面的未封顶汇总由已有逐例贡献计算，不重新运行求解器。
+2026-10-30 用户明确更新；本规则覆盖旧“成员内sum再成员等权”和封顶分主排名。评分版本为 `case-mean-v1`，`evaluate.py` 报告 `schema_version=4`。后续统计、汇报和选型均以本页的平均分为标准。
 
-原逐例贡献为`p(m,i,r)=clip(10*(1-C_candidate/C_naive),0,10)`。沿用现有runner边界：VAL或BASE不为正时该例原贡献为0；新增摘要直接使用并核对原`single_score`，不暗改零值规则。
+每个案例 i、第 r 次重复，先用同批官方 Naive 成本 B 和候选完整成本 C 计算：
 
 ```text
-score_dataset(m) = mean_repeats(sum_cases(p(m,i,r)))
-score_final = mean_nonempty_members(score_dataset(m))
+s(i,r) = clamp(10 * (1 - C(i,r)/B(i,r)), 0, 10)
+score_final = (1/N) * sum_i [(1/R) * sum_r s(i,r)]
 ```
 
-逐成员求和时不施加50的总分封顶。每个非空成员在最终平均中权重相同，各集内部仍累加全部逐例贡献；案例数会影响该集未封顶总分的范围。2026-10-30核对的[固定数据提交 e119c23](https://github.com/cyanneko/HuaweiHackathon/tree/e119c2326e198922243306eac062785420ed8156/datasets)包含Vanius0525 0.1.0/209例、cyanneko 0.6.0/48例、liunianwww 0.1.0/528例，共785例，完整三成员系数各1/3。矩阵冻结的[旧数据提交 e4fd35e](https://github.com/cyanneko/HuaweiHackathon/tree/e4fd35e0bb2839c5b001020853fb367a73045d67/datasets)只有后两人的576例，仍各占1/2，不能中途改变其集合或分母。实际权重随本轮非空成员名单确定，不要求三人全部上传；空member2/member3跳过并列出，不占权重。新旧suite与成员指纹见[更新清单](../docs/GITHUB_UPDATES_20261030.md)。
+C、B 均包含 I/O、miss penalty 和实际调度器决策耗时；沿用官方零成本规则，C=0 或 B=0 时该例记0。未优于基线同样记0，仍占案例分母。先算每次重复的比例与截断，再取均值，不能先平均成本再算分。
 
-例：A有1例、贡献5分，其数据集分为5；B有3例、每例5分，其数据集分为15。最终主分为`(5+15)/2=10`。两集单例均分和全部4例均分均为5，作为辅助字段单列，不用于替代主分排名。
+N 是本次选定非空评测集合的全部案例数，R 是统一重复数。每例权重相同；成员/家族分组仅用于分析，不因目录划分改变总均分。合并成员均分时按案例数加权。例如A有1例得5分，B有6例各得9分，总均分是 `(5+6*9)/7=8.428571`，不是成员均分的简单平均。
 
-原评分器`normalization.average_score`仍按每集每重复封顶50、重复取均值、再按成员等权平均，作为raw字段并列保留。报告当前主汇总用上面的未封顶dataset sum；不将其混写成原raw分，也不换成每成员mean_case。单例均分、全案例等权均分、成本倍率/D/家族尾部均另列用于解释结果；主排名采用同一固定完整集合的score_final。原始成本、严重退化和失败仍完整保留，逐例零截断不能掩盖尾部。
+## 8例正式测试与目标
 
-已有数据却运行失败、缺案例、缺重复或缺有效Naive时，不丢掉该成员后计算有效全库分。局部批次只报告覆盖与未完成，不进入完整集合排名。显式partial子集可保留其范围内汇总，但必须标partial，不能作为对应快照的全库成绩。所有成绩绑定成员VERSION、SHA、suite、重复与基线身份，不能比较不同数据分布的未封顶总和来推断官方成绩。
+用户提供正式测试共8组。按当前Level 1规则：
 
-## 只读重算
+```text
+正式8例的Level1 = min(50, 8 * 正式8例均分)
+目标均分 = 50 / 8 = 6.25
+```
+
+6.25对应Level 1封顶，但平均分本身仍可达到10，不在6.25截断。50例本地均分不是正式8例均分；不能用本地成绩乘8承诺隐藏成绩。总成本下降比例也不等于此均分，尤其逐例负收益被截为0时。持续展示逐例成本倍率、严重退化、I/O、miss与决策耗时。
+
+## JSON与旧报告
+
+- 新runner：`normalization.average_score` 为0–10的全案例均分，`normalization.datasets[].average_score` 为分组均分；终端也以均分展示。
+- 只读汇总器：`score_final` 是同一均分，`member_weights` 为各成员案例数/N；`summary_schema_version=2`。
+- `target_average_score=6.25` 仅记录上述正式8例目标。
+- `level1_estimate`、`legacy_capped_member_average`、未封顶sum等仅为兼容诊断字段，不用于排名。旧schema3的 `normalization.average_score` 是成员封顶分平均，不能直接当新均分读。
+- 评分规则更新不改输入、metadata或eval/VERSION；当前综合集仍2.0.0。比较还须绑定suite_id、scoring_version、程序/基线身份、编译环境和重复数。
+
+从已有schema3或schema4原始报告重算，无需重新执行求解器：
 
 ```sh
-python -B evaluation/scripts/summarize_member_scores.py results/original-report.json --out results/member-uncapped-summary.json
+python -B evaluation/scripts/summarize_member_scores.py results/original-report.json --out results/case-mean-summary.json
 ```
 
-输入为完整新版原评测器JSON，含可用`normalization.cases`。输出须是新文件；工具不修改输入、不编译、不启动候选或基线。原封顶raw平均分保存在`raw_capped_average_score`，主分为`score_final`；每成员`score_dataset_uncapped`与权重同时列出。失败原报告输出unavailable/score_final=null。完整案例/重复格不齐时直接拒绝有效汇总。
+汇总器只读原始逐例逐重复贡献，另写新文件；保留输入报告哈希和旧封顶值，不改旧证据。它不接受只有总分而没有逐例记录的摘要，也不认证程序动作是否合法。
 
-矩阵执行器可直接导入`summarize_contributions(datasets, rows, repeats=..., partial=False, skipped_members=...)`；rows使用原贡献字段`member,case,repeat,single_score`，case为成员eval目录内相对路径。datasets保留成员版本、指纹、case_count及原files身份。该API只做数学归约，不能用它把未审程序自报指标认证为合法动作。
+## 失败、缺失与范围
 
-7项纯Python汇总测试覆盖不等案例数、未封顶超过50、重复平均、空成员无权重、缺失/重复格拒绝、失败报告与raw封顶值保留；不执行solver。
+空/尚未上传的集合可明确跳过，实际参与案例数写入报告。显式子集标partial。已有案例不得因为低分、失败、超时、缺重复而被丢掉后求均分；完整案例×重复矩阵必须齐全。
+
+当前本地runner遇到执行失败、输入错误、缺重复或无有效官方基线时，输出unavailable/null并使整轮无有效排名；不会拿成功部分给“完整均分”。官方OOM/超时按该例0分的规则不改变，若另算官方式失败含零诊断，必须保留预定N且单列失败，不能伪装成本地完整有效评测。
+
+所有案例等权是本轮统一目标，不代表已知官方各随机分布比例。相同N/J下旧未封顶成员sum平均与新逐例均分仅差常数N/J，固定集合的排名相同；封顶值和raw成本比则不具备这种等价性。

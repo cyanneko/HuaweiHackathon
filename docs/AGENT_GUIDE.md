@@ -149,13 +149,9 @@ python evaluation/evaluate.py --datasets-root ../HuaweiHackathon-datasets/datase
 
 所有 runner 选项必须在 `--command` 前；它之后全部属于候选程序。候选和基线是否接收 argv 文件名或 stdin，由实际完整框架/包装决定；从 stdin 读取时分别省略相应命令中的 `{input}`。没有基线可以省略两个 baseline 选项，但只得到原始成本，归一化显示 unavailable，不能补0。
 
-原schema 3 raw评分顺序（保留不改）：
+当前schema4、case-mean-v1：每案例每重复先算 `clamp(10*(1-VAL/BASE),0,10)`，VAL或BASE为0按原规则记0；随后平均重复和全部案例。`normalization.average_score` 是0–10的逐例均分，成员只作分组，合并按案例数加权。正式8例目标均分6.25对应50封顶，本地均分不预测正式结果。
 
-1. 每案例、每重复计算 clamp(10×(1−VAL/BASE),0,10)；VAL=0或BASE=0按规则记0。
-2. 每集每次重复求和、封顶50，再对重复取均值，得到该集分数。
-3. 所有参与集等权平均，保存到 normalization.average_score，与案例数无关。比如A两例各2分得到4，B一例8分，最终(4+8)/2=6。
-
-逐例分在 normalization.cases，逐集分与每重复分在 normalization.datasets；原始成本在 aggregate.total_cost 及各集 aggregate。空集不进分母；非空集合失败或超时不能静默丢弃后给有效总分。旧协议或无基线时不制造归一化成绩。[完整字段和协议边界](../evaluation/README.md)以实际代码为准。
+旧schema3的average_score含义不同；只读重算原始逐例贡献，不改旧报告。封顶与未封顶sum只保留诊断，详细定义见[评分标准](../evaluation/MEMBER_SCORING.md)。失败或缺失不剔除后求均分。
 
 `legacy_checker.py` 的旧动作语义与新版有差异，不能用它证明新版动作合法。缺 Total_Decision_Time 不能用0补齐，需显式legacy模式才能读取旧输出。
 
@@ -186,13 +182,13 @@ python evaluation/evaluate.py --datasets-root ../HuaweiHackathon-datasets/datase
 
 ## 当前报告与筛选口径（2026-10-29）
 
-不把封顶50分作为目标或主要成果，评测器和原始封顶分不改。成本分析展示逐例`Total_Score`/配对官方Naive倍率及D倍率，各给mean/P50/P90/worst、样本数、完整逐例表和家族分组；当前主评分/排名另按每成员dataset sum的等权平均。mean明确为逐例倍率等权算术平均；成本和D的总和之比另列，不能混称平均。P50用普通中位数，P90用最近秩，样本数小的组说明限制。0/0按1、正值/0按Infinity并保留。官方数据数量和分布未知，本地平均或家族分组不能预测官方成绩。跨轮的微小D差异不排名。
+统计、汇报、选型统一采用逐例均分，正式8例的目标为6.25；封顶sum不用于研发排名。成本分析同时展示逐例Total_Score/Naive倍率与决策耗时、普通中位数、P90（最近秩）及最差值、样本数和家族分组。总成本之比与逐例倍率均值分开；逐例clamp不能掩盖严重退化。小样本分组注明限制，不以微小CPU噪声排名。
 
 当前优先扩充独立非神经网络专家，暂不继续NN/树训练。新专家启动CPU测量前须完成完整源码独立审查并修复问题；使用固定0.5快照、发现全部实际非空eval，保持原官方框架和Naive基线。R60/R61历史数据范围见[实际倍率与家族表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/reports/precontest_20261029/comparison_tables.md)；后续轮次另按实测证据发布。
 
 R63已完成固定0.5全部40例一次配对评测，含80次正式运行；36次开发运行另记。实验源码快照未接SDK、无新专家ID、不改默认，结果和限制见[当前进展](NON_NEURAL_PROGRESS_20261029.md)。本轮以发布收口，不据文档中的历史候选计划自动启动新实验。
 
-不强调总分50封顶不意味着删掉原逐例0至10分函数。报告另给`mean(max(0,min(10,10*(1-C/Cnaive))))`、未施加总封顶的sum与n；它只作本地规则诊断，不预测未知官方分，不能跨不同n/分布比较总和或忽视逐例零截断丢失的退化幅度。
+保留官方逐例0至10分函数。`mean(max(0,min(10,10*(1-C/Cnaive))))`（含零成本特例及重复平均）是当前主指标；未封顶sum与封顶sum为诊断。必须记录n、数据版本和评分版本，不以本地均分代替隐藏成绩。
 
 MXV1发布时的矩阵冻结旧快照包含cyanneko eval0.6.0/48与liunianwww0.1.0/528，共576eval、约87.49MB/4,384,765操作。2026-10-30核对的新数据快照另有Vanius0525 0.1.0/209，共785eval、137,224,870输入字节/8,086,312操作；新旧集合分别保留身份，不能拼接为同一轮成绩。自动发现传入快照的全部实际非空成员，无需等齐三人；全量超单窗预算时分有界批次记录完成/未完成，不能筛成员而称完整。旧R63只绑定其冻结0.5/40集合。新热点反转train压力1.0为容量无压力对照，不改样本。
 
@@ -200,6 +196,6 @@ MXV1发布时的矩阵冻结旧快照包含cyanneko eval0.6.0/48与liunianwww0.1
 
 ## 当前最终评分与只读重算
 
-`score_dataset(m)=mean_repeat(sum_case(original single_score))`，集内sum不施加50总封顶；`score_final=mean_nonempty_members(score_dataset(m))`。785例完整三成员快照的系数各1/3；576例冻结旧矩阵中cyanneko和liunianwww仍各1/2。空成员列出且不占权重。每集内部仍累加原贡献，不除以各自案例数。单例均分/全案例等权均分仅辅助、不用于主排名；真实成本、D、坏例和家族稳定性继续完整展示。原normalize的逐例边界和封顶raw保留，新增只读摘要不调用候选/基线，见[评分定义](../evaluation/MEMBER_SCORING.md)。
+`score_final=mean_case(mean_repeat(original single_score))`，所有案例等权；各成员均分仅用于分组，按案例数加权才能还原总均分。当前评分版本case-mean-v1、报告schema4。`summarize_member_scores.py`兼容schema3/4原始报告，只读重算并保留旧值，不重跑求解器；见[评分定义](../evaluation/MEMBER_SCORING.md)。
 
 全量数据/重复不齐或某非空成员失败时不计算有效完整主排名，不能丢失败成员再平均。显式子集标partial。既有solver记录只重算数学摘要，不为改汇总重跑。

@@ -75,10 +75,14 @@ python final_dataset/tools/build.py
 
 重建读取已发布配方，并核对已有文件，不改种子或参数。新版本应写入新输出目录，修改评测输入时必须升级版本与指纹。
 
-单独评测这 50 条测试，替换为已接入官方兼容框架的 solver：
+本包统一以50例的**逐例平均分（0–10）**作为统计、汇报和方案比较标准。每例先按官方Naive归一化，再平均重复与案例，不按成员分组加权、不用总分封顶比较。正式8例的目标均分6.25对应Level 1封顶50；本地50例达到该数值不保证隐藏8例达到目标。见[评分标准与schema4迁移](../evaluation/MEMBER_SCORING.md)。
+
+单独评测这50条测试；先将官方Naive命令数组保存到baseline-command.json，再替换已接入同一官方兼容框架的solver：
 
 ```sh
-python evaluation/evaluate.py --datasets-root . --members final_dataset --repeats 3 --out results/final-v2.json --command ./build/solver "{input}"
+python evaluation/evaluate.py --datasets-root . --members final_dataset --repeats 3 --baseline-command-file baseline-command.json --baseline-kind official-naive --out results/final-v2.json --command ./build/solver "{input}"
 ```
 
 本包位于仓库根部，避免被 `datasets/` 默认成员发现后与三方原集合重复计权。显式选集的成绩代表本包测试，不是三位成员旧测试的完整成绩。
+
+本次仅更新评分工具与说明，数据输入、metadata和eval/VERSION保持2.0.0。覆盖审查与改进建议见[dataset审查](../evaluation/DATASET_REVIEW_20261030.md)。

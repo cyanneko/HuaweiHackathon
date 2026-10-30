@@ -58,10 +58,10 @@ Total_Score: 33.00
 - 非空评测集必须在 `eval/VERSION` 写入版本号，如 `0.3.0`；修改评测数据后升级版本。只有 VERSION、没有任何 `.txt` 的空集合不会参与评测。
 - 脚本对实际执行快照的每个 `.txt` 与相邻 `.meta.json` 记录完整 SHA-256，再计算每人集合指纹与本次实际参与数据的合并 `suite_id`。新增参与成员、删除参与集合、重命名、内容修改和参与版本号变化都会影响标识；被跳过的空集合占位版本不影响标识。
 - 即使忘记修改 VERSION，数据变化仍会改变指纹；`train/` 变化不会改变评测版本。
-- 报告 schema_version 为 3：`requested_members` 记录自动发现或显式请求检查的成员，`selection_mode`/`partial` 记录选择方式，`datasets` 记录实际参与集合的版本/指纹，`skipped_members` 记录被跳过成员及原因。汇总和 suite_id 只覆盖 datasets，显式子集不能称为全库成绩。
+- 报告 schema_version 为 4，scoring_version 为 `case-mean-v1`：`requested_members` 记录自动发现或显式请求检查的成员，`selection_mode`/`partial` 记录选择方式，`datasets` 记录实际参与集合的版本/指纹，`skipped_members` 记录被跳过成员及原因。汇总和 suite_id 只覆盖 datasets，显式子集不能称为全库成绩。
 - 报告还包括逐案例逐次测量、逐成员汇总、参与数据的整体原始代价与决策耗时、协议、超时、运行命令、完整 stdout/stderr、机器信息和评测器/输入校验器代码指纹。
 - 默认 `--repeats 1`、每案例 `--timeout 60` 秒。重复测量全部保留，汇总先按案例取重复均值再对案例求和，不会重复次数翻倍就把成绩翻倍。墙钟总时间则累计全部运行。
-- `aggregate.aggregation` 明确标记原始成本口径为 `sum of per-case arithmetic mean over repeats`；归一化评分另以 `normalization.aggregation` 标记逐集等权平均。R49/R53 研究报告的重复中位数属于不同口径，不能混称。
+- `aggregate.aggregation` 明确标记原始成本口径为 `sum of per-case arithmetic mean over repeats`；归一化评分另以 `normalization.aggregation` 标记所有案例逐例等权平均。R49/R53 研究报告的重复中位数属于不同口径，不能混称。
 - `wall_seconds` 是整个候选进程的墙钟时间，含启动和输入处理，不能作为调度器单次决策耗时。
 - 原始代价汇总越小越好，不等于官方归一化比赛总分。比较结果需要相同数据 suite_id、相同评测规则和一致环境。
 - 不存在或为空的成员集合标为 skipped；至少一个合法非空集合全部执行成功即可 `status=complete`。完全没有可用数据，或任何被选择的非空集合无版本、数据非法、候选失败、超时或输出异常：退出非零，`status=failed`，`aggregate=null`；失败集合不能被丢弃后只汇总成功案例。
@@ -102,19 +102,17 @@ Total_Score: 33.00
 
 然后添加 `--baseline-command-file baseline-command.json --baseline-kind official-naive`。候选与基线在本机、同一输入快照上逐次串行运行，并保留各自输出和身份。`official-naive` 是调用者对基线来源的声明，脚本不自动认证二进制；未明确标识的基线不会产生官方公式估分。
 
-全部成功且使用新版协议时，沿 `datasets/<member>/eval` 与其 VERSION 的集合边界计算：
+全部成功且使用新版协议时，统一按所有参与案例的平均分统计：
 
-1. 每案例、每重复先按 `clamp(10 * (1 - VAL/BASE), 0, 10)` 计分；VAL=0 或 BASE=0 记 0，未优于基线记 0。
-2. 每个集合内部，对每次重复的案例分求和并封顶 50，再对这些重复分取算术平均，得到该集合的 Level 1 估分 `S_j`。
-3. 最终平均分 `F = sum(S_j) / 参与集合数`，每集权重相同，与该集案例数无关。空/缺失集合不进入分母；只有一集时 F 就是该集分数。
+1. 每案例、每重复先算 `clamp(10 * (1 - VAL/BASE), 0, 10)`；VAL=0或BASE=0记0，未优于基线记0。
+2. 每案例对重复分取算术平均，再对所有案例等权平均，得到0–10的 `normalization.average_score`；不按成员等权、不施加总分50封顶。
+3. 各成员的 `normalization.datasets[].average_score` 仅用于分组分析，合并时按案例数加权。例如A一例5分、B六例各9分，总均分为 `(5+6*9)/7=8.428571`。
 
-例如 A 集一例得 5 分，B 集六例各得 9 分，则 B 封顶后为 50，最终平均是 `(5+50)/2=27.5`。不能先合并全库案例再封顶，也不能按案例数量加权。
+用户提供正式8例，目标均分6.25对应 `8*6.25=50` 的Level 1封顶。平均分仍允许超过6.25；本地50例均分不预测隐藏8例结果。详细规则、边界及旧报告迁移见 [MEMBER_SCORING.md](MEMBER_SCORING.md)。
 
-`normalization.cases` 保存每案例每重复分数，`normalization.datasets` 保存各集成员/版本/指纹、每重复分数与 `level1_estimate`，`normalization.average_score` 是最终等权平均。旧 schema 的顶层 `normalization.level1_estimate` 已替换，避免与逐集分数混淆。终端也会逐集列分并打印最终平均。
+schema4的 `average_score` 已更改含义，不能直接与schema3同名字段比较。旧封顶成员均值保存在 `legacy_capped_member_average`；逐集 `level1_estimate`、其重复封顶值及未封顶sum只作历史诊断，不用于主排名。所有逐例逐重复成本与贡献继续保存。
 
-原始成本继续单独保存在 `aggregate.total_cost` 与各集的 `datasets[].aggregate` 中，越低越好；它不是这里的归一化平均分。无基线、未标识官方基线或旧协议时，归一化字段为 `unavailable`、`average_score=null`，各集同样标为不可用。任何非空集合失败都会使全轮归一化无效，不能剔除失败集后重新平均。
-
-上述结果是**本地数据上的团队评分**，不是官方隐藏集成绩，也不包含专家评分。每个集合的基础公式沿用 Level 1，跨集合等权平均是团队报告的汇总约定。
+原始成本保存在 `aggregate.total_cost`，越低越好，不等于归一化平均分。无基线、未标识官方基线或legacy协议时均分为unavailable/null。任何非空集合失败都会使整轮无有效成绩，不丢弃失败案例后平均成功部分。明确的0分案例仍计入均分分母。
 
 计时实验应与其他研究任务协调，避免同时运行重负载；脚本记录机器信息但不会隔离系统后台负载。
 
@@ -152,6 +150,6 @@ python evaluation/scripts/legacy_checker.py case.txt actions.trace.jsonl output.
 
 实际数据在 datasets 分支，Scheduler 源码在对应 source 分支。main/source/cyanneko 未随方法发布完整框架或 NN/融合器；其他成员分支保存的参考框架须自行核对来源、协议和计时边界。数据格式见 [DATA_SPEC.md](DATA_SPEC.md)，跨分支工作流见 [Agent 指南](../docs/AGENT_GUIDE.md)，新专家接入和门控开销验收见 [专家接口 v1](../docs/EXPERT_INTERFACE_V1.md)。
 
-## 当前报告主汇总：成员等权、集内未封顶sum
+## 当前报告主汇总与迁移
 
-原evaluate.py已按成员数据集等权平均，无需改代码。当前报告对原逐例贡献按每集求sum（重复时mean_repeat），不施加50总封顶，然后`score_final=mean_nonempty_members(score_dataset)`。截至2026-10-30核对的[固定数据提交 e119c23](https://github.com/cyanneko/HuaweiHackathon/tree/e119c2326e198922243306eac062785420ed8156/datasets)有三个非空成员、785评测例，完整评测时各占1/3；原576例矩阵仍绑定其旧快照、两个成员各占1/2。只按传入快照的实际非空成员计算，空成员列出不占权重，无需等齐三人。每集单例均分与全案例等权均分仅辅助、不用于主排名；原封顶raw并列保留。规则、边界和只读重算命令见[MEMBER_SCORING.md](MEMBER_SCORING.md)，新旧集合身份见[更新清单](../docs/GITHUB_UPDATES_20261030.md)。新工具只读原normalization.cases和冻结身份，不重跑solver，不允许缺案例/重复后给有效完整分。
+统计、汇报、选型统一采用逐例均分，详见 [MEMBER_SCORING.md](MEMBER_SCORING.md)。旧schema3完整原始报告可用 `scripts/summarize_member_scores.py` 只读重算为均分，不重新运行solver、不覆盖旧报告。新报告升级schema4和评分版本；实际数据文件、metadata、VERSION和数据suite_id不因本次评分修改而变化。

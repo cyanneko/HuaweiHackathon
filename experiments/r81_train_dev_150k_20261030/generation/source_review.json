@@ -1,0 +1,23 @@
+{
+  "status": "PASS_STATIC_FORMULA_AND_TEST_COVERAGE_REVIEW",
+  "producer_sha256": "97a3949bd05e96a1d2d264d8f4d3d5c924fbc68deb1d1258ae13bd9a4e0266b6",
+  "test_summary_sha256": "b408031705eb6bbc37abf3fd3d25efd92a7b30ed9b221d0796ace8c2fca00f2e",
+  "source_sha_checks": 2,
+  "variants_differ_only_fast_half": true,
+  "formula": "((F_o+64/K)/(F+64))*(((1-a_o)*c_op+a_o*S_o/P+64/(K*P))/(S_o+64/K))",
+  "findings": [],
+  "native_runs_by_reviewer": 0,
+  "observations": [
+    "Slow conditional counts, squares, W2, H and half-life2048 remain independent of the fast stream.",
+    "Fast increment occurs after next ordinal dedup; current miss is not a sample. Common monotone q* is max(current probe count,next sample ordinal).",
+    "Lazy per-ID probability is multiplied by an O(K) marginal scale. All partitions use the same normalization, with no resident-only renormalization.",
+    "Parent BUILD/scan/cycle guards, action construction/pruning and finalized intent recording are unchanged in diff.",
+    "Fixed prior64 has more relative influence at shorter half-life; this is not a pure time-constant ablation.",
+    "Producer tests cover direct formula/nonnegativity/global and operator sums, conditional independence, duplicates/current miss/q+1 clocks, zero observations/K1/P1/longgap/epoch wrap, switch/reversal, test-only2048 identity, inherited guard tests and400callback legality. Tests were inspected, not rerun."
+  ],
+  "limits": [
+    "An empty stream means zero observations with positive K/P; official legal inputs require positive dimensions.",
+    "400-step legality test is not action equivalence to parent, nor proof of improved costs.",
+    "Normalization proof assumes valid finite raw count state; normal accepted stream and decay keep that state bounded."
+  ]
+}

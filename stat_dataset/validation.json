@@ -1,0 +1,46 @@
+{
+  "status": "COMPLETE_ALL_INPUTS_INDEPENDENTLY_AUDITED",
+  "tests": {
+    "native_process_invariants": "PASS",
+    "sha256_standard_vectors": "PASS",
+    "exact_fixture_reproduction": "PASS",
+    "python_vs_cpp_semantic_sha256": "PASS",
+    "invalid_stream_rejections": [
+      "zero_tuple",
+      "missing_switch",
+      "extra_record"
+    ]
+  },
+  "summary": {
+    "cases": 40,
+    "operations": 168000000,
+    "raw_bytes": 3299015915,
+    "archive_bytes": 1256639148,
+    "splits": {
+      "train": {
+        "cases": 24,
+        "operations": 104000000
+      },
+      "dev": {
+        "cases": 6,
+        "operations": 22000000
+      },
+      "eval": {
+        "cases": 10,
+        "operations": 42000000
+      }
+    }
+  },
+  "manifest_sha256": "d6a3584ab2385e45c7aeeb30a1c2c4d5fdda013dd0606ff994dc264463558149",
+  "recipe_sha256": "43590bf3dce832fc5c9dadcddd2b6e185681d18da3b985ac29d87de76aa05f6d",
+  "sources_unchanged_during_batch": true,
+  "every_gzip_roundtrip_verified": true,
+  "cross_split_raw_normalized_and_partition_hash_duplicates": 0,
+  "historical_dataset_semantic_comparison": "not performed; unique new seed namespace, no copied historical inputs; no broader isolation claim",
+  "scheduler_performance_runs": 0,
+  "model_training_runs": 0,
+  "seconds": 227.637500542,
+  "budget_seconds": 555.0,
+  "jobs": 2,
+  "generator_and_validator_independent": true
+}

@@ -1,0 +1,13 @@
+{
+  "reference_repository_branch": "datasets",
+  "reference_checkout_observed_commit": "6ea40324eaaafda964ba011727a5670e306b3d37",
+  "references": [
+    {"path": "dyna_dataset/source/generator.cpp", "sha256": "0611bdecc3640cffe06efbb9956fa2d3271d8d579c2318e1c1f938121709a175", "use": "RNG algorithm and probability/velocity inspiration; no operator process copied into stat"},
+    {"path": "dyna_dataset/audit/audit.cpp", "sha256": "605cf1dc76ce06e2d24412fd3850806f1f8afe70c3890af66a800f25a39bb70f", "preserved_copy": "audit/reference_dyna_audit.cpp", "use": "independent stream validator; working audit adds canonical SHA256 only"},
+    {"path": "final_dataset/provenance/v2.0.0/manifest.json", "sha256": "f9dffebc2dfeb770fda0f210883f437d04d816cc7ab3de72f5808ac97ebc38cb", "use": "ordinary uniform plus skew coverage; no input copying"},
+    {"path": "final_dataset/manifest.json", "version": "2.1.0", "sha256": "217e8e24ad6fcf6c1c057bb2031d5cde23fe2e2b35595b095d119922a47aee87", "use": "long-sequence and independent build-size coverage; no input copying"}
+  ],
+  "preserved_source_vs_derived_source": "reference_dyna_audit.cpp preserves original bytes; audit.cpp is the derived implementation and gets its own source hash",
+  "copied_historical_inputs": 0,
+  "scheduler_scores_consulted_for_selection": false
+}

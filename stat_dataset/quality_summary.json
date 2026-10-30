@@ -1,0 +1,1878 @@
+{
+  "status": "METADATA_AND_AUDIT_QUALITY_SUMMARY_COMPLETE",
+  "name": "stat_dataset",
+  "version": "1.0.0",
+  "manifest_sha256": "d6a3584ab2385e45c7aeeb30a1c2c4d5fdda013dd0606ff994dc264463558149",
+  "scope": "Read only 40 manifest entries and their bound metadata/audit JSON. No raw input or gzip rescan, native execution, scheduler test, model training, case filtering or seed replacement.",
+  "counts": {
+    "split": {
+      "dev": 6,
+      "eval": 10,
+      "train": 24
+    },
+    "family": {
+      "hotspot": 7,
+      "lognormal": 7,
+      "mixed": 12,
+      "uniform": 7,
+      "zipf": 7
+    },
+    "temporal": {
+      "burst": 7,
+      "fast": 7,
+      "mixed": 12,
+      "slow": 7,
+      "static": 7
+    },
+    "phase": {
+      "shared": 24,
+      "staggered": 16
+    }
+  },
+  "by_split": {
+    "train": {
+      "family": {
+        "hotspot": 4,
+        "lognormal": 4,
+        "mixed": 8,
+        "uniform": 4,
+        "zipf": 4
+      },
+      "temporal": {
+        "burst": 4,
+        "fast": 4,
+        "mixed": 8,
+        "slow": 4,
+        "static": 4
+      },
+      "phase": {
+        "shared": 15,
+        "staggered": 9
+      }
+    },
+    "dev": {
+      "family": {
+        "hotspot": 1,
+        "lognormal": 1,
+        "mixed": 2,
+        "uniform": 1,
+        "zipf": 1
+      },
+      "temporal": {
+        "burst": 1,
+        "fast": 1,
+        "mixed": 2,
+        "slow": 1,
+        "static": 1
+      },
+      "phase": {
+        "shared": 3,
+        "staggered": 3
+      }
+    },
+    "eval": {
+      "family": {
+        "hotspot": 2,
+        "lognormal": 2,
+        "mixed": 2,
+        "uniform": 2,
+        "zipf": 2
+      },
+      "temporal": {
+        "burst": 2,
+        "fast": 2,
+        "mixed": 2,
+        "slow": 2,
+        "static": 2
+      },
+      "phase": {
+        "shared": 6,
+        "staggered": 4
+      }
+    }
+  },
+  "probability_quality": {
+    "static_cases": 7,
+    "all_static_l1_zero": true,
+    "dynamic_cases": 33,
+    "all_dynamic_l1_positive": true,
+    "dynamic_mean_l1_per_64_operation_tick": {
+      "min": 0.0019239221382710216,
+      "max": 0.18183449951093095
+    },
+    "maximum_probe_probability_across_cases": {
+      "min": 0.002287793337833502,
+      "max": 0.6798099730592583
+    },
+    "by_temporal": {
+      "burst": {
+        "cases": 7,
+        "mean_l1_per_tick": {
+          "min": 0.0019239221382710216,
+          "max": 0.00354661820390617
+        },
+        "maximum_probe_probability": {
+          "min": 0.018735099140723358,
+          "max": 0.6798099730592583
+        }
+      },
+      "fast": {
+        "cases": 7,
+        "mean_l1_per_tick": {
+          "min": 0.10536545122887339,
+          "max": 0.18183449951093095
+        },
+        "maximum_probe_probability": {
+          "min": 0.004669406478141521,
+          "max": 0.6060759061474461
+        }
+      },
+      "mixed": {
+        "cases": 12,
+        "mean_l1_per_tick": {
+          "min": 0.03343948566411294,
+          "max": 0.09435879339026669
+        },
+        "maximum_probe_probability": {
+          "min": 0.07363890049997865,
+          "max": 0.46833337346086695
+        }
+      },
+      "slow": {
+        "cases": 7,
+        "mean_l1_per_tick": {
+          "min": 0.009172324568019495,
+          "max": 0.013319099696734773
+        },
+        "maximum_probe_probability": {
+          "min": 0.002287793337833502,
+          "max": 0.5149454832310677
+        }
+      },
+      "static": {
+        "cases": 7,
+        "mean_l1_per_tick": {
+          "min": 0,
+          "max": 0
+        },
+        "maximum_probe_probability": {
+          "min": 0.00390625,
+          "max": 0.14592010649324097
+        }
+      }
+    },
+    "interpretation": "Latent full-PROBE categorical distribution; not observed request frequency. Mixed-phase actual sampler also uses BUILD weights. These values do not establish equality of intensity with dyna."
+  },
+  "phase_quality": {
+    "shared_cases": 24,
+    "all_shared_have_zero_actual_mixed_phase_operations": true,
+    "staggered_cases": 16,
+    "all_staggered_have_actual_overlap": true,
+    "staggered_actual_mixed_phase_operations": {
+      "min": 3957,
+      "max": 1178620
+    }
+  },
+  "capacity_quality": {
+    "all_partitions_nonempty": true,
+    "all_partitions_at_most_0_75M": true,
+    "maximum_partition_fraction_M_across_cases": {
+      "min": 0.01376565545797348,
+      "max": 0.75
+    }
+  },
+  "mixed_partition_quality": {
+    "component_mapping": {
+      "0": "uniform",
+      "1": "zipf",
+      "2": "hotspot",
+      "3": "lognormal"
+    },
+    "mode_mapping": {
+      "0": "static",
+      "1": "slow",
+      "2": "fast",
+      "3": "burst"
+    },
+    "cases": [
+      {
+        "case_id": "train_16_mixed_mixed_shared",
+        "split": "train",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 2,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 3,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 4,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 5,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 6,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 7,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "train_17_mixed_mixed_shared",
+        "split": "train",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "train_18_mixed_mixed_shared",
+        "split": "train",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 2,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 3,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "train_19_mixed_mixed_shared",
+        "split": "train",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 2,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 3,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 4,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 5,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 6,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 7,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "train_20_mixed_mixed_staggered",
+        "split": "train",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 2,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 3,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "train_21_mixed_mixed_shared",
+        "split": "train",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 2,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 3,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "train_22_mixed_mixed_shared",
+        "split": "train",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "train_23_mixed_mixed_shared",
+        "split": "train",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 2,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 3,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "dev_04_mixed_mixed_staggered",
+        "split": "dev",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 2,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 3,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "dev_05_mixed_mixed_shared",
+        "split": "dev",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "eval_08_mixed_mixed_shared",
+        "split": "eval",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "case_id": "eval_09_mixed_mixed_staggered",
+        "split": "eval",
+        "operators": [
+          {
+            "operator_id": 0,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 1,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 2,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 3,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 4,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 5,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 6,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "operator_id": 7,
+            "component_count": 4,
+            "components": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "mode_count": 4,
+            "modes": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      }
+    ],
+    "per_operator_component_count": {
+      "min": 4,
+      "max": 4
+    },
+    "per_operator_mode_count": {
+      "min": 4,
+      "max": 4
+    }
+  },
+  "cases": [
+    {
+      "case_id": "train_00_uniform_static_shared",
+      "split": "train",
+      "family": "uniform",
+      "temporal": "static",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0,
+      "maximum_probe_probability": 0.00390625,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.07671493478119373,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_01_uniform_slow_staggered",
+      "split": "train",
+      "family": "uniform",
+      "temporal": "slow",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.009178803534159235,
+      "maximum_probe_probability": 0.0022988965849486177,
+      "mixed_phase_operations": 1178620,
+      "max_partition_fraction_M": 0.03878135280683637,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_02_uniform_fast_staggered",
+      "split": "train",
+      "family": "uniform",
+      "temporal": "fast",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.1068472907528557,
+      "maximum_probe_probability": 0.019658197174929923,
+      "mixed_phase_operations": 303053,
+      "max_partition_fraction_M": 0.452225998044014,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_03_uniform_burst_shared",
+      "split": "train",
+      "family": "uniform",
+      "temporal": "burst",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.0019239221382710216,
+      "maximum_probe_probability": 0.018735099140723358,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.75,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_04_zipf_static_staggered",
+      "split": "train",
+      "family": "zipf",
+      "temporal": "static",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0,
+      "maximum_probe_probability": 0.14592010649324097,
+      "mixed_phase_operations": 778043,
+      "max_partition_fraction_M": 0.45162924379110336,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_05_zipf_slow_staggered",
+      "split": "train",
+      "family": "zipf",
+      "temporal": "slow",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.012874935614220236,
+      "maximum_probe_probability": 0.43325971354038006,
+      "mixed_phase_operations": 151477,
+      "max_partition_fraction_M": 0.2944738734513521,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_06_zipf_fast_staggered",
+      "split": "train",
+      "family": "zipf",
+      "temporal": "fast",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.17579066664664697,
+      "maximum_probe_probability": 0.5523844376475641,
+      "mixed_phase_operations": 495390,
+      "max_partition_fraction_M": 0.18907379638403654,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_07_zipf_burst_shared",
+      "split": "train",
+      "family": "zipf",
+      "temporal": "burst",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.0032916469820142877,
+      "maximum_probe_probability": 0.6798099730592583,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.37656770646572113,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_08_hotspot_static_shared",
+      "split": "train",
+      "family": "hotspot",
+      "temporal": "static",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0,
+      "maximum_probe_probability": 0.013915387078220416,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.020268898457288742,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_09_hotspot_slow_shared",
+      "split": "train",
+      "family": "hotspot",
+      "temporal": "slow",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.013319099696734773,
+      "maximum_probe_probability": 0.06549976925820851,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.17871347814798355,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_10_hotspot_fast_shared",
+      "split": "train",
+      "family": "hotspot",
+      "temporal": "fast",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.168698553643041,
+      "maximum_probe_probability": 0.5903414618022784,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.1081864396110177,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_11_hotspot_burst_staggered",
+      "split": "train",
+      "family": "hotspot",
+      "temporal": "burst",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.0034545326065694277,
+      "maximum_probe_probability": 0.11775826374431757,
+      "mixed_phase_operations": 1021501,
+      "max_partition_fraction_M": 0.06552056968212128,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_12_lognormal_static_staggered",
+      "split": "train",
+      "family": "lognormal",
+      "temporal": "static",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0,
+      "maximum_probe_probability": 0.023398038760607764,
+      "mixed_phase_operations": 884031,
+      "max_partition_fraction_M": 0.023071199655532837,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_13_lognormal_slow_staggered",
+      "split": "train",
+      "family": "lognormal",
+      "temporal": "slow",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.013318148171773899,
+      "maximum_probe_probability": 0.10170020255814685,
+      "mixed_phase_operations": 476198,
+      "max_partition_fraction_M": 0.7265969812870026,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_14_lognormal_fast_shared",
+      "split": "train",
+      "family": "lognormal",
+      "temporal": "fast",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.18183449951093095,
+      "maximum_probe_probability": 0.17026277205630327,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.44044765178114176,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_15_lognormal_burst_shared",
+      "split": "train",
+      "family": "lognormal",
+      "temporal": "burst",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.003501401243333304,
+      "maximum_probe_probability": 0.148079361081544,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.28381525818258524,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_16_mixed_mixed_shared",
+      "split": "train",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.06564543746512821,
+      "maximum_probe_probability": 0.2026742128848169,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.06808330863714218,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_17_mixed_mixed_shared",
+      "split": "train",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.03343948566411294,
+      "maximum_probe_probability": 0.41259683238704586,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.05304417014122009,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_18_mixed_mixed_shared",
+      "split": "train",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.06319700203045303,
+      "maximum_probe_probability": 0.2781079486935562,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.150344330817461,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_19_mixed_mixed_shared",
+      "split": "train",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.045729494655126664,
+      "maximum_probe_probability": 0.1285607239482087,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.13566256873309612,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_20_mixed_mixed_staggered",
+      "split": "train",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.03983975805809286,
+      "maximum_probe_probability": 0.14624327221570518,
+      "mixed_phase_operations": 502108,
+      "max_partition_fraction_M": 0.40977357723750174,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_21_mixed_mixed_shared",
+      "split": "train",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.09435879339026669,
+      "maximum_probe_probability": 0.4611867903759345,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.07526684133335948,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_22_mixed_mixed_shared",
+      "split": "train",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.05482942933222322,
+      "maximum_probe_probability": 0.38700086654978383,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.75,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "train_23_mixed_mixed_shared",
+      "split": "train",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.04458786563970917,
+      "maximum_probe_probability": 0.17399484136307994,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.0978841781616211,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "dev_00_uniform_slow_shared",
+      "split": "dev",
+      "family": "uniform",
+      "temporal": "slow",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.009172324568019495,
+      "maximum_probe_probability": 0.002287793337833502,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.02224565763026476,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "dev_01_zipf_fast_staggered",
+      "split": "dev",
+      "family": "zipf",
+      "temporal": "fast",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.1741723398034245,
+      "maximum_probe_probability": 0.6060759061474461,
+      "mixed_phase_operations": 740106,
+      "max_partition_fraction_M": 0.10593198984861374,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "dev_02_hotspot_burst_staggered",
+      "split": "dev",
+      "family": "hotspot",
+      "temporal": "burst",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.0034453253394513407,
+      "maximum_probe_probability": 0.12802617424666027,
+      "mixed_phase_operations": 230928,
+      "max_partition_fraction_M": 0.07356566726230085,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "dev_03_lognormal_static_shared",
+      "split": "dev",
+      "family": "lognormal",
+      "temporal": "static",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0,
+      "maximum_probe_probability": 0.08153281293895663,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.48211321234703064,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "dev_04_mixed_mixed_staggered",
+      "split": "dev",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.06282504226888613,
+      "maximum_probe_probability": 0.25546037735880234,
+      "mixed_phase_operations": 165505,
+      "max_partition_fraction_M": 0.09533485630527139,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "dev_05_mixed_mixed_shared",
+      "split": "dev",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.07165022325506257,
+      "maximum_probe_probability": 0.46833337346086695,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.3791494220495224,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_00_uniform_static_staggered",
+      "split": "eval",
+      "family": "uniform",
+      "temporal": "static",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0,
+      "maximum_probe_probability": 0.00390625,
+      "mixed_phase_operations": 126783,
+      "max_partition_fraction_M": 0.09896800015121698,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_01_uniform_fast_staggered",
+      "split": "eval",
+      "family": "uniform",
+      "temporal": "fast",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.10536545122887339,
+      "maximum_probe_probability": 0.004669406478141521,
+      "mixed_phase_operations": 646003,
+      "max_partition_fraction_M": 0.09583196230232716,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_02_zipf_slow_shared",
+      "split": "eval",
+      "family": "zipf",
+      "temporal": "slow",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.012760432801449843,
+      "maximum_probe_probability": 0.5149454832310677,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.06456273794174194,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_03_zipf_burst_shared",
+      "split": "eval",
+      "family": "zipf",
+      "temporal": "burst",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.00354661820390617,
+      "maximum_probe_probability": 0.378839539787719,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.12314600497484207,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "split": "eval",
+      "family": "hotspot",
+      "temporal": "fast",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.17419388458453677,
+      "maximum_probe_probability": 0.43522620204248613,
+      "mixed_phase_operations": 3957,
+      "max_partition_fraction_M": 0.323017381131649,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_05_hotspot_slow_shared",
+      "split": "eval",
+      "family": "hotspot",
+      "temporal": "slow",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.012793846880546194,
+      "maximum_probe_probability": 0.34794133409942835,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.23721974156796932,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_06_lognormal_burst_shared",
+      "split": "eval",
+      "family": "lognormal",
+      "temporal": "burst",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.00337512843418306,
+      "maximum_probe_probability": 0.08180460115121209,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.06735916156321764,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_07_lognormal_static_shared",
+      "split": "eval",
+      "family": "lognormal",
+      "temporal": "static",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0,
+      "maximum_probe_probability": 0.09584013399896602,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.0816705971956253,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_08_mixed_mixed_shared",
+      "split": "eval",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "mean_probe_l1_per_tick": 0.04715296251433871,
+      "maximum_probe_probability": 0.2187551855922554,
+      "mixed_phase_operations": 0,
+      "max_partition_fraction_M": 0.75,
+      "all_partitions_nonempty": true
+    },
+    {
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "split": "eval",
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "staggered",
+      "mean_probe_l1_per_tick": 0.04959046020021478,
+      "maximum_probe_probability": 0.07363890049997865,
+      "mixed_phase_operations": 911208,
+      "max_partition_fraction_M": 0.01376565545797348,
+      "all_partitions_nonempty": true
+    }
+  ],
+  "verified_file_bindings": [
+    {
+      "case_id": "train_00_uniform_static_shared",
+      "metadata": "metadata/train_00_uniform_static_shared.json",
+      "metadata_sha256": "b955677001c43bad4bf736c055f76fd4e65981d980aa46e183cf70b6674b6f67",
+      "audit": "audit/cases/train_00_uniform_static_shared.json",
+      "audit_sha256": "0220a15df40561bdad47c048aaad16b6d8a6fd899a236d2f63cdb7a3e9735f9c"
+    },
+    {
+      "case_id": "train_01_uniform_slow_staggered",
+      "metadata": "metadata/train_01_uniform_slow_staggered.json",
+      "metadata_sha256": "121cac747c1261aa033a350ec8203e027a06287f0353889102334c24e5302b21",
+      "audit": "audit/cases/train_01_uniform_slow_staggered.json",
+      "audit_sha256": "0ee11ea300b1e6c71b10b68563ad8ffc79122172518e864b4600342596c5c017"
+    },
+    {
+      "case_id": "train_02_uniform_fast_staggered",
+      "metadata": "metadata/train_02_uniform_fast_staggered.json",
+      "metadata_sha256": "427202df7c95b719aa1850f26aae93d549ae763cf2584662f779e0c4292c67c1",
+      "audit": "audit/cases/train_02_uniform_fast_staggered.json",
+      "audit_sha256": "67c97fd651d6e719283c97f2f8be6cc31e459be054d112449d9e83d0f5da8b1b"
+    },
+    {
+      "case_id": "train_03_uniform_burst_shared",
+      "metadata": "metadata/train_03_uniform_burst_shared.json",
+      "metadata_sha256": "5f7526d86915f10a20e9872671f561d560676e18e35ceda2f3b4c1301ba7bd7b",
+      "audit": "audit/cases/train_03_uniform_burst_shared.json",
+      "audit_sha256": "2c9f62bf06e4138923c4713258c450375bd179ea79bcc026d5b9eb8ce4e6df96"
+    },
+    {
+      "case_id": "train_04_zipf_static_staggered",
+      "metadata": "metadata/train_04_zipf_static_staggered.json",
+      "metadata_sha256": "49a8e7f95a6a1cdebb73ac38f85f9340baea7ef9fc71367992396557e7429028",
+      "audit": "audit/cases/train_04_zipf_static_staggered.json",
+      "audit_sha256": "5b2a7b9dbbcdbd27cac5b82031e1fbe530fb5b0bff5de443cc2a7f47a33744b5"
+    },
+    {
+      "case_id": "train_05_zipf_slow_staggered",
+      "metadata": "metadata/train_05_zipf_slow_staggered.json",
+      "metadata_sha256": "b9fa68c3f3476a4535272e428952f58b61ef68180472da665e6914a105aec620",
+      "audit": "audit/cases/train_05_zipf_slow_staggered.json",
+      "audit_sha256": "219a03c20a537f2e6e44ac752cb389d98d2047897c571c615297d9946036e4f1"
+    },
+    {
+      "case_id": "train_06_zipf_fast_staggered",
+      "metadata": "metadata/train_06_zipf_fast_staggered.json",
+      "metadata_sha256": "2dd30a2f3f54bad0a4526b68cb819466a7bfaa80eb1ba62cb0912facdf577777",
+      "audit": "audit/cases/train_06_zipf_fast_staggered.json",
+      "audit_sha256": "0ffe29909096f72d280bdf07b225806d1609dabbaf3abe0f16b42e539656040d"
+    },
+    {
+      "case_id": "train_07_zipf_burst_shared",
+      "metadata": "metadata/train_07_zipf_burst_shared.json",
+      "metadata_sha256": "9583f7444eda81d64d716f74e161ba7284b70df9d03fdf7b9c615382b467c065",
+      "audit": "audit/cases/train_07_zipf_burst_shared.json",
+      "audit_sha256": "a5b49a96fa7c0b03d6d4a2ae9e4fa9f78ea1f9ab379f4900b5548737f6085ab0"
+    },
+    {
+      "case_id": "train_08_hotspot_static_shared",
+      "metadata": "metadata/train_08_hotspot_static_shared.json",
+      "metadata_sha256": "6b07652d1e6eeefa106b2213207dd20db3f0613c981275f937574547975e9339",
+      "audit": "audit/cases/train_08_hotspot_static_shared.json",
+      "audit_sha256": "0830cd7cb4f2a4b1b2452692e554c2928912eddbad0143bad9c0e4aa535c11ce"
+    },
+    {
+      "case_id": "train_09_hotspot_slow_shared",
+      "metadata": "metadata/train_09_hotspot_slow_shared.json",
+      "metadata_sha256": "d6c7788a43a4b2eb4bd218cd94cee1074dde0407e6ece51e7832da325e31fc7e",
+      "audit": "audit/cases/train_09_hotspot_slow_shared.json",
+      "audit_sha256": "37d7a8d0f15528935b7f1ca26c020571c602c526b58cca0be295fbd5f899a82f"
+    },
+    {
+      "case_id": "train_10_hotspot_fast_shared",
+      "metadata": "metadata/train_10_hotspot_fast_shared.json",
+      "metadata_sha256": "f940b259a93e4b962e90da8589330da84afa64e0a2e79d15862da85d6b66c6b5",
+      "audit": "audit/cases/train_10_hotspot_fast_shared.json",
+      "audit_sha256": "6c41fdde43540218ee5fd17a0d4f9ba04076f2169cd8a8423807c9828e12a85d"
+    },
+    {
+      "case_id": "train_11_hotspot_burst_staggered",
+      "metadata": "metadata/train_11_hotspot_burst_staggered.json",
+      "metadata_sha256": "08c7897514e7c07932745f0b077f0f2433b166c5392271e3bd19cd86b34dce37",
+      "audit": "audit/cases/train_11_hotspot_burst_staggered.json",
+      "audit_sha256": "f7bcfc95be72fac3d73183fbbb97626d591d7e73b0a4107e7c288ad8352f6b03"
+    },
+    {
+      "case_id": "train_12_lognormal_static_staggered",
+      "metadata": "metadata/train_12_lognormal_static_staggered.json",
+      "metadata_sha256": "cc9d909cdfbe1ff1db26beb269fd2b011c1e4af0d0a95aed1a71f1a97b131dc9",
+      "audit": "audit/cases/train_12_lognormal_static_staggered.json",
+      "audit_sha256": "cc699ce530af9233e8b763bb97c60c14d1439d529710be57762ab5a6d07b19b9"
+    },
+    {
+      "case_id": "train_13_lognormal_slow_staggered",
+      "metadata": "metadata/train_13_lognormal_slow_staggered.json",
+      "metadata_sha256": "5beead9c82961b9d59a4111520e632d58ec2310dd74bdf43c23757db0a4af77f",
+      "audit": "audit/cases/train_13_lognormal_slow_staggered.json",
+      "audit_sha256": "059957765a11fde73ac9aa0fab5082a12723a8f4421e650b8c60cda690c5622d"
+    },
+    {
+      "case_id": "train_14_lognormal_fast_shared",
+      "metadata": "metadata/train_14_lognormal_fast_shared.json",
+      "metadata_sha256": "1206c0aa6b6fb9375d6019d3fc7dab717cbba6fa827a864067a28cdd7cf25ef0",
+      "audit": "audit/cases/train_14_lognormal_fast_shared.json",
+      "audit_sha256": "99b3009a79b0698e17b43e502bf757bfa1b7c7f3b9ea3324b02e4f7ae309b87e"
+    },
+    {
+      "case_id": "train_15_lognormal_burst_shared",
+      "metadata": "metadata/train_15_lognormal_burst_shared.json",
+      "metadata_sha256": "0c489996b18a32137872f4ca405d36694278306ce42eedfb24cc1780691d248b",
+      "audit": "audit/cases/train_15_lognormal_burst_shared.json",
+      "audit_sha256": "359f9631c6cc326a819fe472817543026efbdbef4fe131aad563d6fc8286c2d3"
+    },
+    {
+      "case_id": "train_16_mixed_mixed_shared",
+      "metadata": "metadata/train_16_mixed_mixed_shared.json",
+      "metadata_sha256": "42f41d8587c13baabe9a3f1c3564a6e1387383f2df7aa19301e855e163d9412f",
+      "audit": "audit/cases/train_16_mixed_mixed_shared.json",
+      "audit_sha256": "12d09727755ac7f37d2d5f3cec80be921c7a9238a8d0d1947d9e9b5675023ccc"
+    },
+    {
+      "case_id": "train_17_mixed_mixed_shared",
+      "metadata": "metadata/train_17_mixed_mixed_shared.json",
+      "metadata_sha256": "e05dd999bde0df4b73d66fc2525ac627f41a4398b9103f57a8837daae6a68f87",
+      "audit": "audit/cases/train_17_mixed_mixed_shared.json",
+      "audit_sha256": "d65f20afc6af062500176dc1d1af1121248faf3aafaee8c2fcbd6b454e562385"
+    },
+    {
+      "case_id": "train_18_mixed_mixed_shared",
+      "metadata": "metadata/train_18_mixed_mixed_shared.json",
+      "metadata_sha256": "bbd7e8441c7ff83caf3e8b07cb2ccbf26e8b597363e1a4a07dce22172b9fe1ae",
+      "audit": "audit/cases/train_18_mixed_mixed_shared.json",
+      "audit_sha256": "6d8b1d1f8aaca3e1afab77c26618b6ffd1d91337c8c885362dd163d631b551e3"
+    },
+    {
+      "case_id": "train_19_mixed_mixed_shared",
+      "metadata": "metadata/train_19_mixed_mixed_shared.json",
+      "metadata_sha256": "dfaae97d6a399bf423919880b31c2caf2529ff1791b5550d93cf9e6f9131a34a",
+      "audit": "audit/cases/train_19_mixed_mixed_shared.json",
+      "audit_sha256": "a53e55838e2a76d874f013d6955ad3553f3bceffdbbb4dd612a9bf1b774a105a"
+    },
+    {
+      "case_id": "train_20_mixed_mixed_staggered",
+      "metadata": "metadata/train_20_mixed_mixed_staggered.json",
+      "metadata_sha256": "50ac7784a17481bbfa2b94cbca2b4cd92548eafc5cf8ef4bc3c509b8e96bd1ec",
+      "audit": "audit/cases/train_20_mixed_mixed_staggered.json",
+      "audit_sha256": "0f08bd410f8a5c4a19b44d4a1f9fc177fb618a12eadd3342cf2492554cec3314"
+    },
+    {
+      "case_id": "train_21_mixed_mixed_shared",
+      "metadata": "metadata/train_21_mixed_mixed_shared.json",
+      "metadata_sha256": "1c0642858d0963a1f8316ec9abafa6a652de77eef530843950b35b18e73e2545",
+      "audit": "audit/cases/train_21_mixed_mixed_shared.json",
+      "audit_sha256": "70031e00e035dbb84d054621f5f2c48c7b20e9915feb58b6c241a9bbccd33944"
+    },
+    {
+      "case_id": "train_22_mixed_mixed_shared",
+      "metadata": "metadata/train_22_mixed_mixed_shared.json",
+      "metadata_sha256": "105b5071a67af951576b18cd05a69ec47570aed9e31777638c5060b4df035244",
+      "audit": "audit/cases/train_22_mixed_mixed_shared.json",
+      "audit_sha256": "70dbd39f1045839eda32069950e0a04cef14bd40b17a8a9c6de32b78d254b060"
+    },
+    {
+      "case_id": "train_23_mixed_mixed_shared",
+      "metadata": "metadata/train_23_mixed_mixed_shared.json",
+      "metadata_sha256": "793cac3db7aaeb65d05528abde7c72928dab89bdc85675357dd01d783a6bc60b",
+      "audit": "audit/cases/train_23_mixed_mixed_shared.json",
+      "audit_sha256": "a3c72cf7b146e022bc989253d1cf4518e8bb465b3e5134868a5084bd1c34f3d1"
+    },
+    {
+      "case_id": "dev_00_uniform_slow_shared",
+      "metadata": "metadata/dev_00_uniform_slow_shared.json",
+      "metadata_sha256": "0228e9ba00708d3285556e2c2c75221bebc7f408afcb08107ede8f3a4802e139",
+      "audit": "audit/cases/dev_00_uniform_slow_shared.json",
+      "audit_sha256": "52c8b141e0aae9600161134710671f2e251c7d3e310ff35fe8c3ffecbdf14aed"
+    },
+    {
+      "case_id": "dev_01_zipf_fast_staggered",
+      "metadata": "metadata/dev_01_zipf_fast_staggered.json",
+      "metadata_sha256": "5cc7ed7c9c85bf39b5febd7a87845a96bbc1365ccea11678cf1b73629fd725a6",
+      "audit": "audit/cases/dev_01_zipf_fast_staggered.json",
+      "audit_sha256": "3b753b14501dadd37a25c03cef1050b07710391b555336d93ec84125fe2feccd"
+    },
+    {
+      "case_id": "dev_02_hotspot_burst_staggered",
+      "metadata": "metadata/dev_02_hotspot_burst_staggered.json",
+      "metadata_sha256": "d7db0799ed77d653142ad0cdf5f17e3b708012f732d9eb7d8d75ce6538ce0677",
+      "audit": "audit/cases/dev_02_hotspot_burst_staggered.json",
+      "audit_sha256": "7515a6af589e566718234ef5f0043f4cead3819454ec5ef56a5a996d868b05f0"
+    },
+    {
+      "case_id": "dev_03_lognormal_static_shared",
+      "metadata": "metadata/dev_03_lognormal_static_shared.json",
+      "metadata_sha256": "8309a44ab6b512b0d7968d8b1b9cd860a4beb1f7b4e8e2dcfb6c8dbd2e620499",
+      "audit": "audit/cases/dev_03_lognormal_static_shared.json",
+      "audit_sha256": "9a56960a08f6bd619e62d3bbf9c4c12e553e532b05a25fa2f07bbbbfdc233917"
+    },
+    {
+      "case_id": "dev_04_mixed_mixed_staggered",
+      "metadata": "metadata/dev_04_mixed_mixed_staggered.json",
+      "metadata_sha256": "56ecc2af08f03ef3192901cf5b8de5f352621ca1f1b9eb2e880e221e323baf19",
+      "audit": "audit/cases/dev_04_mixed_mixed_staggered.json",
+      "audit_sha256": "6c0aba4b1edd939bc278a8ea306335ad2d45c95a3a074f30c3667cfd94a74aec"
+    },
+    {
+      "case_id": "dev_05_mixed_mixed_shared",
+      "metadata": "metadata/dev_05_mixed_mixed_shared.json",
+      "metadata_sha256": "9b6591d8e5e6f4037029cec42217ad9aafc947613196f712376ca4f0c9793627",
+      "audit": "audit/cases/dev_05_mixed_mixed_shared.json",
+      "audit_sha256": "2cdde12fd40a75fa5b57ebf522187729629275b6a7bb778b86119c86f3522d4f"
+    },
+    {
+      "case_id": "eval_00_uniform_static_staggered",
+      "metadata": "metadata/eval_00_uniform_static_staggered.json",
+      "metadata_sha256": "568c60d3fe34eba5be8c86eb307ae10ede19f18e7711aa24f2de1ba755439b41",
+      "audit": "audit/cases/eval_00_uniform_static_staggered.json",
+      "audit_sha256": "f7289cfcd6b8c6654a461c527fb16bf0e94f13e049378be66d1c8341d7cb1441"
+    },
+    {
+      "case_id": "eval_01_uniform_fast_staggered",
+      "metadata": "metadata/eval_01_uniform_fast_staggered.json",
+      "metadata_sha256": "47ff84d6d2800b7f06c344f96b94d8308e1413930f59c2e150c47bdba984ba9f",
+      "audit": "audit/cases/eval_01_uniform_fast_staggered.json",
+      "audit_sha256": "d005074d59d002b20dd9bc1969c32141dbc591f627922c514d6845833cd70ead"
+    },
+    {
+      "case_id": "eval_02_zipf_slow_shared",
+      "metadata": "metadata/eval_02_zipf_slow_shared.json",
+      "metadata_sha256": "79bd81706ccb339a83fa1d3b3da44c1176083187b5a7a40a7ea2fba6d5de61d0",
+      "audit": "audit/cases/eval_02_zipf_slow_shared.json",
+      "audit_sha256": "d1db1e7332251dd9ce79626b461054f5a98d2f0e2711c4211d611fe27c91fbcf"
+    },
+    {
+      "case_id": "eval_03_zipf_burst_shared",
+      "metadata": "metadata/eval_03_zipf_burst_shared.json",
+      "metadata_sha256": "5d1fb38f25330969c316a5135431b4568554d3df83e0b11ae7abc096dc8e6361",
+      "audit": "audit/cases/eval_03_zipf_burst_shared.json",
+      "audit_sha256": "50e6c988c1c4c3efca1e7e3d968485c03d9eaefc6af1d199abb1d8bb092485d2"
+    },
+    {
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "metadata": "metadata/eval_04_hotspot_fast_staggered.json",
+      "metadata_sha256": "0550b8a55821165dc210c52deab240cb58879d06ca5f28d172e9682843fa9748",
+      "audit": "audit/cases/eval_04_hotspot_fast_staggered.json",
+      "audit_sha256": "7c6a044cb5ce8a9c369eb7b2e2300cd729add455da4173625be92ac05e945498"
+    },
+    {
+      "case_id": "eval_05_hotspot_slow_shared",
+      "metadata": "metadata/eval_05_hotspot_slow_shared.json",
+      "metadata_sha256": "8f321a9b1a5c1a9a3a645a266e5c7cce99f17b088bacda070663b1d43c96834c",
+      "audit": "audit/cases/eval_05_hotspot_slow_shared.json",
+      "audit_sha256": "6b177c55101a07ea3eae7be4b9607fc1a749bd02c099634b5b285013c2aebdcd"
+    },
+    {
+      "case_id": "eval_06_lognormal_burst_shared",
+      "metadata": "metadata/eval_06_lognormal_burst_shared.json",
+      "metadata_sha256": "4773f5f5faa5ee996609658ec5a0115a807acc3a52d5cdb3577c9ae84a5ce58f",
+      "audit": "audit/cases/eval_06_lognormal_burst_shared.json",
+      "audit_sha256": "4b736926b7fba29b835b47e7a8f3434f8da63ccb909463bdd64a6b581cb11f4f"
+    },
+    {
+      "case_id": "eval_07_lognormal_static_shared",
+      "metadata": "metadata/eval_07_lognormal_static_shared.json",
+      "metadata_sha256": "1b67784fa7a679c2d630d8cd3cb0d846b95f96c3e0dec221c0a2b05f563eb09b",
+      "audit": "audit/cases/eval_07_lognormal_static_shared.json",
+      "audit_sha256": "8627e649d0620f28328e3192ae65ffd2712efbd9a4bc5643748e89f3e1e10186"
+    },
+    {
+      "case_id": "eval_08_mixed_mixed_shared",
+      "metadata": "metadata/eval_08_mixed_mixed_shared.json",
+      "metadata_sha256": "28d7bf6c760a9b9385a59c1a41dc988fd167343191995e6c039c46933299088e",
+      "audit": "audit/cases/eval_08_mixed_mixed_shared.json",
+      "audit_sha256": "82839055308b55abbf9e01abc773797b2666dfc5070c646076c3a89cd4f9ecb6"
+    },
+    {
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "metadata": "metadata/eval_09_mixed_mixed_staggered.json",
+      "metadata_sha256": "ebb972b1b23a3c553fdb84be964f67da5119bc2fd13ecbed434b83e42e0fee3d",
+      "audit": "audit/cases/eval_09_mixed_mixed_staggered.json",
+      "audit_sha256": "7dae8bc404e192478da43d1b516241f3df29d6b680f22762f7247c45fe019527"
+    }
+  ],
+  "seconds": 0.04117919999407604
+}

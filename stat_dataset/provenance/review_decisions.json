@@ -1,0 +1,14 @@
+{
+  "stage": "before any production input generation or scheduler evaluation",
+  "changes": [
+    "Preserved initial recipe in initial_recipe_before_review.json, retaining all 40 seed/split/family/temporal/N choices. Reassigned other parameter grids with separate SHA256-based permutations to remove the initial deterministic temporal/cost/phase binding.",
+    "Separated aggregated background innovation from a rare single-step extra shock; do not multiply the entire 64-step background by the shock factor.",
+    "Bind recipe bytes at runner start and assert unchanged at completion; freeze full source/spec identities before production execution.",
+    "Run child processes in separate process groups and kill the entire group on timeout before reaping.",
+    "Store mixed base-distribution component as well as temporal mode for each flat partition."
+  ],
+  "initial_recipe_sha256": "8e20a181ddbfa68de5379e8a9e0ef15eccdb5e5938928be93d9201ede7c0d37e",
+  "production_recipe_sha256": "43590bf3dce832fc5c9dadcddd2b6e185681d18da3b985ac29d87de76aa05f6d",
+  "selection_by_performance": false,
+  "old_datasets_modified": false
+}

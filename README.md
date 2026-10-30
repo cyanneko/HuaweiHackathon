@@ -1,5 +1,8 @@
 # 华为 Hackathon · 第20题 Hash Join 调度
 
+评测与版本比较入口：[统一评测索引](docs/EVALUATION_INDEX.md)。包含固定代码/数据身份、协议、逐例结果、原始日志和失败状态。
+
+
 团队协作仓库，研究内存受限下 Hash Join 算子的 Spill-to-Disk 动态调度。
 
 比赛日入口：[当前候选、单文件提交包与针对性验证交接](docs/CONTEST_HANDOFF_20261030.md)。当前重点是推进方法和少量机制/反例样本，R65仍为experimental，不恢复全方法矩阵；[热度与轻量学习论文笔记](docs/HEAT_AND_LIGHT_LEARNING_20261030.md)提供下一步依据。

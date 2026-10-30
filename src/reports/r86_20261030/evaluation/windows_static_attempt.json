@@ -1,0 +1,31 @@
+{
+  "status": "STATIC_ONLY_INTERPRETER_DIFFERENCE_REJECTED",
+  "command": "<LOCAL_EXECUTED_COMMAND_OMITTED>",
+  "exit_code": 1,
+  "failure_location": "regression.py verify_campaign: assert raw==scoring.summarize(sel,read(out/'rows.json'))",
+  "traceback": "prepare_static.py main -> historical_dyna(binding) -> verify_campaign(DYNA) -> AssertionError on exact summary equality",
+  "diagnostic_difference_count": 39,
+  "example_differences": [
+    {
+      "path": "/aggregate/1/D_total_us",
+      "frozen_Linux": 28190405.650000002,
+      "Windows_recomputed": 28190405.65
+    },
+    {
+      "path": "/aggregate/1/IO_total_us",
+      "frozen_Linux": 3909543662157.1797,
+      "Windows_recomputed": 3909543662157.18
+    },
+    {
+      "path": "/aggregate/1/clipped_score_sum",
+      "frozen_Linux": 50.964840728492796,
+      "Windows_recomputed": 50.9648407284928
+    }
+  ],
+  "explanation": "Different Python interpreter sum accumulation behavior affects only aggregate final bits; strict equality deliberately preserved. Repeating static preparation in the formal Linux interpreter passed without changing scorer or historical summaries.",
+  "selection_created": false,
+  "campaign_created": false,
+  "scheduler_runs": 0,
+  "historical_artifacts_modified": false,
+  "algorithm_failure": false
+}

@@ -1,0 +1,3199 @@
+{
+  "complete": true,
+  "new_solvers": 0,
+  "flows": 12,
+  "original_three_models_reverified": true,
+  "mean_flow_global_relative_logloss_delta": -0.013319019220773934,
+  "global_better_than_next_flows": 9,
+  "global_worse_than_next_flows": 3,
+  "global_better_than_pooling_flows": 6,
+  "global_better_than_no_pooling_flows": 7,
+  "global_infinite_loss_flows": 0,
+  "score_totals": {
+    "next": {
+      "event": 1208205.649157715,
+      "nonevent": 260135.96621316805,
+      "finite_sum": 1468341.6153708831,
+      "event_inf": 0,
+      "nonevent_inf": 0,
+      "clipped_trials": 0
+    },
+    "pooling": {
+      "event": 1228960.3616265021,
+      "nonevent": 233419.37811378518,
+      "finite_sum": 1462379.7397402874,
+      "event_inf": 0,
+      "nonevent_inf": 0,
+      "clipped_trials": 0
+    },
+    "no_pooling": {
+      "event": 1228862.1869951133,
+      "nonevent": 233379.76705446313,
+      "finite_sum": 1462241.9540495765,
+      "event_inf": 0,
+      "nonevent_inf": 0,
+      "clipped_trials": 0
+    },
+    "global_scale": {
+      "event": 1221193.1367586676,
+      "nonevent": 243371.76949641577,
+      "finite_sum": 1464564.9062550834,
+      "event_inf": 0,
+      "nonevent_inf": 0,
+      "clipped_trials": 0
+    }
+  },
+  "totals": {
+    "pressure": 307328,
+    "different_pairs": 183238,
+    "cross_table": [
+      166303,
+      676,
+      588,
+      13148,
+      1180,
+      100,
+      16,
+      1227
+    ],
+    "pooling_changed_actions": {
+      "count": 15151,
+      "less_write": 4753,
+      "more_write": 10398,
+      "same_write": 0,
+      "fewer_victims": 2054,
+      "more_victims": 1612,
+      "same_victims": 11485,
+      "lower_excess": 4753,
+      "higher_excess": 10398,
+      "same_excess": 0,
+      "old_victims": 19683,
+      "new_victims": 19206,
+      "old_excess_bytes": 74655593252,
+      "new_excess_bytes": 176098486595,
+      "current_write_delta_us": 19727082.87767454
+    },
+    "no_pooling_changed_actions": {
+      "count": 14979,
+      "less_write": 4655,
+      "more_write": 10324,
+      "same_write": 0,
+      "fewer_victims": 2032,
+      "more_victims": 1576,
+      "same_victims": 11371,
+      "lower_excess": 4655,
+      "higher_excess": 10324,
+      "same_excess": 0,
+      "old_victims": 19454,
+      "new_victims": 18951,
+      "old_excess_bytes": 74069834539,
+      "new_excess_bytes": 166236372724,
+      "current_write_delta_us": 18288026.772566374
+    },
+    "global_scale_changed_actions": {
+      "count": 2523,
+      "less_write": 1033,
+      "more_write": 1490,
+      "same_write": 0,
+      "fewer_victims": 459,
+      "more_victims": 260,
+      "same_victims": 1804,
+      "lower_excess": 1033,
+      "higher_excess": 1490,
+      "same_excess": 0,
+      "old_victims": 3657,
+      "new_victims": 3358,
+      "old_excess_bytes": 17915392579,
+      "new_excess_bytes": 71581988953,
+      "current_write_delta_us": 7149051.143274721
+    }
+  },
+  "intersections": {
+    "pooling": {
+      "own_changed": 15151,
+      "scale_changed": 2523,
+      "both_changed": 1327,
+      "own_only": 13824,
+      "scale_only": 1196,
+      "same_final_choice": 168218,
+      "different_final_choice": 15020,
+      "fraction_own_flips_reproduced": 0.08758497788924824
+    },
+    "no_pooling": {
+      "own_changed": 14979,
+      "scale_changed": 2523,
+      "both_changed": 1243,
+      "own_only": 13736,
+      "scale_only": 1280,
+      "same_final_choice": 168222,
+      "different_final_choice": 15016,
+      "fraction_own_flips_reproduced": 0.08298284264637158
+    }
+  },
+  "rows": [
+    {
+      "id": "train_669_random_hotspot",
+      "family": "random_hotspot",
+      "probes": 415080,
+      "pressure": 67687,
+      "different_pairs": 66902,
+      "global_scale_loss": {
+        "event": 434784.6321174599,
+        "nonevent": 57872.449039290994,
+        "events": 57820,
+        "nonevents": 110933900,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 110991720,
+        "infinite_count": 0,
+        "finite_sum": 492657.0811567509,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.004438683184265916,
+        "mean_event_log_loss": 7.519623523304391,
+        "mean_nonevent_log_loss": 0.0005216840752852915
+      },
+      "old_loss": {
+        "next": {
+          "event": 434528.66823391366,
+          "nonevent": 58111.029652120604,
+          "events": 57820,
+          "nonevents": 110933900,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 110991720,
+          "infinite_count": 0,
+          "finite_sum": 492639.69788603426,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.004438526566540588,
+          "mean_event_log_loss": 7.515196614215041,
+          "mean_nonevent_log_loss": 0.0005238347308813682
+        },
+        "pooling": {
+          "event": 439135.4758825901,
+          "nonevent": 51192.23228363737,
+          "events": 57820,
+          "nonevents": 110933900,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 110991720,
+          "infinite_count": 0,
+          "finite_sum": 490327.7081662275,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.0044176962764990715,
+          "mean_event_log_loss": 7.594871599491355,
+          "mean_nonevent_log_loss": 0.0004614660828082071
+        },
+        "no_pooling": {
+          "event": 439017.9501610035,
+          "nonevent": 51134.79709574785,
+          "events": 57820,
+          "nonevents": 110933900,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 110991720,
+          "infinite_count": 0,
+          "finite_sum": 490152.74725675135,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.004416119934502784,
+          "mean_event_log_loss": 7.592838985835412,
+          "mean_nonevent_log_loss": 0.00046094834036978637
+        }
+      },
+      "global_relative_to_next": 3.528597226587493e-05,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": 17.383270716643892,
+          "event_delta": 255.96388354623923,
+          "nonevent_delta": -238.5806128296099
+        },
+        "pooling": {
+          "finite_total_delta": 2329.3729905234068,
+          "event_delta": -4350.843765130208,
+          "nonevent_delta": 6680.216755653622
+        },
+        "no_pooling": {
+          "finite_total_delta": 2504.3338999995613,
+          "event_delta": -4233.318043543608,
+          "nonevent_delta": 6737.651943543147
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 91219,
+          "min": 0.44577279531143005,
+          "max": 1.2246614963168112,
+          "sum": 90901.32967934888,
+          "mean": 0.9965174983210612
+        },
+        "pair": {
+          "count": 66902,
+          "min": 0.44577279531143005,
+          "max": 1.2246647725576862,
+          "sum": 66714.83115463467,
+          "mean": 0.9972023430485586
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 2495,
+        "scale_changed": 262,
+        "both_changed": 138,
+        "own_only": 2357,
+        "scale_only": 124,
+        "same_final_choice": 64421,
+        "different_final_choice": 2481,
+        "fraction_own_flips_reproduced": 0.05531062124248497
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 2367,
+        "scale_changed": 262,
+        "both_changed": 125,
+        "own_only": 2242,
+        "scale_only": 137,
+        "same_final_choice": 64523,
+        "different_final_choice": 2379,
+        "fraction_own_flips_reproduced": 0.05280946345585129
+      },
+      "changed_cross_table": [
+        64045,
+        353,
+        238,
+        2004,
+        116,
+        21,
+        8,
+        117
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 2495,
+          "less_write": 618,
+          "more_write": 1877,
+          "same_write": 0,
+          "fewer_victims": 411,
+          "more_victims": 286,
+          "same_victims": 1798,
+          "lower_excess": 618,
+          "higher_excess": 1877,
+          "same_excess": 0,
+          "old_victims": 3148,
+          "new_victims": 3000,
+          "old_excess_bytes": 14170759178,
+          "new_excess_bytes": 17747721656,
+          "current_write_delta_us": 3866986.4627027004
+        },
+        "no_pooling": {
+          "count": 2367,
+          "less_write": 561,
+          "more_write": 1806,
+          "same_write": 0,
+          "fewer_victims": 399,
+          "more_victims": 261,
+          "same_victims": 1707,
+          "lower_excess": 561,
+          "higher_excess": 1806,
+          "same_excess": 0,
+          "old_victims": 3011,
+          "new_victims": 2842,
+          "old_excess_bytes": 13260391426,
+          "new_excess_bytes": 16689722624,
+          "current_write_delta_us": 3707385.078918914
+        },
+        "global_scale": {
+          "count": 262,
+          "less_write": 149,
+          "more_write": 113,
+          "same_write": 0,
+          "fewer_victims": 50,
+          "more_victims": 43,
+          "same_victims": 169,
+          "lower_excess": 149,
+          "higher_excess": 113,
+          "same_excess": 0,
+          "old_victims": 347,
+          "new_victims": 338,
+          "old_excess_bytes": 1673751469,
+          "new_excess_bytes": 1586770795,
+          "current_write_delta_us": -94033.16108108113
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 66902,
+          "victims": 81566,
+          "excess_bytes": 310516065905,
+          "current_write_us": 1184033226.19999
+        },
+        "pooling": {
+          "count": 66902,
+          "victims": 81418,
+          "excess_bytes": 314093028383,
+          "current_write_us": 1187900212.662689
+        },
+        "no_pooling": {
+          "count": 66902,
+          "victims": 81397,
+          "excess_bytes": 313945397103,
+          "current_write_us": 1187740611.2789066
+        },
+        "global_scale": {
+          "count": 66902,
+          "victims": 81557,
+          "excess_bytes": 310429085231,
+          "current_write_us": 1183939193.0389082
+        }
+      },
+      "mass": {
+        "forecast_count": 91219,
+        "unknown_positions": 293054,
+        "disk_trials": 110991720,
+        "disk_mass_sum": [
+          58146.50460459132,
+          51227.18835437206,
+          51169.93055044552,
+          57907.9118730575
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 55939.293312352296,
+          "nonevent": 7425.449498536951,
+          "events": 7350,
+          "nonevents": 14609055,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 54970.23845394945,
+          "nonevent": 7187.920922133672,
+          "events": 7251,
+          "nonevents": 13850525,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 55324.69009807624,
+          "nonevent": 7480.447970574819,
+          "events": 7296,
+          "nonevents": 14512374,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 53565.57822320054,
+          "nonevent": 7181.084051336102,
+          "events": 7132,
+          "nonevents": 13797165,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 54592.65766137567,
+          "nonevent": 7317.436685358356,
+          "events": 7241,
+          "nonevents": 14179337,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 52849.89928565342,
+          "nonevent": 6959.232226390494,
+          "events": 7228,
+          "nonevents": 12497898,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 55650.34936328127,
+          "nonevent": 7324.0437483137,
+          "events": 7325,
+          "nonevents": 14413402,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 51891.925719571,
+          "nonevent": 6996.833936646903,
+          "events": 6997,
+          "nonevents": 13074144,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_680_random_hotspot",
+      "family": "random_hotspot",
+      "probes": 46169,
+      "pressure": 4548,
+      "different_pairs": 4261,
+      "global_scale_loss": {
+        "event": 22736.339752375832,
+        "nonevent": 4952.6406560242685,
+        "events": 5041,
+        "nonevents": 437271,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 442312,
+        "infinite_count": 0,
+        "finite_sum": 27688.9804084001,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.06260056342219994,
+        "mean_event_log_loss": 4.510283624752199,
+        "mean_nonevent_log_loss": 0.011326249982331938
+      },
+      "old_loss": {
+        "next": {
+          "event": 21733.57138809088,
+          "nonevent": 6042.865646840263,
+          "events": 5041,
+          "nonevents": 437271,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 442312,
+          "infinite_count": 0,
+          "finite_sum": 27776.437034931143,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.06279828952172029,
+          "mean_event_log_loss": 4.311361116463178,
+          "mean_nonevent_log_loss": 0.013819497855655333
+        },
+        "pooling": {
+          "event": 22975.0685727562,
+          "nonevent": 4798.609475595713,
+          "events": 5041,
+          "nonevents": 437271,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 442312,
+          "infinite_count": 0,
+          "finite_sum": 27773.678048351914,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.06279205187368173,
+          "mean_event_log_loss": 4.557641057876651,
+          "mean_nonevent_log_loss": 0.01097399433210918
+        },
+        "no_pooling": {
+          "event": 22854.40106501257,
+          "nonevent": 4906.391493238618,
+          "events": 5041,
+          "nonevents": 437271,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 442312,
+          "infinite_count": 0,
+          "finite_sum": 27760.79255825119,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.0627629197450017,
+          "mean_event_log_loss": 4.533703841502196,
+          "mean_nonevent_log_loss": 0.011220482248396573
+        }
+      },
+      "global_relative_to_next": -0.0031485905273256343,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -87.45662653104228,
+          "event_delta": 1002.7683642849515,
+          "nonevent_delta": -1090.2249908159947
+        },
+        "pooling": {
+          "finite_total_delta": -84.69763995181347,
+          "event_delta": -238.72882038036914,
+          "nonevent_delta": 154.03118042855567
+        },
+        "no_pooling": {
+          "finite_total_delta": -71.81214985108818,
+          "event_delta": -118.06131263673888,
+          "nonevent_delta": 46.2491627856507
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 5182,
+          "min": 0.17075892541160642,
+          "max": 1.0,
+          "sum": 4261.521989086696,
+          "mean": 0.8223701252579497
+        },
+        "pair": {
+          "count": 4261,
+          "min": 0.17075892541160642,
+          "max": 0.9279363051180366,
+          "sum": 3509.8411054819217,
+          "mean": 0.8237130029293409
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 754,
+        "scale_changed": 432,
+        "both_changed": 296,
+        "own_only": 458,
+        "scale_only": 136,
+        "same_final_choice": 3667,
+        "different_final_choice": 594,
+        "fraction_own_flips_reproduced": 0.3925729442970822
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 735,
+        "scale_changed": 432,
+        "both_changed": 290,
+        "own_only": 445,
+        "scale_only": 142,
+        "same_final_choice": 3674,
+        "different_final_choice": 587,
+        "fraction_own_flips_reproduced": 0.3945578231292517
+      },
+      "changed_cross_table": [
+        3363,
+        21,
+        8,
+        437,
+        136,
+        6,
+        0,
+        290
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 754,
+          "less_write": 119,
+          "more_write": 635,
+          "same_write": 0,
+          "fewer_victims": 132,
+          "more_victims": 47,
+          "same_victims": 575,
+          "lower_excess": 119,
+          "higher_excess": 635,
+          "same_excess": 0,
+          "old_victims": 943,
+          "new_victims": 856,
+          "old_excess_bytes": 9447959392,
+          "new_excess_bytes": 46363911369,
+          "current_write_delta_us": 4283586.908447442
+        },
+        "no_pooling": {
+          "count": 735,
+          "less_write": 127,
+          "more_write": 608,
+          "same_write": 0,
+          "fewer_victims": 128,
+          "more_victims": 49,
+          "same_victims": 558,
+          "lower_excess": 127,
+          "higher_excess": 608,
+          "same_excess": 0,
+          "old_victims": 919,
+          "new_victims": 838,
+          "old_excess_bytes": 9893949419,
+          "new_excess_bytes": 43805016693,
+          "current_write_delta_us": 3934911.4961708104
+        },
+        "global_scale": {
+          "count": 432,
+          "less_write": 6,
+          "more_write": 426,
+          "same_write": 0,
+          "fewer_victims": 106,
+          "more_victims": 9,
+          "same_victims": 317,
+          "lower_excess": 6,
+          "higher_excess": 426,
+          "same_excess": 0,
+          "old_victims": 585,
+          "new_victims": 474,
+          "old_excess_bytes": 3808648627,
+          "new_excess_bytes": 26113130721,
+          "current_write_delta_us": 2588127.4186586235
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 4261,
+          "victims": 5500,
+          "excess_bytes": 67480929736,
+          "current_write_us": 25877119.874680858
+        },
+        "pooling": {
+          "count": 4261,
+          "victims": 5413,
+          "excess_bytes": 104396881713,
+          "current_write_us": 30160706.783128608
+        },
+        "no_pooling": {
+          "count": 4261,
+          "victims": 5419,
+          "excess_bytes": 101391997010,
+          "current_write_us": 29812031.37085195
+        },
+        "global_scale": {
+          "count": 4261,
+          "victims": 5389,
+          "excess_bytes": 89785411830,
+          "current_write_us": 28465247.293339655
+        }
+      },
+      "mass": {
+        "forecast_count": 5182,
+        "unknown_positions": 40212,
+        "disk_trials": 442312,
+        "disk_mass_sum": [
+          6068.410788810609,
+          4825.190840989577,
+          4932.903618425892,
+          4980.0551133921435
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 22736.339752375832,
+          "nonevent": 4952.6406560242685,
+          "events": 5041,
+          "nonevents": 437271,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_675_random_hotspot",
+      "family": "random_hotspot",
+      "probes": 75077,
+      "pressure": 5350,
+      "different_pairs": 0,
+      "global_scale_loss": {
+        "event": 24997.481249661687,
+        "nonevent": 6206.2267125563185,
+        "events": 6429,
+        "nonevents": 306382,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 312811,
+        "infinite_count": 0,
+        "finite_sum": 31203.707962218006,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.09975259169983794,
+        "mean_event_log_loss": 3.8882378674228786,
+        "mean_nonevent_log_loss": 0.020256499117299053
+      },
+      "old_loss": {
+        "next": {
+          "event": 20751.091203278564,
+          "nonevent": 12229.048568830201,
+          "events": 6429,
+          "nonevents": 306382,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 312811,
+          "infinite_count": 0,
+          "finite_sum": 32980.13977210876,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.10543152182023255,
+          "mean_event_log_loss": 3.2277323383541083,
+          "mean_nonevent_log_loss": 0.03991438324976729
+        },
+        "pooling": {
+          "event": 25055.985729092317,
+          "nonevent": 6146.161221357949,
+          "events": 6429,
+          "nonevents": 306382,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 312811,
+          "infinite_count": 0,
+          "finite_sum": 31202.146950450267,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.09974760142849921,
+          "mean_event_log_loss": 3.8973379575505236,
+          "mean_nonevent_log_loss": 0.020060451401707508
+        },
+        "no_pooling": {
+          "event": 24938.9843729065,
+          "nonevent": 6258.950005332981,
+          "events": 6429,
+          "nonevents": 306382,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 312811,
+          "infinite_count": 0,
+          "finite_sum": 31197.93437823948,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.09973413459961279,
+          "mean_event_log_loss": 3.8791389598547985,
+          "mean_nonevent_log_loss": 0.02042858263648968
+        }
+      },
+      "global_relative_to_next": -0.053863683482417546,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -1776.431809890757,
+          "event_delta": 4246.390046383123,
+          "nonevent_delta": -6022.821856273883
+        },
+        "pooling": {
+          "finite_total_delta": 1.561011767738819,
+          "event_delta": -58.504479430630454,
+          "nonevent_delta": 60.06549119836927
+        },
+        "no_pooling": {
+          "finite_total_delta": 5.773583978527313,
+          "event_delta": 58.49687675518726,
+          "nonevent_delta": -52.723292776662674
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 7393,
+          "min": 0.16318539221650707,
+          "max": 1.4606741573033708,
+          "sum": 3870.2757392211124,
+          "mean": 0.5235054428812542
+        },
+        "pair": {
+          "count": 0,
+          "min": null,
+          "max": null,
+          "sum": 0.0,
+          "mean": null
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 0,
+        "scale_changed": 0,
+        "both_changed": 0,
+        "own_only": 0,
+        "scale_only": 0,
+        "same_final_choice": 0,
+        "different_final_choice": 0,
+        "fraction_own_flips_reproduced": null
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 0,
+        "scale_changed": 0,
+        "both_changed": 0,
+        "own_only": 0,
+        "scale_only": 0,
+        "same_final_choice": 0,
+        "different_final_choice": 0,
+        "fraction_own_flips_reproduced": null
+      },
+      "changed_cross_table": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 0,
+          "less_write": 0,
+          "more_write": 0,
+          "same_write": 0,
+          "fewer_victims": 0,
+          "more_victims": 0,
+          "same_victims": 0,
+          "lower_excess": 0,
+          "higher_excess": 0,
+          "same_excess": 0,
+          "old_victims": 0,
+          "new_victims": 0,
+          "old_excess_bytes": 0,
+          "new_excess_bytes": 0,
+          "current_write_delta_us": 0.0
+        },
+        "no_pooling": {
+          "count": 0,
+          "less_write": 0,
+          "more_write": 0,
+          "same_write": 0,
+          "fewer_victims": 0,
+          "more_victims": 0,
+          "same_victims": 0,
+          "lower_excess": 0,
+          "higher_excess": 0,
+          "same_excess": 0,
+          "old_victims": 0,
+          "new_victims": 0,
+          "old_excess_bytes": 0,
+          "new_excess_bytes": 0,
+          "current_write_delta_us": 0.0
+        },
+        "global_scale": {
+          "count": 0,
+          "less_write": 0,
+          "more_write": 0,
+          "same_write": 0,
+          "fewer_victims": 0,
+          "more_victims": 0,
+          "same_victims": 0,
+          "lower_excess": 0,
+          "higher_excess": 0,
+          "same_excess": 0,
+          "old_victims": 0,
+          "new_victims": 0,
+          "old_excess_bytes": 0,
+          "new_excess_bytes": 0,
+          "current_write_delta_us": 0.0
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 0,
+          "victims": 0,
+          "excess_bytes": 0,
+          "current_write_us": 0.0
+        },
+        "pooling": {
+          "count": 0,
+          "victims": 0,
+          "excess_bytes": 0,
+          "current_write_us": 0.0
+        },
+        "no_pooling": {
+          "count": 0,
+          "victims": 0,
+          "excess_bytes": 0,
+          "current_write_us": 0.0
+        },
+        "global_scale": {
+          "count": 0,
+          "victims": 0,
+          "excess_bytes": 0,
+          "current_write_us": 0.0
+        }
+      },
+      "mass": {
+        "forecast_count": 7393,
+        "unknown_positions": 66915,
+        "disk_trials": 312811,
+        "disk_mass_sum": [
+          12269.759736267426,
+          6248.943964269927,
+          6361.952045227722,
+          6295.849750080771
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 24997.481249661687,
+          "nonevent": 6206.2267125563185,
+          "events": 6429,
+          "nonevents": 306382,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_693_random_hotspot",
+      "family": "random_hotspot",
+      "probes": 72507,
+      "pressure": 7020,
+      "different_pairs": 216,
+      "global_scale_loss": {
+        "event": 25165.585389397074,
+        "nonevent": 7558.2866671539805,
+        "events": 7757,
+        "nonevents": 188450,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 196207,
+        "infinite_count": 0,
+        "finite_sum": 32723.872056551056,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.16678238827641753,
+        "mean_event_log_loss": 3.2442420251897737,
+        "mean_nonevent_log_loss": 0.04010765013082505
+      },
+      "old_loss": {
+        "next": {
+          "event": 22738.48405934256,
+          "nonevent": 10420.95513256521,
+          "events": 7757,
+          "nonevents": 188450,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 196207,
+          "infinite_count": 0,
+          "finite_sum": 33159.439191907775,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.16900232505419163,
+          "mean_event_log_loss": 2.931350271927622,
+          "mean_nonevent_log_loss": 0.055298249575830245
+        },
+        "pooling": {
+          "event": 25216.660201013856,
+          "nonevent": 7526.462473915644,
+          "events": 7757,
+          "nonevents": 188450,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 196207,
+          "infinite_count": 0,
+          "finite_sum": 32743.122674929502,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.16688050209691552,
+          "mean_event_log_loss": 3.250826376307059,
+          "mean_nonevent_log_loss": 0.03993877672547436
+        },
+        "no_pooling": {
+          "event": 25153.805805466778,
+          "nonevent": 7583.874924747498,
+          "events": 7757,
+          "nonevents": 188450,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 196207,
+          "infinite_count": 0,
+          "finite_sum": 32737.680730214277,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.16685276636518717,
+          "mean_event_log_loss": 3.242723450492043,
+          "mean_nonevent_log_loss": 0.040243432872101345
+        }
+      },
+      "global_relative_to_next": -0.013135539863503354,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -435.5671353567195,
+          "event_delta": 2427.101330054513,
+          "nonevent_delta": -2862.6684654112296
+        },
+        "pooling": {
+          "finite_total_delta": -19.250618378446234,
+          "event_delta": -51.07481161678152,
+          "nonevent_delta": 31.824193238336193
+        },
+        "no_pooling": {
+          "finite_total_delta": -13.80867366322127,
+          "event_delta": 11.779583930296212,
+          "nonevent_delta": -25.588257593517483
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 7764,
+          "min": 0.33586555037582,
+          "max": 1.2452830188679247,
+          "sum": 5703.631568285826,
+          "mean": 0.7346253951939498
+        },
+        "pair": {
+          "count": 216,
+          "min": 0.5027457713757887,
+          "max": 0.8435366018948511,
+          "sum": 160.29804600641648,
+          "mean": 0.7421205833630393
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 17,
+        "scale_changed": 12,
+        "both_changed": 9,
+        "own_only": 8,
+        "scale_only": 3,
+        "same_final_choice": 205,
+        "different_final_choice": 11,
+        "fraction_own_flips_reproduced": 0.5294117647058824
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 17,
+        "scale_changed": 12,
+        "both_changed": 9,
+        "own_only": 8,
+        "scale_only": 3,
+        "same_final_choice": 205,
+        "different_final_choice": 11,
+        "fraction_own_flips_reproduced": 0.5294117647058824
+      },
+      "changed_cross_table": [
+        196,
+        0,
+        0,
+        8,
+        3,
+        0,
+        0,
+        9
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 17,
+          "less_write": 2,
+          "more_write": 15,
+          "same_write": 0,
+          "fewer_victims": 0,
+          "more_victims": 0,
+          "same_victims": 17,
+          "lower_excess": 2,
+          "higher_excess": 15,
+          "same_excess": 0,
+          "old_victims": 34,
+          "new_victims": 34,
+          "old_excess_bytes": 104560202,
+          "new_excess_bytes": 172197829,
+          "current_write_delta_us": 16577.84975490196
+        },
+        "no_pooling": {
+          "count": 17,
+          "less_write": 2,
+          "more_write": 15,
+          "same_write": 0,
+          "fewer_victims": 0,
+          "more_victims": 0,
+          "same_victims": 17,
+          "lower_excess": 2,
+          "higher_excess": 15,
+          "same_excess": 0,
+          "old_victims": 34,
+          "new_victims": 34,
+          "old_excess_bytes": 104560202,
+          "new_excess_bytes": 172197829,
+          "current_write_delta_us": 16577.84975490196
+        },
+        "global_scale": {
+          "count": 12,
+          "less_write": 0,
+          "more_write": 12,
+          "same_write": 0,
+          "fewer_victims": 0,
+          "more_victims": 0,
+          "same_victims": 12,
+          "lower_excess": 0,
+          "higher_excess": 12,
+          "same_excess": 0,
+          "old_victims": 24,
+          "new_victims": 24,
+          "old_excess_bytes": 67219065,
+          "new_excess_bytes": 118638529,
+          "current_write_delta_us": 12602.80980392157
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 216,
+          "victims": 432,
+          "excess_bytes": 1041627030,
+          "current_write_us": 2361599.860049019
+        },
+        "pooling": {
+          "count": 216,
+          "victims": 432,
+          "excess_bytes": 1109264657,
+          "current_write_us": 2378177.709803921
+        },
+        "no_pooling": {
+          "count": 216,
+          "victims": 432,
+          "excess_bytes": 1109264657,
+          "current_write_us": 2378177.709803921
+        },
+        "global_scale": {
+          "count": 216,
+          "victims": 432,
+          "excess_bytes": 1093046494,
+          "current_write_us": 2374202.669852941
+        }
+      },
+      "mass": {
+        "forecast_count": 7764,
+        "unknown_positions": 63769,
+        "disk_trials": 196207,
+        "disk_mass_sum": [
+          10550.096838935588,
+          7679.343146636183,
+          7737.249525436042,
+          7711.358212651705
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 25165.585389397074,
+          "nonevent": 7558.2866671539805,
+          "events": 7757,
+          "nonevents": 188450,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_758_random_lognormal",
+      "family": "random_lognormal",
+      "probes": 239333,
+      "pressure": 101839,
+      "different_pairs": 4300,
+      "global_scale_loss": {
+        "event": 174532.6620962635,
+        "nonevent": 58743.87902428398,
+        "events": 60867,
+        "nonevents": 1177730,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 1238597,
+        "infinite_count": 0,
+        "finite_sum": 233276.54112054748,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.18833933968881522,
+        "mean_event_log_loss": 2.867443148114142,
+        "mean_nonevent_log_loss": 0.049878901806257786
+      },
+      "old_loss": {
+        "next": {
+          "event": 173956.17010883574,
+          "nonevent": 59312.412847395004,
+          "events": 60867,
+          "nonevents": 1177730,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1238597,
+          "infinite_count": 0,
+          "finite_sum": 233268.58295623073,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.1883329145446265,
+          "mean_event_log_loss": 2.8579718091714024,
+          "mean_nonevent_log_loss": 0.050361638785965376
+        },
+        "pooling": {
+          "event": 174798.5185210129,
+          "nonevent": 58712.66177869276,
+          "events": 60867,
+          "nonevents": 1177730,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1238597,
+          "infinite_count": 0,
+          "finite_sum": 233511.18029970568,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.18852877917490973,
+          "mean_event_log_loss": 2.871810973450522,
+          "mean_nonevent_log_loss": 0.04985239552248203
+        },
+        "no_pooling": {
+          "event": 174771.74305860803,
+          "nonevent": 58736.98085336805,
+          "events": 60867,
+          "nonevents": 1177730,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1238597,
+          "infinite_count": 0,
+          "finite_sum": 233508.7239119761,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.1885267959731665,
+          "mean_event_log_loss": 2.8713710723151795,
+          "mean_nonevent_log_loss": 0.049873044631085266
+        }
+      },
+      "global_relative_to_next": 3.4115885713781324e-05,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": 7.95816431674757,
+          "event_delta": 576.4919874277548,
+          "nonevent_delta": -568.5338231110218
+        },
+        "pooling": {
+          "finite_total_delta": -234.6391791581991,
+          "event_delta": -265.8564247494214,
+          "nonevent_delta": 31.21724559122231
+        },
+        "no_pooling": {
+          "finite_total_delta": -232.18279142861138,
+          "event_delta": -239.08096234453842,
+          "nonevent_delta": 6.898170915934315
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 60907,
+          "min": 0.3419039460922828,
+          "max": 1.0416862437931225,
+          "sum": 60347.56589642127,
+          "mean": 0.990814945678186
+        },
+        "pair": {
+          "count": 4300,
+          "min": 0.7959270802241495,
+          "max": 1.0400000659939963,
+          "sum": 4263.0192034770425,
+          "mean": 0.9913998147621029
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 432,
+        "scale_changed": 5,
+        "both_changed": 2,
+        "own_only": 430,
+        "scale_only": 3,
+        "same_final_choice": 3867,
+        "different_final_choice": 433,
+        "fraction_own_flips_reproduced": 0.004629629629629629
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 433,
+        "scale_changed": 5,
+        "both_changed": 2,
+        "own_only": 431,
+        "scale_only": 3,
+        "same_final_choice": 3866,
+        "different_final_choice": 434,
+        "fraction_own_flips_reproduced": 0.004618937644341801
+      },
+      "changed_cross_table": [
+        3864,
+        0,
+        1,
+        430,
+        3,
+        0,
+        0,
+        2
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 432,
+          "less_write": 232,
+          "more_write": 200,
+          "same_write": 0,
+          "fewer_victims": 102,
+          "more_victims": 66,
+          "same_victims": 264,
+          "lower_excess": 232,
+          "higher_excess": 200,
+          "same_excess": 0,
+          "old_victims": 1058,
+          "new_victims": 1025,
+          "old_excess_bytes": 10898717415,
+          "new_excess_bytes": 11840703777,
+          "current_write_delta_us": 1237827.0197109068
+        },
+        "no_pooling": {
+          "count": 433,
+          "less_write": 233,
+          "more_write": 200,
+          "same_write": 0,
+          "fewer_victims": 102,
+          "more_victims": 66,
+          "same_victims": 265,
+          "lower_excess": 233,
+          "higher_excess": 200,
+          "same_excess": 0,
+          "old_victims": 1061,
+          "new_victims": 1028,
+          "old_excess_bytes": 10939129535,
+          "new_excess_bytes": 11844318254,
+          "current_write_delta_us": 1189472.6925098556
+        },
+        "global_scale": {
+          "count": 5,
+          "less_write": 3,
+          "more_write": 2,
+          "same_write": 0,
+          "fewer_victims": 0,
+          "more_victims": 1,
+          "same_victims": 4,
+          "lower_excess": 3,
+          "higher_excess": 2,
+          "same_excess": 0,
+          "old_victims": 12,
+          "new_victims": 13,
+          "old_excess_bytes": 147435762,
+          "new_excess_bytes": 162530221,
+          "current_write_delta_us": 19835.03153745072
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 4300,
+          "victims": 9906,
+          "excess_bytes": 88458169531,
+          "current_write_us": 1195084056.9776576
+        },
+        "pooling": {
+          "count": 4300,
+          "victims": 9873,
+          "excess_bytes": 89400155893,
+          "current_write_us": 1196321883.9973693
+        },
+        "no_pooling": {
+          "count": 4300,
+          "victims": 9873,
+          "excess_bytes": 89363358250,
+          "current_write_us": 1196273529.6701682
+        },
+        "global_scale": {
+          "count": 4300,
+          "victims": 9907,
+          "excess_bytes": 88473263990,
+          "current_write_us": 1195103892.0091949
+        }
+      },
+      "mass": {
+        "forecast_count": 60907,
+        "unknown_positions": 104181,
+        "disk_trials": 1238597,
+        "disk_mass_sum": [
+          61411.58003168885,
+          60796.20544995212,
+          60820.4741064445,
+          60842.25461066346
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 174532.6620962635,
+          "nonevent": 58743.87902428398,
+          "events": 60867,
+          "nonevents": 1177730,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_725_random_lognormal",
+      "family": "random_lognormal",
+      "probes": 100000,
+      "pressure": 20310,
+      "different_pairs": 19128,
+      "global_scale_loss": {
+        "event": 68120.86525865551,
+        "nonevent": 17038.1237821873,
+        "events": 17157,
+        "nonevents": 971905,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 989062,
+        "infinite_count": 0,
+        "finite_sum": 85158.9890408428,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.08610075914436385,
+        "mean_event_log_loss": 3.970441525829429,
+        "mean_nonevent_log_loss": 0.017530647318603463
+      },
+      "old_loss": {
+        "next": {
+          "event": 67781.83159637268,
+          "nonevent": 17376.590430211403,
+          "events": 17157,
+          "nonevents": 971905,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 989062,
+          "infinite_count": 0,
+          "finite_sum": 85158.42202658408,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.08610018585951547,
+          "mean_event_log_loss": 3.950680864741661,
+          "mean_nonevent_log_loss": 0.01787889807153107
+        },
+        "pooling": {
+          "event": 68404.73279480051,
+          "nonevent": 16812.891802689654,
+          "events": 17157,
+          "nonevents": 971905,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 989062,
+          "infinite_count": 0,
+          "finite_sum": 85217.62459749017,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.08616004314945895,
+          "mean_event_log_loss": 3.986986815573848,
+          "mean_nonevent_log_loss": 0.017298904525328763
+        },
+        "no_pooling": {
+          "event": 68388.45395381626,
+          "nonevent": 16825.00948550271,
+          "events": 17157,
+          "nonevents": 971905,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 989062,
+          "infinite_count": 0,
+          "finite_sum": 85213.46343931898,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.08615583597319378,
+          "mean_event_log_loss": 3.986037999289868,
+          "mean_nonevent_log_loss": 0.01731137249577141
+        }
+      },
+      "global_relative_to_next": 6.6583462354774525e-06,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": 0.5670142587187001,
+          "event_delta": 339.03366228283267,
+          "nonevent_delta": -338.46664802410305
+        },
+        "pooling": {
+          "finite_total_delta": -58.635556647364865,
+          "event_delta": -283.8675361450005,
+          "nonevent_delta": 225.23197949764653
+        },
+        "no_pooling": {
+          "finite_total_delta": -54.47439847617352,
+          "event_delta": -267.58869516075356,
+          "nonevent_delta": 213.11429668459095
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 20809,
+          "min": 0.6467017413912932,
+          "max": 2.010572306157269,
+          "sum": 20417.539057618782,
+          "mean": 0.9811879022355127
+        },
+        "pair": {
+          "count": 19128,
+          "min": 0.6537170013378983,
+          "max": 1.9197288074272087,
+          "sum": 18780.6194815207,
+          "mean": 0.9818391615182299
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 2754,
+        "scale_changed": 216,
+        "both_changed": 102,
+        "own_only": 2652,
+        "scale_only": 114,
+        "same_final_choice": 16362,
+        "different_final_choice": 2766,
+        "fraction_own_flips_reproduced": 0.037037037037037035
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 2725,
+        "scale_changed": 216,
+        "both_changed": 103,
+        "own_only": 2622,
+        "scale_only": 113,
+        "same_final_choice": 16393,
+        "different_final_choice": 2735,
+        "fraction_own_flips_reproduced": 0.03779816513761468
+      },
+      "changed_cross_table": [
+        16232,
+        58,
+        28,
+        2594,
+        112,
+        1,
+        2,
+        101
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 2754,
+          "less_write": 1095,
+          "more_write": 1659,
+          "same_write": 0,
+          "fewer_victims": 271,
+          "more_victims": 300,
+          "same_victims": 2183,
+          "lower_excess": 1095,
+          "higher_excess": 1659,
+          "same_excess": 0,
+          "old_victims": 3133,
+          "new_victims": 3173,
+          "old_excess_bytes": 3465010794,
+          "new_excess_bytes": 4291519322,
+          "current_write_delta_us": 439398.47315257863
+        },
+        "no_pooling": {
+          "count": 2725,
+          "less_write": 1068,
+          "more_write": 1657,
+          "same_write": 0,
+          "fewer_victims": 268,
+          "more_victims": 299,
+          "same_victims": 2158,
+          "lower_excess": 1068,
+          "higher_excess": 1657,
+          "same_excess": 0,
+          "old_victims": 3099,
+          "new_victims": 3142,
+          "old_excess_bytes": 3416626410,
+          "new_excess_bytes": 4264944417,
+          "current_write_delta_us": 450993.0925039876
+        },
+        "global_scale": {
+          "count": 216,
+          "less_write": 108,
+          "more_write": 108,
+          "same_write": 0,
+          "fewer_victims": 31,
+          "more_victims": 19,
+          "same_victims": 166,
+          "lower_excess": 108,
+          "higher_excess": 108,
+          "same_excess": 0,
+          "old_victims": 259,
+          "new_victims": 245,
+          "old_excess_bytes": 304628725,
+          "new_excess_bytes": 311331541,
+          "current_write_delta_us": 3563.432216905908
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 19128,
+          "victims": 22181,
+          "excess_bytes": 18015294958,
+          "current_write_us": 29880345.613505665
+        },
+        "pooling": {
+          "count": 19128,
+          "victims": 22221,
+          "excess_bytes": 18841803486,
+          "current_write_us": 30319744.086658034
+        },
+        "no_pooling": {
+          "count": 19128,
+          "victims": 22224,
+          "excess_bytes": 18863612965,
+          "current_write_us": 30331338.706009455
+        },
+        "global_scale": {
+          "count": 19128,
+          "victims": 22167,
+          "excess_bytes": 18021997774,
+          "current_write_us": 29883909.045722544
+        }
+      },
+      "mass": {
+        "forecast_count": 20809,
+        "unknown_positions": 72048,
+        "disk_trials": 989062,
+        "disk_mass_sum": [
+          17550.968284255694,
+          16985.17889942611,
+          16997.3683464634,
+          17212.418425531905
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 12184.670827238462,
+          "nonevent": 3084.219065813396,
+          "events": 3165,
+          "nonevents": 157416,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 17327.171960988897,
+          "nonevent": 4555.625342894274,
+          "events": 4558,
+          "nonevents": 209722,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 22380.893364638956,
+          "nonevent": 5540.692659868882,
+          "events": 5433,
+          "nonevents": 382675,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 16228.129105789194,
+          "nonevent": 3857.5867136107477,
+          "events": 4001,
+          "nonevents": 222092,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_722_random_lognormal",
+      "family": "random_lognormal",
+      "probes": 73867,
+      "pressure": 28988,
+      "different_pairs": 28791,
+      "global_scale_loss": {
+        "event": 120854.52157199637,
+        "nonevent": 18462.71726973582,
+        "events": 18352,
+        "nonevents": 14118471,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 14136823,
+        "infinite_count": 0,
+        "finite_sum": 139317.2388417322,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.009854918523188145,
+        "mean_event_log_loss": 6.585359719485417,
+        "mean_nonevent_log_loss": 0.0013076994859950357
+      },
+      "old_loss": {
+        "next": {
+          "event": 123342.62615773406,
+          "nonevent": 16122.934130487094,
+          "events": 18352,
+          "nonevents": 14118471,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 14136823,
+          "infinite_count": 0,
+          "finite_sum": 139465.56028822117,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.009865410374609711,
+          "mean_event_log_loss": 6.7209364732854215,
+          "mean_nonevent_log_loss": 0.0011419745190882988
+        },
+        "pooling": {
+          "event": 121965.4393296613,
+          "nonevent": 17319.63559862258,
+          "events": 18352,
+          "nonevents": 14118471,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 14136823,
+          "infinite_count": 0,
+          "finite_sum": 139285.07492828387,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.00985264333636234,
+          "mean_event_log_loss": 6.645893599044316,
+          "mean_nonevent_log_loss": 0.001226735926193607
+        },
+        "no_pooling": {
+          "event": 123175.90223246683,
+          "nonevent": 16265.9632019657,
+          "events": 18352,
+          "nonevents": 14118471,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 14136823,
+          "infinite_count": 0,
+          "finite_sum": 139441.86543443252,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.009863734265784647,
+          "mean_event_log_loss": 6.711851690958306,
+          "mean_nonevent_log_loss": 0.0011521051537355356
+        }
+      },
+      "global_relative_to_next": -0.001063498731747381,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -148.32144648896065,
+          "event_delta": -2488.1045857376885,
+          "nonevent_delta": 2339.783139248724
+        },
+        "pooling": {
+          "finite_total_delta": 32.16391344834119,
+          "event_delta": -1110.9177576649236,
+          "nonevent_delta": 1143.0816711132393
+        },
+        "no_pooling": {
+          "finite_total_delta": -124.62659270031145,
+          "event_delta": -2321.3806604704587,
+          "nonevent_delta": 2196.754067770118
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 18356,
+          "min": 0.5479859086131051,
+          "max": 1.6331498098576507,
+          "sum": 21056.62744795552,
+          "mean": 1.1471250516428155
+        },
+        "pair": {
+          "count": 28791,
+          "min": 0.5479690748886118,
+          "max": 1.633166736622022,
+          "sum": 33042.42984086635,
+          "mean": 1.147665237083337
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 1748,
+        "scale_changed": 533,
+        "both_changed": 244,
+        "own_only": 1504,
+        "scale_only": 289,
+        "same_final_choice": 26998,
+        "different_final_choice": 1793,
+        "fraction_own_flips_reproduced": 0.13958810068649885
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 1756,
+        "scale_changed": 533,
+        "both_changed": 203,
+        "own_only": 1553,
+        "scale_only": 330,
+        "same_final_choice": 26908,
+        "different_final_choice": 1883,
+        "fraction_own_flips_reproduced": 0.11560364464692482
+      },
+      "changed_cross_table": [
+        26602,
+        103,
+        152,
+        1401,
+        287,
+        43,
+        2,
+        201
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 1748,
+          "less_write": 488,
+          "more_write": 1260,
+          "same_write": 0,
+          "fewer_victims": 287,
+          "more_victims": 215,
+          "same_victims": 1246,
+          "lower_excess": 488,
+          "higher_excess": 1260,
+          "same_excess": 0,
+          "old_victims": 2243,
+          "new_victims": 2151,
+          "old_excess_bytes": 1320559391,
+          "new_excess_bytes": 1636919372,
+          "current_write_delta_us": 118753.74662162154
+        },
+        "no_pooling": {
+          "count": 1756,
+          "less_write": 485,
+          "more_write": 1271,
+          "same_write": 0,
+          "fewer_victims": 291,
+          "more_victims": 214,
+          "same_victims": 1251,
+          "lower_excess": 485,
+          "higher_excess": 1271,
+          "same_excess": 0,
+          "old_victims": 2247,
+          "new_victims": 2151,
+          "old_excess_bytes": 1330361969,
+          "new_excess_bytes": 1655111192,
+          "current_write_delta_us": 121902.86148648651
+        },
+        "global_scale": {
+          "count": 533,
+          "less_write": 269,
+          "more_write": 264,
+          "same_write": 0,
+          "fewer_victims": 95,
+          "more_victims": 65,
+          "same_victims": 373,
+          "lower_excess": 269,
+          "higher_excess": 264,
+          "same_excess": 0,
+          "old_victims": 713,
+          "new_victims": 672,
+          "old_excess_bytes": 417085534,
+          "new_excess_bytes": 415411372,
+          "current_write_delta_us": -628.4391891891935
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 28791,
+          "victims": 34753,
+          "excess_bytes": 17201170022,
+          "current_write_us": 22219299.4928675
+        },
+        "pooling": {
+          "count": 28791,
+          "victims": 34661,
+          "excess_bytes": 17517530003,
+          "current_write_us": 22338053.23948914
+        },
+        "no_pooling": {
+          "count": 28791,
+          "victims": 34657,
+          "excess_bytes": 17525919245,
+          "current_write_us": 22341202.35435399
+        },
+        "global_scale": {
+          "count": 28791,
+          "victims": 34712,
+          "excess_bytes": 17199495860,
+          "current_write_us": 22218671.053678337
+        }
+      },
+      "mass": {
+        "forecast_count": 18356,
+        "unknown_positions": 39041,
+        "disk_trials": 14136823,
+        "disk_mass_sum": [
+          16137.5605176668,
+          17333.457106144495,
+          16279.96451236888,
+          18476.876614760196
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 13741.325268604473,
+          "nonevent": 2182.710392171728,
+          "events": 2105,
+          "nonevents": 1649637,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 16259.375506255717,
+          "nonevent": 2331.8562880274876,
+          "events": 2483,
+          "nonevents": 1701028,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 14705.642054368558,
+          "nonevent": 2268.2211194003708,
+          "events": 2241,
+          "nonevents": 1773959,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 15992.68397676981,
+          "nonevent": 2345.3397844923625,
+          "events": 2408,
+          "nonevents": 1850522,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 14453.625105231842,
+          "nonevent": 2324.3199243368476,
+          "events": 2205,
+          "nonevents": 1697950,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 15175.70896033126,
+          "nonevent": 2308.441706970775,
+          "events": 2283,
+          "nonevents": 1841594,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 15443.208101728882,
+          "nonevent": 2329.5723473573557,
+          "events": 2340,
+          "nonevents": 1817678,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 15082.95259870583,
+          "nonevent": 2372.2557069788922,
+          "events": 2287,
+          "nonevents": 1786103,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_752_random_lognormal",
+      "family": "random_lognormal",
+      "probes": 100298,
+      "pressure": 18286,
+      "different_pairs": 18100,
+      "global_scale_loss": {
+        "event": 75021.23696047367,
+        "nonevent": 16029.116334636776,
+        "events": 16097,
+        "nonevents": 1796953,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 1813050,
+        "infinite_count": 0,
+        "finite_sum": 91050.35329511046,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.05021943867797935,
+        "mean_event_log_loss": 4.660572588710547,
+        "mean_nonevent_log_loss": 0.008920164486570754
+      },
+      "old_loss": {
+        "next": {
+          "event": 75629.49237456347,
+          "nonevent": 15421.436875534375,
+          "events": 16097,
+          "nonevents": 1796953,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1813050,
+          "infinite_count": 0,
+          "finite_sum": 91050.92925009785,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.05021975634985127,
+          "mean_event_log_loss": 4.698359469128625,
+          "mean_nonevent_log_loss": 0.008581992336769172
+        },
+        "pooling": {
+          "event": 75670.28781180034,
+          "nonevent": 15420.66547719872,
+          "events": 16097,
+          "nonevents": 1796953,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1813050,
+          "infinite_count": 0,
+          "finite_sum": 91090.95328899907,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.050241831879429176,
+          "mean_event_log_loss": 4.700893819457063,
+          "mean_nonevent_log_loss": 0.008581563055460394
+        },
+        "no_pooling": {
+          "event": 75747.03995175846,
+          "nonevent": 15344.964479894861,
+          "events": 16097,
+          "nonevents": 1796953,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1813050,
+          "infinite_count": 0,
+          "finite_sum": 91092.00443165332,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.050242411644275294,
+          "mean_event_log_loss": 4.705661921585293,
+          "mean_nonevent_log_loss": 0.00853943563348338
+        }
+      },
+      "global_relative_to_next": -6.325635467208102e-06,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -0.5759549873910146,
+          "event_delta": -608.2554140897992,
+          "nonevent_delta": 607.6794591024009
+        },
+        "pooling": {
+          "finite_total_delta": -40.59999388860888,
+          "event_delta": -649.0508513266686,
+          "nonevent_delta": 608.4508574380561
+        },
+        "no_pooling": {
+          "finite_total_delta": -41.651136542859604,
+          "event_delta": -725.8029912847851,
+          "nonevent_delta": 684.1518547419146
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 16111,
+          "min": 0.5100979966616801,
+          "max": 1.3979206737832994,
+          "sum": 16740.77877605066,
+          "mean": 1.0390899867202943
+        },
+        "pair": {
+          "count": 18100,
+          "min": 0.5100697308311496,
+          "max": 1.1228889244404474,
+          "sum": 18809.83054290221,
+          "mean": 1.0392171570664206
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 2988,
+        "scale_changed": 301,
+        "both_changed": 158,
+        "own_only": 2830,
+        "scale_only": 143,
+        "same_final_choice": 15127,
+        "different_final_choice": 2973,
+        "fraction_own_flips_reproduced": 0.05287817938420348
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 3008,
+        "scale_changed": 301,
+        "both_changed": 156,
+        "own_only": 2852,
+        "scale_only": 145,
+        "same_final_choice": 15103,
+        "different_final_choice": 2997,
+        "fraction_own_flips_reproduced": 0.05186170212765957
+      },
+      "changed_cross_table": [
+        14875,
+        72,
+        94,
+        2758,
+        139,
+        6,
+        4,
+        152
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 2988,
+          "less_write": 992,
+          "more_write": 1996,
+          "same_write": 0,
+          "fewer_victims": 264,
+          "more_victims": 264,
+          "same_victims": 2460,
+          "lower_excess": 992,
+          "higher_excess": 1996,
+          "same_excess": 0,
+          "old_victims": 3344,
+          "new_victims": 3345,
+          "old_excess_bytes": 13699958201,
+          "new_excess_bytes": 18627952133,
+          "current_write_delta_us": 1493784.1564110324
+        },
+        "no_pooling": {
+          "count": 3008,
+          "less_write": 999,
+          "more_write": 2009,
+          "same_write": 0,
+          "fewer_victims": 262,
+          "more_victims": 262,
+          "same_victims": 2484,
+          "lower_excess": 999,
+          "higher_excess": 2009,
+          "same_excess": 0,
+          "old_victims": 3363,
+          "new_victims": 3364,
+          "old_excess_bytes": 13826182548,
+          "new_excess_bytes": 18740019076,
+          "current_write_delta_us": 1489492.7335556222
+        },
+        "global_scale": {
+          "count": 301,
+          "less_write": 142,
+          "more_write": 159,
+          "same_write": 0,
+          "fewer_victims": 23,
+          "more_victims": 41,
+          "same_victims": 237,
+          "lower_excess": 142,
+          "higher_excess": 159,
+          "same_excess": 0,
+          "old_victims": 336,
+          "new_victims": 353,
+          "old_excess_bytes": 1505391419,
+          "new_excess_bytes": 1496783288,
+          "current_write_delta_us": -2609.315247044563
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 18100,
+          "victims": 19738,
+          "excess_bytes": 71419137062,
+          "current_write_us": 71017388.24371015
+        },
+        "pooling": {
+          "count": 18100,
+          "victims": 19739,
+          "excess_bytes": 76347130994,
+          "current_write_us": 72511172.4001211
+        },
+        "no_pooling": {
+          "count": 18100,
+          "victims": 19739,
+          "excess_bytes": 76332973590,
+          "current_write_us": 72506880.97726564
+        },
+        "global_scale": {
+          "count": 18100,
+          "victims": 19755,
+          "excess_bytes": 71410528931,
+          "current_write_us": 71014778.92846307
+        }
+      },
+      "mass": {
+        "forecast_count": 16111,
+        "unknown_positions": 80358,
+        "disk_trials": 1813050,
+        "disk_mass_sum": [
+          15504.052984420441,
+          15501.987476408736,
+          15426.332819490553,
+          16111.52680957797
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 18656.727680675715,
+          "nonevent": 3820.21849423293,
+          "events": 4064,
+          "nonevents": 381811,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 19756.621266906128,
+          "nonevent": 4183.744575587594,
+          "events": 4113,
+          "nonevents": 532750,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 18948.93488876755,
+          "nonevent": 4234.610951365927,
+          "events": 4056,
+          "nonevents": 496462,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 17658.953124124284,
+          "nonevent": 3790.542313450324,
+          "events": 3864,
+          "nonevents": 385930,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_548_random_zipf",
+      "family": "random_zipf",
+      "probes": 191795,
+      "pressure": 38176,
+      "different_pairs": 36624,
+      "global_scale_loss": {
+        "event": 175337.73924599623,
+        "nonevent": 35430.43376049404,
+        "events": 35611,
+        "nonevents": 5160648,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 5196259,
+        "infinite_count": 0,
+        "finite_sum": 210768.17300649028,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.0405615218576461,
+        "mean_event_log_loss": 4.923696027800293,
+        "mean_nonevent_log_loss": 0.006865500952689282
+      },
+      "old_loss": {
+        "next": {
+          "event": 173457.79265864997,
+          "nonevent": 37353.115461708294,
+          "events": 35611,
+          "nonevents": 5160648,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 5196259,
+          "infinite_count": 0,
+          "finite_sum": 210810.90812035825,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.04056974606545945,
+          "mean_event_log_loss": 4.870904851272078,
+          "mean_nonevent_log_loss": 0.007238066898131454
+        },
+        "pooling": {
+          "event": 176162.5448504173,
+          "nonevent": 34653.253331709675,
+          "events": 35611,
+          "nonevents": 5160648,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 5196259,
+          "infinite_count": 0,
+          "finite_sum": 210815.79818212698,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.040570687138983444,
+          "mean_event_log_loss": 4.9468575678980455,
+          "mean_nonevent_log_loss": 0.006714903502759668
+        },
+        "no_pooling": {
+          "event": 175953.46772877,
+          "nonevent": 34842.15739078028,
+          "events": 35611,
+          "nonevents": 5160648,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 5196259,
+          "infinite_count": 0,
+          "finite_sum": 210795.62511955027,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.04056680491090807,
+          "mean_event_log_loss": 4.940986429158687,
+          "mean_nonevent_log_loss": 0.006751508219661616
+        }
+      },
+      "global_relative_to_next": -0.0002027177542613945,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -42.73511386796599,
+          "event_delta": 1879.9465873462614,
+          "nonevent_delta": -1922.6817012142565
+        },
+        "pooling": {
+          "finite_total_delta": -47.62517563669826,
+          "event_delta": -824.805604421068,
+          "nonevent_delta": 777.1804287843624
+        },
+        "no_pooling": {
+          "finite_total_delta": -27.452113059989642,
+          "event_delta": -615.7284827737603,
+          "nonevent_delta": 588.2763697137561
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 35636,
+          "min": 0.6516517409216717,
+          "max": 1.8536511161459142,
+          "sum": 33826.77372259276,
+          "mean": 0.9492303772194625
+        },
+        "pair": {
+          "count": 36624,
+          "min": 0.6516517409216717,
+          "max": 1.5064718289121442,
+          "sum": 34775.296186805186,
+          "mean": 0.9495220671364457
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 3458,
+        "scale_changed": 473,
+        "both_changed": 210,
+        "own_only": 3248,
+        "scale_only": 263,
+        "same_final_choice": 33113,
+        "different_final_choice": 3511,
+        "fraction_own_flips_reproduced": 0.06072874493927125
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 3446,
+        "scale_changed": 473,
+        "both_changed": 202,
+        "own_only": 3244,
+        "scale_only": 271,
+        "same_final_choice": 33109,
+        "different_final_choice": 3515,
+        "fraction_own_flips_reproduced": 0.05861868833430064
+      },
+      "changed_cross_table": [
+        32851,
+        56,
+        52,
+        3192,
+        263,
+        8,
+        0,
+        202
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 3458,
+          "less_write": 1032,
+          "more_write": 2426,
+          "same_write": 0,
+          "fewer_victims": 474,
+          "more_victims": 369,
+          "same_victims": 2615,
+          "lower_excess": 1032,
+          "higher_excess": 2426,
+          "same_excess": 0,
+          "old_victims": 4569,
+          "new_victims": 4527,
+          "old_excess_bytes": 1823317744,
+          "new_excess_bytes": 2680951087,
+          "current_write_delta_us": 680661.383333333
+        },
+        "no_pooling": {
+          "count": 3446,
+          "less_write": 1014,
+          "more_write": 2432,
+          "same_write": 0,
+          "fewer_victims": 470,
+          "more_victims": 363,
+          "same_victims": 2613,
+          "lower_excess": 1014,
+          "higher_excess": 2432,
+          "same_excess": 0,
+          "old_victims": 4546,
+          "new_victims": 4499,
+          "old_excess_bytes": 1805462486,
+          "new_excess_bytes": 2683342083,
+          "current_write_delta_us": 696729.8388888886
+        },
+        "global_scale": {
+          "count": 473,
+          "less_write": 277,
+          "more_write": 196,
+          "same_write": 0,
+          "fewer_victims": 95,
+          "more_victims": 39,
+          "same_victims": 339,
+          "lower_excess": 277,
+          "higher_excess": 196,
+          "same_excess": 0,
+          "old_victims": 692,
+          "new_victims": 590,
+          "old_excess_bytes": 282241450,
+          "new_excess_bytes": 286479635,
+          "current_write_delta_us": 3363.6388888888946
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 36624,
+          "victims": 46391,
+          "excess_bytes": 16624637055,
+          "current_write_us": 47502612.48254121
+        },
+        "pooling": {
+          "count": 36624,
+          "victims": 46349,
+          "excess_bytes": 17482270398,
+          "current_write_us": 48183273.86587504
+        },
+        "no_pooling": {
+          "count": 36624,
+          "victims": 46344,
+          "excess_bytes": 17502516652,
+          "current_write_us": 48199342.32143059
+        },
+        "global_scale": {
+          "count": 36624,
+          "victims": 46289,
+          "excess_bytes": 16628875240,
+          "current_write_us": 47505976.121429995
+        }
+      },
+      "mass": {
+        "forecast_count": 35636,
+        "unknown_positions": 143807,
+        "disk_trials": 5196259,
+        "disk_mass_sum": [
+          37497.49877750817,
+          34796.94169791447,
+          34985.898773919354,
+          35575.380097768466
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 88590.77482355855,
+          "nonevent": 17777.180950934442,
+          "events": 18176,
+          "nonevents": 2473167,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 86746.96442243767,
+          "nonevent": 17653.25280955959,
+          "events": 17435,
+          "nonevents": 2687481,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_562_random_zipf",
+      "family": "random_zipf",
+      "probes": 75519,
+      "pressure": 8507,
+      "different_pairs": 1789,
+      "global_scale_loss": {
+        "event": 54719.93107631159,
+        "nonevent": 12677.19790682455,
+        "events": 12968,
+        "nonevents": 1282886,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 1295854,
+        "infinite_count": 0,
+        "finite_sum": 67397.12898313614,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.052009816679298854,
+        "mean_event_log_loss": 4.2196122051443234,
+        "mean_nonevent_log_loss": 0.009881780537650695
+      },
+      "old_loss": {
+        "next": {
+          "event": 52295.23087374336,
+          "nonevent": 15326.947236244921,
+          "events": 12968,
+          "nonevents": 1282886,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1295854,
+          "infinite_count": 0,
+          "finite_sum": 67622.17810998828,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.05218348526144788,
+          "mean_event_log_loss": 4.032636557197977,
+          "mean_nonevent_log_loss": 0.01194724023509877
+        },
+        "pooling": {
+          "event": 54571.333048198416,
+          "nonevent": 12638.383914044276,
+          "events": 12968,
+          "nonevents": 1282886,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1295854,
+          "infinite_count": 0,
+          "finite_sum": 67209.71696224269,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.051865192345929935,
+          "mean_event_log_loss": 4.208153381261445,
+          "mean_nonevent_log_loss": 0.009851525321847987
+        },
+        "no_pooling": {
+          "event": 54384.44885434683,
+          "nonevent": 12811.93665245066,
+          "events": 12968,
+          "nonevents": 1282886,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1295854,
+          "infinite_count": 0,
+          "finite_sum": 67196.3855067975,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.05185490457011167,
+          "mean_event_log_loss": 4.193742200366042,
+          "mean_nonevent_log_loss": 0.009986808377712954
+        }
+      },
+      "global_relative_to_next": -0.003328037237814163,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -225.04912685214367,
+          "event_delta": 2424.700202568223,
+          "nonevent_delta": -2649.7493294203723
+        },
+        "pooling": {
+          "finite_total_delta": 187.41202089344733,
+          "event_delta": 148.59802811317059,
+          "nonevent_delta": 38.81399278027311
+        },
+        "no_pooling": {
+          "finite_total_delta": 200.7434763386409,
+          "event_delta": 335.482221964754,
+          "nonevent_delta": -134.73874562611127
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 13002,
+          "min": 0.29962352627110844,
+          "max": 1.0,
+          "sum": 10820.83359924204,
+          "mean": 0.8322437778220304
+        },
+        "pair": {
+          "count": 1789,
+          "min": 0.35402587546206554,
+          "max": 0.9301096278877755,
+          "sum": 1491.132636701076,
+          "mean": 0.833500635383497
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 159,
+        "scale_changed": 71,
+        "both_changed": 36,
+        "own_only": 123,
+        "scale_only": 35,
+        "same_final_choice": 1631,
+        "different_final_choice": 158,
+        "fraction_own_flips_reproduced": 0.22641509433962265
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 156,
+        "scale_changed": 71,
+        "both_changed": 35,
+        "own_only": 121,
+        "scale_only": 36,
+        "same_final_choice": 1632,
+        "different_final_choice": 157,
+        "fraction_own_flips_reproduced": 0.22435897435897437
+      },
+      "changed_cross_table": [
+        1592,
+        5,
+        3,
+        118,
+        35,
+        1,
+        0,
+        35
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 159,
+          "less_write": 64,
+          "more_write": 95,
+          "same_write": 0,
+          "fewer_victims": 37,
+          "more_victims": 29,
+          "same_victims": 93,
+          "lower_excess": 64,
+          "higher_excess": 95,
+          "same_excess": 0,
+          "old_victims": 506,
+          "new_victims": 492,
+          "old_excess_bytes": 8965447546,
+          "new_excess_bytes": 21678431534,
+          "current_write_delta_us": 2026942.60012755
+        },
+        "no_pooling": {
+          "count": 156,
+          "less_write": 61,
+          "more_write": 95,
+          "same_write": 0,
+          "fewer_victims": 38,
+          "more_victims": 29,
+          "same_victims": 89,
+          "lower_excess": 61,
+          "higher_excess": 95,
+          "same_excess": 0,
+          "old_victims": 487,
+          "new_victims": 472,
+          "old_excess_bytes": 8985203019,
+          "new_excess_bytes": 21657474915,
+          "current_write_delta_us": 2020451.5140306114
+        },
+        "global_scale": {
+          "count": 71,
+          "less_write": 23,
+          "more_write": 48,
+          "same_write": 0,
+          "fewer_victims": 12,
+          "more_victims": 20,
+          "same_victims": 39,
+          "lower_excess": 23,
+          "higher_excess": 48,
+          "same_excess": 0,
+          "old_victims": 216,
+          "new_victims": 232,
+          "old_excess_bytes": 3840135975,
+          "new_excess_bytes": 6207343049,
+          "current_write_delta_us": 377424.59725765313
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 1789,
+          "victims": 7543,
+          "excess_bytes": 94802119068,
+          "current_write_us": 443268898.10411465
+        },
+        "pooling": {
+          "count": 1789,
+          "victims": 7529,
+          "excess_bytes": 107515103056,
+          "current_write_us": 445295840.7042421
+        },
+        "no_pooling": {
+          "count": 1789,
+          "victims": 7528,
+          "excess_bytes": 107474390964,
+          "current_write_us": 445289349.6181451
+        },
+        "global_scale": {
+          "count": 1789,
+          "victims": 7559,
+          "excess_bytes": 97169326142,
+          "current_write_us": 443646322.7013724
+        }
+      },
+      "mass": {
+        "forecast_count": 13002,
+        "unknown_positions": 58169,
+        "disk_trials": 1295854,
+        "disk_mass_sum": [
+          15489.884344040258,
+          12803.947780030285,
+          12977.538015906213,
+          12838.294356948987
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 21545.18157052692,
+          "nonevent": 5074.343916548958,
+          "events": 4784,
+          "nonevents": 648772,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 33174.74950578467,
+          "nonevent": 7602.853990275592,
+          "events": 8184,
+          "nonevents": 634114,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_588_random_zipf",
+      "family": "random_zipf",
+      "probes": 42441,
+      "pressure": 5807,
+      "different_pairs": 2599,
+      "global_scale_loss": {
+        "event": 35873.639553055305,
+        "nonevent": 6820.3152411648225,
+        "events": 6971,
+        "nonevents": 1584176,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 1591147,
+        "infinite_count": 0,
+        "finite_sum": 42693.95479422013,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.026832187594370685,
+        "mean_event_log_loss": 5.146125312445173,
+        "mean_nonevent_log_loss": 0.004305276207419392
+      },
+      "old_loss": {
+        "next": {
+          "event": 34462.482796208526,
+          "nonevent": 8369.318449916944,
+          "events": 6971,
+          "nonevents": 1584176,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1591147,
+          "infinite_count": 0,
+          "finite_sum": 42831.80124612547,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.02691882098016429,
+          "mean_event_log_loss": 4.943692841229168,
+          "mean_nonevent_log_loss": 0.0052830736293927845
+        },
+        "pooling": {
+          "event": 35860.65151854856,
+          "nonevent": 6785.544007217559,
+          "events": 6971,
+          "nonevents": 1584176,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1591147,
+          "infinite_count": 0,
+          "finite_sum": 42646.19552576612,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.02680217197139304,
+          "mean_event_log_loss": 5.144262160170501,
+          "mean_nonevent_log_loss": 0.004283327109625167
+        },
+        "no_pooling": {
+          "event": 35649.64006002575,
+          "nonevent": 6976.904653307097,
+          "events": 6971,
+          "nonevents": 1584176,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1591147,
+          "infinite_count": 0,
+          "finite_sum": 42626.54471333284,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.026789821879017364,
+          "mean_event_log_loss": 5.113992262232929,
+          "mean_nonevent_log_loss": 0.004404122176643944
+        }
+      },
+      "global_relative_to_next": -0.0032183202175698478,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -137.84645190533774,
+          "event_delta": 1411.15675684678,
+          "nonevent_delta": -1549.0032087521213
+        },
+        "pooling": {
+          "finite_total_delta": 47.75926845401409,
+          "event_delta": 12.988034506743134,
+          "nonevent_delta": 34.77123394726368
+        },
+        "no_pooling": {
+          "finite_total_delta": 67.41008088728995,
+          "event_delta": 223.99949302955793,
+          "nonevent_delta": -156.58941214227434
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 8542,
+          "min": 0.4955302698731118,
+          "max": 1.0,
+          "sum": 7011.091149167649,
+          "mean": 0.8207786407360863
+        },
+        "pair": {
+          "count": 2599,
+          "min": 0.5003750236681918,
+          "max": 0.9275934523427396,
+          "sum": 2136.4399655238676,
+          "mean": 0.8220238420638197
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 266,
+        "scale_changed": 133,
+        "both_changed": 83,
+        "own_only": 183,
+        "scale_only": 50,
+        "same_final_choice": 2366,
+        "different_final_choice": 233,
+        "fraction_own_flips_reproduced": 0.31203007518796994
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 260,
+        "scale_changed": 133,
+        "both_changed": 81,
+        "own_only": 179,
+        "scale_only": 52,
+        "same_final_choice": 2368,
+        "different_final_choice": 231,
+        "fraction_own_flips_reproduced": 0.31153846153846154
+      },
+      "changed_cross_table": [
+        2281,
+        6,
+        2,
+        177,
+        50,
+        2,
+        0,
+        81
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 266,
+          "less_write": 91,
+          "more_write": 175,
+          "same_write": 0,
+          "fewer_victims": 59,
+          "more_victims": 26,
+          "same_victims": 181,
+          "lower_excess": 91,
+          "higher_excess": 175,
+          "same_excess": 0,
+          "old_victims": 481,
+          "new_victims": 405,
+          "old_excess_bytes": 6631428017,
+          "new_excess_bytes": 39225827758,
+          "current_write_delta_us": 3840508.9832685282
+        },
+        "no_pooling": {
+          "count": 260,
+          "less_write": 90,
+          "more_write": 170,
+          "same_write": 0,
+          "fewer_victims": 54,
+          "more_victims": 26,
+          "same_victims": 180,
+          "lower_excess": 90,
+          "higher_excess": 170,
+          "same_excess": 0,
+          "old_victims": 460,
+          "new_victims": 392,
+          "old_excess_bytes": 6687031327,
+          "new_excess_bytes": 34956434613,
+          "current_write_delta_us": 3330906.478850006
+        },
+        "global_scale": {
+          "count": 133,
+          "less_write": 44,
+          "more_write": 89,
+          "same_write": 0,
+          "fewer_victims": 30,
+          "more_victims": 11,
+          "same_victims": 92,
+          "lower_excess": 44,
+          "higher_excess": 89,
+          "same_excess": 0,
+          "old_victims": 290,
+          "new_victims": 235,
+          "old_excess_bytes": 2597209526,
+          "new_excess_bytes": 23827755556,
+          "current_write_delta_us": 2501537.1780369966
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 2599,
+          "victims": 5840,
+          "excess_bytes": 57512976186,
+          "current_write_us": 53158505.485212624
+        },
+        "pooling": {
+          "count": 2599,
+          "victims": 5764,
+          "excess_bytes": 90107375927,
+          "current_write_us": 56999014.46848121
+        },
+        "no_pooling": {
+          "count": 2599,
+          "victims": 5772,
+          "excess_bytes": 85782379472,
+          "current_write_us": 56489411.96406271
+        },
+        "global_scale": {
+          "count": 2599,
+          "victims": 5785,
+          "excess_bytes": 78743522216,
+          "current_write_us": 55660042.663249575
+        }
+      },
+      "mass": {
+        "forecast_count": 8542,
+        "unknown_positions": 31128,
+        "disk_trials": 1591147,
+        "disk_mass_sum": [
+          8399.281308738371,
+          6816.026030345984,
+          7007.374394495222,
+          6850.564988011433
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 17499.926667808868,
+          "nonevent": 3383.9951612666814,
+          "events": 3304,
+          "nonevents": 845203,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        },
+        {
+          "event": 18373.712885246438,
+          "nonevent": 3436.3200798981416,
+          "events": 3667,
+          "nonevents": 738973,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    },
+    {
+      "id": "train_532_random_zipf",
+      "family": "random_zipf",
+      "probes": 45417,
+      "pressure": 810,
+      "different_pairs": 528,
+      "global_scale_loss": {
+        "event": 9048.502487020884,
+        "nonevent": 1580.3831020629234,
+        "events": 1633,
+        "nonevents": 475866,
+        "event_inf": 0,
+        "nonevent_inf": 0,
+        "clipped_trials": 0,
+        "trials": 477499,
+        "infinite_count": 0,
+        "finite_sum": 10628.885589083808,
+        "total_is_infinite": false,
+        "mean_log_loss": 0.022259492876600385,
+        "mean_event_log_loss": 5.541030304360614,
+        "mean_nonevent_log_loss": 0.0033210674897196342
+      },
+      "old_loss": {
+        "next": {
+          "event": 7528.207706981581,
+          "nonevent": 4049.311781313747,
+          "events": 1633,
+          "nonevents": 475866,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 477499,
+          "infinite_count": 0,
+          "finite_sum": 11577.51948829533,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.024246164888921923,
+          "mean_event_log_loss": 4.610047585414318,
+          "mean_nonevent_log_loss": 0.008509353013902541
+        },
+        "pooling": {
+          "event": 9143.663366610353,
+          "nonevent": 1412.8767491032809,
+          "events": 1633,
+          "nonevents": 475866,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 477499,
+          "infinite_count": 0,
+          "finite_sum": 10556.540115713635,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.022107983714549424,
+          "mean_event_log_loss": 5.599303959957351,
+          "mean_nonevent_log_loss": 0.0029690642935264987
+        },
+        "no_pooling": {
+          "event": 8826.349750931795,
+          "nonevent": 1691.8368181268252,
+          "events": 1633,
+          "nonevents": 475866,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 477499,
+          "infinite_count": 0,
+          "finite_sum": 10518.18656905862,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.02202766198266095,
+          "mean_event_log_loss": 5.404990661930064,
+          "mean_nonevent_log_loss": 0.003555279885780504
+        }
+      },
+      "global_relative_to_next": -0.0819375774033958,
+      "global_minus_old": {
+        "next": {
+          "finite_total_delta": -948.6338992115216,
+          "event_delta": 1520.2947800393022,
+          "nonevent_delta": -2468.9286792508237
+        },
+        "pooling": {
+          "finite_total_delta": 72.34547337017284,
+          "event_delta": -95.16087958946991,
+          "nonevent_delta": 167.50635295964253
+        },
+        "no_pooling": {
+          "finite_total_delta": 110.69902002518756,
+          "event_delta": 222.15273608908865,
+          "nonevent_delta": -111.45371606390177
+        }
+      },
+      "g": {
+        "forecast": {
+          "count": 4240,
+          "min": 0.15175870045981396,
+          "max": 1.0,
+          "sum": 1705.5238653365166,
+          "mean": 0.4022461946548388
+        },
+        "pair": {
+          "count": 528,
+          "min": 0.1654298773755657,
+          "max": 0.48858464926720113,
+          "sum": 214.38658843812408,
+          "mean": 0.406035205375235
+        }
+      },
+      "pooling_vs_scale": {
+        "own_changed": 80,
+        "scale_changed": 85,
+        "both_changed": 49,
+        "own_only": 31,
+        "scale_only": 36,
+        "same_final_choice": 461,
+        "different_final_choice": 67,
+        "fraction_own_flips_reproduced": 0.6125
+      },
+      "no_pooling_vs_scale": {
+        "own_changed": 76,
+        "scale_changed": 85,
+        "both_changed": 37,
+        "own_only": 39,
+        "scale_only": 48,
+        "same_final_choice": 441,
+        "different_final_choice": 87,
+        "fraction_own_flips_reproduced": 0.4868421052631579
+      },
+      "changed_cross_table": [
+        402,
+        2,
+        10,
+        29,
+        36,
+        12,
+        0,
+        37
+      ],
+      "changed_actions": {
+        "pooling": {
+          "count": 80,
+          "less_write": 20,
+          "more_write": 60,
+          "same_write": 0,
+          "fewer_victims": 17,
+          "more_victims": 10,
+          "same_victims": 53,
+          "lower_excess": 20,
+          "higher_excess": 60,
+          "same_excess": 0,
+          "old_victims": 224,
+          "new_victims": 198,
+          "old_excess_bytes": 4127875372,
+          "new_excess_bytes": 11832350758,
+          "current_write_delta_us": 1722055.2941439424
+        },
+        "no_pooling": {
+          "count": 76,
+          "less_write": 15,
+          "more_write": 61,
+          "same_write": 0,
+          "fewer_victims": 20,
+          "more_victims": 7,
+          "same_victims": 49,
+          "lower_excess": 15,
+          "higher_excess": 61,
+          "same_excess": 0,
+          "old_victims": 227,
+          "new_victims": 189,
+          "old_excess_bytes": 3820936198,
+          "new_excess_bytes": 9767791028,
+          "current_write_delta_us": 1329203.1358962895
+        },
+        "global_scale": {
+          "count": 85,
+          "less_write": 12,
+          "more_write": 73,
+          "same_write": 0,
+          "fewer_victims": 17,
+          "more_victims": 12,
+          "same_victims": 56,
+          "lower_excess": 12,
+          "higher_excess": 73,
+          "same_excess": 0,
+          "old_victims": 183,
+          "new_victims": 182,
+          "old_excess_bytes": 3271645027,
+          "new_excess_bytes": 11055814246,
+          "current_write_delta_us": 1739867.9523915953
+        }
+      },
+      "selected_sets": {
+        "next": {
+          "count": 528,
+          "victims": 1506,
+          "excess_bytes": 19889252781,
+          "current_write_us": 60730261.02101017
+        },
+        "pooling": {
+          "count": 528,
+          "victims": 1480,
+          "excess_bytes": 27593728167,
+          "current_write_us": 62452316.31515413
+        },
+        "no_pooling": {
+          "count": 528,
+          "victims": 1468,
+          "excess_bytes": 25836107611,
+          "current_write_us": 62059464.15690647
+        },
+        "global_scale": {
+          "count": 528,
+          "victims": 1505,
+          "excess_bytes": 27673422000,
+          "current_write_us": 62470128.97340177
+        }
+      },
+      "mass": {
+        "forecast_count": 4240,
+        "unknown_positions": 40923,
+        "disk_trials": 477499,
+        "disk_mass_sum": [
+          4047.1285050869674,
+          1418.0558254090276,
+          1697.00719503818,
+          1584.6649415885263
+        ]
+      },
+      "global_scale_loss_by_operator": [
+        {
+          "event": 9048.502487020884,
+          "nonevent": 1580.3831020629234,
+          "events": 1633,
+          "nonevents": 475866,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0
+        }
+      ]
+    }
+  ],
+  "scope": "One past-only global scale; not exact mass matching, no closed-loop gains, no threshold or configuration search."
+}

@@ -1,0 +1,59 @@
+{
+  "scope": "authorized finite two-continuation opportunity; no EM/training/dev/eval",
+  "files": {
+    "NEXT_ACTION_OPPORTUNITY_PLAN_V1.md": "5df237c158f6d4247eeb9381bf6fd86759dbb661880ad2f505d80b321a5ea27d",
+    "NEXT_ACTION_EXECUTION_CONTRACT_V1.md": "5e735067540b6f4b0f62cad2a0d384dce8560d8a069e11ecc1ab87ac68ca202b",
+    "NEXT_ACTION_OPPORTUNITY_PROPOSAL_V1.json": "0c076e5cd79c6465a93acbe59202a99371b625ca257de52ef86105b3e4a59e5d",
+    "freeze_next_action_proposal_v1.py": "14644f450c64eaf74b7f8d198dd419dbb07f7decf6fd65bbcf10ffaf9bcd2980",
+    "next_action_teacher_v1.cpp": "cdb233686cdd67262361dacea5ccdc5940a07a346f1198d730b8d48699116d9e",
+    "audit_next_action_v1.py": "24c23de9f0a51635652190c4ee9907d37364342a8770b0797967d1f960650cb9",
+    "run_next_action_v1.py": "eebd497e7af236b59400d24d1ed5ee20036920d1b6c26158973c02433b162bcb"
+  },
+  "paired100_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+  "official_reference_sha256": "464a542ad56f0b81ebad23371846a705c202c4461589a5f37d65af5a65c99d69",
+  "official_declarations_sha256": "5cc4393673b62f52e67c6342936f46827450988fad638e61885eb64bc93c597b",
+  "generated_source_sha256": "4a5e7be13855bad6e507a0dc6b4b2866dd39a892f12ef7d90be6db6a78717653",
+  "source_insertions": [
+    [
+      "class NAPolicy : public SpillScheduler {",
+      "class NAPolicy : public SpillScheduler {\n    NAChoice na_choice_;int na_continuation_=0;int64_t na_miss_calls_=0;"
+    ],
+    [
+      "        ++paired_checks_;",
+      "        na_choice_.eligible=true;na_choice_.history=actions;na_choice_.dynamic=alternative;\n        ++paired_checks_;"
+    ],
+    [
+      "        if(!different)return;",
+      "        na_choice_.different=different;na_choice_.immediate=immediate;na_choice_.mean=mean;\n        if(!different)return;"
+    ],
+    [
+      "        if(immediate+64.0*mean+2.0*sd>=0)return;",
+      "        na_choice_.sd=sd;na_choice_.effective=effective;na_choice_.margin=immediate+64.0*mean+2.0*sd;\n        if(immediate+64.0*mean+2.0*sd>=0 && na_continuation_!=1)return;"
+    ],
+    [
+      "        actions.swap(alternative);++paired_chosen_;",
+      "        na_choice_.chosen=true;actions.swap(alternative);++paired_chosen_;"
+    ],
+    [
+      "public:\n    std::vector<Action> onMemoryOverflow",
+      "public:\n    const NAChoice& choice()const{return na_choice_;}\n    void continuation(int mode){na_continuation_=mode;}\n    std::string summary()const{\n        std::ostringstream o;o<<std::setprecision(17)<<\"{\\\"miss_calls\\\":\"<<na_miss_calls_<<\",\\\"continuation\\\":\"<<na_continuation_\n          <<\",\\\"sample_q\\\":\"<<sample_q_<<\",\\\"sample_total\\\":\"<<sample_total_<<\",\\\"sample_squares\\\":\"<<sample_squares_\n          <<\",\\\"observed_q\\\":\"<<observed_q_<<\",\\\"observed_count\\\":\"<<observed_count_<<\",\\\"cycle\\\":\"<<uniform_cycle_<<\",\\\"streak\\\":\"<<streak_<<\"}\";return o.str();\n    }\n    std::vector<Action> onMemoryOverflow"
+    ],
+    [
+      "        active_ = true; update(s);",
+      "        na_choice_=NAChoice{};active_ = true; update(s);"
+    ],
+    [
+      "        active_ = true; update(s,op,pid);",
+      "        na_choice_=NAChoice{};++na_miss_calls_;active_ = true; update(s,op,pid);"
+    ],
+    [
+      "        std::vector<Action> a;\n        update(s); sampleNext(s,1);",
+      "        na_choice_=NAChoice{};std::vector<Action> a;\n        update(s); sampleNext(s,1);"
+    ]
+  ],
+  "phase_a_final_freeze_sha256": "1db4a420ba60c4f1eab1cda4b44167b9cab0a6af5b5bbe72ce9b553d90f4aed0",
+  "dataset_lock_sha256": "79e1f003fe808ea1380a7cd1bc679cb0ebccb75718fd0a485115e108472e0b08",
+  "independent_parser_sha256": "9c83b075ab092a3711ec4aeee7a3eeec242bb8cacfced864f5f067b6eb8c9b01",
+  "branches": 260,
+  "collector_prefixes": 23
+}

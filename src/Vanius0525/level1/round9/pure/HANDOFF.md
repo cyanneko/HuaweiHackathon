@@ -2,6 +2,12 @@
 
 ## 最新状态（优先于以下历史阶段）
 
+缩放归因 12/12 完整结束，session1052 exit0，原三模型/全部 pair 复核、原14文件保持。正式 `RETURN_RISK_SCALE_REVIEW_V1.md` 与 12文件 FINAL_FREEZE 完成。global-scale 流均 log loss −1.3319%，与pool/flat接近，6/12胜pool、7/12胜flat；却仅复现8.76%/8.30%的pool/flat动作改变。尚无稳定逐分区预测优势或动作收益证据，不晋升、不继续加热度模型。所有新solver为0、无运行进程。
+
+主agent已安排AI执行24seed共同状态/两原动作/两teacher及4096/8192续接，故纯线不重复新rollout/集合诊断。下一授权转为只读BUILD研究：核查最大对象/增长份额/最终保留集合是否已有可信同骨架负结果，复用root60成本分项定位机会；比较原BUILD和官方Naive最大对象写法，设计保持PROBE paired100完全不变、只改BUILD的一个最小对照。暂不新solver、dev/eval或训练，不改变已完成冻结件。
+
+唯一 past-only 全局缩放离线归因已获批，`RETURN_RISK_SCALE_CONTRACT_V1.md` 和 6 文件实现冻结，BUILD_FREEZE SHA `bb937a4fa474f4cf2c37db1bfbcdb4c8dd7725a3d945b5d46a052aad60b5ddfe`。原 14 文件全不变，原 12 输入/observer stderr 已绑定。当前命令 `python src/Vanius0525/level1/round9/pure/run_return_risk_scale_v1.py` 已启动，按 case 公共锁纯 Python 重放；新增 solver=0。逐一重新核对原三模型，新增 g=(1+ΣD)/(1+ΣZ) 的事前评分与共同状态交集/受害者数/超额释放。不把离线耗时当独占性能（root提示可能存在 Git maintenance）。
+
 Return-risk 正式报告 `RETURN_RISK_REVIEW_V1.md`、汇总及 14 文件最终冻结均完成，FINAL_FREEZE SHA `4ab35b60c41a798da968491feb9a2997f945b3441b9e274c9274fe76d5a9f5a9`。pooling 10/12 流比 no-pooling 差；改变的 15,151 个影子决定中 10,398 当前更多写，4,753 更少写，不能提前解释为“只是少写”。当前无 solver/审核进程。已提出 `RETURN_RISK_SCALE_PLAN_V1.md`：复用原 12 流完整合法轨迹，新增唯一 past-only 全局 g=(1+ΣD)/(1+ΣZ) 缩放，先审阅再离线复算，不新 solver、不闭环、不扫温度。
 
 Return-risk 100 影子完成，session 37609 exit0：12 train + 5 协议共 22 新 100 solver，复用 12 训练基线，全 TRACE/精确字节/独立两本账/全部 pair 比较/序贯评分通过。train 共 1,477,503 PROBE，307,328 pressure、183,238 不同 pair，pooling 改变影子选择 15,151（8.27% pair / 4.93% pressure）。流均相对 log loss：pooling −1.408%（8好/4坏），no-pooling −1.442%（9好/3坏）；无无限 loss。但 pooling 的 event 分项在 11/12 流更差，改善来自多数 non-event 项，算子池化也未稳定胜过无池化。不能将其叫更好保护热点或闭环收益。正在写正式分解/停止建议，当前无运行 solver。固定对象 20,440 B，总统计 CPU 6.293 秒、wall 8.314 秒；总 h 最大 1.601，明确不是归一化 p。

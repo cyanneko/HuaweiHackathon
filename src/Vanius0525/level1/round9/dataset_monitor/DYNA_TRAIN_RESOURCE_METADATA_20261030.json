@@ -1,0 +1,684 @@
+{
+  "observed_utc": "2026-10-30T09:14:33.109016+00:00",
+  "dataset_id": "dyna_dataset",
+  "version": "1.0.0",
+  "inspected_commit": "0f3000f015d8ef96b9a1e45a75b0672fcbf97925",
+  "fixed_dataset_tree": "808ce8b11f57a1a96051f22aa572eceb82b1fba0",
+  "initial_published_commit": "28db22e42d710755cee793d480cecac4f45a510e",
+  "main_v21_lock_sha256": "79e1f003fe808ea1380a7cd1bc679cb0ebccb75718fd0a485115e108472e0b08",
+  "metadata_sha256": {
+    "manifest.json": "2ddcec4fd7ce5b7f37e92bb850a24abf66a5769de55cb543854ae412f035d038",
+    "publication_manifest.json": "8bfeabdbc6bf6ec6729ae2cc83cb07cc055e242daff7b954b7d37e2df7bc0244",
+    "dataset.json": "4ff12f2e8f6441c2a4040535c4782ede6cd7b7adde6340a7a1702701091206cf",
+    "audit/report.json": "08f70e04edebbffcd2ad5eb780c8c27c52116a70e8b0253daa793343ba292029",
+    "source/README.md": "458ac221317bf63ff0b03ecc249046271331dfe3f06171ca3692bb4f1606e725",
+    "source/config.json": "00b5a6f009f3c8c32c27df7feb611023b5a85db95b5c8e4f3afa35a173797962"
+  },
+  "train_cases": [
+    {
+      "case_id": "train_slow_shared_01",
+      "split": "train",
+      "parameters": {
+        "n": 5000000,
+        "k": 4,
+        "p": 32,
+        "memory": 67108864,
+        "pressure": 1.5,
+        "build-fraction": 0.2,
+        "period": 127,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "hot",
+        "seed": 202610307101,
+        "profile": "slow",
+        "phase": "shared"
+      },
+      "raw_input_sha256": "450ef4467b69add26999b54684fe106d2c197a2f235881a961fdd8e0dfc7121c",
+      "raw_input_bytes_from_manifest": 93956711,
+      "published_raw_input_blob": null,
+      "archive_path": "dyna_dataset/archives/train_slow_shared_01.txt.gz",
+      "archive_sha256": "4d280220dc1f8ce676847e4d55a15251da4cae0912eb84cebd4aa2574faf72a2",
+      "archive_bytes": 29971113,
+      "archive_git_blob_oid": "2a9e5acbb93b1a35e6c679abd85dda2346818d2d",
+      "archive_blob_present_locally": true,
+      "archive_local_object_size": 29971113,
+      "manifest_parameter_ranges_valid": {
+        "K": true,
+        "P": true,
+        "N": true,
+        "M": true,
+        "W_R": true,
+        "penalty": true,
+        "B": true
+      },
+      "publisher_audit": {
+        "valid": true,
+        "metadata_and_windows_match": true,
+        "actual_pressure": 1.4999683648347855,
+        "max_partition_fraction_of_M": 0.23257862031459808,
+        "build_counts": [
+          223430,
+          234153,
+          247061,
+          295355
+        ],
+        "probe_counts": [
+          959694,
+          948753,
+          1158439,
+          933111
+        ],
+        "build_shares": [
+          0.22343022343022342,
+          0.23415323415323416,
+          0.24706124706124707,
+          0.29535529535529537
+        ],
+        "probe_shares": [
+          0.23992367994275995,
+          0.2371884278913209,
+          0.2896099672074754,
+          0.2332779249584437
+        ],
+        "operator_mean_l1_step_per_global_operation": 9.575916281843459e-05,
+        "partition_regimes": [
+          "normal",
+          "normal",
+          "normal",
+          "rare_hot"
+        ],
+        "rare_partition_details": [
+          {
+            "op": 3,
+            "regime": "rare_hot",
+            "local_visits": 1228466,
+            "mean_probability_l1_per_local_update": 8.457606303284124e-07,
+            "q_l1_per_local_update_over_operator_l1_per_global_update": 0.008832163998050275,
+            "rare_pid": 29,
+            "target_probability": 0.5258202439518322,
+            "initial_probability": 0.5258202439518322,
+            "insert_count": 155310,
+            "probe_count": 490549,
+            "bytes": 15608087,
+            "fraction_of_memory": 0.23257862031459808
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "train_slow_staggered_02",
+      "split": "train",
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 268435456,
+        "pressure": 6,
+        "build-fraction": 0.35,
+        "period": 127,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307102,
+        "profile": "slow",
+        "phase": "staggered"
+      },
+      "raw_input_sha256": "de7ac3e3621bcc6ef9560ee6ec0f6e07b69ed707df98f6fd9cc4a1546d06646b",
+      "raw_input_bytes_from_manifest": 98919691,
+      "published_raw_input_blob": null,
+      "archive_path": "dyna_dataset/archives/train_slow_staggered_02.txt.gz",
+      "archive_sha256": "fbd22b520f3141e9a114faf7b8db77e56995c27027a6b648406b60e0bb4a27c1",
+      "archive_bytes": 33279540,
+      "archive_git_blob_oid": "54ff1ec4cb198ca52038b17290eacd33a8c889a3",
+      "archive_blob_present_locally": true,
+      "archive_local_object_size": 33279540,
+      "manifest_parameter_ranges_valid": {
+        "K": true,
+        "P": true,
+        "N": true,
+        "M": true,
+        "W_R": true,
+        "penalty": true,
+        "B": true
+      },
+      "publisher_audit": {
+        "valid": true,
+        "metadata_and_windows_match": true,
+        "actual_pressure": 5.988268584012985,
+        "max_partition_fraction_of_M": 0.015605293214321136,
+        "build_counts": [
+          231920,
+          219823,
+          153633,
+          222216,
+          280686,
+          188070,
+          250297,
+          204448
+        ],
+        "probe_counts": [
+          441374,
+          367733,
+          436628,
+          413412,
+          380752,
+          421290,
+          424879,
+          362831
+        ],
+        "build_shares": [
+          0.13244299417563773,
+          0.12553473744684035,
+          0.08773548863481266,
+          0.12690131249453912,
+          0.16029188626760543,
+          0.1074014915255786,
+          0.142937582412813,
+          0.11675450704217309
+        ],
+        "probe_shares": [
+          0.1358534075697644,
+          0.11318695964386705,
+          0.1343926050024947,
+          0.1272467996081134,
+          0.1171941633150184,
+          0.12967162106301242,
+          0.13077630298756593,
+          0.1116781408101637
+        ],
+        "operator_mean_l1_step_per_global_operation": 0.00019036208520830614,
+        "partition_regimes": [
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal"
+        ],
+        "rare_partition_details": []
+      }
+    },
+    {
+      "case_id": "train_fast_shared_03",
+      "split": "train",
+      "parameters": {
+        "n": 5000000,
+        "k": 2,
+        "p": 64,
+        "memory": 268435456,
+        "pressure": 3,
+        "build-fraction": 0.3,
+        "period": 31,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307103,
+        "profile": "fast",
+        "phase": "shared"
+      },
+      "raw_input_sha256": "572297ce49b732d7c04f36201860db1ad9b53b3576d49421441501e53d2a3b0e",
+      "raw_input_bytes_from_manifest": 96943735,
+      "published_raw_input_blob": null,
+      "archive_path": "dyna_dataset/archives/train_fast_shared_03.txt.gz",
+      "archive_sha256": "72b026bc9ceef4e1e064df360af8646c5360359c1693b22bfbb0f456b14fe940",
+      "archive_bytes": 30775682,
+      "archive_git_blob_oid": "970a25f426d370f2f9017ec0a1569787f6d510fd",
+      "archive_blob_present_locally": true,
+      "archive_local_object_size": 30775682,
+      "manifest_parameter_ranges_valid": {
+        "K": true,
+        "P": true,
+        "N": true,
+        "M": true,
+        "W_R": true,
+        "penalty": true,
+        "B": true
+      },
+      "publisher_audit": {
+        "valid": true,
+        "metadata_and_windows_match": true,
+        "actual_pressure": 2.9999898597598076,
+        "max_partition_fraction_of_M": 0.02502933144569397,
+        "build_counts": [
+          780134,
+          719865
+        ],
+        "probe_counts": [
+          1637640,
+          1862359
+        ],
+        "build_shares": [
+          0.5200896800597867,
+          0.47991031994021327
+        ],
+        "probe_shares": [
+          0.467897276542079,
+          0.532102723457921
+        ],
+        "operator_mean_l1_step_per_global_operation": 0.0005307047745802938,
+        "partition_regimes": [
+          "normal",
+          "normal"
+        ],
+        "rare_partition_details": []
+      }
+    },
+    {
+      "case_id": "train_fast_staggered_04",
+      "split": "train",
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "pressure": 12,
+        "build-fraction": 0.4,
+        "period": 31,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307104,
+        "profile": "fast",
+        "phase": "staggered"
+      },
+      "raw_input_sha256": "50464251e93169c4b4b57b352f2a864901cca736ec586412a3ffadcd70b5247c",
+      "raw_input_bytes_from_manifest": 101639668,
+      "published_raw_input_blob": null,
+      "archive_path": "dyna_dataset/archives/train_fast_staggered_04.txt.gz",
+      "archive_sha256": "857c0f6e194ca3ef3a8a9dd756f7f32fc58fde4137d41642ddfc6cb54026cbf3",
+      "archive_bytes": 35055660,
+      "archive_git_blob_oid": "08e32a19f90fd5aa22c7e5d2ecf0e67304051141",
+      "archive_blob_present_locally": true,
+      "archive_local_object_size": 35055660,
+      "manifest_parameter_ranges_valid": {
+        "K": true,
+        "P": true,
+        "N": true,
+        "M": true,
+        "W_R": true,
+        "penalty": true,
+        "B": true
+      },
+      "publisher_audit": {
+        "valid": true,
+        "metadata_and_windows_match": true,
+        "actual_pressure": 11.919907814823091,
+        "max_partition_fraction_of_M": 0.03039598371833563,
+        "build_counts": [
+          284194,
+          211004,
+          307521,
+          199244,
+          279898,
+          201423,
+          226802,
+          322452
+        ],
+        "probe_counts": [
+          354038,
+          381008,
+          330494,
+          417605,
+          364385,
+          409517,
+          413794,
+          296613
+        ],
+        "build_shares": [
+          0.1398222321058696,
+          0.10381306524158466,
+          0.15129901630375422,
+          0.09802719555550744,
+          0.13770861848585364,
+          0.0990992542328852,
+          0.11158561365150368,
+          0.15864500442304152
+        ],
+        "probe_shares": [
+          0.1193069884149847,
+          0.12839558759798805,
+          0.11137291428948856,
+          0.14072838197323362,
+          0.12279381584348065,
+          0.13800281318598367,
+          0.13944411606717408,
+          0.09995538262766668
+        ],
+        "operator_mean_l1_step_per_global_operation": 0.0027469227011871675,
+        "partition_regimes": [
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal"
+        ],
+        "rare_partition_details": []
+      }
+    },
+    {
+      "case_id": "train_burst_shared_05",
+      "split": "train",
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "pressure": 6,
+        "build-fraction": 0.35,
+        "period": 1000,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307105,
+        "profile": "burst",
+        "phase": "shared"
+      },
+      "raw_input_sha256": "a9f4099282c63b346709483da683640bf1023581179a150029b9ae96c67342af",
+      "raw_input_bytes_from_manifest": 99946138,
+      "published_raw_input_blob": null,
+      "archive_path": "dyna_dataset/archives/train_burst_shared_05.txt.gz",
+      "archive_sha256": "b0fd4a8a3a91f392092706f7aac2751427b9f6cb46ca8edd62127092bd13373b",
+      "archive_bytes": 33708511,
+      "archive_git_blob_oid": "51f3be53f9ba60ae65746ed765a5b1adb3955894",
+      "archive_blob_present_locally": true,
+      "archive_local_object_size": 33708511,
+      "manifest_parameter_ranges_valid": {
+        "K": true,
+        "P": true,
+        "N": true,
+        "M": true,
+        "W_R": true,
+        "penalty": true,
+        "B": true
+      },
+      "publisher_audit": {
+        "valid": true,
+        "metadata_and_windows_match": true,
+        "actual_pressure": 6.000838254578412,
+        "max_partition_fraction_of_M": 0.029553632251918316,
+        "build_counts": [
+          132210,
+          167886,
+          132998,
+          222884,
+          145563,
+          246955,
+          167526,
+          533977
+        ],
+        "probe_counts": [
+          569305,
+          357730,
+          568862,
+          433998,
+          297052,
+          362333,
+          354799,
+          305914
+        ],
+        "build_shares": [
+          0.07554861459920834,
+          0.09593491196280683,
+          0.07599890057080033,
+          0.12736235849277627,
+          0.08317890467365982,
+          0.14111722349555628,
+          0.09572919755954146,
+          0.30512988864565066
+        ],
+        "probe_shares": [
+          0.17517114652246943,
+          0.11007100630678282,
+          0.1750348385365753,
+          0.13353813377444199,
+          0.09140081224790331,
+          0.11148731704960595,
+          0.10916915821049461,
+          0.0941275873517266
+        ],
+        "operator_mean_l1_step_per_global_operation": 4.6087183472867556e-05,
+        "partition_regimes": [
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal",
+          "normal"
+        ],
+        "rare_partition_details": []
+      }
+    },
+    {
+      "case_id": "train_burst_staggered_06",
+      "split": "train",
+      "parameters": {
+        "n": 5000000,
+        "k": 4,
+        "p": 64,
+        "memory": 67108864,
+        "pressure": 3,
+        "build-fraction": 0.2,
+        "period": 1000,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307106,
+        "profile": "burst",
+        "phase": "staggered"
+      },
+      "raw_input_sha256": "b2c0134d67da7c3b6d35ac6ef9c653bdbd8e437e24988ba274cf1e0560179b79",
+      "raw_input_bytes_from_manifest": 94717407,
+      "published_raw_input_blob": null,
+      "archive_path": "dyna_dataset/archives/train_burst_staggered_06.txt.gz",
+      "archive_sha256": "52d9e322fb014be20fb9a7d66cac60d69ad2d8a8da6b4259e115f144a6e8f7a4",
+      "archive_bytes": 30340424,
+      "archive_git_blob_oid": "2b23f37a7bf64ca9592f5aaee317f89830799368",
+      "archive_blob_present_locally": true,
+      "archive_local_object_size": 30340424,
+      "manifest_parameter_ranges_valid": {
+        "K": true,
+        "P": true,
+        "N": true,
+        "M": true,
+        "W_R": true,
+        "penalty": true,
+        "B": true
+      },
+      "publisher_audit": {
+        "valid": true,
+        "metadata_and_windows_match": true,
+        "actual_pressure": 3.0548744797706604,
+        "max_partition_fraction_of_M": 0.019282102584838867,
+        "build_counts": [
+          381580,
+          413388,
+          112399,
+          150640
+        ],
+        "probe_counts": [
+          825830,
+          1813680,
+          472015,
+          830464
+        ],
+        "build_shares": [
+          0.36065923949463474,
+          0.39072331279471684,
+          0.10623653718737211,
+          0.1423809105232763
+        ],
+        "probe_shares": [
+          0.20949576470152503,
+          0.46009260807171204,
+          0.11974031383649218,
+          0.21067131339027076
+        ],
+        "operator_mean_l1_step_per_global_operation": 2.213140888766394e-05,
+        "partition_regimes": [
+          "normal",
+          "normal",
+          "normal",
+          "normal"
+        ],
+        "rare_partition_details": []
+      }
+    }
+  ],
+  "totals": {
+    "cases": 6,
+    "independent_base_seeds": 6,
+    "operations": 30000000,
+    "raw_bytes_from_manifest": 586123350,
+    "gzip_bytes": 193130930,
+    "local_gzip_objects": 6,
+    "missing_gzip_objects": 0,
+    "published_raw_txt_blobs": 0
+  },
+  "split_counts": {
+    "train": 6,
+    "dev": 3,
+    "holdout": 3
+  },
+  "metadata_only_cross_split_checks": {
+    "final_train": {
+      "cases": 432,
+      "seed_overlap": [],
+      "exact_input_sha_overlap": 0
+    },
+    "final_dev": {
+      "cases": 108,
+      "seed_overlap": [],
+      "exact_input_sha_overlap": 0
+    },
+    "final_eval": {
+      "cases": 72,
+      "seed_overlap": [],
+      "exact_input_sha_overlap": 0
+    },
+    "dyna_dev": {
+      "cases": 3,
+      "seed_overlap": [],
+      "exact_input_sha_overlap": 0
+    },
+    "dyna_holdout": {
+      "cases": 3,
+      "seed_overlap": [],
+      "exact_input_sha_overlap": 0
+    }
+  },
+  "r71_lineage": "R71 v1/v2 use same base seeds and splits; revisions are not independent samples",
+  "mode_counts": {
+    "profile": {
+      "slow": 2,
+      "fast": 2,
+      "burst": 2
+    },
+    "phase": {
+      "shared": 3,
+      "staggered": 3
+    },
+    "rare": {
+      "hot": 1,
+      "none": 5
+    }
+  },
+  "phase_contract": {
+    "shared": "Common global threshold; all INSERT operations precede threshold. SWITCH and PROBE can interleave afterward, but actual INSERT/PROBE overlap does not follow from lack of barrier.",
+    "staggered": "Different randomized per-operator thresholds permit INSERT and PROBE interleaving. Exact observed overlap duration/count was not independently established from inputs."
+  },
+  "heat_contract": "Operator probabilities evolve every global operation. Ordinary within-operator partition probabilities remain near-uniform under a bounded slow local-clock process; only train01 has persistent rare_hot. This supplements dynamic cross-operator allocation/large-N testing rather than replacing skewed final_dataset.",
+  "limitations": [
+    "No raw input or compressed archive contents read/decompressed. Local blob presence/size is not content SHA revalidation.",
+    "Publisher validity and capacity figures are metadata evidence, not monitor input replay.",
+    "Dev/holdout comparisons use existing shared manifest seed/hash fields only; their input contents, per-case sidecars and algorithm scores were not accessed.",
+    "Distinct numeric seeds and exact raw hashes do not prove semantic independence; R71 revisions reuse seeds; R73 small cases share IDs but their read identity file omits seeds, so lineage is conservatively unresolved.",
+    "Fixed W/R/penalty100/80/100 and only6 independent train streams limit generalization; exact expected scoring gains are unknown.",
+    "Offline probability windows/metadata are not legal online scheduler features."
+  ],
+  "small_metadata_fetch_issue": {
+    "requested_only_six_train_json_blobs_declared_total_bytes": 140367,
+    "result": "Explicit blob fetch failed with bad revision; all six remain missing by no-lazy-fetch check. No retry or raw/archive request. Existing fixed publisher audit used instead."
+  },
+  "main_dataset_lock_changed": false,
+  "solver_or_training_started": false,
+  "input_bytes_downloaded_by_this_check": 0,
+  "r73_smoke_relation": {
+    "shared_case_ids": [
+      {
+        "case_id": "train_slow_shared_01",
+        "group": "r72_smoke",
+        "seed_present": false,
+        "raw_sha256_differs_from_full": true
+      },
+      {
+        "case_id": "train_slow_staggered_02",
+        "group": "r72_smoke",
+        "seed_present": false,
+        "raw_sha256_differs_from_full": true
+      },
+      {
+        "case_id": "train_fast_shared_03",
+        "group": "r72_smoke",
+        "seed_present": false,
+        "raw_sha256_differs_from_full": true
+      },
+      {
+        "case_id": "train_fast_staggered_04",
+        "group": "r72_smoke",
+        "seed_present": false,
+        "raw_sha256_differs_from_full": true
+      },
+      {
+        "case_id": "train_burst_shared_05",
+        "group": "r72_smoke",
+        "seed_present": false,
+        "raw_sha256_differs_from_full": true
+      },
+      {
+        "case_id": "train_burst_staggered_06",
+        "group": "r72_smoke",
+        "seed_present": false,
+        "raw_sha256_differs_from_full": true
+      }
+    ],
+    "source_identity_sha256": "f6d11e798a92c3b6f3094b992684e4b6fc9de87db26ab86638745b786ab0618e",
+    "interpretation": "Six same case IDs are archived as R72 smoke. That identity file omits their seeds, so no numeric-seed equivalence was established from this file; do not treat them as proven independent or literal prefixes. No R73 method scores read."
+  }
+}

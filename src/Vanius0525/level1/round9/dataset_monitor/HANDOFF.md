@@ -10,6 +10,8 @@
 - 历史基线：`final_dataset 2.0.0@33ab5af221069fe8b8832fd77e85563e9997633a`。Round8成绩只属于旧集。
 
 ## 当前状态
+09:01 UTC主agent报告算法阶段已发布`3c5f440`，包含最新0f3000小元数据快照及维护观察报告，live STATUS/CHECKS未纳入。主2.1数据锁不变。主agent的该次commit也出现自动packing提示，已由其记录于发布receipt/HANDOFF；这不是本监测独立进程审计结果，也不据此作独占性能声明。监测继续既定只读轮询，后续fetch显式关闭自动维护。
+
 08:40:09 UTC远端最新为`0f3000f015d8ef96b9a1e45a75b0672fcbf97925`。自c332以来，final_dataset与dyna_dataset整树都未变化；后续仅加入独立R73/R74、R75开发归档和报告链接。主agent阶段已提交推送`63b2ec3`，允许继续更新本live交接；阶段发布哈希针对该提交快照，不限制后续实时文档更新。
 
 08:00:26 UTC远端推进到`cbca7d31323425c89573bd781941b300cc326c05`；08:03核查其父为c332，final_dataset与dyna_dataset整个tree均与c332相同。新增内容只属独立R73/R74开发诊断归档，主72/推荐540划分不变。主agent已冻结`V21_DATASET_LOCK.json`（SHA前缀79e1f003），固定公开c332及自有42fbd输入快照；其独立`V21_RELEASE_EQUIVALENCE.json`证明42fbd与c332的输入子树及核心元数据相同、仅final README改变，不能说这两个提交整个final tree相同。
@@ -69,6 +71,15 @@
 - 716c只更新`docs/PUBLISHED_R73_R74_20261030.json`与`docs/R73_R74_RESULTS_20261030.md`；只看文件路径，不读新成绩。所有数据树和根README相同。见`UPDATE_716c642f44f9.json`。
 - 0bedef增加`experiments/r75_development_20261030`1.0.0：8新seed各200008操作，其中04/06另有同seed500万操作版，共10输入但8独立seed。原始233,177,345字节、压缩78,115,427字节；只读取58,164字节小元数据。两种规模的阶段阈值和tuple大小按N重算，不是简单文本延长。明确已用于开发、不是untouched holdout、不入默认suite；配对不能跨split。未读输入/成绩，未独立重验合法性。见`UPDATE_0bedef702d88.json`。
 - 0f3000只更新`docs/PUBLISHED_R75_20261030.json`与`docs/R75_RESULTS_20261030.md`，所有数据树不变。只检查目录身份与文件名，不读取报告成绩；主数据锁继续有效。见`UPDATE_0f3000f015d8.json`。
+
+## dyna六条5M训练资源补充核查
+- 按主agent新增要求完成元数据核查，固定报告`DYNA_TRAIN_RESOURCE_METADATA_20261030.json`（SHA2637969f04eafccdcad754ba440486e1f0e05c15bbbc652a8055353704f81bf6），主2.1锁未变。6例各5M操作，原始声明586,123,350字节、gzip193,130,930字节；发布树没有原始.txt，只存gzip。
+- 六个gzip Git blob已在本地，使用有效的`GIT_NO_LAZY_FETCH=1`逐对象查询大小并与manifest一致；未读取/解压内容，不能用对象存在/大小冒充原始SHA重验。Git二进制包含该环境变量标记，缺失小sidecar查询也实际返回missing而未惰性拉取。
+- train6 seed为202610307101–106，与主lock train432/dev108/eval72及dyna dev3/holdout3的seed/原始SHA交集均0；后两者只比较共享manifest字段，不读其输入/sidecar/成绩。数字种子不同及精确哈希不同不证明语义独立。R71v1/v2复用同seed；R73存在6个同名小例，但其已读identity文件未列seed，亲缘不能仅凭名字断言为独立或原文前缀。
+- slow/fast/burst各2，shared/staggered各3。普通算子内分区近均匀且缓慢变化，只有train01有持久热分区；主要补动态算子分配和大N，不能替代原倾斜主集。W/R/penalty固定100/80/100、仅6个seed，泛化范围有限。
+- shared共有阈值之前全为INSERT，之后可能SWITCH/PROBE交错，但并不产生实际INSERT/PROBE交叠；staggered不同阈值允许二者交叠，具体实际跨度尚未从输入独立核查。
+- publisher审核记录六例均合法，最大分区/M依次0.23258、0.01561、0.02503、0.03040、0.02955、0.01928；本监测只引用其训练元数据，未重放输入。train05的op7约占BUILD次数30.5%、PROBE次数9.4%，可作为“增长不等于热度”的诊断证据，不能将离线统计直接作为线上特征。
+- 六个训练细sidecar本地缺失，已知共140,367字节的显式小blob fetch报bad revision、结束后仍missing；未重试，改用已有固定audit汇总。没有请求/获取原始输入或归档；未启动solver或训练。
 
 ## 计时旁证
 `GENERATION_TIME_EVIDENCE.json`记录：Round8 final50账本开始06:15:50 UTC、结果文件mtime06:22:41；新expansion计划mtime06:32:45、最早新增sidecar06:32:58。未见本批新增生成与该终检窗口重叠，但selection文件06:17:47修改，更早整理/审核或其他CPU活动无法由mtime排除。没有据此声称宿主独占。

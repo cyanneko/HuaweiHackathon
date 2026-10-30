@@ -1,5 +1,18 @@
-# 最新：两路observer完成，继续归因与AI续接标签设计（2026-10-30）
+# 最新：缩放与双续接均完成，BUILD单因素与导出链继续（2026-10-30）
 
+- 上一goal turn为progress：完成并推送3c5f440。本轮继续产生实证：纯12流缩放、AI260分支、独立30M输入审核均完成；持续目标active，无阻塞，不重复已完成命令。
+- pure缩放session1052已exit0，12流原三模型与183,238 pair复核通过，原14件不变。global流均log loss改善1.3319%，pool/flat约1.408/1.442%，无稳定partition-specific优势；只复现pool动作改变8.76%，也不代表其余有收益。RETURN_RISK_SCALE_REVIEW/SUMMARY/FINAL_FREEZE完成，root独立核对最终12件SHA。
+- AI双续接session43074已exit0，23collector、65完整状态、260分支及两个真实PROBE端点全过；C0原动作TRACE完全一致。稳定H11/10seed、D16/12seed，34不确定、4全零；人口加权C0/4096对fixed-D仍−0.006538Q，预定门槛未全通过，不训练、不改口径。5删失层占13.40%分歧人口，其贡献未知。NEXT_ACTION_REVIEW/SUMMARY/FINAL_FREEZE完成，root独立核对13件SHA；不是任意选择器的严格上界，不证明AI总体无效。
+- pure下一已授权唯一cold-BUILD after_probe对照：取消q=Hit+Miss=0时top4 subset，回退原含next保护的最大对象顺序，PROBE逻辑不变。原60train复用paired100参考，候选60审核+3计时重复，34条R<W应TRACE等价。先验进入dev门槛：物理比均值<=0.995、最坏<=1.02、含决策均分不低于paired100；不做参数扫描或旧1。当前正在冻结/实施，核查pure/HANDOFF取真实句柄，勿重复启动。
+- AI下一已授权Python→C++工程核查：现有12→16 ReLU→1网络的225 double不重训；float32特征、显式double逐项累加、17有效数字导出；4096固定组件域向量+数值边界、16合法协议夹具逐动作比较。原ai_penalty100不改，副本也固定100，纯工程检查不作为均匀性能选型或新学习增益。先冻后运行，实际句柄见ai/HANDOFF。
+- root dyna六条train接入已完成：plan SHA 0c6050e521e017d30c5fb3bb7e25e5016d54354470f96b0d997a6c89ebb3c4c5；session23630 exit0，日志build/round9_dyna_train_adoption_v1.log。原始586123350B、gzip193130930B全从本地对象读出，0下载；30M逐行审核、SHA/声明计数/算子头通过，3条实际阶段交叠。结果/独立review已落盘；不是6条都分区倾斜，只有train01持久热点，其余主要动态算子。未运行该集solver，不查dyna dev/holdout，主2.1锁不变；R71/R73亲缘不能重复计独立样本。
+- 下一动作：发布本轮完成的缩放/双续接/数据接入证据，监督cold-BUILD与Python导出核查；另冻dyna train100-only基线与资源计划。所有Git发布命令显式关闭auto gc/maintenance。只提交本任务完成文件，Round4/6脏文件保持。
+
+以下为前序记录。
+
+# 前序：两路observer完成，继续归因与AI续接标签设计（2026-10-30）
+
+- 完成阶段现已发布：3c5f440014938e7fa25f5e6b87ee9be5f9d8061c，source/Vanius0525远端SHA已核实，PUBLICATION_STAGE2绑定37个产物的提交快照；活跃HANDOFF后续更新不属于冻结损坏。只提交本任务36个变更文件。commit曾提示自动后台packing，未当独占计时；后续发布命令已关闭auto gc/maintenance。新纯缩放和AI续接工作仍独立推进，不重复旧observer。
 - 持续goal active。三个子agent仍分别推进pure、AI、数据监测；用户再次明确Python离线训练后把权重内嵌C++，已采纳为后续默认。所有新solver固定100μs；新108dev/72eval仍未访问。
 - pure RETURN_RISK阶段完成：12训练observer+5协议各参考/observer，共22新100运行，session37609已exit0。全TRACE/字节/183,238个pair独立重建通过。pooling改变15,151影子选择，但10/12流总log loss不及no-pooling，11/12的event分项更差；不能称物理增益。最终报告/冻结为pure/RETURN_RISK_REVIEW_V1.md与RETURN_RISK_FINAL_FREEZE_V1.json。下一已授权仅复用旧轨迹的past-only缩放g=(1+ΣD)/(1+ΣZ)归因，同2048衰减和伪计数1，先冻后执行，无新solver/闭环/扫描。
 - AI Phase A完成：24新observer、0新reference，session87611已完成；732,040回调TRACE/字节/来源账通过。387,204压力中242,099集合不同，23/24seed有分歧；只有1seed覆盖q≥262144压力，长流证据仍有限。PHASE_A_REVIEW/SUMMARY/FINAL_FREEZE已生成，没有新模型。下一最小标签阶段已授权实施：原24seed/70预定状态（65完整8192后缀、5终端不足），最多23collector恢复前缀、260分支；C0 paired100、C1 fixed-dynamic100，4096/8192真实PROBE端点，先8分支通过后复用结果继续。无EM/新pure风险依赖，不等pure晋升。70状态均为集合成员不同，不包含PhaseA的3个仅顺序差异。当前是实现/冻结准备，尚未报告实际教师句柄；接管看ai/HANDOFF，不自行重复启动。

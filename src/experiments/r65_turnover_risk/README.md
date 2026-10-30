@@ -1,6 +1,6 @@
 # R65 TurnoverRisk：实验单文件候选
 
-状态：experimental_not_promoted。契约RED→最终GREEN、独立源码审查及最终单文件C++14/O2接口样例通过；正式三例针对验证另行发布，未替换默认或注册SDK专家ID。
+状态：experimental_not_promoted。契约RED→最终GREEN、独立源码审查及最终单文件C++14/O2接口样例通过；[三例探索性九格结果](../../reports/r65_targeted_exploration_20261030/README.md)已完成：hot/heterogeneous成本约为Naive的0.6114/0.8311倍，growth为1.4336倍且比R63差3.279%。单次小样本，未替换默认或注册SDK专家ID。
 
 提交形态为[MySpillScheduler.cpp](MySpillScheduler.cpp)，仅调度器及助手定义，无main/engine。官方框架先提供SystemState、Action、SpillScheduler等类型；只替换调度器类，不改引擎或计时边界。CPU、C++14/O2、标准库，无外部模型或未来输入特征。`R65_UNIT_TEST`和`R65_DIAGNOSTIC`均不得在正式构建定义。
 

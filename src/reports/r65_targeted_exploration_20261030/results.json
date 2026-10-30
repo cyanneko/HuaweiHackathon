@@ -1,0 +1,822 @@
+{
+  "status": "complete_exploratory_partial_sample",
+  "experimental_not_promoted": true,
+  "scope": "three declared inputs x candidate/R63/fresh Naive, one repeat, nine cells; not a full-suite ranking",
+  "partial": true,
+  "repeats": 1,
+  "cases": [
+    {
+      "case_id": "c_0008",
+      "member": "cyanneko",
+      "case": "mxv1_00_hot_stream_eval.txt",
+      "sha256": "4b3fa83e1e4266c3991619a911f09de0b42d24c981f10e21c5579f621b669dee",
+      "stats": {
+        "k": 3,
+        "probe_count": 65536,
+        "penalty": 1000
+      }
+    },
+    {
+      "case_id": "c_0009",
+      "member": "cyanneko",
+      "case": "mxv1_01_heterogeneous_rates_sizes_eval.txt",
+      "sha256": "edcfdeed7cad2121504d4039b9ca20afd368e47c60d7f69d7340bdfac07d9c6f",
+      "stats": {
+        "k": 4,
+        "probe_count": 65536,
+        "penalty": 1
+      }
+    },
+    {
+      "case_id": "c_0489",
+      "member": "liunianwww",
+      "case": "historical_validation_grow_after_overlap_0629_9fdf4243a6af.txt",
+      "sha256": "9fdf4243a6af5ae66ea4d8b3d1bd5e20e1b19faa46f17ffc68e769982ff5cbb6",
+      "stats": {
+        "k": 3,
+        "probe_count": 1665,
+        "penalty": 1000
+      }
+    }
+  ],
+  "participating_members": [
+    "cyanneko",
+    "liunianwww"
+  ],
+  "members_not_selected": {
+    "Vanius0525": "not selected for this mechanism subset; data is available"
+  },
+  "sample_input_identity_sha256": "af0ee27227cb51554506e8e9568298fa5f2001b7b908ffc8c7f3307ae2c15ba3",
+  "parent_785_suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+  "data_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "rows": [
+    {
+      "method": "Naive",
+      "case_id": "c_0008",
+      "member": "cyanneko",
+      "case": "mxv1_00_hot_stream_eval.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 42572238657.94,
+        "Total_Decision_Time": 7904.29,
+        "Hit_Count": 60044,
+        "Miss_Count": 5492,
+        "Total_Score": 42577738562.23
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 1.0,
+        "Miss_Count": 1.0,
+        "Total_Decision_Time": 1.0,
+        "Total_Score": 1.0
+      },
+      "identity": {
+        "input_sha256": "4b3fa83e1e4266c3991619a911f09de0b42d24c981f10e21c5579f621b669dee",
+        "binary_sha256": "248c97001358d53cd61df6c0d8480a63a2916e844cf1823c8ed895070c80f736",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.142869096,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.04,
+          "system_seconds": 0.0,
+          "cpu_percent": 48.0,
+          "elapsed_seconds": 0.09,
+          "rss_kib": 10044,
+          "major_faults": 6,
+          "minor_faults": 1831,
+          "voluntary_switches": 200,
+          "involuntary_switches": 1,
+          "swaps": 0,
+          "filesystem_inputs": 512,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.04
+        },
+        "raw_fields": {
+          "user_seconds": "0.04",
+          "system_seconds": "0.00",
+          "cpu_percent": "48%",
+          "elapsed_seconds": "0:00.09",
+          "rss_kib": "10044",
+          "major_faults": "6",
+          "minor_faults": "1831",
+          "voluntary_switches": "200",
+          "involuntary_switches": "1",
+          "swaps": "0",
+          "filesystem_inputs": "512",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/Naive/c_0008.stdout.txt",
+      "stdout_sha256": "8c06b78cff43ed0b57bb69b26f864c508b2260ee32f22449b785cd60a78e583a",
+      "stderr": "raw/Naive/c_0008.stderr.txt",
+      "original_stderr_sha256": "4f6316049f90e2b2413bf78c546c152754f08c4988b1d5cceedcc3d2a366e8db",
+      "public_stderr_sha256": "227b60648c864e3e252a336d9a9a00081867aaa5bd7c2add2262a1216d24e63c",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "2fae31f5f80a818f59e20bacb501889c8ad996f323153d55f410717aba1cd997",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "793d5fe8815182055d73be945fd8494bb7b3166158a73ce1654d395380df55c2",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/m_479b27ae1d8d__c_0008/attempt_0001",
+      "cache_key": "298232c92764ce64ecb25c242a2c220c5b7a3c206e74cf2b276e83e8991e2773",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    },
+    {
+      "method": "R63",
+      "case_id": "c_0008",
+      "member": "cyanneko",
+      "case": "mxv1_00_hot_stream_eval.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 165129474067.81,
+        "Total_Decision_Time": 18827.71,
+        "Hit_Count": 1779,
+        "Miss_Count": 63757,
+        "Total_Score": 165193249895.51
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 3.8788064540038527,
+        "Miss_Count": 11.609067734887109,
+        "Total_Decision_Time": 2.381960935137754,
+        "Total_Score": 3.879803283917248
+      },
+      "identity": {
+        "input_sha256": "4b3fa83e1e4266c3991619a911f09de0b42d24c981f10e21c5579f621b669dee",
+        "binary_sha256": "799d4e8f5be2a7a703c19fe7eb7d47cfda89771e0ea0ff5dfd7c887346990270",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.143961784,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.05,
+          "system_seconds": 0.0,
+          "cpu_percent": 54.0,
+          "elapsed_seconds": 0.1,
+          "rss_kib": 10068,
+          "major_faults": 2,
+          "minor_faults": 1836,
+          "voluntary_switches": 197,
+          "involuntary_switches": 1,
+          "swaps": 0,
+          "filesystem_inputs": 112,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.05
+        },
+        "raw_fields": {
+          "user_seconds": "0.05",
+          "system_seconds": "0.00",
+          "cpu_percent": "54%",
+          "elapsed_seconds": "0:00.10",
+          "rss_kib": "10068",
+          "major_faults": "2",
+          "minor_faults": "1836",
+          "voluntary_switches": "197",
+          "involuntary_switches": "1",
+          "swaps": "0",
+          "filesystem_inputs": "112",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/R63/c_0008.stdout.txt",
+      "stdout_sha256": "c84ba39e3b8d8f4cfe1ca049bd9434fcf8fe129a6a583963bd353e503b3fe85b",
+      "stderr": "raw/R63/c_0008.stderr.txt",
+      "original_stderr_sha256": "a6e536bb9d902cee13a86d1586d7ec470d39efbfa1ccd554f146a0a11898c5df",
+      "public_stderr_sha256": "92d79a24a104d567b604e21a5997ab3ca5f0f47c09e905fde1d77a5432dcd7df",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "8456855d7ffe098b1c475b0c2aebbbd9ba38172558ab02169c3e796a411af1fe",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "abbec47a6b3ec8ad4caf9415c9856aa7daab010c34c3104f1e8cfbb069637d3e",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/m_b4a9ac2e9f2b__c_0008/attempt_0001",
+      "cache_key": "e5eb322061e39ba86450a6d807d9862f9e6f1f08f759db8c8f69ac53ac2ddd90",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    },
+    {
+      "method": "R65",
+      "case_id": "c_0008",
+      "member": "cyanneko",
+      "case": "mxv1_00_hot_stream_eval.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 26016714902.74,
+        "Total_Decision_Time": 13314.91,
+        "Hit_Count": 49548,
+        "Miss_Count": 15988,
+        "Total_Score": 26032716217.65
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 0.6111192580634403,
+        "Miss_Count": 2.9111434814275308,
+        "Total_Decision_Time": 1.6845168889299356,
+        "Total_Score": 0.6114161319207119
+      },
+      "identity": {
+        "input_sha256": "4b3fa83e1e4266c3991619a911f09de0b42d24c981f10e21c5579f621b669dee",
+        "binary_sha256": "1bdc44e1e43e805e9c174186bbcc6965c3366d5b2ccbb81ed2975920d8fb00f0",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.14241988,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.05,
+          "system_seconds": 0.0,
+          "cpu_percent": 52.0,
+          "elapsed_seconds": 0.09,
+          "rss_kib": 10660,
+          "major_faults": 2,
+          "minor_faults": 2000,
+          "voluntary_switches": 199,
+          "involuntary_switches": 2,
+          "swaps": 0,
+          "filesystem_inputs": 120,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.05
+        },
+        "raw_fields": {
+          "user_seconds": "0.05",
+          "system_seconds": "0.00",
+          "cpu_percent": "52%",
+          "elapsed_seconds": "0:00.09",
+          "rss_kib": "10660",
+          "major_faults": "2",
+          "minor_faults": "2000",
+          "voluntary_switches": "199",
+          "involuntary_switches": "2",
+          "swaps": "0",
+          "filesystem_inputs": "120",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/R65/c_0008.stdout.txt",
+      "stdout_sha256": "9fcd68267c6e40a5d3acf2d82bbc97f34a522a912c86ffb4331cbfcfa690c3da",
+      "stderr": "raw/R65/c_0008.stderr.txt",
+      "original_stderr_sha256": "9c1d68bb36a3f66bd9eb03e31bd9df2fa15ad445500544286e7ee576988c1878",
+      "public_stderr_sha256": "dce524ac898ffcf387e41f5a8a49d099322a5fa6edc48ae886fcb01f852d4b45",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "349959ba2e18102594f0f4d72957c37524cee53aaf1da27c5600e4ee6ccf29d4",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "a194721e048e53fdd22278fb3656a3d3ffad8172cc1a54f5e0c8bb02108c6281",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/r65_turnover_risk__c_0008/attempt_0001",
+      "cache_key": "c3cacac8b9ab2f66cabd71789a2a87fc081bc1e579f02028d4968d474f5c0841",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    },
+    {
+      "method": "Naive",
+      "case_id": "c_0009",
+      "member": "cyanneko",
+      "case": "mxv1_01_heterogeneous_rates_sizes_eval.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 194895803.93,
+        "Total_Decision_Time": 1004.63,
+        "Hit_Count": 64100,
+        "Miss_Count": 1436,
+        "Total_Score": 194898244.56
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 1.0,
+        "Miss_Count": 1.0,
+        "Total_Decision_Time": 1.0,
+        "Total_Score": 1.0
+      },
+      "identity": {
+        "input_sha256": "edcfdeed7cad2121504d4039b9ca20afd368e47c60d7f69d7340bdfac07d9c6f",
+        "binary_sha256": "248c97001358d53cd61df6c0d8480a63a2916e844cf1823c8ed895070c80f736",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.140439515,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.03,
+          "system_seconds": 0.0,
+          "cpu_percent": 38.0,
+          "elapsed_seconds": 0.07,
+          "rss_kib": 10804,
+          "major_faults": 2,
+          "minor_faults": 1956,
+          "voluntary_switches": 197,
+          "involuntary_switches": 1,
+          "swaps": 0,
+          "filesystem_inputs": 112,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.03
+        },
+        "raw_fields": {
+          "user_seconds": "0.03",
+          "system_seconds": "0.00",
+          "cpu_percent": "38%",
+          "elapsed_seconds": "0:00.07",
+          "rss_kib": "10804",
+          "major_faults": "2",
+          "minor_faults": "1956",
+          "voluntary_switches": "197",
+          "involuntary_switches": "1",
+          "swaps": "0",
+          "filesystem_inputs": "112",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/Naive/c_0009.stdout.txt",
+      "stdout_sha256": "5d601c522872dca46e2430e23be0fbf341a09e9a9145cd912e0806bcd73bf5cc",
+      "stderr": "raw/Naive/c_0009.stderr.txt",
+      "original_stderr_sha256": "fa8251d7e4482fc42d1a0fafce2cc4b9c7fe2d461ece111712b13d891ffd60d2",
+      "public_stderr_sha256": "89ad3b12d5f837f5e16eb854dd2176ecf0b6157ca572d53e07c4b408f385cfc6",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "733cbe4eede4890cd85229d446bb4e9308a5281f9a8dab1f000ebae9a86ab21e",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "793d5fe8815182055d73be945fd8494bb7b3166158a73ce1654d395380df55c2",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/m_479b27ae1d8d__c_0009/attempt_0001",
+      "cache_key": "fc13bee5dc8b3017f362f3d90d725ebb596d18ac5eac1b79e567fe60bf17e1aa",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    },
+    {
+      "method": "R63",
+      "case_id": "c_0009",
+      "member": "cyanneko",
+      "case": "mxv1_01_heterogeneous_rates_sizes_eval.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 328053446.96,
+        "Total_Decision_Time": 12001.28,
+        "Hit_Count": 33643,
+        "Miss_Count": 31893,
+        "Total_Score": 328097341.24
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 1.683224781369976,
+        "Miss_Count": 22.209610027855152,
+        "Total_Decision_Time": 11.945970158167684,
+        "Total_Score": 1.6834289194379801
+      },
+      "identity": {
+        "input_sha256": "edcfdeed7cad2121504d4039b9ca20afd368e47c60d7f69d7340bdfac07d9c6f",
+        "binary_sha256": "799d4e8f5be2a7a703c19fe7eb7d47cfda89771e0ea0ff5dfd7c887346990270",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.089505126,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.04,
+          "system_seconds": 0.0,
+          "cpu_percent": 64.0,
+          "elapsed_seconds": 0.06,
+          "rss_kib": 10188,
+          "major_faults": 2,
+          "minor_faults": 1859,
+          "voluntary_switches": 197,
+          "involuntary_switches": 0,
+          "swaps": 0,
+          "filesystem_inputs": 112,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.04
+        },
+        "raw_fields": {
+          "user_seconds": "0.04",
+          "system_seconds": "0.00",
+          "cpu_percent": "64%",
+          "elapsed_seconds": "0:00.06",
+          "rss_kib": "10188",
+          "major_faults": "2",
+          "minor_faults": "1859",
+          "voluntary_switches": "197",
+          "involuntary_switches": "0",
+          "swaps": "0",
+          "filesystem_inputs": "112",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/R63/c_0009.stdout.txt",
+      "stdout_sha256": "64e54951683397f1df47a6aeb74cedd45cbc90536482a024d451a79256e49693",
+      "stderr": "raw/R63/c_0009.stderr.txt",
+      "original_stderr_sha256": "12f0934850d493d2be0f4602215645cdea9b1ca485fb84fee1048af9c216d1c2",
+      "public_stderr_sha256": "8761a3eb1395644d75d1952d0339319a10a015bbab2239573903e7c28760a068",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "6ec4b91133c91d351eadadcfd779f116caef1c0db8110941e959a6cabdaef0a6",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "abbec47a6b3ec8ad4caf9415c9856aa7daab010c34c3104f1e8cfbb069637d3e",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/m_b4a9ac2e9f2b__c_0009/attempt_0001",
+      "cache_key": "9afe30aab50f2fa396e495b410c74165bb8de58f7fb9ad45064cb8cd81164ac4",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    },
+    {
+      "method": "R65",
+      "case_id": "c_0009",
+      "member": "cyanneko",
+      "case": "mxv1_01_heterogeneous_rates_sizes_eval.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 161966636.1,
+        "Total_Decision_Time": 8263.79,
+        "Hit_Count": 51980,
+        "Miss_Count": 13556,
+        "Total_Score": 161988455.9
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 0.8310421919507972,
+        "Miss_Count": 9.440111420612814,
+        "Total_Decision_Time": 8.225704985915213,
+        "Total_Score": 0.8311437399844378
+      },
+      "identity": {
+        "input_sha256": "edcfdeed7cad2121504d4039b9ca20afd368e47c60d7f69d7340bdfac07d9c6f",
+        "binary_sha256": "1bdc44e1e43e805e9c174186bbcc6965c3366d5b2ccbb81ed2975920d8fb00f0",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.144779903,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.04,
+          "system_seconds": 0.0,
+          "cpu_percent": 48.0,
+          "elapsed_seconds": 0.08,
+          "rss_kib": 10744,
+          "major_faults": 2,
+          "minor_faults": 1963,
+          "voluntary_switches": 198,
+          "involuntary_switches": 0,
+          "swaps": 0,
+          "filesystem_inputs": 120,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.04
+        },
+        "raw_fields": {
+          "user_seconds": "0.04",
+          "system_seconds": "0.00",
+          "cpu_percent": "48%",
+          "elapsed_seconds": "0:00.08",
+          "rss_kib": "10744",
+          "major_faults": "2",
+          "minor_faults": "1963",
+          "voluntary_switches": "198",
+          "involuntary_switches": "0",
+          "swaps": "0",
+          "filesystem_inputs": "120",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/R65/c_0009.stdout.txt",
+      "stdout_sha256": "54290597c86158edb763c52c7aba86d06f76a62a1e248cdb5936a084581fc8c8",
+      "stderr": "raw/R65/c_0009.stderr.txt",
+      "original_stderr_sha256": "a8744ca45539d84c905b3e837fcddbceec72a3f751fbd6639c10314106fe101a",
+      "public_stderr_sha256": "d84c59d60654793ce4d156515915a5ab10c3f09efae6432378e1ad7fc06866c8",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "d7667accbe93ea0efa4935ddf70e0b0e97e4e7520b007a6b0bba6d214f582878",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "a194721e048e53fdd22278fb3656a3d3ffad8172cc1a54f5e0c8bb02108c6281",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/r65_turnover_risk__c_0009/attempt_0001",
+      "cache_key": "85abe421e9edf260e6f459c2ffeeb18dab3f261247bcf5e1975dd153454ea487",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    },
+    {
+      "method": "Naive",
+      "case_id": "c_0489",
+      "member": "liunianwww",
+      "case": "historical_validation_grow_after_overlap_0629_9fdf4243a6af.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 829524856.01,
+        "Total_Decision_Time": 512.93,
+        "Hit_Count": 936,
+        "Miss_Count": 729,
+        "Total_Score": 830254368.94
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 1.0,
+        "Miss_Count": 1.0,
+        "Total_Decision_Time": 1.0,
+        "Total_Score": 1.0
+      },
+      "identity": {
+        "input_sha256": "9fdf4243a6af5ae66ea4d8b3d1bd5e20e1b19faa46f17ffc68e769982ff5cbb6",
+        "binary_sha256": "248c97001358d53cd61df6c0d8480a63a2916e844cf1823c8ed895070c80f736",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.032783984,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.0,
+          "system_seconds": 0.0,
+          "cpu_percent": 13.0,
+          "elapsed_seconds": 0.01,
+          "rss_kib": 3772,
+          "major_faults": 2,
+          "minor_faults": 176,
+          "voluntary_switches": 57,
+          "involuntary_switches": 0,
+          "swaps": 0,
+          "filesystem_inputs": 112,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.0
+        },
+        "raw_fields": {
+          "user_seconds": "0.00",
+          "system_seconds": "0.00",
+          "cpu_percent": "13%",
+          "elapsed_seconds": "0:00.01",
+          "rss_kib": "3772",
+          "major_faults": "2",
+          "minor_faults": "176",
+          "voluntary_switches": "57",
+          "involuntary_switches": "0",
+          "swaps": "0",
+          "filesystem_inputs": "112",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/Naive/c_0489.stdout.txt",
+      "stdout_sha256": "8a73b38080cc205477df077b49ced8b860ed9d7ef4b580008bee9ca082f0afb9",
+      "stderr": "raw/Naive/c_0489.stderr.txt",
+      "original_stderr_sha256": "d30076e45722b8c20b151dac1aa7dc7808ad6de04b7a6d2f34552c73280baee8",
+      "public_stderr_sha256": "4181ab83c19cd4955dcb8dfcdc90dbd176b8fcbe36d3981cde8f60f9a3104443",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "a7fbc6101d2992823515cffdecf889b0e4be09fca49ceb7f674da1f34264874e",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "793d5fe8815182055d73be945fd8494bb7b3166158a73ce1654d395380df55c2",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/m_479b27ae1d8d__c_0489/attempt_0001",
+      "cache_key": "c1ed43474aaaea0b638c60f20643e50be991662d7286d9be888a43365139d8d7",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    },
+    {
+      "method": "R63",
+      "case_id": "c_0489",
+      "member": "liunianwww",
+      "case": "historical_validation_grow_after_overlap_0629_9fdf4243a6af.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 1151469879.3,
+        "Total_Decision_Time": 537.94,
+        "Hit_Count": 674,
+        "Miss_Count": 991,
+        "Total_Score": 1152461417.24
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 1.3881077474140435,
+        "Miss_Count": 1.3593964334705075,
+        "Total_Decision_Time": 1.0487590899342993,
+        "Total_Score": 1.3880823279633774
+      },
+      "identity": {
+        "input_sha256": "9fdf4243a6af5ae66ea4d8b3d1bd5e20e1b19faa46f17ffc68e769982ff5cbb6",
+        "binary_sha256": "799d4e8f5be2a7a703c19fe7eb7d47cfda89771e0ea0ff5dfd7c887346990270",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.032742519,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.0,
+          "system_seconds": 0.0,
+          "cpu_percent": 18.0,
+          "elapsed_seconds": 0.01,
+          "rss_kib": 3908,
+          "major_faults": 2,
+          "minor_faults": 180,
+          "voluntary_switches": 56,
+          "involuntary_switches": 0,
+          "swaps": 0,
+          "filesystem_inputs": 112,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.0
+        },
+        "raw_fields": {
+          "user_seconds": "0.00",
+          "system_seconds": "0.00",
+          "cpu_percent": "18%",
+          "elapsed_seconds": "0:00.01",
+          "rss_kib": "3908",
+          "major_faults": "2",
+          "minor_faults": "180",
+          "voluntary_switches": "56",
+          "involuntary_switches": "0",
+          "swaps": "0",
+          "filesystem_inputs": "112",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/R63/c_0489.stdout.txt",
+      "stdout_sha256": "7731503b923802ec11c87b454339e0a9009934a2de81704f53bd2ccb52bf09b2",
+      "stderr": "raw/R63/c_0489.stderr.txt",
+      "original_stderr_sha256": "f4fc44dc2071b72ff3b05f4e792a654ee105f359804ccc517e83db279840873e",
+      "public_stderr_sha256": "f6b816784c131f743710cd0c05459b213d3a0b2d4394032108ce7e6f0ab6ff5e",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "d68cefa6fe9f63baf18ff78499d92c1061c2d2d08b27ba7398121e2deefc7b0d",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "abbec47a6b3ec8ad4caf9415c9856aa7daab010c34c3104f1e8cfbb069637d3e",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/m_b4a9ac2e9f2b__c_0489/attempt_0001",
+      "cache_key": "83b9fc597fa45d4b7bfaa31c78663a52f2432b3b9e5b7123a08de0f4aef31ed4",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    },
+    {
+      "method": "R65",
+      "case_id": "c_0489",
+      "member": "liunianwww",
+      "case": "historical_validation_grow_after_overlap_0629_9fdf4243a6af.txt",
+      "repeat": 1,
+      "status": "EXITED",
+      "metrics": {
+        "Total_IO_Time": 1189222390.17,
+        "Total_Decision_Time": 730.27,
+        "Hit_Count": 638,
+        "Miss_Count": 1027,
+        "Total_Score": 1190250120.44
+      },
+      "ratios_to_fresh_Naive": {
+        "Total_IO_Time": 1.4336187536201614,
+        "Miss_Count": 1.4087791495198903,
+        "Total_Decision_Time": 1.4237225352387266,
+        "Total_Score": 1.4335969372369732
+      },
+      "identity": {
+        "input_sha256": "9fdf4243a6af5ae66ea4d8b3d1bd5e20e1b19faa46f17ffc68e769982ff5cbb6",
+        "binary_sha256": "1bdc44e1e43e805e9c174186bbcc6965c3366d5b2ccbb81ed2975920d8fb00f0",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "params_sha256": "6ba484a5895b52ea1d7dfae5b47a50e2cb1506def153a702822a48a2ae0ae894"
+      },
+      "process_wall_seconds": 0.032882051,
+      "gnu_resources": {
+        "complete": true,
+        "fields": {
+          "user_seconds": 0.0,
+          "system_seconds": 0.0,
+          "cpu_percent": 18.0,
+          "elapsed_seconds": 0.01,
+          "rss_kib": 4100,
+          "major_faults": 2,
+          "minor_faults": 188,
+          "voluntary_switches": 57,
+          "involuntary_switches": 0,
+          "swaps": 0,
+          "filesystem_inputs": 120,
+          "filesystem_outputs": 8,
+          "exit_status": 0,
+          "user_plus_system_seconds": 0.0
+        },
+        "raw_fields": {
+          "user_seconds": "0.00",
+          "system_seconds": "0.00",
+          "cpu_percent": "18%",
+          "elapsed_seconds": "0:00.01",
+          "rss_kib": "4100",
+          "major_faults": "2",
+          "minor_faults": "188",
+          "voluntary_switches": "57",
+          "involuntary_switches": "0",
+          "swaps": "0",
+          "filesystem_inputs": "120",
+          "filesystem_outputs": "8",
+          "exit_status": "0"
+        },
+        "missing_fields": [],
+        "invalid_fields": {},
+        "elapsed_scope": "GNU time wrapped solver elapsed; distinct from native outer wall and process user+system CPU",
+        "elapsed_display_note": "GNU elapsed normally has two fractional digits; native-minus-GNU is an approximate window difference, not a specific startup cost"
+      },
+      "stdout": "raw/R65/c_0489.stdout.txt",
+      "stdout_sha256": "4d7fb1cd504ca52538c62a4b1045be133b1fc314860e69b6dc49bbf82cce7da7",
+      "stderr": "raw/R65/c_0489.stderr.txt",
+      "original_stderr_sha256": "865db727fe4c68a64d12d6276410c013730c96b11d94656ddcc63384ff61b798",
+      "public_stderr_sha256": "bbf4bedcebf96969891d8387fca5292b5d2f526ccf0879fa783ef3cde3940a77",
+      "stderr_path_lines_redacted": 1,
+      "original_result_sha256": "02d40dde6e93dac15028babd451f1e5ae571e3ac5234ab2616f8b8959712b91a",
+      "returncode": 0,
+      "attempt_cleanup_complete": true,
+      "formal_source_sha256": "a194721e048e53fdd22278fb3656a3d3ffad8172cc1a54f5e0c8bb02108c6281",
+      "native_batch_id": "b_r65_1793323431855011400",
+      "attempt": "/var/tmp/codex_r65_targeted_d7ab38083976482f/b_r65_1793323431855011400/cells/r65_turnover_risk__c_0489/attempt_0001",
+      "cache_key": "46c798202ebbe4df7b254f5af4960bc1780182583601b59d8ed9dd9fe857088a",
+      "storage_domain": "persistent_linux_var_tmp",
+      "algorithm_timing_domain": "WSL Linux; unchanged official internal decision timer; repeat1"
+    }
+  ],
+  "auxiliary_partial_sample_scores": {
+    "Naive": {
+      "member_sample_sums": {
+        "cyanneko": 0.0,
+        "liunianwww": 0.0
+      },
+      "partial_sample_member_mean": 0.0
+    },
+    "R63": {
+      "member_sample_sums": {
+        "cyanneko": 0.0,
+        "liunianwww": 0.0
+      },
+      "partial_sample_member_mean": 0.0
+    },
+    "R65": {
+      "member_sample_sums": {
+        "cyanneko": 5.5744012809485035,
+        "liunianwww": 0.0
+      },
+      "partial_sample_member_mean": 2.7872006404742518
+    }
+  },
+  "known_growth_cost_regression_vs_R63": 0.03278956035725633,
+  "timing": "Official D is unchanged internal strategy chrono wall duration in microseconds, not CPU. GNU user+system is process CPU; GNU elapsed and parent wall remain separate. Zero CPU precision is not a zero-time win. Failed cells and undefined zero-baseline ratios remain null.",
+  "D_stability_claim": false,
+  "policy_sha256": "83b4c11a844cc9cc31eb095707c504726ff1510d5f576030cd46da1849e72596",
+  "helpers_sha256": "56d156cc3d87446fe1e71770ccc37407d094d928442cf70721c6da20edde2f8c",
+  "published_single_file_sha256": "f9eebb4dc44fc2059ed79879334a7bc5c6960d57f0b2453273be64accd617355",
+  "source_record_sha256": {
+    "report": "46fcab5e1a5af34ca28f6732fb7998eae3504ac52dd75bc5e4461080eb714f76",
+    "selection": "6cd63f2a6efe5cf518bc2aa4cc73d4c042344cf03716f354e2c08e9a9268bc8e",
+    "progress": "1d4319eb84ba99ff1cbe6a852bcf9ed0f7f2e258d38b225947b214ef08b57ca6"
+  },
+  "raw_note": "stdout bytes retained exactly; stderr local command/path lines redacted, with original and public SHA separately retained; original private results preserved.",
+  "compiler_flags": [
+    "-std=c++14",
+    "-O2"
+  ]
+}

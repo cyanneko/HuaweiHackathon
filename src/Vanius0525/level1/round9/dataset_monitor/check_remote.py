@@ -11,11 +11,12 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[4]
 BASE = '33ab5af221069fe8b8832fd77e85563e9997633a'
 GIT_ENV = dict(os.environ, GIT_NO_LAZY_FETCH='1')
+GIT_PREFIX = ['git', '-c', 'gc.auto=0', '-c', 'maintenance.auto=false', '-c', 'fetch.writeCommitGraph=false']
 SMALL_PATHS = ['manifest.json', 'recipe.json', 'validation.json', 'eval/VERSION', 'README.md', 'tools/random_workloads.py']
 
 
 def git(*args):
-    return subprocess.check_output(['git', *args], cwd=REPO, env=GIT_ENV, timeout=30)
+    return subprocess.check_output([*GIT_PREFIX, *args], cwd=REPO, env=GIT_ENV, timeout=30)
 
 
 def small_blob(revision, path):
@@ -39,7 +40,7 @@ def main():
     assert ref == 'refs/heads/datasets'
     status = {'checked_utc': now, 'remote_commit': remote, 'ref': ref, 'input_bytes_downloaded': 0,
               'scope': 'This check uses no lazy fetch and only pre-sized explicit metadata paths; separate earlier --stat uncertainty is not erased.'}
-    known = subprocess.run(['git', 'cat-file', '-e', remote + '^{commit}'], cwd=REPO, env=GIT_ENV, capture_output=True, timeout=10).returncode == 0
+    known = subprocess.run([*GIT_PREFIX, 'cat-file', '-e', remote + '^{commit}'], cwd=REPO, env=GIT_ENV, capture_output=True, timeout=10).returncode == 0
     status['commit_available_locally'] = known
     snapshot = HERE / ('SNAPSHOT_' + remote[:12] + '.json')
     if known and not snapshot.exists():

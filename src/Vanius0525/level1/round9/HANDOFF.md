@@ -1,5 +1,99 @@
+# dyna全12及独立复核均完成（2026-10-30）
+
+- 主runner session28924已确认exit0：12/12案例、72/72动作审核、216/216计时完整。未失败、未超时、未重试；不得重复启动。summarize_dyna_full_v1.py已成功生成完整汇总。
+- 根报告DYNA_FULL_REVIEW_V1.md和DYNA_FULL_ROOT_FINAL_CHECK_V1.json已落盘：全12均分paired4.049344、AI3.712564、pool4.123033、flat4.095805、global4.044783。pool/flat物理12/12改善，global7好5坏；不把这当主标准晋升。
+- 根独立核对30验证件、6工具、6源码、12二进制SHA及12canonical JSON与总结果一致。纯agent与根汇总372项数值核对通过；AI独立finalizer逐repeat/分组及精确字节核对通过，两路最终freeze已完成。DYNA_FULL_FINAL_FREEZE_V1.json及PUBLICATION_STAGE4.json记录本阶段完成产物，不包含未执行main60/coscale实现或活跃监测JSON。
+- 当前无主runner运行。main60及coscale均准备但未启动；等报告与发布完成后启动既定下一阶段，无需向用户重新确认。主108dev/72eval仍封存。
+- 本轮未改候选算法、未训练权重；用户问前四例，已核对逐例分和均分。数据监测cf14092b仅新增R79实验归档，dyna整树仍808ce8b；新corner_case保持独立不接入。Git操作关闭auto gc/maintenance；阶段发布身份以PUBLICATION_STAGE4与对应提交为准，持续探索goal保持active。
+
+以下为前序记录。
+
+# 全12接近完成：11例已完成，最后一例运行中（2026-10-30 11:35 UTC）
+
+- 持续目标active；上一轮与本轮都有实际进展及同一句柄的verified wait。主runner session28924仍live，日志build/round9_dyna_full_v1.log，状态build/round9/dyna_full_v1/status.json。当前11/12完整、至少67/72审核、198/216计时，最后holdout_burst_shared_12进行中；不重复启动。
+- 根执行freeze固定7871de549e198358f014fad60bcb5aeabf0f2a0cf5403009df6a0e501972406d、plan1225cc3b8e0c5b7e1cbfd410995cf2033cfce1be2d0886ff49ef29da1aebdffe。六方法/12输入保持原值；统一100代理。所有已完整案例无失败/超时，个别global物理退化完整保留，不调参。
+- 下一根动作：先轮询28924确认exit0及12/72/216齐全，然后运行round9/summarize_dyna_full_v1.py生成DYNA_FULL_SUMMARY_V1.json。AI子agent随后运行ai/finalize_dyna_ai_review_v1.py作六方法逐repeat/分split/精确字节与舍入界独立核对；pure子agent生成全12报告并与根summary核对。根完整报告拟用DYNA_FULL_REVIEW_V1.md，再冻结DYNA_FULL_FINAL_FREEZE_V1.json，更新README/CURRENT工作入口并发布完成阶段。
+- 结果解释边界：逐例0–10描述性均分，不是正式50分；全12按案例直接平均并分6/3/3报告，不能等权平均三个split均值。全12W100/R80且真实罚100，不覆盖带宽/罚值变化。ai100沿用Round4骨架，paired100为后续纯骨架，不是仅开关AI的消融。候选尚未通过主60/独立验证，不自动替换当前pure/AI入口。
+- 重要反例第9例：global少1049Miss却PROBE写/读增加约44.53M/55.67Mμs，物理+0.0401%；pool少1972Miss但改善小于flat仅少75Miss。AI比paired少44301Miss却物理+1.8687%，读写增加约4.667Bμs。不能只优化Miss数。第9例flat略胜pool，前8例pool优于flat；第11例global物理+1.1151%。这些均保留，未据此改候选。
+- 用户于18:44问ETA，基于实际case耗时给评测55–75分钟+汇总5–10分钟，预计北京时间19:45–20:10；目前进度相符。用户询问前四例已给含决策的三次平均分表；不把它当全12成绩。
+- pure deferred coscale已准备，freeze0e2e87d75509cd1cb9dca20675adecd2abe16b1525246a9a82d8b11cfecf6f29。必须dyna全部完成后先运行preflight_risk_coscale_v1.py核旧/新freeze及import依赖，再后台持公共锁run_risk_coscale_v1.py。0新solver/teacher，仅原12train共同状态U与gU离线归因。pure优先最终dyna核查，不让此后续任务拖延当前报告；发布时若未完留下一阶段。
+- pure主60后续只准备，未运行prepare/compile/solver：RETURN_RISK_MAIN60_PLAN_V1.json、prepare/run/summarize_return_risk_main60_v1.py。三风险源不改、原60顺序不变，新增180候选审核+5方法同窗口900计时，复用现dyna二进制。三门槛均物理比≤.995/最坏≤1.02/含决策均分不下降；主108dev/72eval仍封存。root静态审已过并修正score零成本口径。启动必须等完整dyna报告并由root写START_AUTHORIZATION阶段记录，此为内部顺序记录，不需向用户重复批准；当前不能自动启动。
+- AI后续首选已修订为合法前缀后持续至EOF的配置选择，详ai/NEXT_CONFIGURATION_RESEARCH_DESIGN_V1.md；旧8192有限承诺仅保留FINITE_BACKUP。q_base首次合法观察全PROBE，q−q_base≥4096首periodic返回前取合法特征，事后engine快照只离线clone。4分支pool/flat/global/paired；三输出是相对paired成本差，部署min{0,三预测}允许paired零档、并列先paired。24独立train seed只是规模建议，未选择/采集/训练；完整后缀量须重新核算，不沿用旧192有限分支预算。主训练确有互补且前缀可区分后再冻执行合同。
+- 数据monitor最新d7a22f593a84，只新增corner_r75_8k实验归档；此前5e6a新增R78训练、f25adee新增R78报告。均只核目录身份，不读他人成绩；dyna整树仍808ce8b，final不变，当前矩阵/全12资源锁保持。对应UPDATE/SNAPSHOT小证据在dataset_monitor。
+- 发布准备：build/round9/PUBLICATION_STAGE4_PREFLIGHT_DRAFT.json检查了三个闭合阶段43件SHA、82候选文件的JSON/AST/私有路径（通过）；只是草稿，后续新文件尚需最终检查。不能整体stage Round9：排除未执行main60代码/计划、未完coscale、live监测/进度文件及所有Round4/6无关修改。所有Git命令关闭auto gc/maintenance，发布个人source/Vanius0525，不force/rebase；当前最后已推送HEAD仍28094bdec34ff7110d9f1614703d0b09d383d4a6。
+
+以下为前序记录。
+
+# 已完成7/12例，dev第八例计时（2026-10-30 11:12 UTC）
+
+- session28924本轮write_stdin再次确认live；当前完整7例、48/72审核、136/216计时，第八例dev正在第二轮计时。无失败或重启。本轮为progress/已核实等待：第二完整case提供新证据，另更新当前入口与README中过期的“planned/下一核查”状态；候选源码SHA不变。
+- 第七例dev_slow_staggered_07，pool/flat/global物理比0.972565/0.988652/0.997945，AI/paired1.104603；三风险BUILD不变，所有重复通过，无>60秒。这是固定rare_cold个案，不据此调参或选择后续样本。
+- 第五例pool/flat/global物理比分别0.988619/0.993681/0.998344；第六例比值如下：{"naive": 2.1508235062929995, "paired100": 1.0, "ai100": 1.1242847731304677, "risk_pool100": 0.9910470771033684, "risk_flat100": 0.9931203980739046, "risk_scale100": 0.9986437292339041}。全部六train完成，按原用户授权进入固定dev/holdout描述比较，不改候选或选参数。
+- 第三例train_fast_shared_03，pool/flat/global物理比0.994879/0.995728/0.999525；第四例train_fast_staggered_04分别0.995293/0.996204/1.000204。第四例AI/paired为1.013843，最长净wall约26.21秒。两例均完整通过，仍不汇未完成全12。
+- 第二例train_slow_staggered_02：pool/flat/global物理成本/paired为0.981108/0.986613/0.999793，AI为1.077921。三个风险版本BUILD同paired，收益仍来自PROBE周转；pool/flat/global平均决策时间/paired为1.5564/1.2027/1.3396。global物理仅改善0.0207%，计入CPU净改善约0.0174%，不可忽略小收益上的开销。第一、二例均不能替代全12汇总。
+- CURRENT_WORKING_SOURCES.json与README已修正实际验证状态，60训练基线完成、coldBUILD负结果、AI导出完成、dyna全12运行中均有对应报告；链接及纯/AI源码SHA检查通过。PUBLICATION_STAGE1/2/3仍指各历史提交快照，未更改冻结报告。
+- DYNA_FULL_RUNTIME_CONTEXT_V1记录本次可见CPU/内存/Python环境，不承诺宿主独占或固定频率。两子agent在低频监督间隙补纯风险项不确定性与AI配置学习的一页静态设计；不启动训练/solver，不用dyna holdout改本次算法。未改当前六候选或原矩阵。
+- 新静态审查pure/RETURN_RISK_UNCERTAINTY_REVIEW_V1.md完成：保留旧U_p为单因素隔离，h非归一且D/Z估计相关，不能声称95%保证或直接把h套类别方差。已授权唯一global未截顶、共同原12train轨迹的风险共缩放归因：当前只准备冻结与实现，等待本次dyna矩阵完全结束后持共享锁运行纯离线脚本，0新solver/teacher/系数扫描。AI另准备因果前缀后一次配置承诺的研究设计，不启动训练。
+- 纯离线归因准备完成：pure/RETURN_RISK_COSCALE_BUILD_FREEZE_V1 SHA0e2e87d75509cd1cb9dca20675adecd2abe16b1525246a9a82d8b11cfecf6f29，runner为run_risk_coscale_v1.py，硬门控dyna完整12/72/216且freeze匹配后才读大日志。尚未执行；启动前另核对旧scale BUILD_FREEZE及其import依赖的SHA，保存preflight，不改已冻结文件。
+- AI NEXT_CONFIGURATION_RESEARCH_DESIGN_V1已审：首次合法观察全PROBE记q_base，periodic返回前用合法统计决定一次配置承诺；执行后engine快照仅离线clone。24新独立train seed、4控制臂×2续接=192分支只是提案，未选seed/写teacher/训练，未来需root冻结合同。README补充现ai100与paired100是两套完整骨架比较，不能把全部差距归因学习组件。
+- 用户询问剩余时间，已基于实际执行记录于10:44 UTC估计：评测另需55–75分钟，汇总/独立复核5–10分钟，约北京时间19:45–20:10；不是保证。已完成4例耗时4.49/9.57/6.70/9.99分钟，第五例30/72审核、78/216计时时总耗时36.6分钟；当前无失败/超时。保持同一运行句柄，不因ETA而减少案例或重复数。
+- 新增main60闭环计划pure/RETURN_RISK_MAIN60_CLOSED_LOOP_PLAN_V1.md，仅计划：原60训练输入/顺序、三固定候选180审核，推荐五方法同窗口900计时；沿用均物理比≤.995/最坏≤1.02/含决策均分不下降的三门槛。须等完整dyna报告后再统一冻结执行，当前未写runner/编译/启动。
+- 预发布检查草稿留build/round9/PUBLICATION_STAGE4_PREFLIGHT_DRAFT.json：coldBUILD17、部署14、AI导出9，加3最终freeze共43产物SHA通过；82待发布任务文件JSON/AST/私人路径检查通过。尚未stage/commit/push；最终结果和研究草稿继续变化，完成后重新生成正式清单。
+- 完整数据性质补充：全12的W=100、R=80 bytes/μs且实际Miss罚=100μs，本组不覆盖带宽比或隐藏罚值变化。原主60后续验证仍必要，不能由本组直接晋升主标准默认。
+- 数据监测新增5e6a5ab6归档R78训练实验、随后f25adeedef7b仅新增R78报告；两次均核对dyna整树仍808ce8b、final仍原树，未读其他方法成绩，当前矩阵不变。证据dataset_monitor/UPDATE_5e6a5ab6cd3e.json及UPDATE_f25adeedef7b.json。
+- 主60仅实现准备：pure/{RETURN_RISK_MAIN60_PLAN_V1.json,prepare_return_risk_main60_v1.py,run_return_risk_main60_v1.py,summarize_return_risk_main60_v1.py}已静态审阅，score零成本口径已修正；无编译/prepare/solver。启动条件：dyna完整、根完整报告及root阶段启动记录，后者不是要求用户重新批准。原60顺序与五方法900计时固定，主dev/eval仍封存。
+- 发布范围提醒：预检查draft中的82文件只是候选列表；未执行的main60代码/计划及仍未完成的coscale阶段不要盲目整体stage。当前仅发布已闭合阶段与完成的研究说明，保持所有原freeze不变，最终另生成精确清单；Round4/6及live监测状态不提交。
+- 下一动作仍是监督同一session28924，完整12后按冻结summary核算、独立报告与本阶段发布；当前目标active，无完成或阻塞依据。
+
+以下为前序记录。
+
+# 首例完成与第二例监督（2026-10-30 10:15 UTC）
+
+- 上一goal turn为progress：新增完整数据性质核查与首例成本证据；当前通过write_stdin再次确认session28924真实live，未重启。实时状态已到11/72审核、18/216计时，第一例完整，第二例最后方法审核进行中；无失败。
+- 首例三次净计时均通过物理计数核对。0–10描述性逐例分：paired100 9.199744、ai100 9.066950、pool9.251062、flat9.231536、scale9.179633；这不是全12或官方50分。纯agent复核pool/flat收益来自PROBE写读及Miss，BUILD写相同；决策耗时/paired分别1.2001、1.1045、1.2229，三者无wall>60s。AI决策时间反而较少，成本差距主要是搬运轨迹。
+- 本轮没有新算法/训练/参数调整，没有重复既有solver。两研发agent继续独立分项复核，monitor10:14 UTC未见远端数据更新；完整矩阵仍在原固定快照上运行。
+- 下一动作：继续轮询session28924至完整12或明确失败；不把观察超时当终止。若失败先保留尝试定位，若完成再执行冻结汇总器与最终评测报告。当前持续目标active，不满足完成/阻塞条件。
+
+以下为前序记录。
+
+# 运行中证据更新（2026-10-30 10:11 UTC）
+
+- 上一goal turn为progress：32部署核查完成、统一plan/12二进制freeze完成并实际启动；本轮同session28924经write_stdin确认live，不重启。第一例6/6动作和字节审核通过，正在3次净计时；未完成全12，不报总体排名。
+- 第一例train_slow_shared_01的审核物理成本/paired100：{"ai100": 1.166041977471914, "risk_pool100": 0.9357901832408101, "risk_flat100": 0.9602271552624196, "risk_scale100": 1.0250684904809169}。pool/flat已实际改变长期轨迹且本例成本更低，global与AI更高。此为单例观察，不改变冻结版本/门槛；其余11例尚待评测。该例三风险版本BUILD写量与paired相同。
+- 新增DYNA_FULL12_CHARACTERIZATION_V1.json绑定原发布README/生成器SHA与输入lock：主要变化在算子概率，普通分区近均匀；全12有2个持久热例（train01、holdout12）与1持久冷例（dev07），不是突发分区热点迁移测试。算子/分区使用不同时钟；profile与period/压力等并非正交，不能把跨case差异单独归因于漂移速度。
+- 两研发子agent已续接为纯/AI评测监督与独立报告；数据monitor保持低频只读。全部方法继续原矩阵，不训练、不看holdout后调参。下一动作继续检查同运行句柄，完整结束后统一summary与发布。
+
+以下为前序记录。
+
+# 已实际启动：dyna全12×6完整对比（2026-10-30 10:08 UTC）
+
+- 统一runner session28924已启动，日志build/round9_dyna_full_v1.log，实时状态build/round9/dyna_full_v1/status.json；先查同一句柄和状态，不重复启动。目标72审核+216独立计时，源码固定100。
+- DYNA_FULL_EVALUATION_PLAN_V1 SHA1225cc3b8e0c5b7e1cbfd410995cf2033cfce1be2d0886ff49ef29da1aebdffe；绑定30项验证产物，含全部pure部署14件和AI导出9件、完整输入adoption/资源锁及两审计器核查。DYNA_FULL_EXECUTION_FREEZE_V1 SHA7871de549e198358f014fad60bcb5aeabf0f2a0cf5403009df6a0e501972406d，六方法12二进制，prepare session63712 exit0。
+- AI独立审阅runner与summary无阻断项，原始尝试耗时/返回码/超时分别落execution.json。保守失败保留、不自动重试；工具修复在已授权范围内另记修订。首次prepare由于生成plan时误读pure freeze字段而未启动，失败日志round9_dyna_full_prepare_v1.log保留；修正后prepare_attempt1成功，前次没有编译或dyna solver。
+- pure三个实际候选已完成最终freeze f36a53703d2172605f9832c0d6fb53f07f1dd602c6c6d7085e9011d93afb1143。15小协议闭环与参考同动作，改变动作后的长轨迹首次由本轮逐动作审核覆盖；不能据预检提前宣称长期收益。
+- 当前没有新训练；pure agent已完成交付并空闲，AI agent收尾独立审阅，数据monitor低频只读监测。没有操作历史小时服务，不能声称宿主所有旧服务已停。
+- 下步：监督session28924；完成后运行summarize_dyna_full_v1.py并独立核查成本/最坏退化/三个计时重复，保存小报告和冻结清单后发布。当前完整dyna成绩尚未产生，现有paired100/ai100不自动替换。
+
+以下为前序记录。
+
+# 最新：dyna全12对比准备完成输入与候选核查（2026-10-30 10:05 UTC）
+
+- 用户明确要求dyna完整比较，覆盖train6/dev3/holdout3、共60M操作；覆盖旧的仅train限制。主final2.1的108dev/72eval继续封存。本次固定版本描述性比较，不看成绩调参。
+- 全12输入采用独立本地快照，DYNA_FULL_ADOPTION_RESULTS_V1完整；session67250 exit0，6新审核+6复用，0下载。数据树808ce8b不变，全12锁318f80fc83ac697e33abe4d4be97b7f8ebce6de8a9476d259e97aee7c7b。不是12例都分区倾斜，多数主要是算子概率动态变化。
+- pure三种风险修正版现在是实际动作策略；32/32部署核查通过，session22208 exit0：17同轨迹+15协议闭环。1,115,718状态核对，183,276 pair，旧与精简D/Z及pool/flat完全一致；global对Python选择全同。生产源码保持已冻结SHA。最终部署freeze由pure收尾，不重复运行。
+- cold-BUILD60审核+180计时已全部完成，session34890 exit0，未通过3个预定门槛：均物理比1.003366，最坏1.209435，均分下降0.000039。当前paired100不变；train600初始驻留增多却Miss690→812，不能只优化BUILD写量。详见pure/COLD_BUILD_REVIEW_V1.md。
+- AI Python→C++导出工程核查完成，session94188 exit0；225权重与4117输出数值一致，16协议运行（15唯一输入）TRACE一致。未重新训练，ai100不变。双续接学习门槛失败，不为保持忙碌强行训练。
+- root流式审计器11旧轨迹等价+2坏轨迹拒绝，缓冲审计包装器6完整TRACE逐字一致。两验证已完成；用于长输入避免全量Python常驻和逐字段flush开销，不改变计时框架。
+- run_dyna_full_v1.py与summarize_dyna_full_v1.py已写；计划六方法（Naive、paired100、ai100、pool、no-pool、global）×12，共72审核+216计时。当前尚未启动dyna solver；AI agent正独立审阅runner。先绑定最终候选验证、全部源码/工具/输入SHA，再编译冻结后启动。
+- 数据monitor持续只读监测，10:01 UTC远端0f3000，dyna无更新。未操作历史小时服务；当前沙箱systemctl不可连接宿主bus，不能据此声称所有历史服务停止。
+- 下一动作：收到部署final freeze和runner审阅后写DYNA_FULL_EVALUATION_PLAN_V1，运行prepare-only再启动统一矩阵，记录实际句柄与状态。当前无新训练，不重复旧实验。完成后总结分项/退化并只提交本任务文件；Round4/6无关修改保持。
+
+以下为前序记录。
+
 # 最新：缩放与双续接均完成，BUILD单因素与导出链继续（2026-10-30）
 
+- 发布后运行更新：pure cold-BUILD已实际启动session34890，候选SHA fa0ce16292ad19afbcd2f0bc7538e46e1a95e0e9061da3d6defaebaedf6887b8，BUILD_FREEZE SHA 66524a52901c06b67b0e6862828d5c7663ec277a7da42df767c61af5feac027b；输出build/round9_pure_cold_build_v1。下一轮先轮询同一句柄，不重复启动。
+- 本轮完成阶段已发布：28094bdec34ff7110d9f1614703d0b09d383d4a6，source/Vanius0525远端SHA已核实；PUBLICATION_STAGE3绑定38产物的提交快照，39变更文件仅本任务。active HANDOFF后续正常更新；两个下一阶段不在本次完成声明内。
 - 上一goal turn为progress：完成并推送3c5f440。本轮继续产生实证：纯12流缩放、AI260分支、独立30M输入审核均完成；持续目标active，无阻塞，不重复已完成命令。
 - pure缩放session1052已exit0，12流原三模型与183,238 pair复核通过，原14件不变。global流均log loss改善1.3319%，pool/flat约1.408/1.442%，无稳定partition-specific优势；只复现pool动作改变8.76%，也不代表其余有收益。RETURN_RISK_SCALE_REVIEW/SUMMARY/FINAL_FREEZE完成，root独立核对最终12件SHA。
 - AI双续接session43074已exit0，23collector、65完整状态、260分支及两个真实PROBE端点全过；C0原动作TRACE完全一致。稳定H11/10seed、D16/12seed，34不确定、4全零；人口加权C0/4096对fixed-D仍−0.006538Q，预定门槛未全通过，不训练、不改口径。5删失层占13.40%分歧人口，其贡献未知。NEXT_ACTION_REVIEW/SUMMARY/FINAL_FREEZE完成，root独立核对13件SHA；不是任意选择器的严格上界，不证明AI总体无效。

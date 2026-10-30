@@ -1,0 +1,4331 @@
+{
+  "scope": "Only existing proxy100 train60 audited metrics and two-line input headers; no solver, no new action evidence, no dev/eval input access.",
+  "causal_limit": "Whole policies differ in PROBE and prefetch; naive vs paired/AI is not a BUILD-only treatment. Small direct BUILD cost is not an upper bound on downstream residency effects.",
+  "script_sha256": "8709d84ee9a02fdcaec9f2b9e86ae47e5fd5517f8b108baa5365fa9cef1f5438",
+  "baseline_results_sha256": "fa43ac086082d010f8e8ef08524fdbffa870411788a5508770b9671b234b78d1",
+  "dataset_lock_sha256": "79e1f003fe808ea1380a7cd1bc679cb0ebccb75718fd0a485115e108472e0b08",
+  "all": {
+    "cases": 60,
+    "naive": {
+      "sum_build_write_us": 34309920.323830545,
+      "sum_physical_us": 105810382785.2763,
+      "aggregate_build_fraction": 0.00032425854080366136,
+      "mean_case_build_fraction": 0.015169988562050476,
+      "median_case_build_fraction": 0.00044271431055686167,
+      "maximum_case_build_fraction": 0.7703955982862217,
+      "cases_build_fraction_gt_1pct": 2,
+      "cases_build_fraction_gt_5pct": 2,
+      "cases_build_fraction_gt_10pct": 1
+    },
+    "paired100": {
+      "sum_build_write_us": 34719042.38567735,
+      "sum_physical_us": 70717285002.93382,
+      "aggregate_build_fraction": 0.0004909555334913801,
+      "mean_case_build_fraction": 0.015247514985985379,
+      "median_case_build_fraction": 0.0008354184022205853,
+      "maximum_case_build_fraction": 0.7703955982862217,
+      "cases_build_fraction_gt_1pct": 4,
+      "cases_build_fraction_gt_5pct": 1,
+      "cases_build_fraction_gt_10pct": 1
+    },
+    "ai100": {
+      "sum_build_write_us": 34309920.323830545,
+      "sum_physical_us": 77933810694.83363,
+      "aggregate_build_fraction": 0.00044024435630612643,
+      "mean_case_build_fraction": 0.01518408273466325,
+      "median_case_build_fraction": 0.0007204270981417098,
+      "maximum_case_build_fraction": 0.7703955982862217,
+      "cases_build_fraction_gt_1pct": 4,
+      "cases_build_fraction_gt_5pct": 1,
+      "cases_build_fraction_gt_10pct": 1
+    },
+    "paired100_vs_naive_build_bytes": {
+      "less": 16,
+      "equal": 34,
+      "more": 10,
+      "sum_delta_bytes": 155194299,
+      "sum_delta_write_us": 409122.061846802
+    },
+    "ai100_vs_naive_build_bytes": {
+      "less": 0,
+      "equal": 60,
+      "more": 0,
+      "sum_delta_bytes": 0,
+      "sum_delta_write_us": 0.0
+    }
+  },
+  "read_ge_write": {
+    "cases": 26,
+    "naive": {
+      "sum_build_write_us": 25463177.702333335,
+      "sum_physical_us": 66197279314.70333,
+      "aggregate_build_fraction": 0.0003846559551379872,
+      "mean_case_build_fraction": 0.004350608438370216,
+      "median_case_build_fraction": 0.0009289771088107537,
+      "maximum_case_build_fraction": 0.08072143929806455,
+      "cases_build_fraction_gt_1pct": 1,
+      "cases_build_fraction_gt_5pct": 1,
+      "cases_build_fraction_gt_10pct": 0
+    },
+    "paired100": {
+      "sum_build_write_us": 25872299.764180135,
+      "sum_physical_us": 44228807224.201515,
+      "aggregate_build_fraction": 0.0005849648993026224,
+      "mean_case_build_fraction": 0.0036373176753457513,
+      "median_case_build_fraction": 0.0016115207325602733,
+      "maximum_case_build_fraction": 0.023489247644378305,
+      "cases_build_fraction_gt_1pct": 2,
+      "cases_build_fraction_gt_5pct": 0,
+      "cases_build_fraction_gt_10pct": 0
+    },
+    "ai100": {
+      "sum_build_write_us": 25463177.702333335,
+      "sum_physical_us": 49147171487.75263,
+      "aggregate_build_fraction": 0.0005181005728616285,
+      "mean_case_build_fraction": 0.00366322416694419,
+      "median_case_build_fraction": 0.001630581103342852,
+      "maximum_case_build_fraction": 0.023950203762808698,
+      "cases_build_fraction_gt_1pct": 2,
+      "cases_build_fraction_gt_5pct": 0,
+      "cases_build_fraction_gt_10pct": 0
+    },
+    "paired100_vs_naive_build_bytes": {
+      "less": 16,
+      "equal": 0,
+      "more": 10,
+      "sum_delta_bytes": 155194299,
+      "sum_delta_write_us": 409122.061846802
+    },
+    "ai100_vs_naive_build_bytes": {
+      "less": 0,
+      "equal": 26,
+      "more": 0,
+      "sum_delta_bytes": 0,
+      "sum_delta_write_us": 0.0
+    }
+  },
+  "read_lt_write": {
+    "cases": 34,
+    "naive": {
+      "sum_build_write_us": 8846742.621497216,
+      "sum_physical_us": 39613103470.57297,
+      "aggregate_build_fraction": 0.00022332869294295805,
+      "mean_case_build_fraction": 0.023443632186041265,
+      "median_case_build_fraction": 0.0002864396901551843,
+      "maximum_case_build_fraction": 0.7703955982862217,
+      "cases_build_fraction_gt_1pct": 1,
+      "cases_build_fraction_gt_5pct": 1,
+      "cases_build_fraction_gt_10pct": 1
+    },
+    "paired100": {
+      "sum_build_write_us": 8846742.621497216,
+      "sum_physical_us": 26488477778.732304,
+      "aggregate_build_fraction": 0.0003339845609625895,
+      "mean_case_build_fraction": 0.0241259011647098,
+      "median_case_build_fraction": 0.0005798320253917609,
+      "maximum_case_build_fraction": 0.7703955982862217,
+      "cases_build_fraction_gt_1pct": 2,
+      "cases_build_fraction_gt_5pct": 1,
+      "cases_build_fraction_gt_10pct": 1
+    },
+    "ai100": {
+      "sum_build_write_us": 8846742.621497216,
+      "sum_physical_us": 28786639207.081,
+      "aggregate_build_fraction": 0.0003073211345672153,
+      "mean_case_build_fraction": 0.023994151051154294,
+      "median_case_build_fraction": 0.0005382430571470201,
+      "maximum_case_build_fraction": 0.7703955982862217,
+      "cases_build_fraction_gt_1pct": 2,
+      "cases_build_fraction_gt_5pct": 1,
+      "cases_build_fraction_gt_10pct": 1
+    },
+    "paired100_vs_naive_build_bytes": {
+      "less": 0,
+      "equal": 34,
+      "more": 0,
+      "sum_delta_bytes": 0,
+      "sum_delta_write_us": 0.0
+    },
+    "ai100_vs_naive_build_bytes": {
+      "less": 0,
+      "equal": 34,
+      "more": 0,
+      "sum_delta_bytes": 0,
+      "sum_delta_write_us": 0.0
+    }
+  },
+  "families": {
+    "random_hotspot": {
+      "cases": 24,
+      "naive": {
+        "sum_build_write_us": 16141572.219688177,
+        "sum_physical_us": 32465832452.29147,
+        "aggregate_build_fraction": 0.0004971864572826898,
+        "mean_case_build_fraction": 0.0009553284700509866,
+        "median_case_build_fraction": 0.0004984640271706694,
+        "maximum_case_build_fraction": 0.007286801460982057,
+        "cases_build_fraction_gt_1pct": 0,
+        "cases_build_fraction_gt_5pct": 0,
+        "cases_build_fraction_gt_10pct": 0
+      },
+      "paired100": {
+        "sum_build_write_us": 16162170.05785351,
+        "sum_physical_us": 16228715671.426386,
+        "aggregate_build_fraction": 0.0009958995144828348,
+        "mean_case_build_fraction": 0.002945984510413147,
+        "median_case_build_fraction": 0.0008639024517934191,
+        "maximum_case_build_fraction": 0.023489247644378305,
+        "cases_build_fraction_gt_1pct": 2,
+        "cases_build_fraction_gt_5pct": 0,
+        "cases_build_fraction_gt_10pct": 0
+      },
+      "ai100": {
+        "sum_build_write_us": 16141572.219688177,
+        "sum_physical_us": 18597637442.274296,
+        "aggregate_build_fraction": 0.0008679367080786705,
+        "mean_case_build_fraction": 0.0029007201727544443,
+        "median_case_build_fraction": 0.0008072012849635077,
+        "maximum_case_build_fraction": 0.023950203762808698,
+        "cases_build_fraction_gt_1pct": 2,
+        "cases_build_fraction_gt_5pct": 0,
+        "cases_build_fraction_gt_10pct": 0
+      },
+      "paired100_vs_naive_build_bytes": {
+        "less": 7,
+        "equal": 11,
+        "more": 6,
+        "sum_delta_bytes": 145649106,
+        "sum_delta_write_us": 20597.83816533471
+      },
+      "ai100_vs_naive_build_bytes": {
+        "less": 0,
+        "equal": 24,
+        "more": 0,
+        "sum_delta_bytes": 0,
+        "sum_delta_write_us": 0.0
+      }
+    },
+    "random_lognormal": {
+      "cases": 12,
+      "naive": {
+        "sum_build_write_us": 3451228.327087352,
+        "sum_physical_us": 40595573926.317116,
+        "aggregate_build_fraction": 8.501489185376451e-05,
+        "mean_case_build_fraction": 0.0007794829025588956,
+        "median_case_build_fraction": 0.0004099470013009558,
+        "maximum_case_build_fraction": 0.0033719732258105563,
+        "cases_build_fraction_gt_1pct": 0,
+        "cases_build_fraction_gt_5pct": 0,
+        "cases_build_fraction_gt_10pct": 0
+      },
+      "paired100": {
+        "sum_build_write_us": 3413257.410808198,
+        "sum_physical_us": 30299142502.163593,
+        "aggregate_build_fraction": 0.00011265194751186326,
+        "mean_case_build_fraction": 0.001492942139860383,
+        "median_case_build_fraction": 0.000668946259102461,
+        "maximum_case_build_fraction": 0.005373684008907144,
+        "cases_build_fraction_gt_1pct": 0,
+        "cases_build_fraction_gt_5pct": 0,
+        "cases_build_fraction_gt_10pct": 0
+      },
+      "ai100": {
+        "sum_build_write_us": 3451228.327087352,
+        "sum_physical_us": 32967937576.49329,
+        "aggregate_build_fraction": 0.00010468438673422318,
+        "mean_case_build_fraction": 0.0012981596959651296,
+        "median_case_build_fraction": 0.0005798157485824557,
+        "maximum_case_build_fraction": 0.004536710409611636,
+        "cases_build_fraction_gt_1pct": 0,
+        "cases_build_fraction_gt_5pct": 0,
+        "cases_build_fraction_gt_10pct": 0
+      },
+      "paired100_vs_naive_build_bytes": {
+        "less": 2,
+        "equal": 7,
+        "more": 3,
+        "sum_delta_bytes": -33409209,
+        "sum_delta_write_us": -37970.916279153666
+      },
+      "ai100_vs_naive_build_bytes": {
+        "less": 0,
+        "equal": 12,
+        "more": 0,
+        "sum_delta_bytes": 0,
+        "sum_delta_write_us": 0.0
+      }
+    },
+    "random_zipf": {
+      "cases": 24,
+      "naive": {
+        "sum_build_write_us": 14717119.77705502,
+        "sum_physical_us": 32748976406.667713,
+        "aggregate_build_fraction": 0.0004493917487466449,
+        "mean_case_build_fraction": 0.03657990148379576,
+        "median_case_build_fraction": 0.00047835566669448464,
+        "maximum_case_build_fraction": 0.7703955982862217,
+        "cases_build_fraction_gt_1pct": 2,
+        "cases_build_fraction_gt_5pct": 2,
+        "cases_build_fraction_gt_10pct": 1
+      },
+      "paired100": {
+        "sum_build_write_us": 15143614.91701564,
+        "sum_physical_us": 24189426829.343845,
+        "aggregate_build_fraction": 0.0006260427344497943,
+        "mean_case_build_fraction": 0.034426331884620104,
+        "median_case_build_fraction": 0.0007946701424250384,
+        "maximum_case_build_fraction": 0.7703955982862217,
+        "cases_build_fraction_gt_1pct": 2,
+        "cases_build_fraction_gt_5pct": 1,
+        "cases_build_fraction_gt_10pct": 1
+      },
+      "ai100": {
+        "sum_build_write_us": 14717119.77705502,
+        "sum_physical_us": 26368235676.066048,
+        "aggregate_build_fraction": 0.0005581382068127323,
+        "mean_case_build_fraction": 0.03441040681592111,
+        "median_case_build_fraction": 0.0006098302043731449,
+        "maximum_case_build_fraction": 0.7703955982862217,
+        "cases_build_fraction_gt_1pct": 2,
+        "cases_build_fraction_gt_5pct": 1,
+        "cases_build_fraction_gt_10pct": 1
+      },
+      "paired100_vs_naive_build_bytes": {
+        "less": 7,
+        "equal": 16,
+        "more": 1,
+        "sum_delta_bytes": 42954402,
+        "sum_delta_write_us": 426495.13996062096
+      },
+      "ai100_vs_naive_build_bytes": {
+        "less": 0,
+        "equal": 24,
+        "more": 0,
+        "sum_delta_bytes": 0,
+        "sum_delta_write_us": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "seed": 10730359742581714376,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "8328d3f733888bfb15944fb8454b6cd1f235132a7b61b6504a6d1fae5e60b7cb",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "00886d9ceb87f62b4cae29f353e924bc687874c5034c951ebc3150a35387edcb",
+      "header": {
+        "K": 2,
+        "P": 32,
+        "M": 67108864,
+        "W": 1260,
+        "R": 3282,
+        "penalty": 855,
+        "N": 427113,
+        "B": 4096
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 38751153,
+          "build_append_bytes": 15580913,
+          "probe_spill_bytes": 143579823453,
+          "probe_read_bytes": 143571208768,
+          "build_write_us": 43120.6873015873,
+          "probe_write_us": 113952240.83571428,
+          "probe_read_us": 43745036.18769043,
+          "miss_us": 18721080,
+          "build_total_bytes": 54332066,
+          "physical_us": 176461477.7107063,
+          "build_fraction": 0.0002443631769438088,
+          "misses": 21896
+        },
+        "paired100": {
+          "build_spill_bytes": 38769584,
+          "build_append_bytes": 13816575,
+          "probe_spill_bytes": 71431823507,
+          "probe_read_bytes": 71432428525,
+          "build_write_us": 41735.04682539683,
+          "probe_write_us": 56691923.418253966,
+          "probe_read_us": 21764908.14290067,
+          "miss_us": 40986990,
+          "build_total_bytes": 52586159,
+          "physical_us": 119485556.60798003,
+          "build_fraction": 0.0003492894707125588,
+          "misses": 47938
+        },
+        "ai100": {
+          "build_spill_bytes": 38751153,
+          "build_append_bytes": 15580913,
+          "probe_spill_bytes": 77232874403,
+          "probe_read_bytes": 77235277806,
+          "build_write_us": 43120.6873015873,
+          "probe_write_us": 61295932.06587302,
+          "probe_read_us": 23532991.4095064,
+          "miss_us": 36375975,
+          "build_total_bytes": 54332066,
+          "physical_us": 121248019.162681,
+          "build_fraction": 0.00035564034447219605,
+          "misses": 42545
+        }
+      }
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "seed": 7256044700735148566,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "c8467f36c5f46b3b2dd3cddaaef37495bfa3af7f54ec413b9f60d09dc4eaf24f",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "4fa5a16addf3e89fb79eaf5436a93cc38fa7a2e6bad50d636bedc802ee7d2e05",
+      "header": {
+        "K": 1,
+        "P": 16,
+        "M": 4294967296,
+        "W": 6224,
+        "R": 3583,
+        "penalty": 814,
+        "N": 150079,
+        "B": 16
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 3763085853,
+          "build_append_bytes": 2819891278,
+          "probe_spill_bytes": 15524240223706,
+          "probe_read_bytes": 15524546692774,
+          "build_write_us": 1057676.2742609254,
+          "probe_write_us": 2494254534.6571336,
+          "probe_read_us": 4332834689.582473,
+          "miss_us": 14564902,
+          "build_total_bytes": 6582977131,
+          "physical_us": 6842711802.513867,
+          "build_fraction": 0.00015456975316019558,
+          "misses": 17893
+        },
+        "paired100": {
+          "build_spill_bytes": 3763085853,
+          "build_append_bytes": 2819891278,
+          "probe_spill_bytes": 12990401169824,
+          "probe_read_bytes": 12990675414919,
+          "build_write_us": 1057676.2742609254,
+          "probe_write_us": 2087146717.5167096,
+          "probe_read_us": 3625642035.9807425,
+          "miss_us": 16997948,
+          "build_total_bytes": 6582977131,
+          "physical_us": 5730844377.771713,
+          "build_fraction": 0.00018455854051164703,
+          "misses": 20882
+        },
+        "ai100": {
+          "build_spill_bytes": 3763085853,
+          "build_append_bytes": 2819891278,
+          "probe_spill_bytes": 16036133886181,
+          "probe_read_bytes": 16036394494227,
+          "build_write_us": 1057676.2742609254,
+          "probe_write_us": 2576499660.376125,
+          "probe_read_us": 4475689225.293609,
+          "miss_us": 25020732,
+          "build_total_bytes": 6582977131,
+          "physical_us": 7078267293.9439945,
+          "build_fraction": 0.00014942587364083428,
+          "misses": 30738
+        }
+      }
+    },
+    {
+      "case": "train/train_545_random_zipf.txt",
+      "seed": 14907611417084751774,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "2776a93db09b57cfe7c52497a951a99f0c06ad39e9c3ae6853133ba82c610db3",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "f99ee1ddabc4d721037b4aca317e8e0f6fbe07e1064ff34dd756874cf995b19d",
+      "header": {
+        "K": 8,
+        "P": 16,
+        "M": 134217728,
+        "W": 1281,
+        "R": 3778,
+        "penalty": 495,
+        "N": 260524,
+        "B": 10000
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 49000663,
+          "build_append_bytes": 10783899,
+          "probe_spill_bytes": 24941269394,
+          "probe_read_bytes": 24943266098,
+          "build_write_us": 46670.22794691647,
+          "probe_write_us": 19470155.654957063,
+          "probe_read_us": 6602240.894123875,
+          "miss_us": 1361250,
+          "build_total_bytes": 59784562,
+          "physical_us": 27480316.777027853,
+          "build_fraction": 0.0016983147729188626,
+          "misses": 2750
+        },
+        "paired100": {
+          "build_spill_bytes": 46123738,
+          "build_append_bytes": 9149149,
+          "probe_spill_bytes": 20875936232,
+          "probe_read_bytes": 20877231723,
+          "build_write_us": 43148.23341139735,
+          "probe_write_us": 16296593.467603436,
+          "probe_read_us": 5526000.985442033,
+          "miss_us": 7529940,
+          "build_total_bytes": 55272887,
+          "physical_us": 29395682.686456867,
+          "build_fraction": 0.001467842535641349,
+          "misses": 15212
+        },
+        "ai100": {
+          "build_spill_bytes": 49000663,
+          "build_append_bytes": 10783899,
+          "probe_spill_bytes": 22512249764,
+          "probe_read_bytes": 22518064883,
+          "build_write_us": 46670.22794691647,
+          "probe_write_us": 17573965.467603434,
+          "probe_read_us": 5960313.62705135,
+          "miss_us": 7171065,
+          "build_total_bytes": 59784562,
+          "physical_us": 30752014.3226017,
+          "build_fraction": 0.0015176315755230194,
+          "misses": 14487
+        }
+      }
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "seed": 13085705622311950649,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "1dbad64ae156db660e614f9e30b9809ba826d108d785fe2dd0906926ac88fccd",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "b3ee3b82658d6246b0af3c6951a034260f5d2ea3d737f926d4f64730db7327c9",
+      "header": {
+        "K": 1,
+        "P": 16,
+        "M": 268435456,
+        "W": 4094,
+        "R": 3681,
+        "penalty": 600,
+        "N": 83692,
+        "B": 4096
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 213512044,
+          "build_append_bytes": 171574261,
+          "probe_spill_bytes": 1226554906551,
+          "probe_read_bytes": 1226577398465,
+          "build_write_us": 94061.13947239863,
+          "probe_write_us": 299598169.65095264,
+          "probe_read_us": 333218527.15702254,
+          "miss_us": 9228000,
+          "build_total_bytes": 385086305,
+          "physical_us": 642138757.9474475,
+          "build_fraction": 0.0001464810187957796,
+          "misses": 15380
+        },
+        "paired100": {
+          "build_spill_bytes": 213512044,
+          "build_append_bytes": 171574261,
+          "probe_spill_bytes": 764500200313,
+          "probe_read_bytes": 764527248846,
+          "build_write_us": 94061.13947239863,
+          "probe_write_us": 186736736.7642892,
+          "probe_read_us": 207695530.79217604,
+          "miss_us": 8695200,
+          "build_total_bytes": 385086305,
+          "physical_us": 403221528.69593763,
+          "build_fraction": 0.0002332741006577764,
+          "misses": 14492
+        },
+        "ai100": {
+          "build_spill_bytes": 213512044,
+          "build_append_bytes": 171574261,
+          "probe_spill_bytes": 767399296730,
+          "probe_read_bytes": 767426345263,
+          "build_write_us": 94061.13947239863,
+          "probe_write_us": 187444869.7435271,
+          "probe_read_us": 208483114.7142081,
+          "miss_us": 8748000,
+          "build_total_bytes": 385086305,
+          "physical_us": 404770045.5972076,
+          "build_fraction": 0.0002323816707672094,
+          "misses": 14580
+        }
+      }
+    },
+    {
+      "case": "train/train_543_random_zipf.txt",
+      "seed": 13985279295355576155,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "b6db8a9e6819ef8f4cac5bb3e42057cbf2587913cf189994e36c6ba72a31239a",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "865ab21836e022d97ced3c8169c1e9aa074d06b45ea806047aa81f4fa5b7ed48",
+      "header": {
+        "K": 2,
+        "P": 16,
+        "M": 1073741824,
+        "W": 9938,
+        "R": 8994,
+        "penalty": 531,
+        "N": 232370,
+        "B": 64
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 1323924124,
+          "build_append_bytes": 1732385050,
+          "probe_spill_bytes": 3663922070663,
+          "probe_read_bytes": 3663898624638,
+          "build_write_us": 307537.6508351781,
+          "probe_write_us": 368678010.73284364,
+          "probe_read_us": 407371428.1340894,
+          "miss_us": 10152720,
+          "build_total_bytes": 3056309174,
+          "physical_us": 786509696.5177683,
+          "build_fraction": 0.0003910157143602748,
+          "misses": 19120
+        },
+        "paired100": {
+          "build_spill_bytes": 1323924124,
+          "build_append_bytes": 1732385050,
+          "probe_spill_bytes": 2494504384386,
+          "probe_read_bytes": 2494503757595,
+          "build_write_us": 307537.6508351781,
+          "probe_write_us": 251006679.8536929,
+          "probe_read_us": 277351985.5008895,
+          "miss_us": 12096711,
+          "build_total_bytes": 3056309174,
+          "physical_us": 540762914.0054176,
+          "build_fraction": 0.0005687106916361077,
+          "misses": 22781
+        },
+        "ai100": {
+          "build_spill_bytes": 1323924124,
+          "build_append_bytes": 1732385050,
+          "probe_spill_bytes": 2589629376502,
+          "probe_read_bytes": 2589608079261,
+          "build_write_us": 307537.6508351781,
+          "probe_write_us": 260578524.5021131,
+          "probe_read_us": 287926181.8168779,
+          "miss_us": 13152870,
+          "build_total_bytes": 3056309174,
+          "physical_us": 561965113.9698262,
+          "build_fraction": 0.0005472539899544206,
+          "misses": 24770
+        }
+      }
+    },
+    {
+      "case": "train/train_591_random_zipf.txt",
+      "seed": 12122591336764498052,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "45f197acfa68a33e51255423dd2970be06eb803b632cd43fb55f48859b2e6573",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "25a1b29c4d630b46a90c9033ae1eb678b0c4ff6756f7b5b83a500de499d1a4b1",
+      "header": {
+        "K": 4,
+        "P": 32,
+        "M": 536870912,
+        "W": 866,
+        "R": 8588,
+        "penalty": 10,
+        "N": 233550,
+        "B": 16
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 137183808,
+          "build_append_bytes": 43443613,
+          "probe_spill_bytes": 56247750646,
+          "probe_read_bytes": 56234462906,
+          "build_write_us": 208576.6986143187,
+          "probe_write_us": 64951213.21709007,
+          "probe_read_us": 6548027.818584071,
+          "miss_us": 5880,
+          "build_total_bytes": 180627421,
+          "physical_us": 71713697.73428845,
+          "build_fraction": 0.0029084638667933585,
+          "misses": 588
+        },
+        "paired100": {
+          "build_spill_bytes": 151647566,
+          "build_append_bytes": 24773805,
+          "probe_spill_bytes": 28842488273,
+          "probe_read_bytes": 28848205992,
+          "build_write_us": 203719.82794457275,
+          "probe_write_us": 33305413.710161664,
+          "probe_read_us": 3359129.7149510947,
+          "miss_us": 55140,
+          "build_total_bytes": 176421371,
+          "physical_us": 36923403.25305733,
+          "build_fraction": 0.0055173632438040325,
+          "misses": 5514
+        },
+        "ai100": {
+          "build_spill_bytes": 137183808,
+          "build_append_bytes": 43443613,
+          "probe_spill_bytes": 34690181965,
+          "probe_read_bytes": 34687161416,
+          "build_write_us": 208576.6986143187,
+          "probe_write_us": 40057946.84180138,
+          "probe_read_us": 4039026.713553796,
+          "miss_us": 54390,
+          "build_total_bytes": 180627421,
+          "physical_us": 44359940.2539695,
+          "build_fraction": 0.004701915679330845,
+          "misses": 5439
+        }
+      }
+    },
+    {
+      "case": "train/train_532_random_zipf.txt",
+      "seed": 17108583945564347376,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "1699cf50223c41f1045f393c7f8e4494d595789e94f18245c4a28ef9dbcfe2bf",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "efbd632ff0f785cafe56b0cf57732c8fab443b4a76303410fa28d665cc07424b",
+      "header": {
+        "K": 1,
+        "P": 32,
+        "M": 4294967296,
+        "W": 4474,
+        "R": 7048,
+        "penalty": 953,
+        "N": 95946,
+        "B": 16
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 4116663971,
+          "build_append_bytes": 2204652736,
+          "probe_spill_bytes": 721336728813,
+          "probe_read_bytes": 722874586378,
+          "build_write_us": 1412900.4709432276,
+          "probe_write_us": 161228593.83392936,
+          "probe_read_us": 102564498.63479002,
+          "miss_us": 688066,
+          "build_total_bytes": 6321316707,
+          "physical_us": 265894058.9396626,
+          "build_fraction": 0.00531377224665199,
+          "misses": 722
+        },
+        "paired100": {
+          "build_spill_bytes": 3767364044,
+          "build_append_bytes": 1874668206,
+          "probe_spill_bytes": 683683040092,
+          "probe_read_bytes": 684532392631,
+          "build_write_us": 1261071.133214126,
+          "probe_write_us": 152812481.02190435,
+          "probe_read_us": 97124346.28703178,
+          "miss_us": 1690622,
+          "build_total_bytes": 5642032250,
+          "physical_us": 252888520.44215026,
+          "build_fraction": 0.004986668161169473,
+          "misses": 1774
+        },
+        "ai100": {
+          "build_spill_bytes": 4116663971,
+          "build_append_bytes": 2204652736,
+          "probe_spill_bytes": 688043042192,
+          "probe_read_bytes": 689579655997,
+          "build_write_us": 1412900.4709432276,
+          "probe_write_us": 153787000.93696916,
+          "probe_read_us": 97840473.32534052,
+          "miss_us": 1635348,
+          "build_total_bytes": 6321316707,
+          "physical_us": 254675722.7332529,
+          "build_fraction": 0.005547841214622165,
+          "misses": 1716
+        }
+      }
+    },
+    {
+      "case": "train/train_588_random_zipf.txt",
+      "seed": 2357249348037649374,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "c62de6c0fcba011924568511d66ed1e444d6e31d2007b623f44109a838d829f0",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "56d6c945c29b6bb6a81b0f3d9ad875a4f4678a1832a5adee1197508f69961e2b",
+      "header": {
+        "K": 2,
+        "P": 32,
+        "M": 2147483648,
+        "W": 8487,
+        "R": 2546,
+        "penalty": 945,
+        "N": 93281,
+        "B": 16
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 2790836264,
+          "build_append_bytes": 3391056642,
+          "probe_spill_bytes": 2498379641906,
+          "probe_read_bytes": 2497205822636,
+          "build_write_us": 728395.5350536114,
+          "probe_write_us": 294377240.7100271,
+          "probe_read_us": 980834965.6857816,
+          "miss_us": 7445655,
+          "build_total_bytes": 6181892906,
+          "physical_us": 1283386256.9308624,
+          "build_fraction": 0.0005675575308056699,
+          "misses": 7879
+        },
+        "paired100": {
+          "build_spill_bytes": 2790836264,
+          "build_append_bytes": 3391056642,
+          "probe_spill_bytes": 1134145591861,
+          "probe_read_bytes": 1134151507954,
+          "build_write_us": 728395.5350536114,
+          "probe_write_us": 133633273.46070461,
+          "probe_read_us": 445464064.3967007,
+          "miss_us": 8750700,
+          "build_total_bytes": 6181892906,
+          "physical_us": 588576433.3924589,
+          "build_fraction": 0.001237554706115666,
+          "misses": 9260
+        },
+        "ai100": {
+          "build_spill_bytes": 2790836264,
+          "build_append_bytes": 3391056642,
+          "probe_spill_bytes": 1328677722384,
+          "probe_read_bytes": 1328793906781,
+          "build_write_us": 728395.5350536114,
+          "probe_write_us": 156554462.39943442,
+          "probe_read_us": 521914338.8770621,
+          "miss_us": 8909460,
+          "build_total_bytes": 6181892906,
+          "physical_us": 688106656.8115501,
+          "build_fraction": 0.001058550339316213,
+          "misses": 9428
+        }
+      }
+    },
+    {
+      "case": "train/train_528_random_zipf.txt",
+      "seed": 17042152183881719979,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "f0a1a607716ef8b9f733aace88f91791dc41a1b6ffbfc953b3064fb8cd8e9a21",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "0dfc6db85d8a71488f87e2406cbcb4e71cc0b627488db1f3ca57728dcb8119d5",
+      "header": {
+        "K": 8,
+        "P": 8,
+        "M": 134217728,
+        "W": 5493,
+        "R": 3832,
+        "penalty": 449,
+        "N": 413389,
+        "B": 64
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 49849566,
+          "build_append_bytes": 20028136,
+          "probe_spill_bytes": 48974093873,
+          "probe_read_bytes": 48974093873,
+          "build_write_us": 12721.227380302204,
+          "probe_write_us": 8915727.994356453,
+          "probe_read_us": 12780295.895876827,
+          "miss_us": 779015,
+          "build_total_bytes": 69877702,
+          "physical_us": 22487760.117613584,
+          "build_fraction": 0.0005656956190286945,
+          "misses": 1735
+        },
+        "paired100": {
+          "build_spill_bytes": 49849566,
+          "build_append_bytes": 20028136,
+          "probe_spill_bytes": 30540705635,
+          "probe_read_bytes": 30538309137,
+          "build_write_us": 12721.227380302204,
+          "probe_write_us": 5559931.84689605,
+          "probe_read_us": 7969287.353079332,
+          "miss_us": 4054470,
+          "build_total_bytes": 69877702,
+          "physical_us": 17596410.427355684,
+          "build_fraction": 0.0007229444569288724,
+          "misses": 9030
+        },
+        "ai100": {
+          "build_spill_bytes": 49849566,
+          "build_append_bytes": 20028136,
+          "probe_spill_bytes": 33864432159,
+          "probe_read_bytes": 33862273053,
+          "build_write_us": 12721.227380302204,
+          "probe_write_us": 6165015.867285636,
+          "probe_read_us": 8836710.08689979,
+          "miss_us": 3913933,
+          "build_total_bytes": 69877702,
+          "physical_us": 18928380.181565728,
+          "build_fraction": 0.0006720716330862455,
+          "misses": 8717
+        }
+      }
+    },
+    {
+      "case": "train/train_603_random_zipf.txt",
+      "seed": 17205284488478511419,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "badbcf8d9027f1c94bcf805477111c8dbffaed4905b63740c4c2f3a4c7bd3161",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "03920a321a3232280b6fc60913117eb827050606fcd85d2acd37694ac399212c",
+      "header": {
+        "K": 2,
+        "P": 16,
+        "M": 1073741824,
+        "W": 3794,
+        "R": 1805,
+        "penalty": 250,
+        "N": 95095,
+        "B": 8
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 742895690,
+          "build_append_bytes": 628124589,
+          "probe_spill_bytes": 4047753506574,
+          "probe_read_bytes": 4047002964211,
+          "build_write_us": 361365.38719030045,
+          "probe_write_us": 1066882843.0611492,
+          "probe_read_us": 2242106905.3800554,
+          "miss_us": 4094250,
+          "build_total_bytes": 1371020279,
+          "physical_us": 3313445363.828395,
+          "build_fraction": 0.00010906031260849718,
+          "misses": 16377
+        },
+        "paired100": {
+          "build_spill_bytes": 742895690,
+          "build_append_bytes": 628124589,
+          "probe_spill_bytes": 1586929763798,
+          "probe_read_bytes": 1586924872856,
+          "build_write_us": 361365.38719030045,
+          "probe_write_us": 418273527.6220348,
+          "probe_read_us": 879182755.0448754,
+          "miss_us": 3507750,
+          "build_total_bytes": 1371020279,
+          "physical_us": 1301325398.0541005,
+          "build_fraction": 0.00027769025927770085,
+          "misses": 14031
+        },
+        "ai100": {
+          "build_spill_bytes": 742895690,
+          "build_append_bytes": 628124589,
+          "probe_spill_bytes": 1660460796728,
+          "probe_read_bytes": 1660456864204,
+          "build_write_us": 361365.38719030045,
+          "probe_write_us": 437654400.8244597,
+          "probe_read_us": 919920700.3900276,
+          "miss_us": 4021750,
+          "build_total_bytes": 1371020279,
+          "physical_us": 1361958216.6016777,
+          "build_fraction": 0.0002653278072597336,
+          "misses": 16087
+        }
+      }
+    },
+    {
+      "case": "train/train_563_random_zipf.txt",
+      "seed": 4015835430883768950,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "54a642d65f7c05238788e8eece2e3ec1477c675993f5cc84db0772dc7f6b0884",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "14fe6a803da76dfb5e6e8f9421ca393f110159b341bd0b422f0332a03c531b93",
+      "header": {
+        "K": 8,
+        "P": 8,
+        "M": 2147483648,
+        "W": 5470,
+        "R": 6687,
+        "penalty": 949,
+        "N": 138230,
+        "B": 256
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 701053041,
+          "build_append_bytes": 141665128,
+          "probe_spill_bytes": 359226398618,
+          "probe_read_bytes": 359330287189,
+          "build_write_us": 154061.82248628885,
+          "probe_write_us": 65672102.12394881,
+          "probe_read_us": 53735649.34783909,
+          "miss_us": 1089452,
+          "build_total_bytes": 842718169,
+          "physical_us": 120651265.29427418,
+          "build_fraction": 0.0012769184153230777,
+          "misses": 1148
+        },
+        "paired100": {
+          "build_spill_bytes": 599515295,
+          "build_append_bytes": 89400488,
+          "probe_spill_bytes": 189755094912,
+          "probe_read_bytes": 189738659647,
+          "build_write_us": 125944.3844606947,
+          "probe_write_us": 34690145.32212066,
+          "probe_read_us": 28374257.461791534,
+          "miss_us": 5515588,
+          "build_total_bytes": 688915783,
+          "physical_us": 68705935.16837288,
+          "build_fraction": 0.0018330932277109903,
+          "misses": 5812
+        },
+        "ai100": {
+          "build_spill_bytes": 701053041,
+          "build_append_bytes": 141665128,
+          "probe_spill_bytes": 241475544336,
+          "probe_read_bytes": 241663949483,
+          "build_write_us": 154061.82248628885,
+          "probe_write_us": 44145437.7213894,
+          "probe_read_us": 36139367.35202632,
+          "miss_us": 5465291,
+          "build_total_bytes": 842718169,
+          "physical_us": 85904157.89590201,
+          "build_fraction": 0.0017934151996807858,
+          "misses": 5759
+        }
+      }
+    },
+    {
+      "case": "train/train_565_random_zipf.txt",
+      "seed": 12707438246821282913,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "a16e5d6f0a0b66dbcf07c2e8beac6f171309b74d99cb596049ad2a136768528f",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "39f3d90d79cb5eb39990ee1975cea505bbf9d24fa114f0df92df7544a64519c1",
+      "header": {
+        "K": 2,
+        "P": 8,
+        "M": 2147483648,
+        "W": 4641,
+        "R": 7405,
+        "penalty": 632,
+        "N": 213695,
+        "B": 64
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 355154680,
+          "build_append_bytes": 66075395,
+          "probe_spill_bytes": 881205706037,
+          "probe_read_bytes": 880241553613,
+          "build_write_us": 90762.78280542986,
+          "probe_write_us": 189874101.71019176,
+          "probe_read_us": 118871242.8916948,
+          "miss_us": 616200,
+          "build_total_bytes": 421230075,
+          "physical_us": 309452307.384692,
+          "build_fraction": 0.0002933013606280827,
+          "misses": 975
+        },
+        "paired100": {
+          "build_spill_bytes": 361165655,
+          "build_append_bytes": 35058541,
+          "probe_spill_bytes": 616638729680,
+          "probe_read_bytes": 615649571377,
+          "build_write_us": 85374.74595992242,
+          "probe_write_us": 132867642.6804568,
+          "probe_read_us": 83139712.5424713,
+          "miss_us": 3790736,
+          "build_total_bytes": 396224196,
+          "physical_us": 219883465.968888,
+          "build_fraction": 0.0003882726951921085,
+          "misses": 5998
+        },
+        "ai100": {
+          "build_spill_bytes": 355154680,
+          "build_append_bytes": 66075395,
+          "probe_spill_bytes": 745668678483,
+          "probe_read_bytes": 744681990441,
+          "build_write_us": 90762.78280542986,
+          "probe_write_us": 160669829.45119587,
+          "probe_read_us": 100564752.25401756,
+          "miss_us": 3186544,
+          "build_total_bytes": 421230075,
+          "physical_us": 264511888.48801887,
+          "build_fraction": 0.00034313309441114586,
+          "misses": 5042
+        }
+      }
+    },
+    {
+      "case": "train/train_592_random_zipf.txt",
+      "seed": 18068038998795579627,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "3ccf8c04478dd386b8d4bea4336551d431383d67af6eb7a5e84cff19c4e07c56",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "621c8ee7ce4af494ff9044b747b21d5d486e7e8f4ac50cfeaa55fdcd41ab377a",
+      "header": {
+        "K": 2,
+        "P": 16,
+        "M": 268435456,
+        "W": 7187,
+        "R": 3988,
+        "penalty": 179,
+        "N": 242719,
+        "B": 10000
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 68614964,
+          "build_append_bytes": 10765688,
+          "probe_spill_bytes": 135616203653,
+          "probe_read_bytes": 135616203653,
+          "build_write_us": 11045.03297620704,
+          "probe_write_us": 18869654.04939474,
+          "probe_read_us": 34006069.12061184,
+          "miss_us": 225182,
+          "build_total_bytes": 79380652,
+          "physical_us": 53111950.20298279,
+          "build_fraction": 0.00020795758645644207,
+          "misses": 1258
+        },
+        "paired100": {
+          "build_spill_bytes": 68614964,
+          "build_append_bytes": 10765688,
+          "probe_spill_bytes": 30184263414,
+          "probe_read_bytes": 30200780390,
+          "build_write_us": 11045.03297620704,
+          "probe_write_us": 4199841.855294282,
+          "probe_read_us": 7572913.839017051,
+          "miss_us": 964452,
+          "build_total_bytes": 79380652,
+          "physical_us": 12748252.72728754,
+          "build_fraction": 0.0008663958279212043,
+          "misses": 5388
+        },
+        "ai100": {
+          "build_spill_bytes": 68614964,
+          "build_append_bytes": 10765688,
+          "probe_spill_bytes": 48999977233,
+          "probe_read_bytes": 49010187799,
+          "build_write_us": 11045.03297620704,
+          "probe_write_us": 6817862.422846807,
+          "probe_read_us": 12289415.195336008,
+          "miss_us": 1051983,
+          "build_total_bytes": 79380652,
+          "physical_us": 20170305.651159022,
+          "build_fraction": 0.0005475887756600442,
+          "misses": 5877
+        }
+      }
+    },
+    {
+      "case": "train/train_600_random_zipf.txt",
+      "seed": 13204245464263753359,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "f79a7d1bb9d2da0ce790979b4857c7a1fb7388b0d41243cf489d730f7386d2f2",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "d215bd8ff9929002208334a3ce997ef9b7e7ba9bbdecbdfaac7b1053854ae13d",
+      "header": {
+        "K": 8,
+        "P": 64,
+        "M": 134217728,
+        "W": 5158,
+        "R": 7482,
+        "penalty": 870,
+        "N": 171202,
+        "B": 1024
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 70969786,
+          "build_append_bytes": 31112677,
+          "probe_spill_bytes": 606782196,
+          "probe_read_bytes": 584849429,
+          "build_write_us": 19791.094028693293,
+          "probe_write_us": 117639.0453664211,
+          "probe_read_us": 78167.52592889602,
+          "miss_us": 29580,
+          "build_total_bytes": 102082463,
+          "physical_us": 245177.66532401042,
+          "build_fraction": 0.08072143929806455,
+          "misses": 34
+        },
+        "paired100": {
+          "build_spill_bytes": 62359251,
+          "build_append_bytes": 18221116,
+          "probe_spill_bytes": 672284375,
+          "probe_read_bytes": 672363626,
+          "build_write_us": 15622.405389685924,
+          "probe_write_us": 130338.18825126017,
+          "probe_read_us": 89864.15744453354,
+          "miss_us": 600300,
+          "build_total_bytes": 80580367,
+          "physical_us": 836124.7510854796,
+          "build_fraction": 0.018684299644765326,
+          "misses": 690
+        },
+        "ai100": {
+          "build_spill_bytes": 70969786,
+          "build_append_bytes": 31112677,
+          "probe_spill_bytes": 739923963,
+          "probe_read_bytes": 756734708,
+          "build_write_us": 19791.094028693293,
+          "probe_write_us": 143451.7183016673,
+          "probe_read_us": 101140.69874365143,
+          "miss_us": 638580,
+          "build_total_bytes": 102082463,
+          "physical_us": 902963.511074012,
+          "build_fraction": 0.021917933322857276,
+          "misses": 734
+        }
+      }
+    },
+    {
+      "case": "train/train_586_random_zipf.txt",
+      "seed": 16880273796992981695,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "9e48130bb1617ad282bdaa6295fd003b0cee339f87e30f212df6aae906398b92",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "e367366535b2f96f029b4155a640004354541faa3fe57992c475ee8f24b4ef47",
+      "header": {
+        "K": 8,
+        "P": 64,
+        "M": 1073741824,
+        "W": 5457,
+        "R": 3482,
+        "penalty": 499,
+        "N": 129256,
+        "B": 1024
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 1211273737,
+          "build_append_bytes": 368860061,
+          "probe_spill_bytes": 0,
+          "probe_read_bytes": 295280953,
+          "build_write_us": 289560.893897746,
+          "probe_write_us": 0.0,
+          "probe_read_us": 84802.1117174038,
+          "miss_us": 1497,
+          "build_total_bytes": 1580133798,
+          "physical_us": 375860.0056151498,
+          "build_fraction": 0.7703955982862217,
+          "misses": 3
+        },
+        "paired100": {
+          "build_spill_bytes": 1211273737,
+          "build_append_bytes": 368860061,
+          "probe_spill_bytes": 0,
+          "probe_read_bytes": 295280953,
+          "build_write_us": 289560.893897746,
+          "probe_write_us": 0.0,
+          "probe_read_us": 84802.1117174038,
+          "miss_us": 1497,
+          "build_total_bytes": 1580133798,
+          "physical_us": 375860.0056151498,
+          "build_fraction": 0.7703955982862217,
+          "misses": 3
+        },
+        "ai100": {
+          "build_spill_bytes": 1211273737,
+          "build_append_bytes": 368860061,
+          "probe_spill_bytes": 0,
+          "probe_read_bytes": 295280953,
+          "build_write_us": 289560.893897746,
+          "probe_write_us": 0.0,
+          "probe_read_us": 84802.1117174038,
+          "miss_us": 1497,
+          "build_total_bytes": 1580133798,
+          "physical_us": 375860.0056151498,
+          "build_fraction": 0.7703955982862217,
+          "misses": 3
+        }
+      }
+    },
+    {
+      "case": "train/train_597_random_zipf.txt",
+      "seed": 9053799892522796550,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "0bd69c476040de02375d7b26e7e82ea2ab0deea591369af9a5479b0b89156a1a",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "970122f4800a1f56cf02d39f1c4cba2c1b14950fcf86812fb7d7208f2cc474fa",
+      "header": {
+        "K": 1,
+        "P": 32,
+        "M": 1073741824,
+        "W": 8065,
+        "R": 235,
+        "penalty": 139,
+        "N": 94314,
+        "B": 16
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 1281847441,
+          "build_append_bytes": 1438451010,
+          "probe_spill_bytes": 1772449634075,
+          "probe_read_bytes": 1772392166213,
+          "build_write_us": 337296.77011779294,
+          "probe_write_us": 219770568.39119652,
+          "probe_read_us": 7542094324.310638,
+          "miss_us": 1075582,
+          "build_total_bytes": 2720298451,
+          "physical_us": 7763277771.471952,
+          "build_fraction": 4.344772659781307e-05,
+          "misses": 7738
+        },
+        "paired100": {
+          "build_spill_bytes": 1281847441,
+          "build_append_bytes": 1438451010,
+          "probe_spill_bytes": 1266281997967,
+          "probe_read_bytes": 1266339565762,
+          "build_write_us": 337296.77011779294,
+          "probe_write_us": 157009547.1750775,
+          "probe_read_us": 5388679003.242553,
+          "miss_us": 1213748,
+          "build_total_bytes": 2720298451,
+          "physical_us": 5547239595.187748,
+          "build_fraction": 6.080443513029421e-05,
+          "misses": 8732
+        },
+        "ai100": {
+          "build_spill_bytes": 1281847441,
+          "build_append_bytes": 1438451010,
+          "probe_spill_bytes": 1310418538009,
+          "probe_read_bytes": 1310503688305,
+          "build_write_us": 337296.77011779294,
+          "probe_write_us": 162482149.78412896,
+          "probe_read_us": 5576611439.595745,
+          "miss_us": 1333149,
+          "build_total_bytes": 2720298451,
+          "physical_us": 5740764035.149992,
+          "build_fraction": 5.875468283534497e-05,
+          "misses": 9591
+        }
+      }
+    },
+    {
+      "case": "train/train_534_random_zipf.txt",
+      "seed": 6047589661445266902,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "94ab4df1765fbe5fde7b9830ab8e3d4c098aec4d3e5373b62adc4e488b1eb837",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "56037161ae2f4bed1e4cf18f246fe0a633417c5c749dd8526d55a04a0516179f",
+      "header": {
+        "K": 8,
+        "P": 32,
+        "M": 4294967296,
+        "W": 1491,
+        "R": 7462,
+        "penalty": 339,
+        "N": 247993,
+        "B": 10000
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 4947788079,
+          "build_append_bytes": 5128455509,
+          "probe_spill_bytes": 1610170323469,
+          "probe_read_bytes": 1609841537517,
+          "build_write_us": 6758043.989268947,
+          "probe_write_us": 1079926440.9584172,
+          "probe_read_us": 215738613.97976413,
+          "miss_us": 3052695,
+          "build_total_bytes": 10076243588,
+          "physical_us": 1305475793.9274502,
+          "build_fraction": 0.005176690384229764,
+          "misses": 9005
+        },
+        "paired100": {
+          "build_spill_bytes": 5935599228,
+          "build_append_bytes": 5073657212,
+          "probe_spill_bytes": 1216512778901,
+          "probe_read_bytes": 1217480822322,
+          "build_write_us": 7383807.136150234,
+          "probe_write_us": 815903942.9248827,
+          "probe_read_us": 163157440.67569017,
+          "miss_us": 7875648,
+          "build_total_bytes": 11009256440,
+          "physical_us": 994320838.7367231,
+          "build_fraction": 0.0074259804768160185,
+          "misses": 23232
+        },
+        "ai100": {
+          "build_spill_bytes": 4947788079,
+          "build_append_bytes": 5128455509,
+          "probe_spill_bytes": 1303660800504,
+          "probe_read_bytes": 1303689074231,
+          "build_write_us": 6758043.989268947,
+          "probe_write_us": 874353320.2575452,
+          "probe_read_us": 174710409.30461,
+          "miss_us": 7728522,
+          "build_total_bytes": 10076243588,
+          "physical_us": 1063550295.5514241,
+          "build_fraction": 0.006354230747277515,
+          "misses": 22798
+        }
+      }
+    },
+    {
+      "case": "train/train_569_random_zipf.txt",
+      "seed": 12887940269125001850,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "d21d6c5d3302c6b751006257609bce64b27b8ecc4418916728ada9e65df86c95",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "5536cde8e61f4cfc31afa91981f82306a7a5fdf7d59995181bb8ec3ab0789cda",
+      "header": {
+        "K": 4,
+        "P": 32,
+        "M": 268435456,
+        "W": 8379,
+        "R": 4477,
+        "penalty": 534,
+        "N": 129640,
+        "B": 8
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 368026177,
+          "build_append_bytes": 434356442,
+          "probe_spill_bytes": 240077457161,
+          "probe_read_bytes": 240077058381,
+          "build_write_us": 95761.14321518081,
+          "probe_write_us": 28652280.362931136,
+          "probe_read_us": 53624538.39200357,
+          "miss_us": 9532434,
+          "build_total_bytes": 802382619,
+          "physical_us": 91905013.8981499,
+          "build_fraction": 0.0010419577687165611,
+          "misses": 17851
+        },
+        "paired100": {
+          "build_spill_bytes": 368026177,
+          "build_append_bytes": 434356442,
+          "probe_spill_bytes": 201107365212,
+          "probe_read_bytes": 201110758911,
+          "build_write_us": 95761.14321518081,
+          "probe_write_us": 24001356.392409597,
+          "probe_read_us": 44920875.34308689,
+          "miss_us": 11979222,
+          "build_total_bytes": 802382619,
+          "physical_us": 80997214.87871167,
+          "build_fraction": 0.0011822769876541708,
+          "misses": 22433
+        },
+        "ai100": {
+          "build_spill_bytes": 368026177,
+          "build_append_bytes": 434356442,
+          "probe_spill_bytes": 208655411784,
+          "probe_read_bytes": 208658890033,
+          "build_write_us": 95761.14321518081,
+          "probe_write_us": 24902185.437880415,
+          "probe_read_us": 46606855.04422604,
+          "miss_us": 11378472,
+          "build_total_bytes": 802382619,
+          "physical_us": 82983273.62532164,
+          "build_fraction": 0.0011539812667255406,
+          "misses": 21308
+        }
+      }
+    },
+    {
+      "case": "train/train_575_random_zipf.txt",
+      "seed": 16743426090438616031,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "e25023d85e11c70e4c3ce2718b417dbdde95a75b8b34b8e2e0395e582894a001",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "75cb602b8d0ea0aef16175de7e5b2451fa1ad01da949f4b8593d1a75c7bab0ee",
+      "header": {
+        "K": 4,
+        "P": 8,
+        "M": 268435456,
+        "W": 4397,
+        "R": 2103,
+        "penalty": 75,
+        "N": 130408,
+        "B": 256
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 205512784,
+          "build_append_bytes": 111694669,
+          "probe_spill_bytes": 357669122992,
+          "probe_read_bytes": 357643643276,
+          "build_write_us": 72141.79053900386,
+          "probe_write_us": 81343898.79281329,
+          "probe_read_us": 170063548.8711365,
+          "miss_us": 815625,
+          "build_total_bytes": 317207453,
+          "physical_us": 252295214.45448878,
+          "build_fraction": 0.0002859419695890325,
+          "misses": 10875
+        },
+        "paired100": {
+          "build_spill_bytes": 205512784,
+          "build_append_bytes": 111694669,
+          "probe_spill_bytes": 257113766350,
+          "probe_read_bytes": 257107595808,
+          "build_write_us": 72141.79053900386,
+          "probe_write_us": 58474816.09051626,
+          "probe_read_us": 122257534.85877319,
+          "miss_us": 1225575,
+          "build_total_bytes": 317207453,
+          "physical_us": 182030067.73982844,
+          "build_fraction": 0.00039631798985052585,
+          "misses": 16341
+        },
+        "ai100": {
+          "build_spill_bytes": 205512784,
+          "build_append_bytes": 111694669,
+          "probe_spill_bytes": 270339067112,
+          "probe_read_bytes": 270356316804,
+          "build_write_us": 72141.79053900386,
+          "probe_write_us": 61482617.03707073,
+          "probe_read_us": 128557449.7403709,
+          "miss_us": 1232625,
+          "build_total_bytes": 317207453,
+          "physical_us": 191344833.56798062,
+          "build_fraction": 0.0003770250243698034,
+          "misses": 16435
+        }
+      }
+    },
+    {
+      "case": "train/train_524_random_zipf.txt",
+      "seed": 8790685556193460957,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "14c6f85f326351a91be606797a3cbcab7f79d3c6d3c70f1bc00d2260942dedb5",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "346b5f78f42eb47ce024b16777317355965bcfda821230e8b8efa77babf68011",
+      "header": {
+        "K": 4,
+        "P": 32,
+        "M": 134217728,
+        "W": 5372,
+        "R": 2699,
+        "penalty": 367,
+        "N": 72542,
+        "B": 8
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 146475044,
+          "build_append_bytes": 125962092,
+          "probe_spill_bytes": 70527637201,
+          "probe_read_bytes": 70524188248,
+          "build_write_us": 50714.284437825765,
+          "probe_write_us": 13128748.548212957,
+          "probe_read_us": 26129747.405705817,
+          "miss_us": 3591095,
+          "build_total_bytes": 272437136,
+          "physical_us": 42900305.2383566,
+          "build_fraction": 0.0011821427413174393,
+          "misses": 9785
+        },
+        "paired100": {
+          "build_spill_bytes": 146475044,
+          "build_append_bytes": 125962092,
+          "probe_spill_bytes": 35699745641,
+          "probe_read_bytes": 35699869401,
+          "build_write_us": 50714.284437825765,
+          "probe_write_us": 6645522.271221147,
+          "probe_read_us": 13227072.768062245,
+          "miss_us": 4976887,
+          "build_total_bytes": 272437136,
+          "physical_us": 24900196.32372122,
+          "build_fraction": 0.0020367021921635494,
+          "misses": 13561
+        },
+        "ai100": {
+          "build_spill_bytes": 146475044,
+          "build_append_bytes": 125962092,
+          "probe_spill_bytes": 42149796274,
+          "probe_read_bytes": 42141862873,
+          "build_write_us": 50714.284437825765,
+          "probe_write_us": 7846201.838049144,
+          "probe_read_us": 15613880.278992219,
+          "miss_us": 4465289,
+          "build_total_bytes": 272437136,
+          "physical_us": 27976085.40147919,
+          "build_fraction": 0.001812772720344367,
+          "misses": 12167
+        }
+      }
+    },
+    {
+      "case": "train/train_519_random_zipf.txt",
+      "seed": 3378975529217722178,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "bfa7a141a800357ba798b8972d4d169a2224a7bfa6a423aa7d06e33d81dc4715",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "604fe454756ec34e01e68256b9396b073f30bae145777ac39ad1fd0ae992d6f7",
+      "header": {
+        "K": 8,
+        "P": 32,
+        "M": 4294967296,
+        "W": 7641,
+        "R": 4956,
+        "penalty": 119,
+        "N": 138255,
+        "B": 10000
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 1947897232,
+          "build_append_bytes": 459219024,
+          "probe_spill_bytes": 197785292127,
+          "probe_read_bytes": 198084191376,
+          "build_write_us": 315026.338960869,
+          "probe_write_us": 25884739.186886534,
+          "probe_read_us": 39968561.617433414,
+          "miss_us": 39032,
+          "build_total_bytes": 2407116256,
+          "physical_us": 66207359.14328082,
+          "build_fraction": 0.004758177082386166,
+          "misses": 328
+        },
+        "paired100": {
+          "build_spill_bytes": 1947897232,
+          "build_append_bytes": 459219024,
+          "probe_spill_bytes": 133526338723,
+          "probe_read_bytes": 133887299755,
+          "build_write_us": 315026.338960869,
+          "probe_write_us": 17474982.165030755,
+          "probe_read_us": 27015193.655165456,
+          "miss_us": 778141,
+          "build_total_bytes": 2407116256,
+          "physical_us": 45583343.15915708,
+          "build_fraction": 0.0069109968055860865,
+          "misses": 6539
+        },
+        "ai100": {
+          "build_spill_bytes": 1947897232,
+          "build_append_bytes": 459219024,
+          "probe_spill_bytes": 167481651995,
+          "probe_read_bytes": 167082727761,
+          "build_write_us": 315026.338960869,
+          "probe_write_us": 21918813.243685383,
+          "probe_read_us": 33713221.90496368,
+          "miss_us": 703052,
+          "build_total_bytes": 2407116256,
+          "physical_us": 56650113.48760993,
+          "build_fraction": 0.005560912760214842,
+          "misses": 5908
+        }
+      }
+    },
+    {
+      "case": "train/train_583_random_zipf.txt",
+      "seed": 333890524145506579,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "c54e02a759aaeee1382a586db14047139e930198237846fab74db39e32d7b9ff",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "23b8782b0d57bcf328aa1eb8b9637b292f079d2c5bc216f92b2da9879596c7d1",
+      "header": {
+        "K": 2,
+        "P": 16,
+        "M": 4294967296,
+        "W": 5503,
+        "R": 794,
+        "penalty": 59,
+        "N": 263053,
+        "B": 8
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 1097942566,
+          "build_append_bytes": 245525255,
+          "probe_spill_bytes": 1358906082977,
+          "probe_read_bytes": 1357952537104,
+          "build_write_us": 244133.71270216245,
+          "probe_write_us": 246939139.1926222,
+          "probe_read_us": 1710267678.9722922,
+          "miss_us": 60475,
+          "build_total_bytes": 1343467821,
+          "physical_us": 1957511426.8776166,
+          "build_fraction": 0.0001247163665816116,
+          "misses": 1025
+        },
+        "paired100": {
+          "build_spill_bytes": 1097942566,
+          "build_append_bytes": 245525255,
+          "probe_spill_bytes": 1235383786162,
+          "probe_read_bytes": 1234412597234,
+          "build_write_us": 244133.71270216245,
+          "probe_write_us": 224492783.23859712,
+          "probe_read_us": 1554675815.1561713,
+          "miss_us": 371051,
+          "build_total_bytes": 1343467821,
+          "physical_us": 1779783783.1074705,
+          "build_fraction": 0.00013717043329606552,
+          "misses": 6289
+        },
+        "ai100": {
+          "build_spill_bytes": 1097942566,
+          "build_append_bytes": 245525255,
+          "probe_spill_bytes": 1374783887873,
+          "probe_read_bytes": 1373812698945,
+          "build_write_us": 244133.71270216245,
+          "probe_write_us": 249824439.01017627,
+          "probe_read_us": 1730242693.8853905,
+          "miss_us": 352702,
+          "build_total_bytes": 1343467821,
+          "physical_us": 1980663968.608269,
+          "build_fraction": 0.00012325852167326755,
+          "misses": 5978
+        }
+      }
+    },
+    {
+      "case": "train/train_594_random_zipf.txt",
+      "seed": 12992850910945189016,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "e3bc74c55958c758c0c5c49b41e9581657b5339fb36255c5134a88b26ad83ce0",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "300aad0833eda8c2fd18cf36032d0d0a5971e9c80d705555a928b523cc1fd5f9",
+      "header": {
+        "K": 1,
+        "P": 16,
+        "M": 67108864,
+        "W": 6537,
+        "R": 926,
+        "penalty": 780,
+        "N": 239643,
+        "B": 4096
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 38175673,
+          "build_append_bytes": 21500761,
+          "probe_spill_bytes": 308547504760,
+          "probe_read_bytes": 308538814936,
+          "build_write_us": 9129.024629034726,
+          "probe_write_us": 47200169.00107083,
+          "probe_read_us": 333195264.5097192,
+          "miss_us": 14531400,
+          "build_total_bytes": 59676434,
+          "physical_us": 394935962.53541905,
+          "build_fraction": 2.3115202197409428e-05,
+          "misses": 18630
+        },
+        "paired100": {
+          "build_spill_bytes": 38175673,
+          "build_append_bytes": 21500761,
+          "probe_spill_bytes": 226670221259,
+          "probe_read_bytes": 226658189470,
+          "build_write_us": 9129.024629034726,
+          "probe_write_us": 34674961.183876395,
+          "probe_read_us": 244771262.9265659,
+          "miss_us": 21713640,
+          "build_total_bytes": 59676434,
+          "physical_us": 301168993.13507134,
+          "build_fraction": 3.031196715838688e-05,
+          "misses": 27838
+        },
+        "ai100": {
+          "build_spill_bytes": 38175673,
+          "build_append_bytes": 21500761,
+          "probe_spill_bytes": 237543675137,
+          "probe_read_bytes": 237524997748,
+          "build_write_us": 9129.024629034726,
+          "probe_write_us": 36338331.82453725,
+          "probe_read_us": 256506477.04967603,
+          "miss_us": 27076140,
+          "build_total_bytes": 59676434,
+          "physical_us": 319930077.89884233,
+          "build_fraction": 2.853443692756266e-05,
+          "misses": 34713
+        }
+      }
+    },
+    {
+      "case": "train/train_562_random_zipf.txt",
+      "seed": 5641382687939364132,
+      "family": "random_zipf",
+      "input_sha256_from_original_audit": "24bb169d8aac4efe4a3c0a75156767d10b9e18cea2f2518a2a7f66cc915a523d",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "f0eeab0c40e367f1dc7bdb515217584cda6e8decc1c5c5898571f7e52c371e79",
+      "header": {
+        "K": 2,
+        "P": 16,
+        "M": 4294967296,
+        "W": 6272,
+        "R": 2930,
+        "penalty": 172,
+        "N": 142730,
+        "B": 1024
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 5702607362,
+          "build_append_bytes": 6820229643,
+          "probe_spill_bytes": 13887777947387,
+          "probe_read_bytes": 13886224140622,
+          "build_write_us": 1996625.7979910714,
+          "probe_write_us": 2214250310.488999,
+          "probe_read_us": 4739325645.263481,
+          "miss_us": 2829228,
+          "build_total_bytes": 12522837005,
+          "physical_us": 6958401809.550471,
+          "build_fraction": 0.00028693741072133603,
+          "misses": 16449
+        },
+        "paired100": {
+          "build_spill_bytes": 5702607362,
+          "build_append_bytes": 6820229643,
+          "probe_spill_bytes": 11793451949247,
+          "probe_read_bytes": 11791868134335,
+          "build_write_us": 1996625.7979910714,
+          "probe_write_us": 1880333537.8263712,
+          "probe_read_us": 4024528373.493174,
+          "miss_us": 2974396,
+          "build_total_bytes": 12522837005,
+          "physical_us": 5909832933.117537,
+          "build_fraction": 0.00033784809496092093,
+          "misses": 17293
+        },
+        "ai100": {
+          "build_spill_bytes": 5702607362,
+          "build_append_bytes": 6820229643,
+          "probe_spill_bytes": 11908266539918,
+          "probe_read_bytes": 11906425739561,
+          "build_write_us": 1996625.7979910714,
+          "probe_write_us": 1898639435.5736606,
+          "probe_read_us": 4063626532.273379,
+          "miss_us": 3213820,
+          "build_total_bytes": 12522837005,
+          "physical_us": 5967476413.645031,
+          "build_fraction": 0.00033458461493465714,
+          "misses": 18685
+        }
+      }
+    },
+    {
+      "case": "train/train_669_random_hotspot.txt",
+      "seed": 12796682547846436763,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "54b57d77cbed0996633bb18dd77bbb319f87ca246089cb7dd8a721c9377fc9f6",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "8a358b8f6e5b355b79c32b641cd50be7826c5ecdae2a887e357de5d34e808f2a",
+      "header": {
+        "K": 8,
+        "P": 64,
+        "M": 2147483648,
+        "W": 925,
+        "R": 7361,
+        "penalty": 2,
+        "N": 1048576,
+        "B": 8
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 2666822247,
+          "build_append_bytes": 2616632163,
+          "probe_spill_bytes": 4391875706333,
+          "probe_read_bytes": 4391869266801,
+          "build_write_us": 5711842.605405405,
+          "probe_write_us": 4747973736.576216,
+          "probe_read_us": 596640302.5133814,
+          "miss_us": 347526,
+          "build_total_bytes": 5283454410,
+          "physical_us": 5350673407.695003,
+          "build_fraction": 0.0010674997650185474,
+          "misses": 173763
+        },
+        "paired100": {
+          "build_spill_bytes": 2660511235,
+          "build_append_bytes": 2618875958,
+          "probe_spill_bytes": 1142734754197,
+          "probe_read_bytes": 1142733560769,
+          "build_write_us": 5707445.614054054,
+          "probe_write_us": 1235388923.4562163,
+          "probe_read_us": 155241619.44966716,
+          "miss_us": 160860,
+          "build_total_bytes": 5279387193,
+          "physical_us": 1396498848.5199375,
+          "build_fraction": 0.004086967647773589,
+          "misses": 80430
+        },
+        "ai100": {
+          "build_spill_bytes": 2666822247,
+          "build_append_bytes": 2616632163,
+          "probe_spill_bytes": 1449862209664,
+          "probe_read_bytes": 1449860649159,
+          "build_write_us": 5711842.605405405,
+          "probe_write_us": 1567418605.0421622,
+          "probe_read_us": 196965174.45442197,
+          "miss_us": 193468,
+          "build_total_bytes": 5283454410,
+          "physical_us": 1770289090.1019895,
+          "build_fraction": 0.0032265027431628897,
+          "misses": 96734
+        }
+      }
+    },
+    {
+      "case": "train/train_680_random_hotspot.txt",
+      "seed": 16867375401207270052,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "31ffdf1e207c00b06bf98ed6308bbc61240e420082f8dc4c2af52c35425052b9",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "7168a4a4b7b59dfb9102964600749a38a8e5d7d4133031e74c815d2d63cb9010",
+      "header": {
+        "K": 1,
+        "P": 32,
+        "M": 1073741824,
+        "W": 8618,
+        "R": 711,
+        "penalty": 535,
+        "N": 111770,
+        "B": 256
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 466242724,
+          "build_append_bytes": 103633204,
+          "probe_spill_bytes": 257405053959,
+          "probe_read_bytes": 257519909309,
+          "build_write_us": 66126.23903457879,
+          "probe_write_us": 29868305.170457184,
+          "probe_read_us": 362193965.27285516,
+          "miss_us": 826040,
+          "build_total_bytes": 569875928,
+          "physical_us": 392954436.68234694,
+          "build_fraction": 0.00016827966008698696,
+          "misses": 1544
+        },
+        "paired100": {
+          "build_spill_bytes": 466242724,
+          "build_append_bytes": 103633204,
+          "probe_spill_bytes": 241620137259,
+          "probe_read_bytes": 241726539797,
+          "build_write_us": 66126.23903457879,
+          "probe_write_us": 28036683.367254585,
+          "probe_read_us": 339981068.6315049,
+          "miss_us": 3091765,
+          "build_total_bytes": 569875928,
+          "physical_us": 371175643.23779404,
+          "build_fraction": 0.00017815349751334558,
+          "misses": 5779
+        },
+        "ai100": {
+          "build_spill_bytes": 466242724,
+          "build_append_bytes": 103633204,
+          "probe_spill_bytes": 240621844566,
+          "probe_read_bytes": 240688512432,
+          "build_write_us": 66126.23903457879,
+          "probe_write_us": 27920845.273381297,
+          "probe_read_us": 338521114.5316456,
+          "miss_us": 2742410,
+          "build_total_bytes": 569875928,
+          "physical_us": 369250496.0440615,
+          "build_fraction": 0.00017908232959201807,
+          "misses": 5126
+        }
+      }
+    },
+    {
+      "case": "train/train_659_random_hotspot.txt",
+      "seed": 7047099415850805085,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "880f8b665c48478164820a7a054e8de2a7575b02abdb38b147b7e033eefdbba6",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "92cafd2e10ecfd2e887510b300720f0840848f432c7ada4a25dc4babee35513d",
+      "header": {
+        "K": 2,
+        "P": 8,
+        "M": 2147483648,
+        "W": 2128,
+        "R": 2165,
+        "penalty": 244,
+        "N": 87340,
+        "B": 10000
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 2836203084,
+          "build_append_bytes": 3030392199,
+          "probe_spill_bytes": 11826148164288,
+          "probe_read_bytes": 11826178919532,
+          "build_write_us": 2756858.685620301,
+          "probe_write_us": 5557400453.142858,
+          "probe_read_us": 5462438300.014781,
+          "miss_us": 4445924,
+          "build_total_bytes": 5866595283,
+          "physical_us": 11027041535.843258,
+          "build_fraction": 0.0002500089145995476,
+          "misses": 18221
+        },
+        "paired100": {
+          "build_spill_bytes": 3018592174,
+          "build_append_bytes": 2987568221,
+          "probe_spill_bytes": 6861404193413,
+          "probe_read_bytes": 6861727557715,
+          "build_write_us": 2822443.7946428573,
+          "probe_write_us": 3224344075.8519735,
+          "probe_read_us": 3169389172.1547346,
+          "miss_us": 3429420,
+          "build_total_bytes": 6006160395,
+          "physical_us": 6399985111.801351,
+          "build_fraction": 0.00044100786882118973,
+          "misses": 14055
+        },
+        "ai100": {
+          "build_spill_bytes": 2836203084,
+          "build_append_bytes": 3030392199,
+          "probe_spill_bytes": 8448584910852,
+          "probe_read_bytes": 8448709527587,
+          "build_write_us": 2756858.685620301,
+          "probe_write_us": 3970199676.1522555,
+          "probe_read_us": 3902406248.308083,
+          "miss_us": 4358572,
+          "build_total_bytes": 5866595283,
+          "physical_us": 7879721355.145959,
+          "build_fraction": 0.0003498675348234106,
+          "misses": 17863
+        }
+      }
+    },
+    {
+      "case": "train/train_630_random_hotspot.txt",
+      "seed": 7771266016699031858,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "82de7a5a036604061e55ef3e595e7de461fc283fa3df5ffe3269e1e230cb08b4",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "d2908f32ea4b7bc9b77869fc15c7986c6d3913203f2fe05b3d3a2439185daaab",
+      "header": {
+        "K": 8,
+        "P": 8,
+        "M": 268435456,
+        "W": 7480,
+        "R": 3628,
+        "penalty": 329,
+        "N": 240888,
+        "B": 4096
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 178764817,
+          "build_append_bytes": 78159862,
+          "probe_spill_bytes": 143667895681,
+          "probe_read_bytes": 143663261042,
+          "build_write_us": 34348.21911764706,
+          "probe_write_us": 19206937.92526738,
+          "probe_read_us": 39598473.27508269,
+          "miss_us": 2990610,
+          "build_total_bytes": 256924679,
+          "physical_us": 61830369.41946772,
+          "build_fraction": 0.0005555234335512846,
+          "misses": 9090
+        },
+        "paired100": {
+          "build_spill_bytes": 178764817,
+          "build_append_bytes": 78159862,
+          "probe_spill_bytes": 89970703295,
+          "probe_read_bytes": 89978297880,
+          "build_write_us": 34348.21911764706,
+          "probe_write_us": 12028168.889705881,
+          "probe_read_us": 24801074.388092615,
+          "miss_us": 3645978,
+          "build_total_bytes": 256924679,
+          "physical_us": 40509569.496916145,
+          "build_fraction": 0.0008479038297423,
+          "misses": 11082
+        },
+        "ai100": {
+          "build_spill_bytes": 178764817,
+          "build_append_bytes": 78159862,
+          "probe_spill_bytes": 92204549065,
+          "probe_read_bytes": 92211512304,
+          "build_write_us": 34348.21911764706,
+          "probe_write_us": 12326811.372326203,
+          "probe_read_us": 25416624.11907387,
+          "miss_us": 3715397,
+          "build_total_bytes": 256924679,
+          "physical_us": 41493180.71051772,
+          "build_fraction": 0.0008278039554808207,
+          "misses": 11293
+        }
+      }
+    },
+    {
+      "case": "train/train_701_random_hotspot.txt",
+      "seed": 8316641183263191257,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "0df5e72a5500efae96862f7701009d77cc431bc75ab7fb56988f3a8156ad1d8e",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "b061850dfb556fca703488034a9ed6e405b3f6cf9fe60957b37157093cc0a2a1",
+      "header": {
+        "K": 2,
+        "P": 8,
+        "M": 134217728,
+        "W": 9455,
+        "R": 1805,
+        "penalty": 99,
+        "N": 79501,
+        "B": 4096
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 100702023,
+          "build_append_bytes": 61938840,
+          "probe_spill_bytes": 213501959747,
+          "probe_read_bytes": 213504826739,
+          "build_write_us": 17201.571972501322,
+          "probe_write_us": 22580852.432258066,
+          "probe_read_us": 118285222.5700831,
+          "miss_us": 742500,
+          "build_total_bytes": 162640863,
+          "physical_us": 141625776.57431367,
+          "build_fraction": 0.00012145791810345582,
+          "misses": 7500
+        },
+        "paired100": {
+          "build_spill_bytes": 100702023,
+          "build_append_bytes": 61938840,
+          "probe_spill_bytes": 153616594684,
+          "probe_read_bytes": 153620093839,
+          "build_write_us": 17201.571972501322,
+          "probe_write_us": 16247127.941195134,
+          "probe_read_us": 85108085.22936288,
+          "miss_us": 766359,
+          "build_total_bytes": 162640863,
+          "physical_us": 102138773.74253051,
+          "build_fraction": 0.00016841373106615435,
+          "misses": 7741
+        },
+        "ai100": {
+          "build_spill_bytes": 100702023,
+          "build_append_bytes": 61938840,
+          "probe_spill_bytes": 178315926320,
+          "probe_read_bytes": 178319425475,
+          "build_write_us": 17201.571972501322,
+          "probe_write_us": 18859431.65732417,
+          "probe_read_us": 98791925.47091413,
+          "miss_us": 957627,
+          "build_total_bytes": 162640863,
+          "physical_us": 118626185.7002108,
+          "build_fraction": 0.00014500653351505978,
+          "misses": 9673
+        }
+      }
+    },
+    {
+      "case": "train/train_634_random_hotspot.txt",
+      "seed": 9797070455358673938,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "580fcb9ed122c55167e9228b44234bfb34794643685b8a1791cf5e4fab2ac47e",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "0167627ea5a014ab3ba442394871b2d1c239857c32e63cdde5becd9fc1030e70",
+      "header": {
+        "K": 2,
+        "P": 64,
+        "M": 536870912,
+        "W": 6080,
+        "R": 337,
+        "penalty": 936,
+        "N": 114054,
+        "B": 10000
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 682726177,
+          "build_append_bytes": 693799149,
+          "probe_spill_bytes": 546187964624,
+          "probe_read_bytes": 546189505970,
+          "build_write_us": 226402.1917763158,
+          "probe_write_us": 89833546.8131579,
+          "probe_read_us": 1620740373.7982197,
+          "miss_us": 18438264,
+          "build_total_bytes": 1376525326,
+          "physical_us": 1729238586.803154,
+          "build_fraction": 0.0001309259424952261,
+          "misses": 19699
+        },
+        "paired100": {
+          "build_spill_bytes": 682726177,
+          "build_append_bytes": 693799149,
+          "probe_spill_bytes": 102349593745,
+          "probe_read_bytes": 102340556452,
+          "build_write_us": 226402.1917763158,
+          "probe_write_us": 16833814.76069079,
+          "probe_read_us": 303681176.41543025,
+          "miss_us": 6545448,
+          "build_total_bytes": 1376525326,
+          "physical_us": 327286841.36789733,
+          "build_fraction": 0.0006917546419833638,
+          "misses": 6993
+        },
+        "ai100": {
+          "build_spill_bytes": 682726177,
+          "build_append_bytes": 693799149,
+          "probe_spill_bytes": 144323154596,
+          "probe_read_bytes": 144324536853,
+          "build_write_us": 226402.1917763158,
+          "probe_write_us": 23737360.953289475,
+          "probe_read_us": 428262720.6320475,
+          "miss_us": 9300096,
+          "build_total_bytes": 1376525326,
+          "physical_us": 461526579.77711326,
+          "build_fraction": 0.0004905507108293807,
+          "misses": 9936
+        }
+      }
+    },
+    {
+      "case": "train/train_626_random_hotspot.txt",
+      "seed": 12184351322767587522,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "c1a0d1f356e469c14fc6717985f1ee628b178296c36582016cd453bb4440f0cc",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "ac923c781d2bc16c5ab91066d4474612a9de6e377076c455bcec788ae025c027",
+      "header": {
+        "K": 8,
+        "P": 32,
+        "M": 268435456,
+        "W": 8114,
+        "R": 3871,
+        "penalty": 383,
+        "N": 172752,
+        "B": 8
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 48730235,
+          "build_append_bytes": 4916320,
+          "probe_spill_bytes": 9999963608,
+          "probe_read_bytes": 9999009271,
+          "build_write_us": 6611.604017747104,
+          "probe_write_us": 1232433.2768055212,
+          "probe_read_us": 2583055.869542754,
+          "miss_us": 705869,
+          "build_total_bytes": 53646555,
+          "physical_us": 4527969.750366022,
+          "build_fraction": 0.001460169652682121,
+          "misses": 1843
+        },
+        "paired100": {
+          "build_spill_bytes": 48730235,
+          "build_append_bytes": 4916320,
+          "probe_spill_bytes": 6761636495,
+          "probe_read_bytes": 6762372653,
+          "build_write_us": 6611.604017747104,
+          "probe_write_us": 833329.6148631994,
+          "probe_read_us": 1746931.710927409,
+          "miss_us": 1834187,
+          "build_total_bytes": 53646555,
+          "physical_us": 4421059.929808356,
+          "build_fraction": 0.0014954793924346788,
+          "misses": 4789
+        },
+        "ai100": {
+          "build_spill_bytes": 48730235,
+          "build_append_bytes": 4916320,
+          "probe_spill_bytes": 6907432868,
+          "probe_read_bytes": 6908316796,
+          "build_write_us": 6611.604017747104,
+          "probe_write_us": 851298.1104264235,
+          "probe_read_us": 1784633.633686386,
+          "miss_us": 1656092,
+          "build_total_bytes": 53646555,
+          "physical_us": 4298635.348130557,
+          "build_fraction": 0.001538070453131699,
+          "misses": 4324
+        }
+      }
+    },
+    {
+      "case": "train/train_686_random_hotspot.txt",
+      "seed": 12068026078797343614,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "e84a7d4ad21d739f0cf8161853d523946239271f7d63081c1337e4f2d4b287ac",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "e1500964d8554d8832f070c7a8da822dfb9f28a4619b72f9d01fd149ce9e575e",
+      "header": {
+        "K": 1,
+        "P": 32,
+        "M": 1073741824,
+        "W": 3640,
+        "R": 3990,
+        "penalty": 112,
+        "N": 101550,
+        "B": 8
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 1320225393,
+          "build_append_bytes": 1298107187,
+          "probe_spill_bytes": 3612098544556,
+          "probe_read_bytes": 3612042054456,
+          "build_write_us": 719322.1373626373,
+          "probe_write_us": 992334764.987912,
+          "probe_read_us": 905273697.8586466,
+          "miss_us": 2156896,
+          "build_total_bytes": 2618332580,
+          "physical_us": 1900484680.9839213,
+          "build_fraction": 0.0003784940465767022,
+          "misses": 19258
+        },
+        "paired100": {
+          "build_spill_bytes": 1279257320,
+          "build_append_bytes": 1280880633,
+          "probe_spill_bytes": 1622581619166,
+          "probe_read_bytes": 1622407454281,
+          "build_write_us": 703334.6024725274,
+          "probe_write_us": 445764181.08956045,
+          "probe_read_us": 406618409.5942356,
+          "miss_us": 1582224,
+          "build_total_bytes": 2560137953,
+          "physical_us": 854668149.2862686,
+          "build_fraction": 0.0008229329746988706,
+          "misses": 14127
+        },
+        "ai100": {
+          "build_spill_bytes": 1320225393,
+          "build_append_bytes": 1298107187,
+          "probe_spill_bytes": 1914733443616,
+          "probe_read_bytes": 1914793851127,
+          "build_write_us": 719322.1373626373,
+          "probe_write_us": 526025671.3230769,
+          "probe_read_us": 479898208.30250627,
+          "miss_us": 2056320,
+          "build_total_bytes": 2618332580,
+          "physical_us": 1008699521.7629458,
+          "build_fraction": 0.0007131183487679744,
+          "misses": 18360
+        }
+      }
+    },
+    {
+      "case": "train/train_675_random_hotspot.txt",
+      "seed": 7658318111382599390,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "25c7a097a357bd7ed8e6effa1fd7a9e3932e4176a598e34f404f39ba5cf3de5d",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "5d5231d86334243bbf70ee7e720412e99f960fcfd90d9b9bb7da600b9dec3631",
+      "header": {
+        "K": 1,
+        "P": 8,
+        "M": 1073741824,
+        "W": 3702,
+        "R": 2833,
+        "penalty": 551,
+        "N": 170291,
+        "B": 64
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 851696062,
+          "build_append_bytes": 406299501,
+          "probe_spill_bytes": 3484944066929,
+          "probe_read_bytes": 3484989002201,
+          "build_write_us": 339815.11696380336,
+          "probe_write_us": 941367927.317396,
+          "probe_read_us": 1230140840.87575,
+          "miss_us": 5024569,
+          "build_total_bytes": 1257995563,
+          "physical_us": 2176873152.31011,
+          "build_fraction": 0.00015610239696474258,
+          "misses": 9119
+        },
+        "paired100": {
+          "build_spill_bytes": 851696062,
+          "build_append_bytes": 406299501,
+          "probe_spill_bytes": 1809179284705,
+          "probe_read_bytes": 1809371121352,
+          "build_write_us": 339815.11696380336,
+          "probe_write_us": 488703210.3471097,
+          "probe_read_us": 638676710.6784327,
+          "miss_us": 3906590,
+          "build_total_bytes": 1257995563,
+          "physical_us": 1131626326.1425061,
+          "build_fraction": 0.0003002891582790999,
+          "misses": 7090
+        },
+        "ai100": {
+          "build_spill_bytes": 851696062,
+          "build_append_bytes": 406299501,
+          "probe_spill_bytes": 1808894783489,
+          "probe_read_bytes": 1809086620136,
+          "build_write_us": 339815.11696380336,
+          "probe_write_us": 488626359.667477,
+          "probe_read_us": 638576286.6699612,
+          "miss_us": 3885101,
+          "build_total_bytes": 1257995563,
+          "physical_us": 1131427562.454402,
+          "build_fraction": 0.0003003419116170757,
+          "misses": 7051
+        }
+      }
+    },
+    {
+      "case": "train/train_639_random_hotspot.txt",
+      "seed": 5273789601856846796,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "81114a566258a287b4f9cfe447dc36ada5e1ffddd17bd32c1ea1cc59448fef25",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "d63efc1c11c68c624360391f075838beb7787787d08d6424528a6846a93fb674",
+      "header": {
+        "K": 2,
+        "P": 8,
+        "M": 536870912,
+        "W": 1138,
+        "R": 2981,
+        "penalty": 31,
+        "N": 117423,
+        "B": 64
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 404325016,
+          "build_append_bytes": 320433851,
+          "probe_spill_bytes": 764226099943,
+          "probe_read_bytes": 764130788828,
+          "build_write_us": 636870.7091388401,
+          "probe_write_us": 671551933.1660808,
+          "probe_read_us": 256333709.7712177,
+          "miss_us": 217465,
+          "build_total_bytes": 724758867,
+          "physical_us": 928739978.6464374,
+          "build_fraction": 0.0006857362919458114,
+          "misses": 7015
+        },
+        "paired100": {
+          "build_spill_bytes": 538439629,
+          "build_append_bytes": 275710077,
+          "probe_spill_bytes": 668881697465,
+          "probe_read_bytes": 668817798516,
+          "build_write_us": 715421.5342706502,
+          "probe_write_us": 587769505.6810193,
+          "probe_read_us": 224360214.1952365,
+          "miss_us": 225277,
+          "build_total_bytes": 814149706,
+          "physical_us": 813070418.4105265,
+          "build_fraction": 0.0008799010738445382,
+          "misses": 7267
+        },
+        "ai100": {
+          "build_spill_bytes": 404325016,
+          "build_append_bytes": 320433851,
+          "probe_spill_bytes": 720104022717,
+          "probe_read_bytes": 719810317088,
+          "build_write_us": 636870.7091388401,
+          "probe_write_us": 632780336.3066784,
+          "probe_read_us": 241466057.3928212,
+          "miss_us": 256680,
+          "build_total_bytes": 724758867,
+          "physical_us": 875139944.4086385,
+          "build_fraction": 0.0007277358475154452,
+          "misses": 8280
+        }
+      }
+    },
+    {
+      "case": "train/train_693_random_hotspot.txt",
+      "seed": 13061813804494280177,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "eebd1207bbb24397abcc8c5797f8fc3e2c9dc13596da07b25ebc75acaa012e34",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "7ff380c87bb0fff86a3da9aa4f7723d9d728d4494b1d526719f2fa38f401d5ec",
+      "header": {
+        "K": 1,
+        "P": 8,
+        "M": 134217728,
+        "W": 4080,
+        "R": 7647,
+        "penalty": 806,
+        "N": 143904,
+        "B": 10000
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 98558938,
+          "build_append_bytes": 44562224,
+          "probe_spill_bytes": 408456826431,
+          "probe_read_bytes": 408464705852,
+          "build_write_us": 35078.71617647059,
+          "probe_write_us": 100111967.2625,
+          "probe_read_us": 53415026.26546358,
+          "miss_us": 5995834,
+          "build_total_bytes": 143121162,
+          "physical_us": 159557906.24414006,
+          "build_fraction": 0.00021984943900427305,
+          "misses": 7439
+        },
+        "paired100": {
+          "build_spill_bytes": 115472230,
+          "build_append_bytes": 37109300,
+          "probe_spill_bytes": 359928357437,
+          "probe_read_bytes": 359974605174,
+          "build_write_us": 37397.43382352941,
+          "probe_write_us": 88217734.66593137,
+          "probe_read_us": 47073964.322479405,
+          "miss_us": 7033962,
+          "build_total_bytes": 152581530,
+          "physical_us": 142363058.4222343,
+          "build_fraction": 0.00026269057603843017,
+          "misses": 8727
+        },
+        "ai100": {
+          "build_spill_bytes": 98558938,
+          "build_append_bytes": 44562224,
+          "probe_spill_bytes": 360558374720,
+          "probe_read_bytes": 360595162089,
+          "build_write_us": 35078.71617647059,
+          "probe_write_us": 88372150.66666667,
+          "probe_read_us": 47155114.697136134,
+          "miss_us": 7203222,
+          "build_total_bytes": 143121162,
+          "physical_us": 142765566.07997927,
+          "build_fraction": 0.0002457085215970005,
+          "misses": 8937
+        }
+      }
+    },
+    {
+      "case": "train/train_632_random_hotspot.txt",
+      "seed": 15036253120801571029,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "d8ba263dc9e474a5e929bf264d825f9a83ba353ada0f45958daa05c5568a1f4a",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "860d725aecb4f3028daeb861f68bee6606b95c6b242dc3ec251b81110dd39f5b",
+      "header": {
+        "K": 2,
+        "P": 64,
+        "M": 4294967296,
+        "W": 9920,
+        "R": 2212,
+        "penalty": 888,
+        "N": 98320,
+        "B": 10000
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 5020363806,
+          "build_append_bytes": 4652851926,
+          "probe_spill_bytes": 2668110764365,
+          "probe_read_bytes": 2668092951379,
+          "build_write_us": 975122.5536290322,
+          "probe_write_us": 268962778.6658266,
+          "probe_read_us": 1206190303.516727,
+          "miss_us": 14265720,
+          "build_total_bytes": 9673215732,
+          "physical_us": 1490393924.7361827,
+          "build_fraction": 0.0006542716911581885,
+          "misses": 16065
+        },
+        "paired100": {
+          "build_spill_bytes": 5020363806,
+          "build_append_bytes": 4652851926,
+          "probe_spill_bytes": 1472349976785,
+          "probe_read_bytes": 1472273065702,
+          "build_write_us": 975122.5536290322,
+          "probe_write_us": 148422376.6920363,
+          "probe_read_us": 665584568.5813743,
+          "miss_us": 12242856,
+          "build_total_bytes": 9673215732,
+          "physical_us": 827224923.8270396,
+          "build_fraction": 0.001178787685842159,
+          "misses": 13787
+        },
+        "ai100": {
+          "build_spill_bytes": 5020363806,
+          "build_append_bytes": 4652851926,
+          "probe_spill_bytes": 1470162851741,
+          "probe_read_bytes": 1470156784793,
+          "build_write_us": 975122.5536290322,
+          "probe_write_us": 148201900.37711695,
+          "probe_read_us": 664627841.2264918,
+          "miss_us": 11959584,
+          "build_total_bytes": 9673215732,
+          "physical_us": 825764448.1572378,
+          "build_fraction": 0.0011808725306654937,
+          "misses": 13468
+        }
+      }
+    },
+    {
+      "case": "train/train_703_random_hotspot.txt",
+      "seed": 13276871011667907917,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "6ac22ffb34badc384feb3496a9998a714b75b1191d12b09e1027c7cbc9fdfbd6",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "a91789c5c744c46bf9f2597b8cfe6fffed1af0bb4eaf06be8bb9e98fcb146311",
+      "header": {
+        "K": 2,
+        "P": 32,
+        "M": 1073741824,
+        "W": 3752,
+        "R": 5469,
+        "penalty": 695,
+        "N": 125540,
+        "B": 8
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 617670623,
+          "build_append_bytes": 235764839,
+          "probe_spill_bytes": 548926611343,
+          "probe_read_bytes": 548928681496,
+          "build_write_us": 227461.47707889127,
+          "probe_write_us": 146302401.74386993,
+          "probe_read_us": 100370941.94477966,
+          "miss_us": 7436500,
+          "build_total_bytes": 853435462,
+          "physical_us": 254337305.16572848,
+          "build_fraction": 0.0008943299801445774,
+          "misses": 10700
+        },
+        "paired100": {
+          "build_spill_bytes": 622890241,
+          "build_append_bytes": 234805204,
+          "probe_spill_bytes": 124641513174,
+          "probe_read_bytes": 124649973056,
+          "build_write_us": 228596.86700426438,
+          "probe_write_us": 33220019.502665244,
+          "probe_read_us": 22792096.00585116,
+          "miss_us": 2963480,
+          "build_total_bytes": 857695445,
+          "physical_us": 59204192.37552067,
+          "build_fraction": 0.003861160127889575,
+          "misses": 4264
+        },
+        "ai100": {
+          "build_spill_bytes": 617670623,
+          "build_append_bytes": 235764839,
+          "probe_spill_bytes": 121735133413,
+          "probe_read_bytes": 121741722144,
+          "build_write_us": 227461.47707889127,
+          "probe_write_us": 32445398.03118337,
+          "probe_read_us": 22260325.86286341,
+          "miss_us": 2750810,
+          "build_total_bytes": 853435462,
+          "physical_us": 57683995.37112567,
+          "build_fraction": 0.003943233744740738,
+          "misses": 3958
+        }
+      }
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "seed": 7805621927825823651,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "df26b7d6a172789d890c33ed283e5bed3f9bb9f8b9604fbbd003b1888190452e",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "a44c1ba518b51e071eb307dfe792ea7558cb1b2e2b89306aad6bd1736ed4cd9d",
+      "header": {
+        "K": 2,
+        "P": 64,
+        "M": 268435456,
+        "W": 5889,
+        "R": 4144,
+        "penalty": 281,
+        "N": 67603,
+        "B": 16
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 318745399,
+          "build_append_bytes": 310806580,
+          "probe_spill_bytes": 33159544720,
+          "probe_read_bytes": 33145815786,
+          "build_write_us": 106903.03599932077,
+          "probe_write_us": 5630759.843776532,
+          "probe_read_us": 7998507.670366796,
+          "miss_us": 934606,
+          "build_total_bytes": 629551979,
+          "physical_us": 14670776.55014265,
+          "build_fraction": 0.007286801460982057,
+          "misses": 3326
+        },
+        "paired100": {
+          "build_spill_bytes": 318745399,
+          "build_append_bytes": 310806580,
+          "probe_spill_bytes": 14859992398,
+          "probe_read_bytes": 14858989918,
+          "build_write_us": 106903.03599932077,
+          "probe_write_us": 2523347.3251825436,
+          "probe_read_us": 3585663.590250965,
+          "miss_us": 587852,
+          "build_total_bytes": 629551979,
+          "physical_us": 6803765.95143283,
+          "build_fraction": 0.015712332958309313,
+          "misses": 2092
+        },
+        "ai100": {
+          "build_spill_bytes": 318745399,
+          "build_append_bytes": 310806580,
+          "probe_spill_bytes": 14883779307,
+          "probe_read_bytes": 14876919044,
+          "build_write_us": 106903.03599932077,
+          "probe_write_us": 2527386.5354049923,
+          "probe_read_us": 3589990.1167953666,
+          "miss_us": 570149,
+          "build_total_bytes": 629551979,
+          "physical_us": 6794428.688199679,
+          "build_fraction": 0.015733925677222302,
+          "misses": 2029
+        }
+      }
+    },
+    {
+      "case": "train/train_637_random_hotspot.txt",
+      "seed": 11675549367671170609,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "3e47c4a4a3c3415b085960bbdf01c9d01b64f209af4e35deceedb92c291af0d7",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "07ea0a2406eefe9a507a49c80574e23f2baba147eb2878926aebcdae7e32e32b",
+      "header": {
+        "K": 8,
+        "P": 16,
+        "M": 268435456,
+        "W": 1587,
+        "R": 9621,
+        "penalty": 137,
+        "N": 149288,
+        "B": 16
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 56193323,
+          "build_append_bytes": 7314484,
+          "probe_spill_bytes": 55910461818,
+          "probe_read_bytes": 55889950081,
+          "build_write_us": 40017.52173913043,
+          "probe_write_us": 35230284.699432895,
+          "probe_read_us": 5809162.257665523,
+          "miss_us": 448675,
+          "build_total_bytes": 63507807,
+          "physical_us": 41528139.47883755,
+          "build_fraction": 0.0009636242374769301,
+          "misses": 3275
+        },
+        "paired100": {
+          "build_spill_bytes": 53709718,
+          "build_append_bytes": 6104310,
+          "probe_spill_bytes": 1981433492,
+          "probe_read_bytes": 1981864192,
+          "build_write_us": 37689.99873976055,
+          "probe_write_us": 1248540.322621298,
+          "probe_read_us": 205993.57571977965,
+          "miss_us": 112340,
+          "build_total_bytes": 59814028,
+          "physical_us": 1604563.8970808382,
+          "build_fraction": 0.023489247644378305,
+          "misses": 820
+        },
+        "ai100": {
+          "build_spill_bytes": 56193323,
+          "build_append_bytes": 7314484,
+          "probe_spill_bytes": 2064619582,
+          "probe_read_bytes": 2069308527,
+          "build_write_us": 40017.52173913043,
+          "probe_write_us": 1300957.5185885318,
+          "probe_read_us": 215082.47864047397,
+          "miss_us": 114806,
+          "build_total_bytes": 63507807,
+          "physical_us": 1670863.518968136,
+          "build_fraction": 0.023950203762808698,
+          "misses": 838
+        }
+      }
+    },
+    {
+      "case": "train/train_712_random_hotspot.txt",
+      "seed": 17153028246340973513,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "a6ef043715451ca95f16e86fdf9a91e43c34aa872c702c113e0e58e9f117d7aa",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "22043a696bc47030389a728ef1e816ab2056d8ebfa03da98628018f568692c29",
+      "header": {
+        "K": 2,
+        "P": 16,
+        "M": 268435456,
+        "W": 6606,
+        "R": 7424,
+        "penalty": 994,
+        "N": 130215,
+        "B": 1024
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 242332863,
+          "build_append_bytes": 180086634,
+          "probe_spill_bytes": 563392513764,
+          "probe_read_bytes": 563383224602,
+          "build_write_us": 63944.822434150774,
+          "probe_write_us": 85284970.29427794,
+          "probe_read_us": 75886749.00350216,
+          "miss_us": 18502316,
+          "build_total_bytes": 422419497,
+          "physical_us": 179737980.12021425,
+          "build_fraction": 0.0003557668912902132,
+          "misses": 18614
+        },
+        "paired100": {
+          "build_spill_bytes": 244145602,
+          "build_append_bytes": 174415734,
+          "probe_spill_bytes": 80923610011,
+          "probe_read_bytes": 80917943743,
+          "build_write_us": 63360.78353012413,
+          "probe_write_us": 12250016.653194066,
+          "probe_read_us": 10899507.508485992,
+          "miss_us": 3699668,
+          "build_total_bytes": 418561336,
+          "physical_us": 26912552.94521018,
+          "build_fraction": 0.0023543208130093396,
+          "misses": 3722
+        },
+        "ai100": {
+          "build_spill_bytes": 242332863,
+          "build_append_bytes": 180086634,
+          "probe_spill_bytes": 87159779651,
+          "probe_read_bytes": 87154483153,
+          "build_write_us": 63944.822434150774,
+          "probe_write_us": 13194032.644716924,
+          "probe_read_us": 11739558.614358837,
+          "miss_us": 4103232,
+          "build_total_bytes": 422419497,
+          "physical_us": 29100768.08150991,
+          "build_fraction": 0.002197358580194319,
+          "misses": 4128
+        }
+      }
+    },
+    {
+      "case": "train/train_610_random_hotspot.txt",
+      "seed": 8391175329616906048,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "65785e8a2679907448696cf1287817be19b2c80d0f3a3a89034dd1dc3c18c687",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "d6c65042751596f9045ccccd4d5f3df591bdc7ec1b154858d306753683ba1c68",
+      "header": {
+        "K": 4,
+        "P": 8,
+        "M": 1073741824,
+        "W": 3273,
+        "R": 743,
+        "penalty": 152,
+        "N": 194733,
+        "B": 4096
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 421226793,
+          "build_append_bytes": 119948387,
+          "probe_spill_bytes": 467953537033,
+          "probe_read_bytes": 467956264874,
+          "build_write_us": 165345.30400244423,
+          "probe_write_us": 142973888.49159792,
+          "probe_read_us": 629820006.5598923,
+          "miss_us": 495824,
+          "build_total_bytes": 541175180,
+          "physical_us": 773455064.3554927,
+          "build_fraction": 0.00021377493227770606,
+          "misses": 3262
+        },
+        "paired100": {
+          "build_spill_bytes": 421226793,
+          "build_append_bytes": 119948387,
+          "probe_spill_bytes": 182952191810,
+          "probe_read_bytes": 182944016529,
+          "build_write_us": 165345.30400244423,
+          "probe_write_us": 55897400.491903454,
+          "probe_read_us": 246223440.81965005,
+          "miss_us": 617272,
+          "build_total_bytes": 541175180,
+          "physical_us": 302903458.61555594,
+          "build_fraction": 0.0005458679962195477,
+          "misses": 4061
+        },
+        "ai100": {
+          "build_spill_bytes": 421226793,
+          "build_append_bytes": 119948387,
+          "probe_spill_bytes": 184135900715,
+          "probe_read_bytes": 184133332928,
+          "build_write_us": 165345.30400244423,
+          "probe_write_us": 56259059.1857623,
+          "probe_read_us": 247824135.8384926,
+          "miss_us": 612712,
+          "build_total_bytes": 541175180,
+          "physical_us": 304861252.3282573,
+          "build_fraction": 0.0005423624771586576,
+          "misses": 4031
+        }
+      }
+    },
+    {
+      "case": "train/train_710_random_hotspot.txt",
+      "seed": 10407809955601357732,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "0068c606d16dfa7e7e2e936cab93e1ab8677ade932f9094b8e5edfef48f41c1f",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "cd9b074ffcf5f948072073be93913f8619cb7badcb27c73c631548ef179c5dd6",
+      "header": {
+        "K": 8,
+        "P": 64,
+        "M": 67108864,
+        "W": 6492,
+        "R": 4678,
+        "penalty": 611,
+        "N": 82776,
+        "B": 10000
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 65656743,
+          "build_append_bytes": 44865150,
+          "probe_spill_bytes": 5590041170,
+          "probe_read_bytes": 5589786130,
+          "build_write_us": 17024.321164510166,
+          "probe_write_us": 861066.107516944,
+          "probe_read_us": 1194909.3907652844,
+          "miss_us": 5157451,
+          "build_total_bytes": 110521893,
+          "physical_us": 7230450.819446739,
+          "build_fraction": 0.0023545310783004312,
+          "misses": 8441
+        },
+        "paired100": {
+          "build_spill_bytes": 65656743,
+          "build_append_bytes": 44865150,
+          "probe_spill_bytes": 2899121707,
+          "probe_read_bytes": 2899130052,
+          "build_write_us": 17024.321164510166,
+          "probe_write_us": 446568.3467344424,
+          "probe_read_us": 619737.0782385635,
+          "miss_us": 4460300,
+          "build_total_bytes": 110521893,
+          "physical_us": 5543629.746137517,
+          "build_fraction": 0.003070970094345088,
+          "misses": 7300
+        },
+        "ai100": {
+          "build_spill_bytes": 65656743,
+          "build_append_bytes": 44865150,
+          "probe_spill_bytes": 3153513559,
+          "probe_read_bytes": 3153276356,
+          "build_write_us": 17024.321164510166,
+          "probe_write_us": 485753.78296364757,
+          "probe_read_us": 674065.0611372382,
+          "miss_us": 4818346,
+          "build_total_bytes": 110521893,
+          "physical_us": 5995189.165265396,
+          "build_fraction": 0.0028396637195611373,
+          "misses": 7886
+        }
+      }
+    },
+    {
+      "case": "train/train_614_random_hotspot.txt",
+      "seed": 18421727982335587192,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "05f999fa73be1caf5d79e6c3fe31e5531adabf0073c5a455978008396bed1b3b",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "a3a2f6ebf743f184974d9e4719b1c36a54688de71b770c7309ea96554af5a1c0",
+      "header": {
+        "K": 2,
+        "P": 8,
+        "M": 268435456,
+        "W": 4364,
+        "R": 6984,
+        "penalty": 404,
+        "N": 208300,
+        "B": 64
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 309848331,
+          "build_append_bytes": 283109728,
+          "probe_spill_bytes": 2561322500552,
+          "probe_read_bytes": 2561286492582,
+          "build_write_us": 135874.89894592116,
+          "probe_write_us": 586920829.6406966,
+          "probe_read_us": 366736324.8256014,
+          "miss_us": 14035364,
+          "build_total_bytes": 592958059,
+          "physical_us": 967828393.3652439,
+          "build_fraction": 0.00014039151969231803,
+          "misses": 34741
+        },
+        "paired100": {
+          "build_spill_bytes": 345252846,
+          "build_append_bytes": 282283845,
+          "probe_spill_bytes": 1773217166060,
+          "probe_read_bytes": 1773288979628,
+          "build_write_us": 143798.50847846013,
+          "probe_write_us": 406328406.52153987,
+          "probe_read_us": 253907356.76231387,
+          "miss_us": 12563592,
+          "build_total_bytes": 627536691,
+          "physical_us": 672943153.7923322,
+          "build_fraction": 0.00021368596688753274,
+          "misses": 31098
+        },
+        "ai100": {
+          "build_spill_bytes": 309848331,
+          "build_append_bytes": 283109728,
+          "probe_spill_bytes": 1967428253795,
+          "probe_read_bytes": 1967465496170,
+          "build_write_us": 135874.89894592116,
+          "probe_write_us": 450831405.54422545,
+          "probe_read_us": 281710408.9590493,
+          "miss_us": 14426840,
+          "build_total_bytes": 592958059,
+          "physical_us": 747104529.4022206,
+          "build_fraction": 0.00018186865906787969,
+          "misses": 35710
+        }
+      }
+    },
+    {
+      "case": "train/train_624_random_hotspot.txt",
+      "seed": 3287595351938215816,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "ff93995000ea25eb91997a619f55bba28de4844d1410fb589caa5841583486ae",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "f3c877fcf5194379ce4f6bfbc6876470af1ed9c1ea4f1b20fea8c970c39b385d",
+      "header": {
+        "K": 8,
+        "P": 16,
+        "M": 134217728,
+        "W": 7424,
+        "R": 877,
+        "penalty": 448,
+        "N": 504319,
+        "B": 64
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 166670152,
+          "build_append_bytes": 168107715,
+          "probe_spill_bytes": 647887053997,
+          "probe_read_bytes": 647883951825,
+          "build_write_us": 45094.001481681036,
+          "probe_write_us": 87269269.12675108,
+          "probe_read_us": 738750230.1311289,
+          "miss_us": 39363072,
+          "build_total_bytes": 334777867,
+          "physical_us": 865427665.2593616,
+          "build_fraction": 5.210603184053139e-05,
+          "misses": 87864
+        },
+        "paired100": {
+          "build_spill_bytes": 166670152,
+          "build_append_bytes": 168107715,
+          "probe_spill_bytes": 135912957521,
+          "probe_read_bytes": 135913951461,
+          "build_write_us": 45094.001481681036,
+          "probe_write_us": 18307241.045393318,
+          "probe_read_us": 154975999.3854048,
+          "miss_us": 16770432,
+          "build_total_bytes": 334777867,
+          "physical_us": 190098766.4322798,
+          "build_fraction": 0.00023721354077142412,
+          "misses": 37434
+        },
+        "ai100": {
+          "build_spill_bytes": 166670152,
+          "build_append_bytes": 168107715,
+          "probe_spill_bytes": 161127323491,
+          "probe_read_bytes": 161123511422,
+          "build_write_us": 45094.001481681036,
+          "probe_write_us": 21703572.668507542,
+          "probe_read_us": 183721221.68985176,
+          "miss_us": 19811456,
+          "build_total_bytes": 334777867,
+          "physical_us": 225281344.359841,
+          "build_fraction": 0.00020016749105355376,
+          "misses": 44222
+        }
+      }
+    },
+    {
+      "case": "train/train_663_random_hotspot.txt",
+      "seed": 18360302353483021581,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "8a554bf74f1341b794b5cf54e323629493ab741648b43edacd8b7dadfcf1d4df",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "76afba7c7254aaa31bc31dc24fcad2dd8a5445490adca265fd87909e2b6f8f66",
+      "header": {
+        "K": 2,
+        "P": 64,
+        "M": 2147483648,
+        "W": 353,
+        "R": 1645,
+        "penalty": 67,
+        "N": 165760,
+        "B": 10000
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 508020302,
+          "build_append_bytes": 68621071,
+          "probe_spill_bytes": 205278620716,
+          "probe_read_bytes": 205307908848,
+          "build_write_us": 1633544.9660056657,
+          "probe_write_us": 581525837.7223796,
+          "probe_read_us": 124807239.4212766,
+          "miss_us": 215003,
+          "build_total_bytes": 576641373,
+          "physical_us": 708181625.1096618,
+          "build_fraction": 0.002306675163666823,
+          "misses": 3209
+        },
+        "paired100": {
+          "build_spill_bytes": 492853760,
+          "build_append_bytes": 63290092,
+          "probe_spill_bytes": 72992134409,
+          "probe_read_bytes": 73006278617,
+          "build_write_us": 1575478.3342776203,
+          "probe_write_us": 206776584.7280453,
+          "probe_read_us": 44380716.48449848,
+          "miss_us": 253863,
+          "build_total_bytes": 556143852,
+          "physical_us": 252986642.54682142,
+          "build_fraction": 0.006227515881539237,
+          "misses": 3789
+        },
+        "ai100": {
+          "build_spill_bytes": 508020302,
+          "build_append_bytes": 68621071,
+          "probe_spill_bytes": 75745765687,
+          "probe_read_bytes": 75778382242,
+          "build_write_us": 1633544.9660056657,
+          "probe_write_us": 214577239.90651557,
+          "probe_read_us": 46065885.861398175,
+          "miss_us": 240329,
+          "build_total_bytes": 576641373,
+          "physical_us": 262516999.7339194,
+          "build_fraction": 0.006222625459156495,
+          "misses": 3587
+        }
+      }
+    },
+    {
+      "case": "train/train_655_random_hotspot.txt",
+      "seed": 1374537716614863167,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "3605ef48cc1668af4f8f90daf678c419681934f3ccd860a354f891a1c28bb3a3",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "0899ecccd87008630887fd095bed786e7f636008bc4f9d8389feca7762955a6a",
+      "header": {
+        "K": 1,
+        "P": 32,
+        "M": 134217728,
+        "W": 5634,
+        "R": 8855,
+        "penalty": 211,
+        "N": 180511,
+        "B": 1024
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 62298819,
+          "build_append_bytes": 12956863,
+          "probe_spill_bytes": 42138765980,
+          "probe_read_bytes": 42143197590,
+          "build_write_us": 13357.41604543841,
+          "probe_write_us": 7479369.183528576,
+          "probe_read_us": 4759254.386222473,
+          "miss_us": 601983,
+          "build_total_bytes": 75255682,
+          "physical_us": 12853963.985796487,
+          "build_fraction": 0.0010391670662994103,
+          "misses": 2853
+        },
+        "paired100": {
+          "build_spill_bytes": 51244694,
+          "build_append_bytes": 12491346,
+          "probe_spill_bytes": 19373786026,
+          "probe_read_bytes": 19369805467,
+          "build_write_us": 11312.75115370962,
+          "probe_write_us": 3438726.6641817535,
+          "probe_read_us": 2187442.740485601,
+          "miss_us": 668659,
+          "build_total_bytes": 63736040,
+          "physical_us": 6306141.1558210645,
+          "build_fraction": 0.0017939260911194574,
+          "misses": 3169
+        },
+        "ai100": {
+          "build_spill_bytes": 62298819,
+          "build_append_bytes": 12956863,
+          "probe_spill_bytes": 20317989917,
+          "probe_read_bytes": 20331433827,
+          "build_write_us": 13357.41604543841,
+          "probe_write_us": 3606316.989172879,
+          "probe_read_us": 2296039.957876906,
+          "miss_us": 711281,
+          "build_total_bytes": 75255682,
+          "physical_us": 6626995.363095223,
+          "build_fraction": 0.0020156066684192844,
+          "misses": 3371
+        }
+      }
+    },
+    {
+      "case": "train/train_689_random_hotspot.txt",
+      "seed": 16502994169396141754,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "9e0b4bbb881a096f5093fc01a88a3a0b9f7597bbbf082318915c276b671dbe34",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "3a066ed99120f601b0dbb741a72661cb067a78ab07a009518c74ec2fa7d48d81",
+      "header": {
+        "K": 1,
+        "P": 32,
+        "M": 2147483648,
+        "W": 1383,
+        "R": 5424,
+        "penalty": 226,
+        "N": 184932,
+        "B": 1024
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 1014698722,
+          "build_append_bytes": 238954687,
+          "probe_spill_bytes": 2259753687902,
+          "probe_read_bytes": 2259899285274,
+          "build_write_us": 906473.9038322488,
+          "probe_write_us": 1633950605.858279,
+          "probe_read_us": 416648098.3174779,
+          "miss_us": 2106998,
+          "build_total_bytes": 1253653409,
+          "physical_us": 2053612176.0795891,
+          "build_fraction": 0.0004414046207900541,
+          "misses": 9323
+        },
+        "paired100": {
+          "build_spill_bytes": 920495198,
+          "build_append_bytes": 225538207,
+          "probe_spill_bytes": 1248963467109,
+          "probe_read_bytes": 1249005245179,
+          "build_write_us": 828657.5596529284,
+          "probe_write_us": 903082767.2516268,
+          "probe_read_us": 230273828.3884587,
+          "miss_us": 3515430,
+          "build_total_bytes": 1146033405,
+          "physical_us": 1137700683.1997385,
+          "build_fraction": 0.0007283616612783967,
+          "misses": 15555
+        },
+        "ai100": {
+          "build_spill_bytes": 1014698722,
+          "build_append_bytes": 238954687,
+          "probe_spill_bytes": 1265416895540,
+          "probe_read_bytes": 1265606020614,
+          "build_write_us": 906473.9038322488,
+          "probe_write_us": 914979678.6261749,
+          "probe_read_us": 233334443.32853982,
+          "miss_us": 3176430,
+          "build_total_bytes": 1253653409,
+          "physical_us": 1152397025.858547,
+          "build_fraction": 0.0007865986144461948,
+          "misses": 14055
+        }
+      }
+    },
+    {
+      "case": "train/train_676_random_hotspot.txt",
+      "seed": 13881337440408004601,
+      "family": "random_hotspot",
+      "input_sha256_from_original_audit": "bef94a18ba0ea4a12c136ae48190f3684f0875fbb20e54ef2b6f801475d8b6d1",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "3f3dd9fdabe2def212a87fee05223cd957c02a5507481e990e6872a3083d1bfb",
+      "header": {
+        "K": 1,
+        "P": 32,
+        "M": 4294967296,
+        "W": 2959,
+        "R": 4265,
+        "penalty": 297,
+        "N": 225950,
+        "B": 64
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 2596564683,
+          "build_append_bytes": 1134527781,
+          "probe_spill_bytes": 2132461494250,
+          "probe_read_bytes": 2132221675254,
+          "build_write_us": 1260930.2007434943,
+          "probe_write_us": 720669649.9662048,
+          "probe_read_us": 499934742.1463072,
+          "miss_us": 1161864,
+          "build_total_bytes": 3731092464,
+          "physical_us": 1223027186.3132553,
+          "build_fraction": 0.0010309911462757385,
+          "misses": 3912
+        },
+        "paired100": {
+          "build_spill_bytes": 2717570452,
+          "build_append_bytes": 1091367135,
+          "probe_spill_bytes": 2010769943340,
+          "probe_read_bytes": 2010935002825,
+          "build_write_us": 1287238.1165934438,
+          "probe_write_us": 679543745.6370395,
+          "probe_read_us": 471497069.8300117,
+          "miss_us": 2411343,
+          "build_total_bytes": 3808937587,
+          "physical_us": 1154739396.5836446,
+          "build_fraction": 0.001114743396130593,
+          "misses": 8119
+        },
+        "ai100": {
+          "build_spill_bytes": 2596564683,
+          "build_append_bytes": 1134527781,
+          "probe_spill_bytes": 2035216199139,
+          "probe_read_bytes": 2035256036267,
+          "build_write_us": 1260930.2007434943,
+          "probe_write_us": 687805406.9411963,
+          "probe_read_us": 477199539.57022274,
+          "miss_us": 2335608,
+          "build_total_bytes": 3731092464,
+          "physical_us": 1168601484.7121625,
+          "build_fraction": 0.0010790078715791408,
+          "misses": 7864
+        }
+      }
+    },
+    {
+      "case": "train/train_758_random_lognormal.txt",
+      "seed": 6300307795782966787,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "69d1df2f392b9396c5d274f3a505fe7aac4b8fb9e06fb13b6cb60db8a76602b2",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "fd757c12e4c8d89532fb0278914b43974999fd7acd3a21ac70889358d95838a3",
+      "header": {
+        "K": 1,
+        "P": 16,
+        "M": 536870912,
+        "W": 761,
+        "R": 2942,
+        "penalty": 317,
+        "N": 501870,
+        "B": 1024
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 733986353,
+          "build_append_bytes": 796206567,
+          "probe_spill_bytes": 23309540644265,
+          "probe_read_bytes": 23309601154178,
+          "build_write_us": 2010765.9921156373,
+          "probe_write_us": 30630145393.2523,
+          "probe_read_us": 7923045939.557444,
+          "miss_us": 47938325,
+          "build_total_bytes": 1530192920,
+          "physical_us": 38603140423.80186,
+          "build_fraction": 5.2088145421346155e-05,
+          "misses": 151225
+        },
+        "paired100": {
+          "build_spill_bytes": 703846687,
+          "build_append_bytes": 801072520,
+          "probe_spill_bytes": 17647233758815,
+          "probe_read_bytes": 17647263748599,
+          "build_write_us": 1977554.805519054,
+          "probe_write_us": 23189531877.54928,
+          "probe_read_us": 5998390125.288579,
+          "miss_us": 42812752,
+          "build_total_bytes": 1504919207,
+          "physical_us": 29232712309.643375,
+          "build_fraction": 6.764869385269776e-05,
+          "misses": 135056
+        },
+        "ai100": {
+          "build_spill_bytes": 733986353,
+          "build_append_bytes": 796206567,
+          "probe_spill_bytes": 19187710505449,
+          "probe_read_bytes": 19187766991760,
+          "build_write_us": 2010765.9921156373,
+          "probe_write_us": 25213811439.486202,
+          "probe_read_us": 6522014613.10673,
+          "miss_us": 49066211,
+          "build_total_bytes": 1530192920,
+          "physical_us": 31786903029.58505,
+          "build_fraction": 6.325768793028234e-05,
+          "misses": 154783
+        }
+      }
+    },
+    {
+      "case": "train/train_722_random_lognormal.txt",
+      "seed": 14469534270711647131,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "305b9b6604e4126b90637d2fa35da2c95d5334b2f6a4a9bd2f0f3084fb1136c2",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "d1a6d9ce44dd23aec10e5e2363c6b181a895b722ddc55703c30829c9c75041e5",
+      "header": {
+        "K": 8,
+        "P": 64,
+        "M": 268435456,
+        "W": 2664,
+        "R": 6605,
+        "penalty": 619,
+        "N": 181590,
+        "B": 4096
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 328734454,
+          "build_append_bytes": 310817824,
+          "probe_spill_bytes": 98204621044,
+          "probe_read_bytes": 98201663807,
+          "build_write_us": 240072.17642642642,
+          "probe_write_us": 36863596.48798799,
+          "probe_read_us": 14867776.50370931,
+          "miss_us": 19224902,
+          "build_total_bytes": 639552278,
+          "physical_us": 71196347.16812372,
+          "build_fraction": 0.0033719732258105563,
+          "misses": 31058
+        },
+        "paired100": {
+          "build_spill_bytes": 329097207,
+          "build_append_bytes": 311635436,
+          "probe_spill_bytes": 60547348745,
+          "probe_read_bytes": 60547761018,
+          "build_write_us": 240515.2563813814,
+          "probe_write_us": 22727983.763138138,
+          "probe_read_us": 9166958.519000757,
+          "miss_us": 21548009,
+          "build_total_bytes": 640732643,
+          "physical_us": 53683466.53852028,
+          "build_fraction": 0.004480248238231802,
+          "misses": 34811
+        },
+        "ai100": {
+          "build_spill_bytes": 328734454,
+          "build_append_bytes": 310817824,
+          "probe_spill_bytes": 66694419535,
+          "probe_read_bytes": 66693376675,
+          "build_write_us": 240072.17642642642,
+          "probe_write_us": 25035442.768393394,
+          "probe_read_us": 10097407.520817563,
+          "miss_us": 23092414,
+          "build_total_bytes": 639552278,
+          "physical_us": 58465336.465637386,
+          "build_fraction": 0.00410623098983664,
+          "misses": 37306
+        }
+      }
+    },
+    {
+      "case": "train/train_768_random_lognormal.txt",
+      "seed": 8336829129886712639,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "e6b8afbca2095a923a0e9ee3c937b12b82d2a68978a67aecd164ad4e8f36f95b",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "83ba06069171dbe865423e4edf21246c6fdf1e047a9cd7a5d6ced901e5d78c46",
+      "header": {
+        "K": 2,
+        "P": 8,
+        "M": 67108864,
+        "W": 6467,
+        "R": 5418,
+        "penalty": 70,
+        "N": 128872,
+        "B": 1024
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 68446715,
+          "build_append_bytes": 57506572,
+          "probe_spill_bytes": 436495142395,
+          "probe_read_bytes": 436492791481,
+          "build_write_us": 19476.30848925313,
+          "probe_write_us": 67495769.66058451,
+          "probe_read_us": 80563453.57715024,
+          "miss_us": 1642760,
+          "build_total_bytes": 125953287,
+          "physical_us": 149721459.546224,
+          "build_fraction": 0.00013008361358673602,
+          "misses": 23468
+        },
+        "paired100": {
+          "build_spill_bytes": 68446715,
+          "build_append_bytes": 57506572,
+          "probe_spill_bytes": 385283676792,
+          "probe_read_bytes": 385279596197,
+          "build_write_us": 19476.30848925313,
+          "probe_write_us": 59576879.04623473,
+          "probe_read_us": 71111036.58121078,
+          "miss_us": 1807330,
+          "build_total_bytes": 125953287,
+          "physical_us": 132514721.93593475,
+          "build_fraction": 0.00014697467726392769,
+          "misses": 25819
+        },
+        "ai100": {
+          "build_spill_bytes": 68446715,
+          "build_append_bytes": 57506572,
+          "probe_spill_bytes": 389385735032,
+          "probe_read_bytes": 389381654437,
+          "build_write_us": 19476.30848925313,
+          "probe_write_us": 60211185.253131285,
+          "probe_read_us": 71868153.27371724,
+          "miss_us": 1834350,
+          "build_total_bytes": 125953287,
+          "physical_us": 133933164.83533777,
+          "build_fraction": 0.00014541811591772659,
+          "misses": 26205
+        }
+      }
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "seed": 184502648514716924,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "be6d8c840c0dcc7834228e4b3c2bc2f604a0de3ced59e8b90f7bc7967af62ab7",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "2962296ebb98f950b652a5d3a431d189a2dc6c09e090d685c3971084faa0da58",
+      "header": {
+        "K": 2,
+        "P": 32,
+        "M": 268435456,
+        "W": 1982,
+        "R": 1873,
+        "penalty": 751,
+        "N": 228852,
+        "B": 8
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 86084734,
+          "build_append_bytes": 27773764,
+          "probe_spill_bytes": 145340781434,
+          "probe_read_bytes": 145357818432,
+          "build_write_us": 57446.26538849647,
+          "probe_write_us": 73330363.99293643,
+          "probe_read_us": 77606950.57768287,
+          "miss_us": 1840701,
+          "build_total_bytes": 113858498,
+          "physical_us": 152835461.8360078,
+          "build_fraction": 0.0003758700022782423,
+          "misses": 2451
+        },
+        "paired100": {
+          "build_spill_bytes": 86084734,
+          "build_append_bytes": 27773764,
+          "probe_spill_bytes": 22817839086,
+          "probe_read_bytes": 22841087449,
+          "build_write_us": 57446.26538849647,
+          "probe_write_us": 11512532.334006054,
+          "probe_read_us": 12194921.222103577,
+          "miss_us": 2823760,
+          "build_total_bytes": 113858498,
+          "physical_us": 26588659.82149813,
+          "build_fraction": 0.0021605551304262646,
+          "misses": 3760
+        },
+        "ai100": {
+          "build_spill_bytes": 86084734,
+          "build_append_bytes": 27773764,
+          "probe_spill_bytes": 36680500068,
+          "probe_read_bytes": 36704146587,
+          "build_write_us": 57446.26538849647,
+          "probe_write_us": 18506811.336024217,
+          "probe_read_us": 19596447.72397224,
+          "miss_us": 3191750,
+          "build_total_bytes": 113858498,
+          "physical_us": 41352455.32538495,
+          "build_fraction": 0.0013891863236771829,
+          "misses": 4250
+        }
+      }
+    },
+    {
+      "case": "train/train_747_random_lognormal.txt",
+      "seed": 7185949811230088012,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "1746f9b4e09ae98be8e245dd72219ce5306ee4b9fbff3595b177513a97125556",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "a181b1f8ae30161fca149823a04ba883c5f1e23a5a55d4bf667fd41cc9c50dbc",
+      "header": {
+        "K": 4,
+        "P": 16,
+        "M": 268435456,
+        "W": 9122,
+        "R": 9649,
+        "penalty": 104,
+        "N": 256702,
+        "B": 256
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 222732114,
+          "build_append_bytes": 126884783,
+          "probe_spill_bytes": 492226990920,
+          "probe_read_bytes": 492229202604,
+          "build_write_us": 38326.78107871081,
+          "probe_write_us": 53960424.34992326,
+          "probe_read_us": 51013493.896155044,
+          "miss_us": 2873832,
+          "build_total_bytes": 349616897,
+          "physical_us": 107886077.02715701,
+          "build_fraction": 0.0003552523377883433,
+          "misses": 27633
+        },
+        "paired100": {
+          "build_spill_bytes": 224811198,
+          "build_append_bytes": 125662352,
+          "probe_spill_bytes": 260120806353,
+          "probe_read_bytes": 260125743513,
+          "build_write_us": 38420.6917342688,
+          "probe_write_us": 28515764.783271212,
+          "probe_read_us": 26958829.258265104,
+          "miss_us": 2988752,
+          "build_total_bytes": 350473550,
+          "physical_us": 58501766.733270586,
+          "build_fraction": 0.0006567441272234013,
+          "misses": 28738
+        },
+        "ai100": {
+          "build_spill_bytes": 222732114,
+          "build_append_bytes": 126884783,
+          "probe_spill_bytes": 286833055399,
+          "probe_read_bytes": 286838112839,
+          "build_write_us": 38326.78107871081,
+          "probe_write_us": 31444097.281188335,
+          "probe_read_us": 29727237.31360763,
+          "miss_us": 3177824,
+          "build_total_bytes": 349616897,
+          "physical_us": 64387485.375874676,
+          "build_fraction": 0.0005952520253737298,
+          "misses": 30556
+        }
+      }
+    },
+    {
+      "case": "train/train_754_random_lognormal.txt",
+      "seed": 6706213157847051871,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "ff7236232d82dd95488b57daa9321ab3a65cf267a3991459afb157207c376f0e",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "e0bfef57448cdba018f8aefd3577d4d39e4422938193667265d334d1d3094d45",
+      "header": {
+        "K": 4,
+        "P": 8,
+        "M": 268435456,
+        "W": 9856,
+        "R": 5007,
+        "penalty": 533,
+        "N": 239514,
+        "B": 4096
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 94911670,
+          "build_append_bytes": 22795541,
+          "probe_spill_bytes": 55246956445,
+          "probe_read_bytes": 55218285539,
+          "build_write_us": 11942.695921266233,
+          "probe_write_us": 5605413.600344967,
+          "probe_read_us": 11028217.603155581,
+          "miss_us": 661453,
+          "build_total_bytes": 117707211,
+          "physical_us": 17307026.899421815,
+          "build_fraction": 0.0006900489604985366,
+          "misses": 1241
+        },
+        "paired100": {
+          "build_spill_bytes": 94911670,
+          "build_append_bytes": 22795541,
+          "probe_spill_bytes": 26478851804,
+          "probe_read_bytes": 26494130020,
+          "build_write_us": 11942.695921266233,
+          "probe_write_us": 2686571.8145292206,
+          "probe_read_us": 5291418.018773717,
+          "miss_us": 1221636,
+          "build_total_bytes": 117707211,
+          "physical_us": 9211568.529224204,
+          "build_fraction": 0.0012964888534865021,
+          "misses": 2292
+        },
+        "ai100": {
+          "build_spill_bytes": 94911670,
+          "build_append_bytes": 22795541,
+          "probe_spill_bytes": 27507137724,
+          "probe_read_bytes": 27524952357,
+          "build_write_us": 11942.695921266233,
+          "probe_write_us": 2790902.7723214286,
+          "probe_read_us": 5497294.259436788,
+          "miss_us": 1284530,
+          "build_total_bytes": 117707211,
+          "physical_us": 9584669.727679484,
+          "build_fraction": 0.0012460205996224394,
+          "misses": 2410
+        }
+      }
+    },
+    {
+      "case": "train/train_752_random_lognormal.txt",
+      "seed": 5798404805832685362,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "5d0d97ebe13586f4e1a90faacdffdea4f0441b87b4ccd5ac27e2085b2309b791",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "b5248193864a9f7e20fe663fa46dce87be80c8e85ab1aa2d879f7d25e5494fda",
+      "header": {
+        "K": 4,
+        "P": 16,
+        "M": 536870912,
+        "W": 3299,
+        "R": 7612,
+        "penalty": 1000,
+        "N": 185272,
+        "B": 4096
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 215272882,
+          "build_append_bytes": 54482205,
+          "probe_spill_bytes": 383338386506,
+          "probe_read_bytes": 383323238800,
+          "build_write_us": 81768.74416489845,
+          "probe_write_us": 116198359.05001515,
+          "probe_read_us": 50357756.01681556,
+          "miss_us": 17516000,
+          "build_total_bytes": 269755087,
+          "physical_us": 184153883.8109956,
+          "build_fraction": 0.0004440240003236692,
+          "misses": 17516
+        },
+        "paired100": {
+          "build_spill_bytes": 224757250,
+          "build_append_bytes": 52254149,
+          "probe_spill_bytes": 237684501716,
+          "probe_read_bytes": 237693751911,
+          "build_write_us": 83968.293119127,
+          "probe_write_us": 72047439.13792059,
+          "probe_read_us": 31226189.163294796,
+          "miss_us": 19917000,
+          "build_total_bytes": 277011399,
+          "physical_us": 123274596.59433451,
+          "build_fraction": 0.0006811483909815207,
+          "misses": 19917
+        },
+        "ai100": {
+          "build_spill_bytes": 215272882,
+          "build_append_bytes": 54482205,
+          "probe_spill_bytes": 281553806326,
+          "probe_read_bytes": 281557196158,
+          "build_write_us": 81768.74416489845,
+          "probe_write_us": 85345197.43134283,
+          "probe_read_us": 36988596.44745139,
+          "miss_us": 22467000,
+          "build_total_bytes": 269755087,
+          "physical_us": 144882562.6229591,
+          "build_fraction": 0.0005643794717911816,
+          "misses": 22467
+        }
+      }
+    },
+    {
+      "case": "train/train_766_random_lognormal.txt",
+      "seed": 5577302901459224310,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "a72ae7038f3a713768213a97fb9154bd355c185f54aaab4824019ba31b9f3b47",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "73288b6c8373b62b7d4bc0b73ff7772978a94f28a655b7b98eea95678bd48921",
+      "header": {
+        "K": 8,
+        "P": 32,
+        "M": 4294967296,
+        "W": 9631,
+        "R": 4363,
+        "penalty": 959,
+        "N": 80544,
+        "B": 8
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 3453067187,
+          "build_append_bytes": 1930450087,
+          "probe_spill_bytes": 1007194139855,
+          "probe_read_bytes": 1006792435541,
+          "build_write_us": 558978.0161976949,
+          "probe_write_us": 104578355.29591943,
+          "probe_read_us": 230756918.5287646,
+          "miss_us": 5836474,
+          "build_total_bytes": 5383517274,
+          "physical_us": 341730725.8408817,
+          "build_fraction": 0.0016357265353363893,
+          "misses": 6086
+        },
+        "paired100": {
+          "build_spill_bytes": 3453067187,
+          "build_append_bytes": 1930450087,
+          "probe_spill_bytes": 288512278738,
+          "probe_read_bytes": 288546562940,
+          "build_write_us": 558978.0161976949,
+          "probe_write_us": 29956627.42581248,
+          "probe_read_us": 66134898.67980747,
+          "miss_us": 7370874,
+          "build_total_bytes": 5383517274,
+          "physical_us": 104021378.12181765,
+          "build_fraction": 0.005373684008907144,
+          "misses": 7686
+        },
+        "ai100": {
+          "build_spill_bytes": 3453067187,
+          "build_append_bytes": 1930450087,
+          "probe_spill_bytes": 345184524808,
+          "probe_read_bytes": 345167463289,
+          "build_write_us": 558978.0161976949,
+          "probe_write_us": 35840984.82068321,
+          "probe_read_us": 79112414.23080449,
+          "miss_us": 7699811,
+          "build_total_bytes": 5383517274,
+          "physical_us": 123212188.0676854,
+          "build_fraction": 0.004536710409611636,
+          "misses": 8029
+        }
+      }
+    },
+    {
+      "case": "train/train_723_random_lognormal.txt",
+      "seed": 11576382454364312072,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "0ab9e52d0d26c3ac9ef229e59e5f09a6125434025412eb957e3c55d4f1f59444",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "07faf7f8eb716676f216dca5232d91fdde538299915b72ba8db333a847258568",
+      "header": {
+        "K": 4,
+        "P": 8,
+        "M": 268435456,
+        "W": 2325,
+        "R": 7244,
+        "penalty": 415,
+        "N": 76876,
+        "B": 64
+      },
+      "read_ge_write": true,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 279121907,
+          "build_append_bytes": 224794349,
+          "probe_spill_bytes": 252700548945,
+          "probe_read_bytes": 252677834388,
+          "build_write_us": 216738.1746236559,
+          "probe_write_us": 108688408.14838709,
+          "probe_read_us": 34880982.107675314,
+          "miss_us": 2138080,
+          "build_total_bytes": 503916256,
+          "physical_us": 145924208.43068606,
+          "build_fraction": 0.0014852790839472428,
+          "misses": 5152
+        },
+        "paired100": {
+          "build_spill_bytes": 269570062,
+          "build_append_bytes": 216917368,
+          "probe_spill_bytes": 203362032406,
+          "probe_read_bytes": 203358540395,
+          "build_write_us": 209241.90537634408,
+          "probe_write_us": 87467540.81978494,
+          "probe_read_us": 28072686.415654335,
+          "miss_us": 3463175,
+          "build_total_bytes": 486487430,
+          "physical_us": 119212644.14081562,
+          "build_fraction": 0.0017551989294791973,
+          "misses": 8345
+        },
+        "ai100": {
+          "build_spill_bytes": 279121907,
+          "build_append_bytes": 224794349,
+          "probe_spill_bytes": 212170302527,
+          "probe_read_bytes": 212186828949,
+          "build_write_us": 216738.1746236559,
+          "probe_write_us": 91256044.0976344,
+          "probe_read_us": 29291389.970872447,
+          "miss_us": 3545760,
+          "build_total_bytes": 503916256,
+          "physical_us": 124309932.2431305,
+          "build_fraction": 0.0017435306311626847,
+          "misses": 8544
+        }
+      }
+    },
+    {
+      "case": "train/train_760_random_lognormal.txt",
+      "seed": 3496239285171780787,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "aa5d40804b0e81b58dc98512332520f96c0e9435fe581c2f47c0a8cb5ad9106f",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "840ddb4fe6547a7c3f21d0f65ecc5b2782d6a00a5268be9636b99a7897913d4e",
+      "header": {
+        "K": 1,
+        "P": 16,
+        "M": 268435456,
+        "W": 9691,
+        "R": 8026,
+        "penalty": 662,
+        "N": 172723,
+        "B": 256
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 302611510,
+          "build_append_bytes": 325204443,
+          "probe_spill_bytes": 618572219637,
+          "probe_read_bytes": 618469854641,
+          "build_write_us": 64783.4024352492,
+          "probe_write_us": 63829555.219997935,
+          "probe_read_us": 77058292.37989035,
+          "miss_us": 4784936,
+          "build_total_bytes": 627815953,
+          "physical_us": 145737567.00232354,
+          "build_fraction": 0.0004445209548078728,
+          "misses": 7228
+        },
+        "paired100": {
+          "build_spill_bytes": 302611510,
+          "build_append_bytes": 325204443,
+          "probe_spill_bytes": 586821629796,
+          "probe_read_bytes": 586849617410,
+          "build_write_us": 64783.4024352492,
+          "probe_write_us": 60553258.672582805,
+          "probe_read_us": 73118566.83403938,
+          "miss_us": 6757696,
+          "build_total_bytes": 627815953,
+          "physical_us": 140494304.90905744,
+          "build_fraction": 0.0004611105231431535,
+          "misses": 10208
+        },
+        "ai100": {
+          "build_spill_bytes": 302611510,
+          "build_append_bytes": 325204443,
+          "probe_spill_bytes": 608140215739,
+          "probe_read_bytes": 608163700481,
+          "build_write_us": 64783.4024352492,
+          "probe_write_us": 62753092.12042101,
+          "probe_read_us": 75774196.4217543,
+          "miss_us": 7857278,
+          "build_total_bytes": 627815953,
+          "physical_us": 146449349.94461057,
+          "build_fraction": 0.0004423604642816871,
+          "misses": 11869
+        }
+      }
+    },
+    {
+      "case": "train/train_726_random_lognormal.txt",
+      "seed": 14532149210305815137,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "17a6d076e01056d885f67319198f0f562f2368fe01898d4c5aae7b76678531db",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "06ef713ab97b7373bef34f2e102c758f229b067f012c16437758e958c652f80a",
+      "header": {
+        "K": 2,
+        "P": 8,
+        "M": 2147483648,
+        "W": 7502,
+        "R": 4045,
+        "penalty": 47,
+        "N": 90584,
+        "B": 10000
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 791528836,
+          "build_append_bytes": 204516250,
+          "probe_spill_bytes": 1320166713522,
+          "probe_read_bytes": 1320166713522,
+          "build_write_us": 132770.60597174088,
+          "probe_write_us": 175975301.722474,
+          "probe_read_us": 326370015.7038319,
+          "miss_us": 128263,
+          "build_total_bytes": 996045086,
+          "physical_us": 502606351.03227764,
+          "build_fraction": 0.00026416420265890013,
+          "misses": 2729
+        },
+        "paired100": {
+          "build_spill_bytes": 791528836,
+          "build_append_bytes": 204516250,
+          "probe_spill_bytes": 589907655544,
+          "probe_read_bytes": 589646662494,
+          "build_write_us": 132770.60597174088,
+          "probe_write_us": 78633385.16982138,
+          "probe_read_us": 145771733.62027195,
+          "miss_us": 133997,
+          "build_total_bytes": 996045086,
+          "physical_us": 224671886.3960651,
+          "build_fraction": 0.0005909533591474141,
+          "misses": 2851
+        },
+        "ai100": {
+          "build_spill_bytes": 791528836,
+          "build_append_bytes": 204516250,
+          "probe_spill_bytes": 652406880391,
+          "probe_read_bytes": 652570386507,
+          "build_write_us": 132770.60597174088,
+          "probe_write_us": 86964393.54718742,
+          "probe_read_us": 161327660.44672436,
+          "miss_us": 151716,
+          "build_total_bytes": 996045086,
+          "physical_us": 248576540.59988353,
+          "build_fraction": 0.0005341236371353826,
+          "misses": 3228
+        }
+      }
+    },
+    {
+      "case": "train/train_725_random_lognormal.txt",
+      "seed": 10481288076045297175,
+      "family": "random_lognormal",
+      "input_sha256_from_original_audit": "b28dbac3be7de5cc7cbcdea3b0043b9a1881d5e32f9bef72b4b626bafaae0cdf",
+      "source_sha256": {
+        "naive": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+        "paired100": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+        "ai100": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+      },
+      "header_sha256": "3d1c5b235e0b9083c70538ea51fc458bce299e437712d8c194bbc4930dd0b395",
+      "header": {
+        "K": 4,
+        "P": 8,
+        "M": 67108864,
+        "W": 1881,
+        "R": 1694,
+        "penalty": 268,
+        "N": 191943,
+        "B": 16
+      },
+      "read_ge_write": false,
+      "methods": {
+        "naive": {
+          "build_spill_bytes": 26919196,
+          "build_append_bytes": 7238192,
+          "probe_spill_bytes": 148616988967,
+          "probe_read_bytes": 148617261360,
+          "build_write_us": 18159.164274322167,
+          "probe_write_us": 79009563.51249336,
+          "probe_read_us": 87731559.24439198,
+          "miss_us": 6575112,
+          "build_total_bytes": 34157388,
+          "physical_us": 173334393.92115965,
+          "build_fraction": 0.00010476376824891301,
+          "misses": 24534
+        },
+        "paired100": {
+          "build_spill_bytes": 26919196,
+          "build_append_bytes": 7238192,
+          "probe_spill_bytes": 60629172913,
+          "probe_read_bytes": 60629121360,
+          "build_write_us": 18159.164274322167,
+          "probe_write_us": 32232415.15842637,
+          "probe_read_us": 35790508.476977564,
+          "miss_us": 6214116,
+          "build_total_bytes": 34157388,
+          "physical_us": 74255198.79967825,
+          "build_fraction": 0.0002445507461815704,
+          "misses": 23187
+        },
+        "ai100": {
+          "build_spill_bytes": 26919196,
+          "build_append_bytes": 7238192,
+          "probe_spill_bytes": 70840163365,
+          "probe_read_bytes": 70841570599,
+          "build_write_us": 18159.164274322167,
+          "probe_write_us": 37660905.563530035,
+          "probe_read_us": 41819108.97225502,
+          "miss_us": 6382688,
+          "build_total_bytes": 34157388,
+          "physical_us": 85880861.70005938,
+          "build_fraction": 0.00021144599524098174,
+          "misses": 23816
+        }
+      }
+    }
+  ]
+}

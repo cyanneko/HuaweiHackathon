@@ -1,0 +1,203 @@
+{
+  "complete": true,
+  "buffered_builder_sha256": "bcb72ae09d03b7f28c944989e09cb4a5922989c4079bfef05f08f59d8eb13514",
+  "original_builder_sha256": "fb67b8754ec527f01c543192db3424de9200b17f6308c873583416eff6471b17",
+  "streaming_replay_sha256": "889ba2b344971aa0422c7214cadc9b40c4a29847f96c3f99395724bb2638e8b1",
+  "verification_source_sha256": "57e4f443c8adad79eac11141b85fd71071657754fd8ed8a4e18581b98bb68de3",
+  "rows": [
+    {
+      "method": "naive",
+      "case": "train_600_random_zipf",
+      "source_sha256": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+      "trace_sha256": "58c8d6fbab128b4a5b7b0959f63cd8fd3ea43bba65f8aaa2298651f4f0d06488",
+      "trace_equal": true,
+      "audit": {
+        "precision": {
+          "sequential_io_us": 215597.6653240103,
+          "exact_io_us": 215597.6653240104,
+          "sequential_minus_exact_us": -8.731149137020111e-11,
+          "roundoff_bound_us": 2.9419594451400906e-07,
+          "io_additions": 12284,
+          "exact_io_fraction": "2080094683355/9648039"
+        },
+        "costs": {
+          "build_spill_bytes": 70969786,
+          "build_append_bytes": 31112677,
+          "probe_spill_bytes": 606782196,
+          "probe_read_bytes": 584849429,
+          "build_write_us": 19791.094028693293,
+          "probe_write_us": 117639.0453664211,
+          "probe_read_us": 78167.52592889602,
+          "miss_us": 29580
+        },
+        "callbacks": 203,
+        "actions": 72,
+        "hits": 87251,
+        "misses": 34,
+        "io": 215597.6653240103
+      }
+    },
+    {
+      "method": "naive",
+      "case": "train_758_random_lognormal",
+      "source_sha256": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+      "trace_sha256": "bdbaee903e9178b66df550ae923c293b8f25e6a9396d532dc4efbb63ac80a4dc",
+      "trace_equal": true,
+      "audit": {
+        "precision": {
+          "sequential_io_us": 38555202098.77168,
+          "exact_io_us": 38555202098.80186,
+          "sequential_minus_exact_us": -0.03017425537109375,
+          "roundoff_bound_us": 1.747205583512406,
+          "io_additions": 408170,
+          "exact_io_fraction": "43159888440663864/1119431"
+        },
+        "costs": {
+          "build_spill_bytes": 733986353,
+          "build_append_bytes": 796206567,
+          "probe_spill_bytes": 23309540644265,
+          "probe_read_bytes": 23309601154178,
+          "build_write_us": 2010765.9921156373,
+          "probe_write_us": 30630145393.2523,
+          "probe_read_us": 7923045939.557444,
+          "miss_us": 47938325
+        },
+        "callbacks": 151724,
+        "actions": 302459,
+        "hits": 88108,
+        "misses": 151225,
+        "io": 38555202098.77168
+      }
+    },
+    {
+      "method": "paired100",
+      "case": "train_600_random_zipf",
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "trace_sha256": "5dc5fa3d6da18555c0ec298cc2c2b5f367437bdac98ba7f84736b8e27a19aa7d",
+      "trace_equal": true,
+      "audit": {
+        "precision": {
+          "sequential_io_us": 235824.75108547948,
+          "exact_io_us": 235824.75108547966,
+          "sequential_minus_exact_us": -1.7462298274040222e-10,
+          "roundoff_bound_us": 2.266675899359045e-07,
+          "io_additions": 8651,
+          "exact_io_fraction": "2275246395638/9648039"
+        },
+        "costs": {
+          "build_spill_bytes": 62359251,
+          "build_append_bytes": 18221116,
+          "probe_spill_bytes": 672284375,
+          "probe_read_bytes": 672363626,
+          "build_write_us": 15622.405389685924,
+          "probe_write_us": 130338.18825126017,
+          "probe_read_us": 89864.15744453354,
+          "miss_us": 600300
+        },
+        "callbacks": 938,
+        "actions": 1523,
+        "hits": 86595,
+        "misses": 690,
+        "io": 235824.75108547948
+      }
+    },
+    {
+      "method": "paired100",
+      "case": "train_758_random_lognormal",
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "trace_sha256": "3182bd3eab520c688ea16612ff97015095fe39109ef32bddd4c03ae195f3f5eb",
+      "trace_equal": true,
+      "audit": {
+        "precision": {
+          "sequential_io_us": 29189899557.633877,
+          "exact_io_us": 29189899557.643375,
+          "sequential_minus_exact_us": -0.00949859619140625,
+          "roundoff_bound_us": 1.2204708824594714,
+          "io_additions": 376597,
+          "exact_io_fraction": "65352156903424563/2238862"
+        },
+        "costs": {
+          "build_spill_bytes": 703846687,
+          "build_append_bytes": 801072520,
+          "probe_spill_bytes": 17647233758815,
+          "probe_read_bytes": 17647263748599,
+          "build_write_us": 1977554.805519054,
+          "probe_write_us": 23189531877.54928,
+          "probe_read_us": 5998390125.288579,
+          "miss_us": 42812752
+        },
+        "callbacks": 135560,
+        "actions": 270187,
+        "hits": 104277,
+        "misses": 135056,
+        "io": 29189899557.633877
+      }
+    },
+    {
+      "method": "ai100",
+      "case": "train_600_random_zipf",
+      "source_sha256": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa",
+      "trace_sha256": "1b378870f752fe265dbb0394683c37b438ff0caa0425864e2f18d9e5c6682bc4",
+      "trace_equal": true,
+      "audit": {
+        "precision": {
+          "sequential_io_us": 264383.51107401156,
+          "exact_io_us": 264383.511074012,
+          "sequential_minus_exact_us": -4.656612873077393e-10,
+          "roundoff_bound_us": 4.0424017449283836e-07,
+          "io_additions": 13762,
+          "exact_io_fraction": "2550782425799/9648039"
+        },
+        "costs": {
+          "build_spill_bytes": 70969786,
+          "build_append_bytes": 31112677,
+          "probe_spill_bytes": 739923963,
+          "probe_read_bytes": 756734708,
+          "build_write_us": 19791.094028693293,
+          "probe_write_us": 143451.7183016673,
+          "probe_read_us": 101140.69874365143,
+          "miss_us": 638580
+        },
+        "callbacks": 903,
+        "actions": 1550,
+        "hits": 86551,
+        "misses": 734,
+        "io": 264383.51107401156
+      }
+    },
+    {
+      "method": "ai100",
+      "case": "train_758_random_lognormal",
+      "source_sha256": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa",
+      "trace_sha256": "b1ffbe04ccaefe1b1c465da63dcdba93e5e70df7f7099f959e95e357d4e9e2a8",
+      "trace_equal": true,
+      "audit": {
+        "precision": {
+          "sequential_io_us": 31737836818.55973,
+          "exact_io_us": 31737836818.58505,
+          "sequential_minus_exact_us": -0.025318145751953125,
+          "roundoff_bound_us": 1.4634646818738333,
+          "io_additions": 415325,
+          "exact_io_fraction": "35528318407665479/1119431"
+        },
+        "costs": {
+          "build_spill_bytes": 733986353,
+          "build_append_bytes": 796206567,
+          "probe_spill_bytes": 19187710505449,
+          "probe_read_bytes": 19187766991760,
+          "build_write_us": 2010765.9921156373,
+          "probe_write_us": 25213811439.486202,
+          "probe_read_us": 6522014613.10673,
+          "miss_us": 49066211
+        },
+        "callbacks": 155282,
+        "actions": 309614,
+        "hits": 84550,
+        "misses": 154783,
+        "io": 31737836818.55973
+      }
+    }
+  ],
+  "dyna_runs": 0,
+  "scope": "Six existing-training audit runs; buffered wrapper changes logging only."
+}

@@ -1,0 +1,107 @@
+{
+  "scope": "Six preserved training audits and five protocol audits; exact equality to original replay, no new solver.",
+  "streaming_source_sha256": "889ba2b344971aa0422c7214cadc9b40c4a29847f96c3f99395724bb2638e8b1",
+  "original_source_sha256": "9c83b075ab092a3711ec4aeee7a3eeec242bb8cacfced864f5f067b6eb8c9b01",
+  "verification_source_sha256": "e37f418f5507aac43d20ba891b52e17c32f62e477e5253344338a54c7c974ced",
+  "cases": [
+    {
+      "case": "train_600_random_zipf/naive",
+      "input_sha256": "f79a7d1bb9d2da0ce790979b4857c7a1fb7388b0d41243cf489d730f7386d2f2",
+      "trace_sha256": "58c8d6fbab128b4a5b7b0959f63cd8fd3ea43bba65f8aaa2298651f4f0d06488",
+      "equal": true,
+      "callbacks": 203,
+      "actions": 72
+    },
+    {
+      "case": "train_600_random_zipf/paired100",
+      "input_sha256": "f79a7d1bb9d2da0ce790979b4857c7a1fb7388b0d41243cf489d730f7386d2f2",
+      "trace_sha256": "5dc5fa3d6da18555c0ec298cc2c2b5f367437bdac98ba7f84736b8e27a19aa7d",
+      "equal": true,
+      "callbacks": 938,
+      "actions": 1523
+    },
+    {
+      "case": "train_600_random_zipf/ai100",
+      "input_sha256": "f79a7d1bb9d2da0ce790979b4857c7a1fb7388b0d41243cf489d730f7386d2f2",
+      "trace_sha256": "1b378870f752fe265dbb0394683c37b438ff0caa0425864e2f18d9e5c6682bc4",
+      "equal": true,
+      "callbacks": 903,
+      "actions": 1550
+    },
+    {
+      "case": "train_758_random_lognormal/naive",
+      "input_sha256": "69d1df2f392b9396c5d274f3a505fe7aac4b8fb9e06fb13b6cb60db8a76602b2",
+      "trace_sha256": "bdbaee903e9178b66df550ae923c293b8f25e6a9396d532dc4efbb63ac80a4dc",
+      "equal": true,
+      "callbacks": 151724,
+      "actions": 302459
+    },
+    {
+      "case": "train_758_random_lognormal/paired100",
+      "input_sha256": "69d1df2f392b9396c5d274f3a505fe7aac4b8fb9e06fb13b6cb60db8a76602b2",
+      "trace_sha256": "3182bd3eab520c688ea16612ff97015095fe39109ef32bddd4c03ae195f3f5eb",
+      "equal": true,
+      "callbacks": 135560,
+      "actions": 270187
+    },
+    {
+      "case": "train_758_random_lognormal/ai100",
+      "input_sha256": "69d1df2f392b9396c5d274f3a505fe7aac4b8fb9e06fb13b6cb60db8a76602b2",
+      "trace_sha256": "b1ffbe04ccaefe1b1c465da63dcdba93e5e70df7f7099f959e95e357d4e9e2a8",
+      "equal": true,
+      "callbacks": 155282,
+      "actions": 309614
+    },
+    {
+      "case": "edge_all_resident_constant_first_callback_tail",
+      "input_sha256": "b549d996a575dd2b6aa310fed36c2bbcde6c28bf423dd1ffb15a4518c0909e4c",
+      "trace_sha256": "618de48f41e245dafc1399689e4da215ba60cb9358ad0cca4e95547191988cb8",
+      "equal": true,
+      "callbacks": 86,
+      "actions": 0
+    },
+    {
+      "case": "edge_b1_duplicate_next_window_rollover",
+      "input_sha256": "0ef85f89eac24d4c42168df33d0d6d6c0833a210a218d63b16fc4e0b322ebc07",
+      "trace_sha256": "1c5e4d92615667ce2822c52ebd7ca3b1858be5023f93b8c01b3e4e4ceb893ecb",
+      "equal": true,
+      "callbacks": 5751,
+      "actions": 842
+    },
+    {
+      "case": "edge_mixed_phase_to_full_probe",
+      "input_sha256": "dedbe0efd44764681e9b6ce18e6747dd9726f2d17600a7304b6b280f92fe2c7d",
+      "trace_sha256": "e1d3e44000d78a553b5157237f72e8237555c96ffcc789c1e43ab004c0a11946",
+      "equal": true,
+      "callbacks": 1329,
+      "actions": 550
+    },
+    {
+      "case": "edge_sparse_callbacks_long_hit_tail",
+      "input_sha256": "81aef6be874aff487bc00067421afb45dd042a25aa3d7de69cedf0cfa63aab95",
+      "trace_sha256": "48f85854741a8e807da15179051a5ea27fd60fbf6ece2f0e54783d1b4de1a827",
+      "equal": true,
+      "callbacks": 6,
+      "actions": 4
+    },
+    {
+      "case": "edge_variable_objects_prefetch",
+      "input_sha256": "9cbe3f7d1a389f2b6d28d2d413466ca1bb9f1c3613e89ea07b1b3fb7fe5bcbcf",
+      "trace_sha256": "c84d264055320f0cb2c0c3b916f62c7a6420315214321bd12f2c6b10cd04a2e7",
+      "equal": true,
+      "callbacks": 2542,
+      "actions": 2973
+    }
+  ],
+  "corruptions": [
+    {
+      "injection": "extra_callback",
+      "rejected": true
+    },
+    {
+      "injection": "wrong_io_total",
+      "rejected": true
+    }
+  ],
+  "complete": true
+}

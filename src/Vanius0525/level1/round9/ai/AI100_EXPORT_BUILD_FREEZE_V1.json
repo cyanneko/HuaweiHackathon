@@ -1,0 +1,71 @@
+{
+  "scope": "existing ai100 export/feature/action engineering only; no training or dataset evaluation",
+  "files": {
+    "AI100_EXPORT_PLAN_V1.md": "fe6ea874b5f12ed40f11add7571fa43f7595631df160f8d0202a7e982ecf4b1b",
+    "AI100_MODEL_V1.json": "0ce9c7d0563b1adb0d5a883eec4809cd9e4aadd12c53e41511151f32bb3bdc83",
+    "ai100_neural_export_v1.hpp": "34681d860667a700de616ce0ef10b5f132cd208c56f400efec58d81e39d0078a",
+    "ai100_model_io_v1.py": "f07ea9337579cce0684ea2fa5494a5c0373065c21cc6d4f80ba559981875c387",
+    "ai100_export_check_v1.cpp": "c1a7b5f77998e1b3bbf8d68c127a1323343a4c39c240bed93fa10c720c8dc743",
+    "run_ai100_export_v1.py": "c9f2846eb15c1076c93d1359687e19d4049d345c2e9583bc165e048d2f5fb770"
+  },
+  "source_sha256": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa",
+  "official_declarations_source_sha256": "464a542ad56f0b81ebad23371846a705c202c4461589a5f37d65af5a65c99d69",
+  "generated_cpp_sha256": "a477518d9a57482e557e4fa42cce1d2ae3d144463da5d2a1f2f20904247d3078",
+  "vector_generation": {
+    "seed": 99103014,
+    "base_vectors": 4096,
+    "relu_units_bracketed": [
+      2,
+      4,
+      5,
+      8,
+      15
+    ],
+    "output_clip_search": [
+      0.0,
+      1.0
+    ],
+    "component_domain_not_joint_reachability": true
+  },
+  "feature_cases": 64,
+  "total_numeric_vectors": 4117,
+  "input_files": {
+    "vectors.json": "6ecca475fe4ecbf517d8036ff85dfb00b0ca515ef981644ec27c0122bb9a8b03",
+    "vectors.txt": "ba692d792aeef6e950aed29b3787ebfa253d36c3660c387a3e5ab0356ac683a3",
+    "feature_cases.json": "2d868cd6462454c2d1b157c06464056f0661abf0b722265c08f09bd7815c0e9e",
+    "features.txt": "621fbd80d893b25cac487da43253c68356ff71268a2903290d1a76c75410065a",
+    "fixture_0.txt": "55178ff04133eaefe5fd473678414b032694fffd5e26ac568209cb5c4fc91ef4",
+    "fixture_1.txt": "232ef965d04acaa847d8edaf19a433a2d6214c0a4223c750cce9bbb4deef28fc",
+    "fixture_2.txt": "fafd1e03922fb52c891ad1de24c2af219c9f12272a440478f86f771dd8761a78",
+    "fixture_3.txt": "6b5d488b52ab4b6116f74d67a44d8d5bbf044b46a37334fa8d216b4fdc33e164",
+    "fixture_4.txt": "22759f989f4448e0b4d832624dd067158954403109a809c572a4d7852c5734cf",
+    "fixture_5.txt": "71d5d803bb50f58db6d6cc24ae396b619ba3c0dc5d6c4bc6ffa28236c38e7bb8",
+    "fixture_6.txt": "26103631a53830fa8d8fe4e8f1c8942172e9cac2bc11c78d7649fce38ddc093b",
+    "fixture_7.txt": "7f0a8001b732760aef45f9470a8d263c78b16467d48fe9a0b9f5e46562c21bb4",
+    "fixture_8.txt": "8a784e181832757f714eae6e67a1ec708c4ebeed7c3b70bd6cc67a7bb7c505ec",
+    "fixture_9.txt": "e81b650d430d807fd53b12301d061509053a359cadc485166c1ebdd5c7702163",
+    "fixture_10.txt": "a27405baa1dd2e110b56247a47040b32558b19eff5494c4669a58c31f69645fb",
+    "fixture_11.txt": "2ce38b4016e067da8bd7b0232a84935c136c7128a0e02ebfca74b10a4a7cfcbb",
+    "fixture_12.txt": "ad13b6b831e7481e5af4e569bc926d47c350f49866ff1299c82ec46ba194c10c",
+    "fixture_13.txt": "00558ce69b38d717c135d131101ee11bf178773eb78cbb035815d3d792340043",
+    "fixture_14.txt": "cec86cedc6c97044c6d9bf1e9b937d4262f29b22ed191609883c3135affb1eab",
+    "fixture_15.txt": "00558ce69b38d717c135d131101ee11bf178773eb78cbb035815d3d792340043"
+  },
+  "fixture_seed": 99103015,
+  "fixtures": 16,
+  "probes_per_fixture": 512,
+  "compile": [
+    "g++",
+    "-std=c++14",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-pedantic"
+  ],
+  "python_cpp_abs_tolerance": 1e-12,
+  "cpp_original_export_bits_equal_required": true,
+  "weights_bits_equal_required": true,
+  "features_bits_equal_required": true,
+  "independent_parser_sha256": "9c83b075ab092a3711ec4aeee7a3eeec242bb8cacfced864f5f067b6eb8c9b01",
+  "independent_ledger_sha256": "24c23de9f0a51635652190c4ee9907d37364342a8770b0797967d1f960650cb9"
+}

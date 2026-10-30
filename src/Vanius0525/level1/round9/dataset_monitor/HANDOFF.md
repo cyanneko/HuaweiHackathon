@@ -10,6 +10,18 @@
 - 历史基线：`final_dataset 2.0.0@33ab5af221069fe8b8832fd77e85563e9997633a`。Round8成绩只属于旧集。
 
 ## 当前状态
+11:47:32 UTC最新远端为`cf14092b6bc8a3bf8cfb65466c44acc81e2cf38a`；只增加R79配对训练归档目录，dyna仍808ce8b，final及corner_case不变。主agent报告dyna全12 runner已exit0、72审核/216计时完成，正在发布完成阶段；本监测未读策略成绩。已整理本阶段11份不可变UPDATE/SNAPSHOT/全12资源锁供发布，live STATUS/CHECKS继续排除；发布窗口不继续改本HANDOFF。见`UPDATE_cf14092b6bc8.json`与`SNAPSHOT_cf14092b6bc8.json`。
+
+11:38:05 UTC远端推进到`0138c08de18b423008d3557a5173107901a52e00`，新增根目录`corner_case`（tree989a8f4d58efc157958b1faffe3850042b5ec9ed）。提交题名宣称带评分的非随机回归集1.0.0；矩阵期间仅核对树身份，未读新元数据、成绩或输入，不据题名确认合法性/评分口径。dyna、final、experiments整树未变，当前全12锁不变。见`UPDATE_0138c08de18b.json`。
+
+11:33:40 UTC远端推进到`d7a22f593a849ffb40d2164cc3c6420f48b1c0b0`，仅experiments新增`corner_r75_8k_20261030`。题名声明train及reserved dev归档，监测只核对commit/tree/目录名，没有读内容、成绩或据题名审核合法性。dyna仍808ce8b，final不变；当前矩阵和全12锁不改。见`UPDATE_d7a22f593a84.json`。
+
+11:11:48 UTC远端推进到`f25adeedef7bfdf9ef433e3fd1eb6fc2cb48d246`，只更新R78两个报告链接文档。dyna仍808ce8b，final与experiments数据树都与5e6a相同；只看目录身份与文件名，未读报告成绩。当前矩阵/全12锁不变，证据`UPDATE_f25adeedef7b.json`。
+
+11:02:58 UTC远端推进到`5e6a5ab6cd3e7a63b8dde10776192fe5359cfe3a`。仅experiments树增加`r78_train_100k_20261030`，题名声明8条100k TRAIN；此次按矩阵期间范围只核对commit/tree/目录名，没有读取新归档元数据、输入或成绩，不据题名声称独立合法性审核。dyna仍808ce8b、final仍41197783，全12锁和当前矩阵不变。见`UPDATE_5e6a5ab6cd3e.json`。
+
+09:43后用户明确要求完整评测`dyna_dataset`，范围包含dev/holdout。主agent负责固定源码后的全12描述性终检，不调参、不改主final72锁；本监测仍只锁元数据和对象尺寸，不运行solver或读取成绩。已交付`DYNA_FULL12_RESOURCE_LOCK_20261030.json`（SHA318f80fc83ac697e33abe4d4be97b7f11d7f8ebce6de8a9476d259e97aee7c7b），全12压缩对象本地存在，缺失0，数据树与28db22初次发布一致。
+
 09:01 UTC主agent报告算法阶段已发布`3c5f440`，包含最新0f3000小元数据快照及维护观察报告，live STATUS/CHECKS未纳入。主2.1数据锁不变。主agent的该次commit也出现自动packing提示，已由其记录于发布receipt/HANDOFF；这不是本监测独立进程审计结果，也不据此作独占性能声明。监测继续既定只读轮询，后续fetch显式关闭自动维护。
 
 08:40:09 UTC远端最新为`0f3000f015d8ef96b9a1e45a75b0672fcbf97925`。自c332以来，final_dataset与dyna_dataset整树都未变化；后续仅加入独立R73/R74、R75开发归档和报告链接。主agent阶段已提交推送`63b2ec3`，允许继续更新本live交接；阶段发布哈希针对该提交快照，不限制后续实时文档更新。
@@ -37,7 +49,7 @@
 - `LOCAL_DRAFT_STATUS.json`、`LOCAL_DRAFT_CHECKS.jsonl`记录短窗口稳定性及进度。无正式提交/冻结前不供研发agent读取未冻结test；已有本地6条skew训练诊断可继续按其自身计划。
 
 ## 运行任务与下一步
-只有本监测agent活动；未创建cron或小时服务。首次事实已通知主agent及pure/AI两条路线。继续每约2–3分钟执行`python src/Vanius0525/level1/round9/dataset_monitor/check_remote.py`；新commit未在本地时先核查小元数据获取方式，不自动拉完整数据。
+本监测只通过当前agent轮询，没有创建独立守护进程、cron或小时服务；这不表示其他算法/评测任务未运行，其状态由主agent管理。首次事实已通知主agent及pure/AI两条路线。当前矩阵期间约每3分钟执行`python src/Vanius0525/level1/round9/dataset_monitor/check_remote.py`；新commit未在本地时只获取commit/tree核对身份，不自动拉输入或替换当前矩阵锁。
 
 ## 发布审核及实际进程检查
 - 07:09 UTC publisher validation已passed，errors为空，绑定当前manifest；报告核查843输入及sidecar，逐操作审核72 eval/270新增train/1诊断，500旧train原字节重核后继承历史合法性。监测没有重跑这些审核。
@@ -80,6 +92,13 @@
 - shared共有阈值之前全为INSERT，之后可能SWITCH/PROBE交错，但并不产生实际INSERT/PROBE交叠；staggered不同阈值允许二者交叠，具体实际跨度尚未从输入独立核查。
 - publisher审核记录六例均合法，最大分区/M依次0.23258、0.01561、0.02503、0.03040、0.02955、0.01928；本监测只引用其训练元数据，未重放输入。train05的op7约占BUILD次数30.5%、PROBE次数9.4%，可作为“增长不等于热度”的诊断证据，不能将离线统计直接作为线上特征。
 - 六个训练细sidecar本地缺失，已知共140,367字节的显式小blob fetch报bad revision、结束后仍missing；未重试，改用已有固定audit汇总。没有请求/获取原始输入或归档；未启动solver或训练。
+
+## 用户授权全12评测后的资源锁
+- 最新远端0f3000、dyna tree为808ce8b11f57a1a96051f22aa572eceb82b1fba0，与最初28db22相同。完整元数据锁17,449字节，记录逐例split/seed/raw与gzip SHA/尺寸/Git OID/本地对象尺寸，后续不改该冻结报告。
+- 全12独立base seed、60M操作：train6原始586,123,350B/gzip193,130,930B；dev3原始290,240,351B/gzip95,234,597B；holdout3原始294,249,361B/gzip97,768,141B。总原始声明1,170,613,062B、gzip386,133,668B；12个压缩Git对象本地存在且对象尺寸吻合，缺失0。没有下载或读取压缩内容，原始SHA需主agent解压时独立核验。
+- 原6train身份与之前固定报告相同，可复用；其余6例由主agent建立自有快照。输入锁不涉及算法效果，完整结果应描述性报告，包含已用于开发的训练案例，不能称全体未见泛化测试。
+- `check_remote.py`所有Git调用现也显式添加`gc.auto=0`、`maintenance.auto=false`与`fetch.writeCommitGraph=false`，保留禁用lazy-fetch。没有修改全局Git配置。
+- 10:06左右主agent报告统一all12计划已绑定全12锁，正在编译冻结，计划随后72次审核及216次计时；此处仅转述计划，不声称全部已启动/完成。监测继续低频只读refs，新树只报告差异，当前矩阵始终按固定808ce8b快照跑完，不自动换锁或启动solver。
 
 ## 计时旁证
 `GENERATION_TIME_EVIDENCE.json`记录：Round8 final50账本开始06:15:50 UTC、结果文件mtime06:22:41；新expansion计划mtime06:32:45、最早新增sidecar06:32:58。未见本批新增生成与该终检窗口重叠，但selection文件06:17:47修改，更早整理/审核或其他CPU活动无法由mtime排除。没有据此声称宿主独占。

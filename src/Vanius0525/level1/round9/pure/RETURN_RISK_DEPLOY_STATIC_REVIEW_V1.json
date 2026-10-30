@@ -1,0 +1,117 @@
+{
+  "sources": {
+    "pooling": {
+      "source_sha256": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e",
+      "inner_inverse_to_parent_exact": true,
+      "actual_after_call_sites": 3,
+      "fixed_mode": 0,
+      "self_contained_single_outer_class": true
+    },
+    "no_pooling": {
+      "source_sha256": "4e9a16e029521168aadb89cd6195365c23c596bbe3100292314a4d36893eb93b",
+      "inner_inverse_to_parent_exact": true,
+      "actual_after_call_sites": 3,
+      "fixed_mode": 1,
+      "self_contained_single_outer_class": true
+    },
+    "global_scale": {
+      "source_sha256": "7d5cd404143fadd583f4610b6d1bdd7e29ba7fb5796330e6e0a5e9dcac445924",
+      "inner_inverse_to_parent_exact": true,
+      "actual_after_call_sites": 3,
+      "fixed_mode": 2,
+      "self_contained_single_outer_class": true
+    }
+  },
+  "totals": {
+    "states": 1115718,
+    "pairs": 183276,
+    "nonbit_coordinates": 0,
+    "dz_abs_max": 0,
+    "future_abs_max": 0,
+    "global_abs_error_max": 1.862645149230957e-09,
+    "global_scaled_error_max": 1.487799342737629e-12
+  },
+  "same_action_runs": 17,
+  "closed_loop_protocol_runs": 15,
+  "same_action_probe_requests": 1521846,
+  "closed_protocol": [
+    {
+      "case": "edge_all_resident_constant_first_callback_tail",
+      "candidate": "pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_all_resident_constant_first_callback_tail",
+      "candidate": "no_pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_all_resident_constant_first_callback_tail",
+      "candidate": "global_scale",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_b1_duplicate_next_window_rollover",
+      "candidate": "pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_b1_duplicate_next_window_rollover",
+      "candidate": "no_pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_b1_duplicate_next_window_rollover",
+      "candidate": "global_scale",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_mixed_phase_to_full_probe",
+      "candidate": "pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_mixed_phase_to_full_probe",
+      "candidate": "no_pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_mixed_phase_to_full_probe",
+      "candidate": "global_scale",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_sparse_callbacks_long_hit_tail",
+      "candidate": "pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_sparse_callbacks_long_hit_tail",
+      "candidate": "no_pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_sparse_callbacks_long_hit_tail",
+      "candidate": "global_scale",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_variable_objects_prefetch",
+      "candidate": "pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_variable_objects_prefetch",
+      "candidate": "no_pooling",
+      "reference_trace_equal": true
+    },
+    {
+      "case": "edge_variable_objects_prefetch",
+      "candidate": "global_scale",
+      "reference_trace_equal": true
+    }
+  ],
+  "closed_protocol_trace_changes": 0,
+  "production_source_modified_after_freeze": false,
+  "scope": "Static inverse transformation and completed verification records only; no new solver."
+}

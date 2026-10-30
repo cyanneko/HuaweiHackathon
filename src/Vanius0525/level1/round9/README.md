@@ -7,13 +7,13 @@
 | 纯算法 | [paired_penalty100.cpp](candidates/paired_penalty100.cpp) | 3.744318 | 3.410281 |
 | 含AI | [ai_penalty100.cpp](candidates/ai_penalty100.cpp) | 3.268412 | 3.682895 |
 
-分数为逐例对官方Naive归一化、clamp后等权平均，3次未插桩重复，包含决策耗时；越高越好。物理成本含读、写与真实Miss罚，比例越低越好。**表中是训练结果，不是新72例主评测成绩、隐藏测试或最优性声明。** 当前AI权重保持原值，尚无新模型晋升；未来学习方法必须与同100强纯算法比较。
+分数为逐例对官方Naive归一化、clamp后等权平均，3次未插桩重复，包含决策耗时；越高越好。物理成本含读、写与真实Miss罚，比例越低越好。**表中是训练结果，不是新72例主评测成绩、隐藏测试或最优性声明。** 当前AI权重保持原值，尚无新模型晋升；未来学习方法必须与同100强纯算法比较。ai100沿用Round4网络入口，paired100是后续强化的纯骨架，因此本轮比较的是两套完整方法，并非同一骨架仅开关学习组件的消融；不能将全部差距归因于AI本身。
 
 一次只提交一个MySpillScheduler类，使用C++14标准库CPU，无main/engine。AI模型可在Python离线训练，权重嵌入C++；提交物不依赖Python/CUDA或外部模型文件。
 
 ## 数据与验证范围
 
-主标准为final_dataset2.1.0，公开固定提交c33270386e6899a878e12f3b0031e33737e9d960。推荐540个倾斜训练输入已按完整seed冻结为432train/108dev；主eval72包含36旧已曝光与36新增，不能称全新盲测。所有新开发/最终集合尚无solver访问。
+主标准为final_dataset2.1.0，公开固定提交c33270386e6899a878e12f3b0031e33737e9d960。推荐540个倾斜训练输入已按完整seed冻结为432train/108dev；主eval72包含36旧已曝光与36新增，不能称全新盲测。主108dev/72eval尚无solver访问。
 
 - [V21_DATASET_LOCK.json](V21_DATASET_LOCK.json)：划分、seed、输入指纹和源码指纹。跨train/dev/eval的seed、原始文件、规范操作流、分区操作流交集均0。
 - [V21_ADOPTION_ALL_RESULTS.json](V21_ADOPTION_ALL_RESULTS.json)：实际逐行审核612输入、100,641,198操作，全部通过。自有输入快照来自现存本地Git对象，未下载。
@@ -47,12 +47,20 @@
 - [AI有限统计基线](ai/FINITE_BASELINE_RESULTS.md)：16步EM接近充分迭代，单次软计数更差；这属于统计基准，不算AI增益。
 - [AI温度机会](ai/CALIBRATION_OPPORTUNITY_RESULTS.md)：未来标签oracle改善预测损失，但23个合法状态的动作不变，其中仅11个真正SPILL。停止该温度训练，不由少量旧状态推断所有压力决策都无机会。
 
-## 正在推进的两个独立任务
+## 两路线的最新进展
 
-纯算法完成[驱逐重访风险审核](pure/RETURN_RISK_REVIEW_V1.md)和[全局缩放归因](pure/RETURN_RISK_SCALE_REVIEW_V1.md)。唯一past-only全局尺度的预测改善与分区模型接近，尚无稳定逐分区增量；但它只复现8.76%的池化动作改变，不能断言所有差异来自尺度。停止晋升这批热度修正。下一仅改变冷BUILD时的top4选择，保留PROBE paired100逻辑，先冻结60train单因素实测；这是旧after_probe机制的新100/新数据对照，不宣称机制新颖。
+纯算法完成[驱逐重访风险审核](pure/RETURN_RISK_REVIEW_V1.md)和[全局缩放归因](pure/RETURN_RISK_SCALE_REVIEW_V1.md)。唯一past-only全局尺度的预测改善与分区模型接近，尚无稳定逐分区增量；但它只复现8.76%的池化动作改变，不能断言所有差异来自尺度。这些统计结果没有支持晋升。用户随后要求完整比较，三种固定风险估值已转为实际动作策略并通过[32项部署核查](pure/RETURN_RISK_DEPLOY_REVIEW_V1.md)，进入下述固定dyna评测；部署正确性不等于性能改善。
 
-AI完成[24训练流Phase A](ai/PHASE_A_REVIEW_V1.md)及[65状态、260分支双续接](ai/NEXT_ACTION_REVIEW_V1.md)：当前动作/真实PROBE端点和独立字节账全通过。27状态方向稳定，但按原q层人口加权后，受限共同未来信息选择器未胜全部固定参照；该候选不训练，不改聚合口径宣布通过。5个终端不足状态对应13.40%的分歧人口，其收益未知。下一推进当前225权重网络的Python读取/导出与C++特征、数值及动作一致性检查，权重不重训；未来新模型仍须证明同100骨架上的额外收益。
+独立的[cold-BUILD单因素实测](pure/COLD_BUILD_REVIEW_V1.md)已完成60审核与180计时，三个预定门槛均失败：逐例平均物理成本/paired100为1.003366，最坏1.209435，均分降低0.000039。train600初始驻留更多却使Miss由690增至812，说明不能只按BUILD写量或初始驻留数判断收益。候选不晋升，当前paired100保持不变。
 
-[6条500万操作补充训练流](DYNA_TRAIN_ADOPTION_REVIEW_V1.md)已本地接入并独立审核，共30M操作，3条实际BUILD/PROBE交叠；没有输入下载或solver运行。它补充动态算子和最大N，只有1条持久分区热点，保持独立于主72评测；后续基线需另冻计划。
+AI完成[24训练流Phase A](ai/PHASE_A_REVIEW_V1.md)及[65状态、260分支双续接](ai/NEXT_ACTION_REVIEW_V1.md)：当前动作/真实PROBE端点和独立字节账全通过。27状态方向稳定，但按原q层人口加权后，受限共同未来信息选择器未胜全部固定参照；该候选不训练，不改聚合口径宣布通过。5个终端不足状态对应13.40%的分歧人口，其收益未知。[Python→C++导出核查](ai/AI100_EXPORT_REVIEW_V1.md)现已完成：225权重和4117次输出数值一致，16次协议运行（15个唯一输入）动作一致。权重未重训，未来新模型仍须证明同100骨架上的额外收益。
+
+## dyna全12固定版本比较完成
+
+按用户明确要求，覆盖独立dyna_dataset 1.0.0的train6/dev3/holdout3；[输入接入结果](DYNA_FULL_ADOPTION_RESULTS_V1.json)确认12例、60M操作全部通过，全部来自已有本地Git对象，没有输入下载。本次访问保留集用于固定版本的描述性比较，不据其结果修改候选反复评测；主final2.1的108dev/72eval继续封存。
+
+[执行计划](DYNA_FULL_EVALUATION_PLAN_V1.json)与[编译冻结](DYNA_FULL_EXECUTION_FREEZE_V1.json)在任何dyna策略运行前固定六方法：官方Naive、paired100、ai100、算子/分区风险、仅分区风险、全局风险尺度。已完成72条完整动作审核、216次未插桩计时，全部通过；无失败、超时或重试。完整报告见[DYNA_FULL_REVIEW_V1.md](DYNA_FULL_REVIEW_V1.md)。全12逐例等权均分：paired100 4.049344、ai100 3.712564、算子/分区修正4.123033、仅分区修正4.095805、全局尺度4.044783。前两种修正的物理成本在12例均改善；全局尺度有5例退化。主标准验证尚待完成，当前入口不变。
+
+[数据性质核查](DYNA_FULL12_CHARACTERIZATION_V1.json)确认主要漂移来自算子活跃概率，普通分区在其算子内接近均匀；全12另有两个持久热分区场景、一个持久冷分区场景，不是突发分区热点出现/消失测试。不同case的profile、period和压力并非正交，不能把跨case结果差异单独解释成漂移速度的因果效应。全12分报与整体逐例等权汇总都独立于主72，描述性0–10均分不冒称官方50分。
 
 用户关于双层热度和重访时间的意见、原始文献与限制统一记录于[HEAT_HIERARCHY_AND_RETURN_GUIDANCE.md](HEAT_HIERARCHY_AND_RETURN_GUIDANCE.md)。当前任务与下一步见[HANDOFF.md](HANDOFF.md)。持续探索仍在进行，没有新建或恢复小时服务。

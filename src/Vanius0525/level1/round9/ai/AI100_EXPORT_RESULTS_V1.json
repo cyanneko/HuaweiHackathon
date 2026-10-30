@@ -1,0 +1,563 @@
+{
+  "complete": true,
+  "scope": "existing ai100 export/feature/action engineering only; no training or dataset evaluation",
+  "build_freeze_sha256": "704ba8586b77804299525256666ae10a516ffc70c2cabfba8ab1b177f726c169",
+  "weight_double_bits_identical": 225,
+  "feature_vectors_float32_bits_identical": 64,
+  "feature_values_float32_bits_identical": 768,
+  "numeric_vectors": 4117,
+  "cpp_original_export_output_bits_identical": 4117,
+  "python_cpp_output_bits_identical": 4117,
+  "python_cpp_max_abs_error": 0.0,
+  "python_cpp_max_ulp": 0,
+  "clipped_zero_vectors": 722,
+  "clipped_one_vectors": 89,
+  "vector_scope": {
+    "seed": 99103014,
+    "base_vectors": 4096,
+    "relu_units_bracketed": [
+      2,
+      4,
+      5,
+      8,
+      15
+    ],
+    "output_clip_search": [
+      0.0,
+      1.0
+    ],
+    "component_domain_not_joint_reachability": true
+  },
+  "fixture_results": [
+    {
+      "fixture": 0,
+      "input_sha256": "55178ff04133eaefe5fd473678414b032694fffd5e26ac568209cb5c4fc91ef4",
+      "trace_sha256": "7e3ce1727658664e171472847379bcd5f394c95cb593aafd0c45f1e09a47443a",
+      "cpp": {
+        "writes": 2550136832,
+        "reads": 2483027968,
+        "hits": 511,
+        "misses": 1,
+        "used": 67108864,
+        "callbacks": 649,
+        "actions": 600,
+        "neural_calls_per_copy": 192
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 8,
+          "miss_callbacks": 1,
+          "periodic_callbacks": 640,
+          "periodic_load_callbacks": 295,
+          "multi_spill_callbacks": 0,
+          "exact_release_callbacks": 296,
+          "periodic_pressure_lower_risk_below2048": 295,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 192,
+        "callbacks": 649
+      }
+    },
+    {
+      "fixture": 1,
+      "input_sha256": "232ef965d04acaa847d8edaf19a433a2d6214c0a4223c750cce9bbb4deef28fc",
+      "trace_sha256": "be6b12b83d488f61230ec9a7c71be553c91fe2eb042fb8d55f6f7cad01f30901",
+      "cpp": {
+        "writes": 2097152000,
+        "reads": 2030043136,
+        "hits": 285,
+        "misses": 227,
+        "used": 67108864,
+        "callbacks": 272,
+        "actions": 492,
+        "neural_calls_per_copy": 968
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 8,
+          "miss_callbacks": 227,
+          "periodic_callbacks": 37,
+          "periodic_load_callbacks": 15,
+          "multi_spill_callbacks": 0,
+          "exact_release_callbacks": 242,
+          "periodic_pressure_lower_risk_below2048": 15,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 968,
+        "callbacks": 272
+      }
+    },
+    {
+      "fixture": 2,
+      "input_sha256": "fafd1e03922fb52c891ad1de24c2af219c9f12272a440478f86f771dd8761a78",
+      "trace_sha256": "17ded630d947a6b5bc4e57599efdf57d3b5f136145bb25db75a27917896a83e4",
+      "cpp": {
+        "writes": 570425344,
+        "reads": 503316480,
+        "hits": 453,
+        "misses": 59,
+        "used": 67108864,
+        "callbacks": 77,
+        "actions": 128,
+        "neural_calls_per_copy": 240
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 8,
+          "miss_callbacks": 59,
+          "periodic_callbacks": 10,
+          "periodic_load_callbacks": 1,
+          "multi_spill_callbacks": 0,
+          "exact_release_callbacks": 60,
+          "periodic_pressure_lower_risk_below2048": 1,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 240,
+        "callbacks": 77
+      }
+    },
+    {
+      "fixture": 3,
+      "input_sha256": "6b5d488b52ab4b6116f74d67a44d8d5bbf044b46a37334fa8d216b4fdc33e164",
+      "trace_sha256": "2d8099cdb1b73f90c8472cd19c31405f009756a5d07d4686c7bdd1530a3099c9",
+      "cpp": {
+        "writes": 218103808,
+        "reads": 150994944,
+        "hits": 494,
+        "misses": 18,
+        "used": 67108864,
+        "callbacks": 26,
+        "actions": 44,
+        "neural_calls_per_copy": 72
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 8,
+          "miss_callbacks": 18,
+          "periodic_callbacks": 0,
+          "periodic_load_callbacks": 0,
+          "multi_spill_callbacks": 0,
+          "exact_release_callbacks": 18,
+          "periodic_pressure_lower_risk_below2048": 0,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 72,
+        "callbacks": 26
+      }
+    },
+    {
+      "fixture": 4,
+      "input_sha256": "22759f989f4448e0b4d832624dd067158954403109a809c572a4d7852c5734cf",
+      "trace_sha256": "22d64a4934ed242b10fd10f192fca18ac5a445059d2088c7e83ba5dc58691aa4",
+      "cpp": {
+        "writes": 3412066304,
+        "reads": 3349151744,
+        "hits": 310,
+        "misses": 202,
+        "used": 60817408,
+        "callbacks": 836,
+        "actions": 629,
+        "neural_calls_per_copy": 1424
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 4,
+          "miss_callbacks": 202,
+          "periodic_callbacks": 630,
+          "periodic_load_callbacks": 109,
+          "multi_spill_callbacks": 14,
+          "exact_release_callbacks": 61,
+          "periodic_pressure_lower_risk_below2048": 154,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 146
+        },
+        "neural_calls_per_copy": 1424,
+        "callbacks": 836
+      }
+    },
+    {
+      "fixture": 5,
+      "input_sha256": "71d5d803bb50f58db6d6cc24ae396b619ba3c0dc5d6c4bc6ffa28236c38e7bb8",
+      "trace_sha256": "df47127c3b9953640b938d6df6f2162ae48dbe8e263225d9e638bd3e258a9106",
+      "cpp": {
+        "writes": 1464860672,
+        "reads": 1404043264,
+        "hits": 354,
+        "misses": 158,
+        "used": 62914560,
+        "callbacks": 199,
+        "actions": 333,
+        "neural_calls_per_copy": 556
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 4,
+          "miss_callbacks": 158,
+          "periodic_callbacks": 37,
+          "periodic_load_callbacks": 6,
+          "multi_spill_callbacks": 26,
+          "exact_release_callbacks": 48,
+          "periodic_pressure_lower_risk_below2048": 7,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 2
+        },
+        "neural_calls_per_copy": 556,
+        "callbacks": 199
+      }
+    },
+    {
+      "fixture": 6,
+      "input_sha256": "26103631a53830fa8d8fe4e8f1c8942172e9cac2bc11c78d7649fce38ddc093b",
+      "trace_sha256": "bd330fbaa3139d92cef1b5438ad261fd2063f728c880a29d64d0c88687ff6aa7",
+      "cpp": {
+        "writes": 404750336,
+        "reads": 348127232,
+        "hits": 478,
+        "misses": 34,
+        "used": 67108864,
+        "callbacks": 47,
+        "actions": 75,
+        "neural_calls_per_copy": 136
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 4,
+          "miss_callbacks": 34,
+          "periodic_callbacks": 9,
+          "periodic_load_callbacks": 0,
+          "multi_spill_callbacks": 4,
+          "exact_release_callbacks": 9,
+          "periodic_pressure_lower_risk_below2048": 1,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 136,
+        "callbacks": 47
+      }
+    },
+    {
+      "fixture": 7,
+      "input_sha256": "7f0a8001b732760aef45f9470a8d263c78b16467d48fe9a0b9f5e46562c21bb4",
+      "trace_sha256": "3317815a1c7fa2655518e440be10903204c9691482d943db6d1903f0a0f5a752",
+      "cpp": {
+        "writes": 159383552,
+        "reads": 97517568,
+        "hits": 501,
+        "misses": 11,
+        "used": 61865984,
+        "callbacks": 15,
+        "actions": 31,
+        "neural_calls_per_copy": 40
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 4,
+          "miss_callbacks": 11,
+          "periodic_callbacks": 0,
+          "periodic_load_callbacks": 0,
+          "multi_spill_callbacks": 5,
+          "exact_release_callbacks": 4,
+          "periodic_pressure_lower_risk_below2048": 0,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 40,
+        "callbacks": 15
+      }
+    },
+    {
+      "fixture": 8,
+      "input_sha256": "8a784e181832757f714eae6e67a1ec708c4ebeed7c3b70bd6cc67a7bb7c505ec",
+      "trace_sha256": "90e703db48863f759709f0928dfed416f66a5721e212e7ab45c39448f72f4493",
+      "cpp": {
+        "writes": 2717908992,
+        "reads": 2650800128,
+        "hits": 448,
+        "misses": 64,
+        "used": 15728640,
+        "callbacks": 656,
+        "actions": 1025,
+        "neural_calls_per_copy": 192
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 1,
+          "miss_callbacks": 64,
+          "periodic_callbacks": 591,
+          "periodic_load_callbacks": 448,
+          "multi_spill_callbacks": 32,
+          "exact_release_callbacks": 32,
+          "periodic_pressure_lower_risk_below2048": 32,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 31
+        },
+        "neural_calls_per_copy": 192,
+        "callbacks": 656
+      }
+    },
+    {
+      "fixture": 9,
+      "input_sha256": "e81b650d430d807fd53b12301d061509053a359cadc485166c1ebdd5c7702163",
+      "trace_sha256": "2804505a47919422e27aace01079eb185e8c7e7ed34992504ffe0d98c6baba7f",
+      "cpp": {
+        "writes": 2824863744,
+        "reads": 2746220544,
+        "hits": 240,
+        "misses": 272,
+        "used": 4194304,
+        "callbacks": 307,
+        "actions": 588,
+        "neural_calls_per_copy": 164
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 1,
+          "miss_callbacks": 272,
+          "periodic_callbacks": 34,
+          "periodic_load_callbacks": 16,
+          "multi_spill_callbacks": 33,
+          "exact_release_callbacks": 37,
+          "periodic_pressure_lower_risk_below2048": 2,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 164,
+        "callbacks": 307
+      }
+    },
+    {
+      "fixture": 10,
+      "input_sha256": "a27405baa1dd2e110b56247a47040b32558b19eff5494c4669a58c31f69645fb",
+      "trace_sha256": "38e81ccd8f3b220b28fd125409b2c95e4565d4659cc602e676058978b4d0ae89",
+      "cpp": {
+        "writes": 7637827584,
+        "reads": 7556038656,
+        "hits": 174,
+        "misses": 338,
+        "used": 1048576,
+        "callbacks": 348,
+        "actions": 693,
+        "neural_calls_per_copy": 343
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 1,
+          "miss_callbacks": 338,
+          "periodic_callbacks": 9,
+          "periodic_load_callbacks": 1,
+          "multi_spill_callbacks": 71,
+          "exact_release_callbacks": 109,
+          "periodic_pressure_lower_risk_below2048": 2,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 343,
+        "callbacks": 348
+      }
+    },
+    {
+      "fixture": 11,
+      "input_sha256": "2ce38b4016e067da8bd7b0232a84935c136c7128a0e02ebfca74b10a4a7cfcbb",
+      "trace_sha256": "64c5ef929efd9a791fee65535810425e5727ad34c59a6237d2332cdc170520e5",
+      "cpp": {
+        "writes": 2310012928,
+        "reads": 2294284288,
+        "hits": 403,
+        "misses": 109,
+        "used": 67108864,
+        "callbacks": 110,
+        "actions": 233,
+        "neural_calls_per_copy": 101
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 1,
+          "miss_callbacks": 109,
+          "periodic_callbacks": 0,
+          "periodic_load_callbacks": 0,
+          "multi_spill_callbacks": 32,
+          "exact_release_callbacks": 33,
+          "periodic_pressure_lower_risk_below2048": 0,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 101,
+        "callbacks": 110
+      }
+    },
+    {
+      "fixture": 12,
+      "input_sha256": "ad13b6b831e7481e5af4e569bc926d47c350f49866ff1299c82ec46ba194c10c",
+      "trace_sha256": "03ad5d35106bf8e408e3f7897173a9b2e5e2e2741da94eae15affc3e0a6474ee",
+      "cpp": {
+        "writes": 19868417794,
+        "reads": 19801308928,
+        "hits": 255,
+        "misses": 257,
+        "used": 10239999,
+        "callbacks": 846,
+        "actions": 1027,
+        "neural_calls_per_copy": 770
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 1,
+          "miss_callbacks": 257,
+          "periodic_callbacks": 588,
+          "periodic_load_callbacks": 255,
+          "multi_spill_callbacks": 1,
+          "exact_release_callbacks": 256,
+          "periodic_pressure_lower_risk_below2048": 511,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 770,
+        "callbacks": 846
+      }
+    },
+    {
+      "fixture": 13,
+      "input_sha256": "00558ce69b38d717c135d131101ee11bf178773eb78cbb035815d3d792340043",
+      "trace_sha256": "03ad5d35106bf8e408e3f7897173a9b2e5e2e2741da94eae15affc3e0a6474ee",
+      "cpp": {
+        "writes": 19868418050,
+        "reads": 19801309184,
+        "hits": 255,
+        "misses": 257,
+        "used": 10240000,
+        "callbacks": 846,
+        "actions": 1027,
+        "neural_calls_per_copy": 770
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 1,
+          "miss_callbacks": 257,
+          "periodic_callbacks": 588,
+          "periodic_load_callbacks": 255,
+          "multi_spill_callbacks": 1,
+          "exact_release_callbacks": 256,
+          "periodic_pressure_lower_risk_below2048": 0,
+          "periodic_pressure_lower_risk_equal2048": 511,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 770,
+        "callbacks": 846
+      }
+    },
+    {
+      "fixture": 14,
+      "input_sha256": "cec86cedc6c97044c6d9bf1e9b937d4262f29b22ed191609883c3135affb1eab",
+      "trace_sha256": "029afae0afbb24e7c1c7e7f4534c2a1e51d5b78d9eb0084de846d1c8e5c232f3",
+      "cpp": {
+        "writes": 19868418306,
+        "reads": 19801309440,
+        "hits": 0,
+        "misses": 512,
+        "used": 10240001,
+        "callbacks": 1101,
+        "actions": 1027,
+        "neural_calls_per_copy": 514
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 1,
+          "miss_callbacks": 512,
+          "periodic_callbacks": 588,
+          "periodic_load_callbacks": 0,
+          "multi_spill_callbacks": 1,
+          "exact_release_callbacks": 256,
+          "periodic_pressure_lower_risk_below2048": 0,
+          "periodic_pressure_lower_risk_equal2048": 0,
+          "periodic_pressure_lower_risk_above2048": 511
+        },
+        "neural_calls_per_copy": 514,
+        "callbacks": 1101
+      }
+    },
+    {
+      "fixture": 15,
+      "input_sha256": "00558ce69b38d717c135d131101ee11bf178773eb78cbb035815d3d792340043",
+      "trace_sha256": "03ad5d35106bf8e408e3f7897173a9b2e5e2e2741da94eae15affc3e0a6474ee",
+      "cpp": {
+        "writes": 19868418050,
+        "reads": 19801309184,
+        "hits": 255,
+        "misses": 257,
+        "used": 10240000,
+        "callbacks": 846,
+        "actions": 1027,
+        "neural_calls_per_copy": 770
+      },
+      "audit": {
+        "input_legal": true,
+        "independent_actions_bytes_counts_pass": true,
+        "coverage": {
+          "overflow_callbacks": 1,
+          "miss_callbacks": 257,
+          "periodic_callbacks": 588,
+          "periodic_load_callbacks": 255,
+          "multi_spill_callbacks": 1,
+          "exact_release_callbacks": 256,
+          "periodic_pressure_lower_risk_below2048": 0,
+          "periodic_pressure_lower_risk_equal2048": 511,
+          "periodic_pressure_lower_risk_above2048": 0
+        },
+        "neural_calls_per_copy": 770,
+        "callbacks": 846
+      }
+    }
+  ],
+  "fixture_callbacks_exact": 7181,
+  "fixture_neural_calls_per_copy": 7252,
+  "fixture_coverage": {
+    "overflow_callbacks": 56,
+    "miss_callbacks": 2776,
+    "periodic_callbacks": 4349,
+    "periodic_load_callbacks": 1656,
+    "multi_spill_callbacks": 221,
+    "exact_release_callbacks": 1973,
+    "periodic_pressure_lower_risk_below2048": 1020,
+    "periodic_pressure_lower_risk_equal2048": 1022,
+    "periodic_pressure_lower_risk_above2048": 690
+  },
+  "source_unchanged": true,
+  "training_runs": 0,
+  "dataset_solver_runs": 0,
+  "dev_eval_accesses": 0,
+  "performance_or_quality_claim": false
+}

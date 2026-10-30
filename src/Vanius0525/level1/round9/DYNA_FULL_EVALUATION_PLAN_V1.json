@@ -1,0 +1,83 @@
+{
+  "stage": "round9-dyna-full12-six-fixed100-v1",
+  "methods": {
+    "naive": {
+      "path": "build/round9/penalty_pilot/official_naive.cpp",
+      "sha256": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab"
+    },
+    "paired100": {
+      "path": "round9/candidates/paired_penalty100.cpp",
+      "sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15"
+    },
+    "ai100": {
+      "path": "round9/candidates/ai_penalty100.cpp",
+      "sha256": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+    },
+    "risk_pool100": {
+      "path": "round9/pure/return_risk_pooling100_v1.cpp",
+      "sha256": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e"
+    },
+    "risk_flat100": {
+      "path": "round9/pure/return_risk_no_pooling100_v1.cpp",
+      "sha256": "4e9a16e029521168aadb89cd6195365c23c596bbe3100292314a4d36893eb93b"
+    },
+    "risk_scale100": {
+      "path": "round9/pure/return_risk_global_scale100_v1.cpp",
+      "sha256": "7d5cd404143fadd583f4610b6d1bdd7e29ba7fb5796330e6e0a5e9dcac445924"
+    }
+  },
+  "timed_repeats": 3,
+  "audit_timeout_seconds": 900,
+  "timed_timeout_seconds": 300,
+  "validation_artifacts": {
+    "round9/DYNA_FULL_ADOPTION_PLAN_V1.json": "11c282a24a7c2733c19c654a420372c899c39ab18c3dbcba1a3959e2bf887eef",
+    "round9/DYNA_FULL_ADOPTION_RESULTS_V1.json": "5a51c198b396955a0ef3d5e0323d958cc1f1e3bb29b89a1844e1fd89e8e237d0",
+    "round9/dataset_monitor/DYNA_FULL12_RESOURCE_LOCK_20261030.json": "318f80fc83ac697e33abe4d4be97b7f11d7f8ebce6de8a9476d259e97aee7c7b",
+    "round9/STREAMING_REPLAY_VERIFICATION_V1.json": "b45382ed4856844d226c20758e4d3530dad0560d662b45fc6f43ecf5b9b6ab77",
+    "round9/BUFFERED_AUDIT_VERIFICATION_V1.json": "e8f59bb77f2874fbedbb62295a4248496d7fef75cc1f44ff3af343ce6c026dc0",
+    "round9/pure/RETURN_RISK_DEPLOY_FINAL_FREEZE_V1.json": "f36a53703d2172605f9832c0d6fb53f07f1dd602c6c6d7085e9011d93afb1143",
+    "round9/pure/RETURN_RISK_DEPLOY_CONTRACT_V1.md": "26fee19f79886d7aa034508f671bbd0f445841a694e9740a008d029128c9764c",
+    "round9/pure/RETURN_RISK_DEPLOY_PLAN_V1.json": "e51b57befe83b3f59c5374a622f6859df86e8ff7a149bf15feb745b6f30d09bb",
+    "round9/pure/return_risk_core_v1.hpp": "605c30a3728ee3cc05a6fdb3f5f97a12087f9eb4e8f44202002199eca8d70512",
+    "round9/pure/make_return_risk_deploy_v1.py": "1b3358624fcba77228f7a7e3a83bcf1e51c99d741c3365dde439efb274ba9a28",
+    "round9/pure/run_return_risk_deploy_v1.py": "c58d6c028e3a81fb6ed229ad32bc5c981240db09d474ca19d893808450fdd6b3",
+    "round9/pure/return_risk_deploy_verify_v1.cpp": "06b4c8ed845d56c6f8daa746a5bd7357ab2340eee159925301b026d1d879d7c2",
+    "round9/pure/audit_return_risk_deploy_v1.py": "cdfbdb6e24beaae8097db322575b1a685568481d8e9fe7ee324db89a88d72aa3",
+    "round9/pure/return_risk_pooling100_v1.cpp": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e",
+    "round9/pure/return_risk_no_pooling100_v1.cpp": "4e9a16e029521168aadb89cd6195365c23c596bbe3100292314a4d36893eb93b",
+    "round9/pure/return_risk_global_scale100_v1.cpp": "7d5cd404143fadd583f4610b6d1bdd7e29ba7fb5796330e6e0a5e9dcac445924",
+    "round9/pure/RETURN_RISK_DEPLOY_BUILD_FREEZE_V1.json": "a032da79d0cbb403795d5da68100e0be1e977f58c9be6d6a87b15534a329c1d6",
+    "round9/pure/RETURN_RISK_DEPLOY_RESULTS_V1.json": "f0df933231cd1835400250912a1173192a2f97b37a0b4749fd4f8e184d10c504",
+    "round9/pure/RETURN_RISK_DEPLOY_STATIC_REVIEW_V1.json": "69df50acc509d867bd56d5cb8320106c6fc9eab753400fb08ed94b9ce004888d",
+    "round9/pure/RETURN_RISK_DEPLOY_REVIEW_V1.md": "75f94cfb34de5a4365ab4032f5241dfd4faeb4f2c3061a05d4d89017f616be1c",
+    "round9/ai/AI100_EXPORT_FINAL_FREEZE_V1.json": "91282c10dafd9d1ad14735b1aec5bf13fb9b7150264d0760c57b2d2912b68c42",
+    "round9/ai/AI100_EXPORT_PLAN_V1.md": "fe6ea874b5f12ed40f11add7571fa43f7595631df160f8d0202a7e982ecf4b1b",
+    "round9/ai/AI100_EXPORT_BUILD_FREEZE_V1.json": "704ba8586b77804299525256666ae10a516ffc70c2cabfba8ab1b177f726c169",
+    "round9/ai/AI100_MODEL_V1.json": "0ce9c7d0563b1adb0d5a883eec4809cd9e4aadd12c53e41511151f32bb3bdc83",
+    "round9/ai/ai100_neural_export_v1.hpp": "34681d860667a700de616ce0ef10b5f132cd208c56f400efec58d81e39d0078a",
+    "round9/ai/ai100_model_io_v1.py": "f07ea9337579cce0684ea2fa5494a5c0373065c21cc6d4f80ba559981875c387",
+    "round9/ai/ai100_export_check_v1.cpp": "c1a7b5f77998e1b3bbf8d68c127a1323343a4c39c240bed93fa10c720c8dc743",
+    "round9/ai/run_ai100_export_v1.py": "c9f2846eb15c1076c93d1359687e19d4049d345c2e9583bc165e048d2f5fb770",
+    "round9/ai/AI100_EXPORT_RESULTS_V1.json": "e3c60a6b38d355768fc620105eabac7aaf723812b98a70b6f47365b04496a109",
+    "round9/ai/AI100_EXPORT_REVIEW_V1.md": "5382ee0c77e98ec06a362284106239b4fbf904066ef99883ac3d48f57790da45"
+  },
+  "case_ids": [
+    "train_slow_shared_01",
+    "train_slow_staggered_02",
+    "train_fast_shared_03",
+    "train_fast_staggered_04",
+    "train_burst_shared_05",
+    "train_burst_staggered_06",
+    "dev_slow_staggered_07",
+    "dev_fast_shared_08",
+    "dev_burst_staggered_09",
+    "holdout_slow_shared_10",
+    "holdout_fast_staggered_11",
+    "holdout_burst_shared_12"
+  ],
+  "scope": "User-requested complete dyna v1 fixed-source descriptive comparison: train6/dev3/holdout3,60M input operations. Main final2.1 dev108/eval72 remain sealed. No tuning from these results.",
+  "candidate_limits": "The three risk policies are newly deployed from validated shadow statistics. Fifteen small protocol executions used the same actions as reference; changed-action long trajectories first receive full audits here. No prior physical-gain claim.",
+  "scoring": "Actual input penalty. Direct equal-case all12 and separate split means, unclipped physical ratios/components and clipped descriptive0-10 scores; no official50 or promotion claim.",
+  "failure_policy": "Stop and preserve any failed attempt; no automatic retry or incomplete aggregate. Repair in authorized scope requires explicit revision and retains all attempts.",
+  "training_runs": 0
+}

@@ -1,0 +1,11 @@
+--- paired_penalty100.cpp
++++ cold_build_after_probe100_v1.cpp
+@@ -218,7 +218,7 @@
+             if(ap!=bp)return ap<bp;
+             return a.bytes > b.bytes;
+         };
+-        if ((evidence || s.read_bandwidth>=s.write_bandwidth) && !victims_.empty()) {
++        if (evidence && !victims_.empty()) {
+             auto less=better;
+             const int cap=std::min<int>(4,victims_.size());
+             std::partial_sort(victims_.begin(),victims_.begin()+cap,victims_.end(),less);

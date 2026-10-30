@@ -1,0 +1,120 @@
+{
+  "plan_sha256": "1225cc3b8e0c5b7e1cbfd410995cf2033cfce1be2d0886ff49ef29da1aebdffe",
+  "files": {
+    "run_dyna_full_v1.py": "5fb1a7279d164e62200996411665f85d383a4f2025199168d91c9b55bade9d6b",
+    "cost_replay_streaming.py": "889ba2b344971aa0422c7214cadc9b40c4a29847f96c3f99395724bb2638e8b1",
+    "cost_replay_precise.py": "9c83b075ab092a3711ec4aeee7a3eeec242bb8cacfced864f5f067b6eb8c9b01",
+    "build_buffered_audit.py": "bcb72ae09d03b7f28c944989e09cb4a5922989c4079bfef05f08f59d8eb13514",
+    "DYNA_FULL_BENCHMARK_CONTRACT_V1.md": "076f90994353e3f4c9cc364a3b27e8d24c4a489db742f47652e2988796ddff85",
+    "summarize_dyna_full_v1.py": "7191aec8bad459978d0943049013822d85a4e6912ef906e13f237d0b46280963"
+  },
+  "original_builder_sha256": "fb67b8754ec527f01c543192db3424de9200b17f6308c873583416eff6471b17",
+  "official_reference_sha256": "464a542ad56f0b81ebad23371846a705c202c4461589a5f37d65af5a65c99d69",
+  "methods": {
+    "naive": {
+      "path": "build/round9/penalty_pilot/official_naive.cpp",
+      "sha256": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab"
+    },
+    "paired100": {
+      "path": "round9/candidates/paired_penalty100.cpp",
+      "sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15"
+    },
+    "ai100": {
+      "path": "round9/candidates/ai_penalty100.cpp",
+      "sha256": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+    },
+    "risk_pool100": {
+      "path": "round9/pure/return_risk_pooling100_v1.cpp",
+      "sha256": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e"
+    },
+    "risk_flat100": {
+      "path": "round9/pure/return_risk_no_pooling100_v1.cpp",
+      "sha256": "4e9a16e029521168aadb89cd6195365c23c596bbe3100292314a4d36893eb93b"
+    },
+    "risk_scale100": {
+      "path": "round9/pure/return_risk_global_scale100_v1.cpp",
+      "sha256": "7d5cd404143fadd583f4610b6d1bdd7e29ba7fb5796330e6e0a5e9dcac445924"
+    }
+  },
+  "environment": {
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+    "flags": "-std=c++14 -O2 -Wall -Wextra -pedantic",
+    "scheduler_threads": 1,
+    "host_exclusivity": "Shared task experiment_lock only; no whole-host exclusivity claim."
+  },
+  "executables": {
+    "naive": {
+      "audit": {
+        "path": "build/round9_dyna_full_naive_fdd77db179_buffered_audit",
+        "sha256": "9844fb6dcd0551600a2d0e420d296095065b4b2ea560384c6c86a8b3e357cbac",
+        "generated_source_sha256": "15ff2688733831c5c7a3265f2d45219af309b298eadddad70dda88981a297d3a"
+      },
+      "timed": {
+        "path": "build/round9_dyna_full_naive_fdd77db179",
+        "sha256": "a3211a186ab1b1992899a17c1ac48992bf79c88d41a48be10791eb94353e89c7",
+        "generated_source_sha256": "6a8bdf149248c400823c2c0dd5a252ddc95a8d281f4d620a27ccb9d742c50311"
+      }
+    },
+    "paired100": {
+      "audit": {
+        "path": "build/round9_dyna_full_paired100_3f8dfaee8b_buffered_audit",
+        "sha256": "729bdc403631f6a73ecf9e9bd66c5a793d4b764667a1a95dcc0daff2ee1ffd40",
+        "generated_source_sha256": "cee8617f6a641693f7b3f26559bb1113d1c0b100f80376bea0afa104a5349e57"
+      },
+      "timed": {
+        "path": "build/round9_dyna_full_paired100_3f8dfaee8b",
+        "sha256": "ca26b9ee028a05ed1bd5dc1a250786724860138a3851c0abed73d0199b93ed00",
+        "generated_source_sha256": "7a5f3713171005f692c7ff506e8145f62936c875f00601d47e16ef7ed94e52ab"
+      }
+    },
+    "ai100": {
+      "audit": {
+        "path": "build/round9_dyna_full_ai100_e721f4a030_buffered_audit",
+        "sha256": "a5e961230e2feb5ac7c5f438ce640a0947d8219f34a474f75503887c83261e29",
+        "generated_source_sha256": "402301a25bc60647afc51949baf62123072a9530482ac61eb23580fa29ca798a"
+      },
+      "timed": {
+        "path": "build/round9_dyna_full_ai100_e721f4a030",
+        "sha256": "7df66b7c171c2d403d3931184ab25ae180603fca2c704f48164239f0626a32d8",
+        "generated_source_sha256": "47797f5f0ede0a14ce2fdcb077d5b2676f30a38c4a77b92042887341667b4e43"
+      }
+    },
+    "risk_pool100": {
+      "audit": {
+        "path": "build/round9_dyna_full_risk_pool100_52ae25812a_buffered_audit",
+        "sha256": "4bdaf7f23734e1cf735abb92f3a516fd258348c26ef518dedd9c55751a62d7ed",
+        "generated_source_sha256": "d546d2cd7d0a98796e87e98504685bcb988e621e51aaee17064aadc46212136b"
+      },
+      "timed": {
+        "path": "build/round9_dyna_full_risk_pool100_52ae25812a",
+        "sha256": "dd24df2d3ac2a22a20e9258084288dfb1a21f31ca6a6ef9589d54e1383239e0e",
+        "generated_source_sha256": "85e198552dfb9bd2b48d8bf72ad72a2bcd495f83c1c530275a51a746e63946c0"
+      }
+    },
+    "risk_flat100": {
+      "audit": {
+        "path": "build/round9_dyna_full_risk_flat100_4e9a16e029_buffered_audit",
+        "sha256": "70248eefa7b5475cecc3ef0143f4ad614f3dae37a6ab638e883b40fd294516ae",
+        "generated_source_sha256": "a1c585466dcad3063b7d3527279e9f964d225624d5517172ee13d7979aef9f30"
+      },
+      "timed": {
+        "path": "build/round9_dyna_full_risk_flat100_4e9a16e029",
+        "sha256": "92a73928ad54c34725a1dac379c1268ae9dda9dcbcd159c536a2c1391964e015",
+        "generated_source_sha256": "6661acf680587bf507349aa5a4de8ec6b6a6c8204142241e43f0017345280dff"
+      }
+    },
+    "risk_scale100": {
+      "audit": {
+        "path": "build/round9_dyna_full_risk_scale100_7d5cd40414_buffered_audit",
+        "sha256": "53cc18232d6c0d712aeb199ea96dd2663ca214d601ab79055a60323eaca2d873",
+        "generated_source_sha256": "f5a22e343654bec64a7d3b18312fccf0a5e70165f9669fd55c16cb92e73e13b4"
+      },
+      "timed": {
+        "path": "build/round9_dyna_full_risk_scale100_7d5cd40414",
+        "sha256": "5135a17c89ffe76699f6a7d3c97347ace845895a09e1452afa9cb39d84d66e3f",
+        "generated_source_sha256": "71c347ad3412460433e52cfaf7326a82d64cae00b0e682fd04ef0075d48decbc"
+      }
+    }
+  }
+}

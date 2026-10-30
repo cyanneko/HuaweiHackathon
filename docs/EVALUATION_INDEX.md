@@ -1,5 +1,7 @@
 # 统一评测与代码版本索引
 
+**用户最终选定R81并停止优化。** 当前易读版提交与已测R81的tokens/ELF一致，见[最终提交说明](FINAL_SUBMISSION_20261031.md)。下方R75默认状态属于各轮实验当时的记录，不覆盖最终选择；历史结果不改写。
+
 用户已选择**以旧版为准**：主评测固定为 `dyna_dataset 1.0.0` 全12例与 `final_dataset 2.1.0` 全72个eval，固定数据提交 `c65c7b32b06a5764ce9ad4881133a3c6eb33ed17`（dyna tree `808ce8b11f57a1a96051f22aa572eceb82b1fba0`，final tree `41197783dd577dfccf5b007a6ece67cbfb241e4b`）。后续新方法按两套完整测试，输入/程序/评分身份与全部结果固定记录。移动 `datasets` 分支的3.0不等于主评测版本；R86的3.0结果仅作补充敏感性实验，不用于主榜、选优或晋升。保留新版数据和全部旧结果，不回滚数据分支，不改冻结输出，不因均分自动替换默认R75。
 
 这是 source/cyanneko 的比较入口。机器清单 [EVALUATION_INDEX.json](EVALUATION_INDEX.json) 将每轮运行前的源码/TU/ELF、数据逐文件SHA和协议身份，映射到发布后的固定Git提交；不回写冻结selection或历史成绩。
@@ -14,6 +16,7 @@
 | R84 | **完整dyna12×7+final全部eval72×7** | 588 | [FULL_12_72_COMPLETE](R84_RESULTS_20261030.md) · [源码/日志](https://github.com/cyanneko/HuaweiHackathon/tree/b7482004d5313c6654629324cb465ef36d6554b1/src/reports/r84_20261030) |
 | R85 | 新TRAIN12×7+DEV6×7；完整dyna12×8+final **2.1 eval72×8** | 798 | [完整归档，未晋升](R85_RESULTS_20261030.md) · [源码/日志](https://github.com/cyanneko/HuaweiHackathon/tree/b09ece11af152a705ef2df27162cade838399287/src/reports/r85_20261030) |
 | R86 | **仅补充**final3.0全72×8；dyna96格历史复用R85 | 576新格 | [补充敏感性，排除主榜/选优](R86_SUPPLEMENT_20261030.md) · [日志](https://github.com/cyanneko/HuaweiHackathon/tree/ea9acc0d5fc74a4e2c3ae2189792c655a57ff380/src/reports/r86_20261030) |
+| R87 | 旧版完整dyna12×8+final2.1 eval72×8；全部新测 | 672 | [裁剪略低/raw略高，未晋升](R87_RESULTS_20261031.md) · [源码/日志](https://github.com/cyanneko/HuaweiHackathon/tree/1857b65b106c3c3e8ac1b079af43f26abf950351/src/reports/r87_20261031) |
 
 R79/R80/R81 的 final24、dyna6 都是历史抽样，保持原集合与字节；R82失败的是预先性能门槛，228格执行均有效。R79 TRAIN无同轮Naive且不含正式D主评分；R80训练只报同轮成本倍率。不能把这些诊断分与正式样本均分混榜。
 

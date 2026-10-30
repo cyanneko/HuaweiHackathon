@@ -1,0 +1,21 @@
+{
+  "schema_version": 3,
+  "generator": "r72-hierarchical-probability-velocity-v3",
+  "paired_reference": "R71 v1/v2 use the same base seeds; preserve split assignment and do not treat revisions as independent samples",
+  "selection": "Fixed ex ante, no scheduler scoring used; per-operator and per-partition occurrence counts are not prescribed",
+  "defaults": {"n": 5000000, "k": 8, "p": 64, "memory": 67108864, "pressure": 3, "build-fraction": 0.3, "period": 127, "window": 10000, "partition-window": 10000, "write": 100, "read": 80, "penalty": 100, "partition-profile": "slow", "partition-speed": 0.0025, "rare": "none"},
+  "cases": [
+    {"case_id": "train_slow_shared_01", "split": "train", "parameters": {"seed": 202610307101, "profile": "slow", "phase": "shared", "pressure": 1.5, "memory": 67108864, "build-fraction": 0.2, "k": 4, "p": 32, "rare": "hot"}},
+    {"case_id": "train_slow_staggered_02", "split": "train", "parameters": {"seed": 202610307102, "profile": "slow", "phase": "staggered", "pressure": 6, "memory": 268435456, "build-fraction": 0.35}},
+    {"case_id": "train_fast_shared_03", "split": "train", "parameters": {"seed": 202610307103, "profile": "fast", "phase": "shared", "pressure": 3, "memory": 268435456, "build-fraction": 0.3, "period": 31, "k": 2, "p": 64}},
+    {"case_id": "train_fast_staggered_04", "split": "train", "parameters": {"seed": 202610307104, "profile": "fast", "phase": "staggered", "pressure": 12, "memory": 1073741824, "build-fraction": 0.4, "period": 31}},
+    {"case_id": "train_burst_shared_05", "split": "train", "parameters": {"seed": 202610307105, "profile": "burst", "phase": "shared", "pressure": 6, "memory": 1073741824, "build-fraction": 0.35, "period": 1000}},
+    {"case_id": "train_burst_staggered_06", "split": "train", "parameters": {"seed": 202610307106, "profile": "burst", "phase": "staggered", "pressure": 3, "memory": 67108864, "build-fraction": 0.2, "period": 1000, "k": 4, "p": 64}},
+    {"case_id": "dev_slow_staggered_07", "split": "dev", "parameters": {"seed": 202610307107, "profile": "slow", "phase": "staggered", "pressure": 3, "memory": 67108864, "build-fraction": 0.3, "rare": "cold"}},
+    {"case_id": "dev_fast_shared_08", "split": "dev", "parameters": {"seed": 202610307108, "profile": "fast", "phase": "shared", "pressure": 6, "memory": 268435456, "build-fraction": 0.35, "period": 31}},
+    {"case_id": "dev_burst_staggered_09", "split": "dev", "parameters": {"seed": 202610307109, "profile": "burst", "phase": "staggered", "pressure": 1.5, "memory": 268435456, "build-fraction": 0.2, "period": 1000, "k": 2, "p": 32}},
+    {"case_id": "holdout_slow_shared_10", "split": "holdout", "parameters": {"seed": 202610307110, "profile": "slow", "phase": "shared", "pressure": 12, "memory": 1073741824, "build-fraction": 0.4}},
+    {"case_id": "holdout_fast_staggered_11", "split": "holdout", "parameters": {"seed": 202610307111, "profile": "fast", "phase": "staggered", "pressure": 1.5, "memory": 67108864, "build-fraction": 0.2, "period": 31, "k": 4, "p": 32}},
+    {"case_id": "holdout_burst_shared_12", "split": "holdout", "parameters": {"seed": 202610307112, "profile": "burst", "phase": "shared", "pressure": 3, "memory": 1073741824, "build-fraction": 0.3, "period": 1000, "rare": "hot"}}
+  ]
+}

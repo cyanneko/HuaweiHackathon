@@ -1,0 +1,31 @@
+{
+  "frozen_after_train": true,
+  "repeats": 3,
+  "scope": "Pure-track one-shot fresh validation after complete train48; ai_best is only historical baseline. New AI selection uses separate independent learning-validation32.",
+  "sources": {
+    "best": {
+      "path": "MySpillSchedulerBest.cpp",
+      "sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db"
+    },
+    "fixed": {
+      "path": "round7/decay64_fixed_pool.cpp",
+      "sha256": "cfb02add6155c0ed998db464e07e6d3435ba22984bbf2a2d10894291864460ed"
+    },
+    "dynamic": {
+      "path": "round7/decay64.cpp",
+      "sha256": "6e0e7fd66c8160bb0b9bbc4d39e661853215f1aec12728289dd9f2097ff73610"
+    },
+    "ai_best": {
+      "path": "round4/ai_prefetch_budget2048.cpp",
+      "sha256": "1155dd462bf3e45fa8cf2ca922ef107fa9668af85397d04de17319028e848872"
+    },
+    "paired": {
+      "path": "round8/pure/paired_confidence.cpp",
+      "sha256": "8c040b8778ab9afa60df432d393466b174c3faf2a691fef2c8c84fab000b6287"
+    }
+  },
+  "train_report_sha256": "8f9b506615a5c019e0c628a704b77e0793a0c5961a305d0fd6e1ca440d073a7c",
+  "validation_manifest_sha256": "f5efdb5f7a9faec56b92852e548cf752cd31e125f896968265d8e8e9fc69b7b5",
+  "test50_queries": 0,
+  "selection": "Only paired is a new pure nominee. Gate: mean score >= fixed+0.02 and worst physical/Naive <=1.05*fixed worst. Report direct per-case regressions separately. No new training or tuning from this wave."
+}

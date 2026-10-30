@@ -1,14 +1,23 @@
-# Level 1：纯算法与小神经网络调度器
+# Level 1：纯算法与学习增强调度器
 
-**最新完成结果**：[综合集当前结果](round6/CURRENT_RESULTS.json)、[首轮及dev校准](round6/RESULTS.md)。没有新候选通过开发门槛，Best保持；测试仅查询初始基准一次，1000次动作审核通过。当前无训练/评测进程，小时只读续接服务保留；不要重复已完成测试或恢复旧矩阵。
+**当前发布入口（Round8，2026-10-30）**：两条路线继续独立探索。新纯算法在综合50例同批3重复中均分2.855474，旧Best为2.647765；通过冻结门槛后晋升。含AI路线没有新模型晋升，保留原最佳。完整证据、负结果与限制见 [round8/README.md](round8/README.md) 和 [round8/CURRENT_BEST.json](round8/CURRENT_BEST.json)。
 
-**最新任务覆盖**：用户已要求停止旧评测，以`final_dataset 2.0.0@33ab5af`综合集为唯一主要测试标准，不再三成员分别/平均。当前纯/AI冻结基准、新train/dev隔离优化和只读小时检查见[round6/README.md](round6/README.md)及[round6/HANDOFF.md](round6/HANDOFF.md)。旧后台控制器已停止，Best未覆盖；下方round5运行说明及三成员成绩保留作历史。
+| 路线 | 当前单文件提交入口 | 综合50例平均分 |
+|---|---|---:|
+| 纯算法 | [paired_confidence.cpp](round8/pure/paired_confidence.cpp) | 2.855474 |
+| 包含AI | [ai_prefetch_budget2048.cpp](round4/ai_prefetch_budget2048.cpp) | 2.587030 |
 
-**2026-10-30新授权状态**：已恢复每小时本地检查，开始按三人评议实现第五轮优化；下文“取消检查”段落是历史状态，现由本段覆盖。数据划分、过拟合风险、训练教师与离线最优的区别、新候选及运行状态见 [round5/README.md](round5/README.md) 和 [round5/HANDOFF.md](round5/HANDOFF.md)。当前Best尚未变更。
+一次只提交一个`MySpillScheduler`类，C++14标准库CPU。根目录`MySpillSchedulerBest.cpp`和`MySpillSchedulerAI.cpp`保留历史原件，不是最新入口。上述综合集已曝光，均分按全部50例等权计算，不使用旧三成员等权，也不代表隐藏正式评测成绩或全局最优。
+
+**持续工作**：两个子agent分别推进纯算法与含AI路径；训练/求解器经公共锁串行。Round8已完成，新工作转入Round9；运行进度应读取最新交接并核查进程，不从历史“已停止/已恢复”文字推断。见 [round8/HANDOFF.md](round8/HANDOFF.md)。本阶段未恢复旧小时服务，未新建定时服务。
+
+## 以下为早期方法、结果和复现记录
+
+下方Round1–6的“当前”“最新”与运行状态只描述各自历史执行窗口；不覆盖上面的Round8发布选择。Round6综合集基准见 [round6/CURRENT_RESULTS.json](round6/CURRENT_RESULTS.json)，Round7提名见 [round7/RESULTS_RESUME.md](round7/RESULTS_RESUME.md)。
 
 本轮只优化可测的Level 1成本，不讨论主观加分包装。调研、反例与适用边界见 [RESEARCH.md](RESEARCH.md)，实验结果见 [RESULTS.md](RESULTS.md)，机器可读证据见 [VALIDATION_SUMMARY.json](VALIDATION_SUMMARY.json)。
 
-## 当前发布候选
+## Round4发布候选（历史记录）
 
 直接提交 [MySpillSchedulerBest.cpp](MySpillSchedulerBest.cpp) 的内容，类名已经是 `MySpillScheduler`。该文件仅使用 C++14 标准库、无训练/推理运行时依赖；一次只提交一个候选文件，不要与其他cpp合并编译。
 
@@ -31,7 +40,7 @@
 
 复现构建：`python build.py MySpillSchedulerBest.cpp --name current_best`。该命令只插入候选类，保存的参考框架不改。
 
-## 两个冻结提交候选
+## 首轮冻结提交候选（历史记录）
 
 | 文件 | 方法 | 部署 |
 |---|---|---|

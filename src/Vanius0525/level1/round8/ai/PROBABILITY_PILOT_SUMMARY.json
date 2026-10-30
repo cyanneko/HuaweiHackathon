@@ -1,0 +1,178 @@
+{
+  "flows": 8,
+  "states": 32,
+  "independent_seed_groups": 8,
+  "table": {
+    "true_logloss": {
+      "uniform": {
+        "rows": 32,
+        "mean": 5.285247251769581
+      },
+      "next_only": {
+        "rows": 32,
+        "mean": 4.7778273575489045
+      },
+      "censored_mle": {
+        "rows": 32,
+        "mean": 4.722909538522515
+      }
+    },
+    "future_logloss": {
+      "uniform": {
+        "rows": 32,
+        "mean": 5.285247251769583
+      },
+      "next_only": {
+        "rows": 32,
+        "mean": 4.775490303319327
+      },
+      "censored_mle": {
+        "rows": 32,
+        "mean": 4.72092826369715
+      }
+    },
+    "true_squared_error": {
+      "uniform": {
+        "rows": 32,
+        "mean": 0.038274317113266745
+      },
+      "next_only": {
+        "rows": 32,
+        "mean": 0.02206283709530711
+      },
+      "censored_mle": {
+        "rows": 32,
+        "mean": 0.02074900999640252
+      }
+    },
+    "future_squared_error": {
+      "uniform": {
+        "rows": 32,
+        "mean": 0.037718515843153
+      },
+      "next_only": {
+        "rows": 32,
+        "mean": 0.021708457240033858
+      },
+      "censored_mle": {
+        "rows": 32,
+        "mean": 0.020416296923267394
+      }
+    },
+    "resident_true_mass_abs_error": {
+      "uniform": {
+        "rows": 31,
+        "mean": 0.24074176540211895
+      },
+      "next_only": {
+        "rows": 31,
+        "mean": 0.09419949514690364
+      },
+      "censored_mle": {
+        "rows": 31,
+        "mean": 0.06310578119712675
+      }
+    },
+    "retained_true_probability_mass": {
+      "uniform": {
+        "rows": 31,
+        "mean": 0.6770424136967209
+      },
+      "next_only": {
+        "rows": 31,
+        "mean": 0.8141691672013955
+      },
+      "censored_mle": {
+        "rows": 31,
+        "mean": 0.8083907154863252
+      }
+    },
+    "retained_true_cost_proxy": {
+      "uniform": {
+        "rows": 31,
+        "mean": 746.1761020093421
+      },
+      "next_only": {
+        "rows": 31,
+        "mean": 3441.363362527727
+      },
+      "censored_mle": {
+        "rows": 31,
+        "mean": 3572.281384366162
+      }
+    },
+    "retained_future_cost_proxy": {
+      "uniform": {
+        "rows": 31,
+        "mean": 742.3190055522304
+      },
+      "next_only": {
+        "rows": 31,
+        "mean": 3409.718144877772
+      },
+      "censored_mle": {
+        "rows": 31,
+        "mean": 3548.028102956464
+      }
+    }
+  },
+  "seed_logloss_improvements": [
+    {
+      "id": "learning_train_uniform_independent_s860120_b1021",
+      "seed": 860120,
+      "mean_true_logloss_improvement": 0.01616456199630867,
+      "mean_future_logloss_improvement": 0.0150924291503447
+    },
+    {
+      "id": "learning_train_uniform_independent_s860100_b17_lengthbalanced_v2",
+      "seed": 860100,
+      "mean_true_logloss_improvement": 0.041984992046448344,
+      "mean_future_logloss_improvement": 0.04197409480868308
+    },
+    {
+      "id": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "mean_true_logloss_improvement": 0.040180608234959725,
+      "mean_future_logloss_improvement": 0.03702198781961097
+    },
+    {
+      "id": "learning_train_zipf_negative_s860109_b257_lengthbalanced_v2",
+      "seed": 860109,
+      "mean_true_logloss_improvement": 0.024049892614255386,
+      "mean_future_logloss_improvement": 0.023411968579691855
+    },
+    {
+      "id": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "mean_true_logloss_improvement": 0.08858283068008044,
+      "mean_future_logloss_improvement": 0.08954363044313318
+    },
+    {
+      "id": "learning_train_hotspot_independent_s860118_b17_lengthbalanced_v2",
+      "seed": 860118,
+      "mean_true_logloss_improvement": 0.13472341374173835,
+      "mean_future_logloss_improvement": 0.13353111486348512
+    },
+    {
+      "id": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "mean_true_logloss_improvement": 0.0328936636089705,
+      "mean_future_logloss_improvement": 0.032409466881116344
+    },
+    {
+      "id": "learning_train_lognormal_positive_s860127_b257_lengthbalanced_v2",
+      "seed": 860127,
+      "mean_true_logloss_improvement": 0.06076258928835454,
+      "mean_future_logloss_improvement": 0.06351162443134539
+    }
+  ],
+  "true_logloss_improved_seed_count": 8,
+  "future_logloss_improved_seed_count": 8,
+  "converged_fits": 32,
+  "max_em_iterations": 785,
+  "no_full_probe_callback_states": 1,
+  "retention_eligible_states": 31,
+  "changed_retention_states": 30,
+  "total_observer_log_bytes": 10539133,
+  "scope": "Positive finite-sample statistical-estimation opportunity only. No learned calibration and no closed-loop scheduling gain. Four prefix rows per seed are not four independent environments."
+}

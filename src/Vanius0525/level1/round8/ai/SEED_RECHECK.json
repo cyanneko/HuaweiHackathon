@@ -1,0 +1,59 @@
+{
+  "reason": "Same-seed families share size/build RNG and uniform draws; prior seed+family split was insufficient environmental isolation. Original report preserved.",
+  "groups": 6,
+  "rows": 288,
+  "folds": [
+    {
+      "train_seeds": [
+        810031,
+        830031,
+        830032,
+        830033,
+        830034
+      ],
+      "test_seeds": [
+        810032
+      ]
+    },
+    {
+      "train_seeds": [
+        810032,
+        830031,
+        830032,
+        830033,
+        830034
+      ],
+      "test_seeds": [
+        810031
+      ]
+    },
+    {
+      "train_seeds": [
+        810031,
+        810032,
+        830032,
+        830034
+      ],
+      "test_seeds": [
+        830031,
+        830033
+      ]
+    },
+    {
+      "train_seeds": [
+        810031,
+        810032,
+        830031,
+        830033
+      ],
+      "test_seeds": [
+        830032,
+        830034
+      ]
+    }
+  ],
+  "fixed1_min_gain": 0.009358434223033162,
+  "oof_learned_min_gain": -0.00017450282346132733,
+  "future_oracle_min_gain": 0.028708050919641404,
+  "oof_mode1_fraction": 0.22916666666666666
+}

@@ -1,0 +1,32 @@
+{
+  "original_report_sha256": "eeb68a39dcb83bb40b863ae1e2d69b8cabd7a252fd7d2bf98d4a758e28bf3288",
+  "folds": [
+    {
+      "fold": 0,
+      "held_out_family_counts": {
+        "lognormal": 8
+      }
+    },
+    {
+      "fold": 1,
+      "held_out_family_counts": {
+        "hotspot": 8
+      }
+    },
+    {
+      "fold": 2,
+      "held_out_family_counts": {
+        "zipf": 8
+      }
+    },
+    {
+      "fold": 3,
+      "held_out_family_counts": {
+        "uniform": 8
+      }
+    }
+  ],
+  "finding": "The four held-out folds are exactly lognormal, hotspot, zipf, uniform. Seed groups are independent, but this is leave-family-out generalization, not balanced new seeds within all four families.",
+  "consequence": "Keep negative evidence for this protocol. It cannot alone reject same-family new-seed learnability. Round9 adds one predeclared family-stratified seed split without changing model/target/hyperparameters; original Round8 artifacts remain frozen.",
+  "no_new_solver_or_model_run": true
+}

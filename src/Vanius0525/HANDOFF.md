@@ -1,3 +1,16 @@
+# 最新交接：Round8完成，双路线持续探索（2026-10-30）
+
+当前入口：[level1/round8/README.md](level1/round8/README.md)、[level1/round8/HANDOFF.md](level1/round8/HANDOFF.md)及其CURRENT_BEST.json。用户明确授权持续探索/监督和两个子agent，纯算法与含AI路径继续保留。
+
+- 纯算法晋升为[level1/round8/pure/paired_confidence.cpp](level1/round8/pure/paired_confidence.cpp)，新fresh48通过门槛，综合50例一次冻结终检均分2.855474，比旧Best增加0.207709；原Best文件不覆盖。
+- 含AI入口仍为[level1/round4/ai_prefetch_budget2048.cpp](level1/round4/ai_prefetch_budget2048.cpp)，同批综合50均分2.587030。新学习问题尚未晋升；匿名Hit统计估计有有限样本信号，但不是AI/闭环收益。
+- Round8本轮训练/评测已完成；后续Round9有限next诊断及AI分组复核/有限计算估计由两个子agent继续。每次接管先读最新HANDOFF并查实际进程，不重复启动或根据旧进程描述停止其他任务。
+- 当前仍使用source/Vanius0525，仅提交本人本任务文件；Round4/6既有无关修改保留。没有操作旧小时服务或创建新定时服务。综合50已曝光，不能根据本轮结果调参后反复刷分。
+
+以下均为历史交接，保留执行窗口和来源，不覆盖本段。
+
+---
+
 # 新会话交接与周期检查取消（2026-10-30）
 
 **最新任务入口**：[level1/round6/HANDOFF.md](level1/round6/HANDOFF.md)。用户已要求停止旧评测，改用final_dataset2.0.0@33ab5af综合集，纯/AI冻结后测试并在隔离train/dev迭代。停止已执行，旧partial保留；新小时服务只查进度并续接，不能按历史记录恢复旧矩阵或自动刷测试。

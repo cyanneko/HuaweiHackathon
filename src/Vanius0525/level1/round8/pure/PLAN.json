@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-30",
+  "source": "round7/decay64_fixed_pool.cpp",
+  "source_sha256": "cfb02add6155c0ed998db464e07e6d3435ba22984bbf2a2d10894291864460ed",
+  "variants": ["paired_confidence", "paired_source_guard"],
+  "design": "At each pressure state propose original fixed-pool and dynamic-pool plans, with the same top4 cap and existing fallback. Keep fixed-pool unless dynamic's estimated local loss advantage exceeds two standard deviations. Compare exact immediate spill bytes and horizon64 probability-weighted future read/write + penalty lower-bound1. Restrict changes to all-PROBE states and preserve scan/cycle paths.",
+  "uncertainty": "Weighted sample effective n=(sum w)^2/sum(w^2); Dirichlet-smoothed p as before; variance of paired per-request coefficient. This is an IID variance proxy, not a guaranteed bound under selected/correlated observations.",
+  "source_ablation": "Maintain separately decayed periodic histogram. Veto dynamic if periodic estimated loss minus two standard deviations is positive. Low periodic sample count yields no strong veto, not false agreement.",
+  "fixed_constants": {"horizon":64,"prior_mass":64,"half_life_probe_steps":2048,"decay_refresh":256,"sigma_multiplier":2},
+  "pilot": "Original 80 train flows only, frozen sources, compare existing Best/decay64_fixed_pool/decay64 reports; no dev/eval. No parameter sweep.",
+  "data_request": "Fresh IID size/heat relationship matrix, B independent, long flow and same-marginal temporal-correlation checks; parent owns common dataset and large panel.",
+  "test_queries":0,
+  "dev_queries":0
+}

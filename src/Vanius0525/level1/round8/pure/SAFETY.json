@@ -1,0 +1,19 @@
+{
+  "runs": [
+    {
+      "name": "paired_confidence",
+      "sha256": "8c040b8778ab9afa60df432d393466b174c3faf2a691fef2c8c84fab000b6287",
+      "returncode": 0,
+      "stdout": "property_cases=20000 callbacks=40000 passed",
+      "stderr": ""
+    },
+    {
+      "name": "paired_source_guard",
+      "sha256": "3a8f0a7c0cefe5c05fbc4666f788808f33185b0fc131d883ad05384cfbfdf389",
+      "returncode": 0,
+      "stdout": "property_cases=20000 callbacks=40000 passed",
+      "stderr": ""
+    }
+  ],
+  "scope": "40000 abstract states / 80000 overflow-or-miss+periodic callbacks; additional 512 warm callbacks with 4096-step span exercise decay. ASan+UBSan, not maximum-N timing."
+}

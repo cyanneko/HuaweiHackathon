@@ -1,0 +1,61 @@
+{
+  "manifest_sha256": "680bbfeb665937588d6e5ff7200b2ea772754efb0383dc9725e253aa494cdef2",
+  "cases": [
+    {
+      "id": "learning_train_uniform_independent_s860120_b1021",
+      "seed": 860120,
+      "input_sha256": "d006d06a0a8634300131be58ad8c80c14043973023f767b4251e6136b97eb3f7"
+    },
+    {
+      "id": "learning_train_uniform_independent_s860100_b17_lengthbalanced_v2",
+      "seed": 860100,
+      "input_sha256": "a965ef26e1c86cd6761bf93f19e6c25e12f73350c0d575912588b753cf7e948d"
+    },
+    {
+      "id": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "input_sha256": "b7b3081d86a3869dbc6417d7eb0919d6f809a70619ff4324d9e36e65f2247303"
+    },
+    {
+      "id": "learning_train_zipf_negative_s860109_b257_lengthbalanced_v2",
+      "seed": 860109,
+      "input_sha256": "164eaeead4f3c1f6730c0244988820b24b48fcef8363bb9bdb48264ad3ef5f09"
+    },
+    {
+      "id": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "input_sha256": "9c5cb13cacbb8b04ae31315036e3c73675bae1a7c1f645529359deb76d9bc672"
+    },
+    {
+      "id": "learning_train_hotspot_independent_s860118_b17_lengthbalanced_v2",
+      "seed": 860118,
+      "input_sha256": "d7397606fb9567d36c02b6787e76f56d1c61299d1ac339d1e1fe30083ba05218"
+    },
+    {
+      "id": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "input_sha256": "c197ea955ec6427c8860570e4de516353531a0737fc34eeae2cf872a349aef03"
+    },
+    {
+      "id": "learning_train_lognormal_positive_s860127_b257_lengthbalanced_v2",
+      "seed": 860127,
+      "input_sha256": "ab51b6f31f870e5ab5ab2a3bf15ba9d41fb2ddd0532d627c9cc2fe57c80d7cdd"
+    }
+  ],
+  "prefixes": [
+    64,
+    256,
+    1024,
+    4096
+  ],
+  "derived_probe_length": 8194,
+  "lookahead_excluded_from_future_labels": true,
+  "collector": "frozen forced0",
+  "policy_sha256": "0a5f40229fe474bfb7097015d5ebb38cf26e1ff9d02116de01e6bd42a748e12a",
+  "estimator_comparison": "same available legal prefix, no forgetting, Dirichlet MAP alpha_i=1+64/n in both models; next-only ignores censored information",
+  "mle_optimizer": "EM from uniform; max1000 iterations, max probability step<1e-10; retain every failure, no retries or tuning",
+  "retention": "same density p_i*(size/R+size/W+1)/size and greedy M-upper-median-size core budget; proxy only",
+  "no_ai_training": true,
+  "dev_queries": 0,
+  "eval_queries": 0
+}

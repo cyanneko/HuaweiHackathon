@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "scope": "Completed Round8 evidence review; continuous exploration proceeds in Round9.",
+  "frozen_reference_sha256": "464a542ad56f0b81ebad23371846a705c202c4461589a5f37d65af5a65c99d69",
+  "evidence_sha256": {
+    "TRAIN_PANEL_RESULTS_V1.json": "8f9b506615a5c019e0c628a704b77e0793a0c5961a305d0fd6e1ca440d073a7c",
+    "VALIDATION_SLATE.json": "f51e527ec36f7dbdd8ce401f7b3d8828c7b5d20098d136264dcca4b7a4a69ec2",
+    "VALIDATION_RESULTS.json": "e565704684804b1d80640a6f4dd96a133e7b4649a2711c81dcba8ae71b98a88a",
+    "FRESH_REVIEW.json": "2c12f453fed012aca23b9d72e9a93bf092f1df398abf53c4fa8b5e87c5b04f8f",
+    "FINAL50_PLAN.json": "5c2bf30b2884e07f2760f1658e994a799272d4440d2bd26978ae0667f7f49f94",
+    "FINAL50_RESULTS.json": "8c749130248de4e4dd23385c21579798155a7231aa82f2a607d8d0542ce2a1b6",
+    "SIGNATURE_AUDIT_LENGTH_V2.json": "d1cdf98cce8916e2d072511a6a5c07c67a9ffac51c8668e7d2977a02c6b9f5b4",
+    "STRESS_RESULTS_V1.json": "981cf7924c3154894e4264ee97154a3369b22a3e267bee1446a8782149939c87",
+    "pure/SAFETY.json": "857f8cb56e12cb9cbe3477c31bebc9ad3afdac5eabefb092c43977a087fa68d8",
+    "pure/CLOSED_LOOP_RESULTS.json": "9b9f60a778789071e0ae3033fe550bea3e7ff0240db51aa75c887e1eb36a1b42",
+    "pure/ABLATION_RESULTS.json": "214aeec1ed9ce53f53c5fe530c997254466870cfb7a30997ce265d7365f54ec5",
+    "ai/FREEZE_MANIFEST.json": "7b300c7192374c18e77515519c4f3214a6f630c7c664a89febb5c247577c7c6e",
+    "ai/PROBABILITY_PILOT_SUMMARY.json": "12327350135cc33f6796f373d37d0fe3efd62d11ffabbfd0bc671d74147b1a95",
+    "AI_SPLIT_SCOPE_AUDIT.json": "3727b1a75cca117857aa33e01815bbbf30cedffcade5caab87b9c983e14ff6a5"
+  },
+  "final50_new_challengers": [
+    "paired"
+  ],
+  "final50_queries": 1,
+  "final50_action_audits": 150,
+  "final50_timed_runs": 600,
+  "final50_score_gain_over_old_pure": 0.207708966935233,
+  "final50_comparisons": {
+    "paired/best": {
+      "mean_physical_ratio": 0.9573240462134028,
+      "worst_physical_ratio": 1.0113579076316686,
+      "improvements_over_1pct": 28,
+      "regressions_over_1pct": 1
+    },
+    "paired/ai_best": {
+      "mean_physical_ratio": 0.9451765697697017,
+      "worst_physical_ratio": 1.007451326230923,
+      "improvements_over_1pct": 33,
+      "regressions_over_1pct": 0
+    }
+  },
+  "pure_source": "round8/pure/paired_confidence.cpp",
+  "ai_source": "round4/ai_prefetch_budget2048.cpp",
+  "ai_source_promoted": false,
+  "legacy_sources_unchanged": true,
+  "limitations": [
+    "Exposed synthetic final50, not hidden official test.",
+    "Fresh48 has six underlying seeds; main48 use 64MiB and all BUILD before PROBE.",
+    "Paired 2-sigma is a selected-sample IID heuristic, not a confidence/safety guarantee.",
+    "No new learned candidate; leave-family-out negative diagnosis needs its stated scope.",
+    "Anonymous-Hit MLE pilot is finite-prefix statistics, not a deployed learner or full-flow cost gain."
+  ]
+}

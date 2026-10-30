@@ -1,0 +1,6199 @@
+{
+  "flows": 32,
+  "seed_groups": 32,
+  "states": 192,
+  "continuation_sign_conflicts": 77,
+  "positive_both": 46,
+  "conditional_min_gain_memory_transfer_units": {
+    "always0": 0.0,
+    "always1": -0.12799730662825634,
+    "handwritten": -0.12515762092597385,
+    "learned_oof": -0.037958156239862144,
+    "conditional_future_oracle": 0.012976329941820144
+  },
+  "conditional_min_gain_interval_ratio": {
+    "always0": 0.0,
+    "always1": -0.006950124203182027,
+    "handwritten": -0.005734827249093873,
+    "learned_oof": -0.0027770632946621213,
+    "conditional_future_oracle": 0.0014389567903685127
+  },
+  "mode1_fraction": 0.14583333333333334,
+  "passes_conditional_learnability": false,
+  "learned_oof_per_continuation": [
+    -0.032600996666587743,
+    -0.002059705671854351
+  ],
+  "full_gate": "return (f[8]<=-0.45849750936031342?0:(f[16]<=0.5?(f[5]<=0.83504626154899597?0:0):(f[19]<=-0.0040668488945811987?0:0)));",
+  "folds": [
+    {
+      "fold": 0,
+      "train_seeds": [
+        860100,
+        860101,
+        860102,
+        860104,
+        860105,
+        860106,
+        860108,
+        860109,
+        860110,
+        860112,
+        860113,
+        860114,
+        860116,
+        860117,
+        860118,
+        860120,
+        860121,
+        860122,
+        860124,
+        860125,
+        860126,
+        860128,
+        860129,
+        860130
+      ],
+      "test_seeds": [
+        860103,
+        860107,
+        860111,
+        860115,
+        860119,
+        860123,
+        860127,
+        860131
+      ],
+      "gate": "return (f[5]<=0.72058725357055664?0:(f[19]<=-0.0040668488945811987?(f[2]<=0.0079636797308921814?0:0):(f[5]<=0.89564433693885803?0:1)));"
+    },
+    {
+      "fold": 1,
+      "train_seeds": [
+        860100,
+        860101,
+        860103,
+        860104,
+        860105,
+        860107,
+        860108,
+        860109,
+        860111,
+        860112,
+        860113,
+        860115,
+        860116,
+        860117,
+        860119,
+        860120,
+        860121,
+        860123,
+        860124,
+        860125,
+        860127,
+        860128,
+        860129,
+        860131
+      ],
+      "test_seeds": [
+        860102,
+        860106,
+        860110,
+        860114,
+        860118,
+        860122,
+        860126,
+        860130
+      ],
+      "gate": "return (f[8]<=-0.45849750936031342?0:(f[5]<=0.83504626154899597?(f[17]<=0.015625?0:0):(f[12]<=0.61844930052757263?0:0)));"
+    },
+    {
+      "fold": 2,
+      "train_seeds": [
+        860100,
+        860102,
+        860103,
+        860104,
+        860106,
+        860107,
+        860108,
+        860110,
+        860111,
+        860112,
+        860114,
+        860115,
+        860116,
+        860118,
+        860119,
+        860120,
+        860122,
+        860123,
+        860124,
+        860126,
+        860127,
+        860128,
+        860130,
+        860131
+      ],
+      "test_seeds": [
+        860101,
+        860105,
+        860109,
+        860113,
+        860117,
+        860121,
+        860125,
+        860129
+      ],
+      "gate": "return (f[22]<=-0.02479226142168045?0:(f[20]<=-0.0082232281565666199?(f[6]<=0.081298362463712692?0:0):(f[8]<=-0.010875150561332703?0:0)));"
+    },
+    {
+      "fold": 3,
+      "train_seeds": [
+        860101,
+        860102,
+        860103,
+        860105,
+        860106,
+        860107,
+        860109,
+        860110,
+        860111,
+        860113,
+        860114,
+        860115,
+        860117,
+        860118,
+        860119,
+        860121,
+        860122,
+        860123,
+        860125,
+        860126,
+        860127,
+        860129,
+        860130,
+        860131
+      ],
+      "test_seeds": [
+        860100,
+        860104,
+        860108,
+        860112,
+        860116,
+        860120,
+        860124,
+        860128
+      ],
+      "gate": "return (f[8]<=-0.45849750936031342?0:(f[10]<=0.33318871259689331?(f[5]<=0.91241085529327393?0:0):0));"
+    }
+  ],
+  "features": [
+    "log_partitions",
+    "required_fraction",
+    "free_fraction",
+    "data_pressure",
+    "resident_fraction",
+    "size_cv",
+    "probability_tv",
+    "probability_hhi",
+    "size_heat_correlation",
+    "resident_probability_mass",
+    "max_probability",
+    "effective_samples_log",
+    "observed_probes_log",
+    "read_write_log_ratio",
+    "write_bandwidth_log",
+    "next_size_fraction",
+    "next_resident",
+    "scan_confidence",
+    "write_byte_difference",
+    "evicted_probability_difference",
+    "retention_proxy_difference",
+    "victim_count_difference",
+    "largest_victim_difference",
+    "symmetric_set_difference",
+    "next_eviction_difference"
+  ],
+  "feature_importance": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.12677425578129292,
+    0.0,
+    0.0,
+    0.770266223759008,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.08962725901247194,
+    0.0,
+    0.0,
+    0.013332261447227184,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "details": [
+    {
+      "flow": "learning_train_uniform_independent_s860100_b17",
+      "seed": 860100,
+      "operation": 26516,
+      "gains_per_memory_transfer": [
+        -0.009699404239654503,
+        0.024807021021843075
+      ],
+      "interval_relative_gains": [
+        -0.004031707094840639,
+        0.009915244002947049
+      ],
+      "physical_costs": [
+        [
+          161449.2285,
+          162100.1445
+        ],
+        [
+          167900.1545,
+          166235.3835
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67106734,
+        67106734,
+        67106808,
+        67103874
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860100_b17",
+      "seed": 860100,
+      "operation": 41024,
+      "gains_per_memory_transfer": [
+        -0.044200189411640334,
+        0.10919380933046337
+      ],
+      "interval_relative_gains": [
+        -0.017493281320611,
+        0.0419522145485489
+      ],
+      "physical_costs": [
+        [
+          169563.6425,
+          172529.867
+        ],
+        [
+          174671.8875,
+          167344.015
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67074644,
+        67069761,
+        67051966,
+        67105767
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860100_b17",
+      "seed": 860100,
+      "operation": 122743,
+      "gains_per_memory_transfer": [
+        0.02356282621622085,
+        0.004795745015144341
+      ],
+      "interval_relative_gains": [
+        0.009643142773656637,
+        0.00176741613272384
+      ],
+      "physical_costs": [
+        [
+          163979.165,
+          162397.8905
+        ],
+        [
+          182094.6375,
+          181772.8005
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66884601,
+        67067582,
+        67082772,
+        67082772
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860100_b17",
+      "seed": 860100,
+      "operation": 126059,
+      "gains_per_memory_transfer": [
+        -0.05303023755550383,
+        -0.03831414133310344
+      ],
+      "interval_relative_gains": [
+        -0.020420195386116717,
+        -0.014653372652591869
+      ],
+      "physical_costs": [
+        [
+          174278.401,
+          177837.2
+        ],
+        [
+          175469.3995,
+          178040.61800000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67031162,
+        67083966,
+        67032935,
+        67059460
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860100_b17",
+      "seed": 860100,
+      "operation": 151201,
+      "gains_per_memory_transfer": [
+        0.006860323250293312,
+        0.07434214651584614
+      ],
+      "interval_relative_gains": [
+        0.0026575277676160187,
+        0.027208683612241394
+      ],
+      "physical_costs": [
+        [
+          173239.39399999997,
+          172779.0055
+        ],
+        [
+          183361.2045,
+          178372.1875
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67081478,
+        67095203,
+        67091771,
+        67102981
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860100_b17",
+      "seed": 860100,
+      "operation": 186261,
+      "gains_per_memory_transfer": [
+        0.03496337682008712,
+        0.004363283514976536
+      ],
+      "interval_relative_gains": [
+        0.012696205329392448,
+        0.001703558631965898
+      ],
+      "physical_costs": [
+        [
+          184807.3845,
+          182461.032
+        ],
+        [
+          171884.31,
+          171591.495
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67097977,
+        66711974,
+        67084732,
+        67084732
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "operation": 26917,
+      "gains_per_memory_transfer": [
+        -0.14970651765663923,
+        0.06854524711768135
+      ],
+      "interval_relative_gains": [
+        -0.002151346953993831,
+        0.0010754903531028845
+      ],
+      "physical_costs": [
+        [
+          14009782.543,
+          14039922.445999999
+        ],
+        [
+          12831338.71,
+          12817538.729
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66702398,
+        66702398,
+        66138881,
+        66138881
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "operation": 45678,
+      "gains_per_memory_transfer": [
+        -0.3544235130151137,
+        -0.05518486599127385
+      ],
+      "interval_relative_gains": [
+        -0.004938631256369086,
+        -0.000820368779529412
+      ],
+      "physical_costs": [
+        [
+          14448310.533,
+          14519665.411
+        ],
+        [
+          13542910.550999999,
+          13554020.731999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66999754,
+        66999754,
+        65510120,
+        65510120
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "operation": 156346,
+      "gains_per_memory_transfer": [
+        0.08486397067706634,
+        0.08486397067706634
+      ],
+      "interval_relative_gains": [
+        0.0012651084418514767,
+        0.00134626021746079
+      ],
+      "physical_costs": [
+        [
+          13505066.787,
+          13487981.412999999
+        ],
+        [
+          12690989.289,
+          12673903.915
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65264300,
+        65264300,
+        66882715,
+        66882715
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "operation": 160719,
+      "gains_per_memory_transfer": [
+        0.018784443537395168,
+        0.06415436665217304
+      ],
+      "interval_relative_gains": [
+        0.0002749696788967118,
+        0.001043130448724829
+      ],
+      "physical_costs": [
+        [
+          13753545.537,
+          13749763.729
+        ],
+        [
+          12381941.315,
+          12369025.334999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66027231,
+        66027231,
+        66671817,
+        66671817
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "operation": 194910,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          13612113.368999999,
+          13612113.368999999
+        ],
+        [
+          12655205.676,
+          12655205.676
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66985424,
+        66985424,
+        64285117,
+        64285117
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860101_b257",
+      "seed": 860101,
+      "operation": 241707,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.07228916386763558
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0011503609127733888
+      ],
+      "physical_costs": [
+        [
+          13944624.629,
+          13944624.629
+        ],
+        [
+          12651447.766,
+          12636894.035
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66453069,
+        66453069,
+        65515004,
+        65515004
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860102_b67",
+      "seed": 860102,
+      "operation": 32488,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.029451221227645794
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.012714596669470129
+      ],
+      "physical_costs": [
+        [
+          198645.317,
+          198645.317
+        ],
+        [
+          155446.378,
+          157422.816
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66609180,
+        66609180,
+        66942860,
+        66942860
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860102_b67",
+      "seed": 860102,
+      "operation": 87979,
+      "gains_per_memory_transfer": [
+        0.030231907963752715,
+        -0.06528043001890159
+      ],
+      "interval_relative_gains": [
+        0.01134475760599611,
+        -0.024448455552660387
+      ],
+      "physical_costs": [
+        [
+          178834.0545,
+          176805.2255
+        ],
+        [
+          179189.049,
+          183569.94449999998
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67046435,
+        66955289,
+        67057122,
+        67067539
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860102_b67",
+      "seed": 860102,
+      "operation": 181743,
+      "gains_per_memory_transfer": [
+        0.2846991568803787,
+        0.010497406125068841
+      ],
+      "interval_relative_gains": [
+        0.0952708763583979,
+        0.0036155970602563445
+      ],
+      "physical_costs": [
+        [
+          200542.2615,
+          181436.4245
+        ],
+        [
+          194841.6785,
+          194137.2095
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66836546,
+        67083720,
+        66855406,
+        66855406
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860102_b67",
+      "seed": 860102,
+      "operation": 223918,
+      "gains_per_memory_transfer": [
+        -0.023009516298770714,
+        0.1030676215887068
+      ],
+      "interval_relative_gains": [
+        -0.008186879670960157,
+        0.03891559755688226
+      ],
+      "physical_costs": [
+        [
+          188611.8475,
+          190155.99
+        ],
+        [
+          177737.2425,
+          170820.4915
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66970181,
+        67013542,
+        67057217,
+        67057217
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860102_b67",
+      "seed": 860102,
+      "operation": 238792,
+      "gains_per_memory_transfer": [
+        0.00702936202287693,
+        0.010690614581108059
+      ],
+      "interval_relative_gains": [
+        0.002635029381500039,
+        0.004585329669023657
+      ],
+      "physical_costs": [
+        [
+          179023.62050000002,
+          178551.888
+        ],
+        [
+          156463.123,
+          155745.688
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67003493,
+        66976026,
+        67097540,
+        67097540
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860102_b67",
+      "seed": 860102,
+      "operation": 251120,
+      "gains_per_memory_transfer": [
+        -0.06290348619222624,
+        -0.022054672241211132
+      ],
+      "interval_relative_gains": [
+        -0.02300874859256177,
+        -0.008553235182134166
+      ],
+      "physical_costs": [
+        [
+          183468.5395,
+          187689.921
+        ],
+        [
+          173041.4245,
+          174521.4885
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66787406,
+        67017279,
+        66951480,
+        66951480
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860103_b1021",
+      "seed": 860103,
+      "operation": 31855,
+      "gains_per_memory_transfer": [
+        -0.24721782902875633,
+        0.1393962701161655
+      ],
+      "interval_relative_gains": [
+        -0.0016960377162317634,
+        0.000976672451980223
+      ],
+      "physical_costs": [
+        [
+          29345764.262000002,
+          29395535.785
+        ],
+        [
+          28734480.985,
+          28706416.809
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65217321,
+        65217321,
+        65217321,
+        65217321
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860103_b1021",
+      "seed": 860103,
+      "operation": 92053,
+      "gains_per_memory_transfer": [
+        -0.07312946518261976,
+        0.1427344133456502
+      ],
+      "interval_relative_gains": [
+        -0.0005231472480446845,
+        0.0010341367627221866
+      ],
+      "physical_costs": [
+        [
+          28142948.386,
+          28157671.292
+        ],
+        [
+          27787652.5,
+          27758916.267
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63389289,
+        63389289,
+        63389289,
+        63389289
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860103_b1021",
+      "seed": 860103,
+      "operation": 193946,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          28792285.01,
+          28792285.01
+        ],
+        [
+          27294260.115999997,
+          27294260.115999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67105018,
+        67105018,
+        62959437,
+        62959437
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860103_b1021",
+      "seed": 860103,
+      "operation": 241694,
+      "gains_per_memory_transfer": [
+        -0.16545735796291705,
+        0.1427344133456502
+      ],
+      "interval_relative_gains": [
+        -0.0011525530732957453,
+        0.0010084282245295408
+      ],
+      "physical_costs": [
+        [
+          28901893.346,
+          28935204.312
+        ],
+        [
+          28496061.793,
+          28467325.560000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65329568,
+        65329568,
+        65329568,
+        65329568
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860103_b1021",
+      "seed": 860103,
+      "operation": 256407,
+      "gains_per_memory_transfer": [
+        -0.04982443153859576,
+        0.08957183857758826
+      ],
+      "interval_relative_gains": [
+        -0.0003510023622748088,
+        0.0006543282177197891
+      ],
+      "physical_costs": [
+        [
+          28578106.810999997,
+          28588137.794
+        ],
+        [
+          27559858.358,
+          27541825.165
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63311926,
+        63311926,
+        62956863,
+        62956863
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860103_b1021",
+      "seed": 860103,
+      "operation": 268637,
+      "gains_per_memory_transfer": [
+        -0.19504968325297542,
+        0.14273441334566872
+      ],
+      "interval_relative_gains": [
+        -0.001376137768594658,
+        0.0010345606642516703
+      ],
+      "physical_costs": [
+        [
+          28535433.658,
+          28574702.346
+        ],
+        [
+          27776266.770000003,
+          27747530.537
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65146421,
+        65146421,
+        65146421,
+        65146421
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860104_b67",
+      "seed": 860104,
+      "operation": 58999,
+      "gains_per_memory_transfer": [
+        -0.010902687907217434,
+        -0.23994942754507198
+      ],
+      "interval_relative_gains": [
+        -0.00022908975071153398,
+        -0.004812580919356182
+      ],
+      "physical_costs": [
+        [
+          3193800.673,
+          3194532.34
+        ],
+        [
+          3345966.285,
+          3362069.0185000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65397108,
+        65397108,
+        66600606,
+        66849535
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860104_b67",
+      "seed": 860104,
+      "operation": 79092,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.5092674791812926
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.010747302913522157
+      ],
+      "physical_costs": [
+        [
+          3141200.5485,
+          3141200.5485
+        ],
+        [
+          3179994.2994999997,
+          3214170.6615
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67009621,
+        67009621,
+        66448873,
+        66551601
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860104_b67",
+      "seed": 860104,
+      "operation": 134828,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.3707584366202388
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.0077547332645103795
+      ],
+      "physical_costs": [
+        [
+          3144826.6059999997,
+          3144826.6059999997
+        ],
+        [
+          3208514.9354999997,
+          3233396.113
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67082848,
+        67082848,
+        66864483,
+        66940308
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860104_b67",
+      "seed": 860104,
+      "operation": 206370,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          3201362.251,
+          3201362.251
+        ],
+        [
+          3239514.6955000004,
+          3239514.6955000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66814176,
+        66814176,
+        66561257,
+        66561257
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860104_b67",
+      "seed": 860104,
+      "operation": 241301,
+      "gains_per_memory_transfer": [
+        0.01731882989406547,
+        0.05798045545816338
+      ],
+      "interval_relative_gains": [
+        0.00035346110937722246,
+        0.0011484852362194347
+      ],
+      "physical_costs": [
+        [
+          3288189.193,
+          3287026.946
+        ],
+        [
+          3387942.9855,
+          3384051.983
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66986497,
+        66986497,
+        66277516,
+        65745513
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860104_b67",
+      "seed": 860104,
+      "operation": 249238,
+      "gains_per_memory_transfer": [
+        -0.27023619413375777,
+        -0.3666670396924032
+      ],
+      "interval_relative_gains": [
+        -0.005645090554052711,
+        -0.007749522876917979
+      ],
+      "physical_costs": [
+        [
+          3212569.192,
+          3230704.4359999998
+        ],
+        [
+          3175241.7395,
+          3199848.348
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66967485,
+        66515587,
+        67079890,
+        67103775
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860105_b1021",
+      "seed": 860105,
+      "operation": 28695,
+      "gains_per_memory_transfer": [
+        0.3218623151381809,
+        0.007197986046476404
+      ],
+      "interval_relative_gains": [
+        0.009558150506211071,
+        0.00028072978939506436
+      ],
+      "physical_costs": [
+        [
+          6779495.987,
+          6714696.544
+        ],
+        [
+          5162067.065,
+          5160617.919
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61565327,
+        64292306,
+        65682688,
+        65682688
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860105_b1021",
+      "seed": 860105,
+      "operation": 59843,
+      "gains_per_memory_transfer": [
+        -0.10773046314716446,
+        0.20929321149984934
+      ],
+      "interval_relative_gains": [
+        -0.003125918484170922,
+        0.007958714802955024
+      ],
+      "physical_costs": [
+        [
+          6938442.928,
+          6960131.9350000005
+        ],
+        [
+          5294358.454,
+          5252222.165
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62686250,
+        66484534,
+        66810449,
+        66810449
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860105_b1021",
+      "seed": 860105,
+      "operation": 110166,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          6938159.636,
+          6938159.636
+        ],
+        [
+          4955595.458000001,
+          4955595.458000001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65973955,
+        65973955,
+        66761465,
+        66761465
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860105_b1021",
+      "seed": 860105,
+      "operation": 147655,
+      "gains_per_memory_transfer": [
+        0.10684073468048931,
+        0.1001419822374977
+      ],
+      "interval_relative_gains": [
+        0.0032275859062722346,
+        0.00415110842228489
+      ],
+      "physical_costs": [
+        [
+          6664386.828,
+          6642876.947000001
+        ],
+        [
+          4856833.874,
+          4836672.63
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66748933,
+        66992922,
+        66555064,
+        66555064
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860105_b1021",
+      "seed": 860105,
+      "operation": 239469,
+      "gains_per_memory_transfer": [
+        0.1699499040842082,
+        0.34763108193874387
+      ],
+      "interval_relative_gains": [
+        0.004913510425951492,
+        0.013139011292163766
+      ],
+      "physical_costs": [
+        [
+          6963541.752,
+          6929326.317
+        ],
+        [
+          5326685.505,
+          5256698.124
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67069397,
+        59218151,
+        67069397,
+        67069397
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860105_b1021",
+      "seed": 860105,
+      "operation": 246355,
+      "gains_per_memory_transfer": [
+        3.18913023173809,
+        0.11295896768570104
+      ],
+      "interval_relative_gains": [
+        0.09423220765865124,
+        0.005129512060415251
+      ],
+      "physical_costs": [
+        [
+          6813559.153,
+          6171502.432
+        ],
+        [
+          4433490.697000001,
+          4410749.053
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66905509,
+        66409806,
+        66566460,
+        66566460
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860106_b67",
+      "seed": 860106,
+      "operation": 28147,
+      "gains_per_memory_transfer": [
+        4.967053731282552e-06,
+        0.0
+      ],
+      "interval_relative_gains": [
+        5.304974239705561e-07,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          1885023.291,
+          1885022.291
+        ],
+        [
+          1816011.1889999998,
+          1816011.1889999998
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67103144,
+        67103144,
+        65754608,
+        65754608
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860106_b67",
+      "seed": 860106,
+      "operation": 54446,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.017427394787471646
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.002041874274722542
+      ],
+      "physical_costs": [
+        [
+          1740826.636,
+          1740826.636
+        ],
+        [
+          1718322.2510000002,
+          1714813.653
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67036126,
+        67036126,
+        66625338,
+        66625338
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860106_b67",
+      "seed": 860106,
+      "operation": 131984,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.10644881427288033
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.013092436775170605
+      ],
+      "physical_costs": [
+        [
+          1662517.648,
+          1662517.648
+        ],
+        [
+          1636897.4980000001,
+          1658328.475
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67017168,
+        67017168,
+        67067890,
+        67067890
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860106_b67",
+      "seed": 860106,
+      "operation": 210334,
+      "gains_per_memory_transfer": [
+        -0.043165231744448966,
+        0.0017779320478442568
+      ],
+      "interval_relative_gains": [
+        -0.0055128470371773874,
+        0.00023301133886708406
+      ],
+      "physical_costs": [
+        [
+          1576374.048,
+          1585064.357
+        ],
+        [
+          1536169.878,
+          1535811.933
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66005993,
+        66403539,
+        66403515,
+        66403515
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860106_b67",
+      "seed": 860106,
+      "operation": 216390,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.17581740021705683
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.02069115258399146
+      ],
+      "physical_costs": [
+        [
+          1692716.529,
+          1692716.529
+        ],
+        [
+          1710717.557,
+          1746114.2750000001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67089903,
+        67089903,
+        66890654,
+        67001557
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860106_b67",
+      "seed": 860106,
+      "operation": 264962,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          1690129.666,
+          1690129.666
+        ],
+        [
+          1666677.8900000001,
+          1666677.8900000001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66668300,
+        66668300,
+        65183890,
+        65183890
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860107_b17",
+      "seed": 860107,
+      "operation": 313000,
+      "gains_per_memory_transfer": [
+        -0.03614399333794899,
+        0.02093671758969633
+      ],
+      "interval_relative_gains": [
+        -0.002797006185435032,
+        0.002031274207674228
+      ],
+      "physical_costs": [
+        [
+          2601619.917,
+          2608896.664
+        ],
+        [
+          2075110.285,
+          2070895.167
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67091981,
+        66951701,
+        67089113,
+        67089113
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860107_b17",
+      "seed": 860107,
+      "operation": 528679,
+      "gains_per_memory_transfer": [
+        0.07270624240239554,
+        0.002624645829202299
+      ],
+      "interval_relative_gains": [
+        0.005267497012406548,
+        0.00024120510478244838
+      ],
+      "physical_costs": [
+        [
+          2778872.008,
+          2764234.3079999997
+        ],
+        [
+          2190712.342,
+          2190183.931
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67107944,
+        66941261,
+        66654209,
+        66654209
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860107_b17",
+      "seed": 860107,
+      "operation": 531114,
+      "gains_per_memory_transfer": [
+        -0.1324562231699624,
+        -0.018482695023219753
+      ],
+      "interval_relative_gains": [
+        -0.009595576801716849,
+        -0.0016729381010862343
+      ],
+      "physical_costs": [
+        [
+          2779088.798,
+          2805755.758
+        ],
+        [
+          2224265.2,
+          2227986.2580000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66858855,
+        66731765,
+        67044303,
+        66751190
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860107_b17",
+      "seed": 860107,
+      "operation": 753516,
+      "gains_per_memory_transfer": [
+        -0.0847709427277248,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.00619456923032841,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2755097.952,
+          2772164.597
+        ],
+        [
+          2131841.448,
+          2131841.448
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66839126,
+        65736840,
+        67079260,
+        67079260
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860107_b17",
+      "seed": 860107,
+      "operation": 769236,
+      "gains_per_memory_transfer": [
+        0.01419350008169858,
+        -0.015349005659422155
+      ],
+      "interval_relative_gains": [
+        0.0010598211428756723,
+        -0.0014330707843753115
+      ],
+      "physical_costs": [
+        [
+          2696237.02,
+          2693379.491
+        ],
+        [
+          2156322.656,
+          2159412.819
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66737651,
+        66843564,
+        66833866,
+        66833866
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860107_b17",
+      "seed": 860107,
+      "operation": 915443,
+      "gains_per_memory_transfer": [
+        -0.0087621957063679,
+        -0.005579099059104438
+      ],
+      "interval_relative_gains": [
+        -0.0006411689844166438,
+        -0.0005191073540633694
+      ],
+      "physical_costs": [
+        [
+          2751323.0409999997,
+          2753087.104
+        ],
+        [
+          2163754.744,
+          2164877.965
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67044845,
+        67056430,
+        66941983,
+        67029800
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860108_b17",
+      "seed": 860108,
+      "operation": 54714,
+      "gains_per_memory_transfer": [
+        0.021583050489423772,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.00024248123585068608,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          5973303.439,
+          5971855.025
+        ],
+        [
+          6014080.695,
+          6014080.695
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67094601,
+        67094601,
+        66165681,
+        66165681
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860108_b17",
+      "seed": 860108,
+      "operation": 71964,
+      "gains_per_memory_transfer": [
+        0.3887959271669378,
+        0.23011418431997943
+      ],
+      "interval_relative_gains": [
+        0.004313003357427157,
+        0.0025665334119714285
+      ],
+      "physical_costs": [
+        [
+          6049532.272,
+          6023440.619
+        ],
+        [
+          6016949.3325,
+          6001506.630999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66495838,
+        66495838,
+        62220203,
+        65832692
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860108_b17",
+      "seed": 860108,
+      "operation": 120137,
+      "gains_per_memory_transfer": [
+        0.14199998974799566,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0016697147489450187,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          5707237.123,
+          5697707.665
+        ],
+        [
+          5645664.6504999995,
+          5645664.6504999995
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66913465,
+        67026889,
+        66831500,
+        66831500
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860108_b17",
+      "seed": 860108,
+      "operation": 182756,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          6004347.358,
+          6004347.358
+        ],
+        [
+          5840242.647500001,
+          5840242.647500001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66534544,
+        66534544,
+        65555031,
+        65555031
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860108_b17",
+      "seed": 860108,
+      "operation": 213660,
+      "gains_per_memory_transfer": [
+        -0.09953226149082839,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.0011528076466242822,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          5794112.3305,
+          5800791.827500001
+        ],
+        [
+          5731992.736500001,
+          5731992.736500001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65764128,
+        65764128,
+        66554566,
+        66554566
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860108_b17",
+      "seed": 860108,
+      "operation": 220831,
+      "gains_per_memory_transfer": [
+        0.010902643203733464,
+        1.2311593070626348
+      ],
+      "interval_relative_gains": [
+        0.00012866711941682005,
+        0.014526137305106487
+      ],
+      "physical_costs": [
+        [
+          5686487.7625,
+          5685756.0985
+        ],
+        [
+          5687795.782500001,
+          5605174.08
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66914562,
+        66914562,
+        67060652,
+        66718217
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860109_b257",
+      "seed": 860109,
+      "operation": 74129,
+      "gains_per_memory_transfer": [
+        0.0011689811944961626,
+        0.0011689811944961355
+      ],
+      "interval_relative_gains": [
+        0.010278065503228169,
+        0.011446536769312605
+      ],
+      "physical_costs": [
+        [
+          7632.662,
+          7554.213
+        ],
+        [
+          6853.513999999999,
+          6775.0650000000005
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66918476,
+        66918476,
+        66720230,
+        66720230
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860109_b257",
+      "seed": 860109,
+      "operation": 112073,
+      "gains_per_memory_transfer": [
+        0.0019951984286308367,
+        0.004234299063682565
+      ],
+      "interval_relative_gains": [
+        0.011467005601293849,
+        0.03808129680566141
+      ],
+      "physical_costs": [
+        [
+          11676.588,
+          11542.6925
+        ],
+        [
+          7461.904500000001,
+          7177.7455
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67051152,
+        67101383,
+        67063273,
+        67063273
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860109_b257",
+      "seed": 860109,
+      "operation": 112751,
+      "gains_per_memory_transfer": [
+        -0.0034500285983085654,
+        0.0019831955432891867
+      ],
+      "interval_relative_gains": [
+        -0.02147927797378449,
+        0.017977665900836222
+      ],
+      "physical_costs": [
+        [
+          10779.11,
+          11010.6375
+        ],
+        [
+          7403.0745,
+          7269.9845
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67039582,
+        67084181,
+        66797519,
+        67063699
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860109_b257",
+      "seed": 860109,
+      "operation": 128533,
+      "gains_per_memory_transfer": [
+        0.009566105902194968,
+        0.002419024705886844
+      ],
+      "interval_relative_gains": [
+        0.13846394584732494,
+        0.04010794244140409
+      ],
+      "physical_costs": [
+        [
+          4636.373,
+          3994.4025
+        ],
+        [
+          4047.5275,
+          3885.1895
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66751466,
+        67091691,
+        66619611,
+        66944287
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860109_b257",
+      "seed": 860109,
+      "operation": 186644,
+      "gains_per_memory_transfer": [
+        0.012286484241485584,
+        0.0014567524194717334
+      ],
+      "interval_relative_gains": [
+        0.1442318465376734,
+        0.017474543215000554
+      ],
+      "physical_costs": [
+        [
+          5716.7125,
+          4892.1805
+        ],
+        [
+          5594.481,
+          5496.72
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67044017,
+        67037509,
+        66713868,
+        66713868
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860109_b257",
+      "seed": 860109,
+      "operation": 223850,
+      "gains_per_memory_transfer": [
+        -0.009832881391048426,
+        0.0027976781129837006
+      ],
+      "interval_relative_gains": [
+        -0.05440659593717535,
+        0.02003738018530004
+      ],
+      "physical_costs": [
+        [
+          12128.557,
+          12788.4305
+        ],
+        [
+          9369.9375,
+          9182.1885
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67080139,
+        66489440,
+        66972684,
+        66972684
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860110_b67",
+      "seed": 860110,
+      "operation": 29248,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.017368679245314173
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0010312314093257635
+      ],
+      "physical_costs": [
+        [
+          3323080.805,
+          3323080.805
+        ],
+        [
+          3390875.1890000002,
+          3387378.412
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64200823,
+        64200823,
+        66023459,
+        66023459
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860110_b67",
+      "seed": 860110,
+      "operation": 63477,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.37079019844532085
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.021792572641589913
+      ],
+      "physical_costs": [
+        [
+          3335629.2070000004,
+          3335629.2070000004
+        ],
+        [
+          3425475.653,
+          3350825.726
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66967762,
+        66967762,
+        66919947,
+        66073951
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860110_b67",
+      "seed": 860110,
+      "operation": 118593,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.012765094637871843
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.0006826921029780498
+      ],
+      "physical_costs": [
+        [
+          3899265.5209999997,
+          3899265.5209999997
+        ],
+        [
+          3764439.326,
+          3767009.279
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66549131,
+        66549131,
+        66052130,
+        66052130
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860110_b67",
+      "seed": 860110,
+      "operation": 159379,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          3292740.6089999997,
+          3292740.6089999997
+        ],
+        [
+          3320519.594,
+          3320519.594
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66691616,
+        66691616,
+        55668088,
+        55668088
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860110_b67",
+      "seed": 860110,
+      "operation": 260957,
+      "gains_per_memory_transfer": [
+        -0.022949223717053102,
+        -0.30645609398683116
+      ],
+      "interval_relative_gains": [
+        -0.0013056107251868108,
+        -0.018176211783344547
+      ],
+      "physical_costs": [
+        [
+          3538795.225,
+          3543415.514
+        ],
+        [
+          3394423.5319999997,
+          3456121.293
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66236290,
+        66102902,
+        65641207,
+        65641207
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860110_b67",
+      "seed": 860110,
+      "operation": 268510,
+      "gains_per_memory_transfer": [
+        -0.022181600332256874,
+        -0.03723473846912323
+      ],
+      "interval_relative_gains": [
+        -0.0013620613011910477,
+        -0.0022801812690000757
+      ],
+      "physical_costs": [
+        [
+          3278667.4110000003,
+          3283133.1569999997
+        ],
+        [
+          3287608.359,
+          3295104.702
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67037835,
+        67037835,
+        65119017,
+        65119017
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860111_b17",
+      "seed": 860111,
+      "operation": 29900,
+      "gains_per_memory_transfer": [
+        -0.21799371639887508,
+        -0.06039787332216828
+      ],
+      "interval_relative_gains": [
+        -0.00899127517494163,
+        -0.0028697179877823164
+      ],
+      "physical_costs": [
+        [
+          4881168.816,
+          4925056.748
+        ],
+        [
+          4237244.932,
+          4249404.63
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61489770,
+        61489770,
+        64247325,
+        64247325
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860111_b17",
+      "seed": 860111,
+      "operation": 78536,
+      "gains_per_memory_transfer": [
+        0.20758931338786535,
+        0.10706323881943629
+      ],
+      "interval_relative_gains": [
+        0.009859141566518154,
+        0.005055157183369468
+      ],
+      "physical_costs": [
+        [
+          4239035.287,
+          4197242.038000001
+        ],
+        [
+          4263898.473999999,
+          4242343.797
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62858113,
+        61489770,
+        62921839,
+        62921839
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860111_b17",
+      "seed": 860111,
+      "operation": 167626,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.08763215939204076
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.004986135395668153
+      ],
+      "physical_costs": [
+        [
+          4626209.436000001,
+          4626209.436000001
+        ],
+        [
+          3538348.36,
+          3555991.044
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63840770,
+        63840770,
+        66046528,
+        66046528
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860111_b17",
+      "seed": 860111,
+      "operation": 205000,
+      "gains_per_memory_transfer": [
+        0.6073161562283833,
+        -0.032524898648263655
+      ],
+      "interval_relative_gains": [
+        0.03131441879727505,
+        -0.0014266903677667764
+      ],
+      "physical_costs": [
+        [
+          3904555.687,
+          3782286.795
+        ],
+        [
+          4589732.396,
+          4596280.523
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61489770,
+        66917567,
+        61721427,
+        61721427
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860111_b17",
+      "seed": 860111,
+      "operation": 217285,
+      "gains_per_memory_transfer": [
+        3.1944260646899525,
+        0.03823306659857251
+      ],
+      "interval_relative_gains": [
+        0.11502451484639484,
+        0.0015659140075436674
+      ],
+      "physical_costs": [
+        [
+          5591181.27,
+          4948058.357
+        ],
+        [
+          4915552.81,
+          4907855.477
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66542453,
+        61489770,
+        65313110,
+        65313110
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860111_b17",
+      "seed": 860111,
+      "operation": 227780,
+      "gains_per_memory_transfer": [
+        -6.290942793091137,
+        -0.060397873322172904
+      ],
+      "interval_relative_gains": [
+        -0.3437715288168291,
+        -0.002877329818180856
+      ],
+      "physical_costs": [
+        [
+          3684232.017,
+          4950766.09
+        ],
+        [
+          4226035.515,
+          4238195.213
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66358139,
+        62774985,
+        63840770,
+        63840770
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860112_b1021",
+      "seed": 860112,
+      "operation": 31491,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          47864392.561000004,
+          47864392.561000004
+        ],
+        [
+          47754834.513,
+          47754834.513
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66810691,
+        66810691,
+        54838833,
+        54838833
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860112_b1021",
+      "seed": 860112,
+      "operation": 88882,
+      "gains_per_memory_transfer": [
+        -0.09687717258932693,
+        0.05374243855471583
+      ],
+      "interval_relative_gains": [
+        -0.00013639398523817488,
+        7.582138642627992e-05
+      ],
+      "physical_costs": [
+        [
+          47665716.2605,
+          47672217.5775
+        ],
+        [
+          47566975.0975,
+          47563368.5035
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65000736,
+        65000736,
+        65000736,
+        65000736
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860112_b1021",
+      "seed": 860112,
+      "operation": 185705,
+      "gains_per_memory_transfer": [
+        0.05271208286283802,
+        0.05271208286283802
+      ],
+      "interval_relative_gains": [
+        7.546444186260578e-05,
+        7.53980697660358e-05
+      ],
+      "physical_costs": [
+        [
+          46875692.8785,
+          46872155.4305
+        ],
+        [
+          46916957.038499996,
+          46913419.5905
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66237798,
+        66237798,
+        66237798,
+        66237798
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860112_b1021",
+      "seed": 860112,
+      "operation": 233462,
+      "gains_per_memory_transfer": [
+        -0.39226356148713837,
+        -0.09156908094887228
+      ],
+      "interval_relative_gains": [
+        -0.0005585698694431684,
+        -0.00013125224608094276
+      ],
+      "physical_costs": [
+        [
+          47128145.358500004,
+          47154469.7205
+        ],
+        [
+          46818985.4535,
+          46825130.550500005
+        ]
+      ],
+      "terminal_resident_bytes": [
+        58412915,
+        58412915,
+        58412915,
+        58412915
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860112_b1021",
+      "seed": 860112,
+      "operation": 247923,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          46009068.609500006,
+          46009068.609500006
+        ],
+        [
+          45929881.150000006,
+          45929881.150000006
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66792244,
+        66792244,
+        66544183,
+        66544183
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860112_b1021",
+      "seed": 860112,
+      "operation": 260988,
+      "gains_per_memory_transfer": [
+        0.14508797228340864,
+        0.5722313523292
+      ],
+      "interval_relative_gains": [
+        0.0002053750213216482,
+        0.0008097709921127403
+      ],
+      "physical_costs": [
+        [
+          47409314.6155,
+          47399577.9265
+        ],
+        [
+          47423032.405499995,
+          47384630.6095
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66923420,
+        66923420,
+        59260788,
+        59260788
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860113_b17",
+      "seed": 860113,
+      "operation": 27861,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2381003.5755000003,
+          2381003.5755000003
+        ],
+        [
+          2030485.079,
+          2030485.079
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65325332,
+        65325332,
+        66008005,
+        66008005
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860113_b17",
+      "seed": 860113,
+      "operation": 54067,
+      "gains_per_memory_transfer": [
+        -0.5222830176353499,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.014577813545081161,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2404326.2654999997,
+          2439376.0855
+        ],
+        [
+          2051853.9235,
+          2051853.9235
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66782168,
+        66782168,
+        66040582,
+        66040582
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860113_b17",
+      "seed": 860113,
+      "operation": 129670,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2366780.364,
+          2366780.364
+        ],
+        [
+          2035764.0614999998,
+          2035764.0614999998
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65997296,
+        65997296,
+        66722521,
+        66722521
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860113_b17",
+      "seed": 860113,
+      "operation": 206794,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2422938.5575,
+          2422938.5575
+        ],
+        [
+          2020406.3020000001,
+          2020406.3020000001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66773059,
+        66773059,
+        64476400,
+        64476400
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860113_b17",
+      "seed": 860113,
+      "operation": 212922,
+      "gains_per_memory_transfer": [
+        0.3363018929958342,
+        -0.024590462446214684
+      ],
+      "interval_relative_gains": [
+        0.009355455117176632,
+        -0.0008284622908492379
+      ],
+      "physical_costs": [
+        [
+          2412372.003,
+          2389803.165
+        ],
+        [
+          1991928.9245,
+          1993579.1625
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66045965,
+        66045965,
+        66312662,
+        66312662
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860113_b17",
+      "seed": 860113,
+      "operation": 259275,
+      "gains_per_memory_transfer": [
+        0.16572336852550829,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.004473938132718075,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2485842.8235,
+          2474721.3164999997
+        ],
+        [
+          2014671.9615,
+          2014671.9615
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65939564,
+        65939564,
+        66702276,
+        66702276
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860114_b17",
+      "seed": 860114,
+      "operation": 30872,
+      "gains_per_memory_transfer": [
+        0.025342330336570844,
+        0.034321501851081876
+      ],
+      "interval_relative_gains": [
+        0.005356149402200641,
+        0.007261818308383856
+      ],
+      "physical_costs": [
+        [
+          317521.9495,
+          315821.2545
+        ],
+        [
+          317176.3465,
+          314873.0695
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66633145,
+        67006705,
+        65637537,
+        65637537
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860114_b17",
+      "seed": 860114,
+      "operation": 80736,
+      "gains_per_memory_transfer": [
+        0.21419754624366766,
+        0.01716890931129436
+      ],
+      "interval_relative_gains": [
+        0.051311189711385694,
+        0.0038008855550768017
+      ],
+      "physical_costs": [
+        [
+          280144.625,
+          265770.071
+        ],
+        [
+          303136.199,
+          301984.01300000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66625960,
+        67084006,
+        66418624,
+        66418624
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860114_b17",
+      "seed": 860114,
+      "operation": 160328,
+      "gains_per_memory_transfer": [
+        0.09091491252183943,
+        0.05322410911321688
+      ],
+      "interval_relative_gains": [
+        0.02101395443342218,
+        0.0106481129242997
+      ],
+      "physical_costs": [
+        [
+          290340.2365,
+          284239.04
+        ],
+        [
+          335440.6105,
+          331868.801
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67077296,
+        67034007,
+        67091364,
+        67098143
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860114_b17",
+      "seed": 860114,
+      "operation": 198047,
+      "gains_per_memory_transfer": [
+        -0.007450580596923828,
+        0.019177198410034492
+      ],
+      "interval_relative_gains": [
+        -0.0018425669318794862,
+        0.004112875473059763
+      ],
+      "physical_costs": [
+        [
+          271360.56299999997,
+          271860.56299999997
+        ],
+        [
+          312910.033,
+          311623.073
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67082738,
+        67082738,
+        66726990,
+        66726990
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860114_b17",
+      "seed": 860114,
+      "operation": 221067,
+      "gains_per_memory_transfer": [
+        -0.12550815194845194,
+        0.2989185526967048
+      ],
+      "interval_relative_gains": [
+        -0.027560110853252464,
+        0.05957875358306517
+      ],
+      "physical_costs": [
+        [
+          305612.323,
+          314035.0325
+        ],
+        [
+          336698.6265,
+          316638.542
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66330934,
+        66684599,
+        65911011,
+        66583544
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860114_b17",
+      "seed": 860114,
+      "operation": 261817,
+      "gains_per_memory_transfer": [
+        -0.014991037547588092,
+        0.017994701862335087
+      ],
+      "interval_relative_gains": [
+        -0.003327106068800467,
+        0.003823331351762364
+      ],
+      "physical_costs": [
+        [
+          302374.3395,
+          303380.371
+        ],
+        [
+          315851.2535,
+          314643.6495
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66966564,
+        66688865,
+        66469942,
+        66469942
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860115_b67",
+      "seed": 860115,
+      "operation": 629359,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2923399.4560000002,
+          2923399.4560000002
+        ],
+        [
+          2603984.0085,
+          2603984.0085
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66858529,
+        66858529,
+        66391752,
+        66391752
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860115_b67",
+      "seed": 860115,
+      "operation": 642168,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.023925945162775464
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0006324118419155137
+      ],
+      "physical_costs": [
+        [
+          2887887.245,
+          2887887.245
+        ],
+        [
+          2538919.8835,
+          2537314.2405
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66992343,
+        66992343,
+        67056938,
+        67056938
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860115_b67",
+      "seed": 860115,
+      "operation": 762399,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2992463.032,
+          2992463.032
+        ],
+        [
+          2560516.717,
+          2560516.717
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67041082,
+        67041082,
+        66927070,
+        66927070
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860115_b67",
+      "seed": 860115,
+      "operation": 855495,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.005843281745916695
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.00015548196045535548
+      ],
+      "physical_costs": [
+        [
+          2934561.7145,
+          2934561.7145
+        ],
+        [
+          2522067.5045,
+          2522459.6405
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66268877,
+        66268877,
+        66620301,
+        66620301
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860115_b67",
+      "seed": 860115,
+      "operation": 931064,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2876741.1505,
+          2876741.1505
+        ],
+        [
+          2515313.5475,
+          2515313.5475
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66624385,
+        66624385,
+        66615411,
+        66615411
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860115_b67",
+      "seed": 860115,
+      "operation": 956201,
+      "gains_per_memory_transfer": [
+        0.22573406994343126,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.005208801237144906,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2908300.0695,
+          2893151.3125
+        ],
+        [
+          2561814.4485,
+          2561814.4485
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66811822,
+        66811822,
+        66891420,
+        66891420
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860116_b67",
+      "seed": 860116,
+      "operation": 59222,
+      "gains_per_memory_transfer": [
+        0.2833223789930339,
+        1.0694105178117863
+      ],
+      "interval_relative_gains": [
+        0.0028492160598161103,
+        0.011166797540665218
+      ],
+      "physical_costs": [
+        [
+          20019657.268,
+          19962616.939
+        ],
+        [
+          19280440.450000003,
+          19065139.675
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66664728,
+        66967156,
+        67014594,
+        63460952
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860116_b67",
+      "seed": 860116,
+      "operation": 79462,
+      "gains_per_memory_transfer": [
+        -0.38811961809794476,
+        1.6931154032548412
+      ],
+      "interval_relative_gains": [
+        -0.004126285057365834,
+        0.017503349043620046
+      ],
+      "physical_costs": [
+        [
+          18936840.018,
+          19014978.818
+        ],
+        [
+          19474510.458,
+          19133641.303999998
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66978375,
+        66978375,
+        65243406,
+        66844934
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860116_b67",
+      "seed": 860116,
+      "operation": 135984,
+      "gains_per_memory_transfer": [
+        -0.2562928746143907,
+        -0.6981967886289057
+      ],
+      "interval_relative_gains": [
+        -0.002588680134453886,
+        -0.006975287420256423
+      ],
+      "physical_costs": [
+        [
+          19932385.741,
+          19983984.312
+        ],
+        [
+          20151940.921,
+          20292506.501000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67019723,
+        66787605,
+        66858318,
+        66237072
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860116_b67",
+      "seed": 860116,
+      "operation": 208410,
+      "gains_per_memory_transfer": [
+        -1.2918471892674661,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.013085135030038645,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          19876232.947,
+          20136316.139
+        ],
+        [
+          19744192.037,
+          19744192.037
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66995276,
+        61475039,
+        66176380,
+        66176380
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860116_b67",
+      "seed": 860116,
+      "operation": 243697,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.5691345185041552
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0058263522608861164
+      ],
+      "physical_costs": [
+        [
+          19307054.549000002,
+          19307054.549000002
+        ],
+        [
+          19666149.225,
+          19551567.312
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66619536,
+        66619536,
+        66411948,
+        66187517
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860116_b67",
+      "seed": 860116,
+      "operation": 251796,
+      "gains_per_memory_transfer": [
+        -1.1509743928909317,
+        1.5887167453765838
+      ],
+      "interval_relative_gains": [
+        -0.012396331952744973,
+        0.01650189080272795
+      ],
+      "physical_costs": [
+        [
+          18692767.577,
+          18924489.329
+        ],
+        [
+          19382683.586,
+          19062832.658
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66833211,
+        65497958,
+        66415245,
+        65821868
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860117_b257",
+      "seed": 860117,
+      "operation": 31878,
+      "gains_per_memory_transfer": [
+        -0.04094004134337116,
+        0.006183738509813949
+      ],
+      "interval_relative_gains": [
+        -0.014404952612030593,
+        0.0028140163193376496
+      ],
+      "physical_costs": [
+        [
+          572186.471,
+          580428.79
+        ],
+        [
+          442410.725,
+          441165.774
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66419956,
+        67095918,
+        67091450,
+        67091450
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860117_b257",
+      "seed": 860117,
+      "operation": 84158,
+      "gains_per_memory_transfer": [
+        -0.16996598740418786,
+        0.016000444690386466
+      ],
+      "interval_relative_gains": [
+        -0.06417977607715544,
+        0.0063146062334919675
+      ],
+      "physical_costs": [
+        [
+          533169.093,
+          567387.7660000001
+        ],
+        [
+          510137.114,
+          506915.799
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67049669,
+        66979133,
+        66577250,
+        66577250
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860117_b257",
+      "seed": 860117,
+      "operation": 169646,
+      "gains_per_memory_transfer": [
+        -0.12970542907714902,
+        0.06374509632587425
+      ],
+      "interval_relative_gains": [
+        -0.05272665240803998,
+        0.03497958351388803
+      ],
+      "physical_costs": [
+        [
+          495255.26099999994,
+          521368.41300000006
+        ],
+        [
+          366887.816,
+          354054.233
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66934977,
+        66228692,
+        66921946,
+        67101344
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860117_b257",
+      "seed": 860117,
+      "operation": 209689,
+      "gains_per_memory_transfer": [
+        0.1419069220622377,
+        0.03331861893335978
+      ],
+      "interval_relative_gains": [
+        0.05286501675721111,
+        0.013530208351755708
+      ],
+      "physical_costs": [
+        [
+          540426.141,
+          511856.504
+        ],
+        [
+          495773.888,
+          489065.964
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67062103,
+        66936897,
+        66657528,
+        67071321
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860117_b257",
+      "seed": 860117,
+      "operation": 223070,
+      "gains_per_memory_transfer": [
+        0.1888127227624263,
+        -0.10474440455436693
+      ],
+      "interval_relative_gains": [
+        0.05994753287343134,
+        -0.04592496866425949
+      ],
+      "physical_costs": [
+        [
+          634104.861,
+          596091.8389999999
+        ],
+        [
+          459180.15,
+          480267.984
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66807782,
+        66981802,
+        67013837,
+        66885683
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860117_b257",
+      "seed": 860117,
+      "operation": 234018,
+      "gains_per_memory_transfer": [
+        0.05651791890462209,
+        0.10146717727184308
+      ],
+      "interval_relative_gains": [
+        0.01990833727409653,
+        0.04095713217372745
+      ],
+      "physical_costs": [
+        [
+          571547.48,
+          560168.92
+        ],
+        [
+          498766.391,
+          478338.35
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66994374,
+        66968777,
+        66861707,
+        67102007
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860118_b17",
+      "seed": 860118,
+      "operation": 28066,
+      "gains_per_memory_transfer": [
+        -0.002483526865641276,
+        -0.005735645691553233
+      ],
+      "interval_relative_gains": [
+        -0.00014737251025196869,
+        -0.00033938630705811256
+      ],
+      "physical_costs": [
+        [
+          3392763.0,
+          3393263.0
+        ],
+        [
+          3402429.55,
+          3403584.2879999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66904002,
+        66904002,
+        66831444,
+        66831444
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860118_b17",
+      "seed": 860118,
+      "operation": 54089,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          3259093.404,
+          3259093.404
+        ],
+        [
+          3320354.265,
+          3320354.265
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67097720,
+        67097720,
+        66982502,
+        66982502
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860118_b17",
+      "seed": 860118,
+      "operation": 130041,
+      "gains_per_memory_transfer": [
+        -0.01285586754481057,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.0007724213062899428,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          3350798.3,
+          3353386.528
+        ],
+        [
+          3306709.467,
+          3306709.467
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66734240,
+        66734240,
+        66303406,
+        66303406
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860118_b17",
+      "seed": 860118,
+      "operation": 206820,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.016144677996633716
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0010058000628541462
+      ],
+      "physical_costs": [
+        [
+          3322835.192,
+          3322835.192
+        ],
+        [
+          3231609.462,
+          3228359.109
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66532753,
+        66532753,
+        62986618,
+        62986618
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860118_b17",
+      "seed": 860118,
+      "operation": 212496,
+      "gains_per_memory_transfer": [
+        -0.14904820422331766,
+        0.2413666943709078
+      ],
+      "interval_relative_gains": [
+        -0.008839945953549191,
+        0.01422550258888566
+      ],
+      "physical_costs": [
+        [
+          3394519.283,
+          3424526.6500000004
+        ],
+        [
+          3415944.9690000005,
+          3367351.435
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61869874,
+        61869874,
+        66669281,
+        66669281
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860118_b17",
+      "seed": 860118,
+      "operation": 257705,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.05886346101760993
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.003895915053683624
+      ],
+      "physical_costs": [
+        [
+          3264067.36,
+          3264067.36
+        ],
+        [
+          3041847.637,
+          3029996.857
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66532029,
+        66532029,
+        66904402,
+        66904402
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "operation": 30704,
+      "gains_per_memory_transfer": [
+        -0.012269876897334775,
+        0.014539361000060619
+      ],
+      "interval_relative_gains": [
+        -0.004175443127802805,
+        0.005314343656009462
+      ],
+      "physical_costs": [
+        [
+          197204.8175,
+          198028.235
+        ],
+        [
+          183601.224,
+          182625.50400000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67028954,
+        66629447,
+        66945881,
+        66945881
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "operation": 72718,
+      "gains_per_memory_transfer": [
+        0.10784199088811809,
+        -0.050814531743526535
+      ],
+      "interval_relative_gains": [
+        0.03216765125542067,
+        -0.0207208276444598
+      ],
+      "physical_costs": [
+        [
+          224982.34149999998,
+          217745.18800000002
+        ],
+        [
+          164573.8075,
+          167983.913
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66992731,
+        67046878,
+        66888603,
+        66811104
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "operation": 140469,
+      "gains_per_memory_transfer": [
+        -0.16286928206682252,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.06285825033504974,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          173882.8625,
+          184812.83500000002
+        ],
+        [
+          122251.0205,
+          122251.0205
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66994217,
+        66839060,
+        66791869,
+        66791869
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "operation": 174067,
+      "gains_per_memory_transfer": [
+        0.07854047417640668,
+        0.003994211554527588
+      ],
+      "interval_relative_gains": [
+        0.02918528378432883,
+        0.0017525719420037834
+      ],
+      "physical_costs": [
+        [
+          180596.565,
+          175325.803
+        ],
+        [
+          152944.934,
+          152676.887
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65512720,
+        66425514,
+        66926380,
+        66926380
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "operation": 193935,
+      "gains_per_memory_transfer": [
+        0.06642988324165322,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.023785778799935913,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          187424.3445,
+          182966.31050000002
+        ],
+        [
+          154710.061,
+          154710.061
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67048071,
+        66740751,
+        66751534,
+        66751534
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860119_b17",
+      "seed": 860119,
+      "operation": 228183,
+      "gains_per_memory_transfer": [
+        0.04829305410385164,
+        -0.11139310896396631
+      ],
+      "interval_relative_gains": [
+        0.01637693702864705,
+        -0.07150499228996952
+      ],
+      "physical_costs": [
+        [
+          197893.6595,
+          194652.7675
+        ],
+        [
+          104544.6585,
+          112020.1235
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67044134,
+        66238998,
+        66756294,
+        66756294
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860120_b1021",
+      "seed": 860120,
+      "operation": 26371,
+      "gains_per_memory_transfer": [
+        -0.23649530112743178,
+        -0.2887204587459548
+      ],
+      "interval_relative_gains": [
+        -0.013850273351545117,
+        -0.01693954022176848
+      ],
+      "physical_costs": [
+        [
+          3437678.9390000002,
+          3485291.732
+        ],
+        [
+          3431445.319,
+          3489572.425
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65801067,
+        66843230,
+        66835021,
+        66155731
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860120_b1021",
+      "seed": 860120,
+      "operation": 39986,
+      "gains_per_memory_transfer": [
+        -0.8034037848313631,
+        0.01426215469837085
+      ],
+      "interval_relative_gains": [
+        -0.0503147126029061,
+        0.0008790379894863155
+      ],
+      "physical_costs": [
+        [
+          3214696.808,
+          3376443.354
+        ],
+        [
+          3266469.7479999997,
+          3263598.397
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66950086,
+        65971494,
+        65381842,
+        67084292
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860120_b1021",
+      "seed": 860120,
+      "operation": 121824,
+      "gains_per_memory_transfer": [
+        0.16430423160393912,
+        0.2702409823735555
+      ],
+      "interval_relative_gains": [
+        0.010866244451621475,
+        0.01789698312701641
+      ],
+      "physical_costs": [
+        [
+          3044180.641,
+          3011101.83
+        ],
+        [
+          3039992.585,
+          2985585.889
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66794094,
+        66518255,
+        66821334,
+        66937712
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860120_b1021",
+      "seed": 860120,
+      "operation": 125129,
+      "gains_per_memory_transfer": [
+        -0.0961426844199494,
+        0.5092018345991752
+      ],
+      "interval_relative_gains": [
+        -0.006167205274549895,
+        0.034212185315659324
+      ],
+      "physical_costs": [
+        [
+          3138549.495,
+          3157905.574
+        ],
+        [
+          2996472.428,
+          2893956.558
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66952378,
+        66989123,
+        66299633,
+        66524490
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860120_b1021",
+      "seed": 860120,
+      "operation": 149906,
+      "gains_per_memory_transfer": [
+        0.33678278823693714,
+        0.10570273796717267
+      ],
+      "interval_relative_gains": [
+        0.020422622708645845,
+        0.006441716312353267
+      ],
+      "physical_costs": [
+        [
+          3320010.949,
+          3252207.618
+        ],
+        [
+          3303587.2690000003,
+          3282306.4970000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66474449,
+        66849359,
+        67014967,
+        66922702
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860120_b1021",
+      "seed": 860120,
+      "operation": 184638,
+      "gains_per_memory_transfer": [
+        0.8373111834128708,
+        -0.03619554638862691
+      ],
+      "interval_relative_gains": [
+        0.051798684994505594,
+        -0.002339444639121964
+      ],
+      "physical_costs": [
+        [
+          3254387.771,
+          3085814.764
+        ],
+        [
+          3114895.6799999997,
+          3122182.806
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66914340,
+        66636394,
+        66786768,
+        66990762
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860121_b1021",
+      "seed": 860121,
+      "operation": 35600,
+      "gains_per_memory_transfer": [
+        -0.12205000221726658,
+        0.9035801813006561
+      ],
+      "interval_relative_gains": [
+        -0.00044708672979503074,
+        0.003330166577814695
+      ],
+      "physical_costs": [
+        [
+          18320018.14,
+          18328208.777
+        ],
+        [
+          18208770.6675,
+          18148132.428
+        ]
+      ],
+      "terminal_resident_bytes": [
+        58499587,
+        58499587,
+        64253194,
+        58499587
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860121_b1021",
+      "seed": 860121,
+      "operation": 116115,
+      "gains_per_memory_transfer": [
+        -1.7914601415395803,
+        0.12846101820462863
+      ],
+      "interval_relative_gains": [
+        -0.006380150073571356,
+        0.0004582892900998428
+      ],
+      "physical_costs": [
+        [
+          18843264.4395,
+          18963487.2945
+        ],
+        [
+          18810985.083499998,
+          18802364.210500002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67092905,
+        67092905,
+        67092905,
+        67092905
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860121_b1021",
+      "seed": 860121,
+      "operation": 179331,
+      "gains_per_memory_transfer": [
+        -1.3302053213120058,
+        0.5459421724081093
+      ],
+      "interval_relative_gains": [
+        -0.004479994376822985,
+        0.001826844657878581
+      ],
+      "physical_costs": [
+        [
+          19926044.6535,
+          20015313.2215
+        ],
+        [
+          20055103.6685,
+          20018466.1095
+        ]
+      ],
+      "terminal_resident_bytes": [
+        60866041,
+        60866041,
+        60866041,
+        60866041
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860121_b1021",
+      "seed": 860121,
+      "operation": 218682,
+      "gains_per_memory_transfer": [
+        -0.8453418314456895,
+        0.12846101820468414
+      ],
+      "interval_relative_gains": [
+        -0.0028596058080383453,
+        0.00043444303116173743
+      ],
+      "physical_costs": [
+        [
+          19838374.170500003,
+          19895104.100500003
+        ],
+        [
+          19843506.2405,
+          19834885.3675
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63461827,
+        63461827,
+        63461827,
+        63461827
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860121_b1021",
+      "seed": 860121,
+      "operation": 234650,
+      "gains_per_memory_transfer": [
+        -0.0022121518850615196,
+        0.12624886631962262
+      ],
+      "interval_relative_gains": [
+        -7.400513382994541e-06,
+        0.000426636604689118
+      ],
+      "physical_costs": [
+        [
+          20060094.796,
+          20060243.251000002
+        ],
+        [
+          19858628.882,
+          19850156.464
+        ]
+      ],
+      "terminal_resident_bytes": [
+        58306012,
+        58306012,
+        58306012,
+        58306012
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_negative_s860121_b1021",
+      "seed": 860121,
+      "operation": 246901,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          18920727.625,
+          18920727.625
+        ],
+        [
+          18926563.022,
+          18926563.022
+        ]
+      ],
+      "terminal_resident_bytes": [
+        60100561,
+        60100561,
+        60100561,
+        60100561
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "operation": 28257,
+      "gains_per_memory_transfer": [
+        0.16096013039350493,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.014053567830505913,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          768619.8715,
+          757818.02
+        ],
+        [
+          757749.28,
+          757749.28
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66667377,
+        66568976,
+        66678718,
+        66678718
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "operation": 56710,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.2893842458724961
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.02605158782225668
+      ],
+      "physical_costs": [
+        [
+          749022.5125,
+          749022.5125
+        ],
+        [
+          745453.5260000001,
+          764873.774
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67025837,
+        67025837,
+        66341104,
+        66471154
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "operation": 142000,
+      "gains_per_memory_transfer": [
+        -0.46208351850509505,
+        0.024298489093781822
+      ],
+      "interval_relative_gains": [
+        -0.04164076730044377,
+        0.0020447525649065867
+      ],
+      "physical_costs": [
+        [
+          744700.4945,
+          775710.3944999999
+        ],
+        [
+          797477.42,
+          795846.776
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65296055,
+        65573369,
+        66156548,
+        66156548
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "operation": 230879,
+      "gains_per_memory_transfer": [
+        0.06486818939447497,
+        -0.062026277184486917
+      ],
+      "interval_relative_gains": [
+        0.005324858917822803,
+        -0.005077519585110572
+      ],
+      "physical_costs": [
+        [
+          817529.7350000001,
+          813176.5045
+        ],
+        [
+          819792.6035,
+          823955.1165
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67058954,
+        66909561,
+        66596811,
+        66596811
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "operation": 237453,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.019358396530149563
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.0015398508238932101
+      ],
+      "physical_costs": [
+        [
+          787875.1655,
+          787875.1655
+        ],
+        [
+          843666.1395,
+          844965.2594999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67096233,
+        67096233,
+        66572825,
+        66572825
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_negative_s860122_b1021",
+      "seed": 860122,
+      "operation": 259821,
+      "gains_per_memory_transfer": [
+        0.20784667134284873,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.017095169141546632,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          815923.72,
+          801975.366
+        ],
+        [
+          834548.6095,
+          834548.6095
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66309924,
+        67014918,
+        66823771,
+        66823771
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860123_b67",
+      "seed": 860123,
+      "operation": 534063,
+      "gains_per_memory_transfer": [
+        0.026185274124145008,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0008448574460539123,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2079953.261,
+          2078195.997
+        ],
+        [
+          1673474.736,
+          1673474.736
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66097490,
+        66974748,
+        66820048,
+        66820048
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860123_b67",
+      "seed": 860123,
+      "operation": 553227,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.07015633583068795
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.0028098794776407463
+      ],
+      "physical_costs": [
+        [
+          2091691.557,
+          2091691.557
+        ],
+        [
+          1675556.563,
+          1680264.675
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67009298,
+        67009298,
+        67063980,
+        67063980
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860123_b67",
+      "seed": 860123,
+      "operation": 833001,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.12065196037292295
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.004819156456652804
+      ],
+      "physical_costs": [
+        [
+          2040326.8020000001,
+          2040326.8020000001
+        ],
+        [
+          1680131.3824999998,
+          1672034.5665
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65725072,
+        65725072,
+        65885629,
+        65885629
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860123_b67",
+      "seed": 860123,
+      "operation": 951737,
+      "gains_per_memory_transfer": [
+        -0.3810969889163976,
+        -0.4598069041967384
+      ],
+      "interval_relative_gains": [
+        -0.01151540628578404,
+        -0.016888016101086378
+      ],
+      "physical_costs": [
+        [
+          2220936.4885,
+          2246511.4745
+        ],
+        [
+          1827160.6809999999,
+          1858017.7999999998
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66089711,
+        67106823,
+        65354850,
+        65976472
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860123_b67",
+      "seed": 860123,
+      "operation": 956114,
+      "gains_per_memory_transfer": [
+        0.09035972505808121,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0027726071579390068,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          2187088.958,
+          2181025.0195
+        ],
+        [
+          1777928.923,
+          1777928.923
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66331118,
+        66764165,
+        67031756,
+        67031756
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_negative_s860123_b67",
+      "seed": 860123,
+      "operation": 956117,
+      "gains_per_memory_transfer": [
+        0.08813408017158825,
+        0.2546744346618654
+      ],
+      "interval_relative_gains": [
+        0.0027092219100139383,
+        0.00943788501539295
+      ],
+      "physical_costs": [
+        [
+          2183127.9225000003,
+          2177213.3445
+        ],
+        [
+          1810883.6855000001,
+          1793792.7735000001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66930372,
+        67064698,
+        66561728,
+        65759962
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860124_b1021",
+      "seed": 860124,
+      "operation": 52121,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.08337637782096508
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.002782633442248987
+      ],
+      "physical_costs": [
+        [
+          6129570.824,
+          6129570.824
+        ],
+        [
+          6032372.696,
+          6049158.578
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67087239,
+        67087239,
+        66967655,
+        67082092
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860124_b1021",
+      "seed": 860124,
+      "operation": 68094,
+      "gains_per_memory_transfer": [
+        -0.01506228248277878,
+        0.14121383925278877
+      ],
+      "interval_relative_gains": [
+        -0.0005074735765952841,
+        0.0047553814981342955
+      ],
+      "physical_costs": [
+        [
+          5975558.413000001,
+          5978590.851
+        ],
+        [
+          5978511.085,
+          5950080.984
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66885695,
+        66885695,
+        67075452,
+        66715586
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860124_b1021",
+      "seed": 860124,
+      "operation": 112703,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          6046924.785,
+          6046924.785
+        ],
+        [
+          6133170.39,
+          6133170.39
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67060656,
+        67060656,
+        66954063,
+        66954063
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860124_b1021",
+      "seed": 860124,
+      "operation": 169938,
+      "gains_per_memory_transfer": [
+        -0.005243668953575087,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.0001727270346490789,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          6111897.898,
+          6112953.5879999995
+        ],
+        [
+          6067527.268999999,
+          6067527.268999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66713723,
+        66713723,
+        66949242,
+        66949242
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860124_b1021",
+      "seed": 860124,
+      "operation": 198279,
+      "gains_per_memory_transfer": [
+        -0.005901003877317734,
+        0.03683262566725002
+      ],
+      "interval_relative_gains": [
+        -0.0002070231907851576,
+        0.0012673450856182677
+      ],
+      "physical_costs": [
+        [
+          5738627.617000001,
+          5739815.646
+        ],
+        [
+          5851119.0709999995,
+          5843703.684
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67026439,
+        67026439,
+        66943961,
+        67010995
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860124_b1021",
+      "seed": 860124,
+      "operation": 204837,
+      "gains_per_memory_transfer": [
+        -0.00726101795832379,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.0002490943235317488,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          5868604.227,
+          5870066.063
+        ],
+        [
+          5944249.799,
+          5944249.799
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67056016,
+        67056016,
+        66614531,
+        66614531
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860125_b257",
+      "seed": 860125,
+      "operation": 27251,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.06552946070829957
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.0017578519616465334
+      ],
+      "physical_costs": [
+        [
+          8861804.23,
+          8861804.23
+        ],
+        [
+          7505081.933999999,
+          7518274.756999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64763400,
+        64763400,
+        64333067,
+        64333067
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860125_b257",
+      "seed": 860125,
+      "operation": 50083,
+      "gains_per_memory_transfer": [
+        0.15901579956213255,
+        0.0810120354096111
+      ],
+      "interval_relative_gains": [
+        0.003567103706102898,
+        0.00208514720561462
+      ],
+      "physical_costs": [
+        [
+          8974818.686999999,
+          8942804.578
+        ],
+        [
+          7821930.728,
+          7805620.851
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65377839,
+        66823026,
+        66245431,
+        66245431
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860125_b257",
+      "seed": 860125,
+      "operation": 188419,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          8888591.533,
+          8888591.533
+        ],
+        [
+          7585438.864,
+          7585438.864
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66332662,
+        66332662,
+        65401653,
+        65401653
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860125_b257",
+      "seed": 860125,
+      "operation": 193412,
+      "gains_per_memory_transfer": [
+        -1.2394914428393116,
+        0.0
+      ],
+      "interval_relative_gains": [
+        -0.02808516051979121,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          8885211.385,
+          9134753.973000001
+        ],
+        [
+          7645951.477,
+          7645951.477
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66538012,
+        66538012,
+        66009703,
+        66009703
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860125_b257",
+      "seed": 860125,
+      "operation": 234121,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          8628330.638,
+          8628330.638
+        ],
+        [
+          7579347.873,
+          7579347.873
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64901157,
+        64901157,
+        64818379,
+        64818379
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_positive_s860125_b257",
+      "seed": 860125,
+      "operation": 260660,
+      "gains_per_memory_transfer": [
+        0.35475930571555553,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.007577100560724436,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          9426096.622,
+          9354674.14
+        ],
+        [
+          8144877.248,
+          8144877.248
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64582451,
+        64387862,
+        66011573,
+        66011573
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860126_b67",
+      "seed": 860126,
+      "operation": 32337,
+      "gains_per_memory_transfer": [
+        0.006749992569287588,
+        0.0036301861206690608
+      ],
+      "interval_relative_gains": [
+        0.016944643240205073,
+        0.00967801879420237
+      ],
+      "physical_costs": [
+        [
+          80199.564,
+          78840.611
+        ],
+        [
+          75516.799,
+          74785.946
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67076289,
+        67107294,
+        66975408,
+        66975408
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860126_b67",
+      "seed": 860126,
+      "operation": 87774,
+      "gains_per_memory_transfer": [
+        0.005107581615448004,
+        -0.006643215815226192
+      ],
+      "interval_relative_gains": [
+        0.012680341277091108,
+        -0.020005029916094437
+      ],
+      "physical_costs": [
+        [
+          81093.401,
+          80065.109
+        ],
+        [
+          66855.986,
+          68193.442
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66977902,
+        67053603,
+        67055376,
+        67059559
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860126_b67",
+      "seed": 860126,
+      "operation": 179892,
+      "gains_per_memory_transfer": [
+        -0.0022681554158528617,
+        -0.0020796904961268114
+      ],
+      "interval_relative_gains": [
+        -0.006600907477333187,
+        -0.0052121300467507905
+      ],
+      "physical_costs": [
+        [
+          69178.367,
+          69635.007
+        ],
+        [
+          80331.265,
+          80749.962
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67039190,
+        67106606,
+        67001952,
+        67041149
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860126_b67",
+      "seed": 860126,
+      "operation": 222733,
+      "gains_per_memory_transfer": [
+        -0.0077099502086639075,
+        -0.00020009775956473497
+      ],
+      "interval_relative_gains": [
+        -0.019801109966782353,
+        -0.0005107105517110755
+      ],
+      "physical_costs": [
+        [
+          78390.454,
+          79942.67199999999
+        ],
+        [
+          78880.29699999999,
+          78920.582
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66968433,
+        67003550,
+        67100845,
+        67099356
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860126_b67",
+      "seed": 860126,
+      "operation": 236818,
+      "gains_per_memory_transfer": [
+        -0.004634569088617987,
+        0.0006851156552632685
+      ],
+      "interval_relative_gains": [
+        -0.012909196588175326,
+        0.0020394419666151563
+      ],
+      "physical_costs": [
+        [
+          72278.859,
+          73211.921
+        ],
+        [
+          67632.226,
+          67494.294
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67085524,
+        67088417,
+        66948439,
+        67017405
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_positive_s860126_b67",
+      "seed": 860126,
+      "operation": 249653,
+      "gains_per_memory_transfer": [
+        0.004922727743784591,
+        0.007706304391225162
+      ],
+      "interval_relative_gains": [
+        0.011945399032152174,
+        0.019008429476976313
+      ],
+      "physical_costs": [
+        [
+          82967.174,
+          81976.098
+        ],
+        [
+          81620.841,
+          80069.357
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67067525,
+        67088896,
+        67077362,
+        67077362
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860127_b257",
+      "seed": 860127,
+      "operation": 63523,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.056239848335586554
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.002469469492710149
+      ],
+      "physical_costs": [
+        [
+          5631607.3,
+          5631607.3
+        ],
+        [
+          4585024.044,
+          4596346.621
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66778485,
+        66778485,
+        66587980,
+        66587980
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860127_b257",
+      "seed": 860127,
+      "operation": 73108,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.019799431165062886
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.0008504595692155055
+      ],
+      "physical_costs": [
+        [
+          5512684.28,
+          5512684.28
+        ],
+        [
+          4687056.438999999,
+          4691042.591
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66784122,
+        66784122,
+        67065661,
+        67065661
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860127_b257",
+      "seed": 860127,
+      "operation": 86483,
+      "gains_per_memory_transfer": [
+        0.02143956720829232,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0007622421524719582,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          5662708.348,
+          5658391.993
+        ],
+        [
+          4745408.014,
+          4745408.014
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67081787,
+        67081787,
+        66343478,
+        66343478
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860127_b257",
+      "seed": 860127,
+      "operation": 149526,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          5682223.976,
+          5682223.976
+        ],
+        [
+          4632282.9,
+          4632282.9
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66866090,
+        66866090,
+        67003283,
+        67003283
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860127_b257",
+      "seed": 860127,
+      "operation": 218266,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          5588996.021,
+          5588996.021
+        ],
+        [
+          4644616.853,
+          4644616.853
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66560413,
+        66560413,
+        66764799,
+        66764799
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_lognormal_positive_s860127_b257",
+      "seed": 860127,
+      "operation": 230200,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.013286953171094221
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0005554226464716947
+      ],
+      "physical_costs": [
+        [
+          5880766.052,
+          5880766.052
+        ],
+        [
+          4816182.806,
+          4813507.789
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67047248,
+        67047248,
+        66872945,
+        66872945
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860128_b17",
+      "seed": 860128,
+      "operation": 26284,
+      "gains_per_memory_transfer": [
+        -0.12022393941879539,
+        0.029508729775744313
+      ],
+      "interval_relative_gains": [
+        -0.007571361518489364,
+        0.0017698493377889945
+      ],
+      "physical_costs": [
+        [
+          3196819.4809999997,
+          3221023.757
+        ],
+        [
+          3356721.8819999998,
+          3350780.99
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66135548,
+        66010049,
+        67050566,
+        67050566
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860128_b17",
+      "seed": 860128,
+      "operation": 39936,
+      "gains_per_memory_transfer": [
+        -0.33300830920537233,
+        0.5812694579362861
+      ],
+      "interval_relative_gains": [
+        -0.019925400114647707,
+        0.034294387967927435
+      ],
+      "physical_costs": [
+        [
+          3364721.793,
+          3431765.221
+        ],
+        [
+          3412365.869,
+          3295340.87
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66704986,
+        66118616,
+        67051421,
+        66424925
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860128_b17",
+      "seed": 860128,
+      "operation": 119880,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.02493131657441139
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0014981096002210687
+      ],
+      "physical_costs": [
+        [
+          3567344.76,
+          3567344.76
+        ],
+        [
+          3350447.1229999997,
+          3345427.7860000003
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65712912,
+        65712912,
+        66873563,
+        66230044
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860128_b17",
+      "seed": 860128,
+      "operation": 122663,
+      "gains_per_memory_transfer": [
+        0.12274329861005258,
+        0.34660883247851954
+      ],
+      "interval_relative_gains": [
+        0.007006640549351413,
+        0.020284979907445228
+      ],
+      "physical_costs": [
+        [
+          3526867.095,
+          3502155.605
+        ],
+        [
+          3440061.3319999995,
+          3370279.757
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66813962,
+        67015207,
+        66859037,
+        66174412
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860128_b17",
+      "seed": 860128,
+      "operation": 146166,
+      "gains_per_memory_transfer": [
+        0.3561650564273197,
+        0.28864991664886525
+      ],
+      "interval_relative_gains": [
+        0.02164013929460574,
+        0.017754861663603832
+      ],
+      "physical_costs": [
+        [
+          3313541.3789999997,
+          3241835.8819999998
+        ],
+        [
+          3273069.94,
+          3214957.036
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66951792,
+        66839732,
+        66966229,
+        66081163
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_uniform_independent_s860128_b17",
+      "seed": 860128,
+      "operation": 179784,
+      "gains_per_memory_transfer": [
+        -1.0082553724447876,
+        0.9223786542812973
+      ],
+      "interval_relative_gains": [
+        -0.063593843046749,
+        0.05544719163125303
+      ],
+      "physical_costs": [
+        [
+          3191953.9420000003,
+          3394942.56
+        ],
+        [
+          3349120.948,
+          3163421.597
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66986600,
+        65828570,
+        66534376,
+        66567137
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860129_b17",
+      "seed": 860129,
+      "operation": 43149,
+      "gains_per_memory_transfer": [
+        -0.20076480507850528,
+        -0.36243957281116107
+      ],
+      "interval_relative_gains": [
+        -0.0009762387852522797,
+        -0.0017830945371524133
+      ],
+      "physical_costs": [
+        [
+          41403081.511,
+          41443500.805
+        ],
+        [
+          40922521.201,
+          40995489.925000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        56321238,
+        56321238,
+        56321238,
+        56321238
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860129_b17",
+      "seed": 860129,
+      "operation": 51545,
+      "gains_per_memory_transfer": [
+        -0.029589176178013155,
+        -0.029589176178013155
+      ],
+      "interval_relative_gains": [
+        -0.00014095111848715843,
+        -0.00014130486236323228
+      ],
+      "physical_costs": [
+        [
+          42263502.864999995,
+          42269459.953
+        ],
+        [
+          42157700.028,
+          42163657.116000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63085983,
+        63085983,
+        63085983,
+        63085983
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860129_b17",
+      "seed": 860129,
+      "operation": 97618,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0
+      ],
+      "physical_costs": [
+        [
+          45602609.79099999,
+          45602609.79099999
+        ],
+        [
+          45726615.211,
+          45726615.211
+        ]
+      ],
+      "terminal_resident_bytes": [
+        20258069,
+        20258069,
+        24330976,
+        24330976
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860129_b17",
+      "seed": 860129,
+      "operation": 224689,
+      "gains_per_memory_transfer": [
+        -0.029589176178013155,
+        -0.029589176177976146
+      ],
+      "interval_relative_gains": [
+        -0.00014354786672936786,
+        -0.0001433703539946853
+      ],
+      "physical_costs": [
+        [
+          41498965.716,
+          41504922.804000005
+        ],
+        [
+          41550347.293,
+          41556304.381
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61863662,
+        61863662,
+        61863662,
+        61863662
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860129_b17",
+      "seed": 860129,
+      "operation": 244445,
+      "gains_per_memory_transfer": [
+        0.0002584308386177625,
+        0.00025843083858075505
+      ],
+      "interval_relative_gains": [
+        1.1667678451652647e-06,
+        1.1628667675664437e-06
+      ],
+      "physical_costs": [
+        [
+          44592418.468,
+          44592366.438999996
+        ],
+        [
+          44742012.972,
+          44741960.943
+        ]
+      ],
+      "terminal_resident_bytes": [
+        58107009,
+        58107009,
+        58107009,
+        58107009
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_zipf_independent_s860129_b17",
+      "seed": 860129,
+      "operation": 246417,
+      "gains_per_memory_transfer": [
+        -0.4401638756195518,
+        0.13470869759720414
+      ],
+      "interval_relative_gains": [
+        -0.0020871549902176678,
+        0.0006430419887576745
+      ],
+      "physical_costs": [
+        [
+          42458127.65,
+          42546744.342999995
+        ],
+        [
+          42175228.794,
+          42148108.350999996
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64875421,
+        64875421,
+        63176230,
+        63176230
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 1
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860130_b67",
+      "seed": 860130,
+      "operation": 36454,
+      "gains_per_memory_transfer": [
+        0.010548104842503873,
+        0.004600559671719851
+      ],
+      "interval_relative_gains": [
+        0.0276319046516644,
+        0.011809130214653112
+      ],
+      "physical_costs": [
+        [
+          76853.696,
+          74730.082
+        ],
+        [
+          78432.11,
+          77505.895
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67070122,
+        67095045,
+        66939131,
+        66939131
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860130_b67",
+      "seed": 860130,
+      "operation": 119140,
+      "gains_per_memory_transfer": [
+        0.0,
+        -0.013743132352828945
+      ],
+      "interval_relative_gains": [
+        0.0,
+        -0.036073539351497624
+      ],
+      "physical_costs": [
+        [
+          75036.026,
+          75036.026
+        ],
+        [
+          76700.486,
+          79467.344
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67057475,
+        67057475,
+        66824734,
+        66824734
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860130_b67",
+      "seed": 860130,
+      "operation": 187225,
+      "gains_per_memory_transfer": [
+        0.005814741055170714,
+        -0.0033623973528543864
+      ],
+      "interval_relative_gains": [
+        0.018624428881494334,
+        -0.010801494542360268
+      ],
+      "physical_costs": [
+        [
+          62856.263000000006,
+          61685.601
+        ],
+        [
+          62670.957,
+          63347.897
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67085082,
+        67053715,
+        66690896,
+        66690896
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860130_b67",
+      "seed": 860130,
+      "operation": 232123,
+      "gains_per_memory_transfer": [
+        0.0007499655087788056,
+        0.002935369809468555
+      ],
+      "interval_relative_gains": [
+        0.002262642523340983,
+        0.007362911180118214
+      ],
+      "physical_costs": [
+        [
+          66730.824,
+          66579.83600000001
+        ],
+        [
+          80262.818,
+          79671.85
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67000029,
+        67025661,
+        67083858,
+        67083858
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860130_b67",
+      "seed": 860130,
+      "operation": 246520,
+      "gains_per_memory_transfer": [
+        -0.019934177398681634,
+        0.0012026329835256092
+      ],
+      "interval_relative_gains": [
+        -0.05514139951803485,
+        0.003525766533712782
+      ],
+      "physical_costs": [
+        [
+          72781.613,
+          76794.893
+        ],
+        [
+          68672.159,
+          68430.037
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66998057,
+        67046192,
+        66870034,
+        66870034
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_hotspot_independent_s860130_b67",
+      "seed": 860130,
+      "operation": 259086,
+      "gains_per_memory_transfer": [
+        0.0,
+        0.0019236554702122797
+      ],
+      "interval_relative_gains": [
+        0.0,
+        0.0055370580120713995
+      ],
+      "physical_costs": [
+        [
+          63828.669,
+          63828.669
+        ],
+        [
+          69943.822,
+          69556.539
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66939126,
+        66939126,
+        66838118,
+        66838118
+      ],
+      "oof_mode": 0,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860131_b257",
+      "seed": 860131,
+      "operation": 66205,
+      "gains_per_memory_transfer": [
+        0.027892082929611157,
+        -0.021598830819129916
+      ],
+      "interval_relative_gains": [
+        0.02646187912612005,
+        -0.027089346337221775
+      ],
+      "physical_costs": [
+        [
+          70735.944,
+          68864.138
+        ],
+        [
+          53507.1235,
+          54956.5965
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67095257,
+        67085855,
+        67074722,
+        67074722
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860131_b257",
+      "seed": 860131,
+      "operation": 295207,
+      "gains_per_memory_transfer": [
+        0.000483147799968677,
+        0.0024560838937758966
+      ],
+      "interval_relative_gains": [
+        0.0005392544285085506,
+        0.004125522665801667
+      ],
+      "physical_costs": [
+        [
+          60126.5345,
+          60094.111000000004
+        ],
+        [
+          39952.5135,
+          39787.688500000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67101847,
+        67066694,
+        67010471,
+        67010471
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860131_b257",
+      "seed": 860131,
+      "operation": 304591,
+      "gains_per_memory_transfer": [
+        0.056375980377197175,
+        0.0033245235681533206
+      ],
+      "interval_relative_gains": [
+        0.0607460169991411,
+        0.0053205219498685934
+      ],
+      "physical_costs": [
+        [
+          62281.087499999994,
+          58497.7595
+        ],
+        [
+          41932.916,
+          41709.811
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67097728,
+        67073112,
+        66807583,
+        66807583
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860131_b257",
+      "seed": 860131,
+      "operation": 374937,
+      "gains_per_memory_transfer": [
+        0.0010509639978410236,
+        0.0015281885862350507
+      ],
+      "interval_relative_gains": [
+        0.0010338141238148196,
+        0.0024008006180209355
+      ],
+      "physical_costs": [
+        [
+          68222.1285,
+          68151.5995
+        ],
+        [
+          42717.0,
+          42614.445
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67095868,
+        67078988,
+        67090587,
+        67090587
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860131_b257",
+      "seed": 860131,
+      "operation": 471884,
+      "gains_per_memory_transfer": [
+        0.006778858602046918,
+        0.021415948867797806
+      ],
+      "interval_relative_gains": [
+        0.006691879055261316,
+        0.0324403736024111
+      ],
+      "physical_costs": [
+        [
+          67981.13,
+          67526.20850000001
+        ],
+        [
+          44302.819,
+          42865.619000000006
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66966108,
+        67070001,
+        67087874,
+        66919820
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 0
+    },
+    {
+      "flow": "learning_train_lognormal_independent_s860131_b257",
+      "seed": 860131,
+      "operation": 922172,
+      "gains_per_memory_transfer": [
+        0.026512742042541473,
+        0.0036812126636504234
+      ],
+      "interval_relative_gains": [
+        0.027664494291329327,
+        0.005298754095058116
+      ],
+      "physical_costs": [
+        [
+          64314.9295,
+          62535.6895
+        ],
+        [
+          46622.657999999996,
+          46375.616
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67082068,
+        66714834,
+        66648929,
+        66648929
+      ],
+      "oof_mode": 1,
+      "handwritten_mode": 0
+    }
+  ],
+  "scope": "Labels conditioned on fixed0 collector and two 4096-PROBE continuations. This is not closed-loop policy performance; no dev/eval access."
+}

@@ -1,0 +1,318 @@
+{
+  "purpose": "Compare conditional single-Miss advice and full paired closed-loop performance on the same 32 independent learning-train flows; no parameter search.",
+  "sources": {
+    "manifest": "1a9fcaadbc06eae58a32aad3036dbf21910d1779bf9050ffae9bb8ce7901315c",
+    "baseline": "ac1fc1b334dbfd4f633fd9db0b4e4b53c17098bdbf38c84a70a32a1e9081bd13",
+    "baseline_source": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22",
+    "comparison": "ffb0bc4ffe593b7665276e6dd74bd064a4de355970a73cf343841a47e525bc62",
+    "shadow": "d6833c87e417132722cb5e193f6eb8e2d4ae0775e7a14f1f008c4a47264ff295",
+    "paired_source": "8c040b8778ab9afa60df432d393466b174c3faf2a691fef2c8c84fab000b6287"
+  },
+  "cases": [
+    {
+      "id": "learning_train_uniform_independent_s860100_b17",
+      "input_sha256": "53c4a7c89c37d2814cb0a1c60cb06bbcbda8faaae5e7c2f9a9133c4c46b645d6",
+      "group": "860100",
+      "family": "uniform",
+      "relation": "independent",
+      "baseline_physical_us": 10608318.3895,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_zipf_positive_s860101_b257",
+      "input_sha256": "b7b3081d86a3869dbc6417d7eb0919d6f809a70619ff4324d9e36e65f2247303",
+      "group": "860101",
+      "family": "zipf",
+      "relation": "positive",
+      "baseline_physical_us": 842535744.919,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_hotspot_positive_s860102_b67",
+      "input_sha256": "a4d40477952dfb667281e43204554c06c720039c72698290f5ac2b6d23f85b2e",
+      "group": "860102",
+      "family": "hotspot",
+      "relation": "positive",
+      "baseline_physical_us": 11504733.939,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_lognormal_positive_s860103_b1021",
+      "input_sha256": "1c596be0fc0926e3cb48b889b85e2d25077f5c4d0f24d8f37ee06f09485aff4c",
+      "group": "860103",
+      "family": "lognormal",
+      "relation": "positive",
+      "baseline_physical_us": 1747996375.895,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_uniform_independent_s860104_b67",
+      "input_sha256": "155a28739bdec6c6be781ff77de885b43e6a99bfbf852e6a6e70a65bc5481cf1",
+      "group": "860104",
+      "family": "uniform",
+      "relation": "independent",
+      "baseline_physical_us": 196837034.861,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_zipf_independent_s860105_b1021",
+      "input_sha256": "2e9667c331ee3fc3ee324938fc76d0df50d3719c3cbfd337d86e6062cf66d293",
+      "group": "860105",
+      "family": "zipf",
+      "relation": "independent",
+      "baseline_physical_us": 409595127.204,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_hotspot_independent_s860106_b67",
+      "input_sha256": "41169db7dae79f8fe41045b2d1fdc9a1f14630cd5271d1c890b86142842e651f",
+      "group": "860106",
+      "family": "hotspot",
+      "relation": "independent",
+      "baseline_physical_us": 103423729.354,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_lognormal_independent_s860107_b17",
+      "input_sha256": "a85608bf99e28bdaf45e82434a64d9c729d12c5c6d70e07409bbe34fe2d498d6",
+      "group": "860107",
+      "family": "lognormal",
+      "relation": "independent",
+      "baseline_physical_us": 678686072.422,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_uniform_independent_s860108_b17",
+      "input_sha256": "5ed8d9ff6800ec52837c7db5f61bb16398a7ca7f2f325441d8f358da872f137d",
+      "group": "860108",
+      "family": "uniform",
+      "relation": "independent",
+      "baseline_physical_us": 360697576.612,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_zipf_negative_s860109_b257",
+      "input_sha256": "9c55fd788fbeefeb72a92f14a09dec742e0c4b69ff2dfb2ce74025828e3f8e49",
+      "group": "860109",
+      "family": "zipf",
+      "relation": "negative",
+      "baseline_physical_us": 469992.147,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_hotspot_negative_s860110_b67",
+      "input_sha256": "9a62a8c1a1c50484fe21570967d547a8ef8dacf2e8b5c86ee640c831223475c1",
+      "group": "860110",
+      "family": "hotspot",
+      "relation": "negative",
+      "baseline_physical_us": 204938792.777,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_lognormal_negative_s860111_b17",
+      "input_sha256": "21efb73394942068b97837a9794b0d29d86bec6b49d641a729be65e4d61b3e4c",
+      "group": "860111",
+      "family": "lognormal",
+      "relation": "negative",
+      "baseline_physical_us": 280461839.999,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_uniform_independent_s860112_b1021",
+      "input_sha256": "4b0104ca9ad814176e965cd09080ca1e063d79a0ea3cd1f9ff63db8481c1c463",
+      "group": "860112",
+      "family": "uniform",
+      "relation": "independent",
+      "baseline_physical_us": 2872115197.1945,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_zipf_positive_s860113_b17",
+      "input_sha256": "a2ed1826fc856f998e79d08b73b6f1d242dc30c9cc4b84e5ca28f65bf80869e9",
+      "group": "860113",
+      "family": "zipf",
+      "relation": "positive",
+      "baseline_physical_us": 146690070.267,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_hotspot_positive_s860114_b17",
+      "input_sha256": "99a1577e805f624dfd09335a656b8989c2be4a84e9de9c178133d5ae17093755",
+      "group": "860114",
+      "family": "hotspot",
+      "relation": "positive",
+      "baseline_physical_us": 18242645.257,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_lognormal_positive_s860115_b67",
+      "input_sha256": "27e6ab191a85dfc7ae1b1be87503d3c9d2742074a3f1b60de486ea3a2c2d5e90",
+      "group": "860115",
+      "family": "lognormal",
+      "relation": "positive",
+      "baseline_physical_us": 712744263.146,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_uniform_independent_s860116_b67",
+      "input_sha256": "07e310e0a645d010f5d09949fb57b0bcc228dd97c744c952ba6b0e6ca5843af8",
+      "group": "860116",
+      "family": "uniform",
+      "relation": "independent",
+      "baseline_physical_us": 1181347656.931,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_zipf_independent_s860117_b257",
+      "input_sha256": "6146c6793e1a4b5302ef27609850d834e2ae77985a0c0c6f9f27273b8f4cc70b",
+      "group": "860117",
+      "family": "zipf",
+      "relation": "independent",
+      "baseline_physical_us": 33686983.12,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_hotspot_independent_s860118_b17",
+      "input_sha256": "af459298a482f70c2ef081873dfc980351148b83a2a23ae07344db02d8b797d2",
+      "group": "860118",
+      "family": "hotspot",
+      "relation": "independent",
+      "baseline_physical_us": 205762946.838,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_lognormal_independent_s860119_b17",
+      "input_sha256": "c197ea955ec6427c8860570e4de516353531a0737fc34eeae2cf872a349aef03",
+      "group": "860119",
+      "family": "lognormal",
+      "relation": "independent",
+      "baseline_physical_us": 11634945.9935,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_uniform_independent_s860120_b1021",
+      "input_sha256": "d006d06a0a8634300131be58ad8c80c14043973023f767b4251e6136b97eb3f7",
+      "group": "860120",
+      "family": "uniform",
+      "relation": "independent",
+      "baseline_physical_us": 201351672.295,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_zipf_negative_s860121_b1021",
+      "input_sha256": "4dd316c9e2c51870b45ba2376ce8c2e5c791fbe505406fa7d30a8832a600c96c",
+      "group": "860121",
+      "family": "zipf",
+      "relation": "negative",
+      "baseline_physical_us": 1142786253.8325,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_hotspot_negative_s860122_b1021",
+      "input_sha256": "9c5cb13cacbb8b04ae31315036e3c73675bae1a7c1f645529359deb76d9bc672",
+      "group": "860122",
+      "family": "hotspot",
+      "relation": "negative",
+      "baseline_physical_us": 46458554.4155,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_lognormal_negative_s860123_b67",
+      "input_sha256": "cdb71acf8d9b8dfc284450a0c507b2000c97aadce8416fb39d253bbf4f32d4c3",
+      "group": "860123",
+      "family": "lognormal",
+      "relation": "negative",
+      "baseline_physical_us": 518150839.189,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_uniform_independent_s860124_b1021",
+      "input_sha256": "e62587cb9dc9e4f36156cd75afb343cef136232afa23fcaf1df54f6f1a60fd3e",
+      "group": "860124",
+      "family": "uniform",
+      "relation": "independent",
+      "baseline_physical_us": 362295272.09099996,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_zipf_positive_s860125_b257",
+      "input_sha256": "4457614bed28e871b53d087b4f77f8fd88ad85c093ed3bdbeafe502c876a625d",
+      "group": "860125",
+      "family": "zipf",
+      "relation": "positive",
+      "baseline_physical_us": 537824020.618,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_hotspot_positive_s860126_b67",
+      "input_sha256": "55b88fa73ac69a04bca8ca2ccff684c9c35dccee00d78a1b5e4dd874b56fe615",
+      "group": "860126",
+      "family": "hotspot",
+      "relation": "positive",
+      "baseline_physical_us": 4943249.676,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_lognormal_positive_s860127_b257",
+      "input_sha256": "835168aaf941d814ace588d12f9b4e2372bc74f87873f284f3179d75e58e78f5",
+      "group": "860127",
+      "family": "lognormal",
+      "relation": "positive",
+      "baseline_physical_us": 347043905.903,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_uniform_independent_s860128_b17",
+      "input_sha256": "0c1ce58c985e691299c4ba6862fdfbd766c13169796d5854b9251dbdb2fe928f",
+      "group": "860128",
+      "family": "uniform",
+      "relation": "independent",
+      "baseline_physical_us": 201029330.856,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_zipf_independent_s860129_b17",
+      "input_sha256": "60e5c120df7b6b6e2bfd8680692cd3cb600e79322aa24019e7893e48d42022d0",
+      "group": "860129",
+      "family": "zipf",
+      "relation": "independent",
+      "baseline_physical_us": 2545202229.42,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_hotspot_independent_s860130_b67",
+      "input_sha256": "33eb5227007622c85ebf32bc2ec3d046df93e9ee552bb09784f273bd0127eb57",
+      "group": "860130",
+      "family": "hotspot",
+      "relation": "independent",
+      "baseline_physical_us": 4166442.7150000003,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    },
+    {
+      "id": "learning_train_lognormal_independent_s860131_b257",
+      "input_sha256": "62e28e303a9b3167f22c702f22de0d09186243fd33bc0202ba890a015195d572",
+      "group": "860131",
+      "family": "lognormal",
+      "relation": "independent",
+      "baseline_physical_us": 15889205.2695,
+      "baseline_source_sha256": "1bb524bd0611ece95156358d9ca6713a0ca311c77011fe877ffe972d4af21c22"
+    }
+  ],
+  "solver_runs": 32,
+  "candidate": "paired_confidence.cpp unchanged",
+  "baseline": "Reuse AI forced0 official/simulator-verified full-flow exact read/write bytes and Miss count; do not rerun baseline.",
+  "audit": "Independent original-input action/byte replay for every paired run; input and source SHA matched by id.",
+  "primary_metrics": [
+    "equal-flow mean physical-cost ratio",
+    "aggregate physical-cost ratio",
+    "worst ratio",
+    "wins/regressions above1pct",
+    "read/write/Miss deltas"
+  ],
+  "interpretation": "Negative same-data closed loop removes the apparent sign discrepancy; positive closed loop establishes a target difference, not a causal explanation. Conditional min over two continuation labels is not policy value.",
+  "test_queries": 0,
+  "dev_queries": 0,
+  "fresh_queries": 0,
+  "lock": "level1.workflow.experiment_lock per solver case; no parallel solver",
+  "runner_sha256": "5dd02ed2e503a6b4d70c6327c7c41068f4217876988dab76b112a264b353e3e9"
+}

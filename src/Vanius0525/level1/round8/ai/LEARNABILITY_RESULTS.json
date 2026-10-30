@@ -1,0 +1,7966 @@
+{
+  "rows": 288,
+  "flows": 48,
+  "groups": 12,
+  "continuation_sign_conflicts": 60,
+  "positive_in_both": 184,
+  "negative_or_zero": 104,
+  "conditional_group_mean_min_gain": {
+    "fixed0": 0,
+    "fixed1": 0.010795231262723175,
+    "oof_learned": 0.004486818112638552,
+    "per_state_future_oracle": 0.028178299391302918
+  },
+  "oof_mode1_fraction": 0.7395833333333334,
+  "oof_gain_per_continuation": [
+    0.015416649664503328,
+    0.02155054348718758
+  ],
+  "passes_conditional_learnability": false,
+  "full_tree_gate": "return (f[0]<=0.8333333432674408?(f[11]<=0.44377388060092926?0:(f[8]<=-0.50735639035701752?0:1)):(f[9]<=0.8911113440990448?(f[6]<=0.47674591839313507?1:1):1));",
+  "feature_importance": {
+    "log_partitions": 0.34357679866422536,
+    "required_fraction": 0.0,
+    "free_fraction": 0.0,
+    "data_pressure": 0.0,
+    "resident_fraction": 0.0,
+    "size_cv": 0.0,
+    "probability_tv": 0.13850174306745386,
+    "probability_hhi": 0.0,
+    "size_heat_correlation": 0.08272469363173766,
+    "resident_probability_mass": 0.22051970921369465,
+    "max_probability": 0.0,
+    "effective_samples_log": 0.21467705542288845,
+    "observed_probes_log": 0.0,
+    "read_write_log_ratio": 0.0,
+    "write_bandwidth_log": 0.0,
+    "next_size_fraction": 0.0,
+    "next_resident": 0.0,
+    "scan_confidence": 0.0
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "train_groups": [
+        "seed810031_hotspot",
+        "seed810031_uniform",
+        "seed810032_hotspot",
+        "seed810032_lognormal",
+        "seed810032_uniform",
+        "seed810032_zipf",
+        "seed830031_uniform",
+        "seed830032_zipf",
+        "seed830033_hotspot",
+        "seed830034_lognormal"
+      ],
+      "test_groups": [
+        "seed810031_lognormal",
+        "seed810031_zipf"
+      ],
+      "predicted_mode1": 71,
+      "test_rows": 78,
+      "gate": "return (f[8]<=-0.56835809350013733?0:(f[4]<=0.7822265625?(f[9]<=0.90530270338058472?1:0):1));",
+      "test_flows": [
+        "train_lognormal_independent_iid_s810031_b1021",
+        "train_lognormal_independent_iid_s810031_b17",
+        "train_lognormal_negative_iid_s810031_b1021",
+        "train_lognormal_negative_iid_s810031_b17",
+        "train_lognormal_positive_iid_s810031_b1021",
+        "train_lognormal_positive_iid_s810031_b17",
+        "train_zipf_independent_block128_s810031_b1021",
+        "train_zipf_independent_iid_s810031_b1021",
+        "train_zipf_independent_iid_s810031_b17",
+        "train_zipf_negative_iid_s810031_b1021",
+        "train_zipf_negative_iid_s810031_b17",
+        "train_zipf_positive_iid_s810031_b1021",
+        "train_zipf_positive_iid_s810031_b17"
+      ]
+    },
+    {
+      "fold": 1,
+      "train_groups": [
+        "seed810031_lognormal",
+        "seed810031_uniform",
+        "seed810031_zipf",
+        "seed810032_hotspot",
+        "seed810032_uniform",
+        "seed810032_zipf",
+        "seed830031_uniform",
+        "seed830032_zipf",
+        "seed830033_hotspot",
+        "seed830034_lognormal"
+      ],
+      "test_groups": [
+        "seed810031_hotspot",
+        "seed810032_lognormal"
+      ],
+      "predicted_mode1": 65,
+      "test_rows": 78,
+      "gate": "return (f[15]<=0.010938838124275208?(f[9]<=0.88130155205726624?(f[6]<=0.47848868370056152?0:1):(f[10]<=0.1842339038848877?1:1)):(f[9]<=0.8491898775100708?(f[9]<=0.73552414774894714?0:1):(f[8]<=-0.15339235961437225?1:0)));",
+      "test_flows": [
+        "train_hotspot_independent_block128_s810031_b1021",
+        "train_hotspot_independent_iid_s810031_b1021",
+        "train_hotspot_independent_iid_s810031_b17",
+        "train_hotspot_negative_iid_s810031_b1021",
+        "train_hotspot_negative_iid_s810031_b17",
+        "train_hotspot_positive_iid_s810031_b1021",
+        "train_hotspot_positive_iid_s810031_b17",
+        "train_lognormal_independent_iid_s810032_b1021",
+        "train_lognormal_independent_iid_s810032_b17",
+        "train_lognormal_negative_iid_s810032_b1021",
+        "train_lognormal_negative_iid_s810032_b17",
+        "train_lognormal_positive_iid_s810032_b1021",
+        "train_lognormal_positive_iid_s810032_b17"
+      ]
+    },
+    {
+      "fold": 2,
+      "train_groups": [
+        "seed810031_hotspot",
+        "seed810031_lognormal",
+        "seed810031_uniform",
+        "seed810031_zipf",
+        "seed810032_lognormal",
+        "seed810032_zipf",
+        "seed830032_zipf",
+        "seed830034_lognormal"
+      ],
+      "test_groups": [
+        "seed810032_hotspot",
+        "seed810032_uniform",
+        "seed830031_uniform",
+        "seed830033_hotspot"
+      ],
+      "predicted_mode1": 65,
+      "test_rows": 66,
+      "gate": "return (f[8]<=-0.50735639035701752?0:(f[9]<=0.88130155205726624?(f[6]<=0.47848868370056152?1:1):(f[9]<=0.9040466845035553?1:1)));",
+      "test_flows": [
+        "train_hotspot_independent_block128_s810032_b1021",
+        "train_hotspot_independent_iid_s810032_b1021",
+        "train_hotspot_independent_iid_s810032_b17",
+        "train_hotspot_independent_iid_s830033_b257",
+        "train_hotspot_negative_iid_s810032_b1021",
+        "train_hotspot_negative_iid_s810032_b17",
+        "train_hotspot_positive_iid_s810032_b1021",
+        "train_hotspot_positive_iid_s810032_b17",
+        "train_uniform_independent_iid_s810032_b1021",
+        "train_uniform_independent_iid_s810032_b17",
+        "train_uniform_independent_iid_s830031_b257"
+      ]
+    },
+    {
+      "fold": 3,
+      "train_groups": [
+        "seed810031_hotspot",
+        "seed810031_lognormal",
+        "seed810031_zipf",
+        "seed810032_hotspot",
+        "seed810032_lognormal",
+        "seed810032_uniform",
+        "seed830031_uniform",
+        "seed830033_hotspot"
+      ],
+      "test_groups": [
+        "seed810031_uniform",
+        "seed810032_zipf",
+        "seed830032_zipf",
+        "seed830034_lognormal"
+      ],
+      "predicted_mode1": 12,
+      "test_rows": 66,
+      "gate": "return (f[14]<=0.74755603075027466?(f[11]<=0.44377388060092926?0:(f[10]<=0.22151955962181091?1:0)):(f[4]<=0.505859375?(f[6]<=0.44537492096424103?0:1):(f[11]<=0.50777190923690796?1:1)));",
+      "test_flows": [
+        "train_lognormal_independent_iid_s830034_b257",
+        "train_uniform_independent_iid_s810031_b1021",
+        "train_uniform_independent_iid_s810031_b17",
+        "train_zipf_independent_block128_s810032_b1021",
+        "train_zipf_independent_iid_s810032_b1021",
+        "train_zipf_independent_iid_s810032_b17",
+        "train_zipf_independent_iid_s830032_b257",
+        "train_zipf_negative_iid_s810032_b1021",
+        "train_zipf_negative_iid_s810032_b17",
+        "train_zipf_positive_iid_s810032_b1021",
+        "train_zipf_positive_iid_s810032_b17"
+      ]
+    }
+  ],
+  "rows_detail": [
+    {
+      "flow": "train_zipf_positive_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 27926,
+      "gains": [
+        0.03461418740644673,
+        0.0529072808547608
+      ],
+      "min_gain": 0.03461418740644673,
+      "costs": [
+        [
+          400956.6175,
+          387077.83
+        ],
+        [
+          341875.725,
+          323788.01
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66806111,
+        67104048,
+        67016264,
+        67056418
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 52897,
+      "gains": [
+        0.05207972810253805,
+        0.057207275312936255
+      ],
+      "min_gain": 0.05207972810253805,
+      "costs": [
+        [
+          377468.0325,
+          357809.6
+        ],
+        [
+          311558.502,
+          293735.089
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66791245,
+        67045576,
+        66996378,
+        67055684
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 128145,
+      "gains": [
+        0.023771705158290753,
+        0.026466738797381678
+      ],
+      "min_gain": 0.023771705158290753,
+      "costs": [
+        [
+          428993.41599999997,
+          418795.511
+        ],
+        [
+          369815.642,
+          360027.828
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67086568,
+        66703954,
+        66948726,
+        66745730
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 203891,
+      "gains": [
+        -0.007004761074120989,
+        0.04783009007016852
+      ],
+      "min_gain": -0.007004761074120989,
+      "costs": [
+        [
+          403936.4755,
+          406765.954
+        ],
+        [
+          385956.089,
+          367495.7745
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67046922,
+        66739775,
+        67018467,
+        67065406
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 209512,
+      "gains": [
+        0.07337450408957137,
+        0.09648565312827531
+      ],
+      "min_gain": 0.07337450408957137,
+      "costs": [
+        [
+          382176.123,
+          354134.1395
+        ],
+        [
+          352714.7135,
+          318682.804
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66629553,
+        66916138,
+        66865106,
+        66879835
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 254855,
+      "gains": [
+        0.03673779539851754,
+        -0.01656449931210424
+      ],
+      "min_gain": -0.01656449931210424,
+      "costs": [
+        [
+          388634.2075,
+          374356.6435
+        ],
+        [
+          340905.535,
+          346552.4645
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66964465,
+        67023749,
+        66931478,
+        67069811
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 27771,
+      "gains": [
+        0.010717956404804038,
+        -0.0011908695463060494
+      ],
+      "min_gain": -0.0011908695463060494,
+      "costs": [
+        [
+          413746.598,
+          409312.08
+        ],
+        [
+          371423.9745,
+          371866.292
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67039322,
+        66783746,
+        66704645,
+        66675416
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 52280,
+      "gains": [
+        0.06318089060628528,
+        -0.049530379102434755
+      ],
+      "min_gain": -0.049530379102434755,
+      "costs": [
+        [
+          411712.61199999996,
+          385700.2425
+        ],
+        [
+          322566.45900000003,
+          338543.298
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66775995,
+        66992606,
+        67022065,
+        67087351
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 126631,
+      "gains": [
+        0.013978246447999065,
+        0.08162565415360444
+      ],
+      "min_gain": 0.013978246447999065,
+      "costs": [
+        [
+          426941.3565,
+          420973.46499999997
+        ],
+        [
+          369637.8585,
+          339465.9265
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67066785,
+        67106460,
+        67008817,
+        66915877
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 201254,
+      "gains": [
+        0.03737527960651394,
+        0.010109204973087167
+      ],
+      "min_gain": 0.010109204973087167,
+      "costs": [
+        [
+          409736.52,
+          394422.503
+        ],
+        [
+          358169.9065,
+          354549.0935
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66756367,
+        66843177,
+        66947692,
+        66998012
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 206802,
+      "gains": [
+        0.04966164498333699,
+        0.03310455088764201
+      ],
+      "min_gain": 0.03310455088764201,
+      "costs": [
+        [
+          392200.2585,
+          372722.9485
+        ],
+        [
+          329146.3925,
+          318250.149
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67102432,
+        66587970,
+        67067444,
+        66933081
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 250950,
+      "gains": [
+        -0.004309724947582199,
+        0.0013186877349939455
+      ],
+      "min_gain": -0.004309724947582199,
+      "costs": [
+        [
+          414773.6855,
+          416561.246
+        ],
+        [
+          335306.0685,
+          334863.9045
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66794649,
+        66744150,
+        66941009,
+        66975921
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 30987,
+      "gains": [
+        0.014865118085546105,
+        -0.009037118914034902
+      ],
+      "min_gain": -0.009037118914034902,
+      "costs": [
+        [
+          193896.677,
+          191014.38
+        ],
+        [
+          157860.1005,
+          159286.701
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67066745,
+        66788181,
+        66848318,
+        66939415
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 80078,
+      "gains": [
+        0.07680634224809274,
+        0.06595332288269498
+      ],
+      "min_gain": 0.06595332288269498,
+      "costs": [
+        [
+          220904.635,
+          203937.758
+        ],
+        [
+          187692.2035,
+          175313.279
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66974939,
+        67089957,
+        67108354,
+        66961787
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 157642,
+      "gains": [
+        0.05655642248462558,
+        0.06493507388013992
+      ],
+      "min_gain": 0.05655642248462558,
+      "costs": [
+        [
+          197757.7525,
+          186573.28149999998
+        ],
+        [
+          160430.733,
+          150013.1515
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66455242,
+        66861418,
+        67107033,
+        66981632
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 195188,
+      "gains": [
+        -0.040277978055575495,
+        0.036627452642284015
+      ],
+      "min_gain": -0.040277978055575495,
+      "costs": [
+        [
+          179115.7935,
+          186330.2155
+        ],
+        [
+          160884.448,
+          154991.6605
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67108833,
+        67023969,
+        67054946,
+        66799749
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 217685,
+      "gains": [
+        0.10765091344698427,
+        0.11793785486616074
+      ],
+      "min_gain": 0.10765091344698427,
+      "costs": [
+        [
+          209347.7545,
+          186811.2775
+        ],
+        [
+          174464.1025,
+          153888.18050000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66992256,
+        66885102,
+        66986254,
+        66960132
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 261192,
+      "gains": [
+        0.04603595680064078,
+        0.055303763726753774
+      ],
+      "min_gain": 0.04603595680064078,
+      "costs": [
+        [
+          213537.519,
+          203707.115
+        ],
+        [
+          168990.0175,
+          159644.2335
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67054758,
+        67071170,
+        67040257,
+        67077725
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 30161,
+      "gains": [
+        -0.003485244798318446,
+        0.029873438787048033
+      ],
+      "min_gain": -0.003485244798318446,
+      "costs": [
+        [
+          198524.362,
+          199216.26799999998
+        ],
+        [
+          176063.025,
+          170803.417
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66920419,
+        67085393,
+        66799805,
+        66904679
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 76370,
+      "gains": [
+        0.08722927879953767,
+        0.05688568749272404
+      ],
+      "min_gain": 0.05688568749272404,
+      "costs": [
+        [
+          219682.832,
+          200520.057
+        ],
+        [
+          174057.253,
+          164155.8865
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66858949,
+        66993363,
+        66929603,
+        66728628
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 150727,
+      "gains": [
+        0.07198668355890489,
+        0.06593881284672733
+      ],
+      "min_gain": 0.06593881284672733,
+      "costs": [
+        [
+          226103.054,
+          209826.64500000002
+        ],
+        [
+          179754.7755,
+          167901.959
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66941623,
+        66919725,
+        66966524,
+        66348105
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 185798,
+      "gains": [
+        0.06264655334342724,
+        0.11249877747658739
+      ],
+      "min_gain": 0.06264655334342724,
+      "costs": [
+        [
+          222394.278,
+          208462.043
+        ],
+        [
+          186489.271,
+          165509.456
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67087968,
+        66390714,
+        66832740,
+        66704592
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 208106,
+      "gains": [
+        0.05197757694312368,
+        0.005075937826786574
+      ],
+      "min_gain": 0.005075937826786574,
+      "costs": [
+        [
+          182609.0895,
+          173117.5115
+        ],
+        [
+          157348.9525,
+          156550.25900000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67091417,
+        67007729,
+        66703979,
+        66899990
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 249164,
+      "gains": [
+        0.04047142251780459,
+        0.05736370987715559
+      ],
+      "min_gain": 0.04047142251780459,
+      "costs": [
+        [
+          213257.1445,
+          204626.3245
+        ],
+        [
+          176032.5565,
+          165934.676
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66907376,
+        67039604,
+        66840534,
+        66944665
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 36586,
+      "gains": [
+        0.12359076289324736,
+        0.17407012121136212
+      ],
+      "min_gain": 0.12359076289324736,
+      "costs": [
+        [
+          130210.079,
+          114117.31599999999
+        ],
+        [
+          102195.04000000001,
+          84405.937
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66979603,
+        67061197,
+        67039477,
+        66770595
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 110498,
+      "gains": [
+        0.08096720794669628,
+        0.10384133310384622
+      ],
+      "min_gain": 0.08096720794669628,
+      "costs": [
+        [
+          101785.39199999999,
+          93544.113
+        ],
+        [
+          86651.194,
+          77653.2185
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67083262,
+        67068914,
+        66682210,
+        66979389
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 171202,
+      "gains": [
+        0.14081049402556528,
+        0.11184975364730518
+      ],
+      "min_gain": 0.11184975364730518,
+      "costs": [
+        [
+          108631.868,
+          93335.361
+        ],
+        [
+          85964.15,
+          76349.081
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66851551,
+        67022985,
+        66714243,
+        66669785
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 210239,
+      "gains": [
+        0.09921793298111348,
+        0.1575495824163973
+      ],
+      "min_gain": 0.09921793298111348,
+      "costs": [
+        [
+          129595.0955,
+          116736.938
+        ],
+        [
+          109804.7785,
+          92505.0815
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67085458,
+        67013805,
+        66945636,
+        67059700
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 222930,
+      "gains": [
+        0.04847214136396846,
+        0.08889384289301058
+      ],
+      "min_gain": 0.04847214136396846,
+      "costs": [
+        [
+          94450.263,
+          89872.0565
+        ],
+        [
+          77647.6275,
+          70745.2315
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67073874,
+        66870243,
+        66868589,
+        66744791
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b17",
+      "group": "seed810031_zipf",
+      "operation": 234094,
+      "gains": [
+        0.10197576288186033,
+        0.12497793304207314
+      ],
+      "min_gain": 0.10197576288186033,
+      "costs": [
+        [
+          114913.992,
+          103195.55
+        ],
+        [
+          93595.819,
+          81898.407
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66996190,
+        67016302,
+        66802558,
+        67064754
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 37384,
+      "gains": [
+        0.10082192813238143,
+        0.20820431996135638
+      ],
+      "min_gain": 0.10082192813238143,
+      "costs": [
+        [
+          136692.24300000002,
+          122910.6675
+        ],
+        [
+          118055.269,
+          93475.652
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67057371,
+        67054348,
+        66912305,
+        66793407
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 108478,
+      "gains": [
+        0.04589556819939755,
+        0.06340299902989302
+      ],
+      "min_gain": 0.04589556819939755,
+      "costs": [
+        [
+          129966.03450000001,
+          124001.1695
+        ],
+        [
+          103434.981,
+          96876.893
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67036950,
+        67093358,
+        66668599,
+        67033137
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 165074,
+      "gains": [
+        0.1287526235433072,
+        0.17759617508633876
+      ],
+      "min_gain": 0.1287526235433072,
+      "costs": [
+        [
+          118347.103,
+          103109.603
+        ],
+        [
+          98000.016,
+          80595.588
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67091806,
+        67093736,
+        66582982,
+        66854430
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 200534,
+      "gains": [
+        0.10175108526868762,
+        0.1375350771399496
+      ],
+      "min_gain": 0.10175108526868762,
+      "costs": [
+        [
+          104869.42199999999,
+          94198.8445
+        ],
+        [
+          90521.0275,
+          78071.211
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67015532,
+        67084501,
+        67037387,
+        66780542
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 213513,
+      "gains": [
+        0.08038514156639073,
+        0.12963560164585816
+      ],
+      "min_gain": 0.08038514156639073,
+      "costs": [
+        [
+          121639.3765,
+          111861.378
+        ],
+        [
+          103011.305,
+          89657.3725
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66961097,
+        66815900,
+        66735662,
+        66714921
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 223319,
+      "gains": [
+        0.11883531435033654,
+        0.14538166051463786
+      ],
+      "min_gain": 0.11883531435033654,
+      "costs": [
+        [
+          107057.38500000001,
+          94335.187
+        ],
+        [
+          90264.9375,
+          77142.071
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67022662,
+        66410748,
+        66608155,
+        67102776
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 26799,
+      "gains": [
+        0.0701037234828904,
+        0.08441419458800191
+      ],
+      "min_gain": 0.0701037234828904,
+      "costs": [
+        [
+          588515.3805,
+          547258.2609999999
+        ],
+        [
+          485442.81799999997,
+          444464.5535
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66948799,
+        66937300,
+        66824670,
+        67049239
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 43779,
+      "gains": [
+        0.0592308151392701,
+        0.09170705598742533
+      ],
+      "min_gain": 0.0592308151392701,
+      "costs": [
+        [
+          568145.1525,
+          534493.452
+        ],
+        [
+          460310.415,
+          418096.702
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66949834,
+        67099845,
+        67087821,
+        67048981
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 146227,
+      "gains": [
+        0.06578766564976045,
+        0.07887835948746823
+      ],
+      "min_gain": 0.06578766564976045,
+      "costs": [
+        [
+          541606.6165,
+          505975.5815
+        ],
+        [
+          427207.46499999997,
+          393510.04099999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67051729,
+        67081327,
+        66964574,
+        66971940
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 150193,
+      "gains": [
+        0.08226819359460136,
+        0.07035740515704177
+      ],
+      "min_gain": 0.07035740515704177,
+      "costs": [
+        [
+          542206.2045,
+          497599.8795
+        ],
+        [
+          417871.6005,
+          388471.239
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67014299,
+        67023519,
+        67029115,
+        67031116
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 180812,
+      "gains": [
+        0.06054971729064116,
+        0.070154826961076
+      ],
+      "min_gain": 0.06054971729064116,
+      "costs": [
+        [
+          607403.3975,
+          570625.2935
+        ],
+        [
+          472186.882,
+          439060.69299999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66673957,
+        67062657,
+        67089422,
+        66966106
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 223375,
+      "gains": [
+        0.052631874981052484,
+        0.07352840157523363
+      ],
+      "min_gain": 0.052631874981052484,
+      "costs": [
+        [
+          565013.939,
+          535276.196
+        ],
+        [
+          441967.176,
+          409470.036
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66902079,
+        67097419,
+        67107027,
+        67107027
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 26702,
+      "gains": [
+        0.07004337939023361,
+        0.11459601890956325
+      ],
+      "min_gain": 0.07004337939023361,
+      "costs": [
+        [
+          634345.5925,
+          589913.8835
+        ],
+        [
+          507303.522,
+          449168.55799999996
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67083603,
+        66913333,
+        67108480,
+        67105610
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 43039,
+      "gains": [
+        0.056677322756203456,
+        0.11745953720104858
+      ],
+      "min_gain": 0.056677322756203456,
+      "costs": [
+        [
+          617227.046,
+          582244.2694999999
+        ],
+        [
+          478467.333,
+          422266.7815
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67036792,
+        67013813,
+        67051034,
+        66964343
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 141359,
+      "gains": [
+        0.07863418888801813,
+        0.11651544724029812
+      ],
+      "min_gain": 0.07863418888801813,
+      "costs": [
+        [
+          609575.023,
+          561641.5855
+        ],
+        [
+          460041.47750000004,
+          406439.539
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67002550,
+        67070305,
+        67078725,
+        67004610
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 145092,
+      "gains": [
+        0.06275746575970424,
+        0.09436264411961567
+      ],
+      "min_gain": 0.06275746575970424,
+      "costs": [
+        [
+          575091.1555,
+          538999.892
+        ],
+        [
+          422666.007,
+          382782.125
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67107654,
+        66715245,
+        67011545,
+        67018339
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 174917,
+      "gains": [
+        0.09350401465110325,
+        0.13272213350901835
+      ],
+      "min_gain": 0.09350401465110325,
+      "costs": [
+        [
+          625495.0145,
+          567008.7195
+        ],
+        [
+          493713.929,
+          428187.163
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66909372,
+        67099316,
+        67047869,
+        66979717
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 215464,
+      "gains": [
+        0.057425938222861024,
+        0.0852361337506238
+      ],
+      "min_gain": 0.057425938222861024,
+      "costs": [
+        [
+          642761.784,
+          605850.5855
+        ],
+        [
+          478222.7115,
+          437460.8565
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66891712,
+        67066237,
+        67100083,
+        67086703
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 27969,
+      "gains": [
+        0.058223432881549506,
+        0.051676152689990644
+      ],
+      "min_gain": 0.051676152689990644,
+      "costs": [
+        [
+          342444.073,
+          322505.80350000004
+        ],
+        [
+          319410.8915,
+          302904.9655
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66562791,
+        67074848,
+        67096374,
+        66886392
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 53829,
+      "gains": [
+        -0.01544909210148502,
+        -0.004383022337564653
+      ],
+      "min_gain": -0.01544909210148502,
+      "costs": [
+        [
+          315765.028,
+          320643.311
+        ],
+        [
+          312711.7305,
+          314082.353
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67031209,
+        66990915,
+        67049484,
+        67068051
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 131768,
+      "gains": [
+        -0.01215956684996683,
+        -0.0017038553235046595
+      ],
+      "min_gain": -0.01215956684996683,
+      "costs": [
+        [
+          346389.35349999997,
+          350601.298
+        ],
+        [
+          348382.8655,
+          348976.4595
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67084917,
+        67088762,
+        66848533,
+        67014455
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 211279,
+      "gains": [
+        0.0027130253566657954,
+        0.01178810374884152
+      ],
+      "min_gain": 0.0027130253566657954,
+      "costs": [
+        [
+          339494.0625,
+          338573.0065
+        ],
+        [
+          340792.2585,
+          336774.964
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67036488,
+        66779710,
+        66871850,
+        67097279
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 217288,
+      "gains": [
+        0.03320325995299198,
+        -0.0003711394725545943
+      ],
+      "min_gain": -0.0003711394725545943,
+      "costs": [
+        [
+          355201.809,
+          343407.951
+        ],
+        [
+          346896.543,
+          347025.29000000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66996257,
+        67034525,
+        66783061,
+        66961963
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 264434,
+      "gains": [
+        0.038807699074405365,
+        0.032059586303108435
+      ],
+      "min_gain": 0.032059586303108435,
+      "costs": [
+        [
+          400953.1065,
+          385393.039
+        ],
+        [
+          378394.7455,
+          366263.5665
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67023032,
+        67047933,
+        67054818,
+        66833468
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 27860,
+      "gains": [
+        0.05404749601002396,
+        0.05578659836665842
+      ],
+      "min_gain": 0.05404749601002396,
+      "costs": [
+        [
+          352847.04949999996,
+          333776.55
+        ],
+        [
+          325191.1755,
+          307049.866
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66988387,
+        67071470,
+        66781851,
+        66745394
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 53657,
+      "gains": [
+        -0.00842688102502543,
+        -0.026705590982464417
+      ],
+      "min_gain": -0.026705590982464417,
+      "costs": [
+        [
+          328495.1445,
+          331263.33400000003
+        ],
+        [
+          304951.967,
+          313095.8895
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66992162,
+        66646789,
+        66992459,
+        66985594
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 129731,
+      "gains": [
+        -0.0002768612475976237,
+        -0.0419189114679613
+      ],
+      "min_gain": -0.0419189114679613,
+      "costs": [
+        [
+          360395.3275,
+          360495.107
+        ],
+        [
+          330012.00450000004,
+          343845.7485
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67101803,
+        66971458,
+        67047427,
+        67038989
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 207312,
+      "gains": [
+        0.04806065289618122,
+        0.03312984762824342
+      ],
+      "min_gain": 0.03312984762824342,
+      "costs": [
+        [
+          376516.431,
+          358420.8055
+        ],
+        [
+          354421.129,
+          342679.211
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67020079,
+        67088190,
+        67040975,
+        66979275
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 213019,
+      "gains": [
+        0.02830505612473648,
+        0.02768384420536049
+      ],
+      "min_gain": 0.02768384420536049,
+      "costs": [
+        [
+          353592.127,
+          343583.68200000003
+        ],
+        [
+          344746.4315,
+          335202.525
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66890520,
+        66892170,
+        66853909,
+        67044706
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 258857,
+      "gains": [
+        0.04801744517395948,
+        0.06936534524361575
+      ],
+      "min_gain": 0.04801744517395948,
+      "costs": [
+        [
+          371476.032,
+          353638.702
+        ],
+        [
+          371719.1475,
+          345934.7205
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66940641,
+        66548543,
+        66678302,
+        66812468
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 28179,
+      "gains": [
+        0.032720952433135914,
+        0.03137674248556052
+      ],
+      "min_gain": 0.03137674248556052,
+      "costs": [
+        [
+          353732.674,
+          342158.204
+        ],
+        [
+          314905.8735,
+          305025.153
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66892951,
+        66580797,
+        67105394,
+        67048697
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 55535,
+      "gains": [
+        0.030115305417590763,
+        0.05224401298578034
+      ],
+      "min_gain": 0.030115305417590763,
+      "costs": [
+        [
+          321894.8925,
+          312200.92949999997
+        ],
+        [
+          322779.21499999997,
+          305915.9335
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67081205,
+        66788809,
+        67034358,
+        67101429
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 138074,
+      "gains": [
+        0.02019459576814839,
+        0.01749766652251058
+      ],
+      "min_gain": 0.01749766652251058,
+      "costs": [
+        [
+          338173.5925,
+          331344.3135
+        ],
+        [
+          322690.5995,
+          317044.267
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66756071,
+        66858619,
+        67024891,
+        67029600
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 222008,
+      "gains": [
+        -0.011117640305060785,
+        -0.025630814466049725
+      ],
+      "min_gain": -0.025630814466049725,
+      "costs": [
+        [
+          287735.024,
+          290933.9585
+        ],
+        [
+          289437.798,
+          296856.3245
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67006628,
+        67097069,
+        67047814,
+        67034347
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 228565,
+      "gains": [
+        0.008901909258462105,
+        0.03995906317092264
+      ],
+      "min_gain": 0.008901909258462105,
+      "costs": [
+        [
+          316746.7695,
+          313927.1185
+        ],
+        [
+          336766.191,
+          323309.3295
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66973352,
+        66988044,
+        66992299,
+        67009320
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b17",
+      "group": "seed810031_hotspot",
+      "operation": 250230,
+      "gains": [
+        -0.004660949405216057,
+        -0.029948249188296687
+      ],
+      "min_gain": -0.029948249188296687,
+      "costs": [
+        [
+          334001.051,
+          335557.81299999997
+        ],
+        [
+          319553.5385,
+          329123.6075
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67097157,
+        66878493,
+        67074490,
+        67087040
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 27969,
+      "gains": [
+        0.025634558263487865,
+        0.09308680024959924
+      ],
+      "min_gain": 0.025634558263487865,
+      "costs": [
+        [
+          350470.9895,
+          341486.82050000003
+        ],
+        [
+          323834.184,
+          293689.49600000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66996629,
+        66592171,
+        67108130,
+        66790138
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 54962,
+      "gains": [
+        0.05601821867775286,
+        0.048550009182043705
+      ],
+      "min_gain": 0.048550009182043705,
+      "costs": [
+        [
+          336479.523,
+          317630.5395
+        ],
+        [
+          326874.3975,
+          311004.6425
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66758363,
+        66964560,
+        67108044,
+        66332990
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 136241,
+      "gains": [
+        0.02271559808829352,
+        0.026422369489456313
+      ],
+      "min_gain": 0.02271559808829352,
+      "costs": [
+        [
+          359286.952,
+          351125.534
+        ],
+        [
+          364791.0345,
+          355152.391
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67088457,
+        66908273,
+        66853408,
+        66279945
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 218472,
+      "gains": [
+        0.040932772104807,
+        0.020449277124725777
+      ],
+      "min_gain": 0.020449277124725777,
+      "costs": [
+        [
+          339535.604,
+          325637.4705
+        ],
+        [
+          321731.4705,
+          315152.29449999996
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67079328,
+        67063123,
+        67087499,
+        66894277
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 224989,
+      "gains": [
+        0.024869182677622347,
+        0.024363028127669398
+      ],
+      "min_gain": 0.024363028127669398,
+      "costs": [
+        [
+          328997.905,
+          320815.996
+        ],
+        [
+          311485.86950000003,
+          303897.13049999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66893124,
+        67037192,
+        67085935,
+        67097385
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 246193,
+      "gains": [
+        0.02255181545370682,
+        -0.024253312331031007
+      ],
+      "min_gain": -0.024253312331031007,
+      "costs": [
+        [
+          335949.051,
+          328372.79000000004
+        ],
+        [
+          326456.275,
+          334373.921
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66825418,
+        66889604,
+        66838528,
+        66932830
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 67724,
+      "gains": [
+        0.02970239352829866,
+        0.03991257360822629
+      ],
+      "min_gain": 0.02970239352829866,
+      "costs": [
+        [
+          1551164.8229999999,
+          1505091.5150000001
+        ],
+        [
+          1346759.458,
+          1293006.8220000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67003625,
+        66845709,
+        66876185,
+        66956179
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 78384,
+      "gains": [
+        0.052159369876004565,
+        0.06556653280317458
+      ],
+      "min_gain": 0.052159369876004565,
+      "costs": [
+        [
+          1566459.1845,
+          1484753.6605
+        ],
+        [
+          1392875.162,
+          1301549.167
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66924555,
+        67033231,
+        66959568,
+        67081368
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 93370,
+      "gains": [
+        0.04622919659038798,
+        0.043537169890477435
+      ],
+      "min_gain": 0.043537169890477435,
+      "costs": [
+        [
+          1678244.5775000001,
+          1600660.679
+        ],
+        [
+          1469301.4305,
+          1405332.2045
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66964117,
+        67103740,
+        67013059,
+        67078979
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 163111,
+      "gains": [
+        0.05364517585334727,
+        0.0729331244461023
+      ],
+      "min_gain": 0.05364517585334727,
+      "costs": [
+        [
+          1561113.3465,
+          1477367.1465
+        ],
+        [
+          1360757.821,
+          1261513.5015
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66894080,
+        66894080,
+        67105801,
+        67053484
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 240649,
+      "gains": [
+        0.05628397485555103,
+        0.05046947494038952
+      ],
+      "min_gain": 0.05046947494038952,
+      "costs": [
+        [
+          1523239.736,
+          1437505.7489999998
+        ],
+        [
+          1326388.368,
+          1259446.2434999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66815232,
+        66959086,
+        66974634,
+        67044185
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 253822,
+      "gains": [
+        0.04234733958247602,
+        0.05709185797918462
+      ],
+      "min_gain": 0.04234733958247602,
+      "costs": [
+        [
+          1656743.7574999998,
+          1586585.067
+        ],
+        [
+          1430399.6469999999,
+          1348735.4735
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66693385,
+        66924156,
+        67086258,
+        67035231
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 67605,
+      "gains": [
+        0.027851193049239713,
+        0.037997673037056465
+      ],
+      "min_gain": 0.027851193049239713,
+      "costs": [
+        [
+          1572608.395,
+          1528809.375
+        ],
+        [
+          1360956.3525,
+          1309243.178
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67008995,
+        67080847,
+        66727196,
+        66638637
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 78150,
+      "gains": [
+        0.045982691428811694,
+        0.06663769600850139
+      ],
+      "min_gain": 0.045982691428811694,
+      "costs": [
+        [
+          1581911.742,
+          1509171.1825
+        ],
+        [
+          1395699.5075,
+          1302693.308
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66758180,
+        66883491,
+        67053889,
+        67050280
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 93069,
+      "gains": [
+        0.05046285597686273,
+        0.06282022899933044
+      ],
+      "min_gain": 0.05046285597686273,
+      "costs": [
+        [
+          1680451.5095,
+          1595651.1269999999
+        ],
+        [
+          1458323.8705,
+          1366711.631
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66741569,
+        66951532,
+        66771251,
+        66962946
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 162912,
+      "gains": [
+        0.05783699693055507,
+        0.05716742304870199
+      ],
+      "min_gain": 0.05716742304870199,
+      "costs": [
+        [
+          1597881.9165,
+          1505465.225
+        ],
+        [
+          1377431.6875,
+          1298687.4675
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66954329,
+        66910282,
+        66937433,
+        66937433
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 240152,
+      "gains": [
+        0.045511506765914346,
+        0.05761097067770529
+      ],
+      "min_gain": 0.045511506765914346,
+      "costs": [
+        [
+          1558393.4819999998,
+          1487468.6465
+        ],
+        [
+          1363144.5205,
+          1284612.4415
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66903427,
+        66980230,
+        67030752,
+        66974888
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 253183,
+      "gains": [
+        0.04767059566235736,
+        0.06939398654608236
+      ],
+      "min_gain": 0.04767059566235736,
+      "costs": [
+        [
+          1676042.0945000001,
+          1596144.1695
+        ],
+        [
+          1456069.9425,
+          1355027.4445
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66802254,
+        66462138,
+        66990396,
+        67088814
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 26134,
+      "gains": [
+        0.03484085678408806,
+        0.03649970990393869
+      ],
+      "min_gain": 0.03484085678408806,
+      "costs": [
+        [
+          842080.5545,
+          812741.7465
+        ],
+        [
+          744009.5845,
+          716853.4505
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66722486,
+        66887370,
+        66880146,
+        66654040
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 37621,
+      "gains": [
+        0.05368077138690807,
+        0.02201572791588579
+      ],
+      "min_gain": 0.02201572791588579,
+      "costs": [
+        [
+          856976.1725,
+          810973.0305
+        ],
+        [
+          702376.9125,
+          686913.5735
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67052993,
+        67106993,
+        67001117,
+        66311217
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 107119,
+      "gains": [
+        0.030435028518696543,
+        0.05007142413669356
+      ],
+      "min_gain": 0.030435028518696543,
+      "costs": [
+        [
+          832568.6465,
+          807229.396
+        ],
+        [
+          694694.431,
+          659910.0915
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66928014,
+        66927653,
+        67038437,
+        67083418
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 109871,
+      "gains": [
+        0.0717597672404567,
+        0.09449371390272986
+      ],
+      "min_gain": 0.0717597672404567,
+      "costs": [
+        [
+          863920.4095000001,
+          801925.682
+        ],
+        [
+          733597.9785,
+          664277.581
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67043156,
+        67002605,
+        66682362,
+        66816847
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 130329,
+      "gains": [
+        0.036594007919967565,
+        0.07840679589315946
+      ],
+      "min_gain": 0.036594007919967565,
+      "costs": [
+        [
+          789585.048,
+          760690.9665
+        ],
+        [
+          672396.798,
+          619676.3195
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67064323,
+        67028500,
+        67012181,
+        66838094
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 159238,
+      "gains": [
+        0.030203537037302313,
+        0.06286787226364528
+      ],
+      "min_gain": 0.030203537037302313,
+      "costs": [
+        [
+          783673.4145,
+          760003.7055
+        ],
+        [
+          677839.6495,
+          635225.313
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67073512,
+        67044204,
+        67069624,
+        67057545
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 26107,
+      "gains": [
+        0.025519586663960703,
+        0.025500634181252344
+      ],
+      "min_gain": 0.025500634181252344,
+      "costs": [
+        [
+          857462.4185,
+          835580.3319999999
+        ],
+        [
+          736189.7694999999,
+          717416.4635
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67045719,
+        66750026,
+        67020269,
+        66922897
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 37387,
+      "gains": [
+        0.056438749286634,
+        0.052120219279887456
+      ],
+      "min_gain": 0.052120219279887456,
+      "costs": [
+        [
+          858871.1765,
+          810397.5615000001
+        ],
+        [
+          724773.265,
+          686997.9235
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66873559,
+        66937333,
+        66943828,
+        67076565
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 106788,
+      "gains": [
+        0.058816386079309634,
+        0.06255655049989968
+      ],
+      "min_gain": 0.058816386079309634,
+      "costs": [
+        [
+          867452.2765,
+          816431.8685
+        ],
+        [
+          747091.6495,
+          700356.173
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67016428,
+        67103376,
+        66946940,
+        67089743
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 109442,
+      "gains": [
+        0.07837313832116138,
+        0.08742226137320011
+      ],
+      "min_gain": 0.07837313832116138,
+      "costs": [
+        [
+          886709.1645,
+          817214.9845
+        ],
+        [
+          744653.461,
+          679554.1714999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66180805,
+        67062397,
+        67022530,
+        67099667
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 129743,
+      "gains": [
+        0.0652916407828427,
+        0.03803982372565101
+      ],
+      "min_gain": 0.03803982372565101,
+      "costs": [
+        [
+          813658.9135,
+          760533.788
+        ],
+        [
+          708478.6905,
+          681528.286
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66674921,
+        67084834,
+        67009815,
+        67021694
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 158095,
+      "gains": [
+        0.06196720145285363,
+        0.09288657088097577
+      ],
+      "min_gain": 0.06196720145285363,
+      "costs": [
+        [
+          820536.6195,
+          769690.2615
+        ],
+        [
+          706194.694,
+          640598.6905
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67063300,
+        66856890,
+        66932771,
+        66977884
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 28100,
+      "gains": [
+        0.04258792461982739,
+        0.18426467500872362
+      ],
+      "min_gain": 0.04258792461982739,
+      "costs": [
+        [
+          359846.509,
+          344521.393
+        ],
+        [
+          244309.4885,
+          199291.88
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67063016,
+        67107742,
+        67026803,
+        67008316
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 51406,
+      "gains": [
+        0.06557181805134939,
+        0.14056676101244345
+      ],
+      "min_gain": 0.06557181805134939,
+      "costs": [
+        [
+          342715.265,
+          320242.802
+        ],
+        [
+          281764.77650000004,
+          242158.0145
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67041331,
+        66990829,
+        67006450,
+        67036342
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 190102,
+      "gains": [
+        0.08239879792208213,
+        0.060151029319202604
+      ],
+      "min_gain": 0.060151029319202604,
+      "costs": [
+        [
+          322065.645,
+          295527.823
+        ],
+        [
+          245887.62099999998,
+          231097.2275
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67091764,
+        67070404,
+        67082516,
+        67043049
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 195756,
+      "gains": [
+        0.10545318133566949,
+        0.0899948243420949
+      ],
+      "min_gain": 0.0899948243420949,
+      "costs": [
+        [
+          361509.41599999997,
+          323387.098
+        ],
+        [
+          268997.686,
+          244789.2865
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67031294,
+        67104504,
+        67012180,
+        66750663
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 237123,
+      "gains": [
+        0.06766858728188227,
+        0.08798201753721502
+      ],
+      "min_gain": 0.06766858728188227,
+      "costs": [
+        [
+          370637.315,
+          345556.8115
+        ],
+        [
+          319114.4655,
+          291038.131
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66966361,
+        67056956,
+        67002770,
+        67100943
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b17",
+      "group": "seed810031_lognormal",
+      "operation": 263276,
+      "gains": [
+        0.11419377208398448,
+        0.1849172941696017
+      ],
+      "min_gain": 0.11419377208398448,
+      "costs": [
+        [
+          378161.49,
+          334977.803
+        ],
+        [
+          289979.5865,
+          236357.34600000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67096268,
+        66749642,
+        66940001,
+        66909398
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 28222,
+      "gains": [
+        0.12522338561791185,
+        0.27009390188293714
+      ],
+      "min_gain": 0.12522338561791185,
+      "costs": [
+        [
+          379258.1335,
+          331766.146
+        ],
+        [
+          252323.7475,
+          184172.642
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66837897,
+        67103016,
+        66949055,
+        66892316
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 50422,
+      "gains": [
+        0.0748505073642893,
+        0.08886119109318204
+      ],
+      "min_gain": 0.0748505073642893,
+      "costs": [
+        [
+          381869.0615,
+          353285.9685
+        ],
+        [
+          290804.9305,
+          264963.658
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66850278,
+        67087096,
+        66952522,
+        66947185
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 182451,
+      "gains": [
+        0.1279737083187105,
+        0.08113151446350585
+      ],
+      "min_gain": 0.08113151446350585,
+      "costs": [
+        [
+          367427.092,
+          320406.0845
+        ],
+        [
+          274981.6905,
+          252672.0095
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66950666,
+        67041065,
+        67084137,
+        66893817
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 187077,
+      "gains": [
+        0.1471984167629327,
+        0.12038047838640786
+      ],
+      "min_gain": 0.12038047838640786,
+      "costs": [
+        [
+          351682.519,
+          299915.409
+        ],
+        [
+          284590.778,
+          250331.604
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66923313,
+        67092801,
+        67077997,
+        66983867
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 226927,
+      "gains": [
+        0.08990453548970415,
+        0.03755370476976455
+      ],
+      "min_gain": 0.03755370476976455,
+      "costs": [
+        [
+          347730.5325,
+          316467.9805
+        ],
+        [
+          268008.08499999996,
+          257943.3885
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67044666,
+        66857414,
+        67039757,
+        67093602
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810031_b1021",
+      "group": "seed810031_lognormal",
+      "operation": 252553,
+      "gains": [
+        0.11265849187439285,
+        0.17937054201342773
+      ],
+      "min_gain": 0.11265849187439285,
+      "costs": [
+        [
+          346438.9355,
+          307409.64749999996
+        ],
+        [
+          283189.4325,
+          232393.5905
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66927809,
+        66944363,
+        67094271,
+        67075773
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b17",
+      "group": "seed810031_uniform",
+      "operation": 57575,
+      "gains": [
+        -0.009457602525758953,
+        0.0016284511720781481
+      ],
+      "min_gain": -0.009457602525758953,
+      "costs": [
+        [
+          2013792.4435,
+          2032838.092
+        ],
+        [
+          2075341.9309999999,
+          2071962.338
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67049146,
+        67092809,
+        66828193,
+        67087893
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b17",
+      "group": "seed810031_uniform",
+      "operation": 76962,
+      "gains": [
+        0.0006025354199629315,
+        0.029004449322255623
+      ],
+      "min_gain": 0.0006025354199629315,
+      "costs": [
+        [
+          2017752.749,
+          2016536.9815
+        ],
+        [
+          2024929.1875,
+          1966197.2315
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67067717,
+        67060266,
+        67039256,
+        66870756
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b17",
+      "group": "seed810031_uniform",
+      "operation": 130122,
+      "gains": [
+        -0.00231768363967684,
+        0.002569614172381491
+      ],
+      "min_gain": -0.00231768363967684,
+      "costs": [
+        [
+          1986448.2025000001,
+          1991052.1609999998
+        ],
+        [
+          2024473.7735000001,
+          2019271.657
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67101380,
+        66944159,
+        67077864,
+        66825063
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b17",
+      "group": "seed810031_uniform",
+      "operation": 199257,
+      "gains": [
+        0.011239875912731423,
+        0.008837827605682254
+      ],
+      "min_gain": 0.008837827605682254,
+      "costs": [
+        [
+          2066304.9734999998,
+          2043079.962
+        ],
+        [
+          2066426.764,
+          2048164.0405000001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67046380,
+        67095149,
+        67082007,
+        67062598
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b17",
+      "group": "seed810031_uniform",
+      "operation": 233397,
+      "gains": [
+        0.004845111317616052,
+        0.0005892636758032263
+      ],
+      "min_gain": 0.0005892636758032263,
+      "costs": [
+        [
+          2015162.988,
+          2005399.299
+        ],
+        [
+          2011624.929,
+          2010439.5515
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67009365,
+        67042717,
+        66622523,
+        67057928
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b17",
+      "group": "seed810031_uniform",
+      "operation": 241087,
+      "gains": [
+        -0.0013221367015185447,
+        -0.008107556883148995
+      ],
+      "min_gain": -0.008107556883148995,
+      "costs": [
+        [
+          1996595.7355,
+          1999235.508
+        ],
+        [
+          2027435.359,
+          2043872.9065
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67089520,
+        67073477,
+        67055399,
+        67086780
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b1021",
+      "group": "seed810031_uniform",
+      "operation": 57760,
+      "gains": [
+        -0.0008511154229313481,
+        0.0008292525034966275
+      ],
+      "min_gain": -0.0008511154229313481,
+      "costs": [
+        [
+          2035335.5765,
+          2037067.882
+        ],
+        [
+          2101765.738,
+          2100022.8435
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67032019,
+        67042580,
+        67041690,
+        67087845
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b1021",
+      "group": "seed810031_uniform",
+      "operation": 77199,
+      "gains": [
+        0.009989668540457429,
+        0.015815773779367347
+      ],
+      "min_gain": 0.009989668540457429,
+      "costs": [
+        [
+          2032304.8175,
+          2012002.766
+        ],
+        [
+          2026772.0345,
+          1994717.0665
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67093486,
+        67076569,
+        66992452,
+        66995792
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b1021",
+      "group": "seed810031_uniform",
+      "operation": 130445,
+      "gains": [
+        -0.013269013759252905,
+        -0.008235853158699794
+      ],
+      "min_gain": -0.013269013759252905,
+      "costs": [
+        [
+          1997594.6955,
+          2024100.807
+        ],
+        [
+          2043742.3635,
+          2060574.3255
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66853496,
+        66933537,
+        67102298,
+        66987790
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b1021",
+      "group": "seed810031_uniform",
+      "operation": 199342,
+      "gains": [
+        0.0067765363861305395,
+        0.009055817191681794
+      ],
+      "min_gain": 0.0067765363861305395,
+      "costs": [
+        [
+          2072252.9475,
+          2058210.25
+        ],
+        [
+          2075654.2565000001,
+          2056857.511
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66714892,
+        66944665,
+        67011610,
+        67009553
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b1021",
+      "group": "seed810031_uniform",
+      "operation": 233496,
+      "gains": [
+        -0.011301130685576734,
+        -0.004192205956114385
+      ],
+      "min_gain": -0.011301130685576734,
+      "costs": [
+        [
+          2030189.4685,
+          2053132.905
+        ],
+        [
+          2013096.825,
+          2021536.1415
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67089468,
+        66808957,
+        67012737,
+        67037990
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810031_b1021",
+      "group": "seed810031_uniform",
+      "operation": 241222,
+      "gains": [
+        -0.0034350635174111703,
+        -9.612155827397338e-05
+      ],
+      "min_gain": -0.0034350635174111703,
+      "costs": [
+        [
+          2017836.9235,
+          2024768.3215
+        ],
+        [
+          2070061.114,
+          2070260.0915
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66958976,
+        67046374,
+        67026389,
+        66753866
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 26615,
+      "gains": [
+        0.04513976561424222,
+        0.04260456610299095
+      ],
+      "min_gain": 0.04260456610299095,
+      "costs": [
+        [
+          6695721.763,
+          6393478.452
+        ],
+        [
+          5953513.325,
+          5699866.473
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66409225,
+        66409225,
+        66409225,
+        66409225
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 42418,
+      "gains": [
+        0.1191359322933248,
+        0.06162547655307807
+      ],
+      "min_gain": 0.06162547655307807,
+      "costs": [
+        [
+          6816103.129999999,
+          6004060.329
+        ],
+        [
+          5820503.533,
+          5461812.229
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63262044,
+        64407619,
+        66552585,
+        66552585
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 136163,
+      "gains": [
+        0.01764131939603845,
+        0.03603713171647497
+      ],
+      "min_gain": 0.01764131939603845,
+      "costs": [
+        [
+          6956401.970000001,
+          6833681.861
+        ],
+        [
+          6116557.853,
+          5896134.652
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65707195,
+        65707195,
+        66409225,
+        66409225
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 139441,
+      "gains": [
+        -0.04504996576954519,
+        0.01402945720526066
+      ],
+      "min_gain": -0.04504996576954519,
+      "costs": [
+        [
+          6441785.605,
+          6731987.825999999
+        ],
+        [
+          6097076.298,
+          6011537.627
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65333749,
+        65333749,
+        67007735,
+        67007735
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 167566,
+      "gains": [
+        0.035672566600565885,
+        0.06152429071261448
+      ],
+      "min_gain": 0.035672566600565885,
+      "costs": [
+        [
+          6350537.25,
+          6123997.2870000005
+        ],
+        [
+          5748728.524999999,
+          5395042.08
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64045066,
+        64672200,
+        65618290,
+        65618290
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 207630,
+      "gains": [
+        0.03206782059792942,
+        0.08564916775257894
+      ],
+      "min_gain": 0.03206782059792942,
+      "costs": [
+        [
+          6560043.373,
+          6349677.079
+        ],
+        [
+          5902393.418,
+          5396858.334
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64672200,
+        64672200,
+        65463135,
+        65463135
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 26601,
+      "gains": [
+        0.07404483167377823,
+        0.0766072163207074
+      ],
+      "min_gain": 0.07404483167377823,
+      "costs": [
+        [
+          7367733.84,
+          6822191.228
+        ],
+        [
+          6283885.215,
+          5802494.261
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64429185,
+        64356670,
+        66002409,
+        66002409
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 42377,
+      "gains": [
+        0.04303433968869971,
+        0.07930008896633588
+      ],
+      "min_gain": 0.04303433968869971,
+      "costs": [
+        [
+          6830888.103,
+          6536925.3440000005
+        ],
+        [
+          5927433.0600000005,
+          5457387.091
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64504547,
+        67034437,
+        66842297,
+        66842297
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 136041,
+      "gains": [
+        0.02852664362092056,
+        0.04324144577810554
+      ],
+      "min_gain": 0.02852664362092056,
+      "costs": [
+        [
+          7014915.166999999,
+          6814803.182
+        ],
+        [
+          6166464.7469999995,
+          5899817.896
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65540878,
+        63141994,
+        66048841,
+        66048841
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 139454,
+      "gains": [
+        0.013483927408470854,
+        0.028192379758154557
+      ],
+      "min_gain": 0.013483927408470854,
+      "costs": [
+        [
+          7035224.985,
+          6940362.522
+        ],
+        [
+          6159185.017,
+          5985542.934
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63273097,
+        64583871,
+        66619524,
+        66619524
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 167369,
+      "gains": [
+        0.05024884104564942,
+        0.054165144920507426
+      ],
+      "min_gain": 0.05024884104564942,
+      "costs": [
+        [
+          6805513.518,
+          6463544.351
+        ],
+        [
+          5907993.664,
+          5587986.331
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66711322,
+        66711322,
+        66838292,
+        66838292
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_positive_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 206685,
+      "gains": [
+        0.025639137187391494,
+        0.022067387474758216
+      ],
+      "min_gain": 0.022067387474758216,
+      "costs": [
+        [
+          6834013.669,
+          6658795.455
+        ],
+        [
+          5797746.976,
+          5669805.847
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66846389,
+        66846389,
+        66838292,
+        66838292
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 28371,
+      "gains": [
+        0.09804602345334136,
+        0.031582540849277134
+      ],
+      "min_gain": 0.031582540849277134,
+      "costs": [
+        [
+          6903907.789,
+          6227007.084
+        ],
+        [
+          6054484.3719999995,
+          5863268.3719999995
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66028232,
+        66730344,
+        65740491,
+        65740491
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 55897,
+      "gains": [
+        0.1102314024206787,
+        0.12227068892255184
+      ],
+      "min_gain": 0.1102314024206787,
+      "costs": [
+        [
+          7289434.765000001,
+          6485910.148
+        ],
+        [
+          6238265.039,
+          5475508.075
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62037241,
+        62037241,
+        62716015,
+        64667431
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 139380,
+      "gains": [
+        0.04701513955439993,
+        0.07929251056889533
+      ],
+      "min_gain": 0.04701513955439993,
+      "costs": [
+        [
+          6784332.239,
+          6465365.9120000005
+        ],
+        [
+          6113745.605,
+          5628971.367000001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65478919,
+        65072103,
+        67023519,
+        64983804
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 224681,
+      "gains": [
+        0.07095048867767921,
+        0.04930357560690626
+      ],
+      "min_gain": 0.04930357560690626,
+      "costs": [
+        [
+          5570717.91,
+          5175472.752
+        ],
+        [
+          5479699.143,
+          5209530.382
+        ]
+      ],
+      "terminal_resident_bytes": [
+        57441400,
+        59787197,
+        58291687,
+        66775486
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 231217,
+      "gains": [
+        0.14903222577581263,
+        0.08585589582930829
+      ],
+      "min_gain": 0.08585589582930829,
+      "costs": [
+        [
+          7164714.896,
+          6096941.488
+        ],
+        [
+          5873630.263,
+          5369344.475
+        ]
+      ],
+      "terminal_resident_bytes": [
+        59564474,
+        65390620,
+        60726439,
+        60726439
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 252517,
+      "gains": [
+        -0.05315277671542217,
+        -0.04862804511697169
+      ],
+      "min_gain": -0.05315277671542217,
+      "costs": [
+        [
+          5615939.043,
+          5914441.797
+        ],
+        [
+          5325418.416,
+          5584383.103
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67023519,
+        63917090,
+        67023519,
+        67023519
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 27537,
+      "gains": [
+        -0.022159956608221888,
+        -0.06255850252407999
+      ],
+      "min_gain": -0.06255850252407999,
+      "costs": [
+        [
+          6527830.200999999,
+          6672486.635
+        ],
+        [
+          5392786.55,
+          5730151.200999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61576726,
+        61576726,
+        63662105,
+        65206705
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 55026,
+      "gains": [
+        0.0348389791578969,
+        0.04418324187142744
+      ],
+      "min_gain": 0.0348389791578969,
+      "costs": [
+        [
+          7230988.825999999,
+          6979068.557
+        ],
+        [
+          5980573.127,
+          5716332.018
+        ]
+      ],
+      "terminal_resident_bytes": [
+        60007945,
+        64667431,
+        65206705,
+        66935220
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 137559,
+      "gains": [
+        0.06773913258919488,
+        0.09280371306606995
+      ],
+      "min_gain": 0.06773913258919488,
+      "costs": [
+        [
+          7763360.083,
+          7237476.805
+        ],
+        [
+          6588522.461000001,
+          5977083.113
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64260615,
+        51385953,
+        64667431,
+        64667431
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 219168,
+      "gains": [
+        0.04685989598200018,
+        -0.001882284382699126
+      ],
+      "min_gain": -0.001882284382699126,
+      "costs": [
+        [
+          6960122.3,
+          6633971.693
+        ],
+        [
+          5633675.813,
+          5644279.993
+        ]
+      ],
+      "terminal_resident_bytes": [
+        56056662,
+        66935220,
+        66935220,
+        66935220
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 225206,
+      "gains": [
+        0.04901793991896805,
+        0.18153861495176019
+      ],
+      "min_gain": 0.04901793991896805,
+      "costs": [
+        [
+          6421096.449999999,
+          6106347.53
+        ],
+        [
+          5704931.159,
+          4669265.858
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65613521,
+        65206705,
+        65206705,
+        65206705
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 245139,
+      "gains": [
+        -0.1419327324091878,
+        -0.008927887247627815
+      ],
+      "min_gain": -0.1419327324091878,
+      "costs": [
+        [
+          6406703.567,
+          7316024.51
+        ],
+        [
+          5504861.636,
+          5554008.42
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65084538,
+        65084538,
+        66368670,
+        65084538
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 28239,
+      "gains": [
+        0.15290271279907133,
+        0.11305059160902829
+      ],
+      "min_gain": 0.11305059160902829,
+      "costs": [
+        [
+          5404977.890000001,
+          4578542.108
+        ],
+        [
+          4818772.81,
+          4274007.693
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65789113,
+        66586760,
+        66339048,
+        66339048
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 56152,
+      "gains": [
+        0.1965367087261067,
+        0.04159542394995548
+      ],
+      "min_gain": 0.04159542394995548,
+      "costs": [
+        [
+          6072962.144,
+          4879402.152
+        ],
+        [
+          4812542.823,
+          4612363.063999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65178567,
+        64978503,
+        66580048,
+        62264173
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 140300,
+      "gains": [
+        0.11534478559000859,
+        0.08123384785247983
+      ],
+      "min_gain": 0.08123384785247983,
+      "costs": [
+        [
+          5246718.765,
+          4641537.114
+        ],
+        [
+          5353736.238,
+          4918831.643
+        ]
+      ],
+      "terminal_resident_bytes": [
+        59350759,
+        65084538,
+        66331501,
+        66331501
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 228338,
+      "gains": [
+        -0.0920500590473948,
+        -0.04582125495780088
+      ],
+      "min_gain": -0.0920500590473948,
+      "costs": [
+        [
+          4404687.973,
+          4810139.761
+        ],
+        [
+          4081677.819,
+          4268705.419
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63741594,
+        63337233,
+        65520891,
+        65520891
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 235941,
+      "gains": [
+        0.021270758751255503,
+        0.050342954548735594
+      ],
+      "min_gain": 0.021270758751255503,
+      "costs": [
+        [
+          5709344.148,
+          5587902.066
+        ],
+        [
+          5620794.817,
+          5337827.399
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65480664,
+        65480664,
+        63082330,
+        61973402
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b17",
+      "group": "seed810032_zipf",
+      "operation": 254200,
+      "gains": [
+        -0.004512954253865344,
+        0.07497948355588653
+      ],
+      "min_gain": -0.004512954253865344,
+      "costs": [
+        [
+          5646628.919,
+          5672111.897
+        ],
+        [
+          5160656.711,
+          4773713.336
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62038691,
+        65624520,
+        66339048,
+        66339048
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 28005,
+      "gains": [
+        -0.0007910136912530834,
+        0.042410123263420675
+      ],
+      "min_gain": -0.0007910136912530834,
+      "costs": [
+        [
+          5337345.038000001,
+          5341566.951
+        ],
+        [
+          4583171.777000001,
+          4388798.897
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63709464,
+        66580048,
+        66339048,
+        66339048
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 55478,
+      "gains": [
+        -0.027729218640840603,
+        -0.03331172418055845
+      ],
+      "min_gain": -0.03331172418055845,
+      "costs": [
+        [
+          5598971.468,
+          5754226.572000001
+        ],
+        [
+          4913134.16,
+          5076799.13
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67063227,
+        66967424,
+        67100982,
+        67100982
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 134085,
+      "gains": [
+        0.11324083101457559,
+        0.07054320724467135
+      ],
+      "min_gain": 0.07054320724467135,
+      "costs": [
+        [
+          5657610.177,
+          5016937.699
+        ],
+        [
+          4926015.524,
+          4578518.59
+        ]
+      ],
+      "terminal_resident_bytes": [
+        58563716,
+        64791313,
+        66629819,
+        65796612
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 214092,
+      "gains": [
+        -0.015066708457957106,
+        0.05995011007670161
+      ],
+      "min_gain": -0.015066708457957106,
+      "costs": [
+        [
+          5318192.638,
+          5398320.296
+        ],
+        [
+          4827661.461,
+          4538242.625
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66049519,
+        66810211,
+        66810211,
+        66810211
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 221022,
+      "gains": [
+        -0.052471215928814735,
+        0.009983951008106815
+      ],
+      "min_gain": -0.052471215928814735,
+      "costs": [
+        [
+          5164518.9120000005,
+          5435507.499
+        ],
+        [
+          4882065.523,
+          4833323.220000001
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64978503,
+        64978503,
+        66629819,
+        66629819
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_negative_iid_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 244335,
+      "gains": [
+        0.0029619697896752254,
+        0.01935628790421608
+      ],
+      "min_gain": 0.0029619697896752254,
+      "costs": [
+        [
+          5781419.196,
+          5764294.807
+        ],
+        [
+          4394401.004,
+          4309341.7129999995
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66339048,
+        66339048,
+        66339048,
+        66339048
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 30115,
+      "gains": [
+        -0.00012789930730333567,
+        -0.012603428985617586
+      ],
+      "min_gain": -0.012603428985617586,
+      "costs": [
+        [
+          2542218.616,
+          2542543.764
+        ],
+        [
+          2486880.597,
+          2518223.82
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66235645,
+        64655554,
+        66227548,
+        66522836
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 76040,
+      "gains": [
+        0.09948715008834128,
+        0.016229836305477887
+      ],
+      "min_gain": 0.016229836305477887,
+      "costs": [
+        [
+          2395105.999,
+          2156823.7290000003
+        ],
+        [
+          2266195.808,
+          2229415.821
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63964367,
+        63975677,
+        64791313,
+        64791313
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 151008,
+      "gains": [
+        -0.060885500510618036,
+        -0.02154589557757697
+      ],
+      "min_gain": -0.060885500510618036,
+      "costs": [
+        [
+          2288821.063,
+          2428177.079
+        ],
+        [
+          2234250.78,
+          2282389.7139999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66582045,
+        66582045,
+        66300063,
+        66300063
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 186467,
+      "gains": [
+        -0.0030387389973845717,
+        0.006385139131007974
+      ],
+      "min_gain": -0.0030387389973845717,
+      "costs": [
+        [
+          2633846.147,
+          2641849.718
+        ],
+        [
+          2590975.805,
+          2574432.064
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64670856,
+        66946192,
+        66840454,
+        66308160
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 207905,
+      "gains": [
+        0.04055717164439944,
+        -0.015139208915408615
+      ],
+      "min_gain": -0.015139208915408615,
+      "costs": [
+        [
+          2407349.429,
+          2309714.145
+        ],
+        [
+          2257198.787,
+          2291370.991
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65740491,
+        65740491,
+        65740491,
+        65768812
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 248242,
+      "gains": [
+        -0.08331051414889705,
+        0.010470262158994447
+      ],
+      "min_gain": -0.08331051414889705,
+      "costs": [
+        [
+          2416537.577,
+          2617860.565
+        ],
+        [
+          2527082.665,
+          2500623.4469999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65022988,
+        62682684,
+        64577062,
+        65366513
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 30643,
+      "gains": [
+        0.014576465962089802,
+        -0.04636663977691611
+      ],
+      "min_gain": -0.04636663977691611,
+      "costs": [
+        [
+          2406628.06,
+          2371547.928
+        ],
+        [
+          2318127.376,
+          2425611.153
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62946811,
+        63370017,
+        66300063,
+        65202262
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 75877,
+      "gains": [
+        -0.1593218910007142,
+        -0.0518303465900892
+      ],
+      "min_gain": -0.1593218910007142,
+      "costs": [
+        [
+          2210875.717,
+          2563116.617
+        ],
+        [
+          2334962.063,
+          2455983.956
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65768036,
+        65518635,
+        66770236,
+        66821464
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 150951,
+      "gains": [
+        0.06648391118299041,
+        0.04438408824243653
+      ],
+      "min_gain": 0.04438408824243653,
+      "costs": [
+        [
+          2492430.455,
+          2326723.9299999997
+        ],
+        [
+          2402119.706,
+          2295503.813
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64972953,
+        66331501,
+        65285975,
+        66747531
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 186121,
+      "gains": [
+        -0.06303840199348604,
+        0.021417578500939397
+      ],
+      "min_gain": -0.06303840199348604,
+      "costs": [
+        [
+          2641954.4869999997,
+          2808499.076
+        ],
+        [
+          2694531.13,
+          2636820.798
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66291274,
+        64276132,
+        65281458,
+        64363553
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 207010,
+      "gains": [
+        0.0935801530224906,
+        -0.005504507720525759
+      ],
+      "min_gain": -0.005504507720525759,
+      "costs": [
+        [
+          2457173.178,
+          2227230.5360000003
+        ],
+        [
+          2354829.107,
+          2367791.282
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64946325,
+        62994909,
+        66775486,
+        66220739
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_positive_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 247910,
+      "gains": [
+        -0.022083039381843708,
+        0.02804233791301839
+      ],
+      "min_gain": -0.022083039381843708,
+      "costs": [
+        [
+          2569029.336,
+          2625761.312
+        ],
+        [
+          2728670.6350000002,
+          2652152.331
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65796612,
+        64140484,
+        67085932,
+        66091900
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 32044,
+      "gains": [
+        -0.0033855786607244172,
+        -0.012455324138619295
+      ],
+      "min_gain": -0.012455324138619295,
+      "costs": [
+        [
+          2589403.431,
+          2598170.06
+        ],
+        [
+          2560386.839,
+          2592277.287
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64443077,
+        66423746,
+        63971914,
+        63971914
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 91239,
+      "gains": [
+        0.010691812083714237,
+        -0.08746557356030693
+      ],
+      "min_gain": -0.08746557356030693,
+      "costs": [
+        [
+          2624222.983,
+          2596165.284
+        ],
+        [
+          2321858.598,
+          2524941.2920000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        60112693,
+        63309433,
+        63561587,
+        60559820
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 139997,
+      "gains": [
+        0.054604757883987415,
+        0.020512571125574853
+      ],
+      "min_gain": 0.020512571125574853,
+      "costs": [
+        [
+          2713319.878,
+          2565159.7029999997
+        ],
+        [
+          2503757.266,
+          2452398.767
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64978503,
+        64167267,
+        66629819,
+        64390040
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 192207,
+      "gains": [
+        -0.21579287562374375,
+        -0.04113079121844083
+      ],
+      "min_gain": -0.21579287562374375,
+      "costs": [
+        [
+          2267991.052,
+          2757407.363
+        ],
+        [
+          2265463.932,
+          2358644.256
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64616739,
+        64616739,
+        63067424,
+        63067424
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 241041,
+      "gains": [
+        -0.07127957109470266,
+        0.04918412393834033
+      ],
+      "min_gain": -0.07127957109470266,
+      "costs": [
+        [
+          2617242.937,
+          2803798.891
+        ],
+        [
+          2587952.937,
+          2460666.739
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65199158,
+        65199158,
+        65417488,
+        64978503
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 257478,
+      "gains": [
+        0.03720630316079759,
+        0.040057726895853296
+      ],
+      "min_gain": 0.03720630316079759,
+      "costs": [
+        [
+          2956167.199,
+          2846179.146
+        ],
+        [
+          2795139.382,
+          2683172.452
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64544224,
+        65969645,
+        66946192,
+        66946192
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 32611,
+      "gains": [
+        0.09830963183150535,
+        0.09178668553246558
+      ],
+      "min_gain": 0.09178668553246558,
+      "costs": [
+        [
+          2856033.7860000003,
+          2575258.156
+        ],
+        [
+          2620536.068,
+          2380005.748
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65023555,
+        60710049,
+        62093013,
+        64173268
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 97113,
+      "gains": [
+        -0.0861469147759267,
+        -0.012482976533047278
+      ],
+      "min_gain": -0.0861469147759267,
+      "costs": [
+        [
+          2271876.834,
+          2467592.014
+        ],
+        [
+          2293808.606,
+          2322442.165
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66850137,
+        63749141,
+        64962719,
+        65829396
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 146771,
+      "gains": [
+        -0.01693596584720809,
+        -0.051905377037198025
+      ],
+      "min_gain": -0.051905377037198025,
+      "costs": [
+        [
+          2746710.4869999997,
+          2793228.682
+        ],
+        [
+          2264544.479,
+          2382086.514
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64943493,
+        61790178,
+        64760199,
+        65238909
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 198366,
+      "gains": [
+        0.05332172464764939,
+        -0.06945673147919641
+      ],
+      "min_gain": -0.06945673147919641,
+      "costs": [
+        [
+          2961210.333,
+          2803313.491
+        ],
+        [
+          2514056.986,
+          2688675.167
+        ]
+      ],
+      "terminal_resident_bytes": [
+        56050814,
+        66763722,
+        65390620,
+        65685908
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 245765,
+      "gains": [
+        -0.0006035789399645363,
+        0.02795553172250827
+      ],
+      "min_gain": -0.0006035789399645363,
+      "costs": [
+        [
+          2854251.343,
+          2855974.109
+        ],
+        [
+          2350368.5300000003,
+          2284662.728
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63888458,
+        56907716,
+        67100982,
+        67100982
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 261316,
+      "gains": [
+        -0.05434469507065111,
+        0.054670234043616345
+      ],
+      "min_gain": -0.05434469507065111,
+      "costs": [
+        [
+          2414294.566,
+          2545498.668
+        ],
+        [
+          2607371.223,
+          2464825.628
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61799499,
+        65084538,
+        66662206,
+        65084538
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 31380,
+      "gains": [
+        -0.007008642800966147,
+        -0.04801577890755817
+      ],
+      "min_gain": -0.04801577890755817,
+      "costs": [
+        [
+          2728176.559,
+          2747297.374
+        ],
+        [
+          2504025.317,
+          2624258.043
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65118620,
+        66323404,
+        63254625,
+        66640006
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 81230,
+      "gains": [
+        0.08232008970911615,
+        -0.003718366558307441
+      ],
+      "min_gain": -0.003718366558307441,
+      "costs": [
+        [
+          2536665.275,
+          2327846.762
+        ],
+        [
+          2243618.5,
+          2251961.096
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62839645,
+        66044622,
+        65274649,
+        65274649
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 167144,
+      "gains": [
+        -0.017385751230538725,
+        0.041529131629820075
+      ],
+      "min_gain": -0.017385751230538725,
+      "costs": [
+        [
+          2448290.352,
+          2490855.719
+        ],
+        [
+          2543027.457,
+          2437417.7350000003
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65600087,
+        66587310,
+        65661308,
+        64970956
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 207549,
+      "gains": [
+        -0.0033156792008620776,
+        -0.016203757487688458
+      ],
+      "min_gain": -0.016203757487688458,
+      "costs": [
+        [
+          2295314.335,
+          2302924.861
+        ],
+        [
+          2305174.712,
+          2342527.204
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66235645,
+        66235645,
+        63645738,
+        66227548
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 220356,
+      "gains": [
+        0.001797104176506848,
+        -0.002419970486596807
+      ],
+      "min_gain": -0.002419970486596807,
+      "costs": [
+        [
+          2486526.412,
+          2482057.865
+        ],
+        [
+          2441832.259,
+          2447741.421
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65130936,
+        65130936,
+        66048841,
+        66048841
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b17",
+      "group": "seed810032_hotspot",
+      "operation": 232015,
+      "gains": [
+        0.05445705201267933,
+        0.06514781492805964
+      ],
+      "min_gain": 0.05445705201267933,
+      "costs": [
+        [
+          2335909.626,
+          2208702.874
+        ],
+        [
+          2535217.0779999997,
+          2370053.2249999996
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64630520,
+        64630520,
+        65578356,
+        65801129
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 30739,
+      "gains": [
+        0.06602489413192895,
+        0.01647301375587716
+      ],
+      "min_gain": 0.01647301375587716,
+      "costs": [
+        [
+          2798602.988,
+          2613825.522
+        ],
+        [
+          2402879.193,
+          2363296.531
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67065524,
+        65776204,
+        66770236,
+        66340290
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 82496,
+      "gains": [
+        -0.037182922956259246,
+        -0.0698310584639834
+      ],
+      "min_gain": -0.0698310584639834,
+      "costs": [
+        [
+          2437563.962,
+          2528199.715
+        ],
+        [
+          2240310.636,
+          2396753.8989999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66767939,
+        66580048,
+        64432781,
+        66459790
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 170567,
+      "gains": [
+        0.08067862933389425,
+        0.03174895299784485
+      ],
+      "min_gain": 0.03174895299784485,
+      "costs": [
+        [
+          2510412.5549999997,
+          2307875.9110000003
+        ],
+        [
+          2416717.8049999997,
+          2339989.545
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63909912,
+        63909912,
+        65520891,
+        65473117
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 210576,
+      "gains": [
+        -0.08689648303311073,
+        0.0062442585168622005
+      ],
+      "min_gain": -0.08689648303311073,
+      "costs": [
+        [
+          2125780.832,
+          2310503.71
+        ],
+        [
+          2180404.601,
+          2166789.591
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67070774,
+        66279839,
+        66902456,
+        63689932
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 223423,
+      "gains": [
+        0.09923160800659182,
+        -0.02086737146136746
+      ],
+      "min_gain": -0.02086737146136746,
+      "costs": [
+        [
+          2469411.077,
+          2224367.4450000003
+        ],
+        [
+          2210568.834,
+          2256697.5949999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66369291,
+        66840454,
+        65321685,
+        66967424
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_negative_iid_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 235120,
+      "gains": [
+        0.0005911845077503789,
+        -0.039521059077922506
+      ],
+      "min_gain": -0.039521059077922506,
+      "costs": [
+        [
+          2486203.513,
+          2484733.7079999996
+        ],
+        [
+          2582044.722,
+          2684089.864
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65576746,
+        66874501,
+        63049749,
+        67082352
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 27240,
+      "gains": [
+        0.062010258696558504,
+        0.09796584946469492
+      ],
+      "min_gain": 0.062010258696558504,
+      "costs": [
+        [
+          4994436.058,
+          4684729.786
+        ],
+        [
+          4276991.23,
+          3857992.151
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65765232,
+        65358416,
+        65358416,
+        65358416
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 48056,
+      "gains": [
+        0.024541598109727208,
+        0.0513696494671515
+      ],
+      "min_gain": 0.024541598109727208,
+      "costs": [
+        [
+          4850635.866,
+          4731593.51
+        ],
+        [
+          4116695.7569999998,
+          3905222.539
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65390620,
+        65463135,
+        65463135,
+        65463135
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 171298,
+      "gains": [
+        0.02082370376447785,
+        0.06523594313897527
+      ],
+      "min_gain": 0.02082370376447785,
+      "costs": [
+        [
+          4617362.314,
+          4521211.729
+        ],
+        [
+          3915129.018,
+          3659721.884
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64954055,
+        64954055,
+        65581189,
+        65581189
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 176310,
+      "gains": [
+        0.04650932951564762,
+        0.06371159105367771
+      ],
+      "min_gain": 0.04650932951564762,
+      "costs": [
+        [
+          4738926.239,
+          4518521.957
+        ],
+        [
+          4076939.717,
+          3817191.4009999996
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64759906,
+        64759906,
+        66711322,
+        66711322
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 213955,
+      "gains": [
+        0.04574666826918387,
+        0.07243364762787463
+      ],
+      "min_gain": 0.04574666826918387,
+      "costs": [
+        [
+          5199877.543,
+          4962000.47
+        ],
+        [
+          4349176.499,
+          4034149.7810000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65285901,
+        65285901,
+        65285901,
+        65285901
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 265428,
+      "gains": [
+        0.04689205989053462,
+        0.06608433171676166
+      ],
+      "min_gain": 0.04689205989053462,
+      "costs": [
+        [
+          4920817.587,
+          4690070.314
+        ],
+        [
+          4205814.083,
+          3927875.67
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66342133,
+        66342133,
+        66842297,
+        66842297
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 27052,
+      "gains": [
+        0.08673673307278942,
+        0.1371060592645103
+      ],
+      "min_gain": 0.08673673307278942,
+      "costs": [
+        [
+          5668877.978,
+          5177178.022
+        ],
+        [
+          4593690.464,
+          3963867.667
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63756871,
+        65313267,
+        65358416,
+        65358416
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 46751,
+      "gains": [
+        0.08115528859031676,
+        0.09389670911553716
+      ],
+      "min_gain": 0.08115528859031676,
+      "costs": [
+        [
+          5743494.652000001,
+          5277379.686
+        ],
+        [
+          4403215.234,
+          3989767.8140000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65581189,
+        65581189,
+        65581189,
+        65581189
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 164398,
+      "gains": [
+        0.03225814586773012,
+        0.07240398522428326
+      ],
+      "min_gain": 0.03225814586773012,
+      "costs": [
+        [
+          5007336.462,
+          4845809.072000001
+        ],
+        [
+          4122725.4560000002,
+          3824223.7029999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65765232,
+        67026340,
+        67026340,
+        67026340
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 169245,
+      "gains": [
+        0.06209852042811017,
+        0.0890372303944253
+      ],
+      "min_gain": 0.06209852042811017,
+      "costs": [
+        [
+          5174377.84,
+          4853056.631999999
+        ],
+        [
+          4097999.695,
+          3733125.1520000002
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64759906,
+        65513051,
+        64759906,
+        64759906
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 204853,
+      "gains": [
+        0.07974517978295854,
+        0.11643913985233437
+      ],
+      "min_gain": 0.07974517978295854,
+      "costs": [
+        [
+          5604773.658,
+          5157819.975
+        ],
+        [
+          4444580.754,
+          3927057.594
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64353090,
+        64759906,
+        64353090,
+        64353090
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_lognormal_positive_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 254022,
+      "gains": [
+        0.07514245945664061,
+        0.07179951714696721
+      ],
+      "min_gain": 0.07179951714696721,
+      "costs": [
+        [
+          6034201.732,
+          5580776.972999999
+        ],
+        [
+          4461304.069,
+          4140984.591
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62906836,
+        66847194,
+        65056319,
+        65056319
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 31035,
+      "gains": [
+        0.011891595054526007,
+        0.094627587936987
+      ],
+      "min_gain": 0.011891595054526007,
+      "costs": [
+        [
+          4624754.69,
+          4569758.98
+        ],
+        [
+          4130678.965,
+          3739802.778
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63515757,
+        63515757,
+        65333675,
+        65333675
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 80145,
+      "gains": [
+        0.28091970915678727,
+        0.16655542867997256
+      ],
+      "min_gain": 0.16655542867997256,
+      "costs": [
+        [
+          5072764.76,
+          3647725.159
+        ],
+        [
+          4408101.476,
+          3673908.245
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61576726,
+        60414761,
+        65206705,
+        65206705
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 160323,
+      "gains": [
+        0.12939151074725677,
+        0.05494708872751014
+      ],
+      "min_gain": 0.05494708872751014,
+      "costs": [
+        [
+          5140524.793,
+          4475384.524
+        ],
+        [
+          4227234.188,
+          3994959.976
+        ]
+      ],
+      "terminal_resident_bytes": [
+        55543811,
+        65613521,
+        60726439,
+        66775486
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 197102,
+      "gains": [
+        0.11221962024962817,
+        0.09370784184998415
+      ],
+      "min_gain": 0.09370784184998415,
+      "costs": [
+        [
+          4927783.562,
+          4374789.562
+        ],
+        [
+          3811556.898,
+          3454384.127
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66173232,
+        66173232,
+        66935220,
+        66935220
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 218937,
+      "gains": [
+        0.05300270438578751,
+        0.07821939486673478
+      ],
+      "min_gain": 0.05300270438578751,
+      "costs": [
+        [
+          4665079.242,
+          4417817.426
+        ],
+        [
+          3722505.454,
+          3431333.33
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62524553,
+        63409722,
+        65613521,
+        65613521
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 258383,
+      "gains": [
+        0.09166858623001428,
+        0.027087840903790725
+      ],
+      "min_gain": 0.027087840903790725,
+      "costs": [
+        [
+          4833464.693,
+          4390387.818
+        ],
+        [
+          4178175.123,
+          4064997.38
+        ]
+      ],
+      "terminal_resident_bytes": [
+        56056662,
+        61910271,
+        66935220,
+        66935220
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 29132,
+      "gains": [
+        -0.02490293613579873,
+        0.07968491359031009
+      ],
+      "min_gain": -0.02490293613579873,
+      "costs": [
+        [
+          4715303.463,
+          4832728.364
+        ],
+        [
+          3911180.6859999998,
+          3599518.591
+        ]
+      ],
+      "terminal_resident_bytes": [
+        58828722,
+        65418083,
+        66580048,
+        66580048
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 72773,
+      "gains": [
+        0.011715746898067191,
+        0.03563454092103454
+      ],
+      "min_gain": 0.011715746898067191,
+      "costs": [
+        [
+          4591866.696,
+          4538069.548
+        ],
+        [
+          4108532.4579999996,
+          3962126.79
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65390620,
+        65390620,
+        66580048,
+        64145296
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 143851,
+      "gains": [
+        -0.010535397721194958,
+        0.03941726976247342
+      ],
+      "min_gain": -0.010535397721194958,
+      "costs": [
+        [
+          4586403.1219999995,
+          4634722.703
+        ],
+        [
+          3658221.8370000003,
+          3514024.72
+        ]
+      ],
+      "terminal_resident_bytes": [
+        57345597,
+        66935220,
+        66935220,
+        66935220
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 178256,
+      "gains": [
+        0.1679476731796869,
+        0.06049082433853192
+      ],
+      "min_gain": 0.06049082433853192,
+      "costs": [
+        [
+          5017357.264,
+          4174703.7860000003
+        ],
+        [
+          3642885.6509999996,
+          3422524.495
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61503455,
+        65011267,
+        64260615,
+        64260615
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 197124,
+      "gains": [
+        0.012018087925890665,
+        0.1446033464126393
+      ],
+      "min_gain": 0.012018087925890665,
+      "costs": [
+        [
+          4988386.869,
+          4928435.9969999995
+        ],
+        [
+          4277378.597,
+          3658855.338
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67023519,
+        65084538,
+        65084538,
+        66268370
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 235165,
+      "gains": [
+        0.02894818025588125,
+        0.10874075381758139
+      ],
+      "min_gain": 0.02894818025588125,
+      "costs": [
+        [
+          5500849.953,
+          5341610.357
+        ],
+        [
+          5365459.522,
+          4782015.409
+        ]
+      ],
+      "terminal_resident_bytes": [
+        60007945,
+        64253068,
+        66268370,
+        66268370
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 31707,
+      "gains": [
+        0.07282980516036465,
+        -0.1029074690973418
+      ],
+      "min_gain": -0.1029074690973418,
+      "costs": [
+        [
+          2843535.192,
+          2636441.0779999997
+        ],
+        [
+          3337896.423,
+          3681390.896
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61951948,
+        66810211,
+        66810211,
+        66810211
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 113248,
+      "gains": [
+        0.10806189422922098,
+        0.18010378307063638
+      ],
+      "min_gain": 0.10806189422922098,
+      "costs": [
+        [
+          3152261.761,
+          2811622.384
+        ],
+        [
+          2969905.767,
+          2435014.503
+        ]
+      ],
+      "terminal_resident_bytes": [
+        58646184,
+        58646184,
+        63209300,
+        65084538
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 181903,
+      "gains": [
+        -0.2233830460047576,
+        -0.0512060218321365
+      ],
+      "min_gain": -0.2233830460047576,
+      "costs": [
+        [
+          2973077.5360000003,
+          3637212.652
+        ],
+        [
+          2897224.832,
+          3045580.19
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65084538,
+        65084538,
+        66339048,
+        65084538
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 221777,
+      "gains": [
+        -0.18192616904546682,
+        -0.03453173510199933
+      ],
+      "min_gain": -0.18192616904546682,
+      "costs": [
+        [
+          2530164.552,
+          2990467.696
+        ],
+        [
+          3506889.4060000004,
+          3627988.382
+        ]
+      ],
+      "terminal_resident_bytes": [
+        59935504,
+        65084538,
+        66331501,
+        66331501
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 235633,
+      "gains": [
+        -0.1673293254011055,
+        0.11202460097968013
+      ],
+      "min_gain": -0.1673293254011055,
+      "costs": [
+        [
+          2670663.256,
+          3117543.537
+        ],
+        [
+          3045768.135,
+          2704567.1750000003
+        ]
+      ],
+      "terminal_resident_bytes": [
+        58646184,
+        58646184,
+        66331501,
+        66331501
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b17",
+      "group": "seed810032_lognormal",
+      "operation": 244800,
+      "gains": [
+        0.036778946107392664,
+        0.08946650451254602
+      ],
+      "min_gain": 0.036778946107392664,
+      "costs": [
+        [
+          3423638.476,
+          3297720.661
+        ],
+        [
+          3722280.1629999997,
+          3389260.7679999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64499793,
+        66580048,
+        66339048,
+        66339048
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 31022,
+      "gains": [
+        -0.016848863167442905,
+        0.11050714529882959
+      ],
+      "min_gain": -0.016848863167442905,
+      "costs": [
+        [
+          3199369.6229999997,
+          3253275.364
+        ],
+        [
+          4327140.437,
+          3848960.5
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65084538,
+        65084538,
+        66331501,
+        66331501
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 86820,
+      "gains": [
+        0.10371678360573773,
+        0.05013116361664566
+      ],
+      "min_gain": 0.05013116361664566,
+      "costs": [
+        [
+          2947941.4359999998,
+          2642190.432
+        ],
+        [
+          2893640.094,
+          2748578.549
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65789113,
+        63688010,
+        66339048,
+        66339048
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 184572,
+      "gains": [
+        0.0803208326394085,
+        -0.04815940307459117
+      ],
+      "min_gain": -0.04815940307459117,
+      "costs": [
+        [
+          3314695.6680000005,
+          3048456.552
+        ],
+        [
+          3403753.92,
+          3567676.6769999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62264173,
+        65989177,
+        62264173,
+        62264173
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 231238,
+      "gains": [
+        -0.19117887385139581,
+        -0.15858239348662176
+      ],
+      "min_gain": -0.19117887385139581,
+      "costs": [
+        [
+          2834436.599,
+          3376320.9960000003
+        ],
+        [
+          2679959.103,
+          3104953.432
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65084538,
+        66629819,
+        65520891,
+        65520891
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 244036,
+      "gains": [
+        -0.0025314954433063087,
+        -0.02602347633680928
+      ],
+      "min_gain": -0.02602347633680928,
+      "costs": [
+        [
+          3705706.4529999997,
+          3715087.432
+        ],
+        [
+          3335799.9860000005,
+          3422609.098
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61557984,
+        59821922,
+        67100982,
+        66810211
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_negative_iid_s810032_b1021",
+      "group": "seed810032_lognormal",
+      "operation": 256175,
+      "gains": [
+        -0.39184171539420104,
+        -0.17059094087146157
+      ],
+      "min_gain": -0.39184171539420104,
+      "costs": [
+        [
+          1860196.565,
+          2589099.1780000003
+        ],
+        [
+          2899048.522,
+          3393599.937
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65084538,
+        65084538,
+        66339048,
+        66339048
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b17",
+      "group": "seed810032_uniform",
+      "operation": 25777,
+      "gains": [
+        0.018083823944296456,
+        -0.01624794588063321
+      ],
+      "min_gain": -0.01624794588063321,
+      "costs": [
+        [
+          13923289.386999998,
+          13671503.072999999
+        ],
+        [
+          12418030.161,
+          12619797.643
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63922573,
+        65765232,
+        66048841,
+        66048841
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b17",
+      "group": "seed810032_uniform",
+      "operation": 36214,
+      "gains": [
+        -0.009601685810878526,
+        0.02027958528004909
+      ],
+      "min_gain": -0.009601685810878526,
+      "costs": [
+        [
+          13551287.093,
+          13681402.294
+        ],
+        [
+          12930059.978,
+          12667843.724
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64983878,
+        60726439,
+        63382333,
+        63255363
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b17",
+      "group": "seed810032_uniform",
+      "operation": 99091,
+      "gains": [
+        0.03980752583958952,
+        -0.03925813988805551
+      ],
+      "min_gain": -0.03925813988805551,
+      "costs": [
+        [
+          13949322.83,
+          13394034.800999999
+        ],
+        [
+          14068198.508000001,
+          14620489.813
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65084538,
+        64858795,
+        63680463,
+        63209476
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b17",
+      "group": "seed810032_uniform",
+      "operation": 101401,
+      "gains": [
+        -0.01964065042085426,
+        0.09976267615854517
+      ],
+      "min_gain": -0.01964065042085426,
+      "costs": [
+        [
+          13842807.808,
+          14114689.557
+        ],
+        [
+          14904916.330000002,
+          13417961.989
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64677722,
+        60853409,
+        64849463,
+        65805459
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b17",
+      "group": "seed810032_uniform",
+      "operation": 119907,
+      "gains": [
+        -0.08890434985955409,
+        -0.0263592271781846
+      ],
+      "min_gain": -0.08890434985955409,
+      "costs": [
+        [
+          12507811.786,
+          13619810.660999998
+        ],
+        [
+          12787295.497,
+          13124358.724
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65473117,
+        64371988,
+        67060755,
+        65425035
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b17",
+      "group": "seed810032_uniform",
+      "operation": 147376,
+      "gains": [
+        0.02238043285498051,
+        0.023477437593765853
+      ],
+      "min_gain": 0.02238043285498051,
+      "costs": [
+        [
+          13870339.149,
+          13559914.954999998
+        ],
+        [
+          13994049.890999999,
+          13665505.458
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65084538,
+        65084538,
+        65206779,
+        64373572
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b1021",
+      "group": "seed810032_uniform",
+      "operation": 25875,
+      "gains": [
+        0.03042323534773613,
+        0.05161421120948043
+      ],
+      "min_gain": 0.03042323534773613,
+      "costs": [
+        [
+          14012396.581999999,
+          13586094.143
+        ],
+        [
+          12800371.865,
+          12139690.768
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67070774,
+        66251627,
+        66347709,
+        66347709
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b1021",
+      "group": "seed810032_uniform",
+      "operation": 36401,
+      "gains": [
+        0.03217051279602536,
+        -0.02571592082352782
+      ],
+      "min_gain": -0.02571592082352782,
+      "costs": [
+        [
+          14118273.491,
+          13664081.393
+        ],
+        [
+          13066515.343,
+          13402532.817
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66219255,
+        57568370,
+        65261234,
+        64515592
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b1021",
+      "group": "seed810032_uniform",
+      "operation": 99726,
+      "gains": [
+        0.05204050587314248,
+        0.08482514180024767
+      ],
+      "min_gain": 0.05204050587314248,
+      "costs": [
+        [
+          14397797.127999999,
+          13648528.482
+        ],
+        [
+          14144211.015,
+          12944426.31
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66300063,
+        58213973,
+        64119493,
+        66914387
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b1021",
+      "group": "seed810032_uniform",
+      "operation": 101990,
+      "gains": [
+        0.039152153778387475,
+        0.006752361512048888
+      ],
+      "min_gain": 0.006752361512048888,
+      "costs": [
+        [
+          14773840.445,
+          14195412.772
+        ],
+        [
+          12955086.875,
+          12867609.445
+        ]
+      ],
+      "terminal_resident_bytes": [
+        57534850,
+        66035779,
+        64974297,
+        66838292
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b1021",
+      "group": "seed810032_uniform",
+      "operation": 120614,
+      "gains": [
+        0.002086338746233089,
+        0.00681263867854149
+      ],
+      "min_gain": 0.002086338746233089,
+      "costs": [
+        [
+          14066426.199000001,
+          14037078.868999999
+        ],
+        [
+          13492456.497,
+          13400537.265999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66755078,
+        65921871,
+        66759096,
+        64728069
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s810032_b1021",
+      "group": "seed810032_uniform",
+      "operation": 147146,
+      "gains": [
+        -0.0010293540326651808,
+        0.05084192483457193
+      ],
+      "min_gain": -0.0010293540326651808,
+      "costs": [
+        [
+          14044902.474,
+          14059359.651
+        ],
+        [
+          14682158.837,
+          13935689.621
+        ]
+      ],
+      "terminal_resident_bytes": [
+        59124894,
+        61799499,
+        65700814,
+        67033531
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 30008,
+      "gains": [
+        -0.02935124406066803,
+        -0.10477535723631876
+      ],
+      "min_gain": -0.10477535723631876,
+      "costs": [
+        [
+          208117.3625,
+          214225.866
+        ],
+        [
+          226838.778,
+          250605.892
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67018100,
+        67039959,
+        67089463,
+        66967041
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 74943,
+      "gains": [
+        0.006638477133042869,
+        0.017638883712183466
+      ],
+      "min_gain": 0.006638477133042869,
+      "costs": [
+        [
+          229473.9395,
+          227950.582
+        ],
+        [
+          248629.821,
+          244244.2685
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67083932,
+        66976309,
+        66655021,
+        67071588
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 146499,
+      "gains": [
+        -0.043579589054622864,
+        -0.050423891686432444
+      ],
+      "min_gain": -0.050423891686432444,
+      "costs": [
+        [
+          213426.175,
+          222727.2
+        ],
+        [
+          241313.296,
+          253481.2515
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67077743,
+        67064691,
+        67061821,
+        67080242
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 180293,
+      "gains": [
+        0.04131210954962223,
+        0.030412332606638486
+      ],
+      "min_gain": 0.030412332606638486,
+      "costs": [
+        [
+          223022.6585,
+          213809.122
+        ],
+        [
+          250437.7615,
+          242821.365
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66819042,
+        66830287,
+        66992966,
+        66958933
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 201919,
+      "gains": [
+        -0.001432919387302876,
+        0.04584172704373854
+      ],
+      "min_gain": -0.001432919387302876,
+      "costs": [
+        [
+          197682.0905,
+          197965.353
+        ],
+        [
+          209175.2235,
+          199586.27
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66962719,
+        66902726,
+        67021027,
+        67054552
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810031_b1021",
+      "group": "seed810031_zipf",
+      "operation": 239927,
+      "gains": [
+        -0.04472578870141983,
+        -0.024353238389009404
+      ],
+      "min_gain": -0.04472578870141983,
+      "costs": [
+        [
+          194778.8905,
+          203490.53
+        ],
+        [
+          210733.9245,
+          215865.978
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66784716,
+        67067289,
+        66851412,
+        67063963
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 27201,
+      "gains": [
+        -0.049291107119114046,
+        -0.019928528480682006
+      ],
+      "min_gain": -0.049291107119114046,
+      "costs": [
+        [
+          409962.997,
+          430170.527
+        ],
+        [
+          418718.397,
+          427062.8385
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67106490,
+        66923958,
+        67050112,
+        67100979
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 48067,
+      "gains": [
+        -0.012251096249587793,
+        -0.012805994610824975
+      ],
+      "min_gain": -0.012805994610824975,
+      "costs": [
+        [
+          469193.56299999997,
+          474941.6985
+        ],
+        [
+          463104.0915,
+          469034.6
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66874833,
+        67034192,
+        66801704,
+        66997331
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 172731,
+      "gains": [
+        -0.0005437280043384614,
+        -0.02535258855961409
+      ],
+      "min_gain": -0.02535258855961409,
+      "costs": [
+        [
+          435593.7125,
+          435830.55700000003
+        ],
+        [
+          436886.37450000003,
+          447962.575
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66919288,
+        66742203,
+        67002036,
+        67086721
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 177472,
+      "gains": [
+        0.005243419624141048,
+        0.012768852250669914
+      ],
+      "min_gain": 0.005243419624141048,
+      "costs": [
+        [
+          464847.0225,
+          462409.6345
+        ],
+        [
+          467132.6665,
+          461167.9185
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67090901,
+        67045293,
+        67035477,
+        66931491
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 213942,
+      "gains": [
+        0.019193391801403774,
+        0.005072223347028201
+      ],
+      "min_gain": 0.005072223347028201,
+      "costs": [
+        [
+          433867.348,
+          425539.962
+        ],
+        [
+          442172.5635,
+          439929.7655
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67077742,
+        66895288,
+        66849279,
+        66659989
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810031_b1021",
+      "group": "seed810031_hotspot",
+      "operation": 265779,
+      "gains": [
+        0.000850126815210539,
+        0.012991301996238803
+      ],
+      "min_gain": 0.000850126815210539,
+      "costs": [
+        [
+          480668.287,
+          480259.658
+        ],
+        [
+          472006.809,
+          465874.826
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67056677,
+        67053229,
+        67058727,
+        66906905
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 30128,
+      "gains": [
+        -0.06303495271177266,
+        -0.04445345281030649
+      ],
+      "min_gain": -0.06303495271177266,
+      "costs": [
+        [
+          3908966.889,
+          4155368.432
+        ],
+        [
+          3642907.598,
+          3804847.419
+        ]
+      ],
+      "terminal_resident_bytes": [
+        64723552,
+        65084538,
+        64771751,
+        60726439
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 70047,
+      "gains": [
+        0.03245415636179333,
+        -0.03137443012153962
+      ],
+      "min_gain": -0.03137443012153962,
+      "costs": [
+        [
+          3784543.0530000003,
+          3661718.9009999996
+        ],
+        [
+          3558844.37,
+          3670501.084
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63421979,
+        65418083,
+        65134264,
+        61693464
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 137093,
+      "gains": [
+        -0.050194487795534405,
+        0.029953123883756223
+      ],
+      "min_gain": -0.050194487795534405,
+      "costs": [
+        [
+          3774935.841,
+          3964416.812
+        ],
+        [
+          3813613.079,
+          3699383.454
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66751549,
+        65685084,
+        63569475,
+        56429006
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 169661,
+      "gains": [
+        0.06775977815057312,
+        0.03427620644908545
+      ],
+      "min_gain": 0.03427620644908545,
+      "costs": [
+        [
+          3969619.992,
+          3700639.4220000003
+        ],
+        [
+          3936741.722,
+          3801805.15
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66810758,
+        63922573,
+        61169910,
+        65084538
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 190270,
+      "gains": [
+        -0.07024592970463384,
+        0.01719433487478397
+      ],
+      "min_gain": -0.07024592970463384,
+      "costs": [
+        [
+          3659616.4800000004,
+          3916689.642
+        ],
+        [
+          3946794.598,
+          3878932.09
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62864000,
+        63741979,
+        65198682,
+        60222695
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_block128_s810032_b1021",
+      "group": "seed810032_zipf",
+      "operation": 228148,
+      "gains": [
+        0.07864186850047558,
+        0.02255694082583477
+      ],
+      "min_gain": 0.02255694082583477,
+      "costs": [
+        [
+          4091356.1330000004,
+          3769604.242
+        ],
+        [
+          3700609.965,
+          3617135.5250000004
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66296776,
+        64655554,
+        64373572,
+        65417488
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 32554,
+      "gains": [
+        0.20923033327200624,
+        0.1982403571091824
+      ],
+      "min_gain": 0.1982403571091824,
+      "costs": [
+        [
+          2681255.711,
+          2120255.685
+        ],
+        [
+          2447506.038,
+          1962311.567
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66223003,
+        66629819,
+        65083187,
+        66629819
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 94513,
+      "gains": [
+        0.14062550147673403,
+        0.27480099250640777
+      ],
+      "min_gain": 0.14062550147673403,
+      "costs": [
+        [
+          2460296.094,
+          2114315.722
+        ],
+        [
+          2506795.302,
+          1817925.4649999999
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66885628,
+        64978503,
+        66955039,
+        52136605
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 144446,
+      "gains": [
+        0.11104469472090836,
+        0.01318685080196536
+      ],
+      "min_gain": 0.01318685080196536,
+      "costs": [
+        [
+          2645558.482,
+          2351783.248
+        ],
+        [
+          2188561.5779999997,
+          2159701.343
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66037134,
+        65717868,
+        66763722,
+        65650250
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 196537,
+      "gains": [
+        0.17363183494075665,
+        0.09948046989338036
+      ],
+      "min_gain": 0.09948046989338036,
+      "costs": [
+        [
+          2918665.02,
+          2411891.857
+        ],
+        [
+          2612606.628,
+          2352703.293
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66746734,
+        64478945,
+        66862779,
+        64188174
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 242611,
+      "gains": [
+        -0.00638619789508786,
+        0.08598016380855275
+      ],
+      "min_gain": -0.00638619789508786,
+      "costs": [
+        [
+          2541179.003,
+          2557407.475
+        ],
+        [
+          2192732.517,
+          2004201.0159999998
+        ]
+      ],
+      "terminal_resident_bytes": [
+        59124894,
+        59124894,
+        64631645,
+        63622171
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_block128_s810032_b1021",
+      "group": "seed810032_hotspot",
+      "operation": 258234,
+      "gains": [
+        0.10565034182628802,
+        -0.06544116034535696
+      ],
+      "min_gain": -0.06544116034535696,
+      "costs": [
+        [
+          2562591.529,
+          2291852.858
+        ],
+        [
+          2260751.891,
+          2408698.118
+        ]
+      ],
+      "terminal_resident_bytes": [
+        61892044,
+        66969395,
+        66977492,
+        63026209
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s830031_b257",
+      "group": "seed830031_uniform",
+      "operation": 447685,
+      "gains": [
+        -0.002850544275887132,
+        0.003916358826937673
+      ],
+      "min_gain": -0.002850544275887132,
+      "costs": [
+        [
+          36101504.148,
+          36204413.084
+        ],
+        [
+          36002844.027,
+          35861843.971
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66950115,
+        65625257,
+        66243615,
+        64965719
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s830031_b257",
+      "group": "seed830031_uniform",
+      "operation": 456798,
+      "gains": [
+        0.009988921931021516,
+        -0.005246766612405877
+      ],
+      "min_gain": -0.005246766612405877,
+      "costs": [
+        [
+          35943535.897,
+          35584498.723
+        ],
+        [
+          36385122.515,
+          36576026.761
+        ]
+      ],
+      "terminal_resident_bytes": [
+        62545366,
+        63921538,
+        61531718,
+        67024092
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s830031_b257",
+      "group": "seed830031_uniform",
+      "operation": 541099,
+      "gains": [
+        -0.004454017082217891,
+        -0.006117362557516657
+      ],
+      "min_gain": -0.006117362557516657,
+      "costs": [
+        [
+          36724327.945,
+          36887898.729
+        ],
+        [
+          36847160.828,
+          37072568.27
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67039043,
+        65395358,
+        66433081,
+        65091879
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s830031_b257",
+      "group": "seed830031_uniform",
+      "operation": 606417,
+      "gains": [
+        -0.0001545234994997646,
+        0.004825965884962364
+      ],
+      "min_gain": -0.0001545234994997646,
+      "costs": [
+        [
+          36024294.156,
+          36029860.756
+        ],
+        [
+          36293768.372,
+          36118615.884
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66698530,
+        64721128,
+        64842665,
+        66589599
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s830031_b257",
+      "group": "seed830031_uniform",
+      "operation": 659283,
+      "gains": [
+        0.0074562422916733114,
+        0.0064066751602102606
+      ],
+      "min_gain": 0.0064066751602102606,
+      "costs": [
+        [
+          38019156.421000004,
+          37735676.379
+        ],
+        [
+          38138878.106,
+          37894534.703
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66205344,
+        65919987,
+        66097195,
+        64285409
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_uniform_independent_iid_s830031_b257",
+      "group": "seed830031_uniform",
+      "operation": 781354,
+      "gains": [
+        -0.01968403602060969,
+        -0.007398090853002848
+      ],
+      "min_gain": -0.01968403602060969,
+      "costs": [
+        [
+          36166377.578999996,
+          36878277.858
+        ],
+        [
+          36144340.116,
+          36411739.228
+        ]
+      ],
+      "terminal_resident_bytes": [
+        65446833,
+        66852276,
+        66915517,
+        65842858
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_zipf_independent_iid_s830032_b257",
+      "group": "seed830032_zipf",
+      "operation": 58825,
+      "gains": [
+        0.12645942511014419,
+        0.2191045172855176
+      ],
+      "min_gain": 0.12645942511014419,
+      "costs": [
+        [
+          61346.673,
+          53588.808
+        ],
+        [
+          60523.759,
+          47262.729999999996
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66547327,
+        67099444,
+        66834850,
+        66529558
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s830032_b257",
+      "group": "seed830032_zipf",
+      "operation": 256298,
+      "gains": [
+        0.1583507580774459,
+        0.1264205173359009
+      ],
+      "min_gain": 0.1264205173359009,
+      "costs": [
+        [
+          71727.5,
+          60369.396
+        ],
+        [
+          57957.934,
+          50630.862
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67016023,
+        67074792,
+        66687554,
+        67001689
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s830032_b257",
+      "group": "seed830032_zipf",
+      "operation": 583235,
+      "gains": [
+        0.014861306762447714,
+        0.1228566763804988
+      ],
+      "min_gain": 0.014861306762447714,
+      "costs": [
+        [
+          44201.362,
+          43544.472
+        ],
+        [
+          45349.078,
+          39777.641
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67076010,
+        67057352,
+        66693209,
+        67035429
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s830032_b257",
+      "group": "seed830032_zipf",
+      "operation": 738974,
+      "gains": [
+        0.19084415682082626,
+        0.057931543705299265
+      ],
+      "min_gain": 0.057931543705299265,
+      "costs": [
+        [
+          57709.988,
+          46696.373999999996
+        ],
+        [
+          42003.179000000004,
+          39569.869999999995
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67089228,
+        67089034,
+        67093226,
+        67048921
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s830032_b257",
+      "group": "seed830032_zipf",
+      "operation": 827568,
+      "gains": [
+        0.03631963666298899,
+        0.038628589975771406
+      ],
+      "min_gain": 0.03631963666298899,
+      "costs": [
+        [
+          58942.963,
+          56802.176
+        ],
+        [
+          66733.215,
+          64155.405
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66874194,
+        67104307,
+        66770695,
+        66724001
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_zipf_independent_iid_s830032_b257",
+      "group": "seed830032_zipf",
+      "operation": 995831,
+      "gains": [
+        -0.07284716836141088,
+        -0.006589402499583422
+      ],
+      "min_gain": -0.07284716836141088,
+      "costs": [
+        [
+          55995.67,
+          60074.796
+        ],
+        [
+          54546.371999999996,
+          54905.8
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67088245,
+        67019257,
+        67073677,
+        66783783
+      ],
+      "oof_mode": 0
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s830033_b257",
+      "group": "seed830033_hotspot",
+      "operation": 36519,
+      "gains": [
+        0.06197799061453703,
+        0.15218362534453309
+      ],
+      "min_gain": 0.06197799061453703,
+      "costs": [
+        [
+          582450.9739999999,
+          546351.833
+        ],
+        [
+          564749.9709999999,
+          478804.273
+        ]
+      ],
+      "terminal_resident_bytes": [
+        63874526,
+        66356095,
+        66678981,
+        66767185
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s830033_b257",
+      "group": "seed830033_hotspot",
+      "operation": 111608,
+      "gains": [
+        0.029318780103682846,
+        -0.046756177837437206
+      ],
+      "min_gain": -0.046756177837437206,
+      "costs": [
+        [
+          634867.922,
+          616254.369
+        ],
+        [
+          593500.523,
+          621250.339
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66910506,
+        66089444,
+        67087689,
+        66787357
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s830033_b257",
+      "group": "seed830033_hotspot",
+      "operation": 556682,
+      "gains": [
+        -0.13938211538184941,
+        -0.052951862802602966
+      ],
+      "min_gain": -0.13938211538184941,
+      "costs": [
+        [
+          500876.49199999997,
+          570689.717
+        ],
+        [
+          592281.033,
+          623643.417
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66984027,
+        66295128,
+        63211360,
+        66725046
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s830033_b257",
+      "group": "seed830033_hotspot",
+      "operation": 574115,
+      "gains": [
+        0.08007918453780569,
+        0.11855501211438657
+      ],
+      "min_gain": 0.08007918453780569,
+      "costs": [
+        [
+          559442.048,
+          514642.385
+        ],
+        [
+          560046.1070000001,
+          493649.83400000003
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66824577,
+        66988260,
+        66330156,
+        66950515
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s830033_b257",
+      "group": "seed830033_hotspot",
+      "operation": 707063,
+      "gains": [
+        -0.01797172992791523,
+        -0.09696978960210288
+      ],
+      "min_gain": -0.09696978960210288,
+      "costs": [
+        [
+          501872.721,
+          510892.24199999997
+        ],
+        [
+          444637.904,
+          487754.348
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66645710,
+        66985793,
+        66564928,
+        66972589
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_hotspot_independent_iid_s830033_b257",
+      "group": "seed830033_hotspot",
+      "operation": 896566,
+      "gains": [
+        -0.09858005303359339,
+        -0.10372036545847184
+      ],
+      "min_gain": -0.10372036545847184,
+      "costs": [
+        [
+          518549.437,
+          569668.068
+        ],
+        [
+          499632.58200000005,
+          551454.656
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66975257,
+        67057955,
+        66971220,
+        66921720
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s830034_b257",
+      "group": "seed830034_lognormal",
+      "operation": 536638,
+      "gains": [
+        0.03080251360414623,
+        0.009982260986213862
+      ],
+      "min_gain": 0.009982260986213862,
+      "costs": [
+        [
+          334043.2905,
+          323753.9175
+        ],
+        [
+          286541.296,
+          283680.966
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67086615,
+        67071877,
+        67103818,
+        67072580
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s830034_b257",
+      "group": "seed830034_lognormal",
+      "operation": 555907,
+      "gains": [
+        0.05333012913045888,
+        0.06653300625131658
+      ],
+      "min_gain": 0.05333012913045888,
+      "costs": [
+        [
+          305334.391,
+          289050.8685
+        ],
+        [
+          266437.149,
+          248710.2845
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66875867,
+        66879786,
+        67045033,
+        66521406
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s830034_b257",
+      "group": "seed830034_lognormal",
+      "operation": 835469,
+      "gains": [
+        0.030003249664315855,
+        0.037473052778568924
+      ],
+      "min_gain": 0.030003249664315855,
+      "costs": [
+        [
+          354553.544,
+          343915.7855
+        ],
+        [
+          296135.5875,
+          285038.483
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66981984,
+        66924389,
+        67055515,
+        66975832
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s830034_b257",
+      "group": "seed830034_lognormal",
+      "operation": 954737,
+      "gains": [
+        0.018961237751973937,
+        0.053366569781126146
+      ],
+      "min_gain": 0.018961237751973937,
+      "costs": [
+        [
+          323456.0465,
+          317322.91949999996
+        ],
+        [
+          278246.542,
+          263397.47849999997
+        ]
+      ],
+      "terminal_resident_bytes": [
+        66998961,
+        67071613,
+        67058922,
+        67024725
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s830034_b257",
+      "group": "seed830034_lognormal",
+      "operation": 959412,
+      "gains": [
+        0.008060788162270342,
+        0.02123488907044637
+      ],
+      "min_gain": 0.008060788162270342,
+      "costs": [
+        [
+          325479.0285,
+          322855.41099999996
+        ],
+        [
+          276377.52099999995,
+          270508.675
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67042835,
+        67020968,
+        67058388,
+        66991634
+      ],
+      "oof_mode": 1
+    },
+    {
+      "flow": "train_lognormal_independent_iid_s830034_b257",
+      "group": "seed830034_lognormal",
+      "operation": 959427,
+      "gains": [
+        0.005190533178099189,
+        -0.0007719881032125012
+      ],
+      "min_gain": -0.0007719881032125012,
+      "costs": [
+        [
+          326646.1155,
+          324950.64800000004
+        ],
+        [
+          274004.22250000003,
+          274215.7505
+        ]
+      ],
+      "terminal_resident_bytes": [
+        67108547,
+        67102510,
+        66956659,
+        66764783
+      ],
+      "oof_mode": 1
+    }
+  ],
+  "limits": "Conditioned on fixed0 collector states and two bounded continuations; not online closed-loop gain or OPT. Newtrain groups only; no dev/eval queries."
+}

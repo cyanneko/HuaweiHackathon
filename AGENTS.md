@@ -12,7 +12,7 @@
 
 ## 最终算法与停止优化（2026-10-31用户决定）
 
-用户最终选定R81_op256_cond2048，并明确不继续优化。当前提交入口为[submission/MySpillScheduler.cpp](submission/MySpillScheduler.cpp)，仅排版/注释整理，已核token、官方TU及ELF等价；详见[最终提交说明](docs/FINAL_SUBMISSION_20261031.md)。本节覆盖此前保留R75默认的历史状态；不改历史源码、结果或计划，不执行R88等后续提案。没有新的用户明确授权，不启动算法优化、调参、训练或新性能实验；已完成成果的归档和明确授权的独立评测可以继续。
+用户最终选定R81_op256_cond2048，并明确不继续优化。当前提交入口为[submission/MySpillScheduler.cpp](submission/MySpillScheduler.cpp)，仅排版/注释与宏含义命名整理，已核宏名映射后的token、官方TU及ELF等价；详见[最终提交说明](docs/FINAL_SUBMISSION_20261031.md)。本节覆盖此前保留R75默认的历史状态；不改历史源码、结果或计划，不执行R88等后续提案。没有新的用户明确授权，不启动算法优化、调参、训练或新性能实验；已完成成果的归档和明确授权的独立评测可以继续。
 
 ## 当前主评测版本（2026-10-30用户选择）
 

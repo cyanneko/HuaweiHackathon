@@ -1,14 +1,22 @@
 {
   "status": "PASS",
-  "scope": "Whitespace and module comments only; no algorithm change",
+  "scope": "Five macro identifier renames and parameter comments only; no algorithm change",
+  "macro_mapping": {
+    "R81_FAST_HALF": "HASHJOIN_OPERATOR_HALF_LIFE",
+    "R80_MODE": "HASHJOIN_REUSE_ESTIMATOR",
+    "R79_ADAPTIVE": "HASHJOIN_ADAPTIVE_RISK_SHARING",
+    "R74_MODE": "HASHJOIN_REFAULT_MODEL",
+    "R74_SIZE": "HASHJOIN_SIZE_BIAS"
+  },
+  "base_readable_sha256": "ef1c26e81013dced4dbf100206ead5666368e2e957996cffdf2258297cb8ef65",
   "source_original_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
-  "source_readable_sha256": "ef1c26e81013dced4dbf100206ead5666368e2e957996cffdf2258297cb8ef65",
+  "source_readable_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
   "original_TU_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
   "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
   "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b",
   "framework_bytes_unchanged": true,
-  "preprocessor_directives_byte_equal": true,
-  "raw_compiler_tokens_equal": true,
+  "preprocessor_directives_equal_after_allowed_mapping": true,
+  "raw_compiler_tokens_equal_after_allowed_mapping": true,
   "raw_token_count": 6659,
   "preprocessed_official_TU_tokens_equal": true,
   "preprocessed_token_count": 296115,
@@ -38,11 +46,10 @@
     "g++": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
     "objcopy": "GNU objcopy (GNU Binutils for Ubuntu) 2.38"
   },
-  "seconds": 10.408411366,
-  "validation_script_sha256": "6cfc941277f35b26c6a8d7c49e18c9998e7d4298c84b80dfc257198894cfa99e",
-  "original_validation_sha256": "97023ff9d81aa5432f457a170aa5a1fc5b66db5801da647a3f96e17a0fcbd6de",
-  "original_handoff_sha256": "fbff10d1d738c63b9426cbb0b4f998ff4c0009cd4178a2141e3f31d0bff5547e",
-  "publisher_checks": "Readable/original source and both ELF/.text SHA verified; existing compiler validation inherited; no new compiler/benchmark run",
+  "seconds": 10.356218714,
+  "validation_script_sha256": "a766fd0c3c0509a83e3a30d8b44d28707746ec562568acf7bdc30b88b8de3b91",
+  "original_validation_sha256": "85c241a8a72e00aa1e4f5c976fd4535fdf8a84a841a707b69eebed9f1f0b4606",
+  "original_handoff_sha256": "7fbee0d0fe4f79b9a498a06e5336e3d58fe1f7552cf6590b7018944eb00bf796",
   "publisher_extra_compile_runs": 0,
   "publisher_extra_benchmark_runs": 0
 }

@@ -4,12 +4,11 @@
   "decision_date": "2026-10-31",
   "optimization_stopped": true,
   "file": "submission/MySpillScheduler.cpp",
-  "source_sha256": "ef1c26e81013dced4dbf100206ead5666368e2e957996cffdf2258297cb8ef65",
+  "source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
   "measured_original_source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
   "measured_original_TU_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
   "ELF_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
-  "formatting_and_comments_only": true,
-  "behavioral_equivalence": "6659 lexical tokens, 296115 official preprocessed tokens, ELF and .text byte-identical",
+  "behavioral_equivalence": "6659 raw tokens after allowed macro mapping; 296115 official preprocessed tokens and ELF/.text identical",
   "build_flags": [
     "-std=c++14",
     "-O2"
@@ -20,5 +19,23 @@
   "historical_source_commit": "a39d69342b7cd61f3c1489f0d9408ebe717414d6",
   "historical_source_path": "src/experiments/r81_two_timescale_20261030/R81_op256_cond2048.cpp",
   "historical_TU_commit": "b09ece11af152a705ef2df27162cade838399287",
-  "historical_TU_path": "src/reports/r85_20261030/measured_sources/R81_op256_cond2048.tu.cpp"
+  "historical_TU_path": "src/reports/r85_20261030/measured_sources/R81_op256_cond2048.tu.cpp",
+  "previous_readable_source_sha256": "ef1c26e81013dced4dbf100206ead5666368e2e957996cffdf2258297cb8ef65",
+  "previous_readable_artifact_commit": "a1ee48aee1af3b561efa2eacc5c68769a9a0dc83",
+  "macro_mapping": {
+    "R81_FAST_HALF": "HASHJOIN_OPERATOR_HALF_LIFE",
+    "R80_MODE": "HASHJOIN_REUSE_ESTIMATOR",
+    "R79_ADAPTIVE": "HASHJOIN_ADAPTIVE_RISK_SHARING",
+    "R74_MODE": "HASHJOIN_REFAULT_MODEL",
+    "R74_SIZE": "HASHJOIN_SIZE_BIAS"
+  },
+  "macro_values": {
+    "HASHJOIN_OPERATOR_HALF_LIFE": 256,
+    "HASHJOIN_REUSE_ESTIMATOR": 2,
+    "HASHJOIN_ADAPTIVE_RISK_SHARING": 1,
+    "HASHJOIN_REFAULT_MODEL": 3,
+    "HASHJOIN_SIZE_BIAS": 0
+  },
+  "cosmetic_changes_only": true,
+  "algorithm_changed": false
 }

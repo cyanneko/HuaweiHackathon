@@ -1,7 +1,15 @@
-# 最终提交：R81 易读版
+# 最终提交：R81 宏含义命名版
 
-使用 [MySpillScheduler.cpp](MySpillScheduler.cpp)。用户于2026-10-31选定R81并停止继续优化；此版本仅整理排版和模块注释，不改变算法、参数或接口。
+使用 [MySpillScheduler.cpp](MySpillScheduler.cpp)。用户最终选定R81；此版本在排版和模块注释整理上，仅将五个实验编号宏改为含义名称，数值和算法不变。
 
-文件是调度器类及其标准库/助手，无main或引擎。按赛题原框架仅替换MySpillScheduler，官方声明放在类前，使用C++14/O2、纯CPU；不要把此类文件直接当作完整可执行程序。
+| 名称 | 固定值 |
+| --- | ---: |
+| HASHJOIN_OPERATOR_HALF_LIFE | 256 |
+| HASHJOIN_REUSE_ESTIMATOR | 2 |
+| HASHJOIN_ADAPTIVE_RISK_SHARING | 1 |
+| HASHJOIN_REFAULT_MODEL | 3 |
+| HASHJOIN_SIZE_BIAS | 0 |
 
-[最终选择与身份](manifest.json) · [等价验证](verification.json) · [提交说明](../docs/FINAL_SUBMISSION_20261031.md)。6659词法token、296115官方预处理token与原版相同，ELF/.text逐字节相同；没有新benchmark。原始R81测量源码和历史R75/R87结果保持原样，大型token日志与可执行文件不随main发布。
+按允许的五个宏名映射归一化后，6659词法token一致；官方翻译单元296115预处理token、ELF/.text均与已测原版一致。没有新benchmark、调参或训练。[验证](verification.json) · [身份](manifest.json) · [提交说明](../docs/FINAL_SUBMISSION_20261031.md)。
+
+文件只包含调度器类及必要助手/标准库，无main或引擎；按原赛题框架只替换MySpillScheduler，保持官方声明和框架，纯CPU/C++14/O2。原始7f版、上次易读ef1版和历史测量保持不变。

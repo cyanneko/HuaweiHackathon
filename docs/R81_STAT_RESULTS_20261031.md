@@ -15,7 +15,7 @@ R81在stat_dataset 1.0.0的10个eval用例上，按每例、每重复与同轮Na
 
 eval10经授权正式评测和后续BUILD/消融后已经曝光，不能继续称为盲测或用于拟合。原数据README中“尚未评测”的表述是数据生成审核时状态；当前曝光状态由公开发布说明补充，冻结生产原件不改。
 
-数据归档采用压缩文件，不上传约3.299GB raw正文。40个gzip逐一核SHA，压缩发布约1.265GB，最大单文件41,021,138字节。压缩数据与本页同次发布，见[固定生产归档](https://github.com/cyanneko/HuaweiHackathon/tree/e78279e316d578cd1d15cee29f84295d2602b55d/stat_dataset)；当前曝光说明见[PUBLICATION](../stat_dataset/PUBLICATION.md)，原生产README保留生成时状态。
+数据归档采用压缩文件，不上传约3.299GB raw正文。40个gzip逐一核SHA，压缩发布约1.265GB，最大单文件41,021,138字节。压缩数据已推送并核对远端提交，见[固定生产归档](https://github.com/cyanneko/HuaweiHackathon/tree/e78279e316d578cd1d15cee29f84295d2602b55d/stat_dataset)与[附带发布及曝光说明](https://github.com/cyanneko/HuaweiHackathon/blob/a8f9a109cd350e06509419dc46bd3bbc9b95fd4d/stat_dataset/PUBLICATION.md)。远端数据分支发布提交为`a8f9a109cd350e06509419dc46bd3bbc9b95fd4d`；40份gzip的原件SHA、大小与Git存储对象已在发布前核对，未重新解压或生成数据。
 
 [完整报告](https://github.com/cyanneko/HuaweiHackathon/blob/31dbf25826019cdb8983f1346b765172c67e6fc6/src/reports/r81_stat_eval_20261031/report_zh.md) · [逐例结果](https://github.com/cyanneko/HuaweiHackathon/blob/31dbf25826019cdb8983f1346b765172c67e6fc6/src/reports/r81_stat_eval_20261031/per_case.csv) · [独立复核](https://github.com/cyanneko/HuaweiHackathon/blob/31dbf25826019cdb8983f1346b765172c67e6fc6/src/reports/r81_stat_eval_20261031/independent_check.json) · [公开完成投影](https://github.com/cyanneko/HuaweiHackathon/blob/31dbf25826019cdb8983f1346b765172c67e6fc6/src/reports/r81_stat_eval_20261031/completion_projection.json) · [全部证据](https://github.com/cyanneko/HuaweiHackathon/tree/31dbf25826019cdb8983f1346b765172c67e6fc6/src/reports/r81_stat_eval_20261031)。
 

@@ -1,0 +1,1351 @@
+{
+  "config_sha256": "09bd7391eb445a7b5d0d3a03694ec7a4b94f3ee2fa34fad9e024e015f5ad54ab",
+  "methods": [
+    {
+      "name": "Naive",
+      "method_id": "src/methods/r49/official_naive.cpp",
+      "source_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+      "source_path": "tmp/r77_dyna_full_eval/sources/Naive.policy.cpp",
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/Naive.cpp",
+      "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "instrumented": false,
+      "build_record": "tmp/dataset_score_audit_20261030/benchmark/build_identity.json",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R75_dense_switch",
+      "source_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.policy.cpp",
+      "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.cpp",
+      "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da"
+    },
+    {
+      "name": "R79_independent_fixed75",
+      "source_path": "tmp/r79_adaptive_operator/R79_independent_fixed75/MySpillScheduler.cpp",
+      "source_sha256": "817238af6cb29e14a8040493e4ac8975786b8c5b52992ea57ee9f3414cd6a8c4",
+      "translation_unit_path": "tmp/r79_adaptive_operator/R79_independent_fixed75/main.cpp",
+      "translation_unit_sha256": "eb7c100bd678916109804fe567fd9251c3c57eb70ffda704be8a6e036a96a417",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "ff79094d385f6cf9deeb674e8ea8a7a2a5390346dc134509954cef2f0186330e",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R79_adaptive",
+      "source_path": "tmp/r79_adaptive_operator/R79_adaptive/MySpillScheduler.cpp",
+      "source_sha256": "8eb171503ce6c30d8e99939dffef33b751dd96f7b276c1d4509c090d439d982d",
+      "translation_unit_path": "tmp/r79_adaptive_operator/R79_adaptive/main.cpp",
+      "translation_unit_sha256": "0a8a66174dbb42b0fbbf163a479e170a57115a8be286e338e761e40565693d96",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "9c77744aab4cb0180c1fdb017f9426e0931955265a57373ec1d81573f305f4ab",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "Van_paired_penalty100",
+      "source_path": "tmp/r79_adaptive_operator/Van_paired_penalty100/MySpillScheduler.cpp",
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "translation_unit_path": "tmp/r79_adaptive_operator/Van_paired_penalty100/main.cpp",
+      "translation_unit_sha256": "d89c9455e9519be89aca25c30b274c64b6f668e2eeebfb0d3623efc5065edefd",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "c01849371905fa3460ed979ab6deaf0333f585e968397d95de92848096cc9edc",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "eval_006_random_hotspot",
+      "case": "eval_006_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_006_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 1,
+      "selection_hash": "06893917c13c727edaeaf2f3ed24a08ed58cb06c071642dc44d06d73a3c08ddd",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_006_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "35f84b0c3abc47b77e3b071f2146dc1959b810c86da26ed858da40bf520743d9",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_006_random_hotspot.meta.json",
+      "metadata_sha256": "41eea80f8390c20553c2a75cae73a249908222fccfe9fdc97b89a6d219babca6",
+      "stats": {
+        "probe_count": 120383,
+        "penalty": 398,
+        "operations": 266300
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 1,
+        "p": 32,
+        "memory": 67108864,
+        "write": 4631,
+        "read": 6566,
+        "penalty": 398,
+        "period": 479,
+        "build_count": 145916,
+        "probe_count": 120383,
+        "pressure": 1.570261,
+        "tuple_cv": 1.135137,
+        "shape_alpha": 1.572637,
+        "hot_fraction": 0.114108,
+        "hot_probability": 0.940164
+      }
+    },
+    {
+      "case_id": "eval_008_random_zipf",
+      "case": "eval_008_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_008_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 0,
+      "selection_hash": "353e051414f6998b2bcc60d5dc8635ff0a6a1ef6353c5bcdc8d857eb7f069ba0",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_008_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "a391f54b43432fb9033af7e38f5c41659812435c95c3b2beefadb8cfbe2317ba",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_008_random_zipf.meta.json",
+      "metadata_sha256": "9692c3d605fe3d9bd909a55a5cb19115a7aab6977673b2396dcc08fc5fbad9a2",
+      "stats": {
+        "probe_count": 27998,
+        "penalty": 258,
+        "operations": 72854
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 8,
+        "p": 8,
+        "memory": 134217728,
+        "write": 1397,
+        "read": 3024,
+        "penalty": 258,
+        "period": 387,
+        "build_count": 44848,
+        "probe_count": 27998,
+        "pressure": 3.047489,
+        "tuple_cv": 0.793787,
+        "shape_alpha": 1.370517,
+        "hot_fraction": 0.052821,
+        "hot_probability": 0.715198
+      }
+    },
+    {
+      "case_id": "eval_009_random_lognormal",
+      "case": "eval_009_random_lognormal.txt",
+      "source_path": "final_dataset/eval/eval_009_random_lognormal.txt",
+      "family": "random_lognormal",
+      "size_tertile": 1,
+      "selection_hash": "13b49cddb0afad8b4da82ca3fc9d82389a38f9d62989f88122d802a960ecabfb",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_009_random_lognormal.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "61a79bd4a3566cb0806234bdf2f101f1a9d458afc6b18f0b5a8667989954b035",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_009_random_lognormal.meta.json",
+      "metadata_sha256": "fe05c385c4d0f6aeb40e98cd577c8d0039385356f23a55096a8d20b486dfd3f7",
+      "stats": {
+        "probe_count": 67517,
+        "penalty": 424,
+        "operations": 160257
+      },
+      "parameters": {
+        "family": "random_lognormal",
+        "k": 1,
+        "p": 8,
+        "memory": 268435456,
+        "write": 4040,
+        "read": 3132,
+        "penalty": 424,
+        "period": 451,
+        "build_count": 92739,
+        "probe_count": 67517,
+        "pressure": 3.542784,
+        "tuple_cv": 1.105804,
+        "shape_alpha": 1.029965,
+        "hot_fraction": 0.201844,
+        "hot_probability": 0.781368
+      }
+    },
+    {
+      "case_id": "eval_013_random_lognormal",
+      "case": "eval_013_random_lognormal.txt",
+      "source_path": "final_dataset/eval/eval_013_random_lognormal.txt",
+      "family": "random_lognormal",
+      "size_tertile": 1,
+      "selection_hash": "245677855ebb0ff91716ed78e5e5c23773ba94d8c3a32c3cfe64320b4d9343b7",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_013_random_lognormal.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "4d835e39e2703a2d704b42e5cb7071161131208ffdbbf73ce07f2ba91ae21791",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_013_random_lognormal.meta.json",
+      "metadata_sha256": "54149b53af7bc33b7db932fc8cf886feec60b53b3d2f90c3d231f7afb3b149a2",
+      "stats": {
+        "probe_count": 81057,
+        "penalty": 144,
+        "operations": 157990
+      },
+      "parameters": {
+        "family": "random_lognormal",
+        "k": 2,
+        "p": 8,
+        "memory": 134217728,
+        "write": 4549,
+        "read": 5609,
+        "penalty": 144,
+        "period": 671,
+        "build_count": 76931,
+        "probe_count": 81057,
+        "pressure": 1.598295,
+        "tuple_cv": 0.875459,
+        "shape_alpha": 1.128287,
+        "hot_fraction": 0.07286,
+        "hot_probability": 0.860692
+      }
+    },
+    {
+      "case_id": "eval_019_random_hotspot",
+      "case": "eval_019_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_019_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 1,
+      "selection_hash": "2d0d3bb25c522eb27df279b4d29bc2fd5bc1ba01dc72b0c744b168d84f8acb2b",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_019_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "d64f1df150028eb8f361ad3cb4b99d97ad82f02dff3bc93dbe9ab7e3953226bd",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_019_random_hotspot.meta.json",
+      "metadata_sha256": "5e280de9e8ec5f6089b9d60ca5506008dfe91a8f78cff70e385c8051c0f617b4",
+      "stats": {
+        "probe_count": 117766,
+        "penalty": 497,
+        "operations": 285041
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 1,
+        "p": 32,
+        "memory": 134217728,
+        "write": 4421,
+        "read": 4216,
+        "penalty": 497,
+        "period": 726,
+        "build_count": 167274,
+        "probe_count": 117766,
+        "pressure": 3.510581,
+        "tuple_cv": 0.996748,
+        "shape_alpha": 1.384127,
+        "hot_fraction": 0.109805,
+        "hot_probability": 0.791241
+      }
+    },
+    {
+      "case_id": "eval_022_random_hotspot",
+      "case": "eval_022_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_022_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 0,
+      "selection_hash": "4bfc2f4b3156b38829a0ee092840aa9174138baaa8ab463b86feadee61756b46",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_022_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "c187aca1958c17aff6f1bb08de4b54790ef51e32baa9f1d18280a37b958ae3aa",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_022_random_hotspot.meta.json",
+      "metadata_sha256": "3802128ea3dfaee97da179790475e73abce0b340bd18a8b9868144c8d50bc232",
+      "stats": {
+        "probe_count": 93594,
+        "penalty": 286,
+        "operations": 185833
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 2,
+        "p": 16,
+        "memory": 268435456,
+        "write": 282,
+        "read": 769,
+        "penalty": 286,
+        "period": 859,
+        "build_count": 92237,
+        "probe_count": 93594,
+        "pressure": 1.335961,
+        "tuple_cv": 0.972678,
+        "shape_alpha": 1.188922,
+        "hot_fraction": 0.058589,
+        "hot_probability": 0.70464
+      }
+    },
+    {
+      "case_id": "eval_028_random_zipf",
+      "case": "eval_028_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_028_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 0,
+      "selection_hash": "0724a5d294b5118473975042ac37b227a1f109605b1482664a765d9ea4891bc3",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_028_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "adb4bba9d1bbcb29d707e3657f32cb87f77c5670be7164f7d896d236befbc743",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_028_random_zipf.meta.json",
+      "metadata_sha256": "ee7c809acf617568087c71af4921dc6a104e059cb19bedf98114b2c5cff72c58",
+      "stats": {
+        "probe_count": 76003,
+        "penalty": 247,
+        "operations": 149358
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 2,
+        "p": 16,
+        "memory": 67108864,
+        "write": 4998,
+        "read": 562,
+        "penalty": 247,
+        "period": 411,
+        "build_count": 73353,
+        "probe_count": 76003,
+        "pressure": 2.43548,
+        "tuple_cv": 0.980652,
+        "shape_alpha": 0.946959,
+        "hot_fraction": 0.127189,
+        "hot_probability": 0.7875
+      }
+    },
+    {
+      "case_id": "eval_033_random_zipf",
+      "case": "eval_033_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_033_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 1,
+      "selection_hash": "68b895cea34d48af9f6dc749585c8a7c870753510c14b76f7d4d636001828faa",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_033_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "1db613f34c704e0f172da1c45f52e17b8b69fede8571eecf5adb0ce87eb6cdc1",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_033_random_zipf.meta.json",
+      "metadata_sha256": "1903056142f47481fffaf5617a892b6a4642984c9e0e60834b0c455da4544d47",
+      "stats": {
+        "probe_count": 173337,
+        "penalty": 145,
+        "operations": 293850
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 2,
+        "p": 32,
+        "memory": 134217728,
+        "write": 6544,
+        "read": 6917,
+        "penalty": 145,
+        "period": 81,
+        "build_count": 120511,
+        "probe_count": 173337,
+        "pressure": 2.86008,
+        "tuple_cv": 0.568137,
+        "shape_alpha": 1.478246,
+        "hot_fraction": 0.077114,
+        "hot_probability": 0.860846
+      }
+    },
+    {
+      "case_id": "eval_034_random_lognormal",
+      "case": "eval_034_random_lognormal.txt",
+      "source_path": "final_dataset/eval/eval_034_random_lognormal.txt",
+      "family": "random_lognormal",
+      "size_tertile": 0,
+      "selection_hash": "6176b87ea19b3bda4d8273d940a26e200c58e9c70f0d6e3664734f662c6f420a",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_034_random_lognormal.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "32a1e970cb22f0e70ef8a08eee684407614c206769e6dbac13587e69a00a147b",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_034_random_lognormal.meta.json",
+      "metadata_sha256": "7d0c458f5722e56b6b28473f55bfb057210b6478b806d5c5b363b88af8033efa",
+      "stats": {
+        "probe_count": 60049,
+        "penalty": 239,
+        "operations": 125064
+      },
+      "parameters": {
+        "family": "random_lognormal",
+        "k": 4,
+        "p": 16,
+        "memory": 268435456,
+        "write": 7092,
+        "read": 1251,
+        "penalty": 239,
+        "period": 463,
+        "build_count": 65011,
+        "probe_count": 60049,
+        "pressure": 2.05888,
+        "tuple_cv": 0.653504,
+        "shape_alpha": 1.223907,
+        "hot_fraction": 0.068763,
+        "hot_probability": 0.705678
+      }
+    },
+    {
+      "case_id": "eval_040_random_hotspot",
+      "case": "eval_040_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_040_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 0,
+      "selection_hash": "0de53bb2b51ba6fcb2f5d1a1e6e1194b1cae3976adc43ffc443d7cc82b115e79",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_040_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "cbd1595fd340314ade960656b83ff228771a6cfefb5d817ea4a045a489013d88",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_040_random_hotspot.meta.json",
+      "metadata_sha256": "8b259e2a15b2e1ac7be82d7663bd12869e5ddb944fda38b3d968887ba1e2f92a",
+      "stats": {
+        "probe_count": 49270,
+        "penalty": 481,
+        "operations": 91629
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 4,
+        "p": 64,
+        "memory": 134217728,
+        "write": 2441,
+        "read": 7491,
+        "penalty": 481,
+        "period": 577,
+        "build_count": 42355,
+        "probe_count": 49270,
+        "pressure": 2.44263,
+        "tuple_cv": 0.93746,
+        "shape_alpha": 1.089583,
+        "hot_fraction": 0.120112,
+        "hot_probability": 0.888616
+      }
+    },
+    {
+      "case_id": "eval_043_random_hotspot",
+      "case": "eval_043_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_043_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 0,
+      "selection_hash": "09be1ff9ee132b8ee169c5c57ac7137c297af5d3ca00ac6d883d163d7d900603",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_043_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "ae14aac20741c80ea3fdbd1a352be3661027d703a540811ac682a648ce28882b",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_043_random_hotspot.meta.json",
+      "metadata_sha256": "e08151c2c00fb22d349077a160aea6f2603d68e704e0c7b8e4b76ad09d3724db",
+      "stats": {
+        "probe_count": 59207,
+        "penalty": 449,
+        "operations": 164551
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 2,
+        "p": 64,
+        "memory": 268435456,
+        "write": 6477,
+        "read": 2383,
+        "penalty": 449,
+        "period": 557,
+        "build_count": 105342,
+        "probe_count": 59207,
+        "pressure": 1.223622,
+        "tuple_cv": 1.100834,
+        "shape_alpha": 1.59151,
+        "hot_fraction": 0.241689,
+        "hot_probability": 0.805714
+      }
+    },
+    {
+      "case_id": "eval_046_random_zipf",
+      "case": "eval_046_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_046_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 0,
+      "selection_hash": "10192dae9175efbe22e92e9984965b15413e7e310250056aed8dd7fe6ac316fa",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_046_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "4cf961cfec7c5974bcc56f7a8a10703ee25fa04ef615932e9af6fcebd5d5a1b0",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_046_random_zipf.meta.json",
+      "metadata_sha256": "875f53f20ee4b02480bb2a74b895925e1ca9701e8166c4854cc7ed53880175a4",
+      "stats": {
+        "probe_count": 69826,
+        "penalty": 323,
+        "operations": 148909
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 2,
+        "p": 8,
+        "memory": 536870912,
+        "write": 3705,
+        "read": 1761,
+        "penalty": 323,
+        "period": 70,
+        "build_count": 79081,
+        "probe_count": 69826,
+        "pressure": 3.420756,
+        "tuple_cv": 0.338097,
+        "shape_alpha": 1.29705,
+        "hot_fraction": 0.065573,
+        "hot_probability": 0.7463
+      }
+    },
+    {
+      "case_id": "eval_053_random_zipf",
+      "case": "eval_053_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_053_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 2,
+      "selection_hash": "0a3c73e8d158b163306c6f9715d33e7ffd1dfa1f1454c0a50c6178430f5fcc8a",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_053_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "0344482eb539a12dd78621ae1e7fc423d274b752e6098c15202c18a1203fe247",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_053_random_zipf.meta.json",
+      "metadata_sha256": "d13412863d1a16f49ee042caac05e3aac5393daede256ff54d65b405ee750a13",
+      "stats": {
+        "probe_count": 283662,
+        "penalty": 604,
+        "operations": 541287
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 1,
+        "p": 32,
+        "memory": 268435456,
+        "write": 4390,
+        "read": 7390,
+        "penalty": 604,
+        "period": 10000,
+        "build_count": 257624,
+        "probe_count": 283662,
+        "pressure": 1.973182,
+        "tuple_cv": 0.845512,
+        "shape_alpha": 1.022982,
+        "hot_fraction": 0.220862,
+        "hot_probability": 0.609566
+      }
+    },
+    {
+      "case_id": "eval_056_random_zipf",
+      "case": "eval_056_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_056_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 1,
+      "selection_hash": "1dcb6cc7a608244a48490c81bb68b58d674fe1f119fc3acd8d6f0f33f2d4b2de",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_056_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "57b50fe785f8935b4e0383ccee2931dcf46d1bf7119816aef6f07b51b37aa0ff",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_056_random_zipf.meta.json",
+      "metadata_sha256": "fec124c3f359afd6c82ae0da3d2350875e5a1611a8514e91844c7d2e9d531eba",
+      "stats": {
+        "probe_count": 65634,
+        "penalty": 540,
+        "operations": 175039
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 2,
+        "p": 16,
+        "memory": 2147483648,
+        "write": 2184,
+        "read": 3250,
+        "penalty": 540,
+        "period": 4096,
+        "build_count": 109403,
+        "probe_count": 65634,
+        "pressure": 3.396208,
+        "tuple_cv": 1.19288,
+        "shape_alpha": 0.968946,
+        "hot_fraction": 0.125436,
+        "hot_probability": 0.638734
+      }
+    },
+    {
+      "case_id": "eval_060_random_zipf",
+      "case": "eval_060_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_060_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 1,
+      "selection_hash": "3c2d457dd115b198e40ee52e3948299680f8ab9da99df9876849dd4f9a5ad18c",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_060_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "4f5f190effa763c7649a27b47f2beb62889932cb9079ae27dd4d5631ab8c51a5",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_060_random_zipf.meta.json",
+      "metadata_sha256": "71ea9952773f1074351f0582e4ad55e27a8ceed7d91b2632abfc5369fcb958dd",
+      "stats": {
+        "probe_count": 94260,
+        "penalty": 203,
+        "operations": 188043
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 2,
+        "p": 8,
+        "memory": 268435456,
+        "write": 6902,
+        "read": 426,
+        "penalty": 203,
+        "period": 8,
+        "build_count": 93781,
+        "probe_count": 94260,
+        "pressure": 1.302775,
+        "tuple_cv": 0.392757,
+        "shape_alpha": 1.309086,
+        "hot_fraction": 0.157696,
+        "hot_probability": 0.817171
+      }
+    },
+    {
+      "case_id": "eval_062_random_zipf",
+      "case": "eval_062_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_062_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 2,
+      "selection_hash": "2c7499e64ae80020ac51142ffad419ff5fad696ff917f6193c50ba3cf9948c1b",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_062_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "8c46cbf053bdb0aee041d6b5f1f76f13c0ac4ee7ba0b435f4ed9941c70529b20",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_062_random_zipf.meta.json",
+      "metadata_sha256": "c393954ff549294f898c5a23c9a8f3c115eecff4f4749cd07724921045d3320d",
+      "stats": {
+        "probe_count": 240857,
+        "penalty": 713,
+        "operations": 516188
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 1,
+        "p": 8,
+        "memory": 67108864,
+        "write": 240,
+        "read": 4907,
+        "penalty": 713,
+        "period": 256,
+        "build_count": 275330,
+        "probe_count": 240857,
+        "pressure": 2.622292,
+        "tuple_cv": 0.538414,
+        "shape_alpha": 0.934219,
+        "hot_fraction": 0.0911,
+        "hot_probability": 0.682704
+      }
+    },
+    {
+      "case_id": "eval_063_random_zipf",
+      "case": "eval_063_random_zipf.txt",
+      "source_path": "final_dataset/eval/eval_063_random_zipf.txt",
+      "family": "random_zipf",
+      "size_tertile": 2,
+      "selection_hash": "559bcbcfb3e64d91946d2257e97e6b724fc0c264a34b741f4b83202d79ad94ca",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_063_random_zipf.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "83beeb2458a0f54e15b1c11fca3b7ae764173cd3070ae21c623399a1da8d8249",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_063_random_zipf.meta.json",
+      "metadata_sha256": "76bd391aaa73dac8e257e84f5446dc29e3f4b0c8d71df247a74fe51c46a5e5c6",
+      "stats": {
+        "probe_count": 223040,
+        "penalty": 423,
+        "operations": 422620
+      },
+      "parameters": {
+        "family": "random_zipf",
+        "k": 8,
+        "p": 16,
+        "memory": 134217728,
+        "write": 8189,
+        "read": 2854,
+        "penalty": 423,
+        "period": 64,
+        "build_count": 199572,
+        "probe_count": 223040,
+        "pressure": 2.626245,
+        "tuple_cv": 0.898343,
+        "shape_alpha": 1.346142,
+        "hot_fraction": 0.071049,
+        "hot_probability": 0.763563
+      }
+    },
+    {
+      "case_id": "eval_070_random_hotspot",
+      "case": "eval_070_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_070_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 1,
+      "selection_hash": "447fbc2219ecae5a621bb9b08b4ea45bd5a3cf4d248b758f51a4ec9dccb53f9b",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_070_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "7901aa5e42cbaa5ff92445320a53c80545f1541df17f94f0de91e4422a25d2cf",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_070_random_hotspot.meta.json",
+      "metadata_sha256": "da4cc103fb849a88095012c92b9102099de0dde6d832deff8dabab3b091ac4a9",
+      "stats": {
+        "probe_count": 100791,
+        "penalty": 290,
+        "operations": 249696
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 4,
+        "p": 8,
+        "memory": 1073741824,
+        "write": 5736,
+        "read": 5273,
+        "penalty": 290,
+        "period": 4096,
+        "build_count": 148901,
+        "probe_count": 100791,
+        "pressure": 3.517517,
+        "tuple_cv": 0.853379,
+        "shape_alpha": 0.565236,
+        "hot_fraction": 0.108724,
+        "hot_probability": 0.679096
+      }
+    },
+    {
+      "case_id": "eval_071_random_hotspot",
+      "case": "eval_071_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_071_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 2,
+      "selection_hash": "2fa6d496ee96137dce9f9d7bc6a93e8bb1fcb2c79a3b43335b40e2afbc89b392",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_071_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "7b53ce48fb089983e928690d61134718b2d00b2799541af4da813878f4e223bb",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_071_random_hotspot.meta.json",
+      "metadata_sha256": "b17629f2147180f70590698f2a5703d9428211c96f5e8c42b39b02de3e02e9c4",
+      "stats": {
+        "probe_count": 558834,
+        "penalty": 152,
+        "operations": 1048576
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "write": 1748,
+        "read": 6883,
+        "penalty": 152,
+        "period": 8,
+        "build_count": 489734,
+        "probe_count": 558834,
+        "pressure": 3.888639,
+        "tuple_cv": 0.640375,
+        "shape_alpha": 0.862948,
+        "hot_fraction": 0.067171,
+        "hot_probability": 0.770889
+      }
+    },
+    {
+      "case_id": "eval_072_random_hotspot",
+      "case": "eval_072_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_072_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 2,
+      "selection_hash": "09df7b9a6ae3245f6220b4bc9c6d188b2b2dcfb2fb6ed5420a53d4dcf575d1d5",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_072_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "7f7821eb392ccfff9d7c6a2dc802cdd6dbf66cfb693f2afe81826b47adc99b14",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_072_random_hotspot.meta.json",
+      "metadata_sha256": "114ff1a3ba72756c78da2025656ad30caec13f98e97f1e25f7f46c5c445ae4bb",
+      "stats": {
+        "probe_count": 172322,
+        "penalty": 723,
+        "operations": 487349
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 4,
+        "p": 16,
+        "memory": 2147483648,
+        "write": 7002,
+        "read": 403,
+        "penalty": 723,
+        "period": 256,
+        "build_count": 315023,
+        "probe_count": 172322,
+        "pressure": 3.943524,
+        "tuple_cv": 0.901989,
+        "shape_alpha": 1.627086,
+        "hot_fraction": 0.078473,
+        "hot_probability": 0.949527
+      }
+    },
+    {
+      "case_id": "eval_073_random_hotspot",
+      "case": "eval_073_random_hotspot.txt",
+      "source_path": "final_dataset/eval/eval_073_random_hotspot.txt",
+      "family": "random_hotspot",
+      "size_tertile": 2,
+      "selection_hash": "292fc33cb98b1eb4b166740d56ca5890e7b924f9e633c1163a2750f62147cc41",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_073_random_hotspot.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "d8e88f2740fa3010e761b5951427414c117e4ddf828bb3e9967f96b2ee4500b6",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_073_random_hotspot.meta.json",
+      "metadata_sha256": "fe22bb5570daa162b912c665089a703d6d9e6cfe45379b730bc69f48e5521a0d",
+      "stats": {
+        "probe_count": 284303,
+        "penalty": 552,
+        "operations": 539114
+      },
+      "parameters": {
+        "family": "random_hotspot",
+        "k": 1,
+        "p": 64,
+        "memory": 67108864,
+        "write": 1157,
+        "read": 7954,
+        "penalty": 552,
+        "period": 10000,
+        "build_count": 254810,
+        "probe_count": 284303,
+        "pressure": 1.606016,
+        "tuple_cv": 0.767008,
+        "shape_alpha": 0.526054,
+        "hot_fraction": 0.179521,
+        "hot_probability": 0.673319
+      }
+    },
+    {
+      "case_id": "eval_081_random_lognormal",
+      "case": "eval_081_random_lognormal.txt",
+      "source_path": "final_dataset/eval/eval_081_random_lognormal.txt",
+      "family": "random_lognormal",
+      "size_tertile": 0,
+      "selection_hash": "16321d2e436c248621db82bc1898086e4d5c8bf504c73a30f55a8325f702e0f1",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_081_random_lognormal.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "97c1bb4a30359bb16ad73e72c674094bb6b804be7275a9cf1c47bcaf3aaabdec",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_081_random_lognormal.meta.json",
+      "metadata_sha256": "a0108ab1ccd312e25fb58d6328a8f83ce02b81ab9459bfaabd9ee16094a25b06",
+      "stats": {
+        "probe_count": 65368,
+        "penalty": 42,
+        "operations": 143409
+      },
+      "parameters": {
+        "family": "random_lognormal",
+        "k": 1,
+        "p": 16,
+        "memory": 67108864,
+        "write": 6816,
+        "read": 1643,
+        "penalty": 42,
+        "period": 4096,
+        "build_count": 78040,
+        "probe_count": 65368,
+        "pressure": 1.842337,
+        "tuple_cv": 1.163257,
+        "shape_alpha": 0.77577,
+        "hot_fraction": 0.229313,
+        "hot_probability": 0.659307
+      }
+    },
+    {
+      "case_id": "eval_082_random_lognormal",
+      "case": "eval_082_random_lognormal.txt",
+      "source_path": "final_dataset/eval/eval_082_random_lognormal.txt",
+      "family": "random_lognormal",
+      "size_tertile": 2,
+      "selection_hash": "634a4556541901d4008258067603a54ad047f6300130d3b016dab4d752c2f0f1",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_082_random_lognormal.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "2ecf2089a67b80f5d88cba0bb7a1ff8d1b50c76609e5e9f35b94bf4187503bd7",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_082_random_lognormal.meta.json",
+      "metadata_sha256": "832e95290356196ca97af4a78aa23d765874c68b417e13e5abb857bbc8bd0df1",
+      "stats": {
+        "probe_count": 284035,
+        "penalty": 362,
+        "operations": 671693
+      },
+      "parameters": {
+        "family": "random_lognormal",
+        "k": 1,
+        "p": 64,
+        "memory": 268435456,
+        "write": 1722,
+        "read": 9571,
+        "penalty": 362,
+        "period": 1024,
+        "build_count": 387657,
+        "probe_count": 284035,
+        "pressure": 1.963858,
+        "tuple_cv": 0.418845,
+        "shape_alpha": 0.89871,
+        "hot_fraction": 0.171177,
+        "hot_probability": 0.843709
+      }
+    },
+    {
+      "case_id": "eval_085_random_lognormal",
+      "case": "eval_085_random_lognormal.txt",
+      "source_path": "final_dataset/eval/eval_085_random_lognormal.txt",
+      "family": "random_lognormal",
+      "size_tertile": 2,
+      "selection_hash": "5ad132353a347aef2a64bd0e99b12d70ca528ad2169ef530dca33a43583548cd",
+      "split": "eval",
+      "input_path": "tmp/d70/final_dataset/eval/eval_085_random_lognormal.txt",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_sha256": "1af3ceeaa8aa0256fc5e07bb8ee9f52c303cd1e381194a16b8fb5e740b3c1b33",
+      "metadata_path": "tmp/d70/final_dataset/eval/eval_085_random_lognormal.meta.json",
+      "metadata_sha256": "2dd032d220825762bb116d702b9edadba19f83eaef0e0b08c181d10f95e2e0ab",
+      "stats": {
+        "probe_count": 547073,
+        "penalty": 928,
+        "operations": 1048576
+      },
+      "parameters": {
+        "family": "random_lognormal",
+        "k": 8,
+        "p": 64,
+        "memory": 67108864,
+        "write": 7157,
+        "read": 9017,
+        "penalty": 928,
+        "period": 1024,
+        "build_count": 501495,
+        "probe_count": 547073,
+        "pressure": 3.166987,
+        "tuple_cv": 0.742094,
+        "shape_alpha": 0.894149,
+        "hot_fraction": 0.194356,
+        "hot_probability": 0.805387
+      }
+    }
+  ],
+  "strata": [
+    {
+      "family": "random_zipf",
+      "size_tertile": 0,
+      "population": 9,
+      "take": 3,
+      "members": [
+        "eval_044_random_zipf",
+        "eval_008_random_zipf",
+        "eval_047_random_zipf",
+        "eval_025_random_zipf",
+        "eval_061_random_zipf",
+        "eval_029_random_zipf",
+        "eval_004_random_zipf",
+        "eval_046_random_zipf",
+        "eval_028_random_zipf"
+      ],
+      "selected": [
+        "eval_028_random_zipf",
+        "eval_046_random_zipf",
+        "eval_008_random_zipf"
+      ]
+    },
+    {
+      "family": "random_zipf",
+      "size_tertile": 1,
+      "population": 9,
+      "take": 3,
+      "members": [
+        "eval_011_random_zipf",
+        "eval_056_random_zipf",
+        "eval_051_random_zipf",
+        "eval_003_random_zipf",
+        "eval_038_random_zipf",
+        "eval_060_random_zipf",
+        "eval_031_random_zipf",
+        "eval_024_random_zipf",
+        "eval_033_random_zipf"
+      ],
+      "selected": [
+        "eval_056_random_zipf",
+        "eval_060_random_zipf",
+        "eval_033_random_zipf"
+      ]
+    },
+    {
+      "family": "random_zipf",
+      "size_tertile": 2,
+      "population": 10,
+      "take": 3,
+      "members": [
+        "eval_052_random_zipf",
+        "eval_057_random_zipf",
+        "eval_054_random_zipf",
+        "eval_063_random_zipf",
+        "eval_055_random_zipf",
+        "eval_062_random_zipf",
+        "eval_053_random_zipf",
+        "eval_050_random_zipf",
+        "eval_058_random_zipf",
+        "eval_059_random_zipf"
+      ],
+      "selected": [
+        "eval_053_random_zipf",
+        "eval_062_random_zipf",
+        "eval_063_random_zipf"
+      ]
+    },
+    {
+      "family": "random_hotspot",
+      "size_tertile": 0,
+      "population": 9,
+      "take": 3,
+      "members": [
+        "eval_040_random_hotspot",
+        "eval_016_random_hotspot",
+        "eval_027_random_hotspot",
+        "eval_043_random_hotspot",
+        "eval_042_random_hotspot",
+        "eval_069_random_hotspot",
+        "eval_026_random_hotspot",
+        "eval_022_random_hotspot",
+        "eval_015_random_hotspot"
+      ],
+      "selected": [
+        "eval_043_random_hotspot",
+        "eval_040_random_hotspot",
+        "eval_022_random_hotspot"
+      ]
+    },
+    {
+      "family": "random_hotspot",
+      "size_tertile": 1,
+      "population": 9,
+      "take": 3,
+      "members": [
+        "eval_066_random_hotspot",
+        "eval_064_random_hotspot",
+        "eval_018_random_hotspot",
+        "eval_070_random_hotspot",
+        "eval_014_random_hotspot",
+        "eval_006_random_hotspot",
+        "eval_065_random_hotspot",
+        "eval_019_random_hotspot",
+        "eval_023_random_hotspot"
+      ],
+      "selected": [
+        "eval_006_random_hotspot",
+        "eval_019_random_hotspot",
+        "eval_070_random_hotspot"
+      ]
+    },
+    {
+      "family": "random_hotspot",
+      "size_tertile": 2,
+      "population": 10,
+      "take": 3,
+      "members": [
+        "eval_068_random_hotspot",
+        "eval_077_random_hotspot",
+        "eval_000_random_hotspot",
+        "eval_075_random_hotspot",
+        "eval_072_random_hotspot",
+        "eval_076_random_hotspot",
+        "eval_073_random_hotspot",
+        "eval_067_random_hotspot",
+        "eval_074_random_hotspot",
+        "eval_071_random_hotspot"
+      ],
+      "selected": [
+        "eval_072_random_hotspot",
+        "eval_073_random_hotspot",
+        "eval_071_random_hotspot"
+      ]
+    },
+    {
+      "family": "random_lognormal",
+      "size_tertile": 0,
+      "population": 5,
+      "take": 2,
+      "members": [
+        "eval_036_random_lognormal",
+        "eval_034_random_lognormal",
+        "eval_039_random_lognormal",
+        "eval_081_random_lognormal",
+        "eval_005_random_lognormal"
+      ],
+      "selected": [
+        "eval_081_random_lognormal",
+        "eval_034_random_lognormal"
+      ]
+    },
+    {
+      "family": "random_lognormal",
+      "size_tertile": 1,
+      "population": 5,
+      "take": 2,
+      "members": [
+        "eval_013_random_lognormal",
+        "eval_009_random_lognormal",
+        "eval_045_random_lognormal",
+        "eval_078_random_lognormal",
+        "eval_084_random_lognormal"
+      ],
+      "selected": [
+        "eval_009_random_lognormal",
+        "eval_013_random_lognormal"
+      ]
+    },
+    {
+      "family": "random_lognormal",
+      "size_tertile": 2,
+      "population": 6,
+      "take": 2,
+      "members": [
+        "eval_017_random_lognormal",
+        "eval_080_random_lognormal",
+        "eval_079_random_lognormal",
+        "eval_083_random_lognormal",
+        "eval_082_random_lognormal",
+        "eval_085_random_lognormal"
+      ],
+      "selected": [
+        "eval_085_random_lognormal",
+        "eval_082_random_lognormal"
+      ]
+    }
+  ],
+  "dataset_identity": {
+    "member": "final_dataset",
+    "version": "2.1.0",
+    "files": [
+      {
+        "path": "eval_006_random_hotspot.meta.json",
+        "sha256": "41eea80f8390c20553c2a75cae73a249908222fccfe9fdc97b89a6d219babca6"
+      },
+      {
+        "path": "eval_006_random_hotspot.txt",
+        "sha256": "35f84b0c3abc47b77e3b071f2146dc1959b810c86da26ed858da40bf520743d9"
+      },
+      {
+        "path": "eval_008_random_zipf.meta.json",
+        "sha256": "9692c3d605fe3d9bd909a55a5cb19115a7aab6977673b2396dcc08fc5fbad9a2"
+      },
+      {
+        "path": "eval_008_random_zipf.txt",
+        "sha256": "a391f54b43432fb9033af7e38f5c41659812435c95c3b2beefadb8cfbe2317ba"
+      },
+      {
+        "path": "eval_009_random_lognormal.meta.json",
+        "sha256": "fe05c385c4d0f6aeb40e98cd577c8d0039385356f23a55096a8d20b486dfd3f7"
+      },
+      {
+        "path": "eval_009_random_lognormal.txt",
+        "sha256": "61a79bd4a3566cb0806234bdf2f101f1a9d458afc6b18f0b5a8667989954b035"
+      },
+      {
+        "path": "eval_013_random_lognormal.meta.json",
+        "sha256": "54149b53af7bc33b7db932fc8cf886feec60b53b3d2f90c3d231f7afb3b149a2"
+      },
+      {
+        "path": "eval_013_random_lognormal.txt",
+        "sha256": "4d835e39e2703a2d704b42e5cb7071161131208ffdbbf73ce07f2ba91ae21791"
+      },
+      {
+        "path": "eval_019_random_hotspot.meta.json",
+        "sha256": "5e280de9e8ec5f6089b9d60ca5506008dfe91a8f78cff70e385c8051c0f617b4"
+      },
+      {
+        "path": "eval_019_random_hotspot.txt",
+        "sha256": "d64f1df150028eb8f361ad3cb4b99d97ad82f02dff3bc93dbe9ab7e3953226bd"
+      },
+      {
+        "path": "eval_022_random_hotspot.meta.json",
+        "sha256": "3802128ea3dfaee97da179790475e73abce0b340bd18a8b9868144c8d50bc232"
+      },
+      {
+        "path": "eval_022_random_hotspot.txt",
+        "sha256": "c187aca1958c17aff6f1bb08de4b54790ef51e32baa9f1d18280a37b958ae3aa"
+      },
+      {
+        "path": "eval_028_random_zipf.meta.json",
+        "sha256": "ee7c809acf617568087c71af4921dc6a104e059cb19bedf98114b2c5cff72c58"
+      },
+      {
+        "path": "eval_028_random_zipf.txt",
+        "sha256": "adb4bba9d1bbcb29d707e3657f32cb87f77c5670be7164f7d896d236befbc743"
+      },
+      {
+        "path": "eval_033_random_zipf.meta.json",
+        "sha256": "1903056142f47481fffaf5617a892b6a4642984c9e0e60834b0c455da4544d47"
+      },
+      {
+        "path": "eval_033_random_zipf.txt",
+        "sha256": "1db613f34c704e0f172da1c45f52e17b8b69fede8571eecf5adb0ce87eb6cdc1"
+      },
+      {
+        "path": "eval_034_random_lognormal.meta.json",
+        "sha256": "7d0c458f5722e56b6b28473f55bfb057210b6478b806d5c5b363b88af8033efa"
+      },
+      {
+        "path": "eval_034_random_lognormal.txt",
+        "sha256": "32a1e970cb22f0e70ef8a08eee684407614c206769e6dbac13587e69a00a147b"
+      },
+      {
+        "path": "eval_040_random_hotspot.meta.json",
+        "sha256": "8b259e2a15b2e1ac7be82d7663bd12869e5ddb944fda38b3d968887ba1e2f92a"
+      },
+      {
+        "path": "eval_040_random_hotspot.txt",
+        "sha256": "cbd1595fd340314ade960656b83ff228771a6cfefb5d817ea4a045a489013d88"
+      },
+      {
+        "path": "eval_043_random_hotspot.meta.json",
+        "sha256": "e08151c2c00fb22d349077a160aea6f2603d68e704e0c7b8e4b76ad09d3724db"
+      },
+      {
+        "path": "eval_043_random_hotspot.txt",
+        "sha256": "ae14aac20741c80ea3fdbd1a352be3661027d703a540811ac682a648ce28882b"
+      },
+      {
+        "path": "eval_046_random_zipf.meta.json",
+        "sha256": "875f53f20ee4b02480bb2a74b895925e1ca9701e8166c4854cc7ed53880175a4"
+      },
+      {
+        "path": "eval_046_random_zipf.txt",
+        "sha256": "4cf961cfec7c5974bcc56f7a8a10703ee25fa04ef615932e9af6fcebd5d5a1b0"
+      },
+      {
+        "path": "eval_053_random_zipf.meta.json",
+        "sha256": "d13412863d1a16f49ee042caac05e3aac5393daede256ff54d65b405ee750a13"
+      },
+      {
+        "path": "eval_053_random_zipf.txt",
+        "sha256": "0344482eb539a12dd78621ae1e7fc423d274b752e6098c15202c18a1203fe247"
+      },
+      {
+        "path": "eval_056_random_zipf.meta.json",
+        "sha256": "fec124c3f359afd6c82ae0da3d2350875e5a1611a8514e91844c7d2e9d531eba"
+      },
+      {
+        "path": "eval_056_random_zipf.txt",
+        "sha256": "57b50fe785f8935b4e0383ccee2931dcf46d1bf7119816aef6f07b51b37aa0ff"
+      },
+      {
+        "path": "eval_060_random_zipf.meta.json",
+        "sha256": "71ea9952773f1074351f0582e4ad55e27a8ceed7d91b2632abfc5369fcb958dd"
+      },
+      {
+        "path": "eval_060_random_zipf.txt",
+        "sha256": "4f5f190effa763c7649a27b47f2beb62889932cb9079ae27dd4d5631ab8c51a5"
+      },
+      {
+        "path": "eval_062_random_zipf.meta.json",
+        "sha256": "c393954ff549294f898c5a23c9a8f3c115eecff4f4749cd07724921045d3320d"
+      },
+      {
+        "path": "eval_062_random_zipf.txt",
+        "sha256": "8c46cbf053bdb0aee041d6b5f1f76f13c0ac4ee7ba0b435f4ed9941c70529b20"
+      },
+      {
+        "path": "eval_063_random_zipf.meta.json",
+        "sha256": "76bd391aaa73dac8e257e84f5446dc29e3f4b0c8d71df247a74fe51c46a5e5c6"
+      },
+      {
+        "path": "eval_063_random_zipf.txt",
+        "sha256": "83beeb2458a0f54e15b1c11fca3b7ae764173cd3070ae21c623399a1da8d8249"
+      },
+      {
+        "path": "eval_070_random_hotspot.meta.json",
+        "sha256": "da4cc103fb849a88095012c92b9102099de0dde6d832deff8dabab3b091ac4a9"
+      },
+      {
+        "path": "eval_070_random_hotspot.txt",
+        "sha256": "7901aa5e42cbaa5ff92445320a53c80545f1541df17f94f0de91e4422a25d2cf"
+      },
+      {
+        "path": "eval_071_random_hotspot.meta.json",
+        "sha256": "b17629f2147180f70590698f2a5703d9428211c96f5e8c42b39b02de3e02e9c4"
+      },
+      {
+        "path": "eval_071_random_hotspot.txt",
+        "sha256": "7b53ce48fb089983e928690d61134718b2d00b2799541af4da813878f4e223bb"
+      },
+      {
+        "path": "eval_072_random_hotspot.meta.json",
+        "sha256": "114ff1a3ba72756c78da2025656ad30caec13f98e97f1e25f7f46c5c445ae4bb"
+      },
+      {
+        "path": "eval_072_random_hotspot.txt",
+        "sha256": "7f7821eb392ccfff9d7c6a2dc802cdd6dbf66cfb693f2afe81826b47adc99b14"
+      },
+      {
+        "path": "eval_073_random_hotspot.meta.json",
+        "sha256": "fe22bb5570daa162b912c665089a703d6d9e6cfe45379b730bc69f48e5521a0d"
+      },
+      {
+        "path": "eval_073_random_hotspot.txt",
+        "sha256": "d8e88f2740fa3010e761b5951427414c117e4ddf828bb3e9967f96b2ee4500b6"
+      },
+      {
+        "path": "eval_081_random_lognormal.meta.json",
+        "sha256": "a0108ab1ccd312e25fb58d6328a8f83ce02b81ab9459bfaabd9ee16094a25b06"
+      },
+      {
+        "path": "eval_081_random_lognormal.txt",
+        "sha256": "97c1bb4a30359bb16ad73e72c674094bb6b804be7275a9cf1c47bcaf3aaabdec"
+      },
+      {
+        "path": "eval_082_random_lognormal.meta.json",
+        "sha256": "832e95290356196ca97af4a78aa23d765874c68b417e13e5abb857bbc8bd0df1"
+      },
+      {
+        "path": "eval_082_random_lognormal.txt",
+        "sha256": "2ecf2089a67b80f5d88cba0bb7a1ff8d1b50c76609e5e9f35b94bf4187503bd7"
+      },
+      {
+        "path": "eval_085_random_lognormal.meta.json",
+        "sha256": "2dd032d220825762bb116d702b9edadba19f83eaef0e0b08c181d10f95e2e0ab"
+      },
+      {
+        "path": "eval_085_random_lognormal.txt",
+        "sha256": "1af3ceeaa8aa0256fc5e07bb8ee9f52c303cd1e381194a16b8fb5e740b3c1b33"
+      }
+    ],
+    "sha256": "6710e3b4274f8ab9bf923f744dbfe65910ff1e1377f5b4314d9bb94828da02e2",
+    "case_count": 24
+  },
+  "selected_before_native": true,
+  "input_full_contract_pending": true
+}

@@ -1,0 +1,85 @@
+{
+  "producer_path": "tmp/r79_adaptive_operator/producer.json",
+  "producer_sha256": "6522a912da33450e8b5f7dfd6a9ae12b4439adf35ff1deec05926d9bbd9df4a4",
+  "methods": [
+    {
+      "name": "R75",
+      "source_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.policy.cpp",
+      "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.cpp",
+      "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "runtime_binary": "${WORKSPACE}<LOCAL_TEMP>"
+    },
+    {
+      "name": "R79_independent_fixed75",
+      "source_path": "tmp/r79_adaptive_operator/R79_independent_fixed75/MySpillScheduler.cpp",
+      "source_sha256": "817238af6cb29e14a8040493e4ac8975786b8c5b52992ea57ee9f3414cd6a8c4",
+      "translation_unit_path": "tmp/r79_adaptive_operator/R79_independent_fixed75/main.cpp",
+      "translation_unit_sha256": "eb7c100bd678916109804fe567fd9251c3c57eb70ffda704be8a6e036a96a417",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "ff79094d385f6cf9deeb674e8ea8a7a2a5390346dc134509954cef2f0186330e",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "producer_name": "R79_independent_fixed75"
+    },
+    {
+      "name": "R79_adaptive",
+      "source_path": "tmp/r79_adaptive_operator/R79_adaptive/MySpillScheduler.cpp",
+      "source_sha256": "8eb171503ce6c30d8e99939dffef33b751dd96f7b276c1d4509c090d439d982d",
+      "translation_unit_path": "tmp/r79_adaptive_operator/R79_adaptive/main.cpp",
+      "translation_unit_sha256": "0a8a66174dbb42b0fbbf163a479e170a57115a8be286e338e761e40565693d96",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "9c77744aab4cb0180c1fdb017f9426e0931955265a57373ec1d81573f305f4ab",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "producer_name": "R79_adaptive"
+    },
+    {
+      "name": "Van_paired100",
+      "source_path": "tmp/r79_adaptive_operator/Van_paired_penalty100/MySpillScheduler.cpp",
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "translation_unit_path": "tmp/r79_adaptive_operator/Van_paired_penalty100/main.cpp",
+      "translation_unit_sha256": "d89c9455e9519be89aca25c30b274c64b6f668e2eeebfb0d3623efc5065edefd",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "c01849371905fa3460ed979ab6deaf0333f585e968397d95de92848096cc9edc",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "producer_name": "Van_paired_penalty100"
+    }
+  ],
+  "van_alias": "Van_paired100 is label-only alias of producer Van_paired_penalty100",
+  "baseline_reference": "tmp/r78_scale_singlefit_eval/selection.json",
+  "source_unchanged": true
+}

@@ -1,0 +1,156 @@
+{
+  "kind": "mathematical_reference_only_no_native",
+  "confidence_formula": "(S-8)/(S+P), only if S>8 and ESS n>1 and P>1; finite fallback .75",
+  "partition_count": 64,
+  "half_life": 2048,
+  "stages": [
+    {
+      "name": "uniform",
+      "q_first": 1,
+      "q_last": 4096,
+      "pid": "(q-1)%64"
+    },
+    {
+      "name": "single_hot",
+      "q_first": 4097,
+      "q_last": 8192,
+      "pid": 0
+    },
+    {
+      "name": "uniform_recovery",
+      "q_first": 8193,
+      "q_last": 24576,
+      "pid": "(q-1)%64"
+    }
+  ],
+  "checkpoints": [
+    {
+      "q": 1,
+      "pid": 0,
+      "S": 1.0,
+      "Q": 1.0,
+      "W2": 1.0,
+      "n": 1.0,
+      "v": 0,
+      "confidence": 0,
+      "alpha": 0.75
+    },
+    {
+      "q": 8,
+      "pid": 7,
+      "S": 7.990531391752242,
+      "Q": 7.981078789994699,
+      "W2": 7.981078789994698,
+      "n": 7.999995188948691,
+      "v": 0,
+      "confidence": 0,
+      "alpha": 0.75
+    },
+    {
+      "q": 9,
+      "pid": 8,
+      "S": 8.987827447837713,
+      "Q": 8.975678213478332,
+      "W2": 8.975678213478332,
+      "n": 8.999993127070898,
+      "v": 0,
+      "confidence": 0.01353413962819601,
+      "alpha": 0.75
+    },
+    {
+      "q": 64,
+      "pid": 63,
+      "S": 63.32254512702039,
+      "Q": 62.65471031778073,
+      "W2": 62.6547103177807,
+      "n": 63.99749836885948,
+      "v": 0,
+      "confidence": 0.4345070629229814,
+      "alpha": 0.75
+    },
+    {
+      "q": 4096,
+      "pid": 63,
+      "S": 2216.354603958651,
+      "Q": 76756.55854821582,
+      "W2": 1385.4560421363099,
+      "n": 3545.5673663339603,
+      "v": 0,
+      "confidence": 0.9684259632800051,
+      "alpha": 0.75
+    },
+    {
+      "q": 8192,
+      "pid": 0,
+      "S": 2770.443254948337,
+      "Q": 4954994.083189547,
+      "W2": 1472.0470447698283,
+      "n": 5214.069656373563,
+      "v": 40.312250657656854,
+      "confidence": 0.9745981861255104,
+      "alpha": 0.01861585121178469
+    },
+    {
+      "q": 12288,
+      "pid": 63,
+      "S": 2908.9654176957692,
+      "Q": 434007.3263576709,
+      "W2": 1477.4589824344218,
+      "n": 5727.454976385794,
+      "v": 2.271860606589985,
+      "confidence": 0.9757817566354995,
+      "alpha": 0.23314804866511504
+    },
+    {
+      "q": 16384,
+      "pid": 63,
+      "S": 2943.595958382623,
+      "Q": 154151.20512220328,
+      "W2": 1477.7972285384594,
+      "n": 5863.292337322863,
+      "v": 0.12787521780534086,
+      "confidence": 0.9760606141927658,
+      "alpha": 0.6667769286743708
+    },
+    {
+      "q": 24576,
+      "pid": 63,
+      "S": 2954.4180023472627,
+      "Q": 136454.76851511965,
+      "W2": 1477.8196901938065,
+      "n": 5906.3942580497705,
+      "v": 0,
+      "confidence": 0.9761464449443352,
+      "alpha": 0.75
+    }
+  ],
+  "empty_gap_branch_from_hot": {
+    "gap": 32768,
+    "after_gap": {
+      "S": 0.04227360923688259,
+      "Q": 0.0011536744616901379,
+      "W2": 3.4273766092253576e-07,
+      "n": 5214.069656373563,
+      "v": 0,
+      "confidence": 0,
+      "alpha": 0.75
+    },
+    "after_one_next_sample": {
+      "S": 1.0422593041221364,
+      "Q": 1.0690290950547219,
+      "W2": 1.0000003425057398,
+      "n": 1.0863040849637757,
+      "v": 0,
+      "confidence": 0,
+      "alpha": 0.75
+    }
+  },
+  "duplicate_test": "After each accepted next ordinal replay the identical exposed next from Miss, Overflow and Periodic callbacks at the same q; S/Q/W2 and alpha must not change. Current miss alone never adds a next sample.",
+  "other_checks": [
+    "No observations: finite alpha .75",
+    "P=1: finite alpha .75",
+    "No next observation: common decay preserves ESS but reduces S and confidence; long empty gap returns alpha to .75",
+    "Use float tolerance about 1e-9 for moments/alpha, not exact binary equality. Reference applies full-vector decay and recomputes Q, independently of candidate lazy O(1) code."
+  ],
+  "scope": "This validates sharing-weight math/collection; no correctness claim about R75 refault heat, scheduler actions or performance."
+}

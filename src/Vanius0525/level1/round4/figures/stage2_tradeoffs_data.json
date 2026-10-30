@@ -1,0 +1,98 @@
+{
+  "source_summary_sha256": "3a39e6eee89c1112309b625362aa66e6b4757e7dc0dcbe831980f770114f9d7c",
+  "rows": [
+    {
+      "candidate": "pure",
+      "label": "Pure frozen",
+      "number": 1,
+      "equal_member_mean_score": 3.1218618868052106,
+      "worst_io_miss_ratio": 3.4777242551813465,
+      "total_decision_us": 1377921.2140000002
+    },
+    {
+      "candidate": "ai",
+      "label": "AI frozen",
+      "number": 2,
+      "equal_member_mean_score": 3.204422787667056,
+      "worst_io_miss_ratio": 4.166709563949124,
+      "total_decision_us": 1717086.654
+    },
+    {
+      "candidate": "pure_prune_routecount",
+      "label": "Pure prune",
+      "number": 3,
+      "equal_member_mean_score": 3.1796833754384832,
+      "worst_io_miss_ratio": 3.4777242551813465,
+      "total_decision_us": 1481675.364
+    },
+    {
+      "candidate": "pure_set025_all_probe_routecount",
+      "label": "Pure all-PROBE",
+      "number": 4,
+      "equal_member_mean_score": 3.479223464586456,
+      "worst_io_miss_ratio": 3.3929485103626944,
+      "total_decision_us": 1787956.428
+    },
+    {
+      "candidate": "pure_set025_io_asymmetry_routecount",
+      "label": "Pure I/O asymmetry",
+      "number": 5,
+      "equal_member_mean_score": 3.5388599961650473,
+      "worst_io_miss_ratio": 5.298643981527011,
+      "total_decision_us": 1792074.93
+    },
+    {
+      "candidate": "ai_set025_routecount",
+      "label": "AI set",
+      "number": 6,
+      "equal_member_mean_score": 3.4911519135492064,
+      "worst_io_miss_ratio": 4.000042897282457,
+      "total_decision_us": 2423032.85
+    },
+    {
+      "candidate": "pure_prefetch_budget256",
+      "label": "Pure prefetch256",
+      "number": 7,
+      "equal_member_mean_score": 3.1299222790426993,
+      "worst_io_miss_ratio": 3.4777242551813465,
+      "total_decision_us": 1382092.2480000001
+    },
+    {
+      "candidate": "pure_prefetch_budget2048",
+      "label": "Pure prefetch2048",
+      "number": 8,
+      "equal_member_mean_score": 3.1400730332019147,
+      "worst_io_miss_ratio": 2.6151289751410105,
+      "total_decision_us": 1378296.456
+    },
+    {
+      "candidate": "ai_prefetch_budget2048",
+      "label": "AI prefetch2048",
+      "number": 9,
+      "equal_member_mean_score": 3.5080522293046887,
+      "worst_io_miss_ratio": 4.000042897282457,
+      "total_decision_us": 2424795.314
+    },
+    {
+      "candidate": "ai_context_exact_pure_d6_m005_support_fast",
+      "label": "Context pure",
+      "number": 10,
+      "equal_member_mean_score": 3.283475647898052,
+      "worst_io_miss_ratio": 4.000042897282457,
+      "total_decision_us": 3795771.278
+    },
+    {
+      "candidate": "ai_context_exact_agg_d6_m005_support_fast",
+      "label": "Context dual",
+      "number": 11,
+      "equal_member_mean_score": 3.241640074718589,
+      "worst_io_miss_ratio": 4.000042897282457,
+      "total_decision_us": 3893945.258
+    }
+  ],
+  "mixture_left": "pure_set025_io_asymmetry_routecount",
+  "mixture_right": "ai_prefetch_budget2048",
+  "mixture_min": -0.027681928948496488,
+  "mixture_max": 0.04191281469319552,
+  "mixture_scope": "counterfactual case weights, not an estimate or replacement for official score"
+}

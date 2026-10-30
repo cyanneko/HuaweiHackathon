@@ -2,14 +2,37 @@
 
 本轮只优化可测的Level 1成本，不讨论主观加分包装。调研、反例与适用边界见 [RESEARCH.md](RESEARCH.md)，实验结果见 [RESULTS.md](RESULTS.md)，机器可读证据见 [VALIDATION_SUMMARY.json](VALIDATION_SUMMARY.json)。
 
-## 两个提交候选
+## 当前发布候选
+
+直接提交 [MySpillSchedulerBest.cpp](MySpillSchedulerBest.cpp) 的内容，类名已经是 `MySpillScheduler`。该文件仅使用 C++14 标准库、无训练/推理运行时依赖；一次只提交一个候选文件，不要与其他cpp合并编译。
+
+选型口径是**阶段2固定11候选完整同批评测中，三成员每题均分再等权平均最高**，不是官方隐藏集成绩或所有分布上的最优保证。代码与已测 `pure_set025_io_asymmetry_routecount.cpp` 逐字节相同，SHA及证据见 [CURRENT_CANDIDATE.json](CURRENT_CANDIDATE.json)。
+
+| 当前发布文件 | 本人209例 | cyanneko48例 | liunianwww528例 | 三成员等权/10 |
+|---|---:|---:|---:|---:|
+| MySpillSchedulerBest.cpp | 3.814995 | 4.176432 | 2.625153 | **3.538860** |
+
+每例5次重复，785次独立动作审核通过；20000组ASan/UBSan抽象状态、40000次回调检查通过。保留原启发式的合法观测和循环路径；在有Probe证据或读带宽不低于写带宽时，在4个候选的小子集中计入写出成本，并去掉冗余SPILL。完整环确认前的快捷拒绝只优化实现开销。
+
+**已知风险**：该版在新种子fresh3上均分比原纯算法低0.126835；其中serial301030的I/O+Miss为99707.54us，原纯算法为15185.78us（候选在此例等于Naive）。三成员已测最坏I/O+Miss/Naive比为5.299，较稳健版本为3.393。没有因均分最高而隐藏反例，也不假定正式测试的corner比例。
+
+| 取舍 | 单文件候选 | 同批三成员均分/10 |
+|---|---|---:|
+| 较稳健纯算法 | [pure_set025_all_probe_routecount.cpp](round4/pure_set025_all_probe_routecount.cpp) | 3.479223 |
+| AI候选，权重内嵌 | [ai_prefetch_budget2048.cpp](round4/ai_prefetch_budget2048.cpp) | 3.508052 |
+
+新最大规模测试也显示条件差异：高带宽、B=1的500万请求随机例，有限预取版明显强于当前均分优先版；不能把某个特例的优胜替代完整套件选型。最新完整探索、模型负结果和corner敏感性见 [round4/README.md](round4/README.md) 与 [round4/HANDOFF.md](round4/HANDOFF.md)。原冻结提交文件继续保留原字节，后台未完成实验不视作已验证结果。
+
+复现构建：`python build.py MySpillSchedulerBest.cpp --name current_best`。该命令只插入候选类，保存的参考框架不改。
+
+## 两个冻结提交候选
 
 | 文件 | 方法 | 部署 |
 |---|---|---|
 | [MySpillScheduler.cpp](MySpillScheduler.cpp) | 无模型训练；部分观测历史、代价密度、扫描/循环检测、快速受害者选择、保留信息的预取 | C++14标准库 |
 | [MySpillSchedulerAI.cpp](MySpillSchedulerAI.cpp) | 同一合法接口，最多4个候选经过12×16×1 ReLU（负值置零的激活函数）网络重排；模型权重已内嵌 | 同上，无第三方推理依赖 |
 
-**一次只提交其中一个文件。** 两个文件都只定义 `MySpillScheduler : public SpillScheduler`，没有main或执行引擎。其他cpp是保留的实验/失败对照或独立测试工具，不能一起编译为提交物。历史v1快照保留原字节与已知空行缩进；非冻结实验的空行空白清理记录在FORMAT_NOTES.json。按当前实测平均逐例分数，AI略高，可作为分数优先候选；纯算法保留为较低开销的对照与备选。AI尚未稳定胜过纯算法，具体范围见结果。
+**一次只提交其中一个文件。** 两个文件都只定义 `MySpillScheduler : public SpillScheduler`，没有main或执行引擎。其他cpp是保留的实验/失败对照或独立测试工具，不能一起编译为提交物。历史v1快照保留原字节与已知空行缩进；非冻结实验的空行空白清理记录在FORMAT_NOTES.json。这两个文件是上一阶段冻结对照，其历史AI略高不代表本轮候选排序；当前发布入口及取舍见上表。
 
 保存的官方参考框架未经逻辑修改。`build.py`从冻结题面提取框架并核对SHA，只插入选手类、选择其实例；额外audit仅包装调度器、输出动作，不改变engine。实际计分使用不带audit的程序。当前协议依据仓库保存版本，不认证隐藏评测实现。
 
@@ -66,14 +89,16 @@ python stress.py --n 5000000 --b 1 10000 --scheduler pure=MySpillScheduler.cpp -
 
 独立Python重放会检查每一步动作是否合法、容量、目标保护、Miss末项LOAD，以及I/O/Hit/Miss是否和未改引擎一致；小状态oracle仅在不超过8个分区时穷举所有合法回调动作，包括预取。它是测试专用离线最优，不在提交推理中运行。
 
-## 小时检查与继续研究
+## 本轮持续优化与小时检查
 
-`hourly_check.py`运行于本地WSL，首轮22:39已完成，之后每小时运行新seed回归和一组参数试验；不自动晋升候选。结束后通过官方 `codex queue` 把 [HOURLY_RESUME_PROMPT.md](HOURLY_RESUME_PROMPT.md) 排入原会话，继续研究。已实测queue成功，不创建新代理或新会话。
+用户已恢复持续研究，要求至少推进至北京时间2026-10-30 07:00。本轮入口为 [round4/README.md](round4/README.md)，结果与负例见 [round4/HANDOFF.md](round4/HANDOFF.md)。上方两个冻结文件保持原字节；新版本单独保留，不能把旧候选分数当成本轮最好成绩。
 
-这依赖WSL/app-server继续运行，不是云端Scheduled任务。会话绑定与进程状态只保存在忽略的 `build/hourly/`；不提交聊天ID、私人状态或凭据。查看 `build/hourly/status.json`、`last_queue.json` 和每轮summary；创建 `build/hourly/STOP` 可在当前案例完成后停止。实验锁只串行化本项目工具，不能保证整个操作系统没有其他负载。
+当前实际周期进程是 `hourly_resume.py`：每3600秒核对冻结指纹并通过 `codex queue` 向当前会话排队 [HOURLY_RESUME_PROMPT.md](HOURLY_RESUME_PROMPT.md)。状态保存在忽略的 `build/hourly-resume/`，不是云端Scheduled；依赖WSL和服务运行。原 `hourly_check.py` 与 `build/hourly/STOP` 是保留的历史状态，未重新启动。
+
+所有计时、训练和压力测试使用 `experiment.lock` 串行协调；它不能保证整个操作系统没有其他负载。接管先读交接和实际进程，避免重复启动。原始输入、动作与重复计时保留在本地忽略目录，公开文档不包含会话ID或本机路径。
 
 版本与优化过程见[OPTIMIZATION_HISTORY.md](OPTIMIZATION_HISTORY.md)、[VERSION_LEDGER.json](VERSION_LEDGER.json)。第二轮新增568个团队样例的结果见[round2/RESULTS.json](round2/RESULTS.json)；较大团队集上纯算法均分略高于AI，尚无新的候选晋升。
 
-后续候选按[三人等权内部指标](SCORING_POLICY.md)选型，结果见[BALANCED_RESULTS.json](BALANCED_RESULTS.json)。该指标不是官方分数。第三阶段外推反例与CPU结果见[round3/RESULTS.json](round3/RESULTS.json)。
+历史分层内部指标见[SCORING_POLICY.md](SCORING_POLICY.md)及[BALANCED_RESULTS.json](BALANCED_RESULTS.json)，已被当前逐成员每题均分口径取代，不再用于本轮选型。第三阶段外推反例与CPU结果见[round3/RESULTS.json](round3/RESULTS.json)。
 
-当前阶段已收尾，周期检查已按用户要求停止。交接入口：[SESSION_HANDOFF_20261030.md](SESSION_HANDOFF_20261030.md)；最新三人分别均分与等权平均：[CURRENT_SCORES.json](CURRENT_SCORES.json)。
+上一阶段曾收尾并停止检查，现已恢复持续工作。历史交接入口：[SESSION_HANDOFF_20261030.md](SESSION_HANDOFF_20261030.md)；最新三人分别均分与等权平均：[CURRENT_SCORES.json](CURRENT_SCORES.json)。

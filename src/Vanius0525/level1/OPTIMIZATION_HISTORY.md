@@ -1,6 +1,6 @@
 # Level 1 优化路径与版本保留
 
-记录日期：2026-10-29。这里只记录可审查的设计依据、实验事实与假设。入口版本仍为 `MySpillScheduler.cpp`、`MySpillSchedulerAI.cpp`，第二轮没有晋升候选。
+记录起始日期：2026-10-29。当前阶段发布入口为 `MySpillSchedulerBest.cpp`，按完整同批三成员等权均分选取；已知反例与备选见README/CURRENT_CANDIDATE。`MySpillScheduler.cpp`、`MySpillSchedulerAI.cpp`继续保留为原冻结对照。以下按时间保留设计依据、实验事实和假设。
 
 ## 如何追溯
 
@@ -50,3 +50,18 @@
 - 5百万压力两阶段版仍约9.6–10.6秒，说明失败来自策略外推而非必然的规模不可运行。
 - 发布前公共输入校验发现end_insert缺必须SWITCH；此前引擎/动作审核容忍该流，不构成输入合法性证据。原字节保留diagnostics、不放eval、不计性能分。合法性校验应独立于行为审核。
 - 按用户新约定，后续内部选型采用三人等权、常规80%与corner20%的组内权重；见SCORING_POLICY.md，不能混称官方题面分数。保留逐成员、最坏退化及所有负结果。
+
+
+## 2026-10-30：持续优化阶段4（新候选均单独保留）
+
+用户恢复持续探索并要求至少推进至北京时间07:00。详细主线、失败、进程与下一步见[round4/HANDOFF.md](round4/HANDOFF.md)，候选/实验指纹见[round4/VERSION_LEDGER.json](round4/VERSION_LEDGER.json)，原始冻结根文件不变。
+
+阶段2同批三成员785合法eval×11候选×5重复，完整逐例动作审核8635次。原pure/AI等权均分3.121862/3.204423；纯all-PROBE3.479223、纯I/O-asym3.538860、AI集合3.491152、AI有限预取2048为3.508052。高均分不代表支配：更早的无phase限制pure_set1出现29502倍和550倍真实I/O+Miss灾难，已明确否决；prune在scan0824也退化20%，不能称安全。
+
+实现等价优化另测：confirmed-edge必要条件省掉无效循环分析，160条完整轨迹逐字节动作等价；4个100万请求例父/新I/O/Hit/Miss全同，总决策pure−12.91%、AI−9.92%。这是该面板证据，不能推广每个实现版都加速。神经循环换序经100万输入bit核验与完整重放；小于3%的差异未宣称稳定。
+
+学习探索保留多项负结果：小global门控、容量窗口、均匀aggregate-hit先验、once-selection lazy gate、action-conditioned tree及双collector。树的CPU明显更多，后续发现float32差分虽可修正，但已采集状态上旧树分支未改变；另外教师对“首个输入”与“单个回调”的干预边界不同，正在做严格修正消融，不能用未验证原因替模型失败辩护。相关工作与适用边界见[round4/RESEARCH_UPDATE.md](round4/RESEARCH_UPDATE.md)。
+
+有限预取在B1/高带宽高罚面板有强收益，在B31/低罚收益变弱；联合mandatory+next LOAD另列新候选与反例。罚值不在接口内，精确配对流已证明某些最优首次决策无法由可见状态同时确定，故保留多种tradeoff，不宣称已恢复不可见罚值或真实访问频率。
+
+600000次ASan/UBSan抽象回调属性检查通过；最大N矩阵与后续教师修正评测仍执行中，当前状态以最新交接和增量报告为准，未完成的矩阵不作完成结论。

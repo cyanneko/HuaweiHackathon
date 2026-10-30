@@ -1,0 +1,42 @@
+{
+  "pure_buildread025": {
+    "parent": "pure_set025_io_asymmetry_routecount",
+    "parent_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+    "sha256": "02fb8071129e252936f126d651eca0391209b0ea35628594bf9765014fa31ff6",
+    "beta": 0.25,
+    "prior": "additional beta*current_bytes/read_bandwidth for spilled BUILD objects when any Probe observed",
+    "unchanged_domain": "q=0 or all operators PROBE => prior zero, original parent expression unchanged",
+    "risk": "BUILD objects need not be probed later; penalizing them may evict a genuinely hot PROBE object. No guaranteed regret or hidden-penalty inference.",
+    "hypothesis": "mixed-phase active builders differ from completed/inactive PROBE objects; charge an explicit future-reload prior rather than disabling the whole subset rule"
+  },
+  "pure_buildread100": {
+    "parent": "pure_set025_io_asymmetry_routecount",
+    "parent_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+    "sha256": "9fc36acdd5dca823b0d61a3f20a56a91b441176d98c953752e22e354f8e8737c",
+    "beta": 1.0,
+    "prior": "additional beta*current_bytes/read_bandwidth for spilled BUILD objects when any Probe observed",
+    "unchanged_domain": "q=0 or all operators PROBE => prior zero, original parent expression unchanged",
+    "risk": "BUILD objects need not be probed later; penalizing them may evict a genuinely hot PROBE object. No guaranteed regret or hidden-penalty inference.",
+    "hypothesis": "mixed-phase active builders differ from completed/inactive PROBE objects; charge an explicit future-reload prior rather than disabling the whole subset rule"
+  },
+  "ai_buildread025": {
+    "parent": "ai_set025_routecount",
+    "parent_sha256": "4a5be2becdb7d257c3279e3482581d4e3b01941b3ef4132e8cf6625cb3fb88d6",
+    "sha256": "d05729b7141c865963be0efc8d9f83bdcc126954885aa12a0e3278ffa55550d9",
+    "beta": 0.25,
+    "prior": "additional beta*current_bytes/read_bandwidth for spilled BUILD objects when any Probe observed",
+    "unchanged_domain": "q=0 or all operators PROBE => prior zero, original parent expression unchanged",
+    "risk": "BUILD objects need not be probed later; penalizing them may evict a genuinely hot PROBE object. No guaranteed regret or hidden-penalty inference.",
+    "hypothesis": "mixed-phase active builders differ from completed/inactive PROBE objects; charge an explicit future-reload prior rather than disabling the whole subset rule"
+  },
+  "ai_buildread100": {
+    "parent": "ai_set025_routecount",
+    "parent_sha256": "4a5be2becdb7d257c3279e3482581d4e3b01941b3ef4132e8cf6625cb3fb88d6",
+    "sha256": "326f1fc5fa65afb807962bdc44f930ae19257593f091568a18921c76b9f4239e",
+    "beta": 1.0,
+    "prior": "additional beta*current_bytes/read_bandwidth for spilled BUILD objects when any Probe observed",
+    "unchanged_domain": "q=0 or all operators PROBE => prior zero, original parent expression unchanged",
+    "risk": "BUILD objects need not be probed later; penalizing them may evict a genuinely hot PROBE object. No guaranteed regret or hidden-penalty inference.",
+    "hypothesis": "mixed-phase active builders differ from completed/inactive PROBE objects; charge an explicit future-reload prior rather than disabling the whole subset rule"
+  }
+}

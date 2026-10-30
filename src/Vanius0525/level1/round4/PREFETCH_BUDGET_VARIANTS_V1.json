@@ -1,0 +1,56 @@
+{
+  "pure_prefetch_budget128": {
+    "parent": "pure_routecount",
+    "parent_sha256": "66baa2337ede0d77dec88d891d5ddeebfb8750ea7e161de9f44804425212748f",
+    "sha256": "25b4c1eaef6ec6e02f5b9dd745e0b95382ee23bcc3c27fb5c457c8111b314653",
+    "budget_us": 128,
+    "risk_definition": "sum victim bytes*(1/W+1/R), per callback; not a bound on long-term regret",
+    "miss_penalty": "not observed or inferred; budget is an explicit fixed prior/tradeoff",
+    "semantics": "same cycle fast path, only true next_op Probe may be prefetched; never asynchronous overlap"
+  },
+  "pure_prefetch_budget256": {
+    "parent": "pure_routecount",
+    "parent_sha256": "66baa2337ede0d77dec88d891d5ddeebfb8750ea7e161de9f44804425212748f",
+    "sha256": "824728767fa03131c26f4ae03ce40eb522f5801608c41ee4b4d38cbe320c857e",
+    "budget_us": 256,
+    "risk_definition": "sum victim bytes*(1/W+1/R), per callback; not a bound on long-term regret",
+    "miss_penalty": "not observed or inferred; budget is an explicit fixed prior/tradeoff",
+    "semantics": "same cycle fast path, only true next_op Probe may be prefetched; never asynchronous overlap"
+  },
+  "pure_prefetch_budget512": {
+    "parent": "pure_routecount",
+    "parent_sha256": "66baa2337ede0d77dec88d891d5ddeebfb8750ea7e161de9f44804425212748f",
+    "sha256": "3ad67018c6f55a58f33e7c6ddaccd16c9aeecb75fd69919198d3eb9a117d1a07",
+    "budget_us": 512,
+    "risk_definition": "sum victim bytes*(1/W+1/R), per callback; not a bound on long-term regret",
+    "miss_penalty": "not observed or inferred; budget is an explicit fixed prior/tradeoff",
+    "semantics": "same cycle fast path, only true next_op Probe may be prefetched; never asynchronous overlap"
+  },
+  "ai_prefetch_budget128": {
+    "parent": "ai_set025_routecount",
+    "parent_sha256": "4a5be2becdb7d257c3279e3482581d4e3b01941b3ef4132e8cf6625cb3fb88d6",
+    "sha256": "a640c8f43e3f2785671be589ea430a18e3eaed8dcedeb6025681fa9bc57450b2",
+    "budget_us": 128,
+    "risk_definition": "sum victim bytes*(1/W+1/R), per callback; not a bound on long-term regret",
+    "miss_penalty": "not observed or inferred; budget is an explicit fixed prior/tradeoff",
+    "semantics": "same cycle fast path, only true next_op Probe may be prefetched; never asynchronous overlap"
+  },
+  "ai_prefetch_budget256": {
+    "parent": "ai_set025_routecount",
+    "parent_sha256": "4a5be2becdb7d257c3279e3482581d4e3b01941b3ef4132e8cf6625cb3fb88d6",
+    "sha256": "4a6245a0e27783c600186a6ecaf9c3848735bc66357b3405515ad81dcf97e004",
+    "budget_us": 256,
+    "risk_definition": "sum victim bytes*(1/W+1/R), per callback; not a bound on long-term regret",
+    "miss_penalty": "not observed or inferred; budget is an explicit fixed prior/tradeoff",
+    "semantics": "same cycle fast path, only true next_op Probe may be prefetched; never asynchronous overlap"
+  },
+  "ai_prefetch_budget512": {
+    "parent": "ai_set025_routecount",
+    "parent_sha256": "4a5be2becdb7d257c3279e3482581d4e3b01941b3ef4132e8cf6625cb3fb88d6",
+    "sha256": "65ded6794e0ed4583f760ef7e047ac0414e2669fbf9225d41b3286bbc049e9dc",
+    "budget_us": 512,
+    "risk_definition": "sum victim bytes*(1/W+1/R), per callback; not a bound on long-term regret",
+    "miss_penalty": "not observed or inferred; budget is an explicit fixed prior/tradeoff",
+    "semantics": "same cycle fast path, only true next_op Probe may be prefetched; never asynchronous overlap"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "instances": [
+    {
+      "penalty": 1,
+      "input_sha256": "a4274c34eb59fa9409282590043404677b1dff3ee24dd72bb769fbb1ae98cf1f",
+      "operation_sha256": "4a379188e3e36de14462564870210ab6ea47bdd17c8ac127cc641ec37db87030",
+      "optimal_io_plus_miss": 3476.300799999998,
+      "conditional_first_action_cost": {
+        "spill_large": 13317.9152,
+        "spill_small": 3476.300799999998,
+        "spill_both": 13528.630400000002
+      },
+      "regret": {
+        "spill_large": 9841.614400000002,
+        "spill_small": 0.0,
+        "spill_both": 10052.329600000005
+      }
+    },
+    {
+      "penalty": 1000,
+      "input_sha256": "761ae314bdf58026f59136b199c4c2dc714786cc3ce3865538d9c0b641132bb6",
+      "operation_sha256": "4a379188e3e36de14462564870210ab6ea47bdd17c8ac127cc641ec37db87030",
+      "optimal_io_plus_miss": 14316.9152,
+      "conditional_first_action_cost": {
+        "spill_large": 14316.9152,
+        "spill_small": 15526.630400000002,
+        "spill_both": 15526.630400000002
+      },
+      "regret": {
+        "spill_large": 0.0,
+        "spill_small": 1209.7152000000024,
+        "spill_both": 1209.7152000000024
+      }
+    }
+  ],
+  "first_callback_visible_state": {
+    "memory_limit": 67108864,
+    "memory_used": 67108864,
+    "k": 1,
+    "p": 3,
+    "write_bandwidth": 10000,
+    "read_bandwidth": 10000,
+    "hit_count": 0,
+    "miss_count": 0,
+    "total_io_bytes": 0,
+    "operator_phase": "BUILD",
+    "partition_bytes": [
+      66060288,
+      1048576,
+      0
+    ],
+    "resident": [
+      true,
+      true,
+      true
+    ],
+    "callback": "overflow(op0,pid2,tuple1MiB)",
+    "next_op": "SWITCH op0",
+    "prior_callbacks": 0
+  },
+  "first_actions": "Only spill large A, small B, or both can free the required 1MiB; LOAD during BUILD is illegal.",
+  "deterministic_minimax_regret_lower_bound_us": 1209.7152000000024,
+  "randomized_two_action_minimax_lower_bound_us": 1077.2957610656097,
+  "randomized_probability_spill_large": 0.10946331742743443,
+  "scope": "Conditional exact offline minima give a lower bound for any legal callback-only policy. The penalty is absent from SystemState and all other input bytes/visible past and future are identical; cannot be inferred from later state either. Does not imply any tested policy attains this lower bound or that the phenomenon is a novel research result.",
+  "oracle_original_sha256": "903f6fc437d9992cce8e1f9ff58c4268f84ed6709f11ad74d996c3f551795d72",
+  "conditioned_oracle_sha256": "b96fd53a6f79e3529aea36f8ad0a5cfae78985e032f8fa6a8fc34ede4fba223a"
+}

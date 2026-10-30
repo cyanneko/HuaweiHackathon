@@ -1,0 +1,38 @@
+{
+  "pure_miss_lookahead256": {
+    "parent": "pure_prefetch_budget256",
+    "parent_sha256": "824728767fa03131c26f4ae03ce40eb522f5801608c41ee4b4d38cbe320c857e",
+    "sha256": "1d761103508947d97bc4e206f3fe7867850bffe290709d991d6c85ffa4f9e694",
+    "extra_budget_us": 256,
+    "hypothesis": "Miss callbacks also expose one true next Probe; jointly allocate mandatory target and next, avoiding a subsequent miss even when periodic callbacks are rare. Forego its extra lookahead, so may regress.",
+    "observations": "Only current SystemState and next_op; no penalty, future stream, shadow requests or input header",
+    "scope": "explicit transfer-risk tradeoff, not a guarantee; both object sizes fit together; mandatory target last LOAD"
+  },
+  "pure_miss_lookahead2048": {
+    "parent": "pure_prefetch_budget256",
+    "parent_sha256": "824728767fa03131c26f4ae03ce40eb522f5801608c41ee4b4d38cbe320c857e",
+    "sha256": "12e13da2acb65fadd69eecbe7aae527d97a1ae9c2e4b178234c92b84f751c625",
+    "extra_budget_us": 2048,
+    "hypothesis": "Miss callbacks also expose one true next Probe; jointly allocate mandatory target and next, avoiding a subsequent miss even when periodic callbacks are rare. Forego its extra lookahead, so may regress.",
+    "observations": "Only current SystemState and next_op; no penalty, future stream, shadow requests or input header",
+    "scope": "explicit transfer-risk tradeoff, not a guarantee; both object sizes fit together; mandatory target last LOAD"
+  },
+  "ai_miss_lookahead256": {
+    "parent": "ai_prefetch_budget2048",
+    "parent_sha256": "1155dd462bf3e45fa8cf2ca922ef107fa9668af85397d04de17319028e848872",
+    "sha256": "07ba66114f71640e135f292285511ac0354195f30e2c945a53ddf709725c25e6",
+    "extra_budget_us": 256,
+    "hypothesis": "Miss callbacks also expose one true next Probe; jointly allocate mandatory target and next, avoiding a subsequent miss even when periodic callbacks are rare. Forego its extra lookahead, so may regress.",
+    "observations": "Only current SystemState and next_op; no penalty, future stream, shadow requests or input header",
+    "scope": "explicit transfer-risk tradeoff, not a guarantee; both object sizes fit together; mandatory target last LOAD"
+  },
+  "ai_miss_lookahead2048": {
+    "parent": "ai_prefetch_budget2048",
+    "parent_sha256": "1155dd462bf3e45fa8cf2ca922ef107fa9668af85397d04de17319028e848872",
+    "sha256": "0e409a57bf1f25b26884c86d7039d63e7e8234b6d09d91ccf7f597af595871e2",
+    "extra_budget_us": 2048,
+    "hypothesis": "Miss callbacks also expose one true next Probe; jointly allocate mandatory target and next, avoiding a subsequent miss even when periodic callbacks are rare. Forego its extra lookahead, so may regress.",
+    "observations": "Only current SystemState and next_op; no penalty, future stream, shadow requests or input header",
+    "scope": "explicit transfer-risk tradeoff, not a guarantee; both object sizes fit together; mandatory target last LOAD"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "models": {
+    "ai_event_gate_d4_m005": {
+      "sha256": "221e32a6d2d33d5c84230aa8120c80afdb709b87abc3fb9698403aa35141f48c",
+      "depth": 4,
+      "margin": 0.005,
+      "feature_importances": [
+        0.026237193595357252,
+        0.2781739843333347,
+        0.1025560344040991,
+        0.043616331924313356,
+        0.0,
+        0.0,
+        0.0,
+        0.545432923550905,
+        0.0034497904183636743,
+        0.0005337417736269077,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "leaf_modes": {
+        "0": 5,
+        "2": 6,
+        "3": 3
+      }
+    },
+    "ai_event_gate_d6_m005": {
+      "sha256": "c755f8a0955acc8d7b6cc7e0a2ad0fd04541c3c6e31a964368d4e292bda6509e",
+      "depth": 6,
+      "margin": 0.005,
+      "feature_importances": [
+        0.024237459061150563,
+        0.25625996508167886,
+        0.09449725955774867,
+        0.046025477464534906,
+        0.0,
+        0.0,
+        0.0004920174832939944,
+        0.5023635130639457,
+        0.005686995243312971,
+        0.07043731304433454,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "leaf_modes": {
+        "2": 19,
+        "0": 10,
+        "3": 6
+      }
+    }
+  },
+  "features": 14,
+  "events": 72367,
+  "independent_input_flows": 288,
+  "collectors": [
+    {
+      "collector": 0,
+      "previous_report_sha256": "57c621764605fd386e828a3503b6a7be41a6cc9c5e041784ed66c74eba076af7"
+    },
+    {
+      "collector": 1,
+      "previous_report_sha256": "36e61f4a88f8d7ce595c5a4aa4c242bd049b3be2da1b2cd089651b9a05195729"
+    }
+  ],
+  "target": "multioutput clipped finite-horizon alternative minus pure physical cost, same frozen4096 pure continuation",
+  "weights": "each contributing input equal, both collectors half when present",
+  "scope": "once per actual eviction event global-context gate, no hypothetical action evaluation; train only, runtime CPU and external behavior unverified; not DAgger",
+  "seconds": 3.097480535507202
+}

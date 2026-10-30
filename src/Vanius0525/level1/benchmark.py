@@ -20,6 +20,8 @@ def run(exe,case):
     return parse_output(p.stdout),wall,p
 
 def benchmark(data,schedulers,repeats=3,audit=True,out=None):
+    if out is not None and Path(out).exists():
+        raise FileExistsError(f'Refusing to overwrite preserved raw measurements: {out}; choose a new output path')
     cases=sorted(Path(data).glob('*.txt'));assert cases
     parsed={case.name:parse_input(case)[0] for case in cases}
     executables={'naive':build()}
@@ -27,6 +29,14 @@ def benchmark(data,schedulers,repeats=3,audit=True,out=None):
     audit_exe={name:build(path,name,audit=True) for name,path in schedulers.items()} if audit else {}
     record={'benchmark_schema':2,'score_repetition_order':'per case per repetition clamp, then sum/cap each repetition, then average', 'platform':platform.platform(),'cpu':platform.processor(),'compiler':subprocess.check_output(['g++','--version'],text=True).splitlines()[0],
             'repeats':repeats,'protocol':'saved-2026-10-20-reference','cases':[],'scheduler_sha256':{n:hashlib.sha256(Path(p).read_bytes()).hexdigest() for n,p in schedulers.items()}}
+    journal=None
+    if out is not None:
+        journal=Path(str(out)+'.cases.jsonl')
+        if journal.exists():
+            raise FileExistsError(f'Existing partial measurements: {journal}; preserve them and choose a new output path')
+        journal.parent.mkdir(parents=True,exist_ok=True)
+        with journal.open('x') as stream:
+            stream.write(json.dumps({'type':'metadata',**{k:v for k,v in record.items() if k!='cases'}})+'\n')
     rng=random.Random(290029)
     for i,case in enumerate(cases):
         c={'file':case.name,'sha256':hashlib.sha256(case.read_bytes()).hexdigest(),'penalty':parsed[case.name][5],'runs':{n:[] for n in executables},'audit':{}}
@@ -37,6 +47,8 @@ def benchmark(data,schedulers,repeats=3,audit=True,out=None):
             for name in order:
                 res,wall,_=run(executables[name],case);res['wall_seconds']=wall;c['runs'][name].append(res)
         record['cases'].append(c)
+        if journal is not None:
+            with journal.open('a') as stream:stream.write(json.dumps({'type':'case','case':c})+'\n')
         if i%8==0: print(f'completed {i+1}/{len(cases)}',flush=True)
     summary={}
     for name in executables:

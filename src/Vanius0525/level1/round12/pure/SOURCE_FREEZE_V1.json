@@ -1,0 +1,54 @@
+{
+  "stage": "round12-pure-source-and-execution-proposal-v1",
+  "status": "Candidate static checks complete; root contract review required before executable build/solver.",
+  "files": {
+    ".gitattributes": "0bd28d98f5cf11ee4865310fb0bb859ec8164a9fc28f6e335b2b37c2438234de",
+    "DESIGN_V1.md": "1ee80facdfb590f30fd8fbbd776673ff598d146138264257f8b90f8c23cd6656",
+    "PLAN_PROPOSAL_V1.json": "aae4b478e371630f597942e326d9e563bebde5fe662d985eed0046726cc8e8a1",
+    "R80_soft_tail100_v1.cpp": "0a68904cc689c70fabdb8364f58067c6b8df68d4f8b16338c1cf924b86a8755b",
+    "SOURCE_DIFF_V1.patch": "84c98a77fd87a4af1b532aa63ffa0036695e80943ec50bd734ab65dd2807cab0",
+    "SOURCE_RECOVERY_V1.json": "d90e7545e4e19b77bd20ed2805473732132b75511abe57608bb1cd9041ba83f5",
+    "STATIC_CHECK_V1.json": "d2b86d1d4ad98714faf504ae08f6f359dd73ca894d9c94236e5cace02c7d6313",
+    "STATIC_COMPILER_STDERR_V1.txt": "b612e949c23457c768c09b9ffd0ee52a57474e671a5b937c1b1f12106f9caeb6",
+    "STATIC_PREPARATION_NOTE_V1.json": "40d31aa39f048436ea127bed9fc0fa0a358ca97163fba3155adab4b0797298a7",
+    "check_static_v1.py": "218cac4744996685bdc22e1ebe3b80731cff9a394d25ee21eb5067038e62071f",
+    "prepare_v1.py": "5b483977a74908004706033077cd88f8a120135481cb01f76d2c623cfade9b64",
+    "soft_tail_v1.hpp": "38c65d88169e8e61cfcf4e519d94349e5161bec7d5861fb2e6c769dbb519a9b6"
+  },
+  "dependencies": {
+    "round10/R80_next_hier_fast100_reference.cpp": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+    "round10/PLAN_V1.json": "255d497edaf83379b8974d798f2e104bad3d09a21c0aff62d64878cb4cd5bec3",
+    "round10/SIZE_COST_RESEARCH_V1.md": "1dea21cc12073e5f0315c1cc01d9284549a0ecc6f4405a9cca63aa1acafcebc6",
+    "round7/core50.cpp": "5dfc3b223e1f4df378be03db3f0b2e2e3bfcec469fad291e2856a0a2d045ec86",
+    "round7/RESULTS_RESUME.md": "8f2d6222c43c36cc0ce28b2ef481312e563682fb7211336be74bb0e1cb021e0e",
+    "round9/pure/CORE_SHADOW_REVIEW_V1.md": "0bebf7ff0883c7aed4a351aee5f83668752746c57ee2b87067d9a2499c4124a9",
+    "round9/pure/TURNOVER_BUDGET_RESEARCH.md": "3386a0f016d2f2096bc6fd286ae14185889bb704d93ea2022b3ff4f2aa61c332",
+    "round9/pure/single_buffer_check_v1.py": "badcc1bbe669c23f33f3e683ae850b73b932af60cfb2bf0308f38e41dfce8bcb",
+    "round9/pure/SINGLE_BUFFER_CHECK_V1.json": "1bbf42739a05144fbf811aaf5bf844930a62a837a7bf140d6683ae785a46eaba",
+    "round11/OBSERVER_ROOT_REVIEW_V1.json": "d385e03ea3bafa08c478faaa0270acd073406c1c12d7d90c1989b97d4d96b929",
+    "build.py": "fb67b8754ec527f01c543192db3424de9200b17f6308c873583416eff6471b17",
+    "workflow.py": "60e788669e24a09d7f884b5416297a91d9ff41f4ffec2ab55abf34839d95f329"
+  },
+  "single_candidate_sha256": "0a68904cc689c70fabdb8364f58067c6b8df68d4f8b16338c1cf924b86a8755b",
+  "compile_check": "C++14/O2 -fsyntax-only against the official frozen declarations/engine; no executable.",
+  "completed": {
+    "syntax_check": true,
+    "solver_runs": 0,
+    "new_input_reads": 0,
+    "performance_runs": 0,
+    "teacher_runs": 0
+  },
+  "proposal": {
+    "old_train_cases": 60,
+    "single_pass_methods": 4,
+    "timed_runs": 240,
+    "small_protocol_candidate_audits": 5,
+    "root_may_version_execution_contract_before_running": true
+  },
+  "limits": [
+    "One cohesive heuristic on/off; budget/inertia/gamma are not independently identified.",
+    "The fixed-core IID single-buffer formula is not an exact loss model for dynamic R80.",
+    "Same planner rules and top4 count, but object ordering/identities may change.",
+    "No reserved dev/eval/dyna or unpublished upstream source used."
+  ]
+}

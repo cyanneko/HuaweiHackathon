@@ -1,0 +1,1043 @@
+{
+  "status": "proposal_requires_root_review_before_build_or_solver",
+  "stage": "round12-soft-tail-v1",
+  "candidate_count": 1,
+  "repeats": 1,
+  "proposed_main_runs": 240,
+  "proposed_protocol_candidate_runs": 5,
+  "proposed_main_action_audits": 0,
+  "scope": "Original train60 in unchanged order; no AI, new/reserved dev, eval or dyna.",
+  "sources": {
+    "naive": {
+      "path": "build/round9/penalty_pilot/official_naive.cpp",
+      "sha256": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab"
+    },
+    "paired100": {
+      "path": "round9/candidates/paired_penalty100.cpp",
+      "sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15"
+    },
+    "r80": {
+      "path": "round10/R80_next_hier_fast100_reference.cpp",
+      "sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d"
+    },
+    "soft_tail100": {
+      "path": "round12/pure/R80_soft_tail100_v1.cpp",
+      "sha256": "0a68904cc689c70fabdb8364f58067c6b8df68d4f8b16338c1cf924b86a8755b"
+    }
+  },
+  "cases": [
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_548_random_zipf.txt",
+      "input_sha256": "8328d3f733888bfb15944fb8454b6cd1f235132a7b61b6504a6d1fae5e60b7cb",
+      "family": "random_zipf",
+      "seed": 10730359742581714376,
+      "operations": 427113,
+      "probes": 191795,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "naive",
+        "r80",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_593_random_zipf.txt",
+      "input_sha256": "c8467f36c5f46b3b2dd3cddaaef37495bfa3af7f54ec413b9f60d09dc4eaf24f",
+      "family": "random_zipf",
+      "seed": 7256044700735148566,
+      "operations": 150079,
+      "probes": 60927,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "soft_tail100",
+        "r80",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_545_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_545_random_zipf.txt",
+      "input_sha256": "2776a93db09b57cfe7c52497a951a99f0c06ad39e9c3ae6853133ba82c610db3",
+      "family": "random_zipf",
+      "seed": 14907611417084751774,
+      "operations": 260524,
+      "probes": 116291,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "naive",
+        "r80",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_585_random_zipf.txt",
+      "input_sha256": "1dbad64ae156db660e614f9e30b9809ba826d108d785fe2dd0906926ac88fccd",
+      "family": "random_zipf",
+      "seed": 13085705622311950649,
+      "operations": 83692,
+      "probes": 29718,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "r80",
+        "soft_tail100",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_543_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_543_random_zipf.txt",
+      "input_sha256": "b6db8a9e6819ef8f4cac5bb3e42057cbf2587913cf189994e36c6ba72a31239a",
+      "family": "random_zipf",
+      "seed": 13985279295355576155,
+      "operations": 232370,
+      "probes": 100628,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "naive",
+        "paired100",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_591_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_591_random_zipf.txt",
+      "input_sha256": "45f197acfa68a33e51255423dd2970be06eb803b632cd43fb55f48859b2e6573",
+      "family": "random_zipf",
+      "seed": 12122591336764498052,
+      "operations": 233550,
+      "probes": 105682,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "naive",
+        "r80",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_532_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_532_random_zipf.txt",
+      "input_sha256": "1699cf50223c41f1045f393c7f8e4494d595789e94f18245c4a28ef9dbcfe2bf",
+      "family": "random_zipf",
+      "seed": 17108583945564347376,
+      "operations": 95946,
+      "probes": 45417,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "paired100",
+        "soft_tail100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_588_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_588_random_zipf.txt",
+      "input_sha256": "c62de6c0fcba011924568511d66ed1e444d6e31d2007b623f44109a838d829f0",
+      "family": "random_zipf",
+      "seed": 2357249348037649374,
+      "operations": 93281,
+      "probes": 42441,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "paired100",
+        "soft_tail100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_528_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_528_random_zipf.txt",
+      "input_sha256": "f0a1a607716ef8b9f733aace88f91791dc41a1b6ffbfc953b3064fb8cd8e9a21",
+      "family": "random_zipf",
+      "seed": 17042152183881719979,
+      "operations": 413389,
+      "probes": 201807,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "naive",
+        "r80",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_603_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_603_random_zipf.txt",
+      "input_sha256": "badbcf8d9027f1c94bcf805477111c8dbffaed4905b63740c4c2f3a4c7bd3161",
+      "family": "random_zipf",
+      "seed": 17205284488478511419,
+      "operations": 95095,
+      "probes": 49029,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "naive",
+        "paired100",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_563_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_563_random_zipf.txt",
+      "input_sha256": "54a642d65f7c05238788e8eece2e3ec1477c675993f5cc84db0772dc7f6b0884",
+      "family": "random_zipf",
+      "seed": 4015835430883768950,
+      "operations": 138230,
+      "probes": 56063,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "r80",
+        "soft_tail100",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_565_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_565_random_zipf.txt",
+      "input_sha256": "a16e5d6f0a0b66dbcf07c2e8beac6f171309b74d99cb596049ad2a136768528f",
+      "family": "random_zipf",
+      "seed": 12707438246821282913,
+      "operations": 213695,
+      "probes": 102942,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "naive",
+        "paired100",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_592_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_592_random_zipf.txt",
+      "input_sha256": "3ccf8c04478dd386b8d4bea4336551d431383d67af6eb7a5e84cff19c4e07c56",
+      "family": "random_zipf",
+      "seed": 18068038998795579627,
+      "operations": 242719,
+      "probes": 130722,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "naive",
+        "r80",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_600_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_600_random_zipf.txt",
+      "input_sha256": "f79a7d1bb9d2da0ce790979b4857c7a1fb7388b0d41243cf489d730f7386d2f2",
+      "family": "random_zipf",
+      "seed": 13204245464263753359,
+      "operations": 171202,
+      "probes": 87285,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "soft_tail100",
+        "r80",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_586_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_586_random_zipf.txt",
+      "input_sha256": "9e48130bb1617ad282bdaa6295fd003b0cee339f87e30f212df6aae906398b92",
+      "family": "random_zipf",
+      "seed": 16880273796992981695,
+      "operations": 129256,
+      "probes": 51694,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "soft_tail100",
+        "r80",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_597_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_597_random_zipf.txt",
+      "input_sha256": "0bd69c476040de02375d7b26e7e82ea2ab0deea591369af9a5479b0b89156a1a",
+      "family": "random_zipf",
+      "seed": 9053799892522796550,
+      "operations": 94314,
+      "probes": 37982,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "soft_tail100",
+        "paired100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_534_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_534_random_zipf.txt",
+      "input_sha256": "94ab4df1765fbe5fde7b9830ab8e3d4c098aec4d3e5373b62adc4e488b1eb837",
+      "family": "random_zipf",
+      "seed": 6047589661445266902,
+      "operations": 247993,
+      "probes": 131094,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "paired100",
+        "soft_tail100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_569_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_569_random_zipf.txt",
+      "input_sha256": "d21d6c5d3302c6b751006257609bce64b27b8ecc4418916728ada9e65df86c95",
+      "family": "random_zipf",
+      "seed": 12887940269125001850,
+      "operations": 129640,
+      "probes": 61892,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "r80",
+        "paired100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_575_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_575_random_zipf.txt",
+      "input_sha256": "e25023d85e11c70e4c3ce2718b417dbdde95a75b8b34b8e2e0395e582894a001",
+      "family": "random_zipf",
+      "seed": 16743426090438616031,
+      "operations": 130408,
+      "probes": 50966,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "paired100",
+        "soft_tail100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_524_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_524_random_zipf.txt",
+      "input_sha256": "14c6f85f326351a91be606797a3cbcab7f79d3c6d3c70f1bc00d2260942dedb5",
+      "family": "random_zipf",
+      "seed": 8790685556193460957,
+      "operations": 72542,
+      "probes": 33862,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "paired100",
+        "soft_tail100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_519_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_519_random_zipf.txt",
+      "input_sha256": "bfa7a141a800357ba798b8972d4d169a2224a7bfa6a423aa7d06e33d81dc4715",
+      "family": "random_zipf",
+      "seed": 3378975529217722178,
+      "operations": 138255,
+      "probes": 74550,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "r80",
+        "soft_tail100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_583_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_583_random_zipf.txt",
+      "input_sha256": "c54e02a759aaeee1382a586db14047139e930198237846fab74db39e32d7b9ff",
+      "family": "random_zipf",
+      "seed": 333890524145506579,
+      "operations": 263053,
+      "probes": 110258,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "naive",
+        "paired100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_594_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_594_random_zipf.txt",
+      "input_sha256": "e3bc74c55958c758c0c5c49b41e9581657b5339fb36255c5134a88b26ad83ce0",
+      "family": "random_zipf",
+      "seed": 12992850910945189016,
+      "operations": 239643,
+      "probes": 123961,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "paired100",
+        "soft_tail100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_562_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_562_random_zipf.txt",
+      "input_sha256": "24bb169d8aac4efe4a3c0a75156767d10b9e18cea2f2518a2a7f66cc915a523d",
+      "family": "random_zipf",
+      "seed": 5641382687939364132,
+      "operations": 142730,
+      "probes": 75519,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "r80",
+        "naive",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_669_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_669_random_hotspot.txt",
+      "input_sha256": "54b57d77cbed0996633bb18dd77bbb319f87ca246089cb7dd8a721c9377fc9f6",
+      "family": "random_hotspot",
+      "seed": 12796682547846436763,
+      "operations": 1048576,
+      "probes": 415080,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "r80",
+        "soft_tail100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_680_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_680_random_hotspot.txt",
+      "input_sha256": "31ffdf1e207c00b06bf98ed6308bbc61240e420082f8dc4c2af52c35425052b9",
+      "family": "random_hotspot",
+      "seed": 16867375401207270052,
+      "operations": 111770,
+      "probes": 46169,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "naive",
+        "soft_tail100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_659_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_659_random_hotspot.txt",
+      "input_sha256": "880f8b665c48478164820a7a054e8de2a7575b02abdb38b147b7e033eefdbba6",
+      "family": "random_hotspot",
+      "seed": 7047099415850805085,
+      "operations": 87340,
+      "probes": 47540,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "naive",
+        "soft_tail100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_630_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_630_random_hotspot.txt",
+      "input_sha256": "82de7a5a036604061e55ef3e595e7de461fc283fa3df5ffe3269e1e230cb08b4",
+      "family": "random_hotspot",
+      "seed": 7771266016699031858,
+      "operations": 240888,
+      "probes": 126818,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "naive",
+        "r80",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_701_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_701_random_hotspot.txt",
+      "input_sha256": "0df5e72a5500efae96862f7701009d77cc431bc75ab7fb56988f3a8156ad1d8e",
+      "family": "random_hotspot",
+      "seed": 8316641183263191257,
+      "operations": 79501,
+      "probes": 39564,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "naive",
+        "soft_tail100",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_634_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_634_random_hotspot.txt",
+      "input_sha256": "580fcb9ed122c55167e9228b44234bfb34794643685b8a1791cf5e4fab2ac47e",
+      "family": "random_hotspot",
+      "seed": 9797070455358673938,
+      "operations": 114054,
+      "probes": 60916,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "r80",
+        "paired100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_626_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_626_random_hotspot.txt",
+      "input_sha256": "c1a0d1f356e469c14fc6717985f1ee628b178296c36582016cd453bb4440f0cc",
+      "family": "random_hotspot",
+      "seed": 12184351322767587522,
+      "operations": 172752,
+      "probes": 73701,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "naive",
+        "paired100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_686_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_686_random_hotspot.txt",
+      "input_sha256": "e84a7d4ad21d739f0cf8161853d523946239271f7d63081c1337e4f2d4b287ac",
+      "family": "random_hotspot",
+      "seed": 12068026078797343614,
+      "operations": 101550,
+      "probes": 47554,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "r80",
+        "paired100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_675_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_675_random_hotspot.txt",
+      "input_sha256": "25c7a097a357bd7ed8e6effa1fd7a9e3932e4176a598e34f404f39ba5cf3de5d",
+      "family": "random_hotspot",
+      "seed": 7658318111382599390,
+      "operations": 170291,
+      "probes": 75077,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "paired100",
+        "naive",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_639_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_639_random_hotspot.txt",
+      "input_sha256": "81114a566258a287b4f9cfe447dc36ada5e1ffddd17bd32c1ea1cc59448fef25",
+      "family": "random_hotspot",
+      "seed": 5273789601856846796,
+      "operations": 117423,
+      "probes": 56046,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "naive",
+        "paired100",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_693_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_693_random_hotspot.txt",
+      "input_sha256": "eebd1207bbb24397abcc8c5797f8fc3e2c9dc13596da07b25ebc75acaa012e34",
+      "family": "random_hotspot",
+      "seed": 13061813804494280177,
+      "operations": 143904,
+      "probes": 72507,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "naive",
+        "r80",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_632_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_632_random_hotspot.txt",
+      "input_sha256": "d8ba263dc9e474a5e929bf264d825f9a83ba353ada0f45958daa05c5568a1f4a",
+      "family": "random_hotspot",
+      "seed": 15036253120801571029,
+      "operations": 98320,
+      "probes": 52044,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "naive",
+        "paired100",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_703_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_703_random_hotspot.txt",
+      "input_sha256": "6ac22ffb34badc384feb3496a9998a714b75b1191d12b09e1027c7cbc9fdfbd6",
+      "family": "random_hotspot",
+      "seed": 13276871011667907917,
+      "operations": 125540,
+      "probes": 66885,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "naive",
+        "paired100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_625_random_hotspot.txt",
+      "input_sha256": "df26b7d6a172789d890c33ed283e5bed3f9bb9f8b9604fbbd003b1888190452e",
+      "family": "random_hotspot",
+      "seed": 7805621927825823651,
+      "operations": 67603,
+      "probes": 32994,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "naive",
+        "r80",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_637_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_637_random_hotspot.txt",
+      "input_sha256": "3e47c4a4a3c3415b085960bbdf01c9d01b64f209af4e35deceedb92c291af0d7",
+      "family": "random_hotspot",
+      "seed": 11675549367671170609,
+      "operations": 149288,
+      "probes": 52469,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "paired100",
+        "soft_tail100",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_712_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_712_random_hotspot.txt",
+      "input_sha256": "a6ef043715451ca95f16e86fdf9a91e43c34aa872c702c113e0e58e9f117d7aa",
+      "family": "random_hotspot",
+      "seed": 17153028246340973513,
+      "operations": 130215,
+      "probes": 65823,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "naive",
+        "soft_tail100",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_610_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_610_random_hotspot.txt",
+      "input_sha256": "65785e8a2679907448696cf1287817be19b2c80d0f3a3a89034dd1dc3c18c687",
+      "family": "random_hotspot",
+      "seed": 8391175329616906048,
+      "operations": 194733,
+      "probes": 106069,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "r80",
+        "naive",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_710_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_710_random_hotspot.txt",
+      "input_sha256": "0068c606d16dfa7e7e2e936cab93e1ab8677ade932f9094b8e5edfef48f41c1f",
+      "family": "random_hotspot",
+      "seed": 10407809955601357732,
+      "operations": 82776,
+      "probes": 30586,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "r80",
+        "naive",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_614_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_614_random_hotspot.txt",
+      "input_sha256": "05f999fa73be1caf5d79e6c3fe31e5531adabf0073c5a455978008396bed1b3b",
+      "family": "random_hotspot",
+      "seed": 18421727982335587192,
+      "operations": 208300,
+      "probes": 95514,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "r80",
+        "soft_tail100",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_624_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_624_random_hotspot.txt",
+      "input_sha256": "ff93995000ea25eb91997a619f55bba28de4844d1410fb589caa5841583486ae",
+      "family": "random_hotspot",
+      "seed": 3287595351938215816,
+      "operations": 504319,
+      "probes": 269479,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "r80",
+        "soft_tail100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_663_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_663_random_hotspot.txt",
+      "input_sha256": "8a554bf74f1341b794b5cf54e323629493ab741648b43edacd8b7dadfcf1d4df",
+      "family": "random_hotspot",
+      "seed": 18360302353483021581,
+      "operations": 165760,
+      "probes": 68067,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "soft_tail100",
+        "naive",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_655_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_655_random_hotspot.txt",
+      "input_sha256": "3605ef48cc1668af4f8f90daf678c419681934f3ccd860a354f891a1c28bb3a3",
+      "family": "random_hotspot",
+      "seed": 1374537716614863167,
+      "operations": 180511,
+      "probes": 71642,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "soft_tail100",
+        "r80",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_689_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_689_random_hotspot.txt",
+      "input_sha256": "9e0b4bbb881a096f5093fc01a88a3a0b9f7597bbbf082318915c276b671dbe34",
+      "family": "random_hotspot",
+      "seed": 16502994169396141754,
+      "operations": 184932,
+      "probes": 90898,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "r80",
+        "soft_tail100",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_676_random_hotspot.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_676_random_hotspot.txt",
+      "input_sha256": "bef94a18ba0ea4a12c136ae48190f3684f0875fbb20e54ef2b6f801475d8b6d1",
+      "family": "random_hotspot",
+      "seed": 13881337440408004601,
+      "operations": 225950,
+      "probes": 100218,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "naive",
+        "r80",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_758_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_758_random_lognormal.txt",
+      "input_sha256": "69d1df2f392b9396c5d274f3a505fe7aac4b8fb9e06fb13b6cb60db8a76602b2",
+      "family": "random_lognormal",
+      "seed": 6300307795782966787,
+      "operations": 501870,
+      "probes": 239333,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "soft_tail100",
+        "naive",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_722_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_722_random_lognormal.txt",
+      "input_sha256": "305b9b6604e4126b90637d2fa35da2c95d5334b2f6a4a9bd2f0f3084fb1136c2",
+      "family": "random_lognormal",
+      "seed": 14469534270711647131,
+      "operations": 181590,
+      "probes": 73867,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "naive",
+        "paired100",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_768_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_768_random_lognormal.txt",
+      "input_sha256": "e6b8afbca2095a923a0e9ee3c937b12b82d2a68978a67aecd164ad4e8f36f95b",
+      "family": "random_lognormal",
+      "seed": 8336829129886712639,
+      "operations": 128872,
+      "probes": 54205,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "r80",
+        "soft_tail100",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_763_random_lognormal.txt",
+      "input_sha256": "be6d8c840c0dcc7834228e4b3c2bc2f604a0de3ced59e8b90f7bc7967af62ab7",
+      "family": "random_lognormal",
+      "seed": 184502648514716924,
+      "operations": 228852,
+      "probes": 120574,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "soft_tail100",
+        "naive",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_747_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_747_random_lognormal.txt",
+      "input_sha256": "1746f9b4e09ae98be8e245dd72219ce5306ee4b9fbff3595b177513a97125556",
+      "family": "random_lognormal",
+      "seed": 7185949811230088012,
+      "operations": 256702,
+      "probes": 100118,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "soft_tail100",
+        "r80",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_754_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_754_random_lognormal.txt",
+      "input_sha256": "ff7236232d82dd95488b57daa9321ab3a65cf267a3991459afb157207c376f0e",
+      "family": "random_lognormal",
+      "seed": 6706213157847051871,
+      "operations": 239514,
+      "probes": 95003,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "r80",
+        "paired100",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_752_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_752_random_lognormal.txt",
+      "input_sha256": "5d0d97ebe13586f4e1a90faacdffdea4f0441b87b4ccd5ac27e2085b2309b791",
+      "family": "random_lognormal",
+      "seed": 5798404805832685362,
+      "operations": 185272,
+      "probes": 100298,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "soft_tail100",
+        "r80",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_766_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_766_random_lognormal.txt",
+      "input_sha256": "a72ae7038f3a713768213a97fb9154bd355c185f54aaab4824019ba31b9f3b47",
+      "family": "random_lognormal",
+      "seed": 5577302901459224310,
+      "operations": 80544,
+      "probes": 36988,
+      "phase_overlap": false,
+      "order": [
+        "paired100",
+        "soft_tail100",
+        "naive",
+        "r80"
+      ]
+    },
+    {
+      "case": "train/train_723_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_723_random_lognormal.txt",
+      "input_sha256": "0ab9e52d0d26c3ac9ef229e59e5f09a6125434025412eb957e3c55d4f1f59444",
+      "family": "random_lognormal",
+      "seed": 11576382454364312072,
+      "operations": 76876,
+      "probes": 33814,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "soft_tail100",
+        "r80",
+        "paired100"
+      ]
+    },
+    {
+      "case": "train/train_760_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_760_random_lognormal.txt",
+      "input_sha256": "aa5d40804b0e81b58dc98512332520f96c0e9435fe581c2f47c0a8cb5ad9106f",
+      "family": "random_lognormal",
+      "seed": 3496239285171780787,
+      "operations": 172723,
+      "probes": 67320,
+      "phase_overlap": false,
+      "order": [
+        "soft_tail100",
+        "r80",
+        "paired100",
+        "naive"
+      ]
+    },
+    {
+      "case": "train/train_726_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_726_random_lognormal.txt",
+      "input_sha256": "17a6d076e01056d885f67319198f0f562f2368fe01898d4c5aae7b76678531db",
+      "family": "random_lognormal",
+      "seed": 14532149210305815137,
+      "operations": 90584,
+      "probes": 35977,
+      "phase_overlap": false,
+      "order": [
+        "naive",
+        "r80",
+        "paired100",
+        "soft_tail100"
+      ]
+    },
+    {
+      "case": "train/train_725_random_lognormal.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_725_random_lognormal.txt",
+      "input_sha256": "b28dbac3be7de5cc7cbcdea3b0043b9a1881d5e32f9bef72b4b626bafaae0cdf",
+      "family": "random_lognormal",
+      "seed": 10481288076045297175,
+      "operations": 191943,
+      "probes": 100000,
+      "phase_overlap": false,
+      "order": [
+        "r80",
+        "paired100",
+        "naive",
+        "soft_tail100"
+      ]
+    }
+  ],
+  "protocol": [
+    {
+      "id": "edge_all_resident_constant_first_callback_tail",
+      "input": "build/round9_pure_return_risk_v1/edge_all_resident_constant_first_callback_tail.txt",
+      "input_sha256": "b549d996a575dd2b6aa310fed36c2bbcde6c28bf423dd1ffb15a4518c0909e4c"
+    },
+    {
+      "id": "edge_b1_duplicate_next_window_rollover",
+      "input": "build/round9_pure_return_risk_v1/edge_b1_duplicate_next_window_rollover.txt",
+      "input_sha256": "0ef85f89eac24d4c42168df33d0d6d6c0833a210a218d63b16fc4e0b322ebc07"
+    },
+    {
+      "id": "edge_mixed_phase_to_full_probe",
+      "input": "build/round9_pure_return_risk_v1/edge_mixed_phase_to_full_probe.txt",
+      "input_sha256": "dedbe0efd44764681e9b6ce18e6747dd9726f2d17600a7304b6b280f92fe2c7d"
+    },
+    {
+      "id": "edge_sparse_callbacks_long_hit_tail",
+      "input": "build/round9_pure_return_risk_v1/edge_sparse_callbacks_long_hit_tail.txt",
+      "input_sha256": "81aef6be874aff487bc00067421afb45dd042a25aa3d7de69cedf0cfa63aab95"
+    },
+    {
+      "id": "edge_variable_objects_prefetch",
+      "input": "build/round9_pure_return_risk_v1/edge_variable_objects_prefetch.txt",
+      "input_sha256": "9cbe3f7d1a389f2b6d28d2d413466ca1bb9f1c3613e89ea07b1b3fb7fe5bcbcf"
+    }
+  ],
+  "protocol_reference": "Reuse old R80 protocol logs; no reference solver.",
+  "timeout_seconds": 60,
+  "prior_plan_sha256": "255d497edaf83379b8974d798f2e104bad3d09a21c0aff62d64878cb4cd5bec3",
+  "gate": {
+    "all_protocol_pass": true,
+    "mean_physical_ratio_max": 0.995,
+    "worst_ratio_max": 1.02,
+    "score_delta_min": 0,
+    "references": [
+      "r80",
+      "paired100"
+    ]
+  },
+  "reporting": [
+    "per-case physical costs with actual input penalty, Miss, IO and decision",
+    "equal-case ratios and ratio of cost sums separately",
+    "same-window single-pass normalized score versus Naive",
+    "all failures retained; no automatic retry; no partial panel ranking",
+    "new protocol action audits are separate inputs; main60 has strict output checks only"
+  ],
+  "not_claimed": [
+    "fixed top4 identities",
+    "independent benefit of budget, inertia or gamma factors",
+    "actual migration cost charged by core relabeling",
+    "exact steady-state cost of the live planner"
+  ]
+}

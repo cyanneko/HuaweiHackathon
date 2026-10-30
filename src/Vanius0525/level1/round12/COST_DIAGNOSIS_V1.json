@@ -1,0 +1,65 @@
+{
+  "source_review_sha256": "27f5c5dc500b3428497d217b764ba8b8465943b34933ea95be3764fe2a856345",
+  "physical_only_score": {
+    "paired100": 3.7469243758773274,
+    "r80": 3.7449029308334043,
+    "soft_tail100": 3.7289255985508882
+  },
+  "score_definition": "For both method and same-window Naive remove recorded decision cost, clamp 10*(1-physical/naive_physical), then average60. Descriptive recomputation only, not another execution.",
+  "worst_case": {
+    "case": "train/train_519_random_zipf.txt",
+    "family": "random_zipf",
+    "scores": {
+      "naive": 0.0,
+      "paired100": 3.110583314500003,
+      "r80": 1.3280790362833308,
+      "soft_tail100": 0.23232138535608868
+    },
+    "physical_us": {
+      "naive": 66207359.14,
+      "paired100": 45583343.16,
+      "r80": 57399911.06,
+      "soft_tail100": 64647660.1
+    },
+    "ratios": {
+      "paired100": {
+        "naive": 1.4524463225000541,
+        "paired100": 1.0,
+        "r80": 1.2592299528914148,
+        "soft_tail100": 1.4182298975545347
+      },
+      "r80": {
+        "naive": 1.1534400997728653,
+        "paired100": 0.7941361287537856,
+        "r80": 1.0,
+        "soft_tail100": 1.1262676005268362
+      }
+    },
+    "misses": {
+      "naive": 328,
+      "paired100": 6539,
+      "r80": 3766,
+      "soft_tail100": 2933
+    },
+    "io_us": {
+      "naive": 66168327.14,
+      "paired100": 44805202.16,
+      "r80": 56951757.06,
+      "soft_tail100": 64298633.1
+    },
+    "decision_us": {
+      "naive": 1810.86,
+      "paired100": 30912.9,
+      "r80": 16157.88,
+      "soft_tail100": 23329.3
+    },
+    "wall_seconds": {
+      "naive": 0.1653892519971123,
+      "paired100": 0.21561742600169964,
+      "r80": 0.21533701400039718,
+      "soft_tail100": 0.2156086979957763
+    }
+  },
+  "new_solver_runs": 0,
+  "warning": "No independent attribution to core labels, budget, hysteresis or gamma; no observed internal activation statistics in the uninstrumented runs."
+}

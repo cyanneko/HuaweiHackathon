@@ -1,0 +1,139 @@
+{
+  "complete": true,
+  "cases": 60,
+  "repeats": 1,
+  "timed_runs": 240,
+  "small_protocol_audits": 5,
+  "methods": {
+    "naive": {
+      "mean_score": 0.0,
+      "mean_decision_us": 52566.55266666667,
+      "max_wall_seconds": 3.126482384002884,
+      "physical": {
+        "paired100": {
+          "mean": 2.362310677120528,
+          "worst": 25.881262491322406,
+          "worst_case": "train/train_637_random_hotspot.txt",
+          "ratio_of_sums": 1.4962449814188448,
+          "better_equal_worse": [
+            2,
+            1,
+            57
+          ]
+        },
+        "r80": {
+          "mean": 2.3878334611916765,
+          "worst": 26.214442713106926,
+          "worst_case": "train/train_637_random_hotspot.txt",
+          "ratio_of_sums": 1.4592320779315513,
+          "better_equal_worse": [
+            1,
+            1,
+            58
+          ]
+        }
+      }
+    },
+    "paired100": {
+      "mean_score": 3.744194026570237,
+      "mean_decision_us": 46803.49866666667,
+      "max_wall_seconds": 2.022210441995412,
+      "physical": {
+        "paired100": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_case": "train/train_548_random_zipf.txt",
+          "ratio_of_sums": 1.0,
+          "better_equal_worse": [
+            0,
+            60,
+            0
+          ]
+        },
+        "r80": {
+          "mean": 1.0201499946360706,
+          "worst": 1.78245376821445,
+          "worst_case": "train/train_600_random_zipf.txt",
+          "ratio_of_sums": 0.9752628052578695,
+          "better_equal_worse": [
+            33,
+            1,
+            26
+          ]
+        }
+      }
+    },
+    "r80": {
+      "mean_score": 3.74249983390509,
+      "mean_decision_us": 38463.43516666666,
+      "max_wall_seconds": 1.8714707440085476,
+      "physical": {
+        "paired100": {
+          "mean": 0.9913674374968584,
+          "worst": 1.3138897904193336,
+          "worst_case": "train/train_565_random_zipf.txt",
+          "ratio_of_sums": 1.0253646449026523,
+          "better_equal_worse": [
+            26,
+            1,
+            33
+          ]
+        },
+        "r80": {
+          "mean": 1.0,
+          "worst": 1.0,
+          "worst_case": "train/train_548_random_zipf.txt",
+          "ratio_of_sums": 1.0,
+          "better_equal_worse": [
+            0,
+            60,
+            0
+          ]
+        }
+      }
+    },
+    "soft_tail100": {
+      "mean_score": 3.721593268254042,
+      "mean_decision_us": 81527.46516666668,
+      "max_wall_seconds": 2.925392218006891,
+      "physical": {
+        "paired100": {
+          "mean": 0.9941698639311933,
+          "worst": 1.4182298975545349,
+          "worst_case": "train/train_519_random_zipf.txt",
+          "ratio_of_sums": 1.0242166526073233,
+          "better_equal_worse": [
+            29,
+            1,
+            30
+          ]
+        },
+        "r80": {
+          "mean": 1.0021401496106899,
+          "worst": 1.1262676005268362,
+          "worst_case": "train/train_519_random_zipf.txt",
+          "ratio_of_sums": 0.9988804058136429,
+          "better_equal_worse": [
+            33,
+            3,
+            24
+          ]
+        }
+      },
+      "gate_checks": {
+        "paired100": {
+          "mean_ratio_pass": true,
+          "worst_ratio_pass": false,
+          "score_pass": false
+        },
+        "r80": {
+          "mean_ratio_pass": false,
+          "worst_ratio_pass": false,
+          "score_pass": false
+        }
+      },
+      "passes_training_gate": false
+    }
+  },
+  "scope": "Original train60; 0 main60 action audits, AI/dev/eval/dyna runs. No repeat timing."
+}

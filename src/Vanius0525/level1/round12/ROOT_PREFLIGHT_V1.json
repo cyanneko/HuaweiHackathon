@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "authorization": "Prepare binaries and execution freeze; runner requires root review before solver.",
+  "source_freeze_sha256": "50b1c146f5c13747e2b0fdb44fa7c7866fd26c9634dc65e67eb6c3bc8f17a259",
+  "proposal_sha256": "aae4b478e371630f597942e326d9e563bebde5fe662d985eed0046726cc8e8a1",
+  "candidate_sha256": "0a68904cc689c70fabdb8364f58067c6b8df68d4f8b16338c1cf924b86a8755b",
+  "root_review_script_sha256": "fd8f44d2f73558ef2b02cc3c19ea4acfa7f051cd4f9f9bb4c15539d14e0f4aff",
+  "exact_original_recovery": true,
+  "preserved_crlf_count": 357,
+  "source_review": [
+    "Only helper state and two call sites added; original expressions unchanged.",
+    "No hard protection, LOAD refusal, new candidates, or estimator parameter change.",
+    "Each propose resets gamma; mixed-phase early return cannot leak a previous discount.",
+    "required is full demand size, not capacity deficit; r=M sets target factor zero.",
+    "Missing and zero-byte core members removed before labeling; refresh every 64 PROBE positions.",
+    "Zero/weak evidence and concentration reduce gamma; fit mass and tail mass use the same nonnegative probabilities.",
+    "Dynamic core and retained planner do not implement the fixed-core IID one-buffer process.",
+    "Membership threshold is only a proxy; no actual migration cost or independent component benefit is claimed."
+  ],
+  "contract_review": {
+    "old_train_cases": 60,
+    "methods": 4,
+    "performance_runs": 240,
+    "candidate_only_small_protocols": 5,
+    "full_main_action_audits": 0,
+    "naive_path_correction": "Use published round10/official_naive_reference.cpp at identical SHA in formal plan."
+  },
+  "scope": "Source and metadata review only; no dynamic correctness/performance claim.",
+  "solver_runs": 0,
+  "input_stream_reads": 0
+}

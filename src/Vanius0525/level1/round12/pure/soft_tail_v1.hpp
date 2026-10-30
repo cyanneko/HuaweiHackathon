@@ -1,0 +1,119 @@
+    // R12: finite cold-buffer self-hit discount, never a legality constraint.
+    // All p values below are the unchanged R80 hierarchical next estimates.
+    struct SoftItem { int id; int64_t bytes; double p, cost, density; bool resident; };
+    std::vector<unsigned char> soft_core_;
+    std::vector<SoftItem> soft_items_;
+    std::vector<int> soft_order_, soft_cold_order_;
+    std::vector<unsigned char> soft_proposal_;
+    int soft_p_=0;
+    int64_t soft_refresh_q_=-1, soft_budget_=0, soft_space_=0;
+    double soft_gamma_=0., soft_tail_mass_=0.;
+
+    void prepareSoftCore(const SystemState& s,int64_t required,bool ordinary) {
+        soft_gamma_=0.; soft_tail_mass_=0.;
+        if(!ordinary || s.memory_limit<=0)return;
+        for(const auto& o:s.operators)if(o.phase!=Phase::PROBE)return;
+        const int n=static_cast<int>(next_mass_.size());
+        const int64_t q=s.hit_count+s.miss_count;
+        if(n<=0)return;
+        if(static_cast<int>(soft_core_.size())!=n || soft_p_!=p_ || q<soft_refresh_q_) {
+            soft_core_.assign(n,0);soft_proposal_.assign(n,0);
+            soft_p_=p_;soft_refresh_q_=-1;soft_budget_=0;
+        }
+        ensureProbabilities(s);
+        soft_items_.clear();
+        double positive_mass=0.;
+        int64_t incumbent_bytes=0;
+        for(const auto& o:s.operators)for(const auto& part:o.partitions) {
+            const int id=o.op_id*p_+part.partition_id;
+            if(part.data_size<=0) {soft_core_[id]=0;continue;}
+            ensureProbability(id);
+            const double probability=hier_probability_[id];
+            const double cost=static_cast<double>(part.data_size)/s.read_bandwidth+
+                static_cast<double>(part.data_size)/s.write_bandwidth+100.;
+            if(!part.in_memory)soft_core_[id]=0;
+            if(soft_core_[id])incumbent_bytes+=part.data_size;
+            positive_mass+=probability;
+            soft_items_.push_back({id,part.data_size,probability,cost,
+                probability*cost/part.data_size,part.in_memory});
+        }
+        if(!(positive_mass>0.) || soft_items_.empty())return;
+
+        // One refresh per >=64 real PROBE positions, the existing R80 horizon.
+        // Between refreshes, missing/zero-byte members are removed immediately.
+        if(soft_refresh_q_<0 || q-soft_refresh_q_>=64) {
+            soft_refresh_q_=q;
+            soft_order_.clear();soft_cold_order_.clear();
+            double cold_mass=0.;
+            for(int j=0;j<static_cast<int>(soft_items_.size());++j) {
+                const auto& item=soft_items_[j];
+                if(item.resident)soft_order_.push_back(j);
+                if(!soft_core_[item.id]) {soft_cold_order_.push_back(j);cold_mass+=item.p;}
+            }
+            // Existing q=.5 request-weighted size budget; not a new quantile grid.
+            std::sort(soft_cold_order_.begin(),soft_cold_order_.end(),[&](int a,int b) {
+                const auto& x=soft_items_[a];const auto& y=soft_items_[b];
+                return x.bytes!=y.bytes?x.bytes<y.bytes:x.id<y.id;
+            });
+            soft_budget_=0;
+            double cumulative=0.;
+            if(cold_mass>0.)for(int j:soft_cold_order_) {
+                const auto& item=soft_items_[j];cumulative+=item.p;soft_budget_=item.bytes;
+                if(cumulative>=.5*cold_mass)break;
+            }
+            soft_budget_=std::min(s.memory_limit,soft_budget_);
+            const int64_t capacity=s.memory_limit-soft_budget_;
+            std::sort(soft_order_.begin(),soft_order_.end(),[&](int a,int b) {
+                const auto& x=soft_items_[a];const auto& y=soft_items_[b];
+                return x.density!=y.density?x.density>y.density:x.id<y.id;
+            });
+            // A larger request-size budget may force label removal; no I/O here.
+            for(auto it=soft_order_.rbegin();it!=soft_order_.rend() && incumbent_bytes>capacity;++it) {
+                const auto& item=soft_items_[*it];
+                if(soft_core_[item.id]) {soft_core_[item.id]=0;incumbent_bytes-=item.bytes;}
+            }
+            std::fill(soft_proposal_.begin(),soft_proposal_.end(),0);
+            int64_t available=capacity;
+            for(int j:soft_order_) {
+                const auto& item=soft_items_[j];
+                if(item.bytes<=available) {soft_proposal_[item.id]=1;available-=item.bytes;}
+            }
+            // This is a membership hysteresis proxy, not charged actual I/O.
+            double gain=0., renewal_proxy=0.;
+            for(const auto& item:soft_items_) {
+                const int change=static_cast<int>(soft_proposal_[item.id])-static_cast<int>(soft_core_[item.id]);
+                gain+=64.*change*item.p*item.cost;
+                if(change<0)renewal_proxy+=item.cost;
+            }
+            if(gain>renewal_proxy)soft_core_.swap(soft_proposal_);
+        }
+
+        int64_t core_bytes=0;
+        for(const auto& item:soft_items_)if(soft_core_[item.id])core_bytes+=item.bytes;
+        soft_space_=s.memory_limit-core_bytes;
+        if(core_bytes<=0 || soft_space_<=0)return;
+        double fit_mass=0., variation=0.;
+        const double uniform=1./soft_items_.size();
+        for(const auto& item:soft_items_) {
+            variation+=std::abs(item.p/positive_mass-uniform);
+            if(!soft_core_[item.id]) {
+                soft_tail_mass_+=item.p;
+                if(item.bytes<=soft_space_)fit_mass+=item.p;
+            }
+        }
+        if(!(soft_tail_mass_>0.))return;
+        const double evidence=probability_total_/(probability_total_+64.);
+        const double concentration=std::min(1.,.5*variation);
+        // Request fits turnover room ->1. A whole-memory target ->0.
+        const double target_factor=std::max(0.,std::min(1.,
+            static_cast<double>(s.memory_limit-required)/core_bytes));
+        soft_gamma_=evidence*concentration*(fit_mass/soft_tail_mass_)*target_factor;
+    }
+
+    double softTailMultiplier(const SystemState& s,int id) const {
+        if(!(soft_gamma_>0.) || soft_core_[id])return 1.;
+        const auto& part=s.operators[id/p_].partitions[id%p_];
+        if(part.data_size>soft_space_)return 1.;
+        const double self_hit=std::min(1.,hier_probability_[id]/soft_tail_mass_);
+        return std::max(0.,1.-soft_gamma_*self_hit);
+    }

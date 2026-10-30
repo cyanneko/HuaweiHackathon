@@ -1,11 +1,12 @@
 # 方法与评测结果比较入口
 
-维护分支：`source/Vanius0525`。2026-10-30用户要求后续每轮完整测试将协议、结果、代码版本同步到本分支；本入口随阶段完成更新。最新性能阶段为Round10，Round11增加共同状态机制观察；AI更新与测试暂停，后续默认每方法每题单遍。
+维护分支：`source/Vanius0525`。2026-10-30用户要求后续每轮完整测试将协议、结果、代码版本同步到本分支；本入口随阶段完成更新。最新性能阶段为Round12，软核心/冷侧折扣候选未晋升；Round11为共同状态机制观察。AI更新与测试暂停，后续默认每方法每题单遍。
 
 ## 当前可对齐的完整结果
 
 | 阶段 | 数据范围 | 方法与次数 | 完整结果/协议 | 结论边界 |
 |---|---|---|---|---|
+| [Round12](round12/pure/REPORT_V1.md) | 与Round10相同的固定60 train | Naive、原paired、R80、soft_tail100同场各单遍，240次；另5次候选小协议审核 | [计划](round12/pure/PLAN_V1.json)、[全部结果](round12/pure/RESULTS_V1.json)、[原始输出](round12/pure/RAW_OUTPUTS_V1.json)、[root复核](round12/ROOT_RESULTS_REVIEW_V1.json) | 新候选均分3.721593，低于R80的3.742500与paired的3.744194；未进dev/eval/dyna。 |
 | [Round10](round10/REPORT_V1.md) | final2.1固定60 train，24热点/24Zipf/12对数正态 | Naive、原paired、joint、R80、write1、value_rank，同场各单遍；另16次小协议审核 | [计划](round10/PLAN_V1.json)、[全部结果](round10/RESULTS_V1.json)、[逐例CSV](round10/COMPARISON_ROWS_V1.csv)、[代码/数据映射](round10/COMPARISON_MANIFEST_V1.json) | 已曝光训练诊断；三个新主候选均未晋升，未进入dev/eval。 |
 | [完整原72](round9/eval72/REPORT_V1.md) | final2.1全部72 eval | Naive/paired/joint各单遍；随机20原记录复用后补52 | [计划](round9/eval72/PLAN_V1.json)、[结果](round9/eval72/RESULTS_V1.json) | 两阶段同日，不声称整72同一个独占窗口；无新增完整动作重放。 |
 | [dyna12](round9/DYNA_FULL_REVIEW_V1.md) | dyna1.0完整12，每例500万操作 | 6方法，历史每例3遍，另完整动作审核 | [计划](round9/DYNA_FULL_EVALUATION_PLAN_V1.json)、[结果](round9/DYNA_FULL_RESULTS_V1.json) | 历史已完成，不因改为单遍而重跑或修改旧结果。 |
@@ -47,6 +48,16 @@ Round10为CPU单线程、C++14/O2、g++11.4；每例60秒wall限制。任务锁�
 - [运行前代数分析](round11/MECHANISM_NOTES_V1.md)：单算子概率排序在共享下保持，但大小和离散集合仍可改变动作。观察结果和此推导的适用范围分开记录。
 - [R82负结果与write1源码差异](round9/source_monitor/R82_UPDATE_REVIEW_V1.md)、[R82 reserved DEV来源审核](round9/dataset_monitor/R82_RESERVED_DEV_REVIEW_f4a7fcf6e957.md)：上游TRAIN38与本分支主60不同；其DEV12未下载/接入。资料来自发布归档，未独立重跑上游228格。
 
-最新工作交接见[Round11](round11/HANDOFF.md)。旧性能结果和代码保持原字节，后续诊断没有产生新冠军或替换方法。上游R84全72+12报告仍待正式归档，文档中的完成声明不等于本分支已经核验其方法身份或成绩。
+最新工作交接见[Round12](round12/HANDOFF.md)。旧性能结果和代码保持原字节，后续诊断与R12候选没有产生新冠军或替换方法。上游R84全72+12报告仍待正式归档，文档中的完成声明不等于本分支已经核验其方法身份或成绩。
 
 与上游R84对齐时，其冻结口径为dyna全12、final eval全72各自逐例均分，再对两个数据集各赋50%权重；不是将84例混合等权，且保留dyna原train/dev/holdout标记，不称新盲测。需核Van确切branch/commit/path/SHA及同窗Naive。本文原60训练诊断仍单独报告，不按新口径重写旧结果。政策来源记录见[source文档更新](round9/source_monitor/UPDATE_8e380ad4c664.json)和[datasets文档更新](round9/dataset_monitor/UPDATE_c65c7b32b06a.json)；该口径是上游比较合同，不冒称官方隐藏评测规则。
+
+## Round12：软核心/冷侧折扣负结果与复现
+
+候选[源码](round12/pure/R80_soft_tail100_v1.cpp) SHA为`0a68904cc689c70fabdb8364f58067c6b8df68d4f8b16338c1cf924b86a8755b`；[设计与适用限制](round12/pure/DESIGN_V1.md)、[可逆差异](round12/pure/SOURCE_DIFF_V1.patch)、[执行冻结](round12/pure/EXECUTION_FREEZE_V1.json)将它绑定到具体被测二进制与输入。代码保留R80估计器和动作池规则；固定核心/IID单buffer推导不是动态方法的长期成本证明。
+
+对R80，候选逐例物理比均值1.002140、总物理成本比0.998880、最坏1.126268，33好/3平/24坏。二者去掉D后重新归一化，候选仍少0.015977分；最坏train519少833次Miss但IO增加7,346,876.04μs。[分项诊断](round12/COST_DIAGNOSIS_V1.md)保留这一反例，没有把它只归因于计算慢。5小协议均合法，主60只校验输出；最大wall2.925秒不能外推全规模极限。
+
+[执行器](round12/pure/run_v1.py)的prepare/run分离，正式运行受固定执行清单约束。复现需恢复与Round10相同的冻结输入缓存、参考二进制及官方框架；缺少build依赖时不是一键可运行承诺。已完成输出不能覆盖或自动重跑；新环境应另建执行版本并记录编译/TU/二进制指纹。发布的245项[原始stdout/小协议TRACE/执行元数据](round12/pure/RAW_OUTPUTS_V1.json)可直接核读，root的[独立复核脚本](round12/review_results_v1.py)不调用solver。
+
+15:05 UTC监测到datasets提交`e6613435d59690d6dd768813332387108f7e83c2`，题名标记final_dataset3.0，具体新规模与划分仍在做元数据审核。此更新没有进入上述任何本分支性能成绩；R12保持旧final2.1快照`42fbd682f6fadc54e23c4ee7cc0bef6563a4513d`。后续比较须另绑定新版输入指纹，不能把旧72或旧60自动视为新版覆盖。

@@ -62,3 +62,11 @@ Sites version2发布succeeded，public访问保持；URL https://hashjoin-algori
 已准备publish_github_pages.py：只从已提交的dist生成发布树，绑定source commit，保留既有gh-pages历史，不切共享工作树分支，不force push；检测未知分支或删除时停止。接下来检查GitHub子路径下资源/交互，提交源码、推送部署分支，再确认网址与剩余启用条件。
 
 GitHub子路径验证通过：在/HuaweiHackathon/下主页200、四类交互正常、字体/PDF200、手机无横向溢出、无JS异常或资源404。PDF字节保持原V2。验证服务器已停止。初始远端没有gh-pages分支；下步提交展示专属改动并以正常非强推发布静态分支。Pages是否启用及仓库套餐仍无法通过当前凭据确认。
+
+## GitHub发布分支已推送，等待首次Pages启用
+
+源码84063070ac06d2497acbb4e7c69cb7b995e55f1f已推送source/Vanius0525；静态发布b96462e7fe87fbef57fe50aaeb1c7ce2daf5c1a6已推送同仓库gh-pages。15项网站文件Git对象身份与source/dist完全一致，另加pages-deployment.json绑定源码提交；不含其他实验资料。
+
+GitHub预期网址https://cyanneko.github.io/HuaweiHackathon/再次核验404，不能称为上线。当前无Pages管理API登录，已请用户/仓库管理员在Settings→Pages选择Deploy from a branch、gh-pages、/(root)并Save。下一步：收到设置完成反馈后，检查GitHub页面、PDF、子路径资源和公布的部署身份，再更新GITHUB_PAGES_STATUS.json。不需重跑算法或重建PDF。
+
+本轮可独立完成的源码适配、验证和Git分支发布均完成；原Sites继续可用。没有本轮后台任务，旧优化仍暂停；其他任务文件未纳入提交。

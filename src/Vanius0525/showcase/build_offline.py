@@ -1,6 +1,6 @@
 """Bundle the demonstration, Chinese font, interaction data and reading PDF in one HTML."""
 from pathlib import Path
-import base64,re,json
+import base64,re,json,zipfile
 ROOT=Path(__file__).parent
 D=ROOT/'dist'
 def uri(path,mime):return 'data:'+mime+';base64,'+base64.b64encode(path.read_bytes()).decode()
@@ -23,5 +23,8 @@ document.querySelectorAll('[data-reference-pdf]').forEach(a=>{a.href=pdfURL;a.do
  license=(D/'assets/font-LICENSE.txt').read_text().replace('--','—')
  html=html.replace('</head>','<!-- Embedded font license: '+license+' -->\n</head>')
  out=D/'HashJoin-Team19-Demo.html';out.write_text(html,encoding='utf-8')
+ with zipfile.ZipFile(D/'HashJoin-Team19-Demo.zip','w') as z:
+  entry=zipfile.ZipInfo(out.name,date_time=(2026,10,31,0,0,0));entry.compress_type=zipfile.ZIP_DEFLATED
+  z.writestr(entry,out.read_bytes())
  return out
 if __name__=='__main__':print(build_offline())

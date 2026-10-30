@@ -11,6 +11,8 @@
 
 双击 `dist/HashJoin-Team19-Demo.html`。这是一个约6.7MiB的独立HTML，字体、样式、交互数据及21页技术PDF均已内嵌，断网也可阅读、切换数据场景、拖动概率、查看消融并导出PDF；页尾GitHub来源链接需要联网。
 
+网页上的离线下载提供`HashJoin-Team19-Demo.zip`，其中仅一个HTML，解压后双击即可；ZIP避免托管服务改写HTML响应。
+
 `dist/index.html`是同内容的多文件版。公网地址：
 https://hashjoin-algorithm-atlas.michael-rich577.chatgpt.site
 

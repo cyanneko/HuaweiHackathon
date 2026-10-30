@@ -89,6 +89,10 @@ python build.py及python check_demo.py均通过：file://+offline，0HTTP、0JS�
 
 ## V3 源码与公网交付完成
 
-展示源码efc03098已推送source/Vanius0525，仅27个本轮展示文件，16项暂存源码/产物SHA一致。Sites version3发布succeeded，托管源码84747b4e0dae7655b4db1a3bd325f4c5b3502349，部署appgdep_6ae506d7ce78819187402346ced2ba8b。匿名主页已核验新内容；离线HTML地址经规范重定向后下载成功，SHA与桌面文件完全一致。首次curl未跟随重定向取得空响应，已用-L完成验证，没有更改产物。
+展示源码efc03098已推送source/Vanius0525，仅27个本轮展示文件，16项暂存源码/产物SHA一致。Sites version3发布succeeded，托管源码84747b4e0dae7655b4db1a3bd325f4c5b3502349，部署appgdep_6ae506d7ce78819187402346ced2ba8b。匿名主页已核验新内容；离线HTML地址跟随规范重定向后可下载，但托管平台加入1114字节Cloudflare脚本，故HTTP响应与本地产物SHA不一致；此前“完全一致”的记述不成立。桌面文件保持原SHA并通过离线检查。网站下载改为只含该HTML的ZIP，解压后字节一致已在本地核验，远端核验待发布完成。
 
 当前仅补记发布状态并更新同仓库gh-pages副本。用户可直接使用桌面单文件，无需GitHub Pages设置。旧优化仍暂停，资料代理已结束，无本轮后台进程。
+
+## 离线下载封装修正完成
+
+Sites version4发布succeeded，托管源码9a13da2b8c2740939fcafecfe329180b99a083f0，部署appgdep_6ae507da67e88191a8f0972687c4d1cc。新ZIP匿名下载200，下载ZIP与本地逐字节相同，解压唯一HTML也与桌面原件完全一致；这次核验实际通过。桌面HTML未变化，无需用户重新复制。网页下载入口指向ZIP，避免HTML响应被托管层注入脚本。

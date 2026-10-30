@@ -1,0 +1,2902 @@
+{
+  "status": "complete",
+  "dataset": "inde_dataset 1.1.0 eval70",
+  "scoring_version": "case-mean-v1",
+  "repeats": 1,
+  "new_invocations": 60,
+  "reused_invocations": 150,
+  "old_cases_rerun": 0,
+  "new20": {
+    "naive": {
+      "measured_cases": 20,
+      "valid_pairs": 20,
+      "failed_cases": 0,
+      "average_score": 0,
+      "mean_raw_cost_us": 74928325488.5695,
+      "mean_decision_us": 746865.2285,
+      "mean_cost_ratio_vs_naive": 1.0
+    },
+    "Vanius0525": {
+      "measured_cases": 20,
+      "valid_pairs": 20,
+      "failed_cases": 0,
+      "average_score": 6.1429820082367605,
+      "mean_raw_cost_us": 45650971717.9795,
+      "mean_decision_us": 713782.951,
+      "mean_cost_ratio_vs_naive": 0.38570179917632397
+    },
+    "cyanneko": {
+      "measured_cases": 20,
+      "valid_pairs": 20,
+      "failed_cases": 0,
+      "average_score": 6.287751042026301,
+      "mean_raw_cost_us": 45391430627.1175,
+      "mean_decision_us": 326509.235,
+      "mean_cost_ratio_vs_naive": 0.37122489579736995
+    }
+  },
+  "old50": {
+    "naive": {
+      "measured_cases": 50,
+      "valid_pairs": 50,
+      "failed_cases": 0,
+      "average_score": 0,
+      "mean_raw_cost_us": 17437563686.9904,
+      "mean_decision_us": 14454.1782,
+      "mean_cost_ratio_vs_naive": 1.0
+    },
+    "Vanius0525": {
+      "measured_cases": 50,
+      "valid_pairs": 50,
+      "failed_cases": 0,
+      "average_score": 5.1150791331040475,
+      "mean_raw_cost_us": 7449586347.2988,
+      "mean_decision_us": 15228.6456,
+      "mean_cost_ratio_vs_naive": 0.4884920866895952
+    },
+    "cyanneko": {
+      "measured_cases": 50,
+      "valid_pairs": 50,
+      "failed_cases": 0,
+      "average_score": 4.91300717457083,
+      "mean_raw_cost_us": 7621411398.1826,
+      "mean_decision_us": 10247.6654,
+      "mean_cost_ratio_vs_naive": 0.5086992825429171
+    }
+  },
+  "combined70": {
+    "naive": {
+      "measured_cases": 70,
+      "valid_pairs": 70,
+      "failed_cases": 0,
+      "average_score": 0,
+      "mean_raw_cost_us": 33863495630.298714,
+      "mean_decision_us": 223714.4782857143,
+      "mean_cost_ratio_vs_naive": 1.0
+    },
+    "Vanius0525": {
+      "measured_cases": 70,
+      "valid_pairs": 70,
+      "failed_cases": 0,
+      "average_score": 5.408765668856251,
+      "mean_raw_cost_us": 18364267881.779,
+      "mean_decision_us": 214815.59,
+      "mean_cost_ratio_vs_naive": 0.45912343311437487
+    },
+    "cyanneko": {
+      "measured_cases": 70,
+      "valid_pairs": 70,
+      "failed_cases": 0,
+      "average_score": 5.3057911367009645,
+      "mean_raw_cost_us": 18412845463.59257,
+      "mean_decision_us": 100608.11385714286,
+      "mean_cost_ratio_vs_naive": 0.4694208863299036
+    }
+  },
+  "members": {
+    "Vanius0525": {
+      "commit": "598a8afba225dc7305132b091627ea7f6156448f",
+      "branch": "source/Vanius0525",
+      "path": "src/Vanius0525/level1/round9/pure/return_risk_pooling100_v1.cpp",
+      "sha256": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e",
+      "frozen_path": "frozen/Vanius0525.cpp",
+      "current_branch_commit": "598a8afba225dc7305132b091627ea7f6156448f",
+      "same_source_as_old": true
+    },
+    "cyanneko": {
+      "commit": "2932ce972289b8744f5355c9692fe9cb2c93b5f4",
+      "branch": "source/cyanneko",
+      "path": "src/experiments/r80_van_transfer_20261030/R80_next_hier_fast100.cpp",
+      "sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "frozen_path": "frozen/cyanneko.cpp",
+      "current_branch_commit": "a39d69342b7cd61f3c1489f0d9408ebe717414d6",
+      "same_source_as_old": true
+    }
+  },
+  "builds": {
+    "naive": {
+      "binary_sha256": "03268d5a9792eb6d43522710d108aa689c832f72351479bb1b1d21ad69c7dc55",
+      "translation_unit_sha256": "6541374100b22de6395cfe713cfc21b958c20bc36b88da5d36ed89465fda06c6",
+      "scheduler_sha256": null,
+      "flags": [
+        "-std=c++14",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-pedantic-errors"
+      ],
+      "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+    },
+    "Vanius0525": {
+      "binary_sha256": "60c5b7feb4cdc8d17151464d8f203b92fbba624f681af70bd62c69cb9fe1d022",
+      "translation_unit_sha256": "7a119963e2ec61d479aa55b2adf16bf28bad2796dc68d701052ec06e940a9549",
+      "scheduler_sha256": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e",
+      "flags": [
+        "-std=c++14",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-pedantic-errors"
+      ],
+      "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+    },
+    "cyanneko": {
+      "binary_sha256": "f73c4d65900596c38d703a28b944b4f376d054a4462663df23ac8dcb1ebb6e9a",
+      "translation_unit_sha256": "8120623bb61b317300adbc285c33fc082076a44f954149aef5d4c9c977fa3427",
+      "scheduler_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "flags": [
+        "-std=c++14",
+        "-O2",
+        "-Wall",
+        "-Wextra",
+        "-pedantic-errors"
+      ],
+      "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0"
+    }
+  },
+  "engine": {
+    "commit": "423b81076ead04cbab0853eb7bc0b86f6410d57d",
+    "path": "design/holistic_20261026/reference_current.cpp",
+    "sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5"
+  },
+  "dataset_suite_id": "ecc93c2a4ddb9a8174aaf0ee83865c3102ad0a1d00e5f44c2470ec0051cc0803",
+  "data_manifest_sha256": "c492268ca0fccd29ce50edbdde54a990ebe4b387a4cc79914922cda3a919a2b2",
+  "new_rows_sha256": "8eb9514a374d34313a5061296602348e918e4383b963c1307f7e3138789f6367",
+  "reused_rows_sha256": "ed4d55b68370644ad1c682d8091b9d281ba47d178a1cb25912c9985cb7a4221d",
+  "families": {
+    "dynamic_irregular_jumps": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 7.269615530588473,
+        "cyanneko": 7.045463982937242
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 9.041823589279709,
+        "cyanneko": 9.080385282848647
+      }
+    },
+    "dynamic_linear": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 5.005988099654624,
+        "cyanneko": 4.756974371748247
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 5.48812053532879,
+        "cyanneko": 5.594873865833875
+      }
+    },
+    "dynamic_periodic_steps": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 6.156783471744755,
+        "cyanneko": 6.0185903927580835
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 7.288207439109435,
+        "cyanneko": 7.359389467272665
+      }
+    },
+    "dynamic_random_walk": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 5.727053590049385,
+        "cyanneko": 5.545574690192689
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 6.983176868144097,
+        "cyanneko": 6.950263053379784
+      }
+    },
+    "dynamic_sigmoid_mix": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 4.787496387558552,
+        "cyanneko": 4.721179158181683
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 5.7011893336862425,
+        "cyanneko": 5.956186085425218
+      }
+    },
+    "dynamic_sinusoidal": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 6.4293197789983045,
+        "cyanneko": 6.072820379741986
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 7.717002282400179,
+        "cyanneko": 7.766128899826495
+      }
+    },
+    "static_hot_cold": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 4.412351571153515,
+        "cyanneko": 4.406391232027835
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 5.58609136353042,
+        "cyanneko": 5.624129339629126
+      }
+    },
+    "static_lognormal": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 5.148701878091301,
+        "cyanneko": 5.146812921013292
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 4.659351910962598,
+        "cyanneko": 4.7483780165892036
+      }
+    },
+    "static_uniform": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 4.16568677022587,
+        "cyanneko": 4.250003641487763
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 4.503024148324192,
+        "cyanneko": 4.96646763631853
+      }
+    },
+    "static_zipf": {
+      "cases": 7,
+      "combined": {
+        "naive": 0,
+        "Vanius0525": 4.984659610497735,
+        "cyanneko": 5.094100596920822
+      },
+      "long20": {
+        "naive": 0,
+        "Vanius0525": 4.461832611601942,
+        "cyanneko": 4.8313087731394635
+      }
+    }
+  },
+  "case_cost_wins": {
+    "old50": {
+      "Vanius0525": 39,
+      "cyanneko": 11
+    },
+    "long20": {
+      "Vanius0525": 4,
+      "cyanneko": 16
+    }
+  },
+  "cases": [
+    {
+      "path": "eval/eval_00_000_static_uniform.txt",
+      "sha256": "66b4e24a7a7aecb9b8bb0d8b9f48f3e1469a1ab85b83a28d8bc093f7d7d324b1",
+      "family": "static_uniform",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 0.7945495588209162,
+        "cyanneko": 0.8770900539542836
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 558679805.9,
+          "Total_IO_Time": 557279313.37,
+          "Total_Decision_Time": 9192.53,
+          "Hit_Count": 4942.0,
+          "Miss_Count": 27826.0,
+          "wall_seconds": 0.04379876199999977
+        },
+        "Vanius0525": {
+          "Total_Score": 514289926.57,
+          "Total_IO_Time": 512955956.32,
+          "Total_Decision_Time": 34770.25,
+          "Hit_Count": 6784.0,
+          "Miss_Count": 25984.0,
+          "wall_seconds": 0.0729084009999994
+        },
+        "cyanneko": {
+          "Total_Score": 509678555.79,
+          "Total_IO_Time": 508381573.2,
+          "Total_Decision_Time": 15832.59,
+          "Hit_Count": 7145.0,
+          "Miss_Count": 25623.0,
+          "wall_seconds": 0.04733936800000116
+        }
+      }
+    },
+    {
+      "path": "eval/eval_00_001_static_uniform.txt",
+      "sha256": "dc8d3857297ec8b4c6a70868455de3a0ada75f68829fd78239777fbb184ff5bd",
+      "family": "static_uniform",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 6.814201767349739,
+        "cyanneko": 6.455643688997776
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 3020001901.72,
+          "Total_IO_Time": 3018859772.14,
+          "Total_Decision_Time": 11679.58,
+          "Hit_Count": 10159.0,
+          "Miss_Count": 22609.0,
+          "wall_seconds": 0.06059806799999912
+        },
+        "Vanius0525": {
+          "Total_Score": 962111672.11,
+          "Total_IO_Time": 961687109.73,
+          "Total_Decision_Time": 6612.39,
+          "Hit_Count": 24409.0,
+          "Miss_Count": 8359.0,
+          "wall_seconds": 0.054139913000000206
+        },
+        "cyanneko": {
+          "Total_Score": 1070396279.96,
+          "Total_IO_Time": 1069897522.54,
+          "Total_Decision_Time": 7857.42,
+          "Hit_Count": 22950.0,
+          "Miss_Count": 9818.0,
+          "wall_seconds": 0.05651013700000007
+        }
+      }
+    },
+    {
+      "path": "eval/eval_00_002_static_uniform.txt",
+      "sha256": "69a02d0e209575943a37a6c1290aa7f28ca48034ce08c30936b2ac4cb04b310f",
+      "family": "static_uniform",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 6.406261911315636,
+        "cyanneko": 6.094968196391251
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 18781391678.66,
+          "Total_IO_Time": 18781166775.3,
+          "Total_Decision_Time": 8133.36,
+          "Hit_Count": 11091.0,
+          "Miss_Count": 21677.0,
+          "wall_seconds": 0.048464501999999854
+        },
+        "Vanius0525": {
+          "Total_Score": 6749540263.41,
+          "Total_IO_Time": 6749447244.75,
+          "Total_Decision_Time": 8548.66,
+          "Hit_Count": 24321.0,
+          "Miss_Count": 8447.0,
+          "wall_seconds": 0.049710138000000015
+        },
+        "cyanneko": {
+          "Total_Score": 7334193182.12,
+          "Total_IO_Time": 7334085718.31,
+          "Total_Decision_Time": 6663.81,
+          "Hit_Count": 22688.0,
+          "Miss_Count": 10080.0,
+          "wall_seconds": 0.04744801900000084
+        }
+      }
+    },
+    {
+      "path": "eval/eval_00_003_static_uniform.txt",
+      "sha256": "538bbc1975e81e075786fc8a1fe3e236944f22a36c41a629576668ab4c0fe2fa",
+      "family": "static_uniform",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 0.46492294164046877,
+        "cyanneko": 0.44759518642092155
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 24172425781.24,
+          "Total_IO_Time": 24134912858.99,
+          "Total_Decision_Time": 5922.26,
+          "Hit_Count": 28029.0,
+          "Miss_Count": 37507.0,
+          "wall_seconds": 0.05419696099999882
+        },
+        "Vanius0525": {
+          "Total_Score": 23048594251.16,
+          "Total_IO_Time": 23006925901.36,
+          "Total_Decision_Time": 29349.8,
+          "Hit_Count": 23897.0,
+          "Miss_Count": 41639.0,
+          "wall_seconds": 0.0743731590000003
+        },
+        "cyanneko": {
+          "Total_Score": 23090479638.86,
+          "Total_IO_Time": 23049701948.08,
+          "Total_Decision_Time": 17690.78,
+          "Hit_Count": 24776.0,
+          "Miss_Count": 40760.0,
+          "wall_seconds": 0.06779705399999969
+        }
+      }
+    },
+    {
+      "path": "eval/eval_00_004_static_uniform.txt",
+      "sha256": "8f5acb8e43d6c961f422a0e901c17e9a232250cbda8beb847cac120d60363d8e",
+      "family": "static_uniform",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.673822915805946,
+        "cyanneko": 5.941793092013046
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 11940070086.11,
+          "Total_IO_Time": 11936060467.9,
+          "Total_Decision_Time": 28718.21,
+          "Hit_Count": 51454.0,
+          "Miss_Count": 79618.0,
+          "wall_seconds": 0.10787968400000025
+        },
+        "Vanius0525": {
+          "Total_Score": 5165485759.02,
+          "Total_IO_Time": 5163680006.37,
+          "Total_Decision_Time": 42802.65,
+          "Hit_Count": 95813.0,
+          "Miss_Count": 35259.0,
+          "wall_seconds": 0.11470328099999882
+        },
+        "cyanneko": {
+          "Total_Score": 4845527490.53,
+          "Total_IO_Time": 4843846062.14,
+          "Total_Decision_Time": 25028.39,
+          "Hit_Count": 97944.0,
+          "Miss_Count": 33128.0,
+          "wall_seconds": 0.0978035609999992
+        }
+      }
+    },
+    {
+      "path": "eval/eval_01_000_static_zipf.txt",
+      "sha256": "8e2ef865c104ce025da337cb8e0a442e0827e8b7e08f3b9dc2ceca46e5927327",
+      "family": "static_zipf",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 1.3735492988312603,
+        "cyanneko": 1.3734548132418734
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 6761976129.29,
+          "Total_IO_Time": 6760778170.05,
+          "Total_Decision_Time": 13909.24,
+          "Hit_Count": 9087.0,
+          "Miss_Count": 23681.0,
+          "wall_seconds": 0.04612206600000057
+        },
+        "Vanius0525": {
+          "Total_Score": 5833185372.18,
+          "Total_IO_Time": 5832103484.09,
+          "Total_Decision_Time": 14088.08,
+          "Hit_Count": 11412.0,
+          "Miss_Count": 21356.0,
+          "wall_seconds": 0.05086499599999961
+        },
+        "cyanneko": {
+          "Total_Score": 5833249263.11,
+          "Total_IO_Time": 5832171169.56,
+          "Total_Decision_Time": 9943.55,
+          "Hit_Count": 11405.0,
+          "Miss_Count": 21363.0,
+          "wall_seconds": 0.04245075999999948
+        }
+      }
+    },
+    {
+      "path": "eval/eval_01_001_static_zipf.txt",
+      "sha256": "d780d8bf088d09f3cf404113150b5a024e8e7995681d623e16dc10cc1bcca2d4",
+      "family": "static_zipf",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 7.491154282850579,
+        "cyanneko": 7.298706347335131
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 9542512393.19,
+          "Total_IO_Time": 9540821525.25,
+          "Total_Decision_Time": 8867.94,
+          "Hit_Count": 31086.0,
+          "Miss_Count": 1682.0,
+          "wall_seconds": 0.059183570000000074
+        },
+        "Vanius0525": {
+          "Total_Score": 2394069134.85,
+          "Total_IO_Time": 2393255815.95,
+          "Total_Decision_Time": 8318.9,
+          "Hit_Count": 31963.0,
+          "Miss_Count": 805.0,
+          "wall_seconds": 0.05326465700000149
+        },
+        "cyanneko": {
+          "Total_Score": 2577712815.82,
+          "Total_IO_Time": 2577057824.4,
+          "Total_Decision_Time": 7991.42,
+          "Hit_Count": 32121.0,
+          "Miss_Count": 647.0,
+          "wall_seconds": 0.05331543299999986
+        }
+      }
+    },
+    {
+      "path": "eval/eval_01_002_static_zipf.txt",
+      "sha256": "17f8aea62ec3d67c28fe6ac5c250dc8f35873624f8345ccbf0296750b57be8ac",
+      "family": "static_zipf",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 0.12781690377831945,
+        "cyanneko": 0.2275343328078494
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 1088696218.47,
+          "Total_IO_Time": 1087624370.72,
+          "Total_Decision_Time": 1097.76,
+          "Hit_Count": 28485.0,
+          "Miss_Count": 4283.0,
+          "wall_seconds": 0.03582310600000049
+        },
+        "Vanius0525": {
+          "Total_Score": 1074780840.49,
+          "Total_IO_Time": 1073419724.74,
+          "Total_Decision_Time": 4865.75,
+          "Hit_Count": 27343.0,
+          "Miss_Count": 5425.0,
+          "wall_seconds": 0.03889648800000067
+        },
+        "cyanneko": {
+          "Total_Score": 1063924641.7,
+          "Total_IO_Time": 1062604501.87,
+          "Total_Decision_Time": 2639.83,
+          "Hit_Count": 27498.0,
+          "Miss_Count": 5270.0,
+          "wall_seconds": 0.04322517399999981
+        }
+      }
+    },
+    {
+      "path": "eval/eval_01_003_static_zipf.txt",
+      "sha256": "2ebaa60de7ace20fe7f9bb00ef03ddc04943fd790574a669b944080ca4dc7d0b",
+      "family": "static_zipf",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.068347258949585,
+        "cyanneko": 9.163108391972077
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 1022372405.33,
+          "Total_IO_Time": 1022179242.21,
+          "Total_Decision_Time": 4563.12,
+          "Hit_Count": 46676.0,
+          "Miss_Count": 18860.0,
+          "wall_seconds": 0.05381004300000036
+        },
+        "Vanius0525": {
+          "Total_Score": 95249605.38,
+          "Total_IO_Time": 95227675.61,
+          "Total_Decision_Time": 1849.77,
+          "Hit_Count": 63528.0,
+          "Miss_Count": 2008.0,
+          "wall_seconds": 0.05705017200000029
+        },
+        "cyanneko": {
+          "Total_Score": 85561488.63,
+          "Total_IO_Time": 85540101.67,
+          "Total_Decision_Time": 1316.96,
+          "Hit_Count": 63529.0,
+          "Miss_Count": 2007.0,
+          "wall_seconds": 0.05787909600000063
+        }
+      }
+    },
+    {
+      "path": "eval/eval_01_004_static_zipf.txt",
+      "sha256": "b7d79a17161716a09646af70140c7bc5d3465ab4014d8b714ec72927e7dc4c2b",
+      "family": "static_zipf",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 7.908084305870516,
+        "cyanneko": 7.933282746809896
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 205707070079.07,
+          "Total_IO_Time": 205699226637.64,
+          "Total_Decision_Time": 63441.44,
+          "Hit_Count": 53272.0,
+          "Miss_Count": 77800.0,
+          "wall_seconds": 0.15879674000000144
+        },
+        "Vanius0525": {
+          "Total_Score": 43032184829.18,
+          "Total_IO_Time": 43027192433.71,
+          "Total_Decision_Time": 35295.48,
+          "Hit_Count": 81501.0,
+          "Miss_Count": 49571.0,
+          "wall_seconds": 0.12788265100000018
+        },
+        "cyanneko": {
+          "Total_Score": 42513835083.56,
+          "Total_IO_Time": 42508842635.49,
+          "Total_Decision_Time": 25548.06,
+          "Hit_Count": 81403.0,
+          "Miss_Count": 49669.0,
+          "wall_seconds": 0.125463568999999
+        }
+      }
+    },
+    {
+      "path": "eval/eval_02_000_static_lognormal.txt",
+      "sha256": "f93b14a9a62ec3e218b2d1b59682958106a6a732730117c1e518bc7107a243ce",
+      "family": "static_lognormal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 2.8307263945342864,
+        "cyanneko": 2.828802496137114
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 38690759454.56,
+          "Total_IO_Time": 38684623624.32,
+          "Total_Decision_Time": 17830.25,
+          "Hit_Count": 8296.0,
+          "Miss_Count": 24472.0,
+          "wall_seconds": 0.04858633899999987
+        },
+        "Vanius0525": {
+          "Total_Score": 27738464053.3,
+          "Total_IO_Time": 27733072556.63,
+          "Total_Decision_Time": 16246.67,
+          "Hit_Count": 11267.0,
+          "Miss_Count": 21501.0,
+          "wall_seconds": 0.04599675200000064
+        },
+        "cyanneko": {
+          "Total_Score": 27745907762.31,
+          "Total_IO_Time": 27740522033.49,
+          "Total_Decision_Time": 10978.82,
+          "Hit_Count": 11269.0,
+          "Miss_Count": 21499.0,
+          "wall_seconds": 0.03957386599999957
+        }
+      }
+    },
+    {
+      "path": "eval/eval_02_001_static_lognormal.txt",
+      "sha256": "85dfe8180308afcec7de65ddad9bfb6f2f827579a1041a1334954e1c9575965e",
+      "family": "static_lognormal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.317867020522893,
+        "cyanneko": 9.305043653552033
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 1147241955.52,
+          "Total_IO_Time": 1142276835.61,
+          "Total_Decision_Time": 5119.91,
+          "Hit_Count": 27808.0,
+          "Miss_Count": 4960.0,
+          "wall_seconds": 0.03291397599999968
+        },
+        "Vanius0525": {
+          "Total_Score": 78257157.33,
+          "Total_IO_Time": 74775556.74,
+          "Total_Decision_Time": 6600.58,
+          "Hit_Count": 29293.0,
+          "Miss_Count": 3475.0,
+          "wall_seconds": 0.03661817199999895
+        },
+        "cyanneko": {
+          "Total_Score": 79728307.79,
+          "Total_IO_Time": 77039769.74,
+          "Total_Decision_Time": 2538.06,
+          "Hit_Count": 30082.0,
+          "Miss_Count": 2686.0,
+          "wall_seconds": 0.03175357599999984
+        }
+      }
+    },
+    {
+      "path": "eval/eval_02_002_static_lognormal.txt",
+      "sha256": "608f95692298259c9baf50ee408d98537a9cecb659b52bd3a539f793e00411b7",
+      "family": "static_lognormal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 1.6803566178118423,
+        "cyanneko": 1.4977292687036825
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 107448721.65,
+          "Total_IO_Time": 106484159.01,
+          "Total_Decision_Time": 562.64,
+          "Hit_Count": 30840.0,
+          "Miss_Count": 1928.0,
+          "wall_seconds": 0.03477095600000091
+        },
+        "Vanius0525": {
+          "Total_Score": 89393504.6,
+          "Total_IO_Time": 87913765.39,
+          "Total_Decision_Time": 2739.21,
+          "Hit_Count": 29814.0,
+          "Miss_Count": 2954.0,
+          "wall_seconds": 0.03874991499999858
+        },
+        "cyanneko": {
+          "Total_Score": 91355812.12,
+          "Total_IO_Time": 90030586.21,
+          "Total_Decision_Time": 1725.91,
+          "Hit_Count": 30121.0,
+          "Miss_Count": 2647.0,
+          "wall_seconds": 0.03751815299999883
+        }
+      }
+    },
+    {
+      "path": "eval/eval_02_003_static_lognormal.txt",
+      "sha256": "b9f217266d2d309902e2b57c86de99dfbcba5d720de400b4675958d4ebb9ed24",
+      "family": "static_lognormal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.495050348149189,
+        "cyanneko": 5.495411409754814
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 30444810882.06,
+          "Total_IO_Time": 30426855708.67,
+          "Total_Decision_Time": 7673.39,
+          "Hit_Count": 29641.0,
+          "Miss_Count": 35895.0,
+          "wall_seconds": 0.0596865219999998
+        },
+        "Vanius0525": {
+          "Total_Score": 13715234018.38,
+          "Total_IO_Time": 13706933897.58,
+          "Total_Decision_Time": 13120.8,
+          "Hit_Count": 48962.0,
+          "Miss_Count": 16574.0,
+          "wall_seconds": 0.0699170149999997
+        },
+        "cyanneko": {
+          "Total_Score": 13714134773.15,
+          "Total_IO_Time": 13705831673.02,
+          "Total_Decision_Time": 16600.13,
+          "Hit_Count": 48963.0,
+          "Miss_Count": 16573.0,
+          "wall_seconds": 0.09779850900000042
+        }
+      }
+    },
+    {
+      "path": "eval/eval_02_004_static_lognormal.txt",
+      "sha256": "2570ae0b77153876fd702b88ad8f501bc95bf1a30b6ea109852ec22ffc674d65",
+      "family": "static_lognormal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 7.398208943695703,
+        "cyanneko": 7.403947585766994
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 24183554537.11,
+          "Total_IO_Time": 24178829789.28,
+          "Total_Decision_Time": 149247.83,
+          "Hit_Count": 39562.0,
+          "Miss_Count": 91510.0,
+          "wall_seconds": 0.2652277810000001
+        },
+        "Vanius0525": {
+          "Total_Score": 6292055590.43,
+          "Total_IO_Time": 6288631815.9,
+          "Total_Decision_Time": 90074.53,
+          "Hit_Count": 64398.0,
+          "Miss_Count": 66674.0,
+          "wall_seconds": 0.19118870000000143
+        },
+        "cyanneko": {
+          "Total_Score": 6278177514.08,
+          "Total_IO_Time": 6274818980.86,
+          "Total_Decision_Time": 51183.22,
+          "Hit_Count": 64925.0,
+          "Miss_Count": 66147.0,
+          "wall_seconds": 0.15967055299999977
+        }
+      }
+    },
+    {
+      "path": "eval/eval_03_000_static_hot_cold.txt",
+      "sha256": "79ef7a13ded98bba02e65dd49cdc254329e84f4e3de30f9b7daf16aff016f964",
+      "family": "static_hot_cold",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 0.6826468152429566,
+        "cyanneko": 0.6833485973739095
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 2011175602.44,
+          "Total_IO_Time": 2011007310.64,
+          "Total_Decision_Time": 6851.81,
+          "Hit_Count": 16624.0,
+          "Miss_Count": 16144.0,
+          "wall_seconds": 0.03848703199999903
+        },
+        "Vanius0525": {
+          "Total_Score": 1873883340.45,
+          "Total_IO_Time": 1873705701.43,
+          "Total_Decision_Time": 32769.02,
+          "Hit_Count": 18281.0,
+          "Miss_Count": 14487.0,
+          "wall_seconds": 0.06424668999999916
+        },
+        "cyanneko": {
+          "Total_Score": 1873742199.74,
+          "Total_IO_Time": 1873576863.68,
+          "Total_Decision_Time": 21406.06,
+          "Hit_Count": 18375.0,
+          "Miss_Count": 14393.0,
+          "wall_seconds": 0.05332497400000058
+        }
+      }
+    },
+    {
+      "path": "eval/eval_03_001_static_hot_cold.txt",
+      "sha256": "b8c2f9ce63da4087ff4e76bc8af6dbd565d4504613acbaede643625f80897e1b",
+      "family": "static_hot_cold",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 0.5266247982647565,
+        "cyanneko": 0.741699296545707
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 158262692.1,
+          "Total_IO_Time": 156942075.4,
+          "Total_Decision_Time": 616.71,
+          "Hit_Count": 31448.0,
+          "Miss_Count": 1320.0,
+          "wall_seconds": 0.03490551700000033
+        },
+        "Vanius0525": {
+          "Total_Score": 149928186.27,
+          "Total_IO_Time": 147246693.99,
+          "Total_Decision_Time": 3492.28,
+          "Hit_Count": 30090.0,
+          "Miss_Count": 2678.0,
+          "wall_seconds": 0.08848534900000082
+        },
+        "cyanneko": {
+          "Total_Score": 146524359.36,
+          "Total_IO_Time": 144551297.2,
+          "Total_Decision_Time": 2062.16,
+          "Hit_Count": 30797.0,
+          "Miss_Count": 1971.0,
+          "wall_seconds": 0.045398854999998406
+        }
+      }
+    },
+    {
+      "path": "eval/eval_03_002_static_hot_cold.txt",
+      "sha256": "ce7acb7a12b110ada4c6c8da88feeef02ae7161a1554e595034180bc7fc5c457",
+      "family": "static_hot_cold",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 2.339660353124179,
+        "cyanneko": 2.017093222551607
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 544775209.7,
+          "Total_IO_Time": 544494255.64,
+          "Total_Decision_Time": 1454.06,
+          "Hit_Count": 32209.0,
+          "Miss_Count": 559.0,
+          "wall_seconds": 0.033322758999998925
+        },
+        "Vanius0525": {
+          "Total_Score": 417316313.75,
+          "Total_IO_Time": 416105838.94,
+          "Total_Decision_Time": 5474.8,
+          "Hit_Count": 30358.0,
+          "Miss_Count": 2410.0,
+          "wall_seconds": 0.037993970999998794
+        },
+        "cyanneko": {
+          "Total_Score": 434888971.37,
+          "Total_IO_Time": 433876281.86,
+          "Total_Decision_Time": 3189.51,
+          "Hit_Count": 30749.0,
+          "Miss_Count": 2019.0,
+          "wall_seconds": 0.0339552610000009
+        }
+      }
+    },
+    {
+      "path": "eval/eval_03_003_static_hot_cold.txt",
+      "sha256": "be9d609e89113586bf77092cb0eca5bdd90d52baae867785bff76c688d438ca2",
+      "family": "static_hot_cold",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.52466274449841,
+        "cyanneko": 9.547410503672214
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 3366501443.72,
+          "Total_IO_Time": 3359724125.99,
+          "Total_Decision_Time": 15067.73,
+          "Hit_Count": 38487.0,
+          "Miss_Count": 27049.0,
+          "wall_seconds": 0.06351132800000059
+        },
+        "Vanius0525": {
+          "Total_Score": 160022355.69,
+          "Total_IO_Time": 159617116.67,
+          "Total_Decision_Time": 3489.02,
+          "Hit_Count": 63929.0,
+          "Miss_Count": 1607.0,
+          "wall_seconds": 0.046642389000000506
+        },
+        "cyanneko": {
+          "Total_Score": 152364319.28,
+          "Total_IO_Time": 152043099.04,
+          "Total_Decision_Time": 1720.24,
+          "Hit_Count": 64258.0,
+          "Miss_Count": 1278.0,
+          "wall_seconds": 0.04795516699999958
+        }
+      }
+    },
+    {
+      "path": "eval/eval_03_004_static_hot_cold.txt",
+      "sha256": "4cbe5a06ce2ffc3f090ae60b1d035aa23332464f04e6650e9d2ac4c588dc0e72",
+      "family": "static_hot_cold",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 6.64068355988346,
+        "cyanneko": 6.606928324793159
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 23739449085.64,
+          "Total_IO_Time": 23726914143.22,
+          "Total_Decision_Time": 62192.42,
+          "Hit_Count": 81181.0,
+          "Miss_Count": 49891.0,
+          "wall_seconds": 0.13936675200000082
+        },
+        "Vanius0525": {
+          "Total_Score": 7974832159.27,
+          "Total_IO_Time": 7968993233.2,
+          "Total_Decision_Time": 62676.07,
+          "Hit_Count": 107967.0,
+          "Miss_Count": 23105.0,
+          "wall_seconds": 0.13462669100000113
+        },
+        "cyanneko": {
+          "Total_Score": 8054965227.75,
+          "Total_IO_Time": 8049410376.87,
+          "Total_Decision_Time": 36350.89,
+          "Hit_Count": 108998.0,
+          "Miss_Count": 22074.0,
+          "wall_seconds": 0.1127839159999997
+        }
+      }
+    },
+    {
+      "path": "eval/eval_04_000_dynamic_linear.txt",
+      "sha256": "11e27df4468a759a6d3cac4922f67681044d1572c34e44f9036ae96e25a7584e",
+      "family": "dynamic_linear",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 2.197950891056365,
+        "cyanneko": 2.0851253242295575
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 4239122296.05,
+          "Total_IO_Time": 4231106851.13,
+          "Total_Decision_Time": 2444.92,
+          "Hit_Count": 24755.0,
+          "Miss_Count": 8013.0,
+          "wall_seconds": 0.04787873399999931
+        },
+        "Vanius0525": {
+          "Total_Score": 3307384033.26,
+          "Total_IO_Time": 3298860428.63,
+          "Total_Decision_Time": 6604.63,
+          "Hit_Count": 24251.0,
+          "Miss_Count": 8517.0,
+          "wall_seconds": 0.06379608800000014
+        },
+        "cyanneko": {
+          "Total_Score": 3355212170.85,
+          "Total_IO_Time": 3346619032.52,
+          "Total_Decision_Time": 4138.33,
+          "Hit_Count": 24179.0,
+          "Miss_Count": 8589.0,
+          "wall_seconds": 0.04705637800000062
+        }
+      }
+    },
+    {
+      "path": "eval/eval_04_001_dynamic_linear.txt",
+      "sha256": "e801bc62c8a98a62d90eb89d51ed2b9d6cf96d386eea5472e60ccafef2a67178",
+      "family": "dynamic_linear",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.872444850372225,
+        "cyanneko": 5.3803045607973665
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 96057645.15,
+          "Total_IO_Time": 93928279.36,
+          "Total_Decision_Time": 4365.78,
+          "Hit_Count": 30643.0,
+          "Miss_Count": 2125.0,
+          "wall_seconds": 0.04004789200000047
+        },
+        "Vanius0525": {
+          "Total_Score": 39648322.79,
+          "Total_IO_Time": 38345682.78,
+          "Total_Decision_Time": 6640.02,
+          "Hit_Count": 31472.0,
+          "Miss_Count": 1296.0,
+          "wall_seconds": 0.04417534099999898
+        },
+        "cyanneko": {
+          "Total_Score": 44375706.52,
+          "Total_IO_Time": 43061540.19,
+          "Total_Decision_Time": 11166.32,
+          "Hit_Count": 31465.0,
+          "Miss_Count": 1303.0,
+          "wall_seconds": 0.059233512999998794
+        }
+      }
+    },
+    {
+      "path": "eval/eval_04_002_dynamic_linear.txt",
+      "sha256": "6c8cd509ac93782dd31309413ce153e72ca9b7cad0839a5b0195b93bb5cf1be2",
+      "family": "dynamic_linear",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 4.205649153832612,
+        "cyanneko": 4.076544985759761
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 13822428559.34,
+          "Total_IO_Time": 13816297530.34,
+          "Total_Decision_Time": 2029.0,
+          "Hit_Count": 26639.0,
+          "Miss_Count": 6129.0,
+          "wall_seconds": 0.03876029999999986
+        },
+        "Vanius0525": {
+          "Total_Score": 8009200061.89,
+          "Total_IO_Time": 8004965514.47,
+          "Total_Decision_Time": 3547.42,
+          "Hit_Count": 28537.0,
+          "Miss_Count": 4231.0,
+          "wall_seconds": 0.041295832999999504
+        },
+        "cyanneko": {
+          "Total_Score": 8187653375.88,
+          "Total_IO_Time": 8182645458.03,
+          "Total_Decision_Time": 2917.85,
+          "Hit_Count": 27763.0,
+          "Miss_Count": 5005.0,
+          "wall_seconds": 0.042626891000001166
+        }
+      }
+    },
+    {
+      "path": "eval/eval_04_003_dynamic_linear.txt",
+      "sha256": "42587663e097d164ae22ee042f1b9ffccee4d71c078a02c91a17e5405ce6716d",
+      "family": "dynamic_linear",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.122775969853862,
+        "cyanneko": 7.270236974820932
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 1552698892.03,
+          "Total_IO_Time": 1552321429.39,
+          "Total_Decision_Time": 22432.64,
+          "Hit_Count": 30033.0,
+          "Miss_Count": 35503.0,
+          "wall_seconds": 0.07772378599999996
+        },
+        "Vanius0525": {
+          "Total_Score": 291476367.17,
+          "Total_IO_Time": 291391270.67,
+          "Total_Decision_Time": 9976.5,
+          "Hit_Count": 58024.0,
+          "Miss_Count": 7512.0,
+          "wall_seconds": 0.05946724400000036
+        },
+        "cyanneko": {
+          "Total_Score": 423850002.47,
+          "Total_IO_Time": 423730284.13,
+          "Total_Decision_Time": 11448.34,
+          "Hit_Count": 54709.0,
+          "Miss_Count": 10827.0,
+          "wall_seconds": 0.06840238699999901
+        }
+      }
+    },
+    {
+      "path": "eval/eval_04_004_dynamic_linear.txt",
+      "sha256": "ab84f2a8c60ff2f871a90d5aa85be22abf4271f134cd9d5b3fdba9a6d482ce15",
+      "family": "dynamic_linear",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 3.666854761809726,
+        "cyanneko": 3.296861024962363
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 17361643280.87,
+          "Total_IO_Time": 17360133003.11,
+          "Total_Decision_Time": 14977.76,
+          "Hit_Count": 101166.0,
+          "Miss_Count": 29906.0,
+          "wall_seconds": 0.09554095000000018
+        },
+        "Vanius0525": {
+          "Total_Score": 10995380847.14,
+          "Total_IO_Time": 10993757043.22,
+          "Total_Decision_Time": 46553.93,
+          "Hit_Count": 99527.0,
+          "Miss_Count": 31545.0,
+          "wall_seconds": 0.13741849299999842
+        },
+        "cyanneko": {
+          "Total_Score": 11637750774.67,
+          "Total_IO_Time": 11636294790.64,
+          "Total_Decision_Time": 23384.02,
+          "Hit_Count": 102420.0,
+          "Miss_Count": 28652.0,
+          "wall_seconds": 0.09883371300000121
+        }
+      }
+    },
+    {
+      "path": "eval/eval_05_000_dynamic_sinusoidal.txt",
+      "sha256": "81d3c68bd9346687a4bb7a6bb51da1a7d1ab45b4da69104a5000a5104bbf0896",
+      "family": "dynamic_sinusoidal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 6.074534822303169,
+        "cyanneko": 4.844027453982719
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 3884805454.05,
+          "Total_IO_Time": 3884703569.44,
+          "Total_Decision_Time": 4684.61,
+          "Hit_Count": 30824.0,
+          "Miss_Count": 1944.0,
+          "wall_seconds": 0.04635531599999965
+        },
+        "Vanius0525": {
+          "Total_Score": 1524966853.2,
+          "Total_IO_Time": 1524675325.66,
+          "Total_Decision_Time": 15227.54,
+          "Hit_Count": 27242.0,
+          "Miss_Count": 5526.0,
+          "wall_seconds": 0.059337962000000744
+        },
+        "cyanneko": {
+          "Total_Score": 2002995026.77,
+          "Total_IO_Time": 2002661396.78,
+          "Total_Decision_Time": 8329.99,
+          "Hit_Count": 26262.0,
+          "Miss_Count": 6506.0,
+          "wall_seconds": 0.05020210600000041
+        }
+      }
+    },
+    {
+      "path": "eval/eval_05_001_dynamic_sinusoidal.txt",
+      "sha256": "b0fef37ca64cc0af935b3fa1533451d59e478cb9269a989af81db7f0ba39d84e",
+      "family": "dynamic_sinusoidal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.636510397853259,
+        "cyanneko": 5.021569365955585
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 310182993.5,
+          "Total_IO_Time": 310048571.32,
+          "Total_Decision_Time": 1522.19,
+          "Hit_Count": 30110.0,
+          "Miss_Count": 2658.0,
+          "wall_seconds": 0.026523390999997787
+        },
+        "Vanius0525": {
+          "Total_Score": 135348026.69,
+          "Total_IO_Time": 135130449.38,
+          "Total_Decision_Time": 7477.32,
+          "Hit_Count": 28566.0,
+          "Miss_Count": 4202.0,
+          "wall_seconds": 0.03429941599999964
+        },
+        "cyanneko": {
+          "Total_Score": 154422451.7,
+          "Total_IO_Time": 154179290.32,
+          "Total_Decision_Time": 4211.38,
+          "Hit_Count": 27989.0,
+          "Miss_Count": 4779.0,
+          "wall_seconds": 0.030507532999997977
+        }
+      }
+    },
+    {
+      "path": "eval/eval_05_002_dynamic_sinusoidal.txt",
+      "sha256": "812d7bd2ddc9fffb21fdf96681a89dafc5ac2b17976a3d2a5e334ec15ce4eb0a",
+      "family": "dynamic_sinusoidal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 2.642257153872799,
+        "cyanneko": 2.548380259040356
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 4876352522.28,
+          "Total_IO_Time": 4869696276.21,
+          "Total_Decision_Time": 1746.07,
+          "Hit_Count": 19459.0,
+          "Miss_Count": 13309.0,
+          "wall_seconds": 0.027241402000001358
+        },
+        "Vanius0525": {
+          "Total_Score": 3587894788.6,
+          "Total_IO_Time": 3582902261.66,
+          "Total_Decision_Time": 5526.94,
+          "Hit_Count": 22794.0,
+          "Miss_Count": 9974.0,
+          "wall_seconds": 0.03737556600000147
+        },
+        "cyanneko": {
+          "Total_Score": 3633672471.89,
+          "Total_IO_Time": 3628133782.94,
+          "Total_Decision_Time": 3688.95,
+          "Hit_Count": 21698.0,
+          "Miss_Count": 11070.0,
+          "wall_seconds": 0.030610677000002084
+        }
+      }
+    },
+    {
+      "path": "eval/eval_05_003_dynamic_sinusoidal.txt",
+      "sha256": "a67602a5998282134b7c7a6887bd7c6fed4a34216a70a8ac4789d9ac57d5d33a",
+      "family": "dynamic_sinusoidal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.61659097613132,
+        "cyanneko": 9.467734603766209
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 9597440873.38,
+          "Total_IO_Time": 9595143841.24,
+          "Total_Decision_Time": 14632.14,
+          "Hit_Count": 42712.0,
+          "Miss_Count": 22824.0,
+          "wall_seconds": 0.08135271499999774
+        },
+        "Vanius0525": {
+          "Total_Score": 367974543.69,
+          "Total_IO_Time": 367854545.17,
+          "Total_Decision_Time": 1398.52,
+          "Hit_Count": 64350.0,
+          "Miss_Count": 1186.0,
+          "wall_seconds": 0.06206069199999931
+        },
+        "cyanneko": {
+          "Total_Score": 510838566.93,
+          "Total_IO_Time": 510628527.88,
+          "Total_Decision_Time": 2639.05,
+          "Hit_Count": 63462.0,
+          "Miss_Count": 2074.0,
+          "wall_seconds": 0.06879082999999753
+        }
+      }
+    },
+    {
+      "path": "eval/eval_05_004_dynamic_sinusoidal.txt",
+      "sha256": "8ddd6206d3c740cbbc5bbf9bdf96edbae68dd2860e729df091fe6dcbfbcda50e",
+      "family": "dynamic_sinusoidal",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.601340538027227,
+        "cyanneko": 5.095773175796047
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 32440902438.24,
+          "Total_IO_Time": 32436439050.25,
+          "Total_Decision_Time": 33887.98,
+          "Hit_Count": 86777.0,
+          "Miss_Count": 44295.0,
+          "wall_seconds": 0.13383780699999903
+        },
+        "Vanius0525": {
+          "Total_Score": 14269648246.49,
+          "Total_IO_Time": 14265677421.77,
+          "Total_Decision_Time": 32624.72,
+          "Hit_Count": 91690.0,
+          "Miss_Count": 39382.0,
+          "wall_seconds": 0.1708710100000026
+        },
+        "cyanneko": {
+          "Total_Score": 15909754393.9,
+          "Total_IO_Time": 15905542584.45,
+          "Total_Decision_Time": 30309.45,
+          "Hit_Count": 89257.0,
+          "Miss_Count": 41815.0,
+          "wall_seconds": 0.1422853929999981
+        }
+      }
+    },
+    {
+      "path": "eval/eval_06_000_dynamic_periodic_steps.txt",
+      "sha256": "b298571b859a206590239ed1ce771478be453bfb1a28f767c7c5bfa653c66507",
+      "family": "dynamic_periodic_steps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 2.6120331499140303,
+        "cyanneko": 2.303147934820343
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 1373428956.68,
+          "Total_IO_Time": 1372920388.88,
+          "Total_Decision_Time": 3967.8,
+          "Hit_Count": 27722.0,
+          "Miss_Count": 5046.0,
+          "wall_seconds": 0.04712074099999697
+        },
+        "Vanius0525": {
+          "Total_Score": 1014684760.29,
+          "Total_IO_Time": 1014121477.74,
+          "Total_Decision_Time": 10382.55,
+          "Hit_Count": 27239.0,
+          "Miss_Count": 5529.0,
+          "wall_seconds": 0.08951235900000043
+        },
+        "cyanneko": {
+          "Total_Score": 1057107950.16,
+          "Total_IO_Time": 1056530859.54,
+          "Total_Decision_Time": 5690.62,
+          "Hit_Count": 27054.0,
+          "Miss_Count": 5714.0,
+          "wall_seconds": 0.1028436329999991
+        }
+      }
+    },
+    {
+      "path": "eval/eval_06_001_dynamic_periodic_steps.txt",
+      "sha256": "e737839022009efac09bfcc47bad348e5973941bd8890eb71035bded18852fe9",
+      "family": "dynamic_periodic_steps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 4.37007876022014,
+        "cyanneko": 4.1288954136380305
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 3097912429.23,
+          "Total_IO_Time": 3097903170.38,
+          "Total_Decision_Time": 728.85,
+          "Hit_Count": 31915.0,
+          "Miss_Count": 853.0,
+          "wall_seconds": 0.04129066600000186
+        },
+        "Vanius0525": {
+          "Total_Score": 1744100298.43,
+          "Total_IO_Time": 1744070347.83,
+          "Total_Decision_Time": 4220.6,
+          "Hit_Count": 30195.0,
+          "Miss_Count": 2573.0,
+          "wall_seconds": 0.047771463000000125
+        },
+        "cyanneko": {
+          "Total_Score": 1818816787.14,
+          "Total_IO_Time": 1818787056.94,
+          "Total_Decision_Time": 1920.2,
+          "Hit_Count": 29987.0,
+          "Miss_Count": 2781.0,
+          "wall_seconds": 0.04295745900000014
+        }
+      }
+    },
+    {
+      "path": "eval/eval_06_002_dynamic_periodic_steps.txt",
+      "sha256": "6c856bd2432fd8766a19ae33f7221a0cfa66fef9b11d12c6e6002cfb7b4df075",
+      "family": "dynamic_periodic_steps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 3.5117341880184636,
+        "cyanneko": 3.2093178977987016
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 526372800.17,
+          "Total_IO_Time": 526230271.25,
+          "Total_Decision_Time": 4578.92,
+          "Hit_Count": 30009.0,
+          "Miss_Count": 2759.0,
+          "wall_seconds": 0.04079891099999955
+        },
+        "Vanius0525": {
+          "Total_Score": 341524664.37,
+          "Total_IO_Time": 341434425.8,
+          "Total_Decision_Time": 6438.57,
+          "Hit_Count": 31092.0,
+          "Miss_Count": 1676.0,
+          "wall_seconds": 0.04599417200000033
+        },
+        "cyanneko": {
+          "Total_Score": 357443035.32,
+          "Total_IO_Time": 357344108.38,
+          "Total_Decision_Time": 7026.94,
+          "Hit_Count": 30930.0,
+          "Miss_Count": 1838.0,
+          "wall_seconds": 0.03913228500000088
+        }
+      }
+    },
+    {
+      "path": "eval/eval_06_003_dynamic_periodic_steps.txt",
+      "sha256": "8cb6fe32962d38d275ea9bf58000c3221f0937fea9e01535a95f901c62f02459",
+      "family": "dynamic_periodic_steps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.501683205853656,
+        "cyanneko": 9.447864138836547
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 5334011957.3,
+          "Total_IO_Time": 5333736323.12,
+          "Total_Decision_Time": 36144.18,
+          "Hit_Count": 41587.0,
+          "Miss_Count": 23949.0,
+          "wall_seconds": 0.10207053699999946
+        },
+        "Vanius0525": {
+          "Total_Score": 265802773.85,
+          "Total_IO_Time": 265787009.36,
+          "Total_Decision_Time": 3554.49,
+          "Hit_Count": 64315.0,
+          "Miss_Count": 1221.0,
+          "wall_seconds": 0.06455691700000088
+        },
+        "cyanneko": {
+          "Total_Score": 294509928.55,
+          "Total_IO_Time": 294493235.58,
+          "Total_Decision_Time": 2962.98,
+          "Hit_Count": 64163.0,
+          "Miss_Count": 1373.0,
+          "wall_seconds": 0.06054953499999982
+        }
+      }
+    },
+    {
+      "path": "eval/eval_06_004_dynamic_periodic_steps.txt",
+      "sha256": "c4cc00d71bc6319c6b9c76fc5d447de2d4328711676aecc20e16433c2f884563",
+      "family": "dynamic_periodic_steps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.525540119988129,
+        "cyanneko": 8.32212842966763
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 4512431285.31,
+          "Total_IO_Time": 4501316000.48,
+          "Total_Decision_Time": 16284.83,
+          "Hit_Count": 119973.0,
+          "Miss_Count": 11099.0,
+          "wall_seconds": 0.08936607900000126
+        },
+        "Vanius0525": {
+          "Total_Score": 665339889.15,
+          "Total_IO_Time": 652745653.35,
+          "Total_Decision_Time": 27235.8,
+          "Hit_Count": 118505.0,
+          "Miss_Count": 12567.0,
+          "wall_seconds": 0.10813217300000133
+        },
+        "cyanneko": {
+          "Total_Score": 757128016.67,
+          "Total_IO_Time": 745071071.29,
+          "Total_Decision_Time": 12945.38,
+          "Hit_Count": 119028.0,
+          "Miss_Count": 12044.0,
+          "wall_seconds": 0.10688265699999988
+        }
+      }
+    },
+    {
+      "path": "eval/eval_07_000_dynamic_irregular_jumps.txt",
+      "sha256": "ae89dd63936849f428cb6480ba6809147979822028cdba0eb359c70cac04f2cb",
+      "family": "dynamic_irregular_jumps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.8279867138103985,
+        "cyanneko": 5.449899792696192
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 3906982621.21,
+          "Total_IO_Time": 3905522393.63,
+          "Total_Decision_Time": 15977.58,
+          "Hit_Count": 26991.0,
+          "Miss_Count": 5777.0,
+          "wall_seconds": 0.04898665500000021
+        },
+        "Vanius0525": {
+          "Total_Score": 1629998340.46,
+          "Total_IO_Time": 1628206557.87,
+          "Total_Decision_Time": 20282.59,
+          "Hit_Count": 25682.0,
+          "Miss_Count": 7086.0,
+          "wall_seconds": 0.056172651999997214
+        },
+        "cyanneko": {
+          "Total_Score": 1777716243.47,
+          "Total_IO_Time": 1775864379.49,
+          "Total_Decision_Time": 10863.99,
+          "Hit_Count": 25404.0,
+          "Miss_Count": 7364.0,
+          "wall_seconds": 0.04522460700000153
+        }
+      }
+    },
+    {
+      "path": "eval/eval_07_001_dynamic_irregular_jumps.txt",
+      "sha256": "1666f4710916942b9216f0a02e306353041d68a16bf385fe48ec7df3a849934e",
+      "family": "dynamic_irregular_jumps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 7.659929022939086,
+        "cyanneko": 7.504242273896542
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 3243334119.99,
+          "Total_IO_Time": 3243213389.05,
+          "Total_Decision_Time": 2080.94,
+          "Hit_Count": 30395.0,
+          "Miss_Count": 2373.0,
+          "wall_seconds": 0.03671373999999972
+        },
+        "Vanius0525": {
+          "Total_Score": 758963204.31,
+          "Total_IO_Time": 758764273.34,
+          "Total_Decision_Time": 4330.97,
+          "Hit_Count": 28876.0,
+          "Miss_Count": 3892.0,
+          "wall_seconds": 0.0391770340000015
+        },
+        "cyanneko": {
+          "Total_Score": 809457618.83,
+          "Total_IO_Time": 809259432.13,
+          "Total_Decision_Time": 3386.7,
+          "Hit_Count": 28872.0,
+          "Miss_Count": 3896.0,
+          "wall_seconds": 0.04007813200000143
+        }
+      }
+    },
+    {
+      "path": "eval/eval_07_002_dynamic_irregular_jumps.txt",
+      "sha256": "db294465ed2750c092f8608e0a1ba666bf2138337e88a27c9d22b1421e28f6eb",
+      "family": "dynamic_irregular_jumps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.767450839895725,
+        "cyanneko": 4.972805822962575
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 10704565515.97,
+          "Total_IO_Time": 10701529726.45,
+          "Total_Decision_Time": 2289.52,
+          "Hit_Count": 26701.0,
+          "Miss_Count": 6067.0,
+          "wall_seconds": 0.035960575000000716
+        },
+        "Vanius0525": {
+          "Total_Score": 4530759978.39,
+          "Total_IO_Time": 4527985744.04,
+          "Total_Decision_Time": 3734.35,
+          "Hit_Count": 27227.0,
+          "Miss_Count": 5541.0,
+          "wall_seconds": 0.0492395099999996
+        },
+        "cyanneko": {
+          "Total_Score": 5381392942.96,
+          "Total_IO_Time": 5378202597.27,
+          "Total_Decision_Time": 3345.69,
+          "Hit_Count": 26394.0,
+          "Miss_Count": 6374.0,
+          "wall_seconds": 0.03966144600000021
+        }
+      }
+    },
+    {
+      "path": "eval/eval_07_003_dynamic_irregular_jumps.txt",
+      "sha256": "47ba957f866733617e58c2c01f00b57132c51e207a6364ac29eed5de1f4651e7",
+      "family": "dynamic_irregular_jumps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.850035214092962,
+        "cyanneko": 8.597391697194274
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 762823595.34,
+          "Total_IO_Time": 761614025.9,
+          "Total_Decision_Time": 7519.44,
+          "Hit_Count": 41495.0,
+          "Miss_Count": 24041.0,
+          "wall_seconds": 0.05123541900000106
+        },
+        "Vanius0525": {
+          "Total_Score": 87722027.25,
+          "Total_IO_Time": 87542089.41,
+          "Total_Decision_Time": 4937.84,
+          "Hit_Count": 62036.0,
+          "Miss_Count": 3500.0,
+          "wall_seconds": 0.050576853000002586
+        },
+        "cyanneko": {
+          "Total_Score": 106994270.84,
+          "Total_IO_Time": 106805522.14,
+          "Total_Decision_Time": 3048.71,
+          "Hit_Count": 61822.0,
+          "Miss_Count": 3714.0,
+          "wall_seconds": 0.043330361000002426
+        }
+      }
+    },
+    {
+      "path": "eval/eval_07_004_dynamic_irregular_jumps.txt",
+      "sha256": "92649f46dcb6b5e16345f2b0c14c8ac112917b0a59db8e6968f5d4e392766735",
+      "family": "dynamic_irregular_jumps",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 4.698259744821717,
+        "cyanneko": 4.633137728113813
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 31203236019.46,
+          "Total_IO_Time": 31171076264.62,
+          "Total_Decision_Time": 6754.84,
+          "Hit_Count": 98919.0,
+          "Miss_Count": 32153.0,
+          "wall_seconds": 0.08482312500000333
+        },
+        "Vanius0525": {
+          "Total_Score": 16543145249.62,
+          "Total_IO_Time": 16508912627.05,
+          "Total_Decision_Time": 22622.57,
+          "Hit_Count": 96862.0,
+          "Miss_Count": 34210.0,
+          "wall_seconds": 0.10317375600000034
+        },
+        "cyanneko": {
+          "Total_Score": 16746347015.36,
+          "Total_IO_Time": 16716739379.17,
+          "Total_Decision_Time": 13636.19,
+          "Hit_Count": 101478.0,
+          "Miss_Count": 29594.0,
+          "wall_seconds": 0.11524072199999935
+        }
+      }
+    },
+    {
+      "path": "eval/eval_08_000_dynamic_random_walk.txt",
+      "sha256": "26a7995b17c356dd0234b7db825e3f0d76be3bcf4881344898a2ed7053fcbbeb",
+      "family": "dynamic_random_walk",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 1.0370640420269106,
+        "cyanneko": 0.951765326028351
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 6870302534.33,
+          "Total_IO_Time": 6870192623.64,
+          "Total_Decision_Time": 1740.68,
+          "Hit_Count": 21951.0,
+          "Miss_Count": 10817.0,
+          "wall_seconds": 0.03400874799999798
+        },
+        "Vanius0525": {
+          "Total_Score": 6157808162.71,
+          "Total_IO_Time": 6157705247.62,
+          "Total_Decision_Time": 8895.09,
+          "Hit_Count": 23366.0,
+          "Miss_Count": 9402.0,
+          "wall_seconds": 0.04183334500000058
+        },
+        "cyanneko": {
+          "Total_Score": 6216410961.18,
+          "Total_IO_Time": 6216306066.16,
+          "Total_Decision_Time": 4545.01,
+          "Hit_Count": 22733.0,
+          "Miss_Count": 10035.0,
+          "wall_seconds": 0.04115554000000188
+        }
+      }
+    },
+    {
+      "path": "eval/eval_08_001_dynamic_random_walk.txt",
+      "sha256": "764a25f37b85696949c60be48711397a9a9b72428d4654a286f3aba0337aec4d",
+      "family": "dynamic_random_walk",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 3.3700910135878948,
+        "cyanneko": 3.1365930202924917
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 7327426213.19,
+          "Total_IO_Time": 7327387513.96,
+          "Total_Decision_Time": 1129.22,
+          "Hit_Count": 29011.0,
+          "Miss_Count": 3757.0,
+          "wall_seconds": 0.07194513199999975
+        },
+        "Vanius0525": {
+          "Total_Score": 4858016889.81,
+          "Total_IO_Time": 4857969147.09,
+          "Total_Decision_Time": 3562.72,
+          "Hit_Count": 28350.0,
+          "Miss_Count": 4418.0,
+          "wall_seconds": 0.04076635199999856
+        },
+        "cyanneko": {
+          "Total_Score": 5029110821.49,
+          "Total_IO_Time": 5029063376.32,
+          "Total_Decision_Time": 2905.18,
+          "Hit_Count": 28314.0,
+          "Miss_Count": 4454.0,
+          "wall_seconds": 0.04252676999999849
+        }
+      }
+    },
+    {
+      "path": "eval/eval_08_002_dynamic_random_walk.txt",
+      "sha256": "ff0c94bcdfb87fa1488a50e64d47c43389d6e946fd22e04d94947efc2ec97552",
+      "family": "dynamic_random_walk",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.252865553277971,
+        "cyanneko": 7.767059915004964
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 98836931.31,
+          "Total_IO_Time": 98759237.72,
+          "Total_Decision_Time": 693.59,
+          "Hit_Count": 32460.0,
+          "Miss_Count": 308.0,
+          "wall_seconds": 0.04143842499999906
+        },
+        "Vanius0525": {
+          "Total_Score": 17268140.73,
+          "Total_IO_Time": 17136087.53,
+          "Total_Decision_Time": 1303.2,
+          "Hit_Count": 32245.0,
+          "Miss_Count": 523.0,
+          "wall_seconds": 0.041787680999998855
+        },
+        "cyanneko": {
+          "Total_Score": 22069694.58,
+          "Total_IO_Time": 22020029.89,
+          "Total_Decision_Time": 664.69,
+          "Hit_Count": 32572.0,
+          "Miss_Count": 196.0,
+          "wall_seconds": 0.038923482999997816
+        }
+      }
+    },
+    {
+      "path": "eval/eval_08_003_dynamic_random_walk.txt",
+      "sha256": "01bb127b21332164926586d63908faf818da946cce5ec052321844fb9a92b154",
+      "family": "dynamic_random_walk",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.366874460546565,
+        "cyanneko": 8.079218764785422
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 3918736423.13,
+          "Total_IO_Time": 3908829208.95,
+          "Total_Decision_Time": 17464.19,
+          "Hit_Count": 25977.0,
+          "Miss_Count": 39559.0,
+          "wall_seconds": 0.06882250700000014
+        },
+        "Vanius0525": {
+          "Total_Score": 639978853.5,
+          "Total_IO_Time": 638043348.81,
+          "Total_Decision_Time": 11004.7,
+          "Hit_Count": 57838.0,
+          "Miss_Count": 7698.0,
+          "wall_seconds": 0.0633627919999995
+        },
+        "cyanneko": {
+          "Total_Score": 752703538.73,
+          "Total_IO_Time": 750383977.0,
+          "Total_Decision_Time": 7311.73,
+          "Hit_Count": 56287.0,
+          "Miss_Count": 9249.0,
+          "wall_seconds": 0.06264433699999827
+        }
+      }
+    },
+    {
+      "path": "eval/eval_08_004_dynamic_random_walk.txt",
+      "sha256": "ec73a8449b8bccb085b1c334be0141bdd7b6af767f396d764a75b941e81616eb",
+      "family": "dynamic_random_walk",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.096126324618156,
+        "cyanneko": 4.983859698478028
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 277110400240.13,
+          "Total_IO_Time": 277096247434.58,
+          "Total_Decision_Time": 14805.55,
+          "Hit_Count": 102796.0,
+          "Miss_Count": 28276.0,
+          "wall_seconds": 0.12350648700000022
+        },
+        "Vanius0525": {
+          "Total_Score": 135891439691.21,
+          "Total_IO_Time": 135878862640.37,
+          "Total_Decision_Time": 12050.84,
+          "Hit_Count": 105942.0,
+          "Miss_Count": 25130.0,
+          "wall_seconds": 0.11649332200000018
+        },
+        "cyanneko": {
+          "Total_Score": 139002464661.54,
+          "Total_IO_Time": 138989297779.57,
+          "Total_Decision_Time": 13381.96,
+          "Hit_Count": 104765.0,
+          "Miss_Count": 26307.0,
+          "wall_seconds": 0.1225574569999992
+        }
+      }
+    },
+    {
+      "path": "eval/eval_09_000_dynamic_sigmoid_mix.txt",
+      "sha256": "d1cb11255ec3d409277a8d07be6ebd20256d50f64f8b81fe61a0b1ab70a17a09",
+      "family": "dynamic_sigmoid_mix",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 3.8541162012376784,
+        "cyanneko": 3.7604556396992637
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 840818734.23,
+          "Total_IO_Time": 839588683.31,
+          "Total_Decision_Time": 5750.92,
+          "Hit_Count": 20525.0,
+          "Miss_Count": 12243.0,
+          "wall_seconds": 0.033500235000001766
+        },
+        "Vanius0525": {
+          "Total_Score": 516757423.64,
+          "Total_IO_Time": 515564440.5,
+          "Total_Decision_Time": 10283.13,
+          "Hit_Count": 20941.0,
+          "Miss_Count": 11827.0,
+          "wall_seconds": 0.03962257500000277
+        },
+        "cyanneko": {
+          "Total_Score": 524632579.12,
+          "Total_IO_Time": 523436949.34,
+          "Total_Decision_Time": 6129.79,
+          "Hit_Count": 20873.0,
+          "Miss_Count": 11895.0,
+          "wall_seconds": 0.035321325999998265
+        }
+      }
+    },
+    {
+      "path": "eval/eval_09_001_dynamic_sigmoid_mix.txt",
+      "sha256": "24fe9a20c0755a79c8c980e69a8f99eb20b3374f762a7ba8573bee8dcaa390fc",
+      "family": "dynamic_sigmoid_mix",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 1.5699732827196944,
+        "cyanneko": 1.0744131261237366
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 1174537431.94,
+          "Total_IO_Time": 1174489875.05,
+          "Total_Decision_Time": 1366.9,
+          "Hit_Count": 28149.0,
+          "Miss_Count": 4619.0,
+          "wall_seconds": 0.037955415999999076
+        },
+        "Vanius0525": {
+          "Total_Score": 990138193.17,
+          "Total_IO_Time": 990094633.79,
+          "Total_Decision_Time": 3499.39,
+          "Hit_Count": 28762.0,
+          "Miss_Count": 4006.0,
+          "wall_seconds": 0.04426090500000157
+        },
+        "cyanneko": {
+          "Total_Score": 1048343588.54,
+          "Total_IO_Time": 1048295611.59,
+          "Total_Decision_Time": 2456.95,
+          "Hit_Count": 28216.0,
+          "Miss_Count": 4552.0,
+          "wall_seconds": 0.04076294500000088
+        }
+      }
+    },
+    {
+      "path": "eval/eval_09_002_dynamic_sigmoid_mix.txt",
+      "sha256": "ca01e19313a3bf51e606a47c3f99a9d3c4cf8b16a9a74c6cb8fece1fcd42976a",
+      "family": "dynamic_sigmoid_mix",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 3.729470306725524,
+        "cyanneko": 3.463630857953569
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 283657361.42,
+          "Total_IO_Time": 283442283.52,
+          "Total_Decision_Time": 327.9,
+          "Hit_Count": 31909.0,
+          "Miss_Count": 859.0,
+          "wall_seconds": 0.02890589500000118
+        },
+        "Vanius0525": {
+          "Total_Score": 177868190.75,
+          "Total_IO_Time": 177579098.68,
+          "Total_Decision_Time": 842.07,
+          "Hit_Count": 31615.0,
+          "Miss_Count": 1153.0,
+          "wall_seconds": 0.03042940999999999
+        },
+        "cyanneko": {
+          "Total_Score": 185408922.41,
+          "Total_IO_Time": 185158541.57,
+          "Total_Decision_Time": 880.84,
+          "Hit_Count": 31770.0,
+          "Miss_Count": 998.0,
+          "wall_seconds": 0.028008378000002665
+        }
+      }
+    },
+    {
+      "path": "eval/eval_09_003_dynamic_sigmoid_mix.txt",
+      "sha256": "4d4ab285f25f392dc0668329e66ce058e8b119e0e57b1b98e047317b10d111c1",
+      "family": "dynamic_sigmoid_mix",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.021189180302782,
+        "cyanneko": 8.885416705354848
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 5866380349.96,
+          "Total_IO_Time": 5816717013.43,
+          "Total_Decision_Time": 39336.53,
+          "Hit_Count": 15912.0,
+          "Miss_Count": 49624.0,
+          "wall_seconds": 0.0955368959999987
+        },
+        "Vanius0525": {
+          "Total_Score": 574207655.9,
+          "Total_IO_Time": 569303171.71,
+          "Total_Decision_Time": 13484.19,
+          "Hit_Count": 60645.0,
+          "Miss_Count": 4891.0,
+          "wall_seconds": 0.07580710699999926
+        },
+        "cyanneko": {
+          "Total_Score": 653856953.81,
+          "Total_IO_Time": 648300514.94,
+          "Total_Decision_Time": 11438.87,
+          "Hit_Count": 59991.0,
+          "Miss_Count": 5545.0,
+          "wall_seconds": 0.12319606200000166
+        }
+      }
+    },
+    {
+      "path": "eval/eval_09_004_dynamic_sigmoid_mix.txt",
+      "sha256": "8ff2d0c24ff36b9acfa899303addbe01b51fd92e2497c912aca6fcde6cbcfffc",
+      "family": "dynamic_sigmoid_mix",
+      "cohort": "old50",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 3.935347074551705,
+        "cyanneko": 3.951965607289931
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 8551177810.85,
+          "Total_IO_Time": 8550891069.6,
+          "Total_Decision_Time": 18901.25,
+          "Hit_Count": 104288.0,
+          "Miss_Count": 26784.0,
+          "wall_seconds": 0.11967729200000221
+        },
+        "Vanius0525": {
+          "Total_Score": 5185992552.66,
+          "Total_IO_Time": 5185775438.28,
+          "Total_Decision_Time": 30004.37,
+          "Hit_Count": 112361.0,
+          "Miss_Count": 18711.0,
+          "wall_seconds": 0.12064756599999882
+        },
+        "cyanneko": {
+          "Total_Score": 5171781749.82,
+          "Total_IO_Time": 5171568540.46,
+          "Total_Decision_Time": 27339.36,
+          "Hit_Count": 112485.0,
+          "Miss_Count": 18587.0,
+          "wall_seconds": 0.1258153180000008
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_00_000_static_uniform.txt",
+      "sha256": "ee80417ff19acc34c1086146f7c7f1438130c4e3c98dfe98ab3680894470fb20",
+      "family": "static_uniform",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 3.453556215188013,
+        "cyanneko": 3.5081586767570627
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 49738655189.85,
+          "Total_IO_Time": 49625370480.1,
+          "Total_Decision_Time": 364009.75,
+          "Hit_Count": 866764.0,
+          "Miss_Count": 1129207.0,
+          "wall_seconds": 1.4473352959999999
+        },
+        "Vanius0525": {
+          "Total_Score": 32561131013.25,
+          "Total_IO_Time": 32478543012.8,
+          "Total_Decision_Time": 1126400.45,
+          "Hit_Count": 1181355.0,
+          "Miss_Count": 814616.0,
+          "wall_seconds": 2.090645564000001
+        },
+        "cyanneko": {
+          "Total_Score": 32289545712.4,
+          "Total_IO_Time": 32206308368.98,
+          "Total_Decision_Time": 547643.42,
+          "Hit_Count": 1169074.0,
+          "Miss_Count": 826897.0,
+          "wall_seconds": 1.4688573489999994
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_00_001_static_uniform.txt",
+      "sha256": "eaf310ccc8434716e3062052c975e0bdf2ec04176bc00a86219abd68ddafd81e",
+      "family": "static_uniform",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 5.55249208146037,
+        "cyanneko": 6.424776595879997
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 20202172355.57,
+          "Total_IO_Time": 19665551696.34,
+          "Total_Decision_Time": 1554659.23,
+          "Hit_Count": 918280.0,
+          "Miss_Count": 1070132.0,
+          "wall_seconds": 2.5148027350000017
+        },
+        "Vanius0525": {
+          "Total_Score": 8984932152.31,
+          "Total_IO_Time": 8698294968.85,
+          "Total_Decision_Time": 2930183.45,
+          "Hit_Count": 1420998.0,
+          "Miss_Count": 567414.0,
+          "wall_seconds": 3.8897459650000012
+        },
+        "cyanneko": {
+          "Total_Score": 7222727941.97,
+          "Total_IO_Time": 6991640243.35,
+          "Total_Decision_Time": 1159198.62,
+          "Hit_Count": 1528555.0,
+          "Miss_Count": 459857.0,
+          "wall_seconds": 2.0632315819999985
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_01_000_static_zipf.txt",
+      "sha256": "5aef1ad99c0f4f7094c24a385c66b3792e1a2d04683515808c19e2fde1145db0",
+      "family": "static_zipf",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 0.2736550760157541,
+        "cyanneko": 0.839592052257323
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 3615741724.97,
+          "Total_IO_Time": 3609071537.75,
+          "Total_Decision_Time": 25187.21,
+          "Hit_Count": 1969794.0,
+          "Miss_Count": 26580.0,
+          "wall_seconds": 1.165722701
+        },
+        "Vanius0525": {
+          "Total_Score": 3516795117.31,
+          "Total_IO_Time": 3486581685.65,
+          "Total_Decision_Time": 194181.66,
+          "Hit_Count": 1876297.0,
+          "Miss_Count": 120077.0,
+          "wall_seconds": 1.0858227099999986
+        },
+        "cyanneko": {
+          "Total_Score": 3312166923.44,
+          "Total_IO_Time": 3294742980.64,
+          "Total_Decision_Time": 69942.8,
+          "Hit_Count": 1926958.0,
+          "Miss_Count": 69416.0,
+          "wall_seconds": 0.9510352429999998
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_01_001_static_zipf.txt",
+      "sha256": "aff1f3cc4e7f0a79b5fdbd27ab19f7859cfaa3685c72008ba6487bfa40107790",
+      "family": "static_zipf",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.65001014718813,
+        "cyanneko": 8.823025494021604
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 13750157454.47,
+          "Total_IO_Time": 12999646181.37,
+          "Total_Decision_Time": 1426273.1,
+          "Hit_Count": 1239701.0,
+          "Miss_Count": 749085.0,
+          "wall_seconds": 2.3309248039999986
+        },
+        "Vanius0525": {
+          "Total_Score": 1856257303.81,
+          "Total_IO_Time": 1737497241.03,
+          "Total_Decision_Time": 630062.78,
+          "Hit_Count": 1870656.0,
+          "Miss_Count": 118130.0,
+          "wall_seconds": 1.5141931329999991
+        },
+        "cyanneko": {
+          "Total_Score": 1618358477.71,
+          "Total_IO_Time": 1515326197.4,
+          "Total_Decision_Time": 326280.31,
+          "Hit_Count": 1886080.0,
+          "Miss_Count": 102706.0,
+          "wall_seconds": 1.2681683360000022
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_02_000_static_lognormal.txt",
+      "sha256": "dfee6b2071514b4863ee4084ff48359b8e743c862072d03123d3b3b41addf9b1",
+      "family": "static_lognormal",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 1.5350013322002598,
+        "cyanneko": 1.5290796723489697
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 724381477528.8,
+          "Total_IO_Time": 724213844726.69,
+          "Total_Decision_Time": 1138602.11,
+          "Hit_Count": 328466.0,
+          "Miss_Count": 1664942.0,
+          "wall_seconds": 2.1765955079999983
+        },
+        "Vanius0525": {
+          "Total_Score": 613188824226.01,
+          "Total_IO_Time": 613033180412.26,
+          "Total_Decision_Time": 1008013.75,
+          "Hit_Count": 447050.0,
+          "Miss_Count": 1546358.0,
+          "wall_seconds": 2.039362766
+        },
+        "cyanneko": {
+          "Total_Score": 613617778297.26,
+          "Total_IO_Time": 613462455544.35,
+          "Total_Decision_Time": 683452.91,
+          "Hit_Count": 447015.0,
+          "Miss_Count": 1546393.0,
+          "wall_seconds": 1.7035842559999992
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_02_001_static_lognormal.txt",
+      "sha256": "e653b65e08cf612e2147049aa87882dd1a49929c80ba49e560a2a30e5a139eb0",
+      "family": "static_lognormal",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 7.783702489724935,
+        "cyanneko": 7.967676360829438
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 40400079229.61,
+          "Total_IO_Time": 40250384842.61,
+          "Total_Decision_Time": 1570887.0,
+          "Hit_Count": 1683851.0,
+          "Miss_Count": 296247.0,
+          "wall_seconds": 2.607725408999997
+        },
+        "Vanius0525": {
+          "Total_Score": 8953859501.15,
+          "Total_IO_Time": 8783417913.34,
+          "Total_Decision_Time": 1090587.81,
+          "Hit_Count": 1641396.0,
+          "Miss_Count": 338702.0,
+          "wall_seconds": 2.0084225739999937
+        },
+        "cyanneko": {
+          "Total_Score": 8210603604.27,
+          "Total_IO_Time": 8079285924.54,
+          "Total_Decision_Time": 410679.72,
+          "Hit_Count": 1718284.0,
+          "Miss_Count": 261814.0,
+          "wall_seconds": 1.3273018020000045
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_03_000_static_hot_cold.txt",
+      "sha256": "1bae6a1244b7542a8ec41dcb96653288fa0601f060432fe34b456ecba5082f50",
+      "family": "static_hot_cold",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 2.4987981715489225,
+        "cyanneko": 2.507559744867487
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 33615158418.63,
+          "Total_IO_Time": 33507082575.69,
+          "Total_Decision_Time": 126092.94,
+          "Hit_Count": 1561273.0,
+          "Miss_Count": 431799.0,
+          "wall_seconds": 1.0713619460000032
+        },
+        "Vanius0525": {
+          "Total_Score": 25215408779.35,
+          "Total_IO_Time": 25116261868.29,
+          "Total_Decision_Time": 462661.06,
+          "Hit_Count": 1598335.0,
+          "Miss_Count": 394737.0,
+          "wall_seconds": 1.5944687129999977
+        },
+        "cyanneko": {
+          "Total_Score": 25185956611.84,
+          "Total_IO_Time": 25087407560.99,
+          "Total_Decision_Time": 220050.85,
+          "Hit_Count": 1599756.0,
+          "Miss_Count": 393316.0,
+          "wall_seconds": 1.100264347999996
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_03_001_static_hot_cold.txt",
+      "sha256": "844e24e17513db52f2123847d2b06b54c097aa976316718feeaf7d6bf7d4d77c",
+      "family": "static_hot_cold",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.673384555511916,
+        "cyanneko": 8.740698934390764
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 35973496905.59,
+          "Total_IO_Time": 34769847882.25,
+          "Total_Decision_Time": 1793023.34,
+          "Hit_Count": 778854.0,
+          "Miss_Count": 1201856.0,
+          "wall_seconds": 2.824321157
+        },
+        "Vanius0525": {
+          "Total_Score": 4772299658.72,
+          "Total_IO_Time": 4588338573.62,
+          "Total_Decision_Time": 827085.1,
+          "Hit_Count": 1797576.0,
+          "Miss_Count": 183134.0,
+          "wall_seconds": 1.7786106739999994
+        },
+        "cyanneko": {
+          "Total_Score": 4530146298.69,
+          "Total_IO_Time": 4357093231.09,
+          "Total_Decision_Time": 410067.6,
+          "Hit_Count": 1808067.0,
+          "Miss_Count": 172643.0,
+          "wall_seconds": 1.4781712280000008
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_04_000_dynamic_linear.txt",
+      "sha256": "ccf8ef3b7d7aafd0daa47775e0a1751b92d59f63e0dac269f22cf7b61beb221f",
+      "family": "dynamic_linear",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 3.652114999564986,
+        "cyanneko": 3.697674158135864
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 111164833534.42,
+          "Total_IO_Time": 111115006560.15,
+          "Total_Decision_Time": 232274.27,
+          "Hit_Count": 1496820.0,
+          "Miss_Count": 495947.0,
+          "wall_seconds": 1.2425292130000045
+        },
+        "Vanius0525": {
+          "Total_Score": 70566157936.9,
+          "Total_IO_Time": 70514646500.79,
+          "Total_Decision_Time": 504436.11,
+          "Hit_Count": 1482697.0,
+          "Miss_Count": 510070.0,
+          "wall_seconds": 1.5723611450000021
+        },
+        "cyanneko": {
+          "Total_Score": 70059700309.05,
+          "Total_IO_Time": 70015660041.19,
+          "Total_Decision_Time": 253267.86,
+          "Hit_Count": 1554897.0,
+          "Miss_Count": 437870.0,
+          "wall_seconds": 1.2024231330000035
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_04_001_dynamic_linear.txt",
+      "sha256": "d9ab4a5856c7675d9fcb3911f9dae6aa32acba3fd10f298b473b41589c8470b9",
+      "family": "dynamic_linear",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 7.324126071092594,
+        "cyanneko": 7.4920735735318855
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 27049619445.47,
+          "Total_IO_Time": 26993493447.1,
+          "Total_Decision_Time": 273498.37,
+          "Hit_Count": 1865766.0,
+          "Miss_Count": 111705.0,
+          "wall_seconds": 1.141914669000002
+        },
+        "Vanius0525": {
+          "Total_Score": 7238137146.1,
+          "Total_IO_Time": 7120989188.24,
+          "Total_Decision_Time": 689957.86,
+          "Hit_Count": 1744555.0,
+          "Miss_Count": 232916.0,
+          "wall_seconds": 1.7425938559999992
+        },
+        "cyanneko": {
+          "Total_Score": 6783845543.32,
+          "Total_IO_Time": 6689138840.8,
+          "Total_Decision_Time": 261702.51,
+          "Hit_Count": 1788581.0,
+          "Miss_Count": 188890.0,
+          "wall_seconds": 1.159652315999999
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_05_000_dynamic_sinusoidal.txt",
+      "sha256": "d633a9769f36182b9960a4d11e698648cc74b098eb0e508271a1d7cb4a62e9e6",
+      "family": "dynamic_sinusoidal",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 7.490952805140337,
+        "cyanneko": 7.51314880265328
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 31667863356.45,
+          "Total_IO_Time": 31644808308.49,
+          "Total_Decision_Time": 60797.96,
+          "Hit_Count": 1904435.0,
+          "Miss_Count": 91977.0,
+          "wall_seconds": 1.0098726069999984
+        },
+        "Vanius0525": {
+          "Total_Score": 7945616372.17,
+          "Total_IO_Time": 7922093423.1,
+          "Total_Decision_Time": 141949.07,
+          "Hit_Count": 1902888.0,
+          "Miss_Count": 93524.0,
+          "wall_seconds": 1.017123403999996
+        },
+        "cyanneko": {
+          "Total_Score": 7875326390.54,
+          "Total_IO_Time": 7856717366.69,
+          "Total_Decision_Time": 69523.85,
+          "Hit_Count": 1922254.0,
+          "Miss_Count": 74158.0,
+          "wall_seconds": 1.0729056750000012
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_05_001_dynamic_sinusoidal.txt",
+      "sha256": "cf87fecaa4186534cf0bcb3237c616222d59b39f60280f81527e6ff149a213c2",
+      "family": "dynamic_sinusoidal",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 7.943051759660021,
+        "cyanneko": 8.01910899699971
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 57771119049.14,
+          "Total_IO_Time": 56273776358.68,
+          "Total_Decision_Time": 1778690.45,
+          "Hit_Count": 479078.0,
+          "Miss_Count": 1495564.0,
+          "wall_seconds": 2.8282126150000053
+        },
+        "Vanius0525": {
+          "Total_Score": 11883220167.06,
+          "Total_IO_Time": 11541660241.81,
+          "Total_Decision_Time": 1296925.25,
+          "Hit_Count": 1634379.0,
+          "Miss_Count": 340263.0,
+          "wall_seconds": 2.2100590380000043
+        },
+        "cyanneko": {
+          "Total_Score": 11443828995.77,
+          "Total_IO_Time": 11117330632.79,
+          "Total_Decision_Time": 602362.98,
+          "Hit_Count": 1648746.0,
+          "Miss_Count": 325896.0,
+          "wall_seconds": 1.5539072959999984
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_06_000_dynamic_periodic_steps.txt",
+      "sha256": "235217768047fe0986b75a9e659c68223f84d4424885beff5c6481c28bf07a5d",
+      "family": "dynamic_periodic_steps",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 6.47975630292032,
+        "cyanneko": 6.51974621714783
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 58669770258.87,
+          "Total_IO_Time": 58642839236.58,
+          "Total_Decision_Time": 178322.29,
+          "Hit_Count": 1729396.0,
+          "Miss_Count": 267527.0,
+          "wall_seconds": 1.0831313380000012
+        },
+        "Vanius0525": {
+          "Total_Score": 20653188896.29,
+          "Total_IO_Time": 20631861465.69,
+          "Total_Decision_Time": 250230.6,
+          "Hit_Count": 1786151.0,
+          "Miss_Count": 210772.0,
+          "wall_seconds": 1.2783296559999968
+        },
+        "cyanneko": {
+          "Total_Score": 20418568988.25,
+          "Total_IO_Time": 20399526573.74,
+          "Total_Decision_Time": 122314.51,
+          "Hit_Count": 1807722.0,
+          "Miss_Count": 189201.0,
+          "wall_seconds": 1.048578402000004
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_06_001_dynamic_periodic_steps.txt",
+      "sha256": "ce3c52a70b50d3b108ba8533501bf4bd036f4bdb1ea3c6379830088be2137a86",
+      "family": "dynamic_periodic_steps",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.09665857529855,
+        "cyanneko": 8.1990327173975
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 19900363168.18,
+          "Total_IO_Time": 19859315083.24,
+          "Total_Decision_Time": 301584.94,
+          "Hit_Count": 1903101.0,
+          "Miss_Count": 81493.0,
+          "wall_seconds": 1.1772689040000017
+        },
+        "Vanius0525": {
+          "Total_Score": 3787718558.46,
+          "Total_IO_Time": 3695170179.23,
+          "Total_Decision_Time": 614879.24,
+          "Hit_Count": 1800727.0,
+          "Miss_Count": 183867.0,
+          "wall_seconds": 1.5936059180000086
+        },
+        "cyanneko": {
+          "Total_Score": 3583990297.78,
+          "Total_IO_Time": 3508103741.21,
+          "Total_Decision_Time": 259056.56,
+          "Hit_Count": 1833339.0,
+          "Miss_Count": 151255.0,
+          "wall_seconds": 1.154782491000006
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_07_000_dynamic_irregular_jumps.txt",
+      "sha256": "13041563da059507ddef70470a3bba28743f55814f8473e38c3fc82856de5c48",
+      "family": "dynamic_irregular_jumps",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.414792847678589,
+        "cyanneko": 9.462969579614414
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 29965409684.14,
+          "Total_IO_Time": 29935385624.76,
+          "Total_Decision_Time": 78309.38,
+          "Hit_Count": 1877224.0,
+          "Miss_Count": 119783.0,
+          "wall_seconds": 1.0487583119999897
+        },
+        "Vanius0525": {
+          "Total_Score": 1753597206.94,
+          "Total_IO_Time": 1737361441.93,
+          "Total_Decision_Time": 104265.02,
+          "Hit_Count": 1932481.0,
+          "Miss_Count": 64526.0,
+          "wall_seconds": 1.0208789420000102
+        },
+        "cyanneko": {
+          "Total_Score": 1609233655.97,
+          "Total_IO_Time": 1596411347.62,
+          "Total_Decision_Time": 50058.35,
+          "Hit_Count": 1945918.0,
+          "Miss_Count": 51089.0,
+          "wall_seconds": 0.9326462439999972
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_07_001_dynamic_irregular_jumps.txt",
+      "sha256": "1cd3f5debfad12bf3f6c00c979ca7444b814f899582bc75daa9ed6728f0390a5",
+      "family": "dynamic_irregular_jumps",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 8.668854330880828,
+        "cyanneko": 8.69780098608288
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 46059089638.98,
+          "Total_IO_Time": 44642452398.42,
+          "Total_Decision_Time": 1877240.56,
+          "Hit_Count": 563563.0,
+          "Miss_Count": 1414760.0,
+          "wall_seconds": 2.9059633709999986
+        },
+        "Vanius0525": {
+          "Total_Score": 6131135769.65,
+          "Total_IO_Time": 5920672982.27,
+          "Total_Decision_Time": 898787.38,
+          "Hit_Count": 1768759.0,
+          "Miss_Count": 209564.0,
+          "wall_seconds": 1.7994426930000031
+        },
+        "cyanneko": {
+          "Total_Score": 5997810110.98,
+          "Total_IO_Time": 5791617919.89,
+          "Total_Decision_Time": 398191.1,
+          "Hit_Count": 1772529.0,
+          "Miss_Count": 205794.0,
+          "wall_seconds": 1.3030155099999945
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_08_000_dynamic_random_walk.txt",
+      "sha256": "0a0fd13ec9e4376d7eecdf0eaf0a2c851cdcaadd8f41fee17359ff72e13a6d81",
+      "family": "dynamic_random_walk",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 4.608542647477546,
+        "cyanneko": 4.551428167441901
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 129377202845.73,
+          "Total_IO_Time": 129326691850.84,
+          "Total_Decision_Time": 234394.89,
+          "Hit_Count": 1490836.0,
+          "Miss_Count": 502766.0,
+          "wall_seconds": 1.1461494250000044
+        },
+        "Vanius0525": {
+          "Total_Score": 69753167153.14,
+          "Total_IO_Time": 69702203049.51,
+          "Total_Decision_Time": 525503.63,
+          "Hit_Count": 1489216.0,
+          "Miss_Count": 504386.0,
+          "wall_seconds": 1.5332975329999954
+        },
+        "cyanneko": {
+          "Total_Score": 70492098320.04,
+          "Total_IO_Time": 70445761157.32,
+          "Total_Decision_Time": 262662.72,
+          "Hit_Count": 1532857.0,
+          "Miss_Count": 460745.0,
+          "wall_seconds": 1.1979891320000036
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_08_001_dynamic_random_walk.txt",
+      "sha256": "5386f8490adb90e12ea3ed896eb52810f34defaaee92ae62fd965fb4a8ff8cd0",
+      "family": "dynamic_random_walk",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.35781108881065,
+        "cyanneko": 9.349097939317666
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 23314584211.32,
+          "Total_IO_Time": 23289289172.07,
+          "Total_Decision_Time": 141539.24,
+          "Hit_Count": 1930638.0,
+          "Miss_Count": 50307.0,
+          "wall_seconds": 1.1394695839999969
+        },
+        "Vanius0525": {
+          "Total_Score": 1497236744.95,
+          "Total_IO_Time": 1472948992.79,
+          "Total_Decision_Time": 135752.16,
+          "Hit_Count": 1932641.0,
+          "Miss_Count": 48304.0,
+          "wall_seconds": 1.0237430860000103
+        },
+        "cyanneko": {
+          "Total_Score": 1517551090.71,
+          "Total_IO_Time": 1502310598.31,
+          "Total_Decision_Time": 53492.4,
+          "Hit_Count": 1950571.0,
+          "Miss_Count": 30374.0,
+          "wall_seconds": 0.9592585320000069
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_09_000_dynamic_sigmoid_mix.txt",
+      "sha256": "027020e8bdecb60d07723b96ca2ef6dc055d22b9204a5ceb630ceddca3ec6041",
+      "family": "dynamic_sigmoid_mix",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 2.043712153041369,
+        "cyanneko": 2.5542077454931444
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 13766832183.5,
+          "Total_IO_Time": 13747096330.72,
+          "Total_Decision_Time": 62602.79,
+          "Hit_Count": 1917630.0,
+          "Miss_Count": 78693.0,
+          "wall_seconds": 1.0154779089999977
+        },
+        "Vanius0525": {
+          "Total_Score": 10953287959.27,
+          "Total_IO_Time": 10882739165.49,
+          "Total_Decision_Time": 444043.78,
+          "Hit_Count": 1715904.0,
+          "Miss_Count": 280419.0,
+          "wall_seconds": 1.5061745819999999
+        },
+        "cyanneko": {
+          "Total_Score": 10250497244.1,
+          "Total_IO_Time": 10200198377.26,
+          "Total_Decision_Time": 173616.84,
+          "Hit_Count": 1795822.0,
+          "Miss_Count": 200501.0,
+          "wall_seconds": 1.1036356289999958
+        }
+      }
+    },
+    {
+      "path": "eval/eval_long_09_001_dynamic_sigmoid_mix.txt",
+      "sha256": "1b255ae417bfc3e79ba8e96ef0f8855ad96cc250543a5867ebdb3a6972e0fb52",
+      "family": "dynamic_sigmoid_mix",
+      "cohort": "long20",
+      "scores": {
+        "naive": 0,
+        "Vanius0525": 9.358666514331116,
+        "cyanneko": 9.358164425357291
+      },
+      "metrics": {
+        "naive": {
+          "Total_Score": 28182883587.7,
+          "Total_IO_Time": 27093406272.95,
+          "Total_Decision_Time": 1719314.75,
+          "Hit_Count": 896263.0,
+          "Miss_Count": 1087758.0,
+          "wall_seconds": 2.748978472999994
+        },
+        "Vanius0525": {
+          "Total_Score": 1807462696.75,
+          "Total_IO_Time": 1725622943.88,
+          "Total_Decision_Time": 399752.86,
+          "Hit_Count": 1902581.0,
+          "Miss_Count": 81440.0,
+          "wall_seconds": 1.3962906840000073
+        },
+        "cyanneko": {
+          "Total_Score": 1808877728.26,
+          "Total_IO_Time": 1721600109.47,
+          "Total_Decision_Time": 196618.79,
+          "Hit_Count": 1896940.0,
+          "Miss_Count": 87081.0,
+          "wall_seconds": 1.1607162869999996
+        }
+      }
+    }
+  ],
+  "timing_windows": "Old50 reused from prior single-pass window; long20 newly measured with byte-identical executables. Not one continuous timing campaign.",
+  "validation": "All210 saved outputs, counters and score formulas checked; no extra strategy execution or independent action replay."
+}

@@ -1,35 +1,20 @@
 {
   "status": "passed",
-  "cases": 550,
+  "version": "1.1.0",
+  "cases": 570,
+  "new_long_cases": 20,
   "errors": [],
-  "suite_id": "ee11e28136e3cc408f5f8c4a7b4e35b64bd4a45912423f9a92d1f2fd4c837c67",
+  "suite_id": "ecc93c2a4ddb9a8174aaf0ee83865c3102ad0a1d00e5f44c2470ec0051cc0803",
+  "verifier_sha256": "ef76ad4bc5ba8bad4828301655d58c6c2b9ad864d914b768295cfbd6f8045d1d",
   "independent_auditor_sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
-  "verifier_sha256": "8253f9cada7fb5f62cef80bc4acf10eb7202d4c698cf9c0907fddffdf526d05e",
-  "checks": [
-    "exact split and family counts",
-    "official fields, phases, counts and whole-partition capacity",
-    "ascending operator headers",
-    "recipe and metadata identity",
-    "raw, operation and partition-semantic uniqueness",
-    "train/eval isolation",
-    "large memory pressure",
-    "constant static profiles and varying dynamic profiles",
-    "realized peak mass statistical check"
+  "base_preservation": "550 original inputs and metadata byte-identical; carry forward their frozen independent audit.",
+  "new_checks": [
+    "exactly 20 x 2000000 operations including SWITCH",
+    "official range/phase/count/capacity audit",
+    "ascending headers and actual hotspot window check",
+    "new/base/historical byte, operation and partition-stream uniqueness"
   ],
-  "historical_manifest_sources": [
-    "balanced_dataset/manifest.json",
-    "corner_case/manifest.json",
-    "dyna_dataset/manifest.json",
-    "final_dataset/manifest.json",
-    "datasets/cyanneko/manifest.json",
-    "datasets/liunianwww/manifest.json",
-    "datasets/Vanius0525/manifest.json"
-  ],
-  "historical_hash_counts": {
-    "sha256": 2415,
-    "operation_stream_sha256": 937,
-    "partition_stream_sha256": 843
-  },
+  "prior_hashes_sha256": "beb28f6320e358d275e270e9943c14b9848f799c816daafe5a04b54e004d35d9",
   "summary": {
     "train": {
       "cases": 500,
@@ -50,13 +35,7 @@
       "operations_median": 59677.0,
       "operations_max": 191189,
       "input_bytes": 719938890,
-      "build_bytes_min": 547010810,
-      "build_bytes_max": 34101565583,
       "build_bytes_total": 4110879183721,
-      "memory_bytes_min": 268435456,
-      "memory_bytes_max": 4294967296,
-      "pressure_min": 2.0248389281332493,
-      "pressure_max": 7.999189216643572,
       "mixed_phase_cases": 353,
       "schedule_counts": {
         "bulk": 100,
@@ -67,46 +46,51 @@
         "independent": 130,
         "anti_aligned": 120,
         "balanced": 120
-      }
+      },
+      "build_bytes_min": 547010810,
+      "build_bytes_max": 34101565583,
+      "memory_bytes_min": 268435456,
+      "memory_bytes_max": 4294967296,
+      "pressure_min": 2.0248389281332493,
+      "pressure_max": 7.999189216643572
     },
     "eval": {
-      "cases": 50,
+      "cases": 70,
       "families": {
-        "static_uniform": 5,
-        "static_zipf": 5,
-        "static_lognormal": 5,
-        "static_hot_cold": 5,
-        "dynamic_linear": 5,
-        "dynamic_sinusoidal": 5,
-        "dynamic_periodic_steps": 5,
-        "dynamic_irregular_jumps": 5,
-        "dynamic_random_walk": 5,
-        "dynamic_sigmoid_mix": 5
+        "static_uniform": 7,
+        "static_zipf": 7,
+        "static_lognormal": 7,
+        "static_hot_cold": 7,
+        "dynamic_linear": 7,
+        "dynamic_sinusoidal": 7,
+        "dynamic_periodic_steps": 7,
+        "dynamic_irregular_jumps": 7,
+        "dynamic_random_walk": 7,
+        "dynamic_sigmoid_mix": 7
       },
-      "operations_total": 3565372,
+      "operations_total": 43565372,
       "operations_min": 34467,
-      "operations_median": 55182.0,
-      "operations_max": 189513,
-      "input_bytes": 68717608,
+      "operations_median": 73537.0,
+      "operations_max": 2000000,
+      "input_bytes": 786116786,
+      "build_bytes_total": 466974976121,
+      "mixed_phase_cases": 53,
+      "schedule_counts": {
+        "bulk": 14,
+        "asynchronous": 56
+      },
+      "relation_counts": {
+        "aligned": 25,
+        "independent": 15,
+        "anti_aligned": 15,
+        "balanced": 15
+      },
       "build_bytes_min": 653144484,
       "build_bytes_max": 32456052794,
-      "build_bytes_total": 340988345433,
       "memory_bytes_min": 268435456,
       "memory_bytes_max": 4294967296,
       "pressure_min": 2.0585738881491125,
-      "pressure_max": 7.73915015347302,
-      "mixed_phase_cases": 37,
-      "schedule_counts": {
-        "bulk": 10,
-        "asynchronous": 40
-      },
-      "relation_counts": {
-        "aligned": 20,
-        "independent": 10,
-        "anti_aligned": 10,
-        "balanced": 10
-      }
+      "pressure_max": 7.73915015347302
     }
-  },
-  "limitations": "Synthetic workload recipe, not official hidden workloads; distribution audit is not algorithm performance validation."
+  }
 }

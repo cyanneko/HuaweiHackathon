@@ -1,3 +1,40 @@
+# 主60负结果闭合，阶段5准备发布（2026-10-30）
+
+- 上一goal turn为progress：coscale与主60完整执行、根独立核查和成本诊断已完成，随后回答用户dyna12总结果。持续目标active，不重跑既有矩阵、不把新数据或设计当已验证改善。
+- 主60 exec15934已exit0，build/round9_pure_return_risk_main60_v1/exit.json确认returncode0、439.9479秒；60/60、180新审核、900同窗口计时齐全。三候选所有协议核查通过、BUILD同参考，但全部未过预定门槛。pool/flat/global均物理比1.002451890/.996517056/1.014977481，最坏1.119007461/1.051619874/1.559984822；分数差−.009326424/+.014236458/−.052816429。不进入主108dev/72eval、不改门槛或源码。
+- 根review_return_risk_main60_v1.py已exit0，独立核60canonical/900计数与分数/门槛。ROOT报告RETURN_RISK_MAIN60_COST_DIAGNOSIS_V1.md/.json，pure正式报告RETURN_RISK_MAIN60_REVIEW_V1.md与11件FINAL_FREEZE（SHA90a8479327cabecb5b97c6590430a4930281ddd268a6d33a961ab93a1a601b7b）均闭合；root诊断MD/JSON已被其绑定，不再改。
+- 统一100重权后pool/flat/global均物理比1.002624/.996679/1.015349，退化并非单靠隐藏罚值差可解释。四个从头配置的事后逐例最优对最强固定flat平均仅省实际.414%/100下.454%；不是合法前缀选择器上界、不是可学证据。当前不启动大批teacher/新模型。train600三修正版仍690Miss、物理/Naive3.410281；train545的clamp掩盖费用差均已记录。
+- coscale exec93374已exit0，12/12原四模型复核通过：183238不同pair、2798改变（1.527%）、0截顶、0新solver/teacher。14件FINAL_FREEZE SHA d154a41af8b874f1298d7a60ea7229e50235f93c02e0daae405ae435c978ea57。只说明U→gU会改选择，无长期费用证据，不新加coscale候选。
+- AI metadata审计闭合，CONFIGURATION_POPULATION_BUDGET_FREEZE SHA c9e126a02faa5504990d66ffe379679dfae2ec8d5737df6d9ee1bb741c19f6ea；根CONFIGURATION_POPULATION_ROOT_REVIEW也通过。除原60后余372，其中新增未用102，两者N最大487220/458420、没有百万级；不为凑新seed把大数据目标缩水。只排相等seed/raw/op/partition指纹，不证明泛化独立。初始schema查看一条eval身份元数据、无输入/成绩读取，已如实记录。
+- AI补充长流设计仍未完成/未执行：拟18个独立seed组×3长度=54输入（短/1M/5M），不是54独立样本；同组共享合法前缀必须同预测、fold按组，组内长度等权。预算约561.89M collector+分支操作，仅设计不批准执行。采用已有paired完整100成本作共同正label尺度，不额外加54次Naive；正式Naive均分后续闭环另报。控制成本为0则停查，不删流/加epsilon。未来所有新seed须排除新的balanced评测来源。
+- 数据monitor发现上游7968fb8ae63610cb10535ee79bede04d089eb88f将balanced_dataset1.0.0定为后续统一回归：static12（5Zipf/5hotspot/2lognormal）+完整dyna12，各侧50%，suite a594b0d0e305b108ff10bd90677d7d0824001c369b3f05156cc8ab8243ed5887。已曝光，含原dyna train6，不能用于后续训练标签/拟参。根已读新README核对角色，monitor正核24输入身份；暂未评测balanced24，旧60/dyna冻结不追溯改分。新corner_case不自动接入。
+- 下一根动作：发布阶段5闭合产物（不包括未完成长流设计/尾例归因/新balanced接入）；取得monitor的24输入锁后另冻当前Naive/paired100/ai100基线比较，原则上复用已完成dyna12同SHA证据、仅补static12，不将已失败三风险候选送入新保留集。须先核评分/来源/本地资源与访问记账，当前尚未启动。纯下一动作审最坏592/519首次真实分歧的只读共同前缀方案；不据最坏例添加特判。
+- 当前主runner/纯runner均已终止成功，AI没有训练，dataset监测与静态设计仍推进。根直访子agent句柄可能Unknown（sandbox隔离），此前均由所属agent原句柄确认终态，不能误重启。最近已发布commit27b8faf；本阶段发布身份将记录PUBLICATION_STAGE5及对应Git提交。所有git关闭auto gc/maintenance，Round4/6无关修改不提交。
+
+以下为前序记录。
+
+# 主60启动核查通过，风险归因与AI预算核查进行中（2026-10-30）
+
+- 上一goal turn为progress：完整dyna汇总/两路独立核查/100文件发布已完成，commit27b8faf已核远端；本轮继续核实主60冻结并写内部阶段启动凭证，不重复dyna。
+- pure main60 prepare exit0，freeze SHA999650ddad679a698add02812c4ad701e11c9bd9344197f2fe10d2a4e22b4d17。root独立复核5个脚本/计划、依赖、原60 seed顺序、train成员、三源码/五方法二进制及生成源。START_AUTHORIZATION SHA1527c51d2a32da7b2faaa59d47b3657ad6e4bd27bdb4669aa513c1a9031b3015，授权coscale正常结束后串行启动180审核/900计时，主108dev/72eval封存、原门槛和源码不改。
+- 根首次只读元数据断言漏写已有合法性门槛键，已修正根期望值后通过；未改原计划/freeze、未发生solver失败。
+- coscale原子agent exec93374由其write_stdin确认live并输出8/12通过；根直接访问此句柄返回Unknown process id，ps又仅见当前sandbox，属于跨agent句柄/命名空间可见性限制，不能据此重启或断言终止。实际状态见pure/HANDOFF和build/round9_pure_risk_coscale_v1/status.json；纯agent持原句柄监督。
+- 根已准备review_return_risk_main60_v1.py（SHA 0dbb77382ecab8db700150afe26bff380cc4fdc1602c585da76cb6b503909229），仅AST检查；须完整RESULTS/SUMMARY后运行，独立核计数/成本/900计时/门槛与clamp隐藏退化，不重放大输入。
+- AI继续metadata-only候选人口与预算核查，未选seed/teacher/训练。初始schema查看误打印一条eval元数据身份，未读其输入/操作或成绩，已要求准确留审计记录；后续按train432过滤，不将其计为solver访问。
+- 下一根动作：确认coscale终态与主60新句柄，审AI预算产物；失败保留不自动重试，完整主60后运行独立review。持续goal active。
+
+以下为前序记录。
+
+# 阶段4已发布，下一两路线继续（2026-10-30）
+
+- 完成阶段已提交并push：27b8faf0fa27deaa43e2f2b8b0f3e26e2ca24e05，个人source/Vanius0525；PUBLICATION_STAGE4绑定该提交的99件产物，合计100个本任务文件。闭合freeze保持不变，活跃HANDOFF后续正常更新；Round4/6无关工作未提交。
+- dyna完整12/72/216、主runner exit0、两路独立复核通过，完整报告DYNA_FULL_REVIEW_V1.md。不得重新跑已完成矩阵。
+- 已唤醒pure：先prepare主60形成新EXECUTION_FREEZE，暂不启动runner；root收到SHA后写RETURN_RISK_MAIN60_START_AUTHORIZATION_V1.json（stage return-risk-main60-v1、authorized true、execution freeze/results/report SHA及相对ROOT报告路径），再明确启动。另允许既有coscale preflight→runner纯离线旧12日志归因，两任务串行，不新solver/teacher。实际句柄看pure/HANDOFF。
+- 已唤醒AI：只读主train元数据核查排除旧60及亲缘seed后的候选人口和24×4完整后缀预算；不最终选seed、不teacher/训练，不读主dev/eval；输出新计划而非改已冻结报告。数据monitor恢复低频元信息观察，新增实验目录不触发dyna重测。
+- 持续goal active；下一根动作核查pure prepare产物与新任务真实状态，按预定条件启动主60。用户前四例问题按冻结结果回复，并告知完整12已完成。
+
+以下为前序记录。
+
 # dyna全12及独立复核均完成（2026-10-30）
 
 - 主runner session28924已确认exit0：12/12案例、72/72动作审核、216/216计时完整。未失败、未超时、未重试；不得重复启动。summarize_dyna_full_v1.py已成功生成完整汇总。
@@ -220,6 +257,9 @@
 3. 主agent完成Round8统一审阅与版本化发布，维护两个路线入口及其验证范围。后续评测另冻计划，不刷综合50例。
 
 ## Open Ideas / 值得深挖的问题
+
+2026-10-30主60进行中反例：预先已知train600完整结果显示pool/flat/global三修正版的BUILD写、PROBE写读、Miss成本均与paired100相同（690次Miss，物理/Naive=3.410281），平均决策分别9090.55/7890.37/8761.99μs，高于paired7423.35μs。因此dyna上的真实改善没有修复这一既知失败；未核完整TRACE，不称动作相同。下一最小验证是先完成原60并按既定门槛检查是否存在成本互补，再判断配置选择能否覆盖此失败；不得由单例新增规则或改候选。证据build/round9_pure_return_risk_main60_v1/train_600_random_zipf.json。
+
 - 2026-10-30：策略选择驻留集合使Hit身份被删失，但匿名Hit总数仍提供集合概率质量。研究在主动驻留选择下何时能识别对象热度及怎样定量估计不确定性。已有部分观测缓存/MLE先例，未确认新颖性；最小实验是同轨迹next-only与集合似然有限样本对比、同居对象不可辨识反例，再看代价排序是否改善。停止条件是无信息增量或预测改善不转化为成本改善。
 
 ## 用户问答代码核查

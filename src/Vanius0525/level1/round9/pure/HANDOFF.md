@@ -2,6 +2,26 @@
 
 ## 最新状态（优先于以下历史阶段）
 
+两项新阶段均已闭合、无运行命令。main60根独立审核passed，正式报告已链接已完成费用诊断；11文件 `RETURN_RISK_MAIN60_FINAL_FREEZE_V1.json` SHA `90a8479327cabecb5b97c6590430a4930281ddd268a6d33a961ab93a1a601b7b`。coscale14文件最终freeze SHA `d154a41af8b874f1298d7a60ea7229e50235f93c02e0daae405ae435c978ea57`。本阶段精确发布清单为两份FINAL_FREEZE各自files键＋两份freeze＋本HANDOFF，共28文件；既有dyna闭合文件全保持。main60三候选全部停止晋升，主dev/eval新增solver0；coscale无匹配teacher，停止收益推论。root后续已只允许另写最坏592/519的小型归因计划，不读大TRACE、不新solver/改候选；未来balanced数据口径不能追溯改写本轮。此HANDOFF与闭合报告暂保持稳定，待root统一发布。
+
+main60 session15934已正常exit0，60/60、180新审核、900同窗口计时全部完成，stderr为空；summary已持公共锁生成。**三冻结候选均未过先验晋升门槛，停止本组三候选晋升，不进主108dev/72eval、不改参数或门槛。** pool平均物理比1.002451890/最坏1.119007461/均分差−0.009326424；flat0.996517056/1.051619874/+0.014236458，仅分数门槛通过；global1.014977481/1.559984822/−0.052816429。全部合法性/计数/runtime检查通过，BUILD差0。dyna12的改善不能外推主60，这两个面板还同时不同N、压力、带宽和罚值等，不能单独归因于动态/静态热度。root独立复核待执行，正式负结果报告/FINAL_FREEZE待收尾。当前无本路线运行任务。
+
+coscale正式报告与14文件FINAL_FREEZE已完成，SHA `d154a41af8b874f1298d7a60ea7229e50235f93c02e0daae405ae435c978ea57`；旧scale依赖及已发布dyna7冻结文件全保持。唯一结论是风险共缩放在原合法共同状态改变1.527%的不同pair；无匹配teacher，停止性能解释。没有新coscale候选或闭环验证。
+
+main60当前24/60完整、75/180审核、372/900计时，无失败；全体未完成，不据部分总体排名。root指出并已核对预先已知train600反例：Naive物理245,177.665μs/34 Miss；paired100与三风险版物理均836,124.751μs/690 Miss，物理/Naive全为3.410281071，热度修正未解决该既有长尾周转失败。这里只证明分项/计数相同，未核对TRACE，不声称动作轨迹相同；不由dyna改善外推该问题已修复，不调参、不提前停止全60。
+
+coscale小JSON汇总已按公共锁完成（session95182 exit0）：307,328 pressure、183,238不同pair、截顶0、改变2,798，占不同pair1.52698%、占pressure0.91043%；11/12流有改变，另1流原本无不同pair。待写正式分组/集合差报告，不能称2,798次改变带来收益。
+
+coscale session93374已正常exit0，12/12完整；183,238不同pair、截顶0、共缩放改变2,798次，旧四模型逐例全部复核通过；缺匹配teacher，按合同停止费用推论，不造新候选。其正式分母/分组报告和FINAL_FREEZE尚待收尾。
+
+已按root启动凭证串行启动main60，exec session15934；冻结runner未改，SHA `9edb8c84a706270cafa8d4ec2b5a73b8b4cd2a4f800c9944a753e71b1caf49d3`。持久目录 `level1/build/round9_pure_return_risk_main60_v1/` 保存launch.json、runner.stdout、runner.stderr、status.json，退出后有exit.json。进程PID=9仅属于sandbox `pid:[4026532216]`（NSpid=9），不是宿主PID；根agent句柄隔离时用文件监督，不能重复启动。当前180审核/900计时按原freeze进行，不据部分结果改参数。完成runner+summary后通知root执行其独立小JSON审核器。任何失败保留现场、不自动重试。
+
+root已独立核验main60并写START_AUTHORIZATION，SHA `1527c51d2a32da7b2faaa59d47b3657ad6e4bd27bdb4669aa513c1a9031b3015`；**明确授权当前coscale正常exit0后串行启动既有main60 runner，无需再次询问**。时限240/60秒、180审核/900同窗口计时、原三门槛不变；任何失败保留现场、诊断后再决定，不自动重试。当前coscale session93374由本agentwrite_stdin确认live，0/12第一流；root无法访问该子agent句柄，不应误判已停止。冻结runner未写OS PID，93374只是工具会话号；当前仅有状态/逐例JSON与本agent会话stdout，不能虚构宿主PID。启动main60时应另保存命令、PID命名空间/真实子进程PID及总stdout/err/退出标记，便于跨agent只读监督，不改冻结runner。
+
+main60 prepare已exit0，EXECUTION_FREEZE SHA `999650ddad679a698add02812c4ad701e11c9bd9344197f2fe10d2a4e22b4d17`，0编译/solver；main60 runner仍未启动，等root凭证。coscale preflight已passed，凭证SHA `6d578418e87433e33e20fcf3b7b9d3431d9e5556fa602feaf9bcc8fc0f7a092f`，原scale所有依赖及新freeze全files保持。唯一离线runner现运行于exec session93374（`python -u .../run_risk_coscale_v1.py`），状态 `level1/build/round9_pure_risk_coscale_v1/status.json`；公共锁逐case、0新solver/teacher。续接先查句柄/状态，不重复启动。
+
+阶段4已由root提交并推送 `27b8faf0fa27deaa43e2f2b8b0f3e26e2ca24e05`；新阶段获明确授权：先运行既有main60 prepare（只核对元数据/已有二进制并生成execution freeze，0编译/solver），回报SHA，主60 runner须等root START_AUTHORIZATION；之后按coscale preflight→runner顺序做原12train纯Python归因，公共锁，0新solver/teacher，两项不并发。已读取最新状态，dyna仍complete12/72/216、没有本路线遗留运行任务；旧dyna冻结件保持，不触碰。本次新产物暂留本地。
+
 纯dyna阶段最终冻结已完成：`DYNA_FULL12_PURE_FINAL_FREEZE_V1.json`（7个闭合文件）SHA `930a36453625e5b5a1a3259bddb3254e5c307e8f3e9cac29f92ee1678f1bb5e8`。发布清单为该freeze内7文件＋freeze本身＋本HANDOFF快照；coscale准备文件和main60准备文件留下一阶段，不冒称已执行。当前无运行子任务，等待root本轮发布和下一阶段明确启动。
 
 根runner已确认session28924 exit0，dyna12/72/216全部完整。纯全12报告与根SUMMARY现已完成独立372项数值核对（身份/计数精确一致），`DYNA_FULL12_PURE_ROOT_CONSISTENCY_V1.json` passed；无新增solver/输入重放。root最新顺序指令覆盖先前自动续接许可：**先完成本次完整dyna报告/冻结/发布；coscale和主60均暂不执行，等待root随后明确阶段启动**。当前没有本子agent运行命令；cell277已正常结束。下一条动作是交纯报告最终freeze与发布清单，不执行preflight、prepare或runner。

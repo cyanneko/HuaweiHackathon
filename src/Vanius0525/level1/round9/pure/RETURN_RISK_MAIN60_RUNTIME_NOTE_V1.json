@@ -1,0 +1,12 @@
+{
+  "read_only": true,
+  "new_timed_runs": 0,
+  "python_version": "3.12.9",
+  "stdlib_function": "subprocess.Popen._wait",
+  "function_source_sha256": "773f67be387e442975136954e06b0113780c904d6075cb6957d5cfa7d3ad5fbd",
+  "observed_timeout_wait_lines": [
+    "delay = min(delay * 2, remaining, .05)",
+    "time.sleep(delay)"
+  ],
+  "interpretation": "Outer wall includes process startup and timeout wait polling. The 50ms maximum polling sleep is consistent with observed wall-time steps; it does not establish the cause of all variation. Scores use solver-internal Total_Decision_Time; no measurement/gate changed."
+}

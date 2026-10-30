@@ -1,0 +1,723 @@
+{
+  "passed": true,
+  "canonical_records_checked": 60,
+  "timed_runs_checked": 900,
+  "results_sha256": "33bb2d0501828a70bd8b411c4d159fdbaea1a4b8c63d0e22f08aa9dc17d1f25d",
+  "summary_sha256": "206eeec12df5665109764a163284397ad9b2f3a6dd7519324f4ad80e617aa2b1",
+  "reviewer_sha256": "0dbb77382ecab8db700150afe26bff380cc4fdc1602c585da76cb6b503909229",
+  "methods": {
+    "risk_pool100": {
+      "gate_checks": {
+        "mean_physical_ratio": false,
+        "worst_physical_ratio": false,
+        "mean_decision_inclusive_score": false,
+        "all_protocol_counter_runtime_checks": true
+      },
+      "eligible_for_independent_validation_review": false,
+      "mean_physical_ratio": 1.0024518903444664,
+      "worst_physical_ratio": 1.1190074610800813,
+      "worst_case": "train/train_592_random_zipf.txt",
+      "mean_score_delta": -0.009326423854536208,
+      "family_mean_physical_ratio": {
+        "random_hotspot": 1.0001181500768435,
+        "random_lognormal": 0.995123788338839,
+        "random_zipf": 1.0084496816149027
+      },
+      "zero_score_hiding_cost_changes": [
+        "train/train_545_random_zipf.txt"
+      ]
+    },
+    "risk_flat100": {
+      "gate_checks": {
+        "mean_physical_ratio": false,
+        "worst_physical_ratio": false,
+        "mean_decision_inclusive_score": true,
+        "all_protocol_counter_runtime_checks": true
+      },
+      "eligible_for_independent_validation_review": false,
+      "mean_physical_ratio": 0.9965170561765991,
+      "worst_physical_ratio": 1.051619873829287,
+      "worst_case": "train/train_519_random_zipf.txt",
+      "mean_score_delta": 0.014236458020074129,
+      "family_mean_physical_ratio": {
+        "random_hotspot": 0.9973298733971399,
+        "random_lognormal": 0.9861197145816003,
+        "random_zipf": 1.0009029097535578
+      },
+      "zero_score_hiding_cost_changes": [
+        "train/train_545_random_zipf.txt"
+      ]
+    },
+    "risk_scale100": {
+      "gate_checks": {
+        "mean_physical_ratio": false,
+        "worst_physical_ratio": false,
+        "mean_decision_inclusive_score": false,
+        "all_protocol_counter_runtime_checks": true
+      },
+      "eligible_for_independent_validation_review": false,
+      "mean_physical_ratio": 1.0149774812121346,
+      "worst_physical_ratio": 1.5599848223492854,
+      "worst_case": "train/train_592_random_zipf.txt",
+      "mean_score_delta": -0.05281642879758032,
+      "family_mean_physical_ratio": {
+        "random_hotspot": 1.004685872244729,
+        "random_lognormal": 1.0053480177758791,
+        "random_zipf": 1.0300838218976682
+      },
+      "zero_score_hiding_cost_changes": [
+        "train/train_545_random_zipf.txt"
+      ]
+    }
+  },
+  "contemporaneous_mean_scores": {
+    "naive": 0.0,
+    "paired100": 3.7441503249774053,
+    "risk_pool100": 3.7348239011228688,
+    "risk_flat100": 3.758386782997479,
+    "risk_scale100": 3.6913338961798248
+  },
+  "descriptive_wall_ratio_over_1_25": [
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.7172981109906686,
+        0.9690196279989323,
+        0.7680968460044824
+      ]
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.16588506801053882,
+        0.11522906000027433,
+        0.11512810000567697
+      ]
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.1655702360003488,
+        0.16533997299848124,
+        0.11502708899206482
+      ]
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.1654955090052681,
+        0.11557615200581495,
+        0.11579593799251597
+      ]
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.11504210700513795,
+        0.16556772899639327,
+        0.11504768699523993
+      ]
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.1655006350047188,
+        0.1655719199916348,
+        0.11552003500401042
+      ]
+    },
+    {
+      "case": "train/train_532_random_zipf.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.16547196698957123,
+        0.11546593499951996,
+        0.11520950200792868
+      ]
+    },
+    {
+      "case": "train/train_532_random_zipf.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.1651925729966024,
+        0.1151980110007571,
+        0.11531989299692214
+      ]
+    },
+    {
+      "case": "train/train_532_random_zipf.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.11565492600493599,
+        0.11538745299912989,
+        0.16546934300276916
+      ]
+    },
+    {
+      "case": "train/train_588_random_zipf.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.11539063800591975,
+        0.16513720399234444,
+        0.1152482480101753
+      ]
+    },
+    {
+      "case": "train/train_588_random_zipf.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.16604335499869194,
+        0.26645241600635927,
+        0.16531716399185825
+      ]
+    },
+    {
+      "case": "train/train_603_random_zipf.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.11525279200577643,
+        0.16542952100280672,
+        0.11524590400222223
+      ]
+    },
+    {
+      "case": "train/train_563_random_zipf.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.2159287530084839,
+        0.16517899501195643,
+        0.21598893699410837
+      ]
+    },
+    {
+      "case": "train/train_597_random_zipf.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.1152287450095173,
+        0.16549078600655776,
+        0.1652839650050737
+      ]
+    },
+    {
+      "case": "train/train_597_random_zipf.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.11539506498957053,
+        0.1654067799972836,
+        0.16542814999411348
+      ]
+    },
+    {
+      "case": "train/train_575_random_zipf.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.1656066040013684,
+        0.21556621399940923,
+        0.21562091700616293
+      ]
+    },
+    {
+      "case": "train/train_583_random_zipf.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.36595864899572916,
+        0.568476225991617,
+        0.3658690750016831
+      ]
+    },
+    {
+      "case": "train/train_680_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.1656699189916253,
+        0.16562204199726693,
+        0.21547980699688196
+      ]
+    },
+    {
+      "case": "train/train_680_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.2154641129891388,
+        0.16534035198856145,
+        0.16567580499395262
+      ]
+    },
+    {
+      "case": "train/train_659_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.16536318900762126,
+        0.11518429899297189,
+        0.16532462000031956
+      ]
+    },
+    {
+      "case": "train/train_701_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.11534568799834233,
+        0.1652808459912194,
+        0.11516467700130306
+      ]
+    },
+    {
+      "case": "train/train_701_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.16553199700138066,
+        0.16530407400568947,
+        0.11512388600385748
+      ]
+    },
+    {
+      "case": "train/train_701_random_hotspot.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.1657803510024678,
+        0.1660265209939098,
+        0.11529326999152545
+      ]
+    },
+    {
+      "case": "train/train_626_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.3668833180126967,
+        0.26558605999161955,
+        0.3157703799952287
+      ]
+    },
+    {
+      "case": "train/train_686_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.16544445900944993,
+        0.16525174600246828,
+        0.21558682501199655
+      ]
+    },
+    {
+      "case": "train/train_686_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.21556442700966727,
+        0.21560466900700703,
+        0.16549374899477698
+      ]
+    },
+    {
+      "case": "train/train_686_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.21562905599421356,
+        0.1655067989922827,
+        0.16521963600825984
+      ]
+    },
+    {
+      "case": "train/train_686_random_hotspot.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.1651810769981239,
+        0.1654339990054723,
+        0.21562780000385828
+      ]
+    },
+    {
+      "case": "train/train_675_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.33207054100057576,
+        0.3159958889882546,
+        0.26560665300348774
+      ]
+    },
+    {
+      "case": "train/train_639_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.1656850139988819,
+        0.21551449300022796,
+        0.21564166899770498
+      ]
+    },
+    {
+      "case": "train/train_639_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.16543212400574703,
+        0.21524782699998468,
+        0.215583715995308
+      ]
+    },
+    {
+      "case": "train/train_639_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.16550545299833175,
+        0.1652817750000395,
+        0.21590532299887855
+      ]
+    },
+    {
+      "case": "train/train_639_random_hotspot.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.2158110430027591,
+        0.2156664279900724,
+        0.16539838499738835
+      ]
+    },
+    {
+      "case": "train/train_693_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.21566860099846963,
+        0.3157276739948429,
+        0.21533865100354888
+      ]
+    },
+    {
+      "case": "train/train_693_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.16621249499439728,
+        0.21555335700395517,
+        0.2658974380028667
+      ]
+    },
+    {
+      "case": "train/train_632_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.2158694569952786,
+        0.16523767900071107,
+        0.16528163899783976
+      ]
+    },
+    {
+      "case": "train/train_632_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.21590047600329854,
+        0.16533568300656043,
+        0.1653281279868679
+      ]
+    },
+    {
+      "case": "train/train_632_random_hotspot.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.16540284699294716,
+        0.215409009004361,
+        0.21557071698771324
+      ]
+    },
+    {
+      "case": "train/train_703_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.26579060799849685,
+        0.21554878799361177,
+        0.16511668100429233
+      ]
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.11532087299565319,
+        0.16538978199241683,
+        0.1653498139930889
+      ]
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.1653949480096344,
+        0.16564758100139443,
+        0.11541735100036021
+      ]
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.11507163199712522,
+        0.16533180000260472,
+        0.11493129600421526
+      ]
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.16553578501043376,
+        0.1148973079980351,
+        0.11515431899169926
+      ]
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.16543870499299373,
+        0.16509023398975842,
+        0.11533672299992759
+      ]
+    },
+    {
+      "case": "train/train_637_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.3160258749994682,
+        0.2663758190028602,
+        0.21531302100629546
+      ]
+    },
+    {
+      "case": "train/train_637_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.2660883200005628,
+        0.21539526899869088,
+        0.31587796201347373
+      ]
+    },
+    {
+      "case": "train/train_712_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.16558353099389933,
+        0.21586064700386487,
+        0.2157418660062831
+      ]
+    },
+    {
+      "case": "train/train_712_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.16527090400632005,
+        0.21546101800049655,
+        0.21555338200414553
+      ]
+    },
+    {
+      "case": "train/train_712_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.16553779400419444,
+        0.21542766799393576,
+        0.21623706200625747
+      ]
+    },
+    {
+      "case": "train/train_614_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.366461633995641,
+        0.4172347090061521,
+        0.3161658309982158
+      ]
+    },
+    {
+      "case": "train/train_663_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.7178491939994274,
+        0.31592864099366125,
+        0.21613011400040705
+      ]
+    },
+    {
+      "case": "train/train_663_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.3668675369990524,
+        0.315762755999458,
+        0.26537804400140885
+      ]
+    },
+    {
+      "case": "train/train_663_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.6670569679990876,
+        0.2657697440008633,
+        0.2656736560020363
+      ]
+    },
+    {
+      "case": "train/train_663_random_hotspot.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        1.16914073699445,
+        0.31591652700444683,
+        0.3158324120013276
+      ]
+    },
+    {
+      "case": "train/train_655_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.4161769599886611,
+        0.2655632969981525,
+        0.26575918999151327
+      ]
+    },
+    {
+      "case": "train/train_689_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.3158125600020867,
+        0.26580590099911205,
+        0.41623157300637104
+      ]
+    },
+    {
+      "case": "train/train_689_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.315829051003675,
+        0.36645793200295884,
+        0.7185598869982641
+      ]
+    },
+    {
+      "case": "train/train_689_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.5667703770013759,
+        0.41702808601257857,
+        0.26589401400997303
+      ]
+    },
+    {
+      "case": "train/train_689_random_hotspot.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.265731487001176,
+        0.3663559900014661,
+        0.4162972250051098
+      ]
+    },
+    {
+      "case": "train/train_676_random_hotspot.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.41638404100376647,
+        0.46650906099239364,
+        0.3658598920010263
+      ]
+    },
+    {
+      "case": "train/train_676_random_hotspot.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.6173646530078258,
+        0.5669006410025759,
+        0.3659699739946518
+      ]
+    },
+    {
+      "case": "train/train_676_random_hotspot.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.36606840099557303,
+        0.5671102839987725,
+        0.3659074640017934
+      ]
+    },
+    {
+      "case": "train/train_676_random_hotspot.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.416237782992539,
+        0.5166372859966941,
+        0.3158129670046037
+      ]
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "method": "naive",
+      "wall_seconds": [
+        0.31611359100497793,
+        0.8179074490035418,
+        0.31577810501039494
+      ]
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        1.0211888529884163,
+        0.41628759700688533,
+        0.3169137109944131
+      ]
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.36748419399373233,
+        0.6169797490001656,
+        0.36623895999218803
+      ]
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "method": "risk_flat100",
+      "wall_seconds": [
+        0.467361727001844,
+        0.3659726390033029,
+        0.36619536801299546
+      ]
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.3661727989965584,
+        0.6671660570136737,
+        0.7169452009984525
+      ]
+    },
+    {
+      "case": "train/train_754_random_lognormal.txt",
+      "method": "paired100",
+      "wall_seconds": [
+        0.3158930219942704,
+        0.36643696400278714,
+        0.4159619849961018
+      ]
+    },
+    {
+      "case": "train/train_723_random_lognormal.txt",
+      "method": "risk_scale100",
+      "wall_seconds": [
+        0.11520333400403615,
+        0.11533224899903871,
+        0.16602222199435346
+      ]
+    },
+    {
+      "case": "train/train_725_random_lognormal.txt",
+      "method": "risk_pool100",
+      "wall_seconds": [
+        0.3662561989913229,
+        0.4664516290067695,
+        0.31591905299865175
+      ]
+    }
+  ],
+  "timing_flag_policy": "Keep all repeats; no exclusions or automatic retries. Not a significance test.",
+  "scope": "Independent JSON/counter/identity/aggregate review; full action legality came from frozen streaming audits. Train60 only; no promotion or held-out evaluation."
+}

@@ -1,0 +1,531 @@
+{
+  "scope": "Train metadata only; no selected cohort, trace reads, solver, teacher, model, or test score access.",
+  "source_sha256": {
+    "V21_DATASET_LOCK.json": "79e1f003fe808ea1380a7cd1bc679cb0ebccb75718fd0a485115e108472e0b08",
+    "manifest.json": "217e8e24ad6fcf6c1c057bb2031d5cde23fe2e2b35595b095d119922a47aee87",
+    "recipe.json": "d1108eb643b5419fc10952c7e3ae7e592288ac6a8a9d6b50f8fc5329bcb26871",
+    "selection.json": "2080df06a8448fc29ad3e9eafdeca6145d5a370470746cc5fb6ab5ca007a5cc1"
+  },
+  "train_cases": 432,
+  "pilot_cases": 60,
+  "signature_repetitions_within_train": {
+    "seed": {
+      "unique": 432,
+      "groups_with_multiple_cases": 0,
+      "cases_in_repeated_groups": 0
+    },
+    "sha256": {
+      "unique": 432,
+      "groups_with_multiple_cases": 0,
+      "cases_in_repeated_groups": 0
+    },
+    "operation_stream_sha256": {
+      "unique": 432,
+      "groups_with_multiple_cases": 0,
+      "cases_in_repeated_groups": 0
+    },
+    "partition_stream_sha256": {
+      "unique": 432,
+      "groups_with_multiple_cases": 0,
+      "cases_in_repeated_groups": 0
+    }
+  },
+  "fingerprint_component_sizes": {
+    "1": 432
+  },
+  "excluded_by_pilot_component": 60,
+  "additional_relatives_beyond_pilot": 0,
+  "added_train_before_pilot_exclusion": 162,
+  "pilot_in_added": 60,
+  "populations": {
+    "remaining_all_train": {
+      "summary": {
+        "cases": 372,
+        "unique_seeds": 372,
+        "fingerprint_components": 372,
+        "operations": {
+          "min": 33493,
+          "median": 96085.5,
+          "max": 487220,
+          "sum": 44438177
+        },
+        "probes": {
+          "min": 15357,
+          "median": 44446.5,
+          "max": 274968,
+          "sum": 20602762
+        },
+        "file_bytes": {
+          "min": 699397,
+          "median": 2023823.0,
+          "max": 10003951,
+          "sum": 944818571
+        },
+        "operations_ge": {
+          "65536": 299,
+          "131072": 96,
+          "262144": 15,
+          "524288": 0,
+          "1048576": 0
+        },
+        "probes_ge": {
+          "4096": 372,
+          "16384": 363,
+          "65536": 88,
+          "262144": 1,
+          "524288": 0
+        },
+        "no_positive_suffix_by_simple_bound": 0
+      },
+      "families": {
+        "random_hotspot": {
+          "cases": 150,
+          "unique_seeds": 150,
+          "fingerprint_components": 150,
+          "operations": {
+            "min": 34217,
+            "median": 95852.5,
+            "max": 487220,
+            "sum": 18144980
+          },
+          "probes": {
+            "min": 15357,
+            "median": 44198.5,
+            "max": 229532,
+            "sum": 8373034
+          },
+          "file_bytes": {
+            "min": 708717,
+            "median": 2009266.0,
+            "max": 10003951,
+            "sum": 385919257
+          },
+          "operations_ge": {
+            "65536": 121,
+            "131072": 39,
+            "262144": 7,
+            "524288": 0,
+            "1048576": 0
+          },
+          "probes_ge": {
+            "4096": 150,
+            "16384": 145,
+            "65536": 34,
+            "262144": 0,
+            "524288": 0
+          },
+          "no_positive_suffix_by_simple_bound": 0
+        },
+        "random_zipf": {
+          "cases": 150,
+          "unique_seeds": 150,
+          "fingerprint_components": 150,
+          "operations": {
+            "min": 33493,
+            "median": 96708.5,
+            "max": 485315,
+            "sum": 17501689
+          },
+          "probes": {
+            "min": 15461,
+            "median": 45006.5,
+            "max": 274968,
+            "sum": 8112107
+          },
+          "file_bytes": {
+            "min": 699397,
+            "median": 2053971.0,
+            "max": 9818468,
+            "sum": 372231125
+          },
+          "operations_ge": {
+            "65536": 121,
+            "131072": 35,
+            "262144": 4,
+            "524288": 0,
+            "1048576": 0
+          },
+          "probes_ge": {
+            "4096": 150,
+            "16384": 146,
+            "65536": 34,
+            "262144": 1,
+            "524288": 0
+          },
+          "no_positive_suffix_by_simple_bound": 0
+        },
+        "random_lognormal": {
+          "cases": 72,
+          "unique_seeds": 72,
+          "fingerprint_components": 72,
+          "operations": {
+            "min": 37908,
+            "median": 89697.5,
+            "max": 426615,
+            "sum": 8791508
+          },
+          "probes": {
+            "min": 17133,
+            "median": 44589.0,
+            "max": 211484,
+            "sum": 4117621
+          },
+          "file_bytes": {
+            "min": 808962,
+            "median": 1921615.5,
+            "max": 8915493,
+            "sum": 186668189
+          },
+          "operations_ge": {
+            "65536": 57,
+            "131072": 22,
+            "262144": 4,
+            "524288": 0,
+            "1048576": 0
+          },
+          "probes_ge": {
+            "4096": 72,
+            "16384": 72,
+            "65536": 20,
+            "262144": 0,
+            "524288": 0
+          },
+          "no_positive_suffix_by_simple_bound": 0
+        }
+      },
+      "balanced24_budget": {
+        "quota_per_family": 8,
+        "seeds": 24,
+        "branches_per_seed": 4,
+        "maximum_branches": 96,
+        "bounds": {
+          "selected_input_operations": {
+            "minimum_bound_across_balanced_choices": 959575,
+            "maximum_bound_across_balanced_choices": 8007013,
+            "by_family": {
+              "random_hotspot": {
+                "smallest_eight_sum": 306796,
+                "largest_eight_sum": 3058550
+              },
+              "random_zipf": {
+                "smallest_eight_sum": 294748,
+                "largest_eight_sum": 2530928
+              },
+              "random_lognormal": {
+                "smallest_eight_sum": 358031,
+                "largest_eight_sum": 2417535
+              }
+            }
+          },
+          "four_branch_suffix_operations_upper": {
+            "minimum_bound_across_balanced_choices": 1350944,
+            "maximum_bound_across_balanced_choices": 14977668,
+            "by_family": {
+              "random_hotspot": {
+                "smallest_eight_sum": 399260,
+                "largest_eight_sum": 5543956
+              },
+              "random_zipf": {
+                "smallest_eight_sum": 404112,
+                "largest_eight_sum": 4902868
+              },
+              "random_lognormal": {
+                "smallest_eight_sum": 547572,
+                "largest_eight_sum": 4530844
+              }
+            }
+          },
+          "collector_plus_four_branch_operations_upper": {
+            "minimum_bound_across_balanced_choices": 2347004,
+            "maximum_bound_across_balanced_choices": 22838853,
+            "by_family": {
+              "random_hotspot": {
+                "smallest_eight_sum": 714017,
+                "largest_eight_sum": 8572512
+              },
+              "random_zipf": {
+                "smallest_eight_sum": 718167,
+                "largest_eight_sum": 7360324
+              },
+              "random_lognormal": {
+                "smallest_eight_sum": 914820,
+                "largest_eight_sum": 6906017
+              }
+            }
+          },
+          "selected_raw_input_bytes": {
+            "minimum_bound_across_balanced_choices": 20435976,
+            "maximum_bound_across_balanced_choices": 169472083,
+            "by_family": {
+              "random_hotspot": {
+                "smallest_eight_sum": 6594036,
+                "largest_eight_sum": 64731905
+              },
+              "random_zipf": {
+                "smallest_eight_sum": 6267745,
+                "largest_eight_sum": 53564606
+              },
+              "random_lognormal": {
+                "smallest_eight_sum": 7574195,
+                "largest_eight_sum": 51175572
+              }
+            }
+          }
+        },
+        "selected_case_paths": null,
+        "caution": "Min/max of conservative bounds, not observed executed work; expression extrema may use different cohorts."
+      }
+    },
+    "remaining_added_v21_train": {
+      "summary": {
+        "cases": 102,
+        "unique_seeds": 102,
+        "fingerprint_components": 102,
+        "operations": {
+          "min": 65947,
+          "median": 160386.5,
+          "max": 458420,
+          "sum": 17306259
+        },
+        "probes": {
+          "min": 26849,
+          "median": 64096.0,
+          "max": 211484,
+          "sum": 7742972
+        },
+        "file_bytes": {
+          "min": 1398183,
+          "median": 3389034.5,
+          "max": 9874947,
+          "sum": 370986555
+        },
+        "operations_ge": {
+          "65536": 102,
+          "131072": 55,
+          "262144": 7,
+          "524288": 0,
+          "1048576": 0
+        },
+        "probes_ge": {
+          "4096": 102,
+          "16384": 102,
+          "65536": 48,
+          "262144": 0,
+          "524288": 0
+        },
+        "no_positive_suffix_by_simple_bound": 0
+      },
+      "families": {
+        "random_hotspot": {
+          "cases": 42,
+          "unique_seeds": 42,
+          "fingerprint_components": 42,
+          "operations": {
+            "min": 65947,
+            "median": 125621.0,
+            "max": 458420,
+            "sum": 7101600
+          },
+          "probes": {
+            "min": 26849,
+            "median": 60762.0,
+            "max": 209635,
+            "sum": 3137937
+          },
+          "file_bytes": {
+            "min": 1422236,
+            "median": 2715956.0,
+            "max": 9874947,
+            "sum": 152432483
+          },
+          "operations_ge": {
+            "65536": 42,
+            "131072": 20,
+            "262144": 4,
+            "524288": 0,
+            "1048576": 0
+          },
+          "probes_ge": {
+            "4096": 42,
+            "16384": 42,
+            "65536": 17,
+            "262144": 0,
+            "524288": 0
+          },
+          "no_positive_suffix_by_simple_bound": 0
+        },
+        "random_zipf": {
+          "cases": 42,
+          "unique_seeds": 42,
+          "fingerprint_components": 42,
+          "operations": {
+            "min": 66671,
+            "median": 158576.0,
+            "max": 305388,
+            "sum": 7041331
+          },
+          "probes": {
+            "min": 32816,
+            "median": 68443.0,
+            "max": 150930,
+            "sum": 3158016
+          },
+          "file_bytes": {
+            "min": 1398183,
+            "median": 3360748.5,
+            "max": 6618154,
+            "sum": 150788500
+          },
+          "operations_ge": {
+            "65536": 42,
+            "131072": 23,
+            "262144": 1,
+            "524288": 0,
+            "1048576": 0
+          },
+          "probes_ge": {
+            "4096": 42,
+            "16384": 42,
+            "65536": 21,
+            "262144": 0,
+            "524288": 0
+          },
+          "no_positive_suffix_by_simple_bound": 0
+        },
+        "random_lognormal": {
+          "cases": 18,
+          "unique_seeds": 18,
+          "fingerprint_components": 18,
+          "operations": {
+            "min": 78824,
+            "median": 165691.0,
+            "max": 389951,
+            "sum": 3163328
+          },
+          "probes": {
+            "min": 29954,
+            "median": 73530.0,
+            "max": 211484,
+            "sum": 1447019
+          },
+          "file_bytes": {
+            "min": 1703182,
+            "median": 3595574.0,
+            "max": 8218480,
+            "sum": 67765572
+          },
+          "operations_ge": {
+            "65536": 18,
+            "131072": 12,
+            "262144": 2,
+            "524288": 0,
+            "1048576": 0
+          },
+          "probes_ge": {
+            "4096": 18,
+            "16384": 18,
+            "65536": 10,
+            "262144": 0,
+            "524288": 0
+          },
+          "no_positive_suffix_by_simple_bound": 0
+        }
+      },
+      "balanced24_budget": {
+        "quota_per_family": 8,
+        "seeds": 24,
+        "branches_per_seed": 4,
+        "maximum_branches": 96,
+        "bounds": {
+          "selected_input_operations": {
+            "minimum_bound_across_balanced_choices": 2174728,
+            "maximum_bound_across_balanced_choices": 6656380,
+            "by_family": {
+              "random_hotspot": {
+                "smallest_eight_sum": 581683,
+                "largest_eight_sum": 2658415
+              },
+              "random_zipf": {
+                "smallest_eight_sum": 702060,
+                "largest_eight_sum": 2057004
+              },
+              "random_lognormal": {
+                "smallest_eight_sum": 890985,
+                "largest_eight_sum": 1940961
+              }
+            }
+          },
+          "four_branch_suffix_operations_upper": {
+            "minimum_bound_across_balanced_choices": 3393904,
+            "maximum_bound_across_balanced_choices": 11918704,
+            "by_family": {
+              "random_hotspot": {
+                "smallest_eight_sum": 868388,
+                "largest_eight_sum": 4643368
+              },
+              "random_zipf": {
+                "smallest_eight_sum": 1099500,
+                "largest_eight_sum": 3763660
+              },
+              "random_lognormal": {
+                "smallest_eight_sum": 1426016,
+                "largest_eight_sum": 3511676
+              }
+            }
+          },
+          "collector_plus_four_branch_operations_upper": {
+            "minimum_bound_across_balanced_choices": 5632806,
+            "maximum_bound_across_balanced_choices": 18479362,
+            "by_family": {
+              "random_hotspot": {
+                "smallest_eight_sum": 1471911,
+                "largest_eight_sum": 7259498
+              },
+              "random_zipf": {
+                "smallest_eight_sum": 1833280,
+                "largest_eight_sum": 5773994
+              },
+              "random_lognormal": {
+                "smallest_eight_sum": 2327615,
+                "largest_eight_sum": 5445870
+              }
+            }
+          },
+          "selected_raw_input_bytes": {
+            "minimum_bound_across_balanced_choices": 46924536,
+            "maximum_bound_across_balanced_choices": 142801772,
+            "by_family": {
+              "random_hotspot": {
+                "smallest_eight_sum": 12479036,
+                "largest_eight_sum": 57050984
+              },
+              "random_zipf": {
+                "smallest_eight_sum": 15277360,
+                "largest_eight_sum": 44344504
+              },
+              "random_lognormal": {
+                "smallest_eight_sum": 19168140,
+                "largest_eight_sum": 41406284
+              }
+            }
+          }
+        },
+        "selected_case_paths": null,
+        "caution": "Min/max of conservative bounds, not observed executed work; expression extrema may use different cohorts."
+      }
+    }
+  },
+  "assumptions": [
+    "q0 is unknown legal callback state; only q0>=4096 is used.",
+    "All authorized metadata rows have INSERT+PROBE+K=N and no phase overlap.",
+    "No future N, residual length, family, seed, period or hidden penalty is a model feature.",
+    "Distinct seeds/fingerprints do not prove statistical independence or zero historical exposure.",
+    "Original 60 pure-configuration complementarity remains unverified by this metadata audit."
+  ],
+  "access_note": "Initial schema inspection printed one eval metadata identity row from the joint lock; no eval input, operation sequence or score was read or used.",
+  "raw_input_reads": 0,
+  "solver_runs": 0,
+  "teacher_branches": 0,
+  "training_runs": 0,
+  "selected_seed_count": 0
+}

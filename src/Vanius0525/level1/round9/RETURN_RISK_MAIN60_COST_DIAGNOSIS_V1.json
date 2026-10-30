@@ -1,0 +1,4743 @@
+{
+  "complete": true,
+  "cases": 60,
+  "results_sha256": "33bb2d0501828a70bd8b411c4d159fdbaea1a4b8c63d0e22f08aa9dc17d1f25d",
+  "diagnostic_sha256": "b6f357e1be65d11610135d3ade71be1258ebe5ad0b5b2d48c11fd1d306c2c340",
+  "actual_penalty_values": [
+    2,
+    10,
+    31,
+    47,
+    59,
+    67,
+    70,
+    75,
+    99,
+    104,
+    112,
+    119,
+    137,
+    139,
+    152,
+    172,
+    179,
+    211,
+    226,
+    244,
+    250,
+    268,
+    281,
+    297,
+    317,
+    329,
+    339,
+    367,
+    383,
+    404,
+    415,
+    448,
+    449,
+    495,
+    499,
+    531,
+    533,
+    534,
+    535,
+    551,
+    600,
+    611,
+    619,
+    632,
+    662,
+    695,
+    751,
+    780,
+    806,
+    814,
+    855,
+    870,
+    888,
+    936,
+    945,
+    949,
+    953,
+    959,
+    994,
+    1000
+  ],
+  "reports": {
+    "actual": {
+      "method_mean_ratio_to_paired": {
+        "paired100": 1.0,
+        "risk_pool100": 1.0024518903444664,
+        "risk_flat100": 0.9965170561765991,
+        "risk_scale100": 1.0149774812121346
+      },
+      "method_worst_ratio_to_paired": {
+        "paired100": 1.0,
+        "risk_pool100": 1.1190074610800813,
+        "risk_flat100": 1.051619873829287,
+        "risk_scale100": 1.5599848223492854
+      },
+      "method_better_equal_worse_than_paired": {
+        "paired100": [
+          0,
+          60,
+          0
+        ],
+        "risk_pool100": [
+          31,
+          4,
+          25
+        ],
+        "risk_flat100": [
+          35,
+          4,
+          21
+        ],
+        "risk_scale100": [
+          21,
+          5,
+          34
+        ]
+      },
+      "best_fixed_by_mean_ratio_to_paired": "risk_flat100",
+      "hindsight_from_start_winner_counts_ties_prefer_paired_then_fixed_order": {
+        "paired100": 15,
+        "risk_pool100": 14,
+        "risk_flat100": 23,
+        "risk_scale100": 8
+      },
+      "hindsight_mean_ratio_to_paired": 0.9923078553275658,
+      "hindsight_mean_ratio_to_best_fixed": 0.9958604392855729,
+      "cases_with_positive_hindsight_gain_against_best_fixed": 30,
+      "hindsight_gain_concentration_max_share": 0.1976298980701922
+    },
+    "fixed100": {
+      "method_mean_ratio_to_paired": {
+        "paired100": 1.0,
+        "risk_pool100": 1.0026236494136251,
+        "risk_flat100": 0.9966785930040828,
+        "risk_scale100": 1.015348767277077
+      },
+      "method_worst_ratio_to_paired": {
+        "paired100": 1.0,
+        "risk_pool100": 1.1240222112283043,
+        "risk_flat100": 1.051803584117167,
+        "risk_scale100": 1.5770329004499917
+      },
+      "method_better_equal_worse_than_paired": {
+        "paired100": [
+          0,
+          60,
+          0
+        ],
+        "risk_pool100": [
+          31,
+          4,
+          25
+        ],
+        "risk_flat100": [
+          34,
+          4,
+          22
+        ],
+        "risk_scale100": [
+          22,
+          5,
+          33
+        ]
+      },
+      "best_fixed_by_mean_ratio_to_paired": "risk_flat100",
+      "hindsight_from_start_winner_counts_ties_prefer_paired_then_fixed_order": {
+        "paired100": 16,
+        "risk_pool100": 14,
+        "risk_flat100": 21,
+        "risk_scale100": 9
+      },
+      "hindsight_mean_ratio_to_paired": 0.9920669997434507,
+      "hindsight_mean_ratio_to_best_fixed": 0.9954613297321564,
+      "cases_with_positive_hindsight_gain_against_best_fixed": 32,
+      "hindsight_gain_concentration_max_share": 0.180861146184642
+    }
+  },
+  "candidate_sign_reversals_actual_vs_fixed100": {
+    "risk_pool100": [
+      "train/train_626_random_hotspot.txt",
+      "train/train_760_random_lognormal.txt"
+    ],
+    "risk_flat100": [
+      "train/train_763_random_lognormal.txt"
+    ],
+    "risk_scale100": [
+      "train/train_545_random_zipf.txt",
+      "train/train_630_random_hotspot.txt",
+      "train/train_752_random_lognormal.txt"
+    ]
+  },
+  "rows": [
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "seed": 10730359742581714376,
+      "family": "random_zipf",
+      "actual_penalty": 855,
+      "methods": {
+        "paired100": {
+          "io_us": 78498566.60798003,
+          "misses": 47938,
+          "actual_physical_us": 119485556.60798003,
+          "fixed100_physical_us": 83292366.60798003,
+          "components_us": {
+            "build_write_us": 41735.04682539683,
+            "probe_write_us": 56691923.418253966,
+            "probe_read_us": 21764908.14290067
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 78763620.3046792,
+          "misses": 47643,
+          "actual_physical_us": 119498385.3046792,
+          "fixed100_physical_us": 83527920.3046792,
+          "components_us": {
+            "build_write_us": 41735.04682539683,
+            "probe_write_us": 56883444.31269842,
+            "probe_read_us": 21838440.945155393
+          },
+          "actual_over_paired": 1.0001073660872775,
+          "fixed100_over_paired": 1.002828034624203,
+          "io_over_paired": 1.0033765418676095,
+          "miss_delta": -295,
+          "actual_delta_us": 12828.696699172258,
+          "fixed100_delta_us": 235553.69669917226
+        },
+        "risk_flat100": {
+          "io_us": 77748108.89284119,
+          "misses": 47077,
+          "actual_physical_us": 117998943.89284119,
+          "fixed100_physical_us": 82455808.89284119,
+          "components_us": {
+            "build_write_us": 41735.04682539683,
+            "probe_write_us": 56149674.47063492,
+            "probe_read_us": 21556699.375380866
+          },
+          "actual_over_paired": 0.9875582224551519,
+          "fixed100_over_paired": 0.9899563699627345,
+          "io_over_paired": 0.9904398545404453,
+          "miss_delta": -861,
+          "actual_delta_us": -1486612.7151388377,
+          "fixed100_delta_us": -836557.7151388377
+        },
+        "risk_scale100": {
+          "io_us": 78075429.32123995,
+          "misses": 47308,
+          "actual_physical_us": 118523769.32123995,
+          "fixed100_physical_us": 82806229.32123995,
+          "components_us": {
+            "build_write_us": 41735.04682539683,
+            "probe_write_us": 56386244.004761904,
+            "probe_read_us": 21647450.26965265
+          },
+          "actual_over_paired": 0.9919505979296259,
+          "fixed100_over_paired": 0.9941634833234105,
+          "io_over_paired": 0.9946096176653363,
+          "miss_delta": -630,
+          "actual_delta_us": -961787.2867400795,
+          "fixed100_delta_us": -486137.2867400795
+        }
+      }
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "seed": 7256044700735148566,
+      "family": "random_zipf",
+      "actual_penalty": 814,
+      "methods": {
+        "paired100": {
+          "io_us": 5713846429.771713,
+          "misses": 20882,
+          "actual_physical_us": 5730844377.771713,
+          "fixed100_physical_us": 5715934629.771713,
+          "components_us": {
+            "build_write_us": 1057676.2742609254,
+            "probe_write_us": 2087146717.5167096,
+            "probe_read_us": 3625642035.9807425
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 5701807682.24351,
+          "misses": 20709,
+          "actual_physical_us": 5718664808.24351,
+          "fixed100_physical_us": 5703878582.24351,
+          "components_us": {
+            "build_write_us": 1057676.2742609254,
+            "probe_write_us": 2082748345.7013175,
+            "probe_read_us": 3618001660.267932
+          },
+          "actual_over_paired": 0.9978747338567692,
+          "fixed100_over_paired": 0.997890800313669,
+          "io_over_paired": 0.9978930572117802,
+          "miss_delta": -173,
+          "actual_delta_us": -12179569.52820301,
+          "fixed100_delta_us": -12056047.52820301
+        },
+        "risk_flat100": {
+          "io_us": 5691942087.386542,
+          "misses": 20681,
+          "actual_physical_us": 5708776421.386542,
+          "fixed100_physical_us": 5694010187.386542,
+          "components_us": {
+            "build_write_us": 1057676.2742609254,
+            "probe_write_us": 2079143937.9953406,
+            "probe_read_us": 3611740473.116941
+          },
+          "actual_over_paired": 0.9961492661586194,
+          "fixed100_over_paired": 0.9961643294045078,
+          "io_over_paired": 0.9961664453788889,
+          "miss_delta": -201,
+          "actual_delta_us": -22067956.385170937,
+          "fixed100_delta_us": -21924442.385170937
+        },
+        "risk_scale100": {
+          "io_us": 5716091566.864626,
+          "misses": 20885,
+          "actual_physical_us": 5733091956.864626,
+          "fixed100_physical_us": 5718180066.864626,
+          "components_us": {
+            "build_write_us": 1057676.2742609254,
+            "probe_write_us": 2087966981.2267032,
+            "probe_read_us": 3627066909.363662
+          },
+          "actual_over_paired": 1.0003921898667552,
+          "fixed100_over_paired": 1.0003928381338054,
+          "io_over_paired": 1.0003929291976092,
+          "miss_delta": 3,
+          "actual_delta_us": 2247579.092912674,
+          "fixed100_delta_us": 2245437.092912674
+        }
+      }
+    },
+    {
+      "case": "train/train_545_random_zipf.txt",
+      "seed": 14907611417084751774,
+      "family": "random_zipf",
+      "actual_penalty": 495,
+      "methods": {
+        "paired100": {
+          "io_us": 21865742.686456867,
+          "misses": 15212,
+          "actual_physical_us": 29395682.686456867,
+          "fixed100_physical_us": 23386942.686456867,
+          "components_us": {
+            "build_write_us": 43148.23341139735,
+            "probe_write_us": 16296593.467603436,
+            "probe_read_us": 5526000.985442033
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 21631174.945726708,
+          "misses": 15662,
+          "actual_physical_us": 29383864.945726708,
+          "fixed100_physical_us": 23197374.945726708,
+          "components_us": {
+            "build_write_us": 43148.23341139735,
+            "probe_write_us": 16123898.81342701,
+            "probe_read_us": 5464127.898888301
+          },
+          "actual_over_paired": 0.9995979769935535,
+          "fixed100_over_paired": 0.9918942914740225,
+          "io_over_paired": 0.989272363436553,
+          "miss_delta": 450,
+          "actual_delta_us": -11817.740730158985,
+          "fixed100_delta_us": -189567.74073015898
+        },
+        "risk_flat100": {
+          "io_us": 21645802.98905265,
+          "misses": 15473,
+          "actual_physical_us": 29304937.98905265,
+          "fixed100_physical_us": 23193102.98905265,
+          "components_us": {
+            "build_write_us": 43148.23341139735,
+            "probe_write_us": 16132297.61826698,
+            "probe_read_us": 5470357.137374272
+          },
+          "actual_over_paired": 0.9969129923474774,
+          "fixed100_over_paired": 0.9917116272954964,
+          "io_over_paired": 0.9899413571010125,
+          "miss_delta": 261,
+          "actual_delta_us": -90744.69740421697,
+          "fixed100_delta_us": -193839.69740421697
+        },
+        "risk_scale100": {
+          "io_us": 21860266.550955053,
+          "misses": 15232,
+          "actual_physical_us": 29400106.550955053,
+          "fixed100_physical_us": 23383466.550955053,
+          "components_us": {
+            "build_write_us": 43148.23341139735,
+            "probe_write_us": 16292636.389539422,
+            "probe_read_us": 5524481.928004235
+          },
+          "actual_over_paired": 1.0001504936811767,
+          "fixed100_over_paired": 0.9998513642613138,
+          "io_over_paired": 0.9997495563914596,
+          "miss_delta": 20,
+          "actual_delta_us": 4423.8644981868565,
+          "fixed100_delta_us": -3476.1355018131435
+        }
+      }
+    },
+    {
+      "case": "train/train_585_random_zipf.txt",
+      "seed": 13085705622311950649,
+      "family": "random_zipf",
+      "actual_penalty": 600,
+      "methods": {
+        "paired100": {
+          "io_us": 394526328.69593763,
+          "misses": 14492,
+          "actual_physical_us": 403221528.69593763,
+          "fixed100_physical_us": 395975528.69593763,
+          "components_us": {
+            "build_write_us": 94061.13947239863,
+            "probe_write_us": 186736736.7642892,
+            "probe_read_us": 207695530.79217604
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 394530523.0677312,
+          "misses": 14493,
+          "actual_physical_us": 403226323.0677312,
+          "fixed100_physical_us": 395979823.0677312,
+          "components_us": {
+            "build_write_us": 94061.13947239863,
+            "probe_write_us": 186738722.549829,
+            "probe_read_us": 207697739.37842977
+          },
+          "actual_over_paired": 1.000011890168189,
+          "fixed100_over_paired": 1.0000108450433989,
+          "io_over_paired": 1.0000106314116157,
+          "miss_delta": 1,
+          "actual_delta_us": 4794.371793568134,
+          "fixed100_delta_us": 4294.371793568134
+        },
+        "risk_flat100": {
+          "io_us": 394530523.0677312,
+          "misses": 14493,
+          "actual_physical_us": 403226323.0677312,
+          "fixed100_physical_us": 395979823.0677312,
+          "components_us": {
+            "build_write_us": 94061.13947239863,
+            "probe_write_us": 186738722.549829,
+            "probe_read_us": 207697739.37842977
+          },
+          "actual_over_paired": 1.000011890168189,
+          "fixed100_over_paired": 1.0000108450433989,
+          "io_over_paired": 1.0000106314116157,
+          "miss_delta": 1,
+          "actual_delta_us": 4794.371793568134,
+          "fixed100_delta_us": 4294.371793568134
+        },
+        "risk_scale100": {
+          "io_us": 394526328.69593763,
+          "misses": 14492,
+          "actual_physical_us": 403221528.69593763,
+          "fixed100_physical_us": 395975528.69593763,
+          "components_us": {
+            "build_write_us": 94061.13947239863,
+            "probe_write_us": 186736736.7642892,
+            "probe_read_us": 207695530.79217604
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        }
+      }
+    },
+    {
+      "case": "train/train_543_random_zipf.txt",
+      "seed": 13985279295355576155,
+      "family": "random_zipf",
+      "actual_penalty": 531,
+      "methods": {
+        "paired100": {
+          "io_us": 528666203.0054175,
+          "misses": 22781,
+          "actual_physical_us": 540762914.0054176,
+          "fixed100_physical_us": 530944303.0054175,
+          "components_us": {
+            "build_write_us": 307537.6508351781,
+            "probe_write_us": 251006679.8536929,
+            "probe_read_us": 277351985.5008895
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 526761568.20223546,
+          "misses": 22536,
+          "actual_physical_us": 538728184.2022355,
+          "fixed100_physical_us": 529015168.20223546,
+          "components_us": {
+            "build_write_us": 307537.6508351781,
+            "probe_write_us": 250101706.311129,
+            "probe_read_us": 276352324.2402713
+          },
+          "actual_over_paired": 0.996237297805593,
+          "fixed100_over_paired": 0.9963665966613406,
+          "io_over_paired": 0.9963972828367799,
+          "miss_delta": -245,
+          "actual_delta_us": -2034729.803182125,
+          "fixed100_delta_us": -1929134.8031820655
+        },
+        "risk_flat100": {
+          "io_us": 527498072.6382584,
+          "misses": 22564,
+          "actual_physical_us": 539479556.6382585,
+          "fixed100_physical_us": 529754472.6382584,
+          "components_us": {
+            "build_write_us": 307537.6508351781,
+            "probe_write_us": 250451596.49164823,
+            "probe_read_us": 276738938.495775
+          },
+          "actual_over_paired": 0.9976267651979805,
+          "fixed100_over_paired": 0.9977590297882017,
+          "io_over_paired": 0.997790419814018,
+          "miss_delta": -217,
+          "actual_delta_us": -1283357.3671591282,
+          "fixed100_delta_us": -1189830.3671591282
+        },
+        "risk_scale100": {
+          "io_us": 529725374.21707654,
+          "misses": 22901,
+          "actual_physical_us": 541885805.2170765,
+          "fixed100_physical_us": 532015474.21707654,
+          "components_us": {
+            "build_write_us": 307537.6508351781,
+            "probe_write_us": 251509858.90913665,
+            "probe_read_us": 277907977.65710473
+          },
+          "actual_over_paired": 1.0020764944906109,
+          "fixed100_over_paired": 1.0020174832003952,
+          "io_over_paired": 1.0020034781978453,
+          "miss_delta": 120,
+          "actual_delta_us": 1122891.2116589546,
+          "fixed100_delta_us": 1071171.2116590142
+        }
+      }
+    },
+    {
+      "case": "train/train_591_random_zipf.txt",
+      "seed": 12122591336764498052,
+      "family": "random_zipf",
+      "actual_penalty": 10,
+      "methods": {
+        "paired100": {
+          "io_us": 36868263.25305733,
+          "misses": 5514,
+          "actual_physical_us": 36923403.25305733,
+          "fixed100_physical_us": 37419663.25305733,
+          "components_us": {
+            "build_write_us": 203719.82794457275,
+            "probe_write_us": 33305413.710161664,
+            "probe_read_us": 3359129.7149510947
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 36415973.68819778,
+          "misses": 5643,
+          "actual_physical_us": 36472403.68819778,
+          "fixed100_physical_us": 36980273.68819778,
+          "components_us": {
+            "build_write_us": 203719.82794457275,
+            "probe_write_us": 32895121.127020784,
+            "probe_read_us": 3317132.733232417
+          },
+          "actual_over_paired": 0.9877855364044156,
+          "fixed100_over_paired": 0.9882577894437985,
+          "io_over_paired": 0.9877322790673616,
+          "miss_delta": 129,
+          "actual_delta_us": -450999.5648595542,
+          "fixed100_delta_us": -439389.5648595542
+        },
+        "risk_flat100": {
+          "io_us": 35055053.32165619,
+          "misses": 5399,
+          "actual_physical_us": 35109043.32165619,
+          "fixed100_physical_us": 35594953.32165619,
+          "components_us": {
+            "build_write_us": 203719.82794457275,
+            "probe_write_us": 31658305.972286373,
+            "probe_read_us": 3193027.5214252444
+          },
+          "actual_over_paired": 0.9508615194822024,
+          "fixed100_over_paired": 0.9512366020222789,
+          "io_over_paired": 0.9508192203425591,
+          "miss_delta": -115,
+          "actual_delta_us": -1814359.931401141,
+          "fixed100_delta_us": -1824709.931401141
+        },
+        "risk_scale100": {
+          "io_us": 34808029.15945689,
+          "misses": 5079,
+          "actual_physical_us": 34858819.15945689,
+          "fixed100_physical_us": 35315929.15945689,
+          "components_us": {
+            "build_write_us": 203719.82794457275,
+            "probe_write_us": 31434083.666281756,
+            "probe_read_us": 3170225.665230554
+          },
+          "actual_over_paired": 0.9440846749837586,
+          "fixed100_over_paired": 0.9437799832838271,
+          "io_over_paired": 0.9441190359453778,
+          "miss_delta": -435,
+          "actual_delta_us": -2064584.0936004445,
+          "fixed100_delta_us": -2103734.0936004445
+        }
+      }
+    },
+    {
+      "case": "train/train_532_random_zipf.txt",
+      "seed": 17108583945564347376,
+      "family": "random_zipf",
+      "actual_penalty": 953,
+      "methods": {
+        "paired100": {
+          "io_us": 251197898.44215026,
+          "misses": 1774,
+          "actual_physical_us": 252888520.44215026,
+          "fixed100_physical_us": 251375298.44215026,
+          "components_us": {
+            "build_write_us": 1261071.133214126,
+            "probe_write_us": 152812481.02190435,
+            "probe_read_us": 97124346.28703178
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 249365702.30513543,
+          "misses": 1749,
+          "actual_physical_us": 251032499.30513543,
+          "fixed100_physical_us": 249540602.30513543,
+          "components_us": {
+            "build_write_us": 1261071.133214126,
+            "probe_write_us": 151692466.46647295,
+            "probe_read_us": 96412164.70544836
+          },
+          "actual_over_paired": 0.9926607141606516,
+          "fixed100_over_paired": 0.9927013666482546,
+          "io_over_paired": 0.9927061645484395,
+          "miss_delta": -25,
+          "actual_delta_us": -1856021.137014836,
+          "fixed100_delta_us": -1834696.137014836
+        },
+        "risk_flat100": {
+          "io_us": 249053643.20170012,
+          "misses": 1733,
+          "actual_physical_us": 250705192.20170012,
+          "fixed100_physical_us": 249226943.20170012,
+          "components_us": {
+            "build_write_us": 1261071.133214126,
+            "probe_write_us": 151501580.11332142,
+            "probe_read_us": 96290991.95516458
+          },
+          "actual_over_paired": 0.991366439897577,
+          "fixed100_over_paired": 0.9914535944710393,
+          "io_over_paired": 0.9914638806544636,
+          "miss_delta": -41,
+          "actual_delta_us": -2183328.240450144,
+          "fixed100_delta_us": -2148355.240450144
+        },
+        "risk_scale100": {
+          "io_us": 252051354.60145077,
+          "misses": 1756,
+          "actual_physical_us": 253724822.60145077,
+          "fixed100_physical_us": 252226954.60145077,
+          "components_us": {
+            "build_write_us": 1261071.133214126,
+            "probe_write_us": 153334457.22887796,
+            "probe_read_us": 97455826.23935868
+          },
+          "actual_over_paired": 1.0033069992969168,
+          "fixed100_over_paired": 1.0033879866660667,
+          "io_over_paired": 1.0033975449818384,
+          "miss_delta": -18,
+          "actual_delta_us": 836302.1593005061,
+          "fixed100_delta_us": 851656.1593005061
+        }
+      }
+    },
+    {
+      "case": "train/train_588_random_zipf.txt",
+      "seed": 2357249348037649374,
+      "family": "random_zipf",
+      "actual_penalty": 945,
+      "methods": {
+        "paired100": {
+          "io_us": 579825733.3924589,
+          "misses": 9260,
+          "actual_physical_us": 588576433.3924589,
+          "fixed100_physical_us": 580751733.3924589,
+          "components_us": {
+            "build_write_us": 728395.5350536114,
+            "probe_write_us": 133633273.46070461,
+            "probe_read_us": 445464064.3967007
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 586890748.5912234,
+          "misses": 9270,
+          "actual_physical_us": 595650898.5912234,
+          "fixed100_physical_us": 587817748.5912234,
+          "components_us": {
+            "build_write_us": 728395.5350536114,
+            "probe_write_us": 135253617.9175209,
+            "probe_read_us": 450908735.13864887
+          },
+          "actual_over_paired": 1.0120196202182075,
+          "fixed100_over_paired": 1.0121670152536408,
+          "io_over_paired": 1.012184721704965,
+          "miss_delta": 10,
+          "actual_delta_us": 7074465.198764443,
+          "fixed100_delta_us": 7066015.198764443
+        },
+        "risk_flat100": {
+          "io_us": 582587974.5880985,
+          "misses": 9255,
+          "actual_physical_us": 591333949.5880985,
+          "fixed100_physical_us": 583513474.5880985,
+          "components_us": {
+            "build_write_us": 728395.5350536114,
+            "probe_write_us": 134270694.47802523,
+            "probe_read_us": 447588884.57501966
+          },
+          "actual_over_paired": 1.0046850604937505,
+          "fixed100_over_paired": 1.0047554592381618,
+          "io_over_paired": 1.0047639161847444,
+          "miss_delta": -5,
+          "actual_delta_us": 2757516.1956396103,
+          "fixed100_delta_us": 2761741.1956396103
+        },
+        "risk_scale100": {
+          "io_us": 584540259.1793553,
+          "misses": 9278,
+          "actual_physical_us": 593307969.1793553,
+          "fixed100_physical_us": 585468059.1793553,
+          "components_us": {
+            "build_write_us": 728395.5350536114,
+            "probe_write_us": 134721208.07988688,
+            "probe_read_us": 449090655.56441474
+          },
+          "actual_over_paired": 1.0080389487557708,
+          "fixed100_over_paired": 1.008121070529305,
+          "io_over_paired": 1.008130935754287,
+          "miss_delta": 18,
+          "actual_delta_us": 4731535.786896348,
+          "fixed100_delta_us": 4716325.786896348
+        }
+      }
+    },
+    {
+      "case": "train/train_528_random_zipf.txt",
+      "seed": 17042152183881719979,
+      "family": "random_zipf",
+      "actual_penalty": 449,
+      "methods": {
+        "paired100": {
+          "io_us": 13541940.427355684,
+          "misses": 9030,
+          "actual_physical_us": 17596410.427355684,
+          "fixed100_physical_us": 14444940.427355684,
+          "components_us": {
+            "build_write_us": 12721.227380302204,
+            "probe_write_us": 5559931.84689605,
+            "probe_read_us": 7969287.353079332
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 14037718.468566466,
+          "misses": 8666,
+          "actual_physical_us": 17928752.468566466,
+          "fixed100_physical_us": 14904318.468566466,
+          "components_us": {
+            "build_write_us": 12721.227380302204,
+            "probe_write_us": 5763640.5934826145,
+            "probe_read_us": 8261356.647703549
+          },
+          "actual_over_paired": 1.0188869225676913,
+          "fixed100_over_paired": 1.0318020031665078,
+          "io_over_paired": 1.0366105613793186,
+          "miss_delta": -364,
+          "actual_delta_us": 332342.0412107818,
+          "fixed100_delta_us": 459378.0412107818
+        },
+        "risk_flat100": {
+          "io_us": 13776640.696663233,
+          "misses": 8698,
+          "actual_physical_us": 17682042.69666323,
+          "fixed100_physical_us": 14646440.696663233,
+          "components_us": {
+            "build_write_us": 12721.227380302204,
+            "probe_write_us": 5656458.03113053,
+            "probe_read_us": 8107461.438152401
+          },
+          "actual_over_paired": 1.0048664623765777,
+          "fixed100_over_paired": 1.013949539655141,
+          "io_over_paired": 1.0173313618211934,
+          "miss_delta": -332,
+          "actual_delta_us": 85632.26930754632,
+          "fixed100_delta_us": 201500.26930754818
+        },
+        "risk_scale100": {
+          "io_us": 14342846.892457359,
+          "misses": 8779,
+          "actual_physical_us": 18284617.89245736,
+          "fixed100_physical_us": 15220746.892457359,
+          "components_us": {
+            "build_write_us": 12721.227380302204,
+            "probe_write_us": 5888958.3759330055,
+            "probe_read_us": 8441167.28914405
+          },
+          "actual_over_paired": 1.0391106736196478,
+          "fixed100_over_paired": 1.0537078341723347,
+          "io_over_paired": 1.0591426663998451,
+          "miss_delta": -251,
+          "actual_delta_us": 688207.4651016742,
+          "fixed100_delta_us": 775806.4651016742
+        }
+      }
+    },
+    {
+      "case": "train/train_603_random_zipf.txt",
+      "seed": 17205284488478511419,
+      "family": "random_zipf",
+      "actual_penalty": 250,
+      "methods": {
+        "paired100": {
+          "io_us": 1297817648.0541005,
+          "misses": 14031,
+          "actual_physical_us": 1301325398.0541005,
+          "fixed100_physical_us": 1299220748.0541005,
+          "components_us": {
+            "build_write_us": 361365.38719030045,
+            "probe_write_us": 418273527.6220348,
+            "probe_read_us": 879182755.0448754
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 1298906885.2355905,
+          "misses": 14017,
+          "actual_physical_us": 1302411135.2355905,
+          "fixed100_physical_us": 1300308585.2355905,
+          "components_us": {
+            "build_write_us": 361365.38719030045,
+            "probe_write_us": 418624674.81128097,
+            "probe_read_us": 879920845.0371192
+          },
+          "actual_over_paired": 1.0008343318151736,
+          "fixed100_over_paired": 1.000837299729949,
+          "io_over_paired": 1.000839283687599,
+          "miss_delta": -14,
+          "actual_delta_us": 1085737.1814899445,
+          "fixed100_delta_us": 1087837.1814899445
+        },
+        "risk_flat100": {
+          "io_us": 1298965737.0687041,
+          "misses": 14016,
+          "actual_physical_us": 1302469737.0687041,
+          "fixed100_physical_us": 1300367337.0687041,
+          "components_us": {
+            "build_write_us": 361365.38719030045,
+            "probe_write_us": 418643647.4061676,
+            "probe_read_us": 879960724.2753463
+          },
+          "actual_over_paired": 1.0008793642361202,
+          "fixed100_over_paired": 1.0008825205542022,
+          "io_over_paired": 1.0008846304535348,
+          "miss_delta": -15,
+          "actual_delta_us": 1144339.0146036148,
+          "fixed100_delta_us": 1146589.0146036148
+        },
+        "risk_scale100": {
+          "io_us": 1297920408.9023561,
+          "misses": 14031,
+          "actual_physical_us": 1301428158.9023561,
+          "fixed100_physical_us": 1299323508.9023561,
+          "components_us": {
+            "build_write_us": 361365.38719030045,
+            "probe_write_us": 418306655.5611492,
+            "probe_read_us": 879252387.9540166
+          },
+          "actual_over_paired": 1.0000789662972915,
+          "fixed100_over_paired": 1.000079094217368,
+          "io_over_paired": 1.0000791797279145,
+          "miss_delta": 0,
+          "actual_delta_us": 102760.84825563431,
+          "fixed100_delta_us": 102760.84825563431
+        }
+      }
+    },
+    {
+      "case": "train/train_563_random_zipf.txt",
+      "seed": 4015835430883768950,
+      "family": "random_zipf",
+      "actual_penalty": 949,
+      "methods": {
+        "paired100": {
+          "io_us": 63190347.168372884,
+          "misses": 5812,
+          "actual_physical_us": 68705935.16837288,
+          "fixed100_physical_us": 63771547.168372884,
+          "components_us": {
+            "build_write_us": 125944.3844606947,
+            "probe_write_us": 34690145.32212066,
+            "probe_read_us": 28374257.461791534
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 64397585.00829433,
+          "misses": 5895,
+          "actual_physical_us": 69991940.00829433,
+          "fixed100_physical_us": 64987085.00829433,
+          "components_us": {
+            "build_write_us": 125944.3844606947,
+            "probe_write_us": 35350176.85996344,
+            "probe_read_us": 28921463.763870195
+          },
+          "actual_over_paired": 1.0187175218089954,
+          "fixed100_over_paired": 1.0190608177768077,
+          "io_over_paired": 1.0191047825185184,
+          "miss_delta": 83,
+          "actual_delta_us": 1286004.8399214447,
+          "fixed100_delta_us": 1215537.8399214447
+        },
+        "risk_flat100": {
+          "io_us": 64700679.9178578,
+          "misses": 5961,
+          "actual_physical_us": 70357668.9178578,
+          "fixed100_physical_us": 65296779.9178578,
+          "components_us": {
+            "build_write_us": 125944.3844606947,
+            "probe_write_us": 35516781.87989031,
+            "probe_read_us": 29057953.653506804
+          },
+          "actual_over_paired": 1.0240406268459503,
+          "fixed100_over_paired": 1.0239171357323027,
+          "io_over_paired": 1.0239013206472911,
+          "miss_delta": 149,
+          "actual_delta_us": 1651733.7494849116,
+          "fixed100_delta_us": 1525232.749484919
+        },
+        "risk_scale100": {
+          "io_us": 63709130.18696297,
+          "misses": 5785,
+          "actual_physical_us": 69199095.18696296,
+          "fixed100_physical_us": 64287630.18696297,
+          "components_us": {
+            "build_write_us": 125944.3844606947,
+            "probe_write_us": 34971028.23034735,
+            "probe_read_us": 28612157.572154928
+          },
+          "actual_over_paired": 1.0071778372185973,
+          "fixed100_over_paired": 1.008092684614151,
+          "io_over_paired": 1.0082098459944804,
+          "miss_delta": -27,
+          "actual_delta_us": 493160.01859007776,
+          "fixed100_delta_us": 516083.0185900852
+        }
+      }
+    },
+    {
+      "case": "train/train_565_random_zipf.txt",
+      "seed": 12707438246821282913,
+      "family": "random_zipf",
+      "actual_penalty": 632,
+      "methods": {
+        "paired100": {
+          "io_us": 216092729.968888,
+          "misses": 5998,
+          "actual_physical_us": 219883465.968888,
+          "fixed100_physical_us": 216692529.968888,
+          "components_us": {
+            "build_write_us": 85374.74595992242,
+            "probe_write_us": 132867642.6804568,
+            "probe_read_us": 83139712.5424713
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 215043054.27665174,
+          "misses": 5664,
+          "actual_physical_us": 218622702.27665174,
+          "fixed100_physical_us": 215609454.27665174,
+          "components_us": {
+            "build_write_us": 85374.74595992242,
+            "probe_write_us": 132222378.81684981,
+            "probe_read_us": 82735300.713842
+          },
+          "actual_over_paired": 0.9942662187596467,
+          "fixed100_over_paired": 0.9950017857450287,
+          "io_over_paired": 0.9951424756752002,
+          "miss_delta": -334,
+          "actual_delta_us": -1260763.6922362745,
+          "fixed100_delta_us": -1083075.6922362745
+        },
+        "risk_flat100": {
+          "io_us": 224554828.0913037,
+          "misses": 5514,
+          "actual_physical_us": 228039676.0913037,
+          "fixed100_physical_us": 225106228.0913037,
+          "components_us": {
+            "build_write_us": 85374.74595992242,
+            "probe_write_us": 138071392.656755,
+            "probe_read_us": 86398060.6885888
+          },
+          "actual_over_paired": 1.0370933307171433,
+          "fixed100_over_paired": 1.0388278180314923,
+          "io_over_paired": 1.0391595687815782,
+          "miss_delta": -484,
+          "actual_delta_us": 8156210.122415692,
+          "fixed100_delta_us": 8413698.122415692
+        },
+        "risk_scale100": {
+          "io_us": 226251126.23301402,
+          "misses": 5780,
+          "actual_physical_us": 229904086.23301402,
+          "fixed100_physical_us": 226829126.23301402,
+          "components_us": {
+            "build_write_us": 85374.74595992242,
+            "probe_write_us": 139034113.50312433,
+            "probe_read_us": 87131637.98392978
+          },
+          "actual_over_paired": 1.0455724136417963,
+          "fixed100_over_paired": 1.046778706518316,
+          "io_over_paired": 1.0470094309308258,
+          "miss_delta": -218,
+          "actual_delta_us": 10020620.264126003,
+          "fixed100_delta_us": 10136596.264126003
+        }
+      }
+    },
+    {
+      "case": "train/train_592_random_zipf.txt",
+      "seed": 18068038998795579627,
+      "family": "random_zipf",
+      "actual_penalty": 179,
+      "methods": {
+        "paired100": {
+          "io_us": 11783800.72728754,
+          "misses": 5388,
+          "actual_physical_us": 12748252.72728754,
+          "fixed100_physical_us": 12322600.72728754,
+          "components_us": {
+            "build_write_us": 11045.03297620704,
+            "probe_write_us": 4199841.855294282,
+            "probe_read_us": 7572913.839017051
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 13326176.917569252,
+          "misses": 5247,
+          "actual_physical_us": 14265389.917569252,
+          "fixed100_physical_us": 13850876.917569252,
+          "components_us": {
+            "build_write_us": 11045.03297620704,
+            "probe_write_us": 4750302.143870878,
+            "probe_read_us": 8564829.740722166
+          },
+          "actual_over_paired": 1.1190074610800813,
+          "fixed100_over_paired": 1.1240222112283043,
+          "io_over_paired": 1.1308895343681482,
+          "miss_delta": -141,
+          "actual_delta_us": 1517137.1902817115,
+          "fixed100_delta_us": 1528276.1902817115
+        },
+        "risk_flat100": {
+          "io_us": 11683716.628324587,
+          "misses": 5126,
+          "actual_physical_us": 12601270.628324587,
+          "fixed100_physical_us": 12196316.628324587,
+          "components_us": {
+            "build_write_us": 11045.03297620704,
+            "probe_write_us": 4164145.459440657,
+            "probe_read_us": 7508526.135907724
+          },
+          "actual_over_paired": 0.9884704122119936,
+          "fixed100_over_paired": 0.9897518306599592,
+          "io_over_paired": 0.99150663684161,
+          "miss_delta": -262,
+          "actual_delta_us": -146982.0989629533,
+          "fixed100_delta_us": -126284.09896295331
+        },
+        "risk_scale100": {
+          "io_us": 18858546.766041446,
+          "misses": 5746,
+          "actual_physical_us": 19887080.766041446,
+          "fixed100_physical_us": 19433146.766041446,
+          "components_us": {
+            "build_write_us": 11045.03297620704,
+            "probe_write_us": 6725601.274940865,
+            "probe_read_us": 12121900.458124373
+          },
+          "actual_over_paired": 1.5599848223492854,
+          "fixed100_over_paired": 1.5770329004499917,
+          "io_over_paired": 1.6003789611250843,
+          "miss_delta": 358,
+          "actual_delta_us": 7138828.038753906,
+          "fixed100_delta_us": 7110546.038753906
+        }
+      }
+    },
+    {
+      "case": "train/train_600_random_zipf.txt",
+      "seed": 13204245464263753359,
+      "family": "random_zipf",
+      "actual_penalty": 870,
+      "methods": {
+        "paired100": {
+          "io_us": 235824.75108547963,
+          "misses": 690,
+          "actual_physical_us": 836124.7510854796,
+          "fixed100_physical_us": 304824.7510854796,
+          "components_us": {
+            "build_write_us": 15622.405389685924,
+            "probe_write_us": 130338.18825126017,
+            "probe_read_us": 89864.15744453354
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 235824.75108547963,
+          "misses": 690,
+          "actual_physical_us": 836124.7510854796,
+          "fixed100_physical_us": 304824.7510854796,
+          "components_us": {
+            "build_write_us": 15622.405389685924,
+            "probe_write_us": 130338.18825126017,
+            "probe_read_us": 89864.15744453354
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_flat100": {
+          "io_us": 235824.75108547963,
+          "misses": 690,
+          "actual_physical_us": 836124.7510854796,
+          "fixed100_physical_us": 304824.7510854796,
+          "components_us": {
+            "build_write_us": 15622.405389685924,
+            "probe_write_us": 130338.18825126017,
+            "probe_read_us": 89864.15744453354
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_scale100": {
+          "io_us": 235824.75108547963,
+          "misses": 690,
+          "actual_physical_us": 836124.7510854796,
+          "fixed100_physical_us": 304824.7510854796,
+          "components_us": {
+            "build_write_us": 15622.405389685924,
+            "probe_write_us": 130338.18825126017,
+            "probe_read_us": 89864.15744453354
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        }
+      }
+    },
+    {
+      "case": "train/train_586_random_zipf.txt",
+      "seed": 16880273796992981695,
+      "family": "random_zipf",
+      "actual_penalty": 499,
+      "methods": {
+        "paired100": {
+          "io_us": 374363.0056151498,
+          "misses": 3,
+          "actual_physical_us": 375860.0056151498,
+          "fixed100_physical_us": 374663.0056151498,
+          "components_us": {
+            "build_write_us": 289560.893897746,
+            "probe_write_us": 0.0,
+            "probe_read_us": 84802.1117174038
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 374363.0056151498,
+          "misses": 3,
+          "actual_physical_us": 375860.0056151498,
+          "fixed100_physical_us": 374663.0056151498,
+          "components_us": {
+            "build_write_us": 289560.893897746,
+            "probe_write_us": 0.0,
+            "probe_read_us": 84802.1117174038
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_flat100": {
+          "io_us": 374363.0056151498,
+          "misses": 3,
+          "actual_physical_us": 375860.0056151498,
+          "fixed100_physical_us": 374663.0056151498,
+          "components_us": {
+            "build_write_us": 289560.893897746,
+            "probe_write_us": 0.0,
+            "probe_read_us": 84802.1117174038
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_scale100": {
+          "io_us": 374363.0056151498,
+          "misses": 3,
+          "actual_physical_us": 375860.0056151498,
+          "fixed100_physical_us": 374663.0056151498,
+          "components_us": {
+            "build_write_us": 289560.893897746,
+            "probe_write_us": 0.0,
+            "probe_read_us": 84802.1117174038
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        }
+      }
+    },
+    {
+      "case": "train/train_597_random_zipf.txt",
+      "seed": 9053799892522796550,
+      "family": "random_zipf",
+      "actual_penalty": 139,
+      "methods": {
+        "paired100": {
+          "io_us": 5546025847.187748,
+          "misses": 8732,
+          "actual_physical_us": 5547239595.187748,
+          "fixed100_physical_us": 5546899047.187748,
+          "components_us": {
+            "build_write_us": 337296.77011779294,
+            "probe_write_us": 157009547.1750775,
+            "probe_read_us": 5388679003.242553
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 5543768691.972543,
+          "misses": 8729,
+          "actual_physical_us": 5544982022.972543,
+          "fixed100_physical_us": 5544641591.972543,
+          "components_us": {
+            "build_write_us": 337296.77011779294,
+            "probe_write_us": 156945639.7683819,
+            "probe_read_us": 5386485755.434043
+          },
+          "actual_over_paired": 0.999593027815643,
+          "fixed100_over_paired": 0.9995930239227357,
+          "io_over_paired": 0.9995930139387378,
+          "miss_delta": -3,
+          "actual_delta_us": -2257572.2152051926,
+          "fixed100_delta_us": -2257455.2152051926
+        },
+        "risk_flat100": {
+          "io_us": 5543487708.764301,
+          "misses": 8716,
+          "actual_physical_us": 5544699232.764301,
+          "fixed100_physical_us": 5544359308.764301,
+          "components_us": {
+            "build_write_us": 337296.77011779294,
+            "probe_write_us": 156937684.21971482,
+            "probe_read_us": 5386212727.774468
+          },
+          "actual_over_paired": 0.9995420492697574,
+          "fixed100_over_paired": 0.9995421336494785,
+          "io_over_paired": 0.9995423500550878,
+          "miss_delta": -16,
+          "actual_delta_us": -2540362.4234466553,
+          "fixed100_delta_us": -2539738.4234466553
+        },
+        "risk_scale100": {
+          "io_us": 5552396156.993818,
+          "misses": 8744,
+          "actual_physical_us": 5553611572.993818,
+          "fixed100_physical_us": 5553270556.993818,
+          "components_us": {
+            "build_write_us": 337296.77011779294,
+            "probe_write_us": 157189911.3683819,
+            "probe_read_us": 5394868948.855319
+          },
+          "actual_over_paired": 1.0011486754261703,
+          "fixed100_over_paired": 1.001148661576832,
+          "io_over_paired": 1.0011486260579368,
+          "miss_delta": 12,
+          "actual_delta_us": 6371977.806070328,
+          "fixed100_delta_us": 6371509.806070328
+        }
+      }
+    },
+    {
+      "case": "train/train_534_random_zipf.txt",
+      "seed": 6047589661445266902,
+      "family": "random_zipf",
+      "actual_penalty": 339,
+      "methods": {
+        "paired100": {
+          "io_us": 986445190.7367231,
+          "misses": 23232,
+          "actual_physical_us": 994320838.7367231,
+          "fixed100_physical_us": 988768390.7367231,
+          "components_us": {
+            "build_write_us": 7383807.136150234,
+            "probe_write_us": 815903942.9248827,
+            "probe_read_us": 163157440.67569017
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 992240349.8240248,
+          "misses": 23380,
+          "actual_physical_us": 1000166169.8240248,
+          "fixed100_physical_us": 994578349.8240248,
+          "components_us": {
+            "build_write_us": 7383807.136150234,
+            "probe_write_us": 820733841.702884,
+            "probe_read_us": 164122700.98499063
+          },
+          "actual_over_paired": 1.0058787172707033,
+          "fixed100_over_paired": 1.0058759555237933,
+          "io_over_paired": 1.0058747907554535,
+          "miss_delta": 148,
+          "actual_delta_us": 5845331.087301731,
+          "fixed100_delta_us": 5809959.087301731
+        },
+        "risk_flat100": {
+          "io_us": 983191928.9576559,
+          "misses": 23272,
+          "actual_physical_us": 991081136.9576559,
+          "fixed100_physical_us": 985519128.9576559,
+          "components_us": {
+            "build_write_us": 7383807.136150234,
+            "probe_write_us": 813192401.5821596,
+            "probe_read_us": 162615720.23934603
+          },
+          "actual_over_paired": 0.9967417943455925,
+          "fixed100_over_paired": 0.9967138292349271,
+          "io_over_paired": 0.9967020349334995,
+          "miss_delta": 40,
+          "actual_delta_us": -3239701.7790671587,
+          "fixed100_delta_us": -3249261.7790671587
+        },
+        "risk_scale100": {
+          "io_us": 993207363.8493323,
+          "misses": 23324,
+          "actual_physical_us": 1001114199.8493323,
+          "fixed100_physical_us": 995539763.8493323,
+          "components_us": {
+            "build_write_us": 7383807.136150234,
+            "probe_write_us": 821540138.537894,
+            "probe_read_us": 164283418.17528814
+          },
+          "actual_over_paired": 1.0068321620627405,
+          "fixed100_over_paired": 1.0068482904348954,
+          "io_over_paired": 1.006855092585082,
+          "miss_delta": 92,
+          "actual_delta_us": 6793361.112609267,
+          "fixed100_delta_us": 6771373.112609267
+        }
+      }
+    },
+    {
+      "case": "train/train_569_random_zipf.txt",
+      "seed": 12887940269125001850,
+      "family": "random_zipf",
+      "actual_penalty": 534,
+      "methods": {
+        "paired100": {
+          "io_us": 69017992.87871167,
+          "misses": 22433,
+          "actual_physical_us": 80997214.87871167,
+          "fixed100_physical_us": 71261292.87871167,
+          "components_us": {
+            "build_write_us": 95761.14321518081,
+            "probe_write_us": 24001356.392409597,
+            "probe_read_us": 44920875.34308689
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 68971298.35052533,
+          "misses": 22314,
+          "actual_physical_us": 80886974.35052533,
+          "fixed100_physical_us": 71202698.35052533,
+          "components_us": {
+            "build_write_us": 95761.14321518081,
+            "probe_write_us": 23985015.657835063,
+            "probe_read_us": 44890521.549475096
+          },
+          "actual_over_paired": 0.9986389590265368,
+          "fixed100_over_paired": 0.9991777509806612,
+          "io_over_paired": 0.9993234441304546,
+          "miss_delta": -119,
+          "actual_delta_us": -110240.52818633616,
+          "fixed100_delta_us": -58594.52818633616
+        },
+        "risk_flat100": {
+          "io_us": 68804102.60099156,
+          "misses": 22228,
+          "actual_physical_us": 80673854.60099156,
+          "fixed100_physical_us": 71026902.60099156,
+          "components_us": {
+            "build_write_us": 95761.14321518081,
+            "probe_write_us": 23926959.72335601,
+            "probe_read_us": 44781381.734420374
+          },
+          "actual_over_paired": 0.9960077605359108,
+          "fixed100_over_paired": 0.9967108332132137,
+          "io_over_paired": 0.996900949030842,
+          "miss_delta": -205,
+          "actual_delta_us": -323360.2777201086,
+          "fixed100_delta_us": -234390.27772010863
+        },
+        "risk_scale100": {
+          "io_us": 69160100.59602858,
+          "misses": 22430,
+          "actual_physical_us": 81137720.59602858,
+          "fixed100_physical_us": 71403100.59602858,
+          "components_us": {
+            "build_write_us": 95761.14321518081,
+            "probe_write_us": 24050904.298245613,
+            "probe_read_us": 45013435.15456779
+          },
+          "actual_over_paired": 1.0017346981316249,
+          "fixed100_over_paired": 1.0019899683487117,
+          "io_over_paired": 1.0020589952183432,
+          "miss_delta": -3,
+          "actual_delta_us": 140505.71731691062,
+          "fixed100_delta_us": 141807.71731691062
+        }
+      }
+    },
+    {
+      "case": "train/train_575_random_zipf.txt",
+      "seed": 16743426090438616031,
+      "family": "random_zipf",
+      "actual_penalty": 75,
+      "methods": {
+        "paired100": {
+          "io_us": 180804492.73982844,
+          "misses": 16341,
+          "actual_physical_us": 182030067.73982844,
+          "fixed100_physical_us": 182438592.73982844,
+          "components_us": {
+            "build_write_us": 72141.79053900386,
+            "probe_write_us": 58474816.09051626,
+            "probe_read_us": 122257534.85877319
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 179528679.2873394,
+          "misses": 15964,
+          "actual_physical_us": 180725979.2873394,
+          "fixed100_physical_us": 181125079.2873394,
+          "components_us": {
+            "build_write_us": 72141.79053900386,
+            "probe_write_us": 58062041.36888788,
+            "probe_read_us": 121394496.1279125
+          },
+          "actual_over_paired": 0.9928358624007494,
+          "fixed100_over_paired": 0.9928002434530823,
+          "io_over_paired": 0.9929436850093936,
+          "miss_delta": -377,
+          "actual_delta_us": -1304088.4524890482,
+          "fixed100_delta_us": -1313513.4524890482
+        },
+        "risk_flat100": {
+          "io_us": 180966591.33915615,
+          "misses": 16030,
+          "actual_physical_us": 182168841.33915615,
+          "fixed100_physical_us": 182569591.33915615,
+          "components_us": {
+            "build_write_us": 72141.79053900386,
+            "probe_write_us": 58531050.53149875,
+            "probe_read_us": 122363399.01711841
+          },
+          "actual_over_paired": 1.0007623663554641,
+          "fixed100_over_paired": 1.000718042149747,
+          "io_over_paired": 1.000896540771036,
+          "miss_delta": -311,
+          "actual_delta_us": 138773.59932771325,
+          "fixed100_delta_us": 130998.59932771325
+        },
+        "risk_scale100": {
+          "io_us": 181410341.58663544,
+          "misses": 16378,
+          "actual_physical_us": 182638691.58663544,
+          "fixed100_physical_us": 183048141.58663544,
+          "components_us": {
+            "build_write_us": 72141.79053900386,
+            "probe_write_us": 58667078.69433705,
+            "probe_read_us": 122671121.10175939
+          },
+          "actual_over_paired": 1.0033435346938226,
+          "fixed100_over_paired": 1.003341117894262,
+          "io_over_paired": 1.0033508506211668,
+          "miss_delta": 37,
+          "actual_delta_us": 608623.846807003,
+          "fixed100_delta_us": 609548.846807003
+        }
+      }
+    },
+    {
+      "case": "train/train_524_random_zipf.txt",
+      "seed": 8790685556193460957,
+      "family": "random_zipf",
+      "actual_penalty": 367,
+      "methods": {
+        "paired100": {
+          "io_us": 19923309.32372122,
+          "misses": 13561,
+          "actual_physical_us": 24900196.32372122,
+          "fixed100_physical_us": 21279409.32372122,
+          "components_us": {
+            "build_write_us": 50714.284437825765,
+            "probe_write_us": 6645522.271221147,
+            "probe_read_us": 13227072.768062245
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 19962963.110831704,
+          "misses": 13471,
+          "actual_physical_us": 24906820.110831704,
+          "fixed100_physical_us": 21310063.110831704,
+          "components_us": {
+            "build_write_us": 50714.284437825765,
+            "probe_write_us": 6658849.49516009,
+            "probe_read_us": 13253399.33123379
+          },
+          "actual_over_paired": 1.0002660134492263,
+          "fixed100_over_paired": 1.0014405375000852,
+          "io_over_paired": 1.0019903213098875,
+          "miss_delta": -90,
+          "actual_delta_us": 6623.7871104851365,
+          "fixed100_delta_us": 30653.787110485137
+        },
+        "risk_flat100": {
+          "io_us": 19728133.40496032,
+          "misses": 13241,
+          "actual_physical_us": 24587580.40496032,
+          "fixed100_physical_us": 21052233.40496032,
+          "components_us": {
+            "build_write_us": 50714.284437825765,
+            "probe_write_us": 6580427.214631422,
+            "probe_read_us": 13096991.90589107
+          },
+          "actual_over_paired": 0.9874452428126808,
+          "fixed100_over_paired": 0.989324143574434,
+          "io_over_paired": 0.9902036395866967,
+          "miss_delta": -320,
+          "actual_delta_us": -312615.91876089945,
+          "fixed100_delta_us": -227175.91876089945
+        },
+        "risk_scale100": {
+          "io_us": 19977823.757706724,
+          "misses": 13596,
+          "actual_physical_us": 24967555.757706724,
+          "fixed100_physical_us": 21337423.757706724,
+          "components_us": {
+            "build_write_us": 50714.284437825765,
+            "probe_write_us": 6663801.6040580785,
+            "probe_read_us": 13263307.869210819
+          },
+          "actual_over_paired": 1.0027051768230975,
+          "fixed100_over_paired": 1.0027263178739099,
+          "io_over_paired": 1.0027362138036275,
+          "miss_delta": 35,
+          "actual_delta_us": 67359.43398550525,
+          "fixed100_delta_us": 58014.43398550525
+        }
+      }
+    },
+    {
+      "case": "train/train_519_random_zipf.txt",
+      "seed": 3378975529217722178,
+      "family": "random_zipf",
+      "actual_penalty": 119,
+      "methods": {
+        "paired100": {
+          "io_us": 44805202.15915708,
+          "misses": 6539,
+          "actual_physical_us": 45583343.15915708,
+          "fixed100_physical_us": 45459102.15915708,
+          "components_us": {
+            "build_write_us": 315026.338960869,
+            "probe_write_us": 17474982.165030755,
+            "probe_read_us": 27015193.655165456
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 46976300.17861318,
+          "misses": 6346,
+          "actual_physical_us": 47731474.17861318,
+          "fixed100_physical_us": 47610900.17861318,
+          "components_us": {
+            "build_write_us": 315026.338960869,
+            "probe_write_us": 18312499.106399685,
+            "probe_read_us": 28348774.733252622
+          },
+          "actual_over_paired": 1.04712535041486,
+          "fixed100_over_paired": 1.0473348112314762,
+          "io_over_paired": 1.0484563826259263,
+          "miss_delta": -193,
+          "actual_delta_us": 2148131.019456096,
+          "fixed100_delta_us": 2151798.019456096
+        },
+        "risk_flat100": {
+          "io_us": 47170346.581749864,
+          "misses": 6437,
+          "actual_physical_us": 47936349.581749864,
+          "fixed100_physical_us": 47814046.581749864,
+          "components_us": {
+            "build_write_us": 315026.338960869,
+            "probe_write_us": 18403684.524669547,
+            "probe_read_us": 28451635.71811945
+          },
+          "actual_over_paired": 1.051619873829287,
+          "fixed100_over_paired": 1.051803584117167,
+          "io_over_paired": 1.0527872726517629,
+          "miss_delta": -102,
+          "actual_delta_us": 2353006.4225927815,
+          "fixed100_delta_us": 2354944.4225927815
+        },
+        "risk_scale100": {
+          "io_us": 48497089.23261236,
+          "misses": 6385,
+          "actual_physical_us": 49256904.23261236,
+          "fixed100_physical_us": 49135589.23261236,
+          "components_us": {
+            "build_write_us": 315026.338960869,
+            "probe_write_us": 18909449.611569166,
+            "probe_read_us": 29272613.282082323
+          },
+          "actual_over_paired": 1.080589987895991,
+          "fixed100_over_paired": 1.080874608138619,
+          "io_over_paired": 1.082398625506497,
+          "miss_delta": -154,
+          "actual_delta_us": 3673561.073455274,
+          "fixed100_delta_us": 3676487.073455274
+        }
+      }
+    },
+    {
+      "case": "train/train_583_random_zipf.txt",
+      "seed": 333890524145506579,
+      "family": "random_zipf",
+      "actual_penalty": 59,
+      "methods": {
+        "paired100": {
+          "io_us": 1779412732.1074705,
+          "misses": 6289,
+          "actual_physical_us": 1779783783.1074705,
+          "fixed100_physical_us": 1780041632.1074705,
+          "components_us": {
+            "build_write_us": 244133.71270216245,
+            "probe_write_us": 224492783.23859712,
+            "probe_read_us": 1554675815.1561713
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 1814773025.5518281,
+          "misses": 6084,
+          "actual_physical_us": 1815131981.5518281,
+          "fixed100_physical_us": 1815381425.5518281,
+          "components_us": {
+            "build_write_us": 244133.71270216245,
+            "probe_write_us": 228951425.9247683,
+            "probe_read_us": 1585577465.9143577
+          },
+          "actual_over_paired": 1.019860950964864,
+          "fixed100_over_paired": 1.0198533521952053,
+          "io_over_paired": 1.0198718896444436,
+          "miss_delta": -205,
+          "actual_delta_us": 35348198.44435763,
+          "fixed100_delta_us": 35339793.44435763
+        },
+        "risk_flat100": {
+          "io_us": 1790705266.6065195,
+          "misses": 6099,
+          "actual_physical_us": 1791065107.6065195,
+          "fixed100_physical_us": 1791315166.6065195,
+          "components_us": {
+            "build_write_us": 244133.71270216245,
+            "probe_write_us": 225916679.12429583,
+            "probe_read_us": 1564544453.7695215
+          },
+          "actual_over_paired": 1.006338592702172,
+          "fixed100_over_paired": 1.0063332982193802,
+          "io_over_paired": 1.0063462142847963,
+          "miss_delta": -190,
+          "actual_delta_us": 11281324.499048948,
+          "fixed100_delta_us": 11273534.499048948
+        },
+        "risk_scale100": {
+          "io_us": 1821136670.7399547,
+          "misses": 6033,
+          "actual_physical_us": 1821492617.7399547,
+          "fixed100_physical_us": 1821739970.7399547,
+          "components_us": {
+            "build_write_us": 244133.71270216245,
+            "probe_write_us": 229753829.33581683,
+            "probe_read_us": 1591138707.6914358
+          },
+          "actual_over_paired": 1.0234347761949272,
+          "fixed100_over_paired": 1.023425485045041,
+          "io_over_paired": 1.0234481511116693,
+          "miss_delta": -256,
+          "actual_delta_us": 41708834.6324842,
+          "fixed100_delta_us": 41698338.6324842
+        }
+      }
+    },
+    {
+      "case": "train/train_594_random_zipf.txt",
+      "seed": 12992850910945189016,
+      "family": "random_zipf",
+      "actual_penalty": 780,
+      "methods": {
+        "paired100": {
+          "io_us": 279455353.13507134,
+          "misses": 27838,
+          "actual_physical_us": 301168993.13507134,
+          "fixed100_physical_us": 282239153.13507134,
+          "components_us": {
+            "build_write_us": 9129.024629034726,
+            "probe_write_us": 34674961.183876395,
+            "probe_read_us": 244771262.9265659
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 279665966.9069637,
+          "misses": 27805,
+          "actual_physical_us": 301353866.9069637,
+          "fixed100_physical_us": 282446466.9069637,
+          "components_us": {
+            "build_write_us": 9129.024629034726,
+            "probe_write_us": 34701093.88557442,
+            "probe_read_us": 244955743.99676025
+          },
+          "actual_over_paired": 1.0006138539361835,
+          "fixed100_over_paired": 1.0007345322914611,
+          "io_over_paired": 1.0007536580334913,
+          "miss_delta": -33,
+          "actual_delta_us": 184873.7718923688,
+          "fixed100_delta_us": 207313.7718923688
+        },
+        "risk_flat100": {
+          "io_us": 280166232.60090494,
+          "misses": 27830,
+          "actual_physical_us": 301873632.60090494,
+          "fixed100_physical_us": 282949232.60090494,
+          "components_us": {
+            "build_write_us": 9129.024629034726,
+            "probe_write_us": 34763166.24690225,
+            "probe_read_us": 245393937.32937366
+          },
+          "actual_over_paired": 1.0023396813147945,
+          "fixed100_over_paired": 1.0025158786722046,
+          "io_over_paired": 1.0025438033584206,
+          "miss_delta": -8,
+          "actual_delta_us": 704639.4658336043,
+          "fixed100_delta_us": 710079.4658336043
+        },
+        "risk_scale100": {
+          "io_us": 279589672.9198614,
+          "misses": 27957,
+          "actual_physical_us": 301396132.9198614,
+          "fixed100_physical_us": 282385372.9198614,
+          "components_us": {
+            "build_write_us": 9129.024629034726,
+            "probe_write_us": 34691627.420070365,
+            "probe_read_us": 244888916.475162
+          },
+          "actual_over_paired": 1.000754193791418,
+          "fixed100_over_paired": 1.0005180705198617,
+          "io_over_paired": 1.000480648458808,
+          "miss_delta": 119,
+          "actual_delta_us": 227139.78479003906,
+          "fixed100_delta_us": 146219.78479003906
+        }
+      }
+    },
+    {
+      "case": "train/train_562_random_zipf.txt",
+      "seed": 5641382687939364132,
+      "family": "random_zipf",
+      "actual_penalty": 172,
+      "methods": {
+        "paired100": {
+          "io_us": 5906858537.117537,
+          "misses": 17293,
+          "actual_physical_us": 5909832933.117537,
+          "fixed100_physical_us": 5908587837.117537,
+          "components_us": {
+            "build_write_us": 1996625.7979910714,
+            "probe_write_us": 1880333537.8263712,
+            "probe_read_us": 4024528373.493174
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 5906705805.448283,
+          "misses": 17220,
+          "actual_physical_us": 5909667645.448283,
+          "fixed100_physical_us": 5908427805.448283,
+          "components_us": {
+            "build_write_us": 1996625.7979910714,
+            "probe_write_us": 1880312833.811384,
+            "probe_read_us": 4024396345.8389077
+          },
+          "actual_over_paired": 0.9999720317526529,
+          "fixed100_over_paired": 0.9999729154116576,
+          "io_over_paired": 0.9999741433338392,
+          "miss_delta": -73,
+          "actual_delta_us": -165287.6692533493,
+          "fixed100_delta_us": -160031.6692533493
+        },
+        "risk_flat100": {
+          "io_us": 5908935601.780214,
+          "misses": 17247,
+          "actual_physical_us": 5911902085.780214,
+          "fixed100_physical_us": 5910660301.780214,
+          "components_us": {
+            "build_write_us": 1996625.7979910714,
+            "probe_write_us": 1881022821.1242027,
+            "probe_read_us": 4025916154.8580203
+          },
+          "actual_over_paired": 1.0003501203309966,
+          "fixed100_over_paired": 1.0003507546506558,
+          "io_over_paired": 1.0003516360938096,
+          "miss_delta": -46,
+          "actual_delta_us": 2069152.662677765,
+          "fixed100_delta_us": 2072464.662677765
+        },
+        "risk_scale100": {
+          "io_us": 5904162393.0015745,
+          "misses": 17280,
+          "actual_physical_us": 5907134553.0015745,
+          "fixed100_physical_us": 5905890393.0015745,
+          "components_us": {
+            "build_write_us": 1996625.7979910714,
+            "probe_write_us": 1879475061.1626275,
+            "probe_read_us": 4022690706.0409555
+          },
+          "actual_over_paired": 0.9995434083930121,
+          "fixed100_over_paired": 0.9995434705905502,
+          "io_over_paired": 0.9995435570195189,
+          "miss_delta": -13,
+          "actual_delta_us": -2698380.1159620285,
+          "fixed100_delta_us": -2697444.1159620285
+        }
+      }
+    },
+    {
+      "case": "train/train_669_random_hotspot.txt",
+      "seed": 12796682547846436763,
+      "family": "random_hotspot",
+      "actual_penalty": 2,
+      "methods": {
+        "paired100": {
+          "io_us": 1396337988.5199375,
+          "misses": 80430,
+          "actual_physical_us": 1396498848.5199375,
+          "fixed100_physical_us": 1404380988.5199375,
+          "components_us": {
+            "build_write_us": 5707445.614054054,
+            "probe_write_us": 1235388923.4562163,
+            "probe_read_us": 155241619.44966716
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 1392028908.708351,
+          "misses": 80125,
+          "actual_physical_us": 1392189158.708351,
+          "fixed100_physical_us": 1400041408.708351,
+          "components_us": {
+            "build_write_us": 5707445.614054054,
+            "probe_write_us": 1231560802.5610812,
+            "probe_read_us": 154760660.53321558
+          },
+          "actual_over_paired": 0.9969139324274029,
+          "fixed100_over_paired": 0.9969099696969267,
+          "io_over_paired": 0.9969140137652818,
+          "miss_delta": -305,
+          "actual_delta_us": -4309689.811586618,
+          "fixed100_delta_us": -4339579.811586618
+        },
+        "risk_flat100": {
+          "io_us": 1388917003.1754954,
+          "misses": 80074,
+          "actual_physical_us": 1389077151.1754954,
+          "fixed100_physical_us": 1396924403.1754954,
+          "components_us": {
+            "build_write_us": 5707445.614054054,
+            "probe_write_us": 1228796460.775135,
+            "probe_read_us": 154413096.7863062
+          },
+          "actual_over_paired": 0.9946854969824659,
+          "fixed100_over_paired": 0.9946904825646348,
+          "io_over_paired": 0.994685394649824,
+          "miss_delta": -356,
+          "actual_delta_us": -7421697.344442129,
+          "fixed100_delta_us": -7456585.344442129
+        },
+        "risk_scale100": {
+          "io_us": 1399164261.59067,
+          "misses": 80505,
+          "actual_physical_us": 1399325271.59067,
+          "fixed100_physical_us": 1407214761.59067,
+          "components_us": {
+            "build_write_us": 5707445.614054054,
+            "probe_write_us": 1237899667.464865,
+            "probe_read_us": 155557148.51175112
+          },
+          "actual_over_paired": 1.0020239351244207,
+          "fixed100_over_paired": 1.0020178093365668,
+          "io_over_paired": 1.0020240608606004,
+          "miss_delta": 75,
+          "actual_delta_us": 2826423.0707325935,
+          "fixed100_delta_us": 2833773.0707325935
+        }
+      }
+    },
+    {
+      "case": "train/train_680_random_hotspot.txt",
+      "seed": 16867375401207270052,
+      "family": "random_hotspot",
+      "actual_penalty": 535,
+      "methods": {
+        "paired100": {
+          "io_us": 368083878.23779404,
+          "misses": 5779,
+          "actual_physical_us": 371175643.23779404,
+          "fixed100_physical_us": 368661778.23779404,
+          "components_us": {
+            "build_write_us": 66126.23903457879,
+            "probe_write_us": 28036683.367254585,
+            "probe_read_us": 339981068.6315049
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 367197064.25201446,
+          "misses": 5374,
+          "actual_physical_us": 370072154.25201446,
+          "fixed100_physical_us": 367734464.25201446,
+          "components_us": {
+            "build_write_us": 66126.23903457879,
+            "probe_write_us": 27967881.74715711,
+            "probe_read_us": 339163056.26582277
+          },
+          "actual_over_paired": 0.9970270436493253,
+          "fixed100_over_paired": 0.9974846484216179,
+          "io_over_paired": 0.9975907285316998,
+          "miss_delta": -405,
+          "actual_delta_us": -1103488.9857795835,
+          "fixed100_delta_us": -927313.9857795835
+        },
+        "risk_flat100": {
+          "io_us": 363275532.2327819,
+          "misses": 5395,
+          "actual_physical_us": 366161857.2327819,
+          "fixed100_physical_us": 363815032.2327819,
+          "components_us": {
+            "build_write_us": 66126.23903457879,
+            "probe_write_us": 27669384.120329544,
+            "probe_read_us": 335540021.87341774
+          },
+          "actual_over_paired": 0.9864921470566428,
+          "fixed100_over_paired": 0.9868531366929882,
+          "io_over_paired": 0.9869368198682534,
+          "miss_delta": -384,
+          "actual_delta_us": -5013786.005012155,
+          "fixed100_delta_us": -4846746.005012155
+        },
+        "risk_scale100": {
+          "io_us": 368628233.90639776,
+          "misses": 5550,
+          "actual_physical_us": 371597483.90639776,
+          "fixed100_physical_us": 369183233.90639776,
+          "components_us": {
+            "build_write_us": 66126.23903457879,
+            "probe_write_us": 28081877.349501044,
+            "probe_read_us": 340480230.31786215
+          },
+          "actual_over_paired": 1.0011364987878082,
+          "fixed100_over_paired": 1.0014144554694449,
+          "io_over_paired": 1.0014788902768843,
+          "miss_delta": -229,
+          "actual_delta_us": 421840.6686037183,
+          "fixed100_delta_us": 521455.6686037183
+        }
+      }
+    },
+    {
+      "case": "train/train_659_random_hotspot.txt",
+      "seed": 7047099415850805085,
+      "family": "random_hotspot",
+      "actual_penalty": 244,
+      "methods": {
+        "paired100": {
+          "io_us": 6396555691.801351,
+          "misses": 14055,
+          "actual_physical_us": 6399985111.801351,
+          "fixed100_physical_us": 6397961191.801351,
+          "components_us": {
+            "build_write_us": 2822443.7946428573,
+            "probe_write_us": 3224344075.8519735,
+            "probe_read_us": 3169389172.1547346
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 6396555691.801351,
+          "misses": 14055,
+          "actual_physical_us": 6399985111.801351,
+          "fixed100_physical_us": 6397961191.801351,
+          "components_us": {
+            "build_write_us": 2822443.7946428573,
+            "probe_write_us": 3224344075.8519735,
+            "probe_read_us": 3169389172.1547346
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_flat100": {
+          "io_us": 6396555691.801351,
+          "misses": 14055,
+          "actual_physical_us": 6399985111.801351,
+          "fixed100_physical_us": 6397961191.801351,
+          "components_us": {
+            "build_write_us": 2822443.7946428573,
+            "probe_write_us": 3224344075.8519735,
+            "probe_read_us": 3169389172.1547346
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_scale100": {
+          "io_us": 6396555691.801351,
+          "misses": 14055,
+          "actual_physical_us": 6399985111.801351,
+          "fixed100_physical_us": 6397961191.801351,
+          "components_us": {
+            "build_write_us": 2822443.7946428573,
+            "probe_write_us": 3224344075.8519735,
+            "probe_read_us": 3169389172.1547346
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        }
+      }
+    },
+    {
+      "case": "train/train_630_random_hotspot.txt",
+      "seed": 7771266016699031858,
+      "family": "random_hotspot",
+      "actual_penalty": 329,
+      "methods": {
+        "paired100": {
+          "io_us": 36863591.496916145,
+          "misses": 11082,
+          "actual_physical_us": 40509569.496916145,
+          "fixed100_physical_us": 37971791.496916145,
+          "components_us": {
+            "build_write_us": 34348.21911764706,
+            "probe_write_us": 12028168.889705881,
+            "probe_read_us": 24801074.388092615
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 37154824.11282818,
+          "misses": 10893,
+          "actual_physical_us": 40738621.11282818,
+          "fixed100_physical_us": 38244124.11282818,
+          "components_us": {
+            "build_write_us": 34348.21911764706,
+            "probe_write_us": 12123514.059090909,
+            "probe_read_us": 24996961.834619626
+          },
+          "actual_over_paired": 1.0056542594442894,
+          "fixed100_over_paired": 1.0071719717499805,
+          "io_over_paired": 1.0079002778645807,
+          "miss_delta": -189,
+          "actual_delta_us": 229051.6159120351,
+          "fixed100_delta_us": 272332.6159120351
+        },
+        "risk_flat100": {
+          "io_us": 36658330.7395859,
+          "misses": 10846,
+          "actual_physical_us": 40226664.7395859,
+          "fixed100_physical_us": 37742930.7395859,
+          "components_us": {
+            "build_write_us": 34348.21911764706,
+            "probe_write_us": 11961906.444117647,
+            "probe_read_us": 24662076.076350607
+          },
+          "actual_over_paired": 0.9930163474743472,
+          "fixed100_over_paired": 0.9939728743810038,
+          "io_over_paired": 0.9944318838996624,
+          "miss_delta": -236,
+          "actual_delta_us": -282904.75733024627,
+          "fixed100_delta_us": -228860.75733024627
+        },
+        "risk_scale100": {
+          "io_us": 36919438.35712285,
+          "misses": 10769,
+          "actual_physical_us": 40462439.35712285,
+          "fixed100_physical_us": 37996338.35712285,
+          "components_us": {
+            "build_write_us": 34348.21911764706,
+            "probe_write_us": 12046963.989438502,
+            "probe_read_us": 24838126.148566704
+          },
+          "actual_over_paired": 0.998836567744891,
+          "fixed100_over_paired": 1.000646449883954,
+          "io_over_paired": 1.0015149598272697,
+          "miss_delta": -313,
+          "actual_delta_us": -47130.13979329169,
+          "fixed100_delta_us": 24546.860206708312
+        }
+      }
+    },
+    {
+      "case": "train/train_701_random_hotspot.txt",
+      "seed": 8316641183263191257,
+      "family": "random_hotspot",
+      "actual_penalty": 99,
+      "methods": {
+        "paired100": {
+          "io_us": 101372414.74253051,
+          "misses": 7741,
+          "actual_physical_us": 102138773.74253051,
+          "fixed100_physical_us": 102146514.74253051,
+          "components_us": {
+            "build_write_us": 17201.571972501322,
+            "probe_write_us": 16247127.941195134,
+            "probe_read_us": 85108085.22936288
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 101199344.6687927,
+          "misses": 7694,
+          "actual_physical_us": 101961050.6687927,
+          "fixed100_physical_us": 101968744.6687927,
+          "components_us": {
+            "build_write_us": 17201.571972501322,
+            "probe_write_us": 16219384.470227392,
+            "probe_read_us": 84962758.6265928
+          },
+          "actual_over_paired": 0.998259984262335,
+          "fixed100_over_paired": 0.9982596560030863,
+          "io_over_paired": 0.998292730086608,
+          "miss_delta": -47,
+          "actual_delta_us": -177723.07373781502,
+          "fixed100_delta_us": -177770.07373781502
+        },
+        "risk_flat100": {
+          "io_us": 101454152.82552285,
+          "misses": 7715,
+          "actual_physical_us": 102217937.82552285,
+          "fixed100_physical_us": 102225652.82552285,
+          "components_us": {
+            "build_write_us": 17201.571972501322,
+            "probe_write_us": 16260230.715600211,
+            "probe_read_us": 85176720.53795014
+          },
+          "actual_over_paired": 1.0007750639653448,
+          "fixed100_over_paired": 1.0007747506920996,
+          "io_over_paired": 1.0008063148461044,
+          "miss_delta": -26,
+          "actual_delta_us": 79164.0829923451,
+          "fixed100_delta_us": 79138.0829923451
+        },
+        "risk_scale100": {
+          "io_us": 101198167.07162753,
+          "misses": 7701,
+          "actual_physical_us": 101960566.07162753,
+          "fixed100_physical_us": 101968267.07162753,
+          "components_us": {
+            "build_write_us": 17201.571972501322,
+            "probe_write_us": 16219195.699101005,
+            "probe_read_us": 84961769.80055402
+          },
+          "actual_over_paired": 0.9982552397647518,
+          "fixed100_over_paired": 0.9982549803940715,
+          "io_over_paired": 0.9982811135421255,
+          "miss_delta": -40,
+          "actual_delta_us": -178207.67090298235,
+          "fixed100_delta_us": -178247.67090298235
+        }
+      }
+    },
+    {
+      "case": "train/train_634_random_hotspot.txt",
+      "seed": 9797070455358673938,
+      "family": "random_hotspot",
+      "actual_penalty": 936,
+      "methods": {
+        "paired100": {
+          "io_us": 320741393.36789733,
+          "misses": 6993,
+          "actual_physical_us": 327286841.36789733,
+          "fixed100_physical_us": 321440693.36789733,
+          "components_us": {
+            "build_write_us": 226402.1917763158,
+            "probe_write_us": 16833814.76069079,
+            "probe_read_us": 303681176.41543025
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 325265676.33573574,
+          "misses": 7090,
+          "actual_physical_us": 331901916.33573574,
+          "fixed100_physical_us": 325974676.33573574,
+          "components_us": {
+            "build_write_us": 226402.1917763158,
+            "probe_write_us": 17072555.695888158,
+            "probe_read_us": 307966718.44807124
+          },
+          "actual_over_paired": 1.0141010098314667,
+          "fixed100_over_paired": 1.0141051928439226,
+          "io_over_paired": 1.01410570341524,
+          "miss_delta": 97,
+          "actual_delta_us": 4615074.967838407,
+          "fixed100_delta_us": 4533982.967838407
+        },
+        "risk_flat100": {
+          "io_us": 316360384.8716022,
+          "misses": 6844,
+          "actual_physical_us": 322766368.8716022,
+          "fixed100_physical_us": 317044784.8716022,
+          "components_us": {
+            "build_write_us": 226402.1917763158,
+            "probe_write_us": 16603617.869736843,
+            "probe_read_us": 299530364.810089
+          },
+          "actual_over_paired": 0.9861880408103124,
+          "fixed100_over_paired": 0.9863243559792104,
+          "io_over_paired": 0.9863409943746486,
+          "miss_delta": -149,
+          "actual_delta_us": -4520472.496295154,
+          "fixed100_delta_us": -4395908.496295154
+        },
+        "risk_scale100": {
+          "io_us": 349897205.4929608,
+          "misses": 7722,
+          "actual_physical_us": 357124997.4929608,
+          "fixed100_physical_us": 350669405.4929608,
+          "components_us": {
+            "build_write_us": 226402.1917763158,
+            "probe_write_us": 18364830.143914472,
+            "probe_read_us": 331305973.15727
+          },
+          "actual_over_paired": 1.0911682119585215,
+          "fixed100_over_paired": 1.0909303418270395,
+          "io_over_paired": 1.0909013078072562,
+          "miss_delta": 729,
+          "actual_delta_us": 29838156.12506348,
+          "fixed100_delta_us": 29228712.12506348
+        }
+      }
+    },
+    {
+      "case": "train/train_626_random_hotspot.txt",
+      "seed": 12184351322767587522,
+      "family": "random_hotspot",
+      "actual_penalty": 383,
+      "methods": {
+        "paired100": {
+          "io_us": 2586872.9298083554,
+          "misses": 4789,
+          "actual_physical_us": 4421059.929808356,
+          "fixed100_physical_us": 3065772.9298083554,
+          "components_us": {
+            "build_write_us": 6611.604017747104,
+            "probe_write_us": 833329.6148631994,
+            "probe_read_us": 1746931.710927409
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 2553800.3126327195,
+          "misses": 4906,
+          "actual_physical_us": 4432798.312632719,
+          "fixed100_physical_us": 3044400.3126327195,
+          "components_us": {
+            "build_write_us": 6611.604017747104,
+            "probe_write_us": 822617.0266206557,
+            "probe_read_us": 1724571.6819943166
+          },
+          "actual_over_paired": 1.0026551060177264,
+          "fixed100_over_paired": 0.9930286366065043,
+          "io_over_paired": 0.9872152138612831,
+          "miss_delta": 117,
+          "actual_delta_us": 11738.382824363187,
+          "fixed100_delta_us": -21372.61717563588
+        },
+        "risk_flat100": {
+          "io_us": 2555833.704329457,
+          "misses": 4814,
+          "actual_physical_us": 4399595.704329457,
+          "fixed100_physical_us": 3037233.704329457,
+          "components_us": {
+            "build_write_us": 6611.604017747104,
+            "probe_write_us": 823273.4929751047,
+            "probe_read_us": 1725948.6073366054
+          },
+          "actual_over_paired": 0.9951450046324459,
+          "fixed100_over_paired": 0.9906910178502091,
+          "io_over_paired": 0.9880012562189524,
+          "miss_delta": 25,
+          "actual_delta_us": -21464.225478898734,
+          "fixed100_delta_us": -28539.22547889827
+        },
+        "risk_scale100": {
+          "io_us": 2523168.2672108454,
+          "misses": 4906,
+          "actual_physical_us": 4402166.267210845,
+          "fixed100_physical_us": 3013768.2672108454,
+          "components_us": {
+            "build_write_us": 6611.604017747104,
+            "probe_write_us": 812726.2756963273,
+            "probe_read_us": 1703830.3874967708
+          },
+          "actual_over_paired": 0.995726440514836,
+          "fixed100_over_paired": 0.9830370142250683,
+          "io_over_paired": 0.9753738724993232,
+          "miss_delta": 117,
+          "actual_delta_us": -18893.662597510964,
+          "fixed100_delta_us": -52004.66259751003
+        }
+      }
+    },
+    {
+      "case": "train/train_686_random_hotspot.txt",
+      "seed": 12068026078797343614,
+      "family": "random_hotspot",
+      "actual_penalty": 112,
+      "methods": {
+        "paired100": {
+          "io_us": 853085925.2862686,
+          "misses": 14127,
+          "actual_physical_us": 854668149.2862686,
+          "fixed100_physical_us": 854498625.2862686,
+          "components_us": {
+            "build_write_us": 703334.6024725274,
+            "probe_write_us": 445764181.08956045,
+            "probe_read_us": 406618409.5942356
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 855529045.4259688,
+          "misses": 14096,
+          "actual_physical_us": 857107797.4259688,
+          "fixed100_physical_us": 856938645.4259688,
+          "components_us": {
+            "build_write_us": 703334.6024725274,
+            "probe_write_us": 447041776.025,
+            "probe_read_us": 407783934.79849625
+          },
+          "actual_over_paired": 1.0028544975517544,
+          "fixed100_over_paired": 1.0028554991985887,
+          "io_over_paired": 1.0028638617368824,
+          "miss_delta": -31,
+          "actual_delta_us": 2439648.1397001743,
+          "fixed100_delta_us": 2440020.1397001743
+        },
+        "risk_flat100": {
+          "io_us": 855529045.4259688,
+          "misses": 14096,
+          "actual_physical_us": 857107797.4259688,
+          "fixed100_physical_us": 856938645.4259688,
+          "components_us": {
+            "build_write_us": 703334.6024725274,
+            "probe_write_us": 447041776.025,
+            "probe_read_us": 407783934.79849625
+          },
+          "actual_over_paired": 1.0028544975517544,
+          "fixed100_over_paired": 1.0028554991985887,
+          "io_over_paired": 1.0028638617368824,
+          "miss_delta": -31,
+          "actual_delta_us": 2439648.1397001743,
+          "fixed100_delta_us": 2440020.1397001743
+        },
+        "risk_scale100": {
+          "io_us": 853084591.9222816,
+          "misses": 14127,
+          "actual_physical_us": 854666815.9222816,
+          "fixed100_physical_us": 854497291.9222816,
+          "components_us": {
+            "build_write_us": 703334.6024725274,
+            "probe_write_us": 445763483.8258242,
+            "probe_read_us": 406617773.49398494
+          },
+          "actual_over_paired": 0.9999984399044377,
+          "fixed100_over_paired": 0.9999984395949303,
+          "io_over_paired": 0.9999984370109183,
+          "miss_delta": 0,
+          "actual_delta_us": -1333.3639869689941,
+          "fixed100_delta_us": -1333.3639869689941
+        }
+      }
+    },
+    {
+      "case": "train/train_675_random_hotspot.txt",
+      "seed": 7658318111382599390,
+      "family": "random_hotspot",
+      "actual_penalty": 551,
+      "methods": {
+        "paired100": {
+          "io_us": 1127719736.1425061,
+          "misses": 7090,
+          "actual_physical_us": 1131626326.1425061,
+          "fixed100_physical_us": 1128428736.1425061,
+          "components_us": {
+            "build_write_us": 339815.11696380336,
+            "probe_write_us": 488703210.3471097,
+            "probe_read_us": 638676710.6784327
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 1127719736.1425061,
+          "misses": 7090,
+          "actual_physical_us": 1131626326.1425061,
+          "fixed100_physical_us": 1128428736.1425061,
+          "components_us": {
+            "build_write_us": 339815.11696380336,
+            "probe_write_us": 488703210.3471097,
+            "probe_read_us": 638676710.6784327
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_flat100": {
+          "io_us": 1127719736.1425061,
+          "misses": 7090,
+          "actual_physical_us": 1131626326.1425061,
+          "fixed100_physical_us": 1128428736.1425061,
+          "components_us": {
+            "build_write_us": 339815.11696380336,
+            "probe_write_us": 488703210.3471097,
+            "probe_read_us": 638676710.6784327
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_scale100": {
+          "io_us": 1127719736.1425061,
+          "misses": 7090,
+          "actual_physical_us": 1131626326.1425061,
+          "fixed100_physical_us": 1128428736.1425061,
+          "components_us": {
+            "build_write_us": 339815.11696380336,
+            "probe_write_us": 488703210.3471097,
+            "probe_read_us": 638676710.6784327
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        }
+      }
+    },
+    {
+      "case": "train/train_639_random_hotspot.txt",
+      "seed": 5273789601856846796,
+      "family": "random_hotspot",
+      "actual_penalty": 31,
+      "methods": {
+        "paired100": {
+          "io_us": 812845141.4105265,
+          "misses": 7267,
+          "actual_physical_us": 813070418.4105265,
+          "fixed100_physical_us": 813571841.4105265,
+          "components_us": {
+            "build_write_us": 715421.5342706502,
+            "probe_write_us": 587769505.6810193,
+            "probe_read_us": 224360214.1952365
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 814660095.3470787,
+          "misses": 7282,
+          "actual_physical_us": 814885837.3470787,
+          "fixed100_physical_us": 815388295.3470787,
+          "components_us": {
+            "build_write_us": 715421.5342706502,
+            "probe_write_us": 589083022.9630932,
+            "probe_read_us": 224861650.84971488
+          },
+          "actual_over_paired": 1.0022327942272222,
+          "fixed100_over_paired": 1.0022326902728134,
+          "io_over_paired": 1.0022328409731314,
+          "miss_delta": 15,
+          "actual_delta_us": 1815418.936552167,
+          "fixed100_delta_us": 1816453.936552167
+        },
+        "risk_flat100": {
+          "io_us": 814572996.1510737,
+          "misses": 7281,
+          "actual_physical_us": 814798707.1510737,
+          "fixed100_physical_us": 815301096.1510737,
+          "components_us": {
+            "build_write_us": 715421.5342706502,
+            "probe_write_us": 589019987.589631,
+            "probe_read_us": 224837587.0271721
+          },
+          "actual_over_paired": 1.0021256322963095,
+          "fixed100_over_paired": 1.0021255095770634,
+          "io_over_paired": 1.0021256874803346,
+          "miss_delta": 14,
+          "actual_delta_us": 1728288.7405471802,
+          "fixed100_delta_us": 1729254.7405471802
+        },
+        "risk_scale100": {
+          "io_us": 813529198.9222313,
+          "misses": 7279,
+          "actual_physical_us": 813754847.9222313,
+          "fixed100_physical_us": 814257098.9222313,
+          "components_us": {
+            "build_write_us": 715421.5342706502,
+            "probe_write_us": 588264571.3383129,
+            "probe_read_us": 224549206.04964778
+          },
+          "actual_over_paired": 1.0008417838064294,
+          "fixed100_over_paired": 1.0008422827300865,
+          "io_over_paired": 1.0008415594519244,
+          "miss_delta": 12,
+          "actual_delta_us": 684429.5117048025,
+          "fixed100_delta_us": 685257.5117048025
+        }
+      }
+    },
+    {
+      "case": "train/train_693_random_hotspot.txt",
+      "seed": 13061813804494280177,
+      "family": "random_hotspot",
+      "actual_penalty": 806,
+      "methods": {
+        "paired100": {
+          "io_us": 135329096.4222343,
+          "misses": 8727,
+          "actual_physical_us": 142363058.4222343,
+          "fixed100_physical_us": 136201796.4222343,
+          "components_us": {
+            "build_write_us": 37397.43382352941,
+            "probe_write_us": 88217734.66593137,
+            "probe_read_us": 47073964.322479405
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 135322063.0017802,
+          "misses": 8723,
+          "actual_physical_us": 142352801.0017802,
+          "fixed100_physical_us": 136194363.0017802,
+          "components_us": {
+            "build_write_us": 37397.43382352941,
+            "probe_write_us": 88213148.27843137,
+            "probe_read_us": 47071517.28952531
+          },
+          "actual_over_paired": 0.9999279488613987,
+          "fixed100_over_paired": 0.9999454234771541,
+          "io_over_paired": 0.9999480272857794,
+          "miss_delta": -4,
+          "actual_delta_us": -10257.420454084873,
+          "fixed100_delta_us": -7433.420454084873
+        },
+        "risk_flat100": {
+          "io_us": 135322063.0017802,
+          "misses": 8723,
+          "actual_physical_us": 142352801.0017802,
+          "fixed100_physical_us": 136194363.0017802,
+          "components_us": {
+            "build_write_us": 37397.43382352941,
+            "probe_write_us": 88213148.27843137,
+            "probe_read_us": 47071517.28952531
+          },
+          "actual_over_paired": 0.9999279488613987,
+          "fixed100_over_paired": 0.9999454234771541,
+          "io_over_paired": 0.9999480272857794,
+          "miss_delta": -4,
+          "actual_delta_us": -10257.420454084873,
+          "fixed100_delta_us": -7433.420454084873
+        },
+        "risk_scale100": {
+          "io_us": 135380764.38425228,
+          "misses": 8729,
+          "actual_physical_us": 142416338.38425228,
+          "fixed100_physical_us": 136253664.38425228,
+          "components_us": {
+            "build_write_us": 37397.43382352941,
+            "probe_write_us": 88251426.56544118,
+            "probe_read_us": 47091940.38498758
+          },
+          "actual_over_paired": 1.0003742541260947,
+          "fixed100_over_paired": 1.0003808170184274,
+          "io_over_paired": 1.0003817949235159,
+          "miss_delta": 2,
+          "actual_delta_us": 53279.9620179832,
+          "fixed100_delta_us": 51867.9620179832
+        }
+      }
+    },
+    {
+      "case": "train/train_632_random_hotspot.txt",
+      "seed": 15036253120801571029,
+      "family": "random_hotspot",
+      "actual_penalty": 888,
+      "methods": {
+        "paired100": {
+          "io_us": 814982067.8270396,
+          "misses": 13787,
+          "actual_physical_us": 827224923.8270396,
+          "fixed100_physical_us": 816360767.8270396,
+          "components_us": {
+            "build_write_us": 975122.5536290322,
+            "probe_write_us": 148422376.6920363,
+            "probe_read_us": 665584568.5813743
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 811009346.1880074,
+          "misses": 13757,
+          "actual_physical_us": 823225562.1880074,
+          "fixed100_physical_us": 812385046.1880074,
+          "components_us": {
+            "build_write_us": 975122.5536290322,
+            "probe_write_us": 147691706.0765121,
+            "probe_read_us": 662342517.5578662
+          },
+          "actual_over_paired": 0.9951653274413811,
+          "fixed100_over_paired": 0.9951299452451461,
+          "io_over_paired": 0.9951253876669648,
+          "miss_delta": -30,
+          "actual_delta_us": -3999361.6390322447,
+          "fixed100_delta_us": -3975721.6390322447
+        },
+        "risk_flat100": {
+          "io_us": 817304297.2187486,
+          "misses": 13841,
+          "actual_physical_us": 829595105.2187486,
+          "fixed100_physical_us": 818688397.2187486,
+          "components_us": {
+            "build_write_us": 975122.5536290322,
+            "probe_write_us": 148846081.38528225,
+            "probe_read_us": 667483093.2798373
+          },
+          "actual_over_paired": 1.0028652199945134,
+          "fixed100_over_paired": 1.0028512264227305,
+          "io_over_paired": 1.002849423911744,
+          "miss_delta": 54,
+          "actual_delta_us": 2370181.39170897,
+          "fixed100_delta_us": 2327629.39170897
+        },
+        "risk_scale100": {
+          "io_us": 813219149.2698276,
+          "misses": 13728,
+          "actual_physical_us": 825409613.2698276,
+          "fixed100_physical_us": 814591949.2698276,
+          "components_us": {
+            "build_write_us": 975122.5536290322,
+            "probe_write_us": 148095093.07469758,
+            "probe_read_us": 664148933.641501
+          },
+          "actual_over_paired": 0.9978055417517963,
+          "fixed100_over_paired": 0.997833288140585,
+          "io_over_paired": 0.9978368621509521,
+          "miss_delta": -59,
+          "actual_delta_us": -1815310.5572119951,
+          "fixed100_delta_us": -1768818.5572119951
+        }
+      }
+    },
+    {
+      "case": "train/train_703_random_hotspot.txt",
+      "seed": 13276871011667907917,
+      "family": "random_hotspot",
+      "actual_penalty": 695,
+      "methods": {
+        "paired100": {
+          "io_us": 56240712.37552067,
+          "misses": 4264,
+          "actual_physical_us": 59204192.37552067,
+          "fixed100_physical_us": 56667112.37552067,
+          "components_us": {
+            "build_write_us": 228596.86700426438,
+            "probe_write_us": 33220019.502665244,
+            "probe_read_us": 22792096.00585116
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 54838392.73905281,
+          "misses": 4204,
+          "actual_physical_us": 57760172.73905281,
+          "fixed100_physical_us": 55258792.73905281,
+          "components_us": {
+            "build_write_us": 228596.86700426438,
+            "probe_write_us": 32387865.224946696,
+            "probe_read_us": 22221930.647101846
+          },
+          "actual_over_paired": 0.9756095036765517,
+          "fixed100_over_paired": 0.9751474960090567,
+          "io_over_paired": 0.9750657561535755,
+          "miss_delta": -60,
+          "actual_delta_us": -1444019.6364678591,
+          "fixed100_delta_us": -1408319.6364678591
+        },
+        "risk_flat100": {
+          "io_us": 56110693.58957271,
+          "misses": 4260,
+          "actual_physical_us": 59071393.58957271,
+          "fixed100_physical_us": 56536693.58957271,
+          "components_us": {
+            "build_write_us": 228596.86700426438,
+            "probe_write_us": 33142203.118070364,
+            "probe_read_us": 22739893.60449808
+          },
+          "actual_over_paired": 0.9977569361117936,
+          "fixed100_over_paired": 0.9976985101149376,
+          "io_over_paired": 0.9976881732030737,
+          "miss_delta": -4,
+          "actual_delta_us": -132798.78594795614,
+          "fixed100_delta_us": -130418.78594795614
+        },
+        "risk_scale100": {
+          "io_us": 56200404.66054922,
+          "misses": 4242,
+          "actual_physical_us": 59148594.66054922,
+          "fixed100_physical_us": 56624604.66054922,
+          "components_us": {
+            "build_write_us": 228596.86700426438,
+            "probe_write_us": 33195961.054104477,
+            "probe_read_us": 22775846.739440482
+          },
+          "actual_over_paired": 0.9990609159125287,
+          "fixed100_over_paired": 0.9992498697535573,
+          "io_over_paired": 0.9992833000637988,
+          "miss_delta": -22,
+          "actual_delta_us": -55597.7149714455,
+          "fixed100_delta_us": -42507.7149714455
+        }
+      }
+    },
+    {
+      "case": "train/train_625_random_hotspot.txt",
+      "seed": 7805621927825823651,
+      "family": "random_hotspot",
+      "actual_penalty": 281,
+      "methods": {
+        "paired100": {
+          "io_us": 6215913.95143283,
+          "misses": 2092,
+          "actual_physical_us": 6803765.95143283,
+          "fixed100_physical_us": 6425113.95143283,
+          "components_us": {
+            "build_write_us": 106903.03599932077,
+            "probe_write_us": 2523347.3251825436,
+            "probe_read_us": 3585663.590250965
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 6226798.604784229,
+          "misses": 2074,
+          "actual_physical_us": 6809592.604784229,
+          "fixed100_physical_us": 6434198.604784229,
+          "components_us": {
+            "build_write_us": 106903.03599932077,
+            "probe_write_us": 2527684.264730854,
+            "probe_read_us": 3592211.304054054
+          },
+          "actual_over_paired": 1.0008563865060895,
+          "fixed100_over_paired": 1.0014139287520922,
+          "io_over_paired": 1.0017510945995143,
+          "miss_delta": -18,
+          "actual_delta_us": 5826.653351399116,
+          "fixed100_delta_us": 9084.653351399116
+        },
+        "risk_flat100": {
+          "io_us": 6223939.406068534,
+          "misses": 2091,
+          "actual_physical_us": 6811510.406068534,
+          "fixed100_physical_us": 6433039.406068534,
+          "components_us": {
+            "build_write_us": 106903.03599932077,
+            "probe_write_us": 2526517.565291221,
+            "probe_read_us": 3590518.8047779924
+          },
+          "actual_over_paired": 1.0011382600005623,
+          "fixed100_over_paired": 1.0012335119183273,
+          "io_over_paired": 1.0012911141786083,
+          "miss_delta": -1,
+          "actual_delta_us": 7744.454635703936,
+          "fixed100_delta_us": 7925.454635703936
+        },
+        "risk_scale100": {
+          "io_us": 6263698.406674008,
+          "misses": 2077,
+          "actual_physical_us": 6847335.406674008,
+          "fixed100_physical_us": 6471398.406674008,
+          "components_us": {
+            "build_write_us": 106903.03599932077,
+            "probe_write_us": 2543410.316861946,
+            "probe_read_us": 3613385.0538127413
+          },
+          "actual_over_paired": 1.0064037263409984,
+          "fixed100_over_paired": 1.0072036785014304,
+          "io_over_paired": 1.007687438342058,
+          "miss_delta": -15,
+          "actual_delta_us": 43569.45524117816,
+          "fixed100_delta_us": 46284.45524117816
+        }
+      }
+    },
+    {
+      "case": "train/train_637_random_hotspot.txt",
+      "seed": 11675549367671170609,
+      "family": "random_hotspot",
+      "actual_penalty": 137,
+      "methods": {
+        "paired100": {
+          "io_us": 1492223.8970808382,
+          "misses": 820,
+          "actual_physical_us": 1604563.8970808382,
+          "fixed100_physical_us": 1574223.8970808382,
+          "components_us": {
+            "build_write_us": 37689.99873976055,
+            "probe_write_us": 1248540.322621298,
+            "probe_read_us": 205993.57571977965
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 1485082.6830808236,
+          "misses": 820,
+          "actual_physical_us": 1597422.6830808236,
+          "fixed100_physical_us": 1567082.6830808236,
+          "components_us": {
+            "build_write_us": 37689.99873976055,
+            "probe_write_us": 1242345.7580340265,
+            "probe_read_us": 205046.9263070367
+          },
+          "actual_over_paired": 0.9955494361969589,
+          "fixed100_over_paired": 0.9954636605293206,
+          "io_over_paired": 0.9952143816929989,
+          "miss_delta": 0,
+          "actual_delta_us": -7141.214000014588,
+          "fixed100_delta_us": -7141.214000014588
+        },
+        "risk_flat100": {
+          "io_us": 1502604.2404978555,
+          "misses": 819,
+          "actual_physical_us": 1614807.2404978555,
+          "fixed100_physical_us": 1584504.2404978555,
+          "components_us": {
+            "build_write_us": 37689.99873976055,
+            "probe_write_us": 1257527.2419659735,
+            "probe_read_us": 207386.9997921214
+          },
+          "actual_over_paired": 1.0063838800284943,
+          "fixed100_over_paired": 1.0065304201238976,
+          "io_over_paired": 1.0069562908336502,
+          "miss_delta": -1,
+          "actual_delta_us": 10243.343417017255,
+          "fixed100_delta_us": 10280.343417017255
+        },
+        "risk_scale100": {
+          "io_us": 1477471.5751660916,
+          "misses": 827,
+          "actual_physical_us": 1590770.5751660916,
+          "fixed100_physical_us": 1560171.5751660916,
+          "components_us": {
+            "build_write_us": 37689.99873976055,
+            "probe_write_us": 1235992.0787649653,
+            "probe_read_us": 203789.49766136575
+          },
+          "actual_over_paired": 0.9914036942125891,
+          "fixed100_over_paired": 0.991073492188243,
+          "io_over_paired": 0.9901138683386549,
+          "miss_delta": 7,
+          "actual_delta_us": -13793.321914746659,
+          "fixed100_delta_us": -14052.321914746659
+        }
+      }
+    },
+    {
+      "case": "train/train_712_random_hotspot.txt",
+      "seed": 17153028246340973513,
+      "family": "random_hotspot",
+      "actual_penalty": 994,
+      "methods": {
+        "paired100": {
+          "io_us": 23212884.94521018,
+          "misses": 3722,
+          "actual_physical_us": 26912552.94521018,
+          "fixed100_physical_us": 23585084.94521018,
+          "components_us": {
+            "build_write_us": 63360.78353012413,
+            "probe_write_us": 12250016.653194066,
+            "probe_read_us": 10899507.508485992
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 23282950.310539596,
+          "misses": 3680,
+          "actual_physical_us": 26940870.310539596,
+          "fixed100_physical_us": 23650950.310539596,
+          "components_us": {
+            "build_write_us": 63360.78353012413,
+            "probe_write_us": 12287091.868604299,
+            "probe_read_us": 10932497.658405172
+          },
+          "actual_over_paired": 1.0010521991498564,
+          "fixed100_over_paired": 1.0027926702609902,
+          "io_over_paired": 1.003018382484331,
+          "miss_delta": -42,
+          "actual_delta_us": 28317.365329414606,
+          "fixed100_delta_us": 65865.3653294146
+        },
+        "risk_flat100": {
+          "io_us": 23188660.651695136,
+          "misses": 3643,
+          "actual_physical_us": 26809802.651695136,
+          "fixed100_physical_us": 23552960.651695136,
+          "components_us": {
+            "build_write_us": 63360.78353012413,
+            "probe_write_us": 12236832.999091735,
+            "probe_read_us": 10888466.869073275
+          },
+          "actual_over_paired": 0.996182068132881,
+          "fixed100_over_paired": 0.9986379403088997,
+          "io_over_paired": 0.998956429001728,
+          "miss_delta": -79,
+          "actual_delta_us": -102750.2935150452,
+          "fixed100_delta_us": -32124.293515045196
+        },
+        "risk_scale100": {
+          "io_us": 23613663.964076217,
+          "misses": 3764,
+          "actual_physical_us": 27355079.964076217,
+          "fixed100_physical_us": 23990063.964076217,
+          "components_us": {
+            "build_write_us": 63360.78353012413,
+            "probe_write_us": 12461724.274296094,
+            "probe_read_us": 11088578.90625
+          },
+          "actual_over_paired": 1.01644314531464,
+          "fixed100_over_paired": 1.0171709798716786,
+          "io_over_paired": 1.017265368773076,
+          "miss_delta": 42,
+          "actual_delta_us": 442527.0188660361,
+          "fixed100_delta_us": 404979.0188660361
+        }
+      }
+    },
+    {
+      "case": "train/train_610_random_hotspot.txt",
+      "seed": 8391175329616906048,
+      "family": "random_hotspot",
+      "actual_penalty": 152,
+      "methods": {
+        "paired100": {
+          "io_us": 302286186.61555594,
+          "misses": 4061,
+          "actual_physical_us": 302903458.61555594,
+          "fixed100_physical_us": 302692286.61555594,
+          "components_us": {
+            "build_write_us": 165345.30400244423,
+            "probe_write_us": 55897400.491903454,
+            "probe_read_us": 246223440.81965005
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 299589775.3744779,
+          "misses": 4017,
+          "actual_physical_us": 300200359.3744779,
+          "fixed100_physical_us": 299991475.3744779,
+          "components_us": {
+            "build_write_us": 165345.30400244423,
+            "probe_write_us": 55397168.52673388,
+            "probe_read_us": 244027261.54374158
+          },
+          "actual_over_paired": 0.9910760370534138,
+          "fixed100_over_paired": 0.9910773701197472,
+          "io_over_paired": 0.9910799389437293,
+          "miss_delta": -44,
+          "actual_delta_us": -2703099.241078019,
+          "fixed100_delta_us": -2700811.241078019
+        },
+        "risk_flat100": {
+          "io_us": 299589775.3744779,
+          "misses": 4017,
+          "actual_physical_us": 300200359.3744779,
+          "fixed100_physical_us": 299991475.3744779,
+          "components_us": {
+            "build_write_us": 165345.30400244423,
+            "probe_write_us": 55397168.52673388,
+            "probe_read_us": 244027261.54374158
+          },
+          "actual_over_paired": 0.9910760370534138,
+          "fixed100_over_paired": 0.9910773701197472,
+          "io_over_paired": 0.9910799389437293,
+          "miss_delta": -44,
+          "actual_delta_us": -2703099.241078019,
+          "fixed100_delta_us": -2700811.241078019
+        },
+        "risk_scale100": {
+          "io_us": 299589775.3744779,
+          "misses": 4017,
+          "actual_physical_us": 300200359.3744779,
+          "fixed100_physical_us": 299991475.3744779,
+          "components_us": {
+            "build_write_us": 165345.30400244423,
+            "probe_write_us": 55397168.52673388,
+            "probe_read_us": 244027261.54374158
+          },
+          "actual_over_paired": 0.9910760370534138,
+          "fixed100_over_paired": 0.9910773701197472,
+          "io_over_paired": 0.9910799389437293,
+          "miss_delta": -44,
+          "actual_delta_us": -2703099.241078019,
+          "fixed100_delta_us": -2700811.241078019
+        }
+      }
+    },
+    {
+      "case": "train/train_710_random_hotspot.txt",
+      "seed": 10407809955601357732,
+      "family": "random_hotspot",
+      "actual_penalty": 611,
+      "methods": {
+        "paired100": {
+          "io_us": 1083329.746137516,
+          "misses": 7300,
+          "actual_physical_us": 5543629.746137517,
+          "fixed100_physical_us": 1813329.746137516,
+          "components_us": {
+            "build_write_us": 17024.321164510166,
+            "probe_write_us": 446568.3467344424,
+            "probe_read_us": 619737.0782385635
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 1069664.6740534012,
+          "misses": 7232,
+          "actual_physical_us": 5488416.674053401,
+          "fixed100_physical_us": 1792864.6740534012,
+          "components_us": {
+            "build_write_us": 17024.321164510166,
+            "probe_write_us": 440846.90804066544,
+            "probe_read_us": 611793.4448482257
+          },
+          "actual_over_paired": 0.9900402670069037,
+          "fixed100_over_paired": 0.9887140923333406,
+          "io_over_paired": 0.9873860455389173,
+          "miss_delta": -68,
+          "actual_delta_us": -55213.07208411582,
+          "fixed100_delta_us": -20465.072084114887
+        },
+        "risk_flat100": {
+          "io_us": 1078146.8055659388,
+          "misses": 7291,
+          "actual_physical_us": 5532947.805565938,
+          "fixed100_physical_us": 1807246.8055659388,
+          "components_us": {
+            "build_write_us": 17024.321164510166,
+            "probe_write_us": 444396.2419901417,
+            "probe_read_us": 616726.2424112869
+          },
+          "actual_over_paired": 0.9980731143563437,
+          "fixed100_over_paired": 0.9966454305486719,
+          "io_over_paired": 0.9952157313227515,
+          "miss_delta": -9,
+          "actual_delta_us": -10681.94057157822,
+          "fixed100_delta_us": -6082.940571577288
+        },
+        "risk_scale100": {
+          "io_us": 1069493.4002888284,
+          "misses": 7242,
+          "actual_physical_us": 5494355.400288829,
+          "fixed100_physical_us": 1793693.4002888284,
+          "components_us": {
+            "build_write_us": 17024.321164510166,
+            "probe_write_us": 440775.0594577942,
+            "probe_read_us": 611694.0196665241
+          },
+          "actual_over_paired": 0.991111537367188,
+          "fixed100_over_paired": 0.9891711113819679,
+          "io_over_paired": 0.9872279461558039,
+          "miss_delta": -58,
+          "actual_delta_us": -49274.345848687924,
+          "fixed100_delta_us": -19636.34584868769
+        }
+      }
+    },
+    {
+      "case": "train/train_614_random_hotspot.txt",
+      "seed": 18421727982335587192,
+      "family": "random_hotspot",
+      "actual_penalty": 404,
+      "methods": {
+        "paired100": {
+          "io_us": 660379561.7923322,
+          "misses": 31098,
+          "actual_physical_us": 672943153.7923322,
+          "fixed100_physical_us": 663489361.7923322,
+          "components_us": {
+            "build_write_us": 143798.50847846013,
+            "probe_write_us": 406328406.52153987,
+            "probe_read_us": 253907356.76231387
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 660340881.0854342,
+          "misses": 31044,
+          "actual_physical_us": 672882657.0854342,
+          "fixed100_physical_us": 663445281.0854342,
+          "components_us": {
+            "build_write_us": 143798.50847846013,
+            "probe_write_us": 406304600.91200733,
+            "probe_read_us": 253892481.66494846
+          },
+          "actual_over_paired": 0.9999101013115936,
+          "fixed100_over_paired": 0.999933562300413,
+          "io_over_paired": 0.999941426553552,
+          "miss_delta": -54,
+          "actual_delta_us": -60496.706897974014,
+          "fixed100_delta_us": -44080.706897974014
+        },
+        "risk_flat100": {
+          "io_us": 660340881.0854342,
+          "misses": 31044,
+          "actual_physical_us": 672882657.0854342,
+          "fixed100_physical_us": 663445281.0854342,
+          "components_us": {
+            "build_write_us": 143798.50847846013,
+            "probe_write_us": 406304600.91200733,
+            "probe_read_us": 253892481.66494846
+          },
+          "actual_over_paired": 0.9999101013115936,
+          "fixed100_over_paired": 0.999933562300413,
+          "io_over_paired": 0.999941426553552,
+          "miss_delta": -54,
+          "actual_delta_us": -60496.706897974014,
+          "fixed100_delta_us": -44080.706897974014
+        },
+        "risk_scale100": {
+          "io_us": 660274305.4376704,
+          "misses": 31095,
+          "actual_physical_us": 672836685.4376704,
+          "fixed100_physical_us": 663383805.4376704,
+          "components_us": {
+            "build_write_us": 143798.50847846013,
+            "probe_write_us": 406263627.672319,
+            "probe_read_us": 253866879.25687286
+          },
+          "actual_over_paired": 0.9998417870007863,
+          "fixed100_over_paired": 0.9998409072386983,
+          "io_over_paired": 0.9998406123375834,
+          "miss_delta": -3,
+          "actual_delta_us": -106468.35466182232,
+          "fixed100_delta_us": -105556.35466182232
+        }
+      }
+    },
+    {
+      "case": "train/train_624_random_hotspot.txt",
+      "seed": 3287595351938215816,
+      "family": "random_hotspot",
+      "actual_penalty": 448,
+      "methods": {
+        "paired100": {
+          "io_us": 173328334.4322798,
+          "misses": 37434,
+          "actual_physical_us": 190098766.4322798,
+          "fixed100_physical_us": 177071734.4322798,
+          "components_us": {
+            "build_write_us": 45094.001481681036,
+            "probe_write_us": 18307241.045393318,
+            "probe_read_us": 154975999.3854048
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 174478332.2693494,
+          "misses": 37707,
+          "actual_physical_us": 191371068.2693494,
+          "fixed100_physical_us": 178249032.2693494,
+          "components_us": {
+            "build_write_us": 45094.001481681036,
+            "probe_write_us": 18428769.780980602,
+            "probe_read_us": 156004468.48688713
+          },
+          "actual_over_paired": 1.0066928463605935,
+          "fixed100_over_paired": 1.0066487056268139,
+          "io_over_paired": 1.0066347942524014,
+          "miss_delta": 273,
+          "actual_delta_us": 1272301.8370696008,
+          "fixed100_delta_us": 1177297.8370696008
+        },
+        "risk_flat100": {
+          "io_us": 173440401.9009269,
+          "misses": 37325,
+          "actual_physical_us": 190162001.9009269,
+          "fixed100_physical_us": 177172901.9009269,
+          "components_us": {
+            "build_write_us": 45094.001481681036,
+            "probe_write_us": 18319165.2266972,
+            "probe_read_us": 155076142.672748
+          },
+          "actual_over_paired": 1.00033264533923,
+          "fixed100_over_paired": 1.0005713360688053,
+          "io_over_paired": 1.0006465617350686,
+          "miss_delta": -109,
+          "actual_delta_us": 63235.46864709258,
+          "fixed100_delta_us": 101167.46864709258
+        },
+        "risk_scale100": {
+          "io_us": 174630144.86095804,
+          "misses": 37788,
+          "actual_physical_us": 191559168.86095804,
+          "fixed100_physical_us": 178408944.86095804,
+          "components_us": {
+            "build_write_us": 45094.001481681036,
+            "probe_write_us": 18444808.76939655,
+            "probe_read_us": 156140242.0900798
+          },
+          "actual_over_paired": 1.0076823351149862,
+          "fixed100_over_paired": 1.007551800590679,
+          "io_over_paired": 1.0075106613869118,
+          "miss_delta": 354,
+          "actual_delta_us": 1460402.4286782444,
+          "fixed100_delta_us": 1337210.4286782444
+        }
+      }
+    },
+    {
+      "case": "train/train_663_random_hotspot.txt",
+      "seed": 18360302353483021581,
+      "family": "random_hotspot",
+      "actual_penalty": 67,
+      "methods": {
+        "paired100": {
+          "io_us": 252732779.54682142,
+          "misses": 3789,
+          "actual_physical_us": 252986642.54682142,
+          "fixed100_physical_us": 253111679.54682142,
+          "components_us": {
+            "build_write_us": 1575478.3342776203,
+            "probe_write_us": 206776584.7280453,
+            "probe_read_us": 44380716.48449848
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 256838674.02479658,
+          "misses": 3819,
+          "actual_physical_us": 257094547.02479658,
+          "fixed100_physical_us": 257220574.02479658,
+          "components_us": {
+            "build_write_us": 1575478.3342776203,
+            "probe_write_us": 210157156.18413597,
+            "probe_read_us": 45106039.50638298
+          },
+          "actual_over_paired": 1.0162376338790886,
+          "fixed100_over_paired": 1.0162335238157791,
+          "io_over_paired": 1.0162459910635158,
+          "miss_delta": 30,
+          "actual_delta_us": 4107904.47797516,
+          "fixed100_delta_us": 4108894.47797516
+        },
+        "risk_flat100": {
+          "io_us": 249267270.3506135,
+          "misses": 3668,
+          "actual_physical_us": 249513026.3506135,
+          "fixed100_physical_us": 249634070.3506135,
+          "components_us": {
+            "build_write_us": 1575478.3342776203,
+            "probe_write_us": 203923351.62606233,
+            "probe_read_us": 43768440.390273556
+          },
+          "actual_over_paired": 0.9862695667991047,
+          "fixed100_over_paired": 0.986260573978908,
+          "io_over_paired": 0.9862878523220376,
+          "miss_delta": -121,
+          "actual_delta_us": -3473616.196207911,
+          "fixed100_delta_us": -3477609.196207911
+        },
+        "risk_scale100": {
+          "io_us": 250613388.76650506,
+          "misses": 3774,
+          "actual_physical_us": 250866246.76650506,
+          "fixed100_physical_us": 250990788.76650506,
+          "components_us": {
+            "build_write_us": 1575478.3342776203,
+            "probe_write_us": 205034130.7082153,
+            "probe_read_us": 44003779.72401216
+          },
+          "actual_over_paired": 0.9916185465012292,
+          "fixed100_over_paired": 0.9916207312751681,
+          "io_over_paired": 0.9916141040979463,
+          "miss_delta": -15,
+          "actual_delta_us": -2120395.780316353,
+          "fixed100_delta_us": -2120890.780316353
+        }
+      }
+    },
+    {
+      "case": "train/train_655_random_hotspot.txt",
+      "seed": 1374537716614863167,
+      "family": "random_hotspot",
+      "actual_penalty": 211,
+      "methods": {
+        "paired100": {
+          "io_us": 5637482.1558210645,
+          "misses": 3169,
+          "actual_physical_us": 6306141.1558210645,
+          "fixed100_physical_us": 5954382.1558210645,
+          "components_us": {
+            "build_write_us": 11312.75115370962,
+            "probe_write_us": 3438726.6641817535,
+            "probe_read_us": 2187442.740485601
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 5668393.296804811,
+          "misses": 3166,
+          "actual_physical_us": 6336419.296804811,
+          "fixed100_physical_us": 5984993.296804811,
+          "components_us": {
+            "build_write_us": 11312.75115370962,
+            "probe_write_us": 3457369.016684416,
+            "probe_read_us": 2199711.5289666853
+          },
+          "actual_over_paired": 1.0048013738093695,
+          "fixed100_over_paired": 1.0051409432889389,
+          "io_over_paired": 1.0054831465766731,
+          "miss_delta": -3,
+          "actual_delta_us": 30278.140983746387,
+          "fixed100_delta_us": 30611.140983746387
+        },
+        "risk_flat100": {
+          "io_us": 5616743.545616625,
+          "misses": 3120,
+          "actual_physical_us": 6275063.545616625,
+          "fixed100_physical_us": 5928743.545616625,
+          "components_us": {
+            "build_write_us": 11312.75115370962,
+            "probe_write_us": 3425772.3439829606,
+            "probe_read_us": 2179658.450479955
+          },
+          "actual_over_paired": 0.9950718498941699,
+          "fixed100_over_paired": 0.9956941611180641,
+          "io_over_paired": 0.9963212991844195,
+          "miss_delta": -49,
+          "actual_delta_us": -31077.61020443961,
+          "fixed100_delta_us": -25638.61020443961
+        },
+        "risk_scale100": {
+          "io_us": 5794076.572610052,
+          "misses": 3213,
+          "actual_physical_us": 6472019.572610052,
+          "fixed100_physical_us": 6115376.572610052,
+          "components_us": {
+            "build_write_us": 11312.75115370962,
+            "probe_write_us": 3534067.8155839546,
+            "probe_read_us": 2248696.0058723884
+          },
+          "actual_over_paired": 1.0263042663794275,
+          "fixed100_over_paired": 1.0270379717955453,
+          "io_over_paired": 1.027777368062672,
+          "miss_delta": 44,
+          "actual_delta_us": 165878.41678898782,
+          "fixed100_delta_us": 160994.41678898782
+        }
+      }
+    },
+    {
+      "case": "train/train_689_random_hotspot.txt",
+      "seed": 16502994169396141754,
+      "family": "random_hotspot",
+      "actual_penalty": 226,
+      "methods": {
+        "paired100": {
+          "io_us": 1134185253.1997385,
+          "misses": 15555,
+          "actual_physical_us": 1137700683.1997385,
+          "fixed100_physical_us": 1135740753.1997385,
+          "components_us": {
+            "build_write_us": 828657.5596529284,
+            "probe_write_us": 903082767.2516268,
+            "probe_read_us": 230273828.3884587
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 1134796758.9500756,
+          "misses": 15698,
+          "actual_physical_us": 1138344506.9500756,
+          "fixed100_physical_us": 1136366558.9500756,
+          "components_us": {
+            "build_write_us": 828657.5596529284,
+            "probe_write_us": 903565021.5958062,
+            "probe_read_us": 230403079.79461652
+          },
+          "actual_over_paired": 1.0005658990627715,
+          "fixed100_over_paired": 1.000551011089964,
+          "io_over_paired": 1.0005391586150605,
+          "miss_delta": 143,
+          "actual_delta_us": 643823.7503371239,
+          "fixed100_delta_us": 625805.7503371239
+        },
+        "risk_flat100": {
+          "io_us": 1134817141.5583591,
+          "misses": 15610,
+          "actual_physical_us": 1138345001.5583591,
+          "fixed100_physical_us": 1136378141.5583591,
+          "components_us": {
+            "build_write_us": 828657.5596529284,
+            "probe_write_us": 903580436.6297903,
+            "probe_read_us": 230408047.36891592
+          },
+          "actual_over_paired": 1.000566333806541,
+          "fixed100_over_paired": 1.000561209375313,
+          "io_over_paired": 1.000557129760626,
+          "miss_delta": 55,
+          "actual_delta_us": 644318.3586206436,
+          "fixed100_delta_us": 637388.3586206436
+        },
+        "risk_scale100": {
+          "io_us": 1129318346.3399034,
+          "misses": 15585,
+          "actual_physical_us": 1132840556.3399034,
+          "fixed100_physical_us": 1130876846.3399034,
+          "components_us": {
+            "build_write_us": 828657.5596529284,
+            "probe_write_us": 899200582.3326102,
+            "probe_read_us": 229289106.44764012
+          },
+          "actual_over_paired": 0.9957281146688194,
+          "fixed100_over_paired": 0.9957174145189983,
+          "io_over_paired": 0.9957088960149105,
+          "miss_delta": 30,
+          "actual_delta_us": -4860126.859835148,
+          "fixed100_delta_us": -4863906.859835148
+        }
+      }
+    },
+    {
+      "case": "train/train_676_random_hotspot.txt",
+      "seed": 13881337440408004601,
+      "family": "random_hotspot",
+      "actual_penalty": 297,
+      "methods": {
+        "paired100": {
+          "io_us": 1152328053.5836446,
+          "misses": 8119,
+          "actual_physical_us": 1154739396.5836446,
+          "fixed100_physical_us": 1153139953.5836446,
+          "components_us": {
+            "build_write_us": 1287238.1165934438,
+            "probe_write_us": 679543745.6370395,
+            "probe_read_us": 471497069.8300117
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 1158904255.9543054,
+          "misses": 7952,
+          "actual_physical_us": 1161265999.9543054,
+          "fixed100_physical_us": 1159699455.9543054,
+          "components_us": {
+            "build_write_us": 1287238.1165934438,
+            "probe_write_us": 683435975.3467388,
+            "probe_read_us": 474181042.49097306
+          },
+          "actual_over_paired": 1.0056520141167522,
+          "fixed100_over_paired": 1.0056883835741495,
+          "io_over_paired": 1.0057068838602075,
+          "miss_delta": -167,
+          "actual_delta_us": 6526603.370660782,
+          "fixed100_delta_us": 6559502.370660782
+        },
+        "risk_flat100": {
+          "io_us": 1151311428.4161723,
+          "misses": 7968,
+          "actual_physical_us": 1153677924.4161723,
+          "fixed100_physical_us": 1152108228.4161723,
+          "components_us": {
+            "build_write_us": 1287238.1165934438,
+            "probe_write_us": 678948872.8374451,
+            "probe_read_us": 471075317.46213365
+          },
+          "actual_over_paired": 0.9990807690716946,
+          "fixed100_over_paired": 0.9991052905900398,
+          "io_over_paired": 0.9991177641086575,
+          "miss_delta": -151,
+          "actual_delta_us": -1061472.1674723625,
+          "fixed100_delta_us": -1031725.1674723625
+        },
+        "risk_scale100": {
+          "io_us": 1163481394.8750026,
+          "misses": 7968,
+          "actual_physical_us": 1165847890.8750026,
+          "fixed100_physical_us": 1164278194.8750026,
+          "components_us": {
+            "build_write_us": 1287238.1165934438,
+            "probe_write_us": 686168471.4690773,
+            "probe_read_us": 476025685.2893318
+          },
+          "actual_over_paired": 1.0096199145228983,
+          "fixed100_over_paired": 1.0096590541822295,
+          "io_over_paired": 1.009678963604741,
+          "miss_delta": -151,
+          "actual_delta_us": 11108494.291357994,
+          "fixed100_delta_us": 11138241.291357994
+        }
+      }
+    },
+    {
+      "case": "train/train_758_random_lognormal.txt",
+      "seed": 6300307795782966787,
+      "family": "random_lognormal",
+      "actual_penalty": 317,
+      "methods": {
+        "paired100": {
+          "io_us": 29189899557.643375,
+          "misses": 135056,
+          "actual_physical_us": 29232712309.643375,
+          "fixed100_physical_us": 29203405157.643375,
+          "components_us": {
+            "build_write_us": 1977554.805519054,
+            "probe_write_us": 23189531877.54928,
+            "probe_read_us": 5998390125.288579
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 29182283503.75428,
+          "misses": 135074,
+          "actual_physical_us": 29225101961.75428,
+          "fixed100_physical_us": 29195790903.75428,
+          "components_us": {
+            "build_write_us": 1977554.805519054,
+            "probe_write_us": 23183480991.63469,
+            "probe_read_us": 5996824957.314072
+          },
+          "actual_over_paired": 0.9997396632988248,
+          "fixed100_over_paired": 0.9997392682857361,
+          "io_over_paired": 0.9997390859850663,
+          "miss_delta": 18,
+          "actual_delta_us": -7610347.889095306,
+          "fixed100_delta_us": -7614253.889095306
+        },
+        "risk_flat100": {
+          "io_us": 29185464634.535404,
+          "misses": 135083,
+          "actual_physical_us": 29228285945.535404,
+          "fixed100_physical_us": 29198972934.535404,
+          "components_us": {
+            "build_write_us": 1977554.805519054,
+            "probe_write_us": 23186008371.261497,
+            "probe_read_us": 5997478708.468389
+          },
+          "actual_over_paired": 0.9998485818195354,
+          "fixed100_over_paired": 0.999848229236144,
+          "io_over_paired": 0.9998480665170083,
+          "miss_delta": 27,
+          "actual_delta_us": -4426364.107971191,
+          "fixed100_delta_us": -4432223.107971191
+        },
+        "risk_scale100": {
+          "io_us": 29186688451.535217,
+          "misses": 135040,
+          "actual_physical_us": 29229496131.535217,
+          "fixed100_physical_us": 29200192451.535217,
+          "components_us": {
+            "build_write_us": 1977554.805519054,
+            "probe_write_us": 23186980682.79632,
+            "probe_read_us": 5997730213.933378
+          },
+          "actual_over_paired": 0.9998899801676255,
+          "fixed100_over_paired": 0.9998899886471864,
+          "io_over_paired": 0.9998899925605493,
+          "miss_delta": -16,
+          "actual_delta_us": -3216178.1081581116,
+          "fixed100_delta_us": -3212706.1081581116
+        }
+      }
+    },
+    {
+      "case": "train/train_722_random_lognormal.txt",
+      "seed": 14469534270711647131,
+      "family": "random_lognormal",
+      "actual_penalty": 619,
+      "methods": {
+        "paired100": {
+          "io_us": 32135457.538520277,
+          "misses": 34811,
+          "actual_physical_us": 53683466.53852028,
+          "fixed100_physical_us": 35616557.53852028,
+          "components_us": {
+            "build_write_us": 240515.2563813814,
+            "probe_write_us": 22727983.763138138,
+            "probe_read_us": 9166958.519000757
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 31921091.43398071,
+          "misses": 34561,
+          "actual_physical_us": 53314350.43398071,
+          "fixed100_physical_us": 35377191.43398071,
+          "components_us": {
+            "build_write_us": 240515.2563813814,
+            "probe_write_us": 22575227.253753755,
+            "probe_read_us": 9105348.923845572
+          },
+          "actual_over_paired": 0.9931242125678544,
+          "fixed100_over_paired": 0.9932793587847257,
+          "io_over_paired": 0.9933292966411756,
+          "miss_delta": -250,
+          "actual_delta_us": -369116.10453956574,
+          "fixed100_delta_us": -239366.10453956574
+        },
+        "risk_flat100": {
+          "io_us": 32152065.28753112,
+          "misses": 34813,
+          "actual_physical_us": 53701312.28753112,
+          "fixed100_physical_us": 35633365.28753112,
+          "components_us": {
+            "build_write_us": 240515.2563813814,
+            "probe_write_us": 22739744.404654656,
+            "probe_read_us": 9171805.62649508
+          },
+          "actual_over_paired": 1.0003324254218575,
+          "fixed100_over_paired": 1.0004719082969393,
+          "io_over_paired": 1.0005168044983002,
+          "miss_delta": 2,
+          "actual_delta_us": 17845.74901084602,
+          "fixed100_delta_us": 16807.74901084602
+        },
+        "risk_scale100": {
+          "io_us": 31896814.587996285,
+          "misses": 34600,
+          "actual_physical_us": 53314214.58799629,
+          "fixed100_physical_us": 35356814.58799629,
+          "components_us": {
+            "build_write_us": 240515.2563813814,
+            "probe_write_us": 22557950.257882882,
+            "probe_read_us": 9098349.07373202
+          },
+          "actual_over_paired": 0.9931216820683696,
+          "fixed100_over_paired": 0.9927072415619317,
+          "io_over_paired": 0.9925738430754274,
+          "miss_delta": -211,
+          "actual_delta_us": -369251.9505239874,
+          "fixed100_delta_us": -259742.9505239874
+        }
+      }
+    },
+    {
+      "case": "train/train_768_random_lognormal.txt",
+      "seed": 8336829129886712639,
+      "family": "random_lognormal",
+      "actual_penalty": 70,
+      "methods": {
+        "paired100": {
+          "io_us": 130707391.93593475,
+          "misses": 25819,
+          "actual_physical_us": 132514721.93593475,
+          "fixed100_physical_us": 133289291.93593475,
+          "components_us": {
+            "build_write_us": 19476.30848925313,
+            "probe_write_us": 59576879.04623473,
+            "probe_read_us": 71111036.58121078
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 130641953.7375945,
+          "misses": 25776,
+          "actual_physical_us": 132446273.7375945,
+          "fixed100_physical_us": 133219553.7375945,
+          "components_us": {
+            "build_write_us": 19476.30848925313,
+            "probe_write_us": 59547047.81707128,
+            "probe_read_us": 71075429.61203396
+          },
+          "actual_over_paired": 0.9994834672152627,
+          "fixed100_over_paired": 0.9994767906909299,
+          "io_over_paired": 0.999499353499668,
+          "miss_delta": -43,
+          "actual_delta_us": -68448.19834025204,
+          "fixed100_delta_us": -69738.19834025204
+        },
+        "risk_flat100": {
+          "io_us": 130641953.7375945,
+          "misses": 25776,
+          "actual_physical_us": 132446273.7375945,
+          "fixed100_physical_us": 133219553.7375945,
+          "components_us": {
+            "build_write_us": 19476.30848925313,
+            "probe_write_us": 59547047.81707128,
+            "probe_read_us": 71075429.61203396
+          },
+          "actual_over_paired": 0.9994834672152627,
+          "fixed100_over_paired": 0.9994767906909299,
+          "io_over_paired": 0.999499353499668,
+          "miss_delta": -43,
+          "actual_delta_us": -68448.19834025204,
+          "fixed100_delta_us": -69738.19834025204
+        },
+        "risk_scale100": {
+          "io_us": 130708726.31495504,
+          "misses": 25820,
+          "actual_physical_us": 132516126.31495504,
+          "fixed100_physical_us": 133290726.31495504,
+          "components_us": {
+            "build_write_us": 19476.30848925313,
+            "probe_write_us": 59577487.34792021,
+            "probe_read_us": 71111762.65854558
+          },
+          "actual_over_paired": 1.000010597909423,
+          "fixed100_over_paired": 1.0000107613972544,
+          "io_over_paired": 1.0000102089024998,
+          "miss_delta": 1,
+          "actual_delta_us": 1404.3790202885866,
+          "fixed100_delta_us": 1434.3790202885866
+        }
+      }
+    },
+    {
+      "case": "train/train_763_random_lognormal.txt",
+      "seed": 184502648514716924,
+      "family": "random_lognormal",
+      "actual_penalty": 751,
+      "methods": {
+        "paired100": {
+          "io_us": 23764899.82149813,
+          "misses": 3760,
+          "actual_physical_us": 26588659.82149813,
+          "fixed100_physical_us": 24140899.82149813,
+          "components_us": {
+            "build_write_us": 57446.26538849647,
+            "probe_write_us": 11512532.334006054,
+            "probe_read_us": 12194921.222103577
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 24531217.192409746,
+          "misses": 3822,
+          "actual_physical_us": 27401539.192409746,
+          "fixed100_physical_us": 24913417.192409746,
+          "components_us": {
+            "build_write_us": 57446.26538849647,
+            "probe_write_us": 11883825.079717457,
+            "probe_read_us": 12589945.847303791
+          },
+          "actual_over_paired": 1.0305724085519483,
+          "fixed100_over_paired": 1.0320003552735706,
+          "io_over_paired": 1.032245764832486,
+          "miss_delta": 62,
+          "actual_delta_us": 812879.3709116168,
+          "fixed100_delta_us": 772517.3709116168
+        },
+        "risk_flat100": {
+          "io_us": 23886503.682051707,
+          "misses": 3588,
+          "actual_physical_us": 26581091.682051707,
+          "fixed100_physical_us": 24245303.682051707,
+          "components_us": {
+            "build_write_us": 57446.26538849647,
+            "probe_write_us": 11570726.519172553,
+            "probe_read_us": 12258330.897490656
+          },
+          "actual_over_paired": 0.9997153621319302,
+          "fixed100_over_paired": 1.0043247708795264,
+          "io_over_paired": 1.0051169523737513,
+          "miss_delta": -172,
+          "actual_delta_us": -7568.139446422458,
+          "fixed100_delta_us": 104403.86055357754
+        },
+        "risk_scale100": {
+          "io_us": 24621799.619047403,
+          "misses": 3911,
+          "actual_physical_us": 27558960.619047403,
+          "fixed100_physical_us": 25012899.619047403,
+          "components_us": {
+            "build_write_us": 57446.26538849647,
+            "probe_write_us": 11927828.812815338,
+            "probe_read_us": 12636524.540843567
+          },
+          "actual_over_paired": 1.0364930313924563,
+          "fixed100_over_paired": 1.0361212632502097,
+          "io_over_paired": 1.036057370491169,
+          "miss_delta": 151,
+          "actual_delta_us": 970300.7975492738,
+          "fixed100_delta_us": 871999.7975492738
+        }
+      }
+    },
+    {
+      "case": "train/train_747_random_lognormal.txt",
+      "seed": 7185949811230088012,
+      "family": "random_lognormal",
+      "actual_penalty": 104,
+      "methods": {
+        "paired100": {
+          "io_us": 55513014.733270586,
+          "misses": 28738,
+          "actual_physical_us": 58501766.733270586,
+          "fixed100_physical_us": 58386814.733270586,
+          "components_us": {
+            "build_write_us": 38420.6917342688,
+            "probe_write_us": 28515764.783271212,
+            "probe_read_us": 26958829.258265104
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 54974343.79744818,
+          "misses": 28380,
+          "actual_physical_us": 57925863.79744818,
+          "fixed100_physical_us": 57812343.79744818,
+          "components_us": {
+            "build_write_us": 38420.6917342688,
+            "probe_write_us": 28238843.677483007,
+            "probe_read_us": 26697079.428230904
+          },
+          "actual_over_paired": 0.9901558026709152,
+          "fixed100_over_paired": 0.9901609474939372,
+          "io_over_paired": 0.9902964928420729,
+          "miss_delta": -358,
+          "actual_delta_us": -575902.9358224049,
+          "fixed100_delta_us": -574470.9358224049
+        },
+        "risk_flat100": {
+          "io_us": 54797874.322098166,
+          "misses": 28405,
+          "actual_physical_us": 57751994.322098166,
+          "fixed100_physical_us": 57638374.322098166,
+          "components_us": {
+            "build_write_us": 38420.6917342688,
+            "probe_write_us": 28148045.837535627,
+            "probe_read_us": 26611407.792828273
+          },
+          "actual_over_paired": 0.987183764644393,
+          "fixed100_over_paired": 0.9871813454014998,
+          "io_over_paired": 0.9871176081030992,
+          "miss_delta": -333,
+          "actual_delta_us": -749772.4111724198,
+          "fixed100_delta_us": -748440.4111724198
+        },
+        "risk_scale100": {
+          "io_us": 55201885.452940494,
+          "misses": 28699,
+          "actual_physical_us": 58186581.452940494,
+          "fixed100_physical_us": 58071785.452940494,
+          "components_us": {
+            "build_write_us": 38420.6917342688,
+            "probe_write_us": 28355839.386866916,
+            "probe_read_us": 26807625.37433931
+          },
+          "actual_over_paired": 0.9946123801394388,
+          "fixed100_over_paired": 0.9946044448259552,
+          "io_over_paired": 0.9943953813024746,
+          "miss_delta": -39,
+          "actual_delta_us": -315185.2803300917,
+          "fixed100_delta_us": -315029.2803300917
+        }
+      }
+    },
+    {
+      "case": "train/train_754_random_lognormal.txt",
+      "seed": 6706213157847051871,
+      "family": "random_lognormal",
+      "actual_penalty": 533,
+      "methods": {
+        "paired100": {
+          "io_us": 7989932.529224204,
+          "misses": 2292,
+          "actual_physical_us": 9211568.529224204,
+          "fixed100_physical_us": 8219132.529224204,
+          "components_us": {
+            "build_write_us": 11942.695921266233,
+            "probe_write_us": 2686571.8145292206,
+            "probe_read_us": 5291418.018773717
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 7903557.288156301,
+          "misses": 2293,
+          "actual_physical_us": 9125726.2881563,
+          "fixed100_physical_us": 8132857.288156301,
+          "components_us": {
+            "build_write_us": 11942.695921266233,
+            "probe_write_us": 2657119.6369724027,
+            "probe_read_us": 5234494.955262632
+          },
+          "actual_over_paired": 0.9906810397387195,
+          "fixed100_over_paired": 0.9895031208267855,
+          "io_over_paired": 0.9891894905555242,
+          "miss_delta": 1,
+          "actual_delta_us": -85842.24106790312,
+          "fixed100_delta_us": -86275.24106790312
+        },
+        "risk_flat100": {
+          "io_us": 7177774.893975322,
+          "misses": 2187,
+          "actual_physical_us": 8343445.893975322,
+          "fixed100_physical_us": 7396474.893975322,
+          "components_us": {
+            "build_write_us": 11942.695921266233,
+            "probe_write_us": 2412585.109577922,
+            "probe_read_us": 4753247.0884761335
+          },
+          "actual_over_paired": 0.905757349305418,
+          "fixed100_over_paired": 0.8999094329816663,
+          "io_over_paired": 0.8983523787868908,
+          "miss_delta": -105,
+          "actual_delta_us": -868122.6352488818,
+          "fixed100_delta_us": -822657.6352488818
+        },
+        "risk_scale100": {
+          "io_us": 7978018.860366733,
+          "misses": 2314,
+          "actual_physical_us": 9211380.860366732,
+          "fixed100_physical_us": 8209418.860366733,
+          "components_us": {
+            "build_write_us": 11942.695921266233,
+            "probe_write_us": 2683749.384537338,
+            "probe_read_us": 5282326.779908129
+          },
+          "actual_over_paired": 0.9999796268293639,
+          "fixed100_over_paired": 0.9988181637389429,
+          "io_over_paired": 0.9985089149609342,
+          "miss_delta": 22,
+          "actual_delta_us": -187.6688574720174,
+          "fixed100_delta_us": -9713.668857471086
+        }
+      }
+    },
+    {
+      "case": "train/train_752_random_lognormal.txt",
+      "seed": 5798404805832685362,
+      "family": "random_lognormal",
+      "actual_penalty": 1000,
+      "methods": {
+        "paired100": {
+          "io_us": 103357596.59433451,
+          "misses": 19917,
+          "actual_physical_us": 123274596.59433451,
+          "fixed100_physical_us": 105349296.59433451,
+          "components_us": {
+            "build_write_us": 83968.293119127,
+            "probe_write_us": 72047439.13792059,
+            "probe_read_us": 31226189.163294796
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 99655768.24949403,
+          "misses": 19367,
+          "actual_physical_us": 119022768.24949403,
+          "fixed100_physical_us": 101592468.24949403,
+          "components_us": {
+            "build_write_us": 83968.293119127,
+            "probe_write_us": 69464735.5689603,
+            "probe_read_us": 30107064.38741461
+          },
+          "actual_over_paired": 0.9655092901351592,
+          "fixed100_over_paired": 0.9643393124938765,
+          "io_over_paired": 0.9641842644680517,
+          "miss_delta": -550,
+          "actual_delta_us": -4251828.344840482,
+          "fixed100_delta_us": -3756828.344840482
+        },
+        "risk_flat100": {
+          "io_us": 100476815.36948206,
+          "misses": 19611,
+          "actual_physical_us": 120087815.36948206,
+          "fixed100_physical_us": 102437915.36948206,
+          "components_us": {
+            "build_write_us": 83968.293119127,
+            "probe_write_us": 70038158.8878448,
+            "probe_read_us": 30354688.18851813
+          },
+          "actual_over_paired": 0.9741489218955682,
+          "fixed100_over_paired": 0.9723644929869515,
+          "io_over_paired": 0.9721280165195872,
+          "miss_delta": -306,
+          "actual_delta_us": -3186781.2248524576,
+          "fixed100_delta_us": -2911381.2248524576
+        },
+        "risk_scale100": {
+          "io_us": 103308626.3945209,
+          "misses": 19997,
+          "actual_physical_us": 123305626.3945209,
+          "fixed100_physical_us": 105308326.3945209,
+          "components_us": {
+            "build_write_us": 83968.293119127,
+            "probe_write_us": 72013391.40618369,
+            "probe_read_us": 31211266.695218075
+          },
+          "actual_over_paired": 1.0002517128511763,
+          "fixed100_over_paired": 0.9996111013444031,
+          "io_over_paired": 0.9995262060900485,
+          "miss_delta": 80,
+          "actual_delta_us": 31029.800186380744,
+          "fixed100_delta_us": -40970.199813619256
+        }
+      }
+    },
+    {
+      "case": "train/train_766_random_lognormal.txt",
+      "seed": 5577302901459224310,
+      "family": "random_lognormal",
+      "actual_penalty": 959,
+      "methods": {
+        "paired100": {
+          "io_us": 96650504.12181765,
+          "misses": 7686,
+          "actual_physical_us": 104021378.12181765,
+          "fixed100_physical_us": 97419104.12181765,
+          "components_us": {
+            "build_write_us": 558978.0161976949,
+            "probe_write_us": 29956627.42581248,
+            "probe_read_us": 66134898.67980747
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 96342873.55975725,
+          "misses": 7618,
+          "actual_physical_us": 103648535.55975725,
+          "fixed100_physical_us": 97104673.55975725,
+          "components_us": {
+            "build_write_us": 558978.0161976949,
+            "probe_write_us": 29860839.72806562,
+            "probe_read_us": 65923055.81549393
+          },
+          "actual_over_paired": 0.9964157121469418,
+          "fixed100_over_paired": 0.9967723932087569,
+          "io_over_paired": 0.996817082695475,
+          "miss_delta": -68,
+          "actual_delta_us": -372842.56206040084,
+          "fixed100_delta_us": -314430.56206040084
+        },
+        "risk_flat100": {
+          "io_us": 94394910.02872866,
+          "misses": 7517,
+          "actual_physical_us": 101603713.02872866,
+          "fixed100_physical_us": 95146610.02872866,
+          "components_us": {
+            "build_write_us": 558978.0161976949,
+            "probe_write_us": 29255216.596303605,
+            "probe_read_us": 64580715.41622736
+          },
+          "actual_over_paired": 0.9767579978583085,
+          "fixed100_over_paired": 0.9766730138449298,
+          "io_over_paired": 0.9766623659795292,
+          "miss_delta": -169,
+          "actual_delta_us": -2417665.0930889845,
+          "fixed100_delta_us": -2272494.0930889845
+        },
+        "risk_scale100": {
+          "io_us": 96269969.9935042,
+          "misses": 7686,
+          "actual_physical_us": 103640843.9935042,
+          "fixed100_physical_us": 97038569.9935042,
+          "components_us": {
+            "build_write_us": 558978.0161976949,
+            "probe_write_us": 29838422.77240162,
+            "probe_read_us": 65872569.204904884
+          },
+          "actual_over_paired": 0.9963417699785921,
+          "fixed100_over_paired": 0.9960938449214477,
+          "io_over_paired": 0.9960627817540006,
+          "miss_delta": 0,
+          "actual_delta_us": -380534.128313452,
+          "fixed100_delta_us": -380534.128313452
+        }
+      }
+    },
+    {
+      "case": "train/train_723_random_lognormal.txt",
+      "seed": 11576382454364312072,
+      "family": "random_lognormal",
+      "actual_penalty": 415,
+      "methods": {
+        "paired100": {
+          "io_us": 115749469.14081562,
+          "misses": 8345,
+          "actual_physical_us": 119212644.14081562,
+          "fixed100_physical_us": 116583969.14081562,
+          "components_us": {
+            "build_write_us": 209241.90537634408,
+            "probe_write_us": 87467540.81978494,
+            "probe_read_us": 28072686.415654335
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 115364879.69153541,
+          "misses": 8228,
+          "actual_physical_us": 118779499.69153541,
+          "fixed100_physical_us": 116187679.69153541,
+          "components_us": {
+            "build_write_us": 209241.90537634408,
+            "probe_write_us": 87176126.70236559,
+            "probe_read_us": 27979511.083793484
+          },
+          "actual_over_paired": 0.9963666232520725,
+          "fixed100_over_paired": 0.996600823833665,
+          "io_over_paired": 0.9966773977268757,
+          "miss_delta": -117,
+          "actual_delta_us": -433144.4492802024,
+          "fixed100_delta_us": -396289.4492802024
+        },
+        "risk_flat100": {
+          "io_us": 115804009.46701732,
+          "misses": 8290,
+          "actual_physical_us": 119244359.46701732,
+          "fixed100_physical_us": 116633009.46701732,
+          "components_us": {
+            "build_write_us": 209241.90537634408,
+            "probe_write_us": 87508560.19526881,
+            "probe_read_us": 28086207.36637217
+          },
+          "actual_over_paired": 1.0002660399526433,
+          "fixed100_over_paired": 1.0004206438206138,
+          "io_over_paired": 1.0004711928841363,
+          "miss_delta": -55,
+          "actual_delta_us": 31715.326201707125,
+          "fixed100_delta_us": 49040.326201707125
+        },
+        "risk_scale100": {
+          "io_us": 116353666.25587705,
+          "misses": 8334,
+          "actual_physical_us": 119812276.25587705,
+          "fixed100_physical_us": 117187066.25587705,
+          "components_us": {
+            "build_write_us": 209241.90537634408,
+            "probe_write_us": 87924665.72129032,
+            "probe_read_us": 28219758.629210383
+          },
+          "actual_over_paired": 1.0050299372133138,
+          "fixed100_over_paired": 1.0051730707017958,
+          "io_over_paired": 1.0052198694261516,
+          "miss_delta": -11,
+          "actual_delta_us": 599632.1150614321,
+          "fixed100_delta_us": 603097.1150614321
+        }
+      }
+    },
+    {
+      "case": "train/train_760_random_lognormal.txt",
+      "seed": 3496239285171780787,
+      "family": "random_lognormal",
+      "actual_penalty": 662,
+      "methods": {
+        "paired100": {
+          "io_us": 133736608.90905742,
+          "misses": 10208,
+          "actual_physical_us": 140494304.90905744,
+          "fixed100_physical_us": 134757408.90905744,
+          "components_us": {
+            "build_write_us": 64783.4024352492,
+            "probe_write_us": 60553258.672582805,
+            "probe_read_us": 73118566.83403938
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 133799733.61337622,
+          "misses": 10058,
+          "actual_physical_us": 140458129.6133762,
+          "fixed100_physical_us": 134805533.6133762,
+          "components_us": {
+            "build_write_us": 64783.4024352492,
+            "probe_write_us": 60581854.87266536,
+            "probe_read_us": 73153095.33827561
+          },
+          "actual_over_paired": 0.99974251414885,
+          "fixed100_over_paired": 1.0003571210273956,
+          "io_over_paired": 1.0004720076636735,
+          "miss_delta": -150,
+          "actual_delta_us": -36175.295681238174,
+          "fixed100_delta_us": 48124.704318761826
+        },
+        "risk_flat100": {
+          "io_us": 133680850.86298476,
+          "misses": 10038,
+          "actual_physical_us": 140326006.86298478,
+          "fixed100_physical_us": 134684650.86298478,
+          "components_us": {
+            "build_write_us": 64783.4024352492,
+            "probe_write_us": 60527999.65142916,
+            "probe_read_us": 73088067.80912036
+          },
+          "actual_over_paired": 0.9988021005820726,
+          "fixed100_over_paired": 0.999460081292289,
+          "io_over_paired": 0.9995830756699493,
+          "miss_delta": -170,
+          "actual_delta_us": -168298.04607266188,
+          "fixed100_delta_us": -72758.04607266188
+        },
+        "risk_scale100": {
+          "io_us": 133696627.42240357,
+          "misses": 10188,
+          "actual_physical_us": 140441083.42240357,
+          "fixed100_physical_us": 134715427.42240357,
+          "components_us": {
+            "build_write_us": 64783.4024352492,
+            "probe_write_us": 60535146.61005056,
+            "probe_read_us": 73096697.40991777
+          },
+          "actual_over_paired": 0.9996211840281475,
+          "fixed100_over_paired": 0.999688466207582,
+          "io_over_paired": 0.9997010430653207,
+          "miss_delta": -20,
+          "actual_delta_us": -53221.486653864384,
+          "fixed100_delta_us": -41981.486653864384
+        }
+      }
+    },
+    {
+      "case": "train/train_726_random_lognormal.txt",
+      "seed": 14532149210305815137,
+      "family": "random_lognormal",
+      "actual_penalty": 47,
+      "methods": {
+        "paired100": {
+          "io_us": 224537889.3960651,
+          "misses": 2851,
+          "actual_physical_us": 224671886.3960651,
+          "fixed100_physical_us": 224822989.3960651,
+          "components_us": {
+            "build_write_us": 132770.60597174088,
+            "probe_write_us": 78633385.16982138,
+            "probe_read_us": 145771733.62027195
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 221739684.38799188,
+          "misses": 2714,
+          "actual_physical_us": 221867242.38799188,
+          "fixed100_physical_us": 222011084.38799188,
+          "components_us": {
+            "build_write_us": 132770.60597174088,
+            "probe_write_us": 77616390.4158891,
+            "probe_read_us": 143990523.36613104
+          },
+          "actual_over_paired": 0.9875167113560037,
+          "fixed100_over_paired": 0.9874928048255797,
+          "io_over_paired": 0.9875379384049637,
+          "miss_delta": -137,
+          "actual_delta_us": -2804644.0080732107,
+          "fixed100_delta_us": -2811905.0080732107
+        },
+        "risk_flat100": {
+          "io_us": 223862287.5725826,
+          "misses": 2679,
+          "actual_physical_us": 223988200.5725826,
+          "fixed100_physical_us": 224130187.5725826,
+          "components_us": {
+            "build_write_us": 132770.60597174088,
+            "probe_write_us": 78359954.10183951,
+            "probe_read_us": 145369562.86477134
+          },
+          "actual_over_paired": 0.9969569587256804,
+          "fixed100_over_paired": 0.9969184564917336,
+          "io_over_paired": 0.9969911455687963,
+          "miss_delta": -172,
+          "actual_delta_us": -683685.8234824836,
+          "fixed100_delta_us": -692801.8234824836
+        },
+        "risk_scale100": {
+          "io_us": 231414159.8154059,
+          "misses": 2921,
+          "actual_physical_us": 231551446.8154059,
+          "fixed100_physical_us": 231706259.8154059,
+          "components_us": {
+            "build_write_us": 132770.60597174088,
+            "probe_write_us": 81005431.12809917,
+            "probe_read_us": 150275958.08133498
+          },
+          "actual_over_paired": 1.030620477397929,
+          "fixed100_over_paired": 1.0306163993185533,
+          "io_over_paired": 1.0306240983997659,
+          "miss_delta": 70,
+          "actual_delta_us": 6879560.419340819,
+          "fixed100_delta_us": 6883270.419340819
+        }
+      }
+    },
+    {
+      "case": "train/train_725_random_lognormal.txt",
+      "seed": 10481288076045297175,
+      "family": "random_lognormal",
+      "actual_penalty": 268,
+      "methods": {
+        "paired100": {
+          "io_us": 68041082.79967825,
+          "misses": 23187,
+          "actual_physical_us": 74255198.79967825,
+          "fixed100_physical_us": 70359782.79967825,
+          "components_us": {
+            "build_write_us": 18159.164274322167,
+            "probe_write_us": 32232415.15842637,
+            "probe_read_us": 35790508.476977564
+          },
+          "actual_over_paired": 1.0,
+          "fixed100_over_paired": 1.0,
+          "io_over_paired": 1.0,
+          "miss_delta": 0,
+          "actual_delta_us": 0.0,
+          "fixed100_delta_us": 0.0
+        },
+        "risk_pool100": {
+          "io_us": 67505015.74727108,
+          "misses": 23020,
+          "actual_physical_us": 73674375.74727108,
+          "fixed100_physical_us": 69807015.74727108,
+          "components_us": {
+            "build_write_us": 18159.164274322167,
+            "probe_write_us": 31978119.360446572,
+            "probe_read_us": 35508737.222550176
+          },
+          "actual_over_paired": 0.9921780149835153,
+          "fixed100_over_paired": 0.9921437072371164,
+          "io_over_paired": 0.9921214209070507,
+          "miss_delta": -167,
+          "actual_delta_us": -580823.0524071753,
+          "fixed100_delta_us": -552767.0524071753
+        },
+        "risk_flat100": {
+          "io_us": 67652065.26432817,
+          "misses": 23027,
+          "actual_physical_us": 73823301.26432817,
+          "fixed100_physical_us": 69954765.26432817,
+          "components_us": {
+            "build_write_us": 18159.164274322167,
+            "probe_write_us": 32047853.35566188,
+            "probe_read_us": 35586052.74439197
+          },
+          "actual_over_paired": 0.9941836054265341,
+          "fixed100_over_paired": 0.9942436215799129,
+          "io_over_paired": 0.9942826081046446,
+          "miss_delta": -160,
+          "actual_delta_us": -431897.5353500843,
+          "fixed100_delta_us": -405017.5353500843
+        },
+        "risk_scale100": {
+          "io_us": 68580848.07486692,
+          "misses": 23446,
+          "actual_physical_us": 74864376.07486692,
+          "fixed100_physical_us": 70925448.07486692,
+          "components_us": {
+            "build_write_us": 18159.164274322167,
+            "probe_write_us": 32488180.858054228,
+            "probe_read_us": 36074508.05253837
+          },
+          "actual_over_paired": 1.0082038333347147,
+          "fixed100_over_paired": 1.0080396108782652,
+          "io_over_paired": 1.0079329318843706,
+          "miss_delta": 259,
+          "actual_delta_us": 609177.2751886696,
+          "fixed100_delta_us": 565665.2751886696
+        }
+      }
+    }
+  ],
+  "scope": "Post hoc single-100us sensitivity of fixed deterministic policies; original actual-penalty gates all failed and remain binding. No new solver, labels, learner or held-out access.",
+  "counterfactual_limit": "Costs only are reweighted; hidden penalty is not a scheduler observation. Timing costs are excluded here. This does not change the candidate or its original primary gate.",
+  "hindsight_limit": "Different from-start trajectories. Not common-prefix branch labels, not a bound on the proposed later configuration selector, and not evidence of learnability. All winners use future costs and are undeployable."
+}

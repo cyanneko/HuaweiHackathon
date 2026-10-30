@@ -1,0 +1,213 @@
+{
+  "stage": "0 interface and same-state headroom only; not large-data quality claim",
+  "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+  "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+  "generator_sha256": "0611bdecc3640cffe06efbb9956fa2d3271d8d579c2318e1c1f938121709a175",
+  "defaults": {
+    "n": 8000,
+    "k": 8,
+    "p": 64,
+    "memory": 67108864,
+    "build-fraction": 0.4,
+    "period": 127,
+    "window": 1000,
+    "partition-window": 1000,
+    "write": 100,
+    "read": 80,
+    "penalty": 100,
+    "partition-profile": "slow",
+    "partition-speed": 0.0025,
+    "rare": "none"
+  },
+  "cases": [
+    {
+      "case_id": "corner_train_fast_shared_p3",
+      "split": "train",
+      "mechanism": "fast_shared",
+      "parameters": {
+        "seed": 202610309501,
+        "profile": "fast",
+        "phase": "shared",
+        "pressure": 3
+      }
+    },
+    {
+      "case_id": "corner_train_fast_shared_p12",
+      "split": "train",
+      "mechanism": "fast_shared",
+      "parameters": {
+        "seed": 202610309501,
+        "profile": "fast",
+        "phase": "shared",
+        "pressure": 12
+      }
+    },
+    {
+      "case_id": "corner_train_fast_staggered_p3",
+      "split": "train",
+      "mechanism": "fast_staggered",
+      "parameters": {
+        "seed": 202610309502,
+        "profile": "fast",
+        "phase": "staggered",
+        "pressure": 3
+      }
+    },
+    {
+      "case_id": "corner_train_fast_staggered_p12",
+      "split": "train",
+      "mechanism": "fast_staggered",
+      "parameters": {
+        "seed": 202610309502,
+        "profile": "fast",
+        "phase": "staggered",
+        "pressure": 12
+      }
+    },
+    {
+      "case_id": "corner_train_burst_staggered_p3",
+      "split": "train",
+      "mechanism": "burst_staggered",
+      "parameters": {
+        "seed": 202610309503,
+        "profile": "burst",
+        "phase": "staggered",
+        "pressure": 3
+      }
+    },
+    {
+      "case_id": "corner_train_burst_staggered_p12",
+      "split": "train",
+      "mechanism": "burst_staggered",
+      "parameters": {
+        "seed": 202610309503,
+        "profile": "burst",
+        "phase": "staggered",
+        "pressure": 12
+      }
+    },
+    {
+      "case_id": "corner_train_slow_shared_p3",
+      "split": "train",
+      "mechanism": "slow_shared",
+      "parameters": {
+        "seed": 202610309504,
+        "profile": "slow",
+        "phase": "shared",
+        "pressure": 3
+      }
+    },
+    {
+      "case_id": "corner_train_slow_shared_p12",
+      "split": "train",
+      "mechanism": "slow_shared",
+      "parameters": {
+        "seed": 202610309504,
+        "profile": "slow",
+        "phase": "shared",
+        "pressure": 12
+      }
+    },
+    {
+      "case_id": "corner_dev_fast_shared_p3",
+      "split": "dev",
+      "mechanism": "fast_shared",
+      "parameters": {
+        "seed": 202610319501,
+        "profile": "fast",
+        "phase": "shared",
+        "pressure": 3
+      }
+    },
+    {
+      "case_id": "corner_dev_fast_shared_p12",
+      "split": "dev",
+      "mechanism": "fast_shared",
+      "parameters": {
+        "seed": 202610319501,
+        "profile": "fast",
+        "phase": "shared",
+        "pressure": 12
+      }
+    },
+    {
+      "case_id": "corner_dev_fast_staggered_p3",
+      "split": "dev",
+      "mechanism": "fast_staggered",
+      "parameters": {
+        "seed": 202610319502,
+        "profile": "fast",
+        "phase": "staggered",
+        "pressure": 3
+      }
+    },
+    {
+      "case_id": "corner_dev_fast_staggered_p12",
+      "split": "dev",
+      "mechanism": "fast_staggered",
+      "parameters": {
+        "seed": 202610319502,
+        "profile": "fast",
+        "phase": "staggered",
+        "pressure": 12
+      }
+    },
+    {
+      "case_id": "corner_dev_burst_staggered_p3",
+      "split": "dev",
+      "mechanism": "burst_staggered",
+      "parameters": {
+        "seed": 202610319503,
+        "profile": "burst",
+        "phase": "staggered",
+        "pressure": 3
+      }
+    },
+    {
+      "case_id": "corner_dev_burst_staggered_p12",
+      "split": "dev",
+      "mechanism": "burst_staggered",
+      "parameters": {
+        "seed": 202610319503,
+        "profile": "burst",
+        "phase": "staggered",
+        "pressure": 12
+      }
+    },
+    {
+      "case_id": "corner_dev_slow_shared_p3",
+      "split": "dev",
+      "mechanism": "slow_shared",
+      "parameters": {
+        "seed": 202610319504,
+        "profile": "slow",
+        "phase": "shared",
+        "pressure": 3
+      }
+    },
+    {
+      "case_id": "corner_dev_slow_shared_p12",
+      "split": "dev",
+      "mechanism": "slow_shared",
+      "parameters": {
+        "seed": 202610319504,
+        "profile": "slow",
+        "phase": "shared",
+        "pressure": 12
+      }
+    }
+  ],
+  "pressure_pairing": "same mechanism/split uses identical seed; train and dev seeds disjoint",
+  "failed_generation": "keep failure and missing cell; no replacement or reseeding",
+  "dev_policy": "generate and archive identity only; no trace/teacher/model scoring in stage0",
+  "anchor_policy": "train only, per case hash-lowest eligible O/M each one, >=2 union candidates; <=16; no gain-based selection",
+  "pool_contract": "r66-r75-union-reset-aux-on-nonempty-periodic-v1; native R75 ordered baseline action retained; candidate identity by action set only for dedup, execution order never changed",
+  "auxiliary_history": "reset R65 feature observer after nonempty periodic actions; not R75 private state",
+  "primary_label": "one forced O/M action then exact actual R75+commit_actual continuation, full native prefix replay; no approximate mirror or copied suffix",
+  "prepare_native_budget_seconds": 90,
+  "teacher_native_budget_seconds": 180,
+  "future_scale_gate": "at least a new >=100k mechanism/scale validation batch before corner performance claim",
+  "trace_format": "C index kind op pid need q physical_hash private_pre_hash private_post_hash count [S|L op pid]*; raw/stage recovered via exact input replay",
+  "force_format": "index kind op pid need q physical_hash private_pre_hash count [S|L op pid]*",
+  "instrumentation": "all trace/private hashes/offline forced-action input excluded from deployment D; engine body unmodified"
+}

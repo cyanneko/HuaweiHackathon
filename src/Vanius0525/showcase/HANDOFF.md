@@ -54,3 +54,11 @@ Sites发布状态succeeded，访问模式public。对应托管源码提交为`3f
 Sites version2发布succeeded，public访问保持；URL https://hashjoin-algorithm-atlas.michael-rich577.chatgpt.site 。新PDF为/HashJoin-R81-Reading-Guide.pdf，旧通用PDF地址也指向新版，原R85另有归档。托管源码0f7023f941caa1c7f2dcee0df752cd3b0524037c，部署appgdep_6ae4fd8973708191a3399c8a3736b0c9。身份与匿名HTTP核验见PUBLICATION.json。
 
 预览会话13623已Ctrl-C停止；无本轮后台任务。旧持续目标经get_goal确认仍paused。正在对仅showcase文件的暂存内容做最后身份核对，再提交并推送source/Vanius0525；其余旧修改和草稿不加入。
+
+## GitHub Pages迁移
+
+用户要求改为GitHub有源码、可公网访问的版本。源码1161fa3a已在source/Vanius0525。此次独占showcase，准备同仓库gh-pages静态发布分支，不更改原Sites站点或他人成果。当前SSH推送可用；未配置gh、GH_TOKEN/GITHUB_TOKEN或credential helper。匿名仓库/Pages API和预期Pages域名均404，不能据此确认仓库可见性、套餐或Pages设置。
+
+已准备publish_github_pages.py：只从已提交的dist生成发布树，绑定source commit，保留既有gh-pages历史，不切共享工作树分支，不force push；检测未知分支或删除时停止。接下来检查GitHub子路径下资源/交互，提交源码、推送部署分支，再确认网址与剩余启用条件。
+
+GitHub子路径验证通过：在/HuaweiHackathon/下主页200、四类交互正常、字体/PDF200、手机无横向溢出、无JS异常或资源404。PDF字节保持原V2。验证服务器已停止。初始远端没有gh-pages分支；下步提交展示专属改动并以正常非强推发布静态分支。Pages是否启用及仓库套餐仍无法通过当前凭据确认。

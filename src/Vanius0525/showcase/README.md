@@ -32,6 +32,10 @@ python -m http.server 8765 --bind 127.0.0.1 --directory dist
 
 当前沿用既有public Sites站点；发布身份与实际提交见`PUBLICATION.json`。用户源码仍维护在原Hackathon仓库。静态发布目录为`dist/`，可迁移到GitHub Pages等平台，无外部CDN依赖。
 
-`SOURCE_MANIFEST_V2.json`为当前源文件清单；`SOURCE_MANIFEST.json`保留V1历史身份，不用于校验V2文件。`evidence/v2/SOURCE_IDENTITY.json`独立记录最终算法证据。
+`SOURCE_MANIFEST_V2.json`为R81 V2发布时的源文件清单；`SOURCE_MANIFEST.json`保留V1历史身份，不用于校验V2文件。`evidence/v2/SOURCE_IDENTITY.json`独立记录最终算法证据。
 
 字体Droid Sans Fallback（Google，Apache-2.0）自带并嵌入PDF，见`dist/assets/font-LICENSE.txt`。未为原项目算法另设许可证。
+
+## GitHub Pages迁移
+
+已新增同仓库`gh-pages`发布脚本与静态入口，网站页脚可直接进入GitHub源码。一次性启用及后续更新见[GITHUB_PAGES.md](GITHUB_PAGES.md)，实际部署状态见[GITHUB_PAGES_STATUS.json](GITHUB_PAGES_STATUS.json)。源代码继续维护在本分支，发布分支只包含网站静态文件。

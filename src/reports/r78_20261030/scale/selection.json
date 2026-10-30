@@ -1,0 +1,196 @@
+{
+  "status": "prepared_no_native_execution",
+  "manifest_path": "${WORKSPACE}<LOCAL_TEMP>",
+  "manifest_sha256": "703b48a3522a09872728b018140613a28a74481ced3084fdd9cc9235720aacdb",
+  "methods": [
+    {
+      "name": "R75",
+      "source_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.policy.cpp",
+      "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.cpp",
+      "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "runtime_binary": "${WORKSPACE}<LOCAL_TEMP>"
+    },
+    {
+      "name": "R78_build0_singlefit",
+      "source_path": "tmp/r78_singlefit_controls/R78_build0_singlefit.policy.cpp",
+      "source_sha256": "793b5e65bf12a34b8a1ba7f4477812fc6f7cdba4acee846300601e3833aefc18",
+      "translation_unit_path": "tmp/r78_singlefit_controls/R78_build0_singlefit.cpp",
+      "translation_unit_sha256": "d71dab912690c921df601589f4a3b9b2d934ed2046e497abfda55fbd691fd601",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "9167f2502db1fbac0f581fb2883406ff691dc69d52671527950fcc396cd2b987",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "runtime_binary": "${WORKSPACE}<LOCAL_TEMP>"
+    },
+    {
+      "name": "R78_overflow_singlefit",
+      "source_path": "tmp/r78_singlefit_controls/R78_overflow_singlefit.policy.cpp",
+      "source_sha256": "98ac75370dd2bc20330f4b8b966e7bc2bd98d7eff538e5fca045dafb5e1ee257",
+      "translation_unit_path": "tmp/r78_singlefit_controls/R78_overflow_singlefit.cpp",
+      "translation_unit_sha256": "f4ffdb8ba5eb4c6a7c2875101ab830553924efdca5a48a4faf889cfb944a3ffb",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1d296c6f7854000d910d405091d2b312c5481dea469541088b2197773c2d316c",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "runtime_binary": "${WORKSPACE}<LOCAL_TEMP>"
+    }
+  ],
+  "cases": [
+    {
+      "id": "r78_scale_train_fast_shared_p3",
+      "path": "${WORKSPACE}<LOCAL_TEMP>",
+      "sha256": "b5a1c2bb1a943e9251e3a1d57ac3d9caf8fcd7570ec63723a7baaf770c4576a1",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_sha256": "9bccd8c992596a7c1026f2a439792d1ab81c8d581caf460fa9de025a274237b1",
+      "split": "train",
+      "mechanism": "fast_shared",
+      "target_pressure": 3,
+      "actual_pressure": 3.0006089955568314,
+      "seed": 202610309601,
+      "N": 100000,
+      "penalty": 100,
+      "probe_count": 59993
+    },
+    {
+      "id": "r78_scale_train_fast_shared_p12",
+      "path": "${WORKSPACE}<LOCAL_TEMP>",
+      "sha256": "45628b5b15e07454a9ecbda70d8f335a0e736b31a97e3d42a3f07d45c7a55ed9",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_sha256": "097284305eb8b07b15c8243f7dd8db097007aa97b4caad5b80cea8443fd2167f",
+      "split": "train",
+      "mechanism": "fast_shared",
+      "target_pressure": 12,
+      "actual_pressure": 12.002439975738525,
+      "seed": 202610309601,
+      "N": 100000,
+      "penalty": 100,
+      "probe_count": 59993
+    },
+    {
+      "id": "r78_scale_train_fast_staggered_p3",
+      "path": "${WORKSPACE}<LOCAL_TEMP>",
+      "sha256": "bd97412167940a3440ba4a3f71b6a0526b346bb6ee97eadf27a6a3021b70a543",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_sha256": "3e993a84c3d3a2fe6fa647b8b9f0213e0451e7e0a8dfb154aa9d14f2cbaf51d2",
+      "split": "train",
+      "mechanism": "fast_staggered",
+      "target_pressure": 3,
+      "actual_pressure": 3.166588634252548,
+      "seed": 202610309602,
+      "N": 100000,
+      "penalty": 100,
+      "probe_count": 61263
+    },
+    {
+      "id": "r78_scale_train_fast_staggered_p12",
+      "path": "${WORKSPACE}<LOCAL_TEMP>",
+      "sha256": "c7729cd0fb954167caa23adfd15fc5cdd481db87b96e8d21862a410cc0a3a6c4",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_sha256": "c534b1e1aa9332699070d427e6f8c4ec1c47098af0892b86554d9326cf7a4355",
+      "split": "train",
+      "mechanism": "fast_staggered",
+      "target_pressure": 12,
+      "actual_pressure": 12.666353315114975,
+      "seed": 202610309602,
+      "N": 100000,
+      "penalty": 100,
+      "probe_count": 61263
+    },
+    {
+      "id": "r78_scale_train_burst_staggered_p3",
+      "path": "${WORKSPACE}<LOCAL_TEMP>",
+      "sha256": "cdfd1ca4dd89a0b0ec45182527a6f2396d8c51e18b4eba6d772ed50cd51825cb",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_sha256": "b18d2c7d7f879e5b8a327aff1fb8a7dc69a4b4d924e1197d8db7b13acc1d69ba",
+      "split": "train",
+      "mechanism": "burst_staggered",
+      "target_pressure": 3,
+      "actual_pressure": 2.995502680540085,
+      "seed": 202610309603,
+      "N": 100000,
+      "penalty": 100,
+      "probe_count": 59531
+    },
+    {
+      "id": "r78_scale_train_burst_staggered_p12",
+      "path": "${WORKSPACE}<LOCAL_TEMP>",
+      "sha256": "c79e2801f0c549db0df06107c3aefd4e80ddc3b0866ab5b7a1cf7ba92df66786",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_sha256": "dcc9a936617b4f34d454907bc7f6ceaf75cc5f10b111c724d6fcade04b25eeff",
+      "split": "train",
+      "mechanism": "burst_staggered",
+      "target_pressure": 12,
+      "actual_pressure": 11.982012495398521,
+      "seed": 202610309603,
+      "N": 100000,
+      "penalty": 100,
+      "probe_count": 59531
+    },
+    {
+      "id": "r78_scale_train_slow_shared_p3",
+      "path": "${WORKSPACE}<LOCAL_TEMP>",
+      "sha256": "bdea659d03d78a30b758c3fb50b611a61521be7b96acf18bce078b72c580ec17",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_sha256": "ad7889753d7a9698e2f2fc6a123db7b0f51ea33df651dc7000d6399ac197a20d",
+      "split": "train",
+      "mechanism": "slow_shared",
+      "target_pressure": 3,
+      "actual_pressure": 3.0082312375307083,
+      "seed": 202610309604,
+      "N": 100000,
+      "penalty": 100,
+      "probe_count": 59993
+    },
+    {
+      "id": "r78_scale_train_slow_shared_p12",
+      "path": "${WORKSPACE}<LOCAL_TEMP>",
+      "sha256": "6b32ac39bc5b96a61f32d0b22e1b736211e309cf6a31dbb947561144670f9457",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_sha256": "4611fd873042726b48911ea9452231493e6c53bce91937c0bc0987d8f6c19ab8",
+      "split": "train",
+      "mechanism": "slow_shared",
+      "target_pressure": 12,
+      "actual_pressure": 12.03292191028595,
+      "seed": 202610309604,
+      "N": 100000,
+      "penalty": 100,
+      "probe_count": 59993
+    }
+  ],
+  "intended_cells": 24,
+  "repeats": 1,
+  "parallelism": 1,
+  "budget_seconds": 60,
+  "source_and_input_sha256": {
+    "${WORKSPACE}<LOCAL_TEMP>": "0ac168aef29b6c8462366eb5dcaf9531efc2ac601a17e310d9c80d50bd296673"
+  },
+  "framework_comparison": "original byte SHAs verified; framework prefix/suffix compared after CRLF-to-LF normalization only",
+  "score": "no Naive; physical-cost ratio versus same-run original R75, no normalized score",
+  "formal_D": false,
+  "dev_allowed": false
+}

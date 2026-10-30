@@ -1,0 +1,209 @@
+{
+  "status": "frozen_before_run",
+  "methods": [
+    {
+      "name": "R75",
+      "source_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.policy.cpp",
+      "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.cpp",
+      "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da"
+    },
+    {
+      "name": "R78_build0_singlefit",
+      "source_path": "tmp/r78_singlefit_controls/R78_build0_singlefit.policy.cpp",
+      "source_sha256": "793b5e65bf12a34b8a1ba7f4477812fc6f7cdba4acee846300601e3833aefc18",
+      "translation_unit_path": "tmp/r78_singlefit_controls/R78_build0_singlefit.cpp",
+      "translation_unit_sha256": "d71dab912690c921df601589f4a3b9b2d934ed2046e497abfda55fbd691fd601",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "9167f2502db1fbac0f581fb2883406ff691dc69d52671527950fcc396cd2b987",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R78_overflow_singlefit",
+      "source_path": "tmp/r78_singlefit_controls/R78_overflow_singlefit.policy.cpp",
+      "source_sha256": "98ac75370dd2bc20330f4b8b966e7bc2bd98d7eff538e5fca045dafb5e1ee257",
+      "translation_unit_path": "tmp/r78_singlefit_controls/R78_overflow_singlefit.cpp",
+      "translation_unit_sha256": "f4ffdb8ba5eb4c6a7c2875101ab830553924efdca5a48a4faf889cfb944a3ffb",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1d296c6f7854000d910d405091d2b312c5481dea469541088b2197773c2d316c",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "corner_train_fast_shared_p3",
+      "path": "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/data/corner_train_fast_shared_p3/input.txt",
+      "sha256": "65dec0728778aa22bcfe9ddb22a43ffe5a2672dd2df12891c4fff3d133b2734a",
+      "split": "train",
+      "mechanism": "fast_shared",
+      "target_pressure": 3,
+      "actual_pressure": 3.0243748128414154,
+      "penalty": 100,
+      "probe_count": 4793,
+      "N": 8000,
+      "previous_stage0_baseline": {
+        "Hit_Count": 1466.0,
+        "Miss_Count": 3327.0,
+        "Total_IO_Time": 28076691.75
+      }
+    },
+    {
+      "id": "corner_train_fast_shared_p12",
+      "path": "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/data/corner_train_fast_shared_p12/input.txt",
+      "sha256": "0636bf05e9df3f2bed11cde879ea2be766b9e927bf2edeeb1a8c626f0447462f",
+      "split": "train",
+      "mechanism": "fast_shared",
+      "target_pressure": 12,
+      "actual_pressure": 12.097498536109924,
+      "penalty": 100,
+      "probe_count": 4793,
+      "N": 8000,
+      "previous_stage0_baseline": {
+        "Hit_Count": 1145.0,
+        "Miss_Count": 3648.0,
+        "Total_IO_Time": 130474209.2
+      }
+    },
+    {
+      "id": "corner_train_fast_staggered_p3",
+      "path": "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/data/corner_train_fast_staggered_p3/input.txt",
+      "sha256": "4f0eae267a09a8f88f03864214ec211cfae14b0a2eb644b99c89fb8f82530d0c",
+      "split": "train",
+      "mechanism": "fast_staggered",
+      "target_pressure": 3,
+      "actual_pressure": 2.8715095072984695,
+      "penalty": 100,
+      "probe_count": 4841,
+      "N": 8000,
+      "previous_stage0_baseline": {
+        "Hit_Count": 2216.0,
+        "Miss_Count": 2625.0,
+        "Total_IO_Time": 22370073.61
+      }
+    },
+    {
+      "id": "corner_train_fast_staggered_p12",
+      "path": "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/data/corner_train_fast_staggered_p12/input.txt",
+      "sha256": "c66fec0eaf52d918a31970bcc83e16a6163ba8ac39046750bb5ad85a74fa115c",
+      "split": "train",
+      "mechanism": "fast_staggered",
+      "target_pressure": 12,
+      "actual_pressure": 11.486038520932198,
+      "penalty": 100,
+      "probe_count": 4841,
+      "N": 8000,
+      "previous_stage0_baseline": {
+        "Hit_Count": 965.0,
+        "Miss_Count": 3876.0,
+        "Total_IO_Time": 133934569.93
+      }
+    },
+    {
+      "id": "corner_train_burst_staggered_p3",
+      "path": "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/data/corner_train_burst_staggered_p3/input.txt",
+      "sha256": "4910e22a9468e1e50c6e0c8ddbad2ec2fbe20c327c3844631bbaba34b2dc532b",
+      "split": "train",
+      "mechanism": "burst_staggered",
+      "target_pressure": 3,
+      "actual_pressure": 2.9959743320941925,
+      "penalty": 100,
+      "probe_count": 5279,
+      "N": 8000,
+      "previous_stage0_baseline": {
+        "Hit_Count": 1812.0,
+        "Miss_Count": 3467.0,
+        "Total_IO_Time": 30602511.59
+      }
+    },
+    {
+      "id": "corner_train_burst_staggered_p12",
+      "path": "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/data/corner_train_burst_staggered_p12/input.txt",
+      "sha256": "3d2354d02eca4347c54587d538c350b8d4e5e9c3b73621b6d6aa7134c9547fb3",
+      "split": "train",
+      "mechanism": "burst_staggered",
+      "target_pressure": 12,
+      "actual_pressure": 11.983896523714066,
+      "penalty": 100,
+      "probe_count": 5279,
+      "N": 8000,
+      "previous_stage0_baseline": {
+        "Hit_Count": 499.0,
+        "Miss_Count": 4780.0,
+        "Total_IO_Time": 175175871.27
+      }
+    },
+    {
+      "id": "corner_train_slow_shared_p3",
+      "path": "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/data/corner_train_slow_shared_p3/input.txt",
+      "sha256": "78d17941b5080e0abd989d0ec503431f4d9012db920b17f6afc52708c4304ba6",
+      "split": "train",
+      "mechanism": "slow_shared",
+      "target_pressure": 3,
+      "actual_pressure": 2.9907395392656326,
+      "penalty": 100,
+      "probe_count": 4793,
+      "N": 8000,
+      "previous_stage0_baseline": {
+        "Hit_Count": 2404.0,
+        "Miss_Count": 2389.0,
+        "Total_IO_Time": 23293138.88
+      }
+    },
+    {
+      "id": "corner_train_slow_shared_p12",
+      "path": "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/data/corner_train_slow_shared_p12/input.txt",
+      "sha256": "9293ae4a738cb4eea22b41aea95cd78b3f2030e5d0b74e34550ce51a43777a48",
+      "split": "train",
+      "mechanism": "slow_shared",
+      "target_pressure": 12,
+      "actual_pressure": 11.962958961725235,
+      "penalty": 100,
+      "probe_count": 4793,
+      "N": 8000,
+      "previous_stage0_baseline": {
+        "Hit_Count": 704.0,
+        "Miss_Count": 4089.0,
+        "Total_IO_Time": 172606030.76
+      }
+    }
+  ],
+  "source_sha256": {
+    "${WORKSPACE}<LOCAL_TEMP>": "abca189c06a582a247289fb360a3269fd16c20fa2be7d47593601ce0ec7b7574",
+    "${WORKSPACE}/hashjoin_lab/reports/collaboration_20261020/side_heuristic_20261030/ai_training_20261030/corner_r75_v1/teacher_handoff.json": "b6363dfa00c42581a27151422b14f0346fcc27236bbdc45e37fe0a04e34ed686"
+  },
+  "framework_prefix_suffix_identical": true,
+  "framework_comparison": "exact after CRLF-to-LF normalization; all original file SHAs independently checked before normalization",
+  "budget_seconds": 60,
+  "parallelism": 1,
+  "repeats": 1,
+  "formal_D": false,
+  "score": "No Naive: no normalized score. Primary physical IO + real penalty*miss, ratio to same-run frozen R75.",
+  "dev_inputs_accessed": false,
+  "authorization": "root granted this CPU window; no concurrent jobs started by this runner"
+}

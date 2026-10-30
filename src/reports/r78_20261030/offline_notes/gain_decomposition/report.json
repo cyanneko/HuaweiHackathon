@@ -1,0 +1,1104 @@
+{
+  "status": "read_only_decomposition_complete",
+  "calculation_seconds": 0.018736599988187663,
+  "budget_seconds": 30,
+  "sign_convention": "positive = R75 cost minus best-action cost, i.e. savings",
+  "formulas": {
+    "total_gain": "baseline_full_G-best_full_G = baseline_suffix_G-best_suffix_G",
+    "immediate_gain": "(R75_immediate_write-best_immediate_write)*R + (R75_immediate_read-best_immediate_read)*W",
+    "future_residual": "total_gain-immediate_gain; arithmetic residual, not an independently identified causal mechanism",
+    "full_ratio": "total_gain/baseline_original_full_G",
+    "suffix_ratio": "total_gain/baseline_original_suffix_G"
+  },
+  "summary": {
+    "anchors": 16,
+    "input_cases": 8,
+    "positive_gain_anchors": 12,
+    "immediate_comparison_all_rows": {
+      "best_immediate_cheaper": 11,
+      "best_immediate_more_expensive": 3,
+      "same_immediate_IO": 2
+    },
+    "immediate_comparison_positive_gain_rows": {
+      "best_immediate_cheaper": 9,
+      "best_immediate_more_expensive": 3
+    },
+    "positive_gain_with_future_residual_larger_than_immediate": 12,
+    "all_immediate_read_differences_zero": true,
+    "top5_by_absolute_gain": [
+      "a00",
+      "a05",
+      "a04",
+      "a01",
+      "a14"
+    ],
+    "top5_by_fraction_of_original_full": [
+      "a00",
+      "a05",
+      "a04",
+      "a01",
+      "a13"
+    ]
+  },
+  "rows": [
+    {
+      "anchor_id": "a00",
+      "case_id": "corner_train_fast_shared_p3",
+      "mechanism": "fast_shared",
+      "pressure": 3,
+      "kind": "O",
+      "raw": 1240,
+      "stage": "insert",
+      "baseline_action_key": "383",
+      "best_action_key": "386",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 227275133980,
+      "best_full_G": 157974036040,
+      "baseline_suffix_G": 226391654060,
+      "best_suffix_G": 157090556120,
+      "total_gain_G": 69301097940,
+      "total_gain_us": 8662637.2425,
+      "total_gain_fraction_of_original_full": 0.3049216019650369,
+      "suffix_gain_fraction_of_original_suffix": 0.30611154032044535,
+      "baseline_immediate": {
+        "write_bytes": 382429,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66683352
+      },
+      "best_immediate": {
+        "write_bytes": 31891,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 67033890
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 350538,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 28043040,
+      "immediate_gain_us": 3505.38,
+      "immediate_write_gain_us": 3505.38,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 378595013,
+        "read_bytes": 378302969,
+        "misses": 1479
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 378244475,
+        "read_bytes": 378302969,
+        "misses": 1479
+      },
+      "future_residual_gain_G": 69273054900,
+      "future_residual_gain_us": 8659131.8625,
+      "future_residual_write_gain_us": 3782444.75,
+      "future_residual_read_gain_us": 4728787.1125,
+      "future_residual_miss_penalty_gain_us": 147900,
+      "immediate_fraction_of_total_gain": 0.0004046550607939762,
+      "future_residual_fraction_of_total_gain": 0.999595344939206,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": false
+    },
+    {
+      "anchor_id": "a01",
+      "case_id": "corner_train_fast_shared_p3",
+      "mechanism": "fast_shared",
+      "pressure": 3,
+      "kind": "M",
+      "raw": 6315,
+      "stage": "finish",
+      "baseline_action_key": "466,32->291",
+      "best_action_key": "383->291",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 227275133980,
+      "best_full_G": 214433641680,
+      "baseline_suffix_G": 63258449880,
+      "best_suffix_G": 50416957580,
+      "total_gain_G": 12841492300,
+      "total_gain_us": 1605186.5375,
+      "total_gain_fraction_of_original_full": 0.05650196779173405,
+      "suffix_gain_fraction_of_original_suffix": 0.20300042641512797,
+      "baseline_immediate": {
+        "write_bytes": 276194,
+        "read_bytes": 244518,
+        "misses": 0,
+        "final_memory_used": 67071834
+      },
+      "best_immediate": {
+        "write_bytes": 1262427,
+        "read_bytes": 244518,
+        "misses": 0,
+        "final_memory_used": 66085601
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": -986233,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": -78898640,
+      "immediate_gain_us": -9862.33,
+      "immediate_write_gain_us": -9862.33,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 69846685,
+        "read_bytes": 70041575,
+        "misses": 312
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 70832918,
+        "read_bytes": 70041575,
+        "misses": 312
+      },
+      "future_residual_gain_G": 12920390940,
+      "future_residual_gain_us": 1615048.8675,
+      "future_residual_write_gain_us": 708329.18,
+      "future_residual_read_gain_us": 875519.6875,
+      "future_residual_miss_penalty_gain_us": 31200,
+      "immediate_fraction_of_total_gain": -0.00614403981693,
+      "future_residual_fraction_of_total_gain": 1.00614403981693,
+      "immediate_comparison": "best_immediate_more_expensive",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": true
+    },
+    {
+      "anchor_id": "a02",
+      "case_id": "corner_train_fast_shared_p12",
+      "mechanism": "fast_shared",
+      "pressure": 12,
+      "kind": "O",
+      "raw": 794,
+      "stage": "insert",
+      "baseline_action_key": "498",
+      "best_action_key": "344",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 1046712073580,
+      "best_full_G": 1046712073580,
+      "baseline_suffix_G": 1035970605580,
+      "best_suffix_G": 1035970605580,
+      "total_gain_G": 0,
+      "total_gain_us": 0.0,
+      "total_gain_fraction_of_original_full": 0.0,
+      "suffix_gain_fraction_of_original_suffix": 0.0,
+      "baseline_immediate": {
+        "write_bytes": 575549,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66468045
+      },
+      "best_immediate": {
+        "write_bytes": 256235,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66787359
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 319314,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 25545120,
+      "immediate_gain_us": 3193.14,
+      "immediate_write_gain_us": 3193.14,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 0,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": -319314,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_gain_G": -25545120,
+      "future_residual_gain_us": -3193.14,
+      "future_residual_write_gain_us": -3193.14,
+      "future_residual_read_gain_us": 0.0,
+      "future_residual_miss_penalty_gain_us": 0,
+      "immediate_fraction_of_total_gain": null,
+      "future_residual_fraction_of_total_gain": null,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": false
+    },
+    {
+      "anchor_id": "a03",
+      "case_id": "corner_train_fast_shared_p12",
+      "mechanism": "fast_shared",
+      "pressure": 12,
+      "kind": "M",
+      "raw": 5453,
+      "stage": "finish",
+      "baseline_action_key": "138->314",
+      "best_action_key": "386->314",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 1046712073580,
+      "best_full_G": 1043997322600,
+      "baseline_suffix_G": 505467232320,
+      "best_suffix_G": 502752481340,
+      "total_gain_G": 2714750980,
+      "total_gain_us": 339343.8725,
+      "total_gain_fraction_of_original_full": 0.0025935986108528556,
+      "suffix_gain_fraction_of_original_suffix": 0.005370775406231184,
+      "baseline_immediate": {
+        "write_bytes": 1855836,
+        "read_bytes": 1778748,
+        "misses": 0,
+        "final_memory_used": 66119220
+      },
+      "best_immediate": {
+        "write_bytes": 878407,
+        "read_bytes": 1778748,
+        "misses": 0,
+        "final_memory_used": 67096649
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 977429,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 78194320,
+      "immediate_gain_us": 9774.29,
+      "immediate_write_gain_us": 9774.29,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 14417116,
+        "read_bytes": 15573817,
+        "misses": 5
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 13439687,
+        "read_bytes": 15573817,
+        "misses": 5
+      },
+      "future_residual_gain_G": 2636556660,
+      "future_residual_gain_us": 329569.5825,
+      "future_residual_write_gain_us": 134396.87,
+      "future_residual_read_gain_us": 194672.7125,
+      "future_residual_miss_penalty_gain_us": 500,
+      "immediate_fraction_of_total_gain": 0.028803496370779468,
+      "future_residual_fraction_of_total_gain": 0.9711965036292205,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": true
+    },
+    {
+      "anchor_id": "a04",
+      "case_id": "corner_train_fast_staggered_p3",
+      "mechanism": "fast_staggered",
+      "pressure": 3,
+      "kind": "O",
+      "raw": 1200,
+      "stage": "insert",
+      "baseline_action_key": "33",
+      "best_action_key": "388",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 181060588840,
+      "best_full_G": 158298352560,
+      "baseline_suffix_G": 180646667960,
+      "best_suffix_G": 157884431680,
+      "total_gain_G": 22762236280,
+      "total_gain_us": 2845279.535,
+      "total_gain_fraction_of_original_full": 0.1257161286497007,
+      "suffix_gain_fraction_of_original_suffix": 0.12600418561298993,
+      "baseline_immediate": {
+        "write_bytes": 398234,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66664725
+      },
+      "best_immediate": {
+        "write_bytes": 32367,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 67030592
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 365867,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 29269360,
+      "immediate_gain_us": 3658.67,
+      "immediate_write_gain_us": 3658.67,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 123928086,
+        "read_bytes": 123855894,
+        "misses": 578
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 123562219,
+        "read_bytes": 123855894,
+        "misses": 578
+      },
+      "future_residual_gain_G": 22732966920,
+      "future_residual_gain_us": 2841620.865,
+      "future_residual_write_gain_us": 1235622.19,
+      "future_residual_read_gain_us": 1548198.675,
+      "future_residual_miss_penalty_gain_us": 57800,
+      "immediate_fraction_of_total_gain": 0.00128587365669855,
+      "future_residual_fraction_of_total_gain": 0.9987141263433015,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": false
+    },
+    {
+      "anchor_id": "a05",
+      "case_id": "corner_train_fast_staggered_p3",
+      "mechanism": "fast_staggered",
+      "pressure": 3,
+      "kind": "M",
+      "raw": 4550,
+      "stage": "finish",
+      "baseline_action_key": "255->502",
+      "best_action_key": "291->502",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 181060588840,
+      "best_full_G": 156458989820,
+      "baseline_suffix_G": 132684515460,
+      "best_suffix_G": 108082916440,
+      "total_gain_G": 24601599020,
+      "total_gain_us": 3075199.8775,
+      "total_gain_fraction_of_original_full": 0.1358749531171579,
+      "suffix_gain_fraction_of_original_suffix": 0.1854142432122501,
+      "baseline_immediate": {
+        "write_bytes": 570500,
+        "read_bytes": 384403,
+        "misses": 0,
+        "final_memory_used": 66726121
+      },
+      "best_immediate": {
+        "write_bytes": 1027776,
+        "read_bytes": 384403,
+        "misses": 0,
+        "final_memory_used": 66268845
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": -457276,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": -36582080,
+      "immediate_gain_us": -4572.76,
+      "immediate_write_gain_us": -4572.76,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 134596794,
+        "read_bytes": 134602555,
+        "misses": 467
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 135054070,
+        "read_bytes": 134602555,
+        "misses": 467
+      },
+      "future_residual_gain_G": 24638181100,
+      "future_residual_gain_us": 3079772.6375,
+      "future_residual_write_gain_us": 1350540.7,
+      "future_residual_read_gain_us": 1682531.9375,
+      "future_residual_miss_penalty_gain_us": 46700,
+      "immediate_fraction_of_total_gain": -0.0014869797678703895,
+      "future_residual_fraction_of_total_gain": 1.0014869797678705,
+      "immediate_comparison": "best_immediate_more_expensive",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": true
+    },
+    {
+      "anchor_id": "a06",
+      "case_id": "corner_train_fast_staggered_p12",
+      "mechanism": "fast_staggered",
+      "pressure": 12,
+      "kind": "O",
+      "raw": 1022,
+      "stage": "insert",
+      "baseline_action_key": "393",
+      "best_action_key": "491",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 1074577359420,
+      "best_full_G": 1071446180080,
+      "baseline_suffix_G": 1060293161580,
+      "best_suffix_G": 1057161982240,
+      "total_gain_G": 3131179340,
+      "total_gain_us": 391397.4175,
+      "total_gain_fraction_of_original_full": 0.0029138705673922302,
+      "suffix_gain_fraction_of_original_suffix": 0.0029531260348166924,
+      "baseline_immediate": {
+        "write_bytes": 665402,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66350535
+      },
+      "best_immediate": {
+        "write_bytes": 187201,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66828736
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 478201,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 38256080,
+      "immediate_gain_us": 4782.01,
+      "immediate_write_gain_us": 4782.01,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 17677508,
+        "read_bytes": 17113787,
+        "misses": 7
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 17199307,
+        "read_bytes": 17113787,
+        "misses": 7
+      },
+      "future_residual_gain_G": 3092923260,
+      "future_residual_gain_us": 386615.4075,
+      "future_residual_write_gain_us": 171993.07,
+      "future_residual_read_gain_us": 213922.3375,
+      "future_residual_miss_penalty_gain_us": 700,
+      "immediate_fraction_of_total_gain": 0.012217786286236801,
+      "future_residual_fraction_of_total_gain": 0.9877822137137632,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": false
+    },
+    {
+      "anchor_id": "a07",
+      "case_id": "corner_train_fast_staggered_p12",
+      "mechanism": "fast_staggered",
+      "pressure": 12,
+      "kind": "M",
+      "raw": 7606,
+      "stage": "finish",
+      "baseline_action_key": "61->143",
+      "best_action_key": "2->143",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 1074577359420,
+      "best_full_G": 1073525983440,
+      "baseline_suffix_G": 92794418320,
+      "best_suffix_G": 91743042340,
+      "total_gain_G": 1051375980,
+      "total_gain_us": 131421.9975,
+      "total_gain_fraction_of_original_full": 0.0009784088328154217,
+      "suffix_gain_fraction_of_original_suffix": 0.011330164023167293,
+      "baseline_immediate": {
+        "write_bytes": 1307491,
+        "read_bytes": 1318526,
+        "misses": 0,
+        "final_memory_used": 66859074
+      },
+      "best_immediate": {
+        "write_bytes": 1118425,
+        "read_bytes": 1318526,
+        "misses": 0,
+        "final_memory_used": 67048140
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 189066,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 15125280,
+      "immediate_gain_us": 1890.66,
+      "immediate_write_gain_us": 1890.66,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 6256161,
+        "read_bytes": 5476831,
+        "misses": 4
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 6067095,
+        "read_bytes": 5476831,
+        "misses": 4
+      },
+      "future_residual_gain_G": 1036250700,
+      "future_residual_gain_us": 129531.3375,
+      "future_residual_write_gain_us": 60670.95,
+      "future_residual_read_gain_us": 68460.3875,
+      "future_residual_miss_penalty_gain_us": 400,
+      "immediate_fraction_of_total_gain": 0.01438617610419443,
+      "future_residual_fraction_of_total_gain": 0.9856138238958055,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": true
+    },
+    {
+      "anchor_id": "a08",
+      "case_id": "corner_train_burst_staggered_p3",
+      "mechanism": "burst_staggered",
+      "pressure": 3,
+      "kind": "O",
+      "raw": 2291,
+      "stage": "insert",
+      "baseline_action_key": "64",
+      "best_action_key": "77",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 247593692700,
+      "best_full_G": 247198770220,
+      "baseline_suffix_G": 239358743020,
+      "best_suffix_G": 238963820540,
+      "total_gain_G": 394922480,
+      "total_gain_us": 49365.31,
+      "total_gain_fraction_of_original_full": 0.0015950425703231171,
+      "suffix_gain_fraction_of_original_suffix": 0.0016499187580000017,
+      "baseline_immediate": {
+        "write_bytes": 404202,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66635072
+      },
+      "best_immediate": {
+        "write_bytes": 37672,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 67001602
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 366530,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 29322400,
+      "immediate_gain_us": 3665.3,
+      "immediate_write_gain_us": 3665.3,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 1841326,
+        "read_bytes": 2076164,
+        "misses": 50
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 1474796,
+        "read_bytes": 2076164,
+        "misses": 50
+      },
+      "future_residual_gain_G": 365600080,
+      "future_residual_gain_us": 45700.01,
+      "future_residual_write_gain_us": 14747.96,
+      "future_residual_read_gain_us": 25952.05,
+      "future_residual_miss_penalty_gain_us": 5000,
+      "immediate_fraction_of_total_gain": 0.07424849555284875,
+      "future_residual_fraction_of_total_gain": 0.9257515044471513,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": false
+    },
+    {
+      "anchor_id": "a09",
+      "case_id": "corner_train_burst_staggered_p3",
+      "mechanism": "burst_staggered",
+      "pressure": 3,
+      "kind": "M",
+      "raw": 4056,
+      "stage": "finish",
+      "baseline_action_key": "392->134",
+      "best_action_key": "392->134",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 247593692700,
+      "best_full_G": 247593692700,
+      "baseline_suffix_G": 183002877640,
+      "best_suffix_G": 183002877640,
+      "total_gain_G": 0,
+      "total_gain_us": 0.0,
+      "total_gain_fraction_of_original_full": 0.0,
+      "suffix_gain_fraction_of_original_suffix": 0.0,
+      "baseline_immediate": {
+        "write_bytes": 440326,
+        "read_bytes": 350567,
+        "misses": 0,
+        "final_memory_used": 66988396
+      },
+      "best_immediate": {
+        "write_bytes": 440326,
+        "read_bytes": 350567,
+        "misses": 0,
+        "final_memory_used": 66988396
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 0,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 0,
+      "immediate_gain_us": 0.0,
+      "immediate_write_gain_us": 0.0,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 0,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 0,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_gain_G": 0,
+      "future_residual_gain_us": 0.0,
+      "future_residual_write_gain_us": 0.0,
+      "future_residual_read_gain_us": 0.0,
+      "future_residual_miss_penalty_gain_us": 0,
+      "immediate_fraction_of_total_gain": null,
+      "future_residual_fraction_of_total_gain": null,
+      "immediate_comparison": "same_immediate_IO",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": true
+    },
+    {
+      "anchor_id": "a10",
+      "case_id": "corner_train_burst_staggered_p12",
+      "mechanism": "burst_staggered",
+      "pressure": 12,
+      "kind": "O",
+      "raw": 428,
+      "stage": "insert",
+      "baseline_action_key": "487",
+      "best_action_key": "165",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 1405230970160,
+      "best_full_G": 1404029460900,
+      "baseline_suffix_G": 1400388082720,
+      "best_suffix_G": 1399186573460,
+      "total_gain_G": 1201509260,
+      "total_gain_us": 150188.6575,
+      "total_gain_fraction_of_original_full": 0.0008550261739984252,
+      "suffix_gain_fraction_of_original_suffix": 0.000857983065427325,
+      "baseline_immediate": {
+        "write_bytes": 601019,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66444369
+      },
+      "best_immediate": {
+        "write_bytes": 149994,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66895394
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 451025,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 36082000,
+      "immediate_gain_us": 4510.25,
+      "immediate_write_gain_us": 4510.25,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 6553472,
+        "read_bytes": 6772315,
+        "misses": 0
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 6102447,
+        "read_bytes": 6772315,
+        "misses": 0
+      },
+      "future_residual_gain_G": 1165427260,
+      "future_residual_gain_us": 145678.4075,
+      "future_residual_write_gain_us": 61024.47,
+      "future_residual_read_gain_us": 84653.9375,
+      "future_residual_miss_penalty_gain_us": 0,
+      "immediate_fraction_of_total_gain": 0.03003056339324426,
+      "future_residual_fraction_of_total_gain": 0.9699694366067557,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": false
+    },
+    {
+      "anchor_id": "a11",
+      "case_id": "corner_train_burst_staggered_p12",
+      "mechanism": "burst_staggered",
+      "pressure": 12,
+      "kind": "M",
+      "raw": 7975,
+      "stage": "finish",
+      "baseline_action_key": "93,469->212",
+      "best_action_key": "388->212",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 1405230970160,
+      "best_full_G": 1405188863360,
+      "baseline_suffix_G": 7182247780,
+      "best_suffix_G": 7140140980,
+      "total_gain_G": 42106800,
+      "total_gain_us": 5263.35,
+      "total_gain_fraction_of_original_full": 2.996432678622626e-05,
+      "suffix_gain_fraction_of_original_suffix": 0.005862621464724794,
+      "baseline_immediate": {
+        "write_bytes": 2667571,
+        "read_bytes": 2377089,
+        "misses": 0,
+        "final_memory_used": 66539134
+      },
+      "best_immediate": {
+        "write_bytes": 3831771,
+        "read_bytes": 2377089,
+        "misses": 0,
+        "final_memory_used": 65374934
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": -1164200,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": -93136000,
+      "immediate_gain_us": -11642.0,
+      "immediate_write_gain_us": -11642.0,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 526335,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 1690535,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_gain_G": 135242800,
+      "future_residual_gain_us": 16905.35,
+      "future_residual_write_gain_us": 16905.35,
+      "future_residual_read_gain_us": 0.0,
+      "future_residual_miss_penalty_gain_us": 0,
+      "immediate_fraction_of_total_gain": -2.2118992656768026,
+      "future_residual_fraction_of_total_gain": 3.2118992656768026,
+      "immediate_comparison": "best_immediate_more_expensive",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": true
+    },
+    {
+      "anchor_id": "a12",
+      "case_id": "corner_train_slow_shared_p3",
+      "mechanism": "slow_shared",
+      "pressure": 3,
+      "kind": "O",
+      "raw": 1940,
+      "stage": "insert",
+      "baseline_action_key": "36",
+      "best_action_key": "36",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 188256311060,
+      "best_full_G": 188256311060,
+      "baseline_suffix_G": 183875154420,
+      "best_suffix_G": 183875154420,
+      "total_gain_G": 0,
+      "total_gain_us": 0.0,
+      "total_gain_fraction_of_original_full": 0.0,
+      "suffix_gain_fraction_of_original_suffix": 0.0,
+      "baseline_immediate": {
+        "write_bytes": 322991,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66775818
+      },
+      "best_immediate": {
+        "write_bytes": 322991,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66775818
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 0,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 0,
+      "immediate_gain_us": 0.0,
+      "immediate_write_gain_us": 0.0,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 0,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 0,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_gain_G": 0,
+      "future_residual_gain_us": 0.0,
+      "future_residual_write_gain_us": 0.0,
+      "future_residual_read_gain_us": 0.0,
+      "future_residual_miss_penalty_gain_us": 0,
+      "immediate_fraction_of_total_gain": null,
+      "future_residual_fraction_of_total_gain": null,
+      "immediate_comparison": "same_immediate_IO",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": false
+    },
+    {
+      "anchor_id": "a13",
+      "case_id": "corner_train_slow_shared_p3",
+      "mechanism": "slow_shared",
+      "pressure": 3,
+      "kind": "M",
+      "raw": 6349,
+      "stage": "finish",
+      "baseline_action_key": "223->170",
+      "best_action_key": "410->170",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 188256311060,
+      "best_full_G": 186820920940,
+      "baseline_suffix_G": 57207330160,
+      "best_suffix_G": 55771940040,
+      "total_gain_G": 1435390120,
+      "total_gain_us": 179423.765,
+      "total_gain_fraction_of_original_full": 0.0076246587002468166,
+      "suffix_gain_fraction_of_original_suffix": 0.02509101746201819,
+      "baseline_immediate": {
+        "write_bytes": 774695,
+        "read_bytes": 403692,
+        "misses": 0,
+        "final_memory_used": 66728633
+      },
+      "best_immediate": {
+        "write_bytes": 409979,
+        "read_bytes": 403692,
+        "misses": 0,
+        "final_memory_used": 67093349
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 364716,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 29177280,
+      "immediate_gain_us": 3647.16,
+      "immediate_write_gain_us": 3647.16,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 7834664,
+        "read_bytes": 7966170,
+        "misses": 15
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 7469948,
+        "read_bytes": 7966170,
+        "misses": 15
+      },
+      "future_residual_gain_G": 1406212840,
+      "future_residual_gain_us": 175776.605,
+      "future_residual_write_gain_us": 74699.48,
+      "future_residual_read_gain_us": 99577.125,
+      "future_residual_miss_penalty_gain_us": 1500,
+      "immediate_fraction_of_total_gain": 0.020327073172274588,
+      "future_residual_fraction_of_total_gain": 0.9796729268277254,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": true
+    },
+    {
+      "anchor_id": "a14",
+      "case_id": "corner_train_slow_shared_p12",
+      "mechanism": "slow_shared",
+      "pressure": 12,
+      "kind": "O",
+      "raw": 827,
+      "stage": "insert",
+      "baseline_action_key": "361",
+      "best_action_key": "71",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 1384119446120,
+      "best_full_G": 1379487186180,
+      "baseline_suffix_G": 1372814426360,
+      "best_suffix_G": 1368182166420,
+      "total_gain_G": 4632259940,
+      "total_gain_us": 579032.4925,
+      "total_gain_fraction_of_original_full": 0.003346719788516282,
+      "suffix_gain_fraction_of_original_suffix": 0.0033742797650243074,
+      "baseline_immediate": {
+        "write_bytes": 498988,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66501489
+      },
+      "best_immediate": {
+        "write_bytes": 142417,
+        "read_bytes": 0,
+        "misses": 0,
+        "final_memory_used": 66858060
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 356571,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 28525680,
+      "immediate_gain_us": 3565.71,
+      "immediate_write_gain_us": 3565.71,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 26073328,
+        "read_bytes": 25415937,
+        "misses": 6
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": 25716757,
+        "read_bytes": 25415937,
+        "misses": 6
+      },
+      "future_residual_gain_G": 4603734260,
+      "future_residual_gain_us": 575466.7825,
+      "future_residual_write_gain_us": 257167.57,
+      "future_residual_read_gain_us": 317699.2125,
+      "future_residual_miss_penalty_gain_us": 600,
+      "immediate_fraction_of_total_gain": 0.006158048203141208,
+      "future_residual_fraction_of_total_gain": 0.9938419517968587,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": false
+    },
+    {
+      "anchor_id": "a15",
+      "case_id": "corner_train_slow_shared_p12",
+      "mechanism": "slow_shared",
+      "pressure": 12,
+      "kind": "M",
+      "raw": 4327,
+      "stage": "finish",
+      "baseline_action_key": "169->399",
+      "best_action_key": "433->399",
+      "bandwidths_and_penalty": {
+        "write": 100,
+        "read": 80,
+        "penalty": 100
+      },
+      "baseline_full_G": 1384119446120,
+      "best_full_G": 1384119446120,
+      "baseline_suffix_G": 995968546120,
+      "best_suffix_G": 995968546120,
+      "total_gain_G": 0,
+      "total_gain_us": 0.0,
+      "total_gain_fraction_of_original_full": 0.0,
+      "suffix_gain_fraction_of_original_suffix": 0.0,
+      "baseline_immediate": {
+        "write_bytes": 2178750,
+        "read_bytes": 2224980,
+        "misses": 0,
+        "final_memory_used": 66818420
+      },
+      "best_immediate": {
+        "write_bytes": 2042287,
+        "read_bytes": 2224980,
+        "misses": 0,
+        "final_memory_used": 66954883
+      },
+      "immediate_difference_R75_minus_best": {
+        "write_bytes": 136463,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "immediate_gain_G": 10917040,
+      "immediate_gain_us": 1364.63,
+      "immediate_write_gain_us": 1364.63,
+      "immediate_read_gain_us": 0.0,
+      "total_trajectory_difference_R75_minus_best": {
+        "write_bytes": 0,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_ledger_difference": {
+        "write_bytes": -136463,
+        "read_bytes": 0,
+        "misses": 0
+      },
+      "future_residual_gain_G": -10917040,
+      "future_residual_gain_us": -1364.63,
+      "future_residual_write_gain_us": -1364.63,
+      "future_residual_read_gain_us": 0.0,
+      "future_residual_miss_penalty_gain_us": 0,
+      "immediate_fraction_of_total_gain": null,
+      "future_residual_fraction_of_total_gain": null,
+      "immediate_comparison": "best_immediate_cheaper",
+      "constant_prefix_cancels": true,
+      "current_miss_already_in_prefix": true
+    }
+  ],
+  "source_hashes_before_and_after_identical": {
+    "${WORKSPACE}\\tmp\\handler_support\\worker_corner_r75\\results.json": "e54bcd9591c9a557c4cd1a522d0c31ed16792b4bf25708db40c81dcf427e1365",
+    "${WORKSPACE}\\tmp\\handler_support\\worker_corner_r75\\report.json": "ce212ff5a0e3dd69b53488f63b60830f355555312a5e85b6327582ca1da8cd05",
+    "${WORKSPACE}\\tmp\\handler_support\\worker_corner_r75\\artifact_audit.json": "de72d79556fd9e40dc1c9b514ac4cb5e00e3600579f76328feec61d61b72696c",
+    "${WORKSPACE}\\tmp\\handler_support\\worker_corner_r75\\selection.json": "336f5ced1e16ecad4734a42105c89316f1dcedc4c8ae2654757ada40a6c86b9a"
+  },
+  "read_train_inputs_only_for_identity_and_headers": true,
+  "dev_inputs_read": false,
+  "native_runs": 0,
+  "solver_runs": 0,
+  "training_runs": 0,
+  "formal_D": null,
+  "limitations": [
+    "one first-action deviation then real R75 continuation; no learned or whole-policy gain claimed",
+    "same-case O/M anchors share and overlap suffixes; do not sum anchor gains into a policy improvement",
+    "remaining-trajectory differences combine subsequent actions, IO and misses; residual is not an isolated causal mechanism",
+    "current M miss is already in common anchor prefix, so immediate miss penalty difference is zero",
+    "original data have 8000 operations; larger-scale performance remains untested by this diagnosis"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "status": "sources_frozen_wait_for_root_explicit_release",
+  "repeats": 1,
+  "candidates": [
+    {
+      "name": "R75_fast_pool75",
+      "source_path": "tmp/r75_refinements/R75_fast_pool75.policy.cpp",
+      "source_sha256": "6a47023a88b4cb0704935277d6ffee03f511efba986a8ffd048d841c9b6b2a8d",
+      "translation_unit_path": "tmp/r75_strong_pool_eval/R75_fast_pool75.cpp",
+      "translation_unit_sha256": "a520568a80c50d225d49f75333755d85d8bd034a7bbd9d00984143a043eca19e",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "24b7e50fa12f5872affeee68849e3472d166ad5264921c16108784c50665dd2a",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false
+    },
+    {
+      "name": "R75_dense_switch",
+      "source_path": "tmp/r75_refinements/R75_dense_switch.policy.cpp",
+      "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+      "translation_unit_path": "tmp/r75_dense_switch_eval/R75_dense_switch.cpp",
+      "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false
+    }
+  ],
+  "controls": [
+    "Naive",
+    "R74_fast_operator"
+  ],
+  "unique_cases": 8,
+  "intended_cells": 32,
+  "cases": [
+    "Original six R72 complete 5M inputs",
+    "Two R75 paired 5M cases in tmp/r75_large_data/cases.json"
+  ],
+  "notes": [
+    "User requested stronger operator signal; explicit share 75 percent inside refault branch.",
+    "Fresh development results were inspected during refinement; no untouched holdout claim.",
+    "Same-round Naive allows an eight-case mean score; also report original-six subset for comparison."
+  ]
+}

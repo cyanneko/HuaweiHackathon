@@ -1,0 +1,37 @@
+{
+  "scope": "r75_operator_signal_same8",
+  "status": "final32_frozen_before_any_policy_launch",
+  "case_manifest": "tmp/r75_formal_eval/targeted_regression/cases.prepared.json",
+  "case_manifest_sha256": "a44cdf715032e059ee8338b919d7da099cce37c6c0b4f8aa913080a96fc045be",
+  "case_ids": [
+    "r75_fresh_01_slow_shared"
+  ],
+  "case_count": 1,
+  "operations_per_case": 200008,
+  "methods": [
+    "R74_fast_operator",
+    "R75_fast_pool75",
+    "R75_dense_switch"
+  ],
+  "max_methods": 4,
+  "repeats": 1,
+  "maximum_cells": 32,
+  "intended_cells": 3,
+  "timeout_seconds": 180,
+  "timeout_role": "internal watchdog only",
+  "official_wall_limit_seconds": 60,
+  "primary": "B1 regression cost/D comparison against same-run R74_fast_operator; never pooled into main score",
+  "normalization": "No eight-case Naive score without eight matched references; historical six-case subset cannot stand in for full eight",
+  "no_holdout": true,
+  "no_training": true,
+  "no_warmup": true,
+  "master_io_released_required": true,
+  "final_source_and_CPU_release_required": true,
+  "paired_data_caveat": "New large04/06 are paired scale development checks of medium04/06, not additional independent seeds",
+  "group": "targeted_regression",
+  "include_in_main_score": false,
+  "producer_path": "tmp/r75_handoff/producer.json",
+  "producer_sha256": "dab1219384d9b7d77d3d1bd1af9c9742c0558e812abe2a52dd881ed9c90f0b5d",
+  "selection_sha256": "87fd39f397ade32b60194c79bfb310ab4c206fe3d5e777480963d96198b8c88c",
+  "targeted_followup": "3 precommitted runs, excluded from main score"
+}

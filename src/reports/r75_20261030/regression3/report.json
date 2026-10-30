@@ -1,0 +1,56 @@
+{
+  "case": {
+    "id": "r75_fresh_01_slow_shared",
+    "path": "${WORKSPACE}<LOCAL_TEMP>",
+    "sha256": "8ce57ab8cc8a043fdac1a195f84e48dc99196adf54d18e779aedc7b32e07738c",
+    "group": "fresh_validation",
+    "family": "slow_shared"
+  },
+  "rows": [
+    {
+      "method": "R74_fast_operator",
+      "metrics": {
+        "Total_IO_Time": 726916.26,
+        "Total_Decision_Time": 150536.09,
+        "Hit_Count": 105503.0,
+        "Miss_Count": 14495.0,
+        "Total_Score": 2326952.35
+      },
+      "wall_seconds": 0.37678799100000004,
+      "exit_code": 0,
+      "cost_ratio_to_R74": 1.0,
+      "D_ratio_to_R74": 1.0
+    },
+    {
+      "method": "R75_fast_pool75",
+      "metrics": {
+        "Total_IO_Time": 708884.12,
+        "Total_Decision_Time": 145333.78,
+        "Hit_Count": 106688.0,
+        "Miss_Count": 13310.0,
+        "Total_Score": 2185217.9
+      },
+      "wall_seconds": 0.3623876519999998,
+      "exit_code": 0,
+      "cost_ratio_to_R74": 0.9390900935294183,
+      "D_ratio_to_R74": 0.9654414433110359
+    },
+    {
+      "method": "R75_dense_switch",
+      "metrics": {
+        "Total_IO_Time": 536468.52,
+        "Total_Decision_Time": 128240.71,
+        "Hit_Count": 107612.0,
+        "Miss_Count": 12386.0,
+        "Total_Score": 1903309.23
+      },
+      "wall_seconds": 0.3587085339999998,
+      "exit_code": 0,
+      "cost_ratio_to_R74": 0.8179407842193245,
+      "D_ratio_to_R74": 0.8518934562469372
+    }
+  ],
+  "valid": 3,
+  "repeats": 1,
+  "excluded_from_main_score": true
+}

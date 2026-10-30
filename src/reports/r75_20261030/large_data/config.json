@@ -1,0 +1,58 @@
+{
+  "scope": "paired_5M_scale_development_validation_not_independent_seeds_not_official_test",
+  "selection": "Only n differs from frozen medium cases 04 and 06; same seed and all remaining parameters; no policy-result filtering",
+  "cases": [
+    {
+      "id": "r75_large_04_slow_staggered",
+      "paired_medium_id": "r75_fresh_04_slow_staggered",
+      "family": "slow_staggered",
+      "parameters": {
+        "n": 5000000,
+        "memory": 268435456,
+        "pressure": 6,
+        "build-fraction": 0.35,
+        "window": 10000,
+        "partition-window": 10000,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307504,
+        "profile": "slow",
+        "phase": "staggered",
+        "k": 8,
+        "p": 16,
+        "period": 10000,
+        "write": 50,
+        "read": 40
+      },
+      "selection_reason": "Paired scale check: sparse B10000, K8/P16, pressure6; selected before either large policy result."
+    },
+    {
+      "id": "r75_large_06_burst_staggered",
+      "paired_medium_id": "r75_fresh_06_burst_staggered",
+      "family": "burst_staggered",
+      "parameters": {
+        "n": 5000000,
+        "memory": 1073741824,
+        "pressure": 12,
+        "build-fraction": 0.4,
+        "window": 10000,
+        "partition-window": 10000,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307506,
+        "profile": "burst",
+        "phase": "staggered",
+        "k": 4,
+        "p": 64,
+        "period": 17,
+        "write": 80,
+        "read": 60
+      },
+      "selection_reason": "Paired scale check: dense B17, K4/P64, pressure12; selected before either large policy result."
+    }
+  ]
+}

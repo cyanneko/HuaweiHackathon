@@ -1,0 +1,39 @@
+{
+  "scope": "r74_refault_formal_same_r72_six",
+  "case_manifest": "tmp/r74_formal_eval/cases.r72_frozen.json",
+  "case_manifest_sha256": "0e70d02d023f88d9cc215ef2b4f58c8c667bf8a7b2c40da225759e02a381c8ae",
+  "case_ids": [
+    "train_slow_shared_01",
+    "dev_slow_staggered_07",
+    "train_fast_shared_03",
+    "train_fast_staggered_04",
+    "train_burst_shared_05",
+    "dev_burst_staggered_09"
+  ],
+  "operations_per_case": 5000000,
+  "controls": [
+    "VanBest",
+    "VanBest_p32"
+  ],
+  "candidate_slots": [
+    null,
+    null
+  ],
+  "max_candidate_count": 2,
+  "repeats": 1,
+  "repeats_status": "Root freezes final count before formal launch; no automatic repeats",
+  "maximum_permitted_repeats": 3,
+  "timeout_seconds": 180,
+  "primary_comparisons": [
+    "fresh same-round VanBest",
+    "fresh same-round VanBest_p32"
+  ],
+  "auxiliary_score": "case-mean-v1 using explicitly historical frozen R72 Naive reference; never claim Naive was retimed",
+  "repeat_aggregation": "mean raw metrics across frozen repeats within each case, then compare costs; six cases remain six samples",
+  "source_control_sha256": "799ea45442e8245d7ecbb35f943f90fb8cd27579101d2eb0cc92487600e4fe04",
+  "normalization_reference_sha256": "5aec8423778a3d69958915b3a3f69f73e1b766a6093c8e12f7fce7323447ac46",
+  "Root_final_sources_required": true,
+  "all_compilation_released_required": true,
+  "diagnostics_compute_released_required": true,
+  "status": "static_only_not_executable"
+}

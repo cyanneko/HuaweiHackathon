@@ -1,0 +1,199 @@
+{
+  "cases": [
+    {
+      "case_id": "train_slow_shared_01",
+      "input": "tmp/r72_hierarchical/data/train/train_slow_shared_01.txt",
+      "input_sha256": "450ef4467b69add26999b54684fe106d2c197a2f235881a961fdd8e0dfc7121c",
+      "metadata": "tmp/r72_hierarchical/metadata/train_slow_shared_01.json",
+      "metadata_sha256": "44316b086b18f31a489c5a61e0a3ebe39452977bfac613db9864f0e6ca1d3bea",
+      "bytes": 93956711,
+      "parameters": {
+        "n": 5000000,
+        "k": 4,
+        "p": 32,
+        "memory": 67108864,
+        "pressure": 1.5,
+        "build-fraction": 0.2,
+        "period": 127,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "hot",
+        "seed": 202610307101,
+        "profile": "slow",
+        "phase": "shared"
+      },
+      "stats": {
+        "penalty": 100.0,
+        "probe_count": 3999997
+      }
+    },
+    {
+      "case_id": "dev_slow_staggered_07",
+      "input": "tmp/r72_hierarchical/data/dev/dev_slow_staggered_07.txt",
+      "input_sha256": "87527853c2eeb49c6e05d8d387cd646b88ffd45dbec27f7d133c15e9f1b5c895",
+      "metadata": "tmp/r72_hierarchical/metadata/dev_slow_staggered_07.json",
+      "metadata_sha256": "b845d939d493dc37ddea5ebe32f6953ab75fd92bbf702cd86b01dc9826fd2fe8",
+      "bytes": 96554093,
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 67108864,
+        "pressure": 3,
+        "build-fraction": 0.3,
+        "period": 127,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "cold",
+        "seed": 202610307107,
+        "profile": "slow",
+        "phase": "staggered"
+      },
+      "stats": {
+        "penalty": 100.0,
+        "probe_count": 3510053
+      }
+    },
+    {
+      "case_id": "train_fast_shared_03",
+      "input": "tmp/r72_hierarchical/data/train/train_fast_shared_03.txt",
+      "input_sha256": "572297ce49b732d7c04f36201860db1ad9b53b3576d49421441501e53d2a3b0e",
+      "metadata": "tmp/r72_hierarchical/metadata/train_fast_shared_03.json",
+      "metadata_sha256": "54673b57db028508ab71acd0d981f93bb23654e37def470107e1b3741360be63",
+      "bytes": 96943735,
+      "parameters": {
+        "n": 5000000,
+        "k": 2,
+        "p": 64,
+        "memory": 268435456,
+        "pressure": 3,
+        "build-fraction": 0.3,
+        "period": 31,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307103,
+        "profile": "fast",
+        "phase": "shared"
+      },
+      "stats": {
+        "penalty": 100.0,
+        "probe_count": 3499999
+      }
+    },
+    {
+      "case_id": "train_fast_staggered_04",
+      "input": "tmp/r72_hierarchical/data/train/train_fast_staggered_04.txt",
+      "input_sha256": "50464251e93169c4b4b57b352f2a864901cca736ec586412a3ffadcd70b5247c",
+      "metadata": "tmp/r72_hierarchical/metadata/train_fast_staggered_04.json",
+      "metadata_sha256": "0a856d3915bb3d1350c4927c8f2f62fbe2a0fa33e005ec151fef4622acc51e8f",
+      "bytes": 101639668,
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "pressure": 12,
+        "build-fraction": 0.4,
+        "period": 31,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307104,
+        "profile": "fast",
+        "phase": "staggered"
+      },
+      "stats": {
+        "penalty": 100.0,
+        "probe_count": 2967454
+      }
+    },
+    {
+      "case_id": "train_burst_shared_05",
+      "input": "tmp/r72_hierarchical/data/train/train_burst_shared_05.txt",
+      "input_sha256": "a9f4099282c63b346709483da683640bf1023581179a150029b9ae96c67342af",
+      "metadata": "tmp/r72_hierarchical/metadata/train_burst_shared_05.json",
+      "metadata_sha256": "02aa0c4b57aa549ca840e803ce3fc72c65e0f41b17a6b0c3b34c721bc11db8aa",
+      "bytes": 99946138,
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "pressure": 6,
+        "build-fraction": 0.35,
+        "period": 1000,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307105,
+        "profile": "burst",
+        "phase": "shared"
+      },
+      "stats": {
+        "penalty": 100.0,
+        "probe_count": 3249993
+      }
+    },
+    {
+      "case_id": "dev_burst_staggered_09",
+      "input": "tmp/r72_hierarchical/data/dev/dev_burst_staggered_09.txt",
+      "input_sha256": "74be2de1aaa29b1acef1a0b63c9ba4d9637d303acf174ac7333f61022f6e49f2",
+      "metadata": "tmp/r72_hierarchical/metadata/dev_burst_staggered_09.json",
+      "metadata_sha256": "beb82badd43ec4395beeb7c12b9cead56aff37365a642790f61dff4a2e007c1d",
+      "bytes": 94768739,
+      "parameters": {
+        "n": 5000000,
+        "k": 2,
+        "p": 32,
+        "memory": 268435456,
+        "pressure": 1.5,
+        "build-fraction": 0.2,
+        "period": 1000,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307109,
+        "profile": "burst",
+        "phase": "staggered"
+      },
+      "stats": {
+        "penalty": 100.0,
+        "probe_count": 3935205
+      }
+    }
+  ],
+  "case_count": 6,
+  "manifest_sha256": "2ddcec4fd7ce5b7f37e92bb850a24abf66a5769de55cb543854ae412f035d038",
+  "precommit_sha256": "a0fdbea6ffa006cfea81ea9942aa927c8cef960a053980f0916efe328f8d69d4"
+}

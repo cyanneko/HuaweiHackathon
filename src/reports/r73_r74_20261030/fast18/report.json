@@ -1,0 +1,121 @@
+{
+  "status": "complete",
+  "terminal": 18,
+  "valid": 18,
+  "failed": 0,
+  "repeats": 1,
+  "summary": {
+    "mean_cumulative_D_us": {
+      "R74_operator": 2309314.7683333335,
+      "R74_fast_operator": 2101556.2333333334,
+      "R74_fast_coverage": 2249936.865
+    },
+    "same_round_operator_mean_D_ratio": 0.91003455317183,
+    "same_round_operator_case_ratios": {
+      "mean": 0.902884929055322,
+      "p50": 0.9045691971251996,
+      "p90": 0.9526903490985024,
+      "worst": 0.9590886929112387,
+      "best": 0.8384931034939537
+    },
+    "historical_slow_coverage_mean_D_us": 2426957.8383333334,
+    "historical_coverage_mean_D_ratio": 0.9270605485858383,
+    "historical_coverage_case_ratios": {
+      "mean": 0.9073221333149425,
+      "p50": 0.8488671575008506,
+      "p90": 1.0644614202919453,
+      "worst": 1.1681574338393916,
+      "best": 0.7819568300033667
+    },
+    "operator_physical_equal_cases": 6,
+    "coverage_historical_physical_equal_cases": 6
+  },
+  "per_case": [
+    {
+      "case_id": "train_slow_shared_01",
+      "valid": true,
+      "same_round_operator_physical_equal": true,
+      "slow_operator_matches_previous_physical": true,
+      "fast_coverage_matches_historical_physical": true,
+      "slow_operator_D_us": 831160.73,
+      "fast_operator_D_us": 696922.54,
+      "fast_coverage_D_us": 709404.85,
+      "historical_slow_coverage_D_us": 836762.32,
+      "same_round_operator_D_ratio": 0.8384931034939537,
+      "historical_coverage_D_ratio": 0.8477973171640903
+    },
+    {
+      "case_id": "dev_slow_staggered_07",
+      "valid": true,
+      "same_round_operator_physical_equal": true,
+      "slow_operator_matches_previous_physical": true,
+      "fast_coverage_matches_historical_physical": true,
+      "slow_operator_D_us": 3729292.36,
+      "fast_operator_D_us": 3223217.61,
+      "fast_coverage_D_us": 3210741.44,
+      "historical_slow_coverage_D_us": 4106034.14,
+      "same_round_operator_D_ratio": 0.8642973783905749,
+      "historical_coverage_D_ratio": 0.7819568300033667
+    },
+    {
+      "case_id": "train_fast_shared_03",
+      "valid": true,
+      "same_round_operator_physical_equal": true,
+      "slow_operator_matches_previous_physical": true,
+      "fast_coverage_matches_historical_physical": true,
+      "slow_operator_D_us": 1752086.64,
+      "fast_operator_D_us": 1657985.58,
+      "fast_coverage_D_us": 1576879.39,
+      "historical_slow_coverage_D_us": 1887757.54,
+      "same_round_operator_D_ratio": 0.9462920052857661,
+      "historical_coverage_D_ratio": 0.8353188143006967
+    },
+    {
+      "case_id": "train_fast_staggered_04",
+      "valid": true,
+      "same_round_operator_physical_equal": true,
+      "slow_operator_matches_previous_physical": true,
+      "fast_coverage_matches_historical_physical": true,
+      "slow_operator_D_us": 3322712.22,
+      "fast_operator_D_us": 3186775.72,
+      "fast_coverage_D_us": 3223438.7,
+      "historical_slow_coverage_D_us": 3355073.65,
+      "same_round_operator_D_ratio": 0.9590886929112387,
+      "historical_coverage_D_ratio": 0.9607654067444988
+    },
+    {
+      "case_id": "train_burst_shared_05",
+      "valid": true,
+      "same_round_operator_physical_equal": true,
+      "slow_operator_matches_previous_physical": true,
+      "fast_coverage_matches_historical_physical": true,
+      "slow_operator_D_us": 3238067.15,
+      "fast_operator_D_us": 2967212.11,
+      "fast_coverage_D_us": 3890173.46,
+      "historical_slow_coverage_D_us": 3330179.09,
+      "same_round_operator_D_ratio": 0.9163528650108445,
+      "historical_coverage_D_ratio": 1.1681574338393916
+    },
+    {
+      "case_id": "dev_burst_staggered_09",
+      "valid": true,
+      "same_round_operator_physical_equal": true,
+      "slow_operator_matches_previous_physical": true,
+      "fast_coverage_matches_historical_physical": true,
+      "slow_operator_D_us": 982569.51,
+      "fast_operator_D_us": 877223.84,
+      "fast_coverage_D_us": 888983.35,
+      "historical_slow_coverage_D_us": 1045940.29,
+      "same_round_operator_D_ratio": 0.8927855292395547,
+      "historical_coverage_D_ratio": 0.8499369978376108
+    }
+  ],
+  "all_actual_wall_under_official_60_seconds": true,
+  "max_actual_wall_seconds": 5.885779940999999,
+  "primary": "fast operator vs same-round remeasured slow operator",
+  "auxiliary": "fast coverage vs previous slow coverage, cross-round only",
+  "physical_scope": "Printed IO/hit/miss equality, not a per-action trace audit",
+  "D_scope": "cumulative microseconds per complete case; LUT first-call initialization included, no warmup",
+  "watchdog": "180 seconds internal only; official per-run wall limit checked separately at60 seconds",
+  "reporter_sha256": "e12a0d7d306b07564edd7dd058166e59154909ff7e1b46db4ebf9f453d82bba4"
+}

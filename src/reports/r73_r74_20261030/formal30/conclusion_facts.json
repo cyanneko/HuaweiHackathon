@@ -1,0 +1,153 @@
+{
+  "scope": "formal30, fresh same-round VanBest and p32; historical Naive auxiliary only",
+  "terminal": 30,
+  "valid": 30,
+  "failed": 0,
+  "repeats": 1,
+  "operator_cost_reduction_percent": 9.787008435353584,
+  "coverage_cost_reduction_percent": 9.711135845568453,
+  "size_cost_reduction_percent": 8.715643835271036,
+  "operator_extra_cumulative_D_seconds": 0.6008062616666667,
+  "coverage_extra_cumulative_D_seconds": 0.6653021566666666,
+  "coverage_vs_operator": {
+    "cost_ratio_mean": 1.0012473899160292,
+    "wins": 4,
+    "losses": 2
+  },
+  "size_vs_coverage": {
+    "cost_ratio_mean": 1.0117677398924043,
+    "wins": 0,
+    "losses": 6
+  },
+  "separate_negative_diagnostic": {
+    "path": "negative_diagnostic_evidence.json",
+    "sha256": "775186c86059ebddaf680c513d25195b1c97e8b8ec3066df2c2f1e7eebd645b9",
+    "physical_cost_ratio": 1.9940132866722415,
+    "case": "synthetic_09",
+    "posthoc_penalty": 1000,
+    "not_in_formal30": true
+  },
+  "prior_attribution": "All R74 candidates retain the original fixed 1/size prior term; no kAssumedMissPenaltyUs. Only p32 changes that prior. Source snapshots verified.",
+  "statistics": [
+    {
+      "method": "VanBest",
+      "auxiliary_points_historical_Naive": 3.3401526641997474,
+      "fresh_Best_ratio": {
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "best": 1.0
+      },
+      "fresh_p32_ratio": {
+        "mean": 0.9999888638431432,
+        "p50": 0.9999659633245472,
+        "p90": 1.000410527250186,
+        "worst": 1.0007601555540386,
+        "best": 0.9995657028375695
+      },
+      "physical_cost_ratio_mean": 1.0,
+      "IO_ratio_mean": 1.0,
+      "miss_ratio_mean": 1.0,
+      "D_cumulative_mean_seconds": 1.7616556816666666,
+      "wins_vs_fresh_Best": 0,
+      "losses_vs_fresh_Best": 0
+    },
+    {
+      "method": "VanBest_p32",
+      "auxiliary_points_historical_Naive": 3.340689761520171,
+      "fresh_Best_ratio": {
+        "mean": 1.000011289714241,
+        "p50": 1.0000340381124742,
+        "p90": 1.00041006772743,
+        "worst": 1.000434485858406,
+        "best": 0.9992404218435157
+      },
+      "fresh_p32_ratio": {
+        "mean": 1.0,
+        "p50": 1.0,
+        "p90": 1.0,
+        "worst": 1.0,
+        "best": 1.0
+      },
+      "physical_cost_ratio_mean": 1.0000097606779816,
+      "IO_ratio_mean": 1.0000100727418668,
+      "miss_ratio_mean": 1.000045149784821,
+      "D_cumulative_mean_seconds": 1.9319739116666665,
+      "wins_vs_fresh_Best": 2,
+      "losses_vs_fresh_Best": 4
+    },
+    {
+      "method": "R74_operator",
+      "auxiliary_points_historical_Naive": 3.8292318004941324,
+      "fresh_Best_ratio": {
+        "mean": 0.9021299156464642,
+        "p50": 0.9201026687665712,
+        "p90": 0.9685212964662574,
+        "worst": 0.9804983132927864,
+        "best": 0.7712174879829146
+      },
+      "fresh_p32_ratio": {
+        "mean": 0.9021387944314898,
+        "p50": 0.9199060882097014,
+        "p90": 0.9688856642532804,
+        "worst": 0.9812436445313615,
+        "best": 0.7708825504162667
+      },
+      "physical_cost_ratio_mean": 0.9021023028998295,
+      "IO_ratio_mean": 0.9020780283155623,
+      "miss_ratio_mean": 0.9031273456172438,
+      "D_cumulative_mean_seconds": 2.3624619433333334,
+      "wins_vs_fresh_Best": 6,
+      "losses_vs_fresh_Best": 0
+    },
+    {
+      "method": "R74_coverage",
+      "auxiliary_points_historical_Naive": 3.8375699175519085,
+      "fresh_Best_ratio": {
+        "mean": 0.9028886415443155,
+        "p50": 0.9173111330827868,
+        "p90": 0.9682156782613295,
+        "worst": 0.9806155821001404,
+        "best": 0.7846544541578966
+      },
+      "fresh_p32_ratio": {
+        "mean": 0.9028968480038817,
+        "p50": 0.917115484395083,
+        "p90": 0.9685800969392586,
+        "worst": 0.9813610024812507,
+        "best": 0.7843136809549673
+      },
+      "physical_cost_ratio_mean": 0.9028562447916844,
+      "IO_ratio_mean": 0.9028340373307016,
+      "miss_ratio_mean": 0.9033987879776071,
+      "D_cumulative_mean_seconds": 2.4269578383333332,
+      "wins_vs_fresh_Best": 6,
+      "losses_vs_fresh_Best": 0
+    },
+    {
+      "method": "R74_size",
+      "auxiliary_points_historical_Naive": 3.7838851073895436,
+      "fresh_Best_ratio": {
+        "mean": 0.9128435616472896,
+        "p50": 0.9197477251941335,
+        "p90": 0.9718642567877614,
+        "worst": 0.985350630968671,
+        "best": 0.8062668408813435
+      },
+      "fresh_p32_ratio": {
+        "mean": 0.9128507736442234,
+        "p50": 0.9195512186904133,
+        "p90": 0.9722304529267572,
+        "worst": 0.9860996507234773,
+        "best": 0.8059166814801869
+      },
+      "physical_cost_ratio_mean": 0.9128094289026211,
+      "IO_ratio_mean": 0.9126969672038421,
+      "miss_ratio_mean": 0.9498868368474587,
+      "D_cumulative_mean_seconds": 2.64108127,
+      "wins_vs_fresh_Best": 6,
+      "losses_vs_fresh_Best": 0
+    }
+  ]
+}

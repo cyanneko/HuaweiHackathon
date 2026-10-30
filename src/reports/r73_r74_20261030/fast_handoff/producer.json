@@ -1,0 +1,40 @@
+{
+  "status": "ROOT_FROZEN_FOR_FAST_FORMAL",
+  "repeats": 1,
+  "candidates": [
+    {
+      "name": "R74_fast_operator",
+      "source_path": "tmp/r74_fast/R74_fast_operator.policy.cpp",
+      "source_sha256": "d4242cd5e3ac402bfecdfd078d1d11768ac8a8c5022394abb540d255c5a4d05e",
+      "translation_unit_path": "tmp/r74_fast_diagnostic/R74_fast_operator.cpp",
+      "translation_unit_sha256": "e5bdca2b98c82211b80a973fee35ea76bb955bdc6322d161075af19ac894ff02",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "46cc95f7b6ea063aa0aa84da784990d0ec77243a2a58e6c0a29400805e792871",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false
+    },
+    {
+      "name": "R74_fast_coverage",
+      "source_path": "tmp/r74_fast/R74_fast_coverage.policy.cpp",
+      "source_sha256": "10d149df279a86f9545be81634eeee064c7f46135f5f4f1e7d5776ff48c886a1",
+      "translation_unit_path": "tmp/r74_fast_diagnostic/R74_fast_coverage.cpp",
+      "translation_unit_sha256": "90f7d40231984785c91e2621d8ee2fc624293c86152298d498697664d460c484",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "d579fb4f58d2e7d431c4c631b8a4f32e6ca81753caf444a44050c6caebbc6389",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false
+    }
+  ],
+  "control": "R74_operator from immediately preceding frozen formal selection",
+  "notes": [
+    "6 same inputs, 3 methods including remeasured slow control, 18 cells.",
+    "82 paired physical metric checks match. LUT numerical bit equality tested in current Linux toolchain.",
+    "Table initialization remains inside first timed callback."
+  ]
+}

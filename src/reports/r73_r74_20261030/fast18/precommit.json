@@ -1,0 +1,33 @@
+{
+  "scope": "r74_fast_same_six",
+  "case_manifest": "tmp/r74_fast_eval/cases.r72_frozen.json",
+  "case_manifest_sha256": "0e70d02d023f88d9cc215ef2b4f58c8c667bf8a7b2c40da225759e02a381c8ae",
+  "case_ids": [
+    "train_slow_shared_01",
+    "dev_slow_staggered_07",
+    "train_fast_shared_03",
+    "train_fast_staggered_04",
+    "train_burst_shared_05",
+    "dev_burst_staggered_09"
+  ],
+  "methods": [
+    "R74_operator",
+    "R74_fast_operator",
+    "R74_fast_coverage"
+  ],
+  "intended_cells": 18,
+  "repeats": 1,
+  "timeout_seconds": 180,
+  "timeout_role": "internal watchdog only, not official time limit",
+  "official_wall_limit_seconds": 60,
+  "producer_path": "tmp/r74_fast_handoff/producer.json",
+  "producer_sha256": "edd9cd630faaed73ebb2107642acfd7a55ce72fce11f7611fe8e1a76fbb5dfc4",
+  "historical_reference_sha256": "9297c5a8928b173494c4ffacab5a3eb7e5965915f9abb3d47964e09629fb4fca",
+  "Root_equivalence82_sha256": "78eca7ec673080ab8b0f3e27fcad74a0c3a29fb7f52027e6cc4f2a1138447878",
+  "selection_sha256": "778494d7930eb57574e7ba6f248ec2391f6145fd0691f53d21999d77294aab6f",
+  "primary": "same-round fast_operator vs slow operator cumulative D and IO/hit/miss equality",
+  "auxiliary": "fast_coverage vs historical slow coverage; explicitly cross-round D reference",
+  "no_warmup": true,
+  "LUT_first_call_initialization": "remains inside first timed callback; fresh process per case",
+  "no_new_experiments_after_this": true
+}

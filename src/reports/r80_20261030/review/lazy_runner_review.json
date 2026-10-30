@@ -1,0 +1,22 @@
+{
+  "status": "NO_BLOCKER_FOR_TRAIN78",
+  "runner_sha256_reviewed": "adc254a0b4ae14a636e74890f0b40df54395a73e3f90d0d1e32201985708f6c6",
+  "user_revision": "Remove hard D ratio veto; retain D inside Total_Score, fixed cost/regression gates and at most two families",
+  "train_expected_cells": 78,
+  "fresh_baseline": "R79_adaptive",
+  "full_train_equivalence_required": [
+    "input_sha256",
+    "Total_IO_Time",
+    "Hit_Count",
+    "Miss_Count"
+  ],
+  "notes": [
+    "Implementation preference uses fresh-baseline-normalized D versus original-baseline-normalized D; one repeat remains timing-provisional.",
+    "An equivalence failure retains frozen parent rather than asserting success.",
+    "Source static review PASS separately; no native runs by reviewer."
+  ],
+  "hardening_recommendations_sent_to_root": [
+    "Check normalized D ratios are non-null before <= comparison; an exactly zero baseline D otherwise raises TypeError. Existing original baseline D is positive on all26.",
+    "Final prepare should preserve the original per-case Root input-contract entry comparisons, beyond overall contract SHA and selected-file hashes. This does not block current train78."
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "status": "PARTIAL_EXPLICIT_CAPACITY_REJECTIONS",
+  "planned_train_cases": 28,
+  "valid_train_cases": 26,
+  "old16_identity_unchanged": true,
+  "new_planned": 12,
+  "new_valid": 10,
+  "new_rejected": 2,
+  "new_complete_pairs": 4,
+  "new_incomplete_pairs": 2,
+  "pairs": [
+    {
+      "lineage_id": "r80_202610309801",
+      "seed": 202610309801,
+      "mechanism": "fast_shared",
+      "pressure": 3,
+      "penalty": 1,
+      "complete_pair": true,
+      "valid_cases": [
+        "r80_train_fast_shared_p3_pen1_none",
+        "r80_train_fast_shared_p3_pen1_hot"
+      ],
+      "max_part_M": {
+        "none": 0.011393889784812927,
+        "hot": 0.20763814449310303
+      }
+    },
+    {
+      "lineage_id": "r80_202610309802",
+      "seed": 202610309802,
+      "mechanism": "fast_staggered",
+      "pressure": 12,
+      "penalty": 1,
+      "complete_pair": false,
+      "valid_cases": [
+        "r80_train_fast_staggered_p12_pen1_none"
+      ],
+      "max_part_M": {
+        "none": 0.04484979808330536
+      }
+    },
+    {
+      "lineage_id": "r80_202610309803",
+      "seed": 202610309803,
+      "mechanism": "burst_staggered",
+      "pressure": 3,
+      "penalty": 100,
+      "complete_pair": true,
+      "valid_cases": [
+        "r80_train_burst_staggered_p3_pen100_none",
+        "r80_train_burst_staggered_p3_pen100_hot"
+      ],
+      "max_part_M": {
+        "none": 0.015344560146331787,
+        "hot": 0.3253321796655655
+      }
+    },
+    {
+      "lineage_id": "r80_202610309804",
+      "seed": 202610309804,
+      "mechanism": "slow_shared",
+      "pressure": 12,
+      "penalty": 100,
+      "complete_pair": true,
+      "valid_cases": [
+        "r80_train_slow_shared_p12_pen100_none",
+        "r80_train_slow_shared_p12_pen100_hot"
+      ],
+      "max_part_M": {
+        "none": 0.0682578831911087,
+        "hot": 0.7320425510406494
+      }
+    },
+    {
+      "lineage_id": "r80_202610309805",
+      "seed": 202610309805,
+      "mechanism": "slow_shared",
+      "pressure": 3,
+      "penalty": 1000,
+      "complete_pair": true,
+      "valid_cases": [
+        "r80_train_slow_shared_p3_pen1000_none",
+        "r80_train_slow_shared_p3_pen1000_hot"
+      ],
+      "max_part_M": {
+        "none": 0.012978419661521912,
+        "hot": 0.11915591359138489
+      }
+    },
+    {
+      "lineage_id": "r80_202610309806",
+      "seed": 202610309806,
+      "mechanism": "fast_shared",
+      "pressure": 12,
+      "penalty": 1000,
+      "complete_pair": false,
+      "valid_cases": [
+        "r80_train_fast_shared_p12_pen1000_none"
+      ],
+      "max_part_M": {
+        "none": 0.0444989949464798
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "case_id": "r80_train_fast_staggered_p12_pen1_hot",
+      "returncode": 1,
+      "error": "ERROR: partition capacity exceeded; original case rejected, no repartitioning/replacement seed\n",
+      "no_replacement": true,
+      "partial_input_bytes": 793450,
+      "stderr_sha256": "9ea11be00f2ad802517a818a1230fd648d781a33795f2bbcfc6add1fd0a730e9",
+      "metadata_complete": false,
+      "excluded_from_valid_cases": true
+    },
+    {
+      "case_id": "r80_train_fast_shared_p12_pen1000_hot",
+      "returncode": 1,
+      "error": "ERROR: partition capacity exceeded; original case rejected, no repartitioning/replacement seed\n",
+      "no_replacement": true,
+      "partial_input_bytes": 607041,
+      "stderr_sha256": "9ea11be00f2ad802517a818a1230fd648d781a33795f2bbcfc6add1fd0a730e9",
+      "metadata_complete": false,
+      "excluded_from_valid_cases": true
+    }
+  ],
+  "generator_source_sha256": "0611bdecc3640cffe06efbb9956fa2d3271d8d579c2318e1c1f938121709a175",
+  "generator_binary_sha256": "774f700a909e6252443bcfe14cc8d2ebe59677b20db44684622298e840c30705",
+  "manifest_sha256": "b3bfdac9f0a62bc2190cc1d47f228fb5c7e819a5627866be4ef9f75cb5583943",
+  "config_sha256": "6973b2f8caf0074eb6f4fcf61df2991df0c525b471b65bb894615bce9dcaa7ec",
+  "selection_sha256": "869ee1246d0718cb488fc9460972c550799e11c7a4e48ca3ca9d6316114391e3",
+  "new_valid_input_bytes": 20481912,
+  "new_valid_operations": 1000000,
+  "penalty_valid_counts": {
+    "1": 3,
+    "100": 4,
+    "1000": 3
+  },
+  "policy_runs": 0,
+  "generation_and_stream_audit_seconds": 3.838019173,
+  "cpu_released": true
+}

@@ -1,0 +1,41 @@
+{
+  "status": "FIXED_EXISTING_EVAL6_BEFORE_THIS_DYNA_RUN",
+  "case_ids": [
+    "train_slow_shared_01",
+    "dev_slow_staggered_07",
+    "train_fast_shared_03",
+    "train_fast_staggered_04",
+    "train_burst_shared_05",
+    "dev_burst_staggered_09"
+  ],
+  "selection_rule": "Reuse the pre-existing R77 existing_eval6 list unchanged and in its original order; not chosen from R80 result values.",
+  "dataset_id": "dyna_dataset",
+  "dataset_version": "1.0.0",
+  "dataset_manifest_sha256": "2ddcec4fd7ce5b7f37e92bb850a24abf66a5769de55cb543854ae412f035d038",
+  "dataset_json_sha256": "4ff12f2e8f6441c2a4040535c4782ede6cd7b7adde6340a7a1702701091206cf",
+  "version_sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+  "r77_contract_path": "tmp/r77_dyna_contract/cases.prepared.json",
+  "r77_contract_sha256": "428bc04f1aa19536cee068ff79d012f81e44e80c29cbc965f12c9e42da4165ac",
+  "methods_source_path": "tmp/r80_lazy_eval/final/selection.json",
+  "methods_source_sha256": "4c9edc376a4b3fc222b5b7bb3c5395b774c4cd05becbe12b7c264b06921a5455",
+  "methods": [
+    "Naive",
+    "R79_adaptive",
+    "Van_paired_penalty100",
+    "R80_paired_hier_fast100",
+    "R80_next_hier_fast100"
+  ],
+  "original_split_counts": {
+    "train": 4,
+    "dev": 2
+  },
+  "scope": "Previously exposed regression sample; not blind or held-out testing. No training authorized.",
+  "input_scope": "Only K+2 header lines, file size and metadata hashes; full input SHA remains declared and must be verified by the runner.",
+  "active_controller_budget_seconds": 360,
+  "official_per_case_seconds": 60,
+  "repeats": 1,
+  "parallelism": 1,
+  "score_aggregation": "First compute six equally weighted same-run Naive-normalized case scores, then (dyna6_mean + frozen final24_mean)/2. Never pool30 cases.",
+  "prepare_script_sha256": "cba7f4ccb809e202acc1d0a8bef6d56d1548d187760aacdca61953a2d5cba7ca",
+  "native_runs": 0
+}

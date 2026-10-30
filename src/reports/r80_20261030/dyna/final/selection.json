@@ -1,0 +1,735 @@
+{
+  "mode": "final",
+  "scope": "dyna_dataset1.0.0 existing_eval6 regression only, 5M operations each; no policy retuning; original train4/dev2",
+  "cases": [
+    {
+      "case_id": "train_slow_shared_01",
+      "case": "train_slow_shared_01.txt",
+      "input_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_windows": "${WORKSPACE}\\tmp\\r72_hierarchical\\data\\train\\train_slow_shared_01.txt",
+      "input_relative": "tmp/r72_hierarchical/data/train/train_slow_shared_01.txt",
+      "input_sha256": "450ef4467b69add26999b54684fe106d2c197a2f235881a961fdd8e0dfc7121c",
+      "input_sha_status": "Declared SHA matched fixed manifest/dataset/R77 contract; not rehashed here",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_relative": "tmp/r72_hierarchical/metadata/train_slow_shared_01.json",
+      "metadata_sha256": "44316b086b18f31a489c5a61e0a3ebe39452977bfac613db9864f0e6ca1d3bea",
+      "published_metadata_path": "tmp/d70/dyna_dataset/metadata/train_slow_shared_01.json",
+      "bytes": 93956711,
+      "parameters": {
+        "n": 5000000,
+        "k": 4,
+        "p": 32,
+        "memory": 67108864,
+        "pressure": 1.5,
+        "build-fraction": 0.2,
+        "period": 127,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "hot",
+        "seed": 202610307101,
+        "profile": "slow",
+        "phase": "shared"
+      },
+      "stats": {
+        "operations": 5000000,
+        "probe_count": 3999997,
+        "build_count": 999999,
+        "phase_transition_count": 4,
+        "penalty": 100
+      },
+      "family": "slow_shared",
+      "group": "dyna6",
+      "split": "train",
+      "original_split": "train",
+      "evaluation_status": "previously_exposed_regression_not_blind",
+      "training_allowed": false,
+      "header_validation": {
+        "k": 4,
+        "p": 32,
+        "memory": 67108864,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "period": 127,
+        "operations": 5000000,
+        "per_operator_counts": [
+          [
+            0,
+            223430,
+            959694
+          ],
+          [
+            1,
+            234153,
+            948753
+          ],
+          [
+            2,
+            247061,
+            1158439
+          ],
+          [
+            3,
+            295355,
+            933111
+          ]
+        ]
+      },
+      "metadata_capacity": {
+        "max_partition_bytes": 15608087,
+        "memory": 67108864,
+        "realized_pressure": 1.4999683648347855
+      }
+    },
+    {
+      "case_id": "dev_slow_staggered_07",
+      "case": "dev_slow_staggered_07.txt",
+      "input_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_windows": "${WORKSPACE}\\tmp\\r72_hierarchical\\data\\dev\\dev_slow_staggered_07.txt",
+      "input_relative": "tmp/r72_hierarchical/data/dev/dev_slow_staggered_07.txt",
+      "input_sha256": "87527853c2eeb49c6e05d8d387cd646b88ffd45dbec27f7d133c15e9f1b5c895",
+      "input_sha_status": "Declared SHA matched fixed manifest/dataset/R77 contract; not rehashed here",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_relative": "tmp/r72_hierarchical/metadata/dev_slow_staggered_07.json",
+      "metadata_sha256": "b845d939d493dc37ddea5ebe32f6953ab75fd92bbf702cd86b01dc9826fd2fe8",
+      "published_metadata_path": "tmp/d70/dyna_dataset/metadata/dev_slow_staggered_07.json",
+      "bytes": 96554093,
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 67108864,
+        "pressure": 3,
+        "build-fraction": 0.3,
+        "period": 127,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "cold",
+        "seed": 202610307107,
+        "profile": "slow",
+        "phase": "staggered"
+      },
+      "stats": {
+        "operations": 5000000,
+        "probe_count": 3510053,
+        "build_count": 1489939,
+        "phase_transition_count": 8,
+        "penalty": 100
+      },
+      "family": "slow_staggered",
+      "group": "dyna6",
+      "split": "dev",
+      "original_split": "dev",
+      "evaluation_status": "previously_exposed_regression_not_blind",
+      "training_allowed": false,
+      "header_validation": {
+        "k": 8,
+        "p": 64,
+        "memory": 67108864,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "period": 127,
+        "operations": 5000000,
+        "per_operator_counts": [
+          [
+            0,
+            124609,
+            455640
+          ],
+          [
+            1,
+            275260,
+            393457
+          ],
+          [
+            2,
+            217517,
+            454439
+          ],
+          [
+            3,
+            215407,
+            392214
+          ],
+          [
+            4,
+            166323,
+            457768
+          ],
+          [
+            5,
+            145586,
+            490587
+          ],
+          [
+            6,
+            183198,
+            381164
+          ],
+          [
+            7,
+            162039,
+            484784
+          ]
+        ]
+      },
+      "metadata_capacity": {
+        "max_partition_bytes": 641108,
+        "memory": 67108864,
+        "realized_pressure": 3.0335543751716614
+      }
+    },
+    {
+      "case_id": "train_fast_shared_03",
+      "case": "train_fast_shared_03.txt",
+      "input_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_windows": "${WORKSPACE}\\tmp\\r72_hierarchical\\data\\train\\train_fast_shared_03.txt",
+      "input_relative": "tmp/r72_hierarchical/data/train/train_fast_shared_03.txt",
+      "input_sha256": "572297ce49b732d7c04f36201860db1ad9b53b3576d49421441501e53d2a3b0e",
+      "input_sha_status": "Declared SHA matched fixed manifest/dataset/R77 contract; not rehashed here",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_relative": "tmp/r72_hierarchical/metadata/train_fast_shared_03.json",
+      "metadata_sha256": "54673b57db028508ab71acd0d981f93bb23654e37def470107e1b3741360be63",
+      "published_metadata_path": "tmp/d70/dyna_dataset/metadata/train_fast_shared_03.json",
+      "bytes": 96943735,
+      "parameters": {
+        "n": 5000000,
+        "k": 2,
+        "p": 64,
+        "memory": 268435456,
+        "pressure": 3,
+        "build-fraction": 0.3,
+        "period": 31,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307103,
+        "profile": "fast",
+        "phase": "shared"
+      },
+      "stats": {
+        "operations": 5000000,
+        "probe_count": 3499999,
+        "build_count": 1499999,
+        "phase_transition_count": 2,
+        "penalty": 100
+      },
+      "family": "fast_shared",
+      "group": "dyna6",
+      "split": "train",
+      "original_split": "train",
+      "evaluation_status": "previously_exposed_regression_not_blind",
+      "training_allowed": false,
+      "header_validation": {
+        "k": 2,
+        "p": 64,
+        "memory": 268435456,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "period": 31,
+        "operations": 5000000,
+        "per_operator_counts": [
+          [
+            0,
+            780134,
+            1637640
+          ],
+          [
+            1,
+            719865,
+            1862359
+          ]
+        ]
+      },
+      "metadata_capacity": {
+        "max_partition_bytes": 6718760,
+        "memory": 268435456,
+        "realized_pressure": 2.9999898597598076
+      }
+    },
+    {
+      "case_id": "train_fast_staggered_04",
+      "case": "train_fast_staggered_04.txt",
+      "input_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_windows": "${WORKSPACE}\\tmp\\r72_hierarchical\\data\\train\\train_fast_staggered_04.txt",
+      "input_relative": "tmp/r72_hierarchical/data/train/train_fast_staggered_04.txt",
+      "input_sha256": "50464251e93169c4b4b57b352f2a864901cca736ec586412a3ffadcd70b5247c",
+      "input_sha_status": "Declared SHA matched fixed manifest/dataset/R77 contract; not rehashed here",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_relative": "tmp/r72_hierarchical/metadata/train_fast_staggered_04.json",
+      "metadata_sha256": "0a856d3915bb3d1350c4927c8f2f62fbe2a0fa33e005ec151fef4622acc51e8f",
+      "published_metadata_path": "tmp/d70/dyna_dataset/metadata/train_fast_staggered_04.json",
+      "bytes": 101639668,
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "pressure": 12,
+        "build-fraction": 0.4,
+        "period": 31,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307104,
+        "profile": "fast",
+        "phase": "staggered"
+      },
+      "stats": {
+        "operations": 5000000,
+        "probe_count": 2967454,
+        "build_count": 2032538,
+        "phase_transition_count": 8,
+        "penalty": 100
+      },
+      "family": "fast_staggered",
+      "group": "dyna6",
+      "split": "train",
+      "original_split": "train",
+      "evaluation_status": "previously_exposed_regression_not_blind",
+      "training_allowed": false,
+      "header_validation": {
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "period": 31,
+        "operations": 5000000,
+        "per_operator_counts": [
+          [
+            0,
+            284194,
+            354038
+          ],
+          [
+            1,
+            211004,
+            381008
+          ],
+          [
+            2,
+            307521,
+            330494
+          ],
+          [
+            3,
+            199244,
+            417605
+          ],
+          [
+            4,
+            279898,
+            364385
+          ],
+          [
+            5,
+            201423,
+            409517
+          ],
+          [
+            6,
+            226802,
+            413794
+          ],
+          [
+            7,
+            322452,
+            296613
+          ]
+        ]
+      },
+      "metadata_capacity": {
+        "max_partition_bytes": 32637439,
+        "memory": 1073741824,
+        "realized_pressure": 11.919907814823091
+      }
+    },
+    {
+      "case_id": "train_burst_shared_05",
+      "case": "train_burst_shared_05.txt",
+      "input_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_windows": "${WORKSPACE}\\tmp\\r72_hierarchical\\data\\train\\train_burst_shared_05.txt",
+      "input_relative": "tmp/r72_hierarchical/data/train/train_burst_shared_05.txt",
+      "input_sha256": "a9f4099282c63b346709483da683640bf1023581179a150029b9ae96c67342af",
+      "input_sha_status": "Declared SHA matched fixed manifest/dataset/R77 contract; not rehashed here",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_relative": "tmp/r72_hierarchical/metadata/train_burst_shared_05.json",
+      "metadata_sha256": "02aa0c4b57aa549ca840e803ce3fc72c65e0f41b17a6b0c3b34c721bc11db8aa",
+      "published_metadata_path": "tmp/d70/dyna_dataset/metadata/train_burst_shared_05.json",
+      "bytes": 99946138,
+      "parameters": {
+        "n": 5000000,
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "pressure": 6,
+        "build-fraction": 0.35,
+        "period": 1000,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307105,
+        "profile": "burst",
+        "phase": "shared"
+      },
+      "stats": {
+        "operations": 5000000,
+        "probe_count": 3249993,
+        "build_count": 1749999,
+        "phase_transition_count": 8,
+        "penalty": 100
+      },
+      "family": "burst_shared",
+      "group": "dyna6",
+      "split": "train",
+      "original_split": "train",
+      "evaluation_status": "previously_exposed_regression_not_blind",
+      "training_allowed": false,
+      "header_validation": {
+        "k": 8,
+        "p": 64,
+        "memory": 1073741824,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "period": 1000,
+        "operations": 5000000,
+        "per_operator_counts": [
+          [
+            0,
+            132210,
+            569305
+          ],
+          [
+            1,
+            167886,
+            357730
+          ],
+          [
+            2,
+            132998,
+            568862
+          ],
+          [
+            3,
+            222884,
+            433998
+          ],
+          [
+            4,
+            145563,
+            297052
+          ],
+          [
+            5,
+            246955,
+            362333
+          ],
+          [
+            6,
+            167526,
+            354799
+          ],
+          [
+            7,
+            533977,
+            305914
+          ]
+        ]
+      },
+      "metadata_capacity": {
+        "max_partition_bytes": 31732971,
+        "memory": 1073741824,
+        "realized_pressure": 6.000838254578412
+      }
+    },
+    {
+      "case_id": "dev_burst_staggered_09",
+      "case": "dev_burst_staggered_09.txt",
+      "input_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_linux": "${WORKSPACE}<LOCAL_TEMP>",
+      "input_path_windows": "${WORKSPACE}\\tmp\\r72_hierarchical\\data\\dev\\dev_burst_staggered_09.txt",
+      "input_relative": "tmp/r72_hierarchical/data/dev/dev_burst_staggered_09.txt",
+      "input_sha256": "74be2de1aaa29b1acef1a0b63c9ba4d9637d303acf174ac7333f61022f6e49f2",
+      "input_sha_status": "Declared SHA matched fixed manifest/dataset/R77 contract; not rehashed here",
+      "metadata_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "metadata_relative": "tmp/r72_hierarchical/metadata/dev_burst_staggered_09.json",
+      "metadata_sha256": "beb82badd43ec4395beeb7c12b9cead56aff37365a642790f61dff4a2e007c1d",
+      "published_metadata_path": "tmp/d70/dyna_dataset/metadata/dev_burst_staggered_09.json",
+      "bytes": 94768739,
+      "parameters": {
+        "n": 5000000,
+        "k": 2,
+        "p": 32,
+        "memory": 268435456,
+        "pressure": 1.5,
+        "build-fraction": 0.2,
+        "period": 1000,
+        "window": 10000,
+        "partition-window": 10000,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "partition-profile": "slow",
+        "partition-speed": 0.0025,
+        "rare": "none",
+        "seed": 202610307109,
+        "profile": "burst",
+        "phase": "staggered"
+      },
+      "stats": {
+        "operations": 5000000,
+        "probe_count": 3935205,
+        "build_count": 1064793,
+        "phase_transition_count": 2,
+        "penalty": 100
+      },
+      "family": "burst_staggered",
+      "group": "dyna6",
+      "split": "dev",
+      "original_split": "dev",
+      "evaluation_status": "previously_exposed_regression_not_blind",
+      "training_allowed": false,
+      "header_validation": {
+        "k": 2,
+        "p": 32,
+        "memory": 268435456,
+        "write": 100,
+        "read": 80,
+        "penalty": 100,
+        "period": 1000,
+        "operations": 5000000,
+        "per_operator_counts": [
+          [
+            0,
+            123265,
+            1214558
+          ],
+          [
+            1,
+            941528,
+            2720647
+          ]
+        ]
+      },
+      "metadata_capacity": {
+        "max_partition_bytes": 12158980,
+        "memory": 268435456,
+        "realized_pressure": 1.6138443499803543
+      }
+    }
+  ],
+  "methods": [
+    {
+      "name": "Naive",
+      "method_id": "src/methods/r49/official_naive.cpp",
+      "source_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+      "source_path": "tmp/r77_dyna_full_eval/sources/Naive.policy.cpp",
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/Naive.cpp",
+      "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "instrumented": false,
+      "build_record": "tmp/dataset_score_audit_20261030/benchmark/build_identity.json",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R79_adaptive",
+      "source_path": "tmp/r79_adaptive_operator/R79_adaptive/MySpillScheduler.cpp",
+      "source_sha256": "8eb171503ce6c30d8e99939dffef33b751dd96f7b276c1d4509c090d439d982d",
+      "translation_unit_path": "tmp/r79_adaptive_operator/R79_adaptive/main.cpp",
+      "translation_unit_sha256": "0a8a66174dbb42b0fbbf163a479e170a57115a8be286e338e761e40565693d96",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "9c77744aab4cb0180c1fdb017f9426e0931955265a57373ec1d81573f305f4ab",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "Van_paired_penalty100",
+      "source_path": "tmp/r79_adaptive_operator/Van_paired_penalty100/MySpillScheduler.cpp",
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "translation_unit_path": "tmp/r79_adaptive_operator/Van_paired_penalty100/main.cpp",
+      "translation_unit_sha256": "d89c9455e9519be89aca25c30b274c64b6f668e2eeebfb0d3623efc5065edefd",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "c01849371905fa3460ed979ab6deaf0333f585e968397d95de92848096cc9edc",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R80_paired_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_paired_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "5c5c5412fe1f56a64a97fc2a9bba2860b0f30cd51b1ace86e6fc258a60a0cbe0",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_paired_hier_fast100/main.cpp",
+      "translation_unit_sha256": "a9a6bd9cae5520f64493edfdda800834f5e6bfa0e5f4419993af164caada33f4",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "287795281d7748615a77e6d5b210a7a7d83ca6caff96687c9d343dea26ebf3ea",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_paired_hier100",
+      "parent_sha256": "174c125c3bf3c03dd92aff74ae2e38728e742e5e2172940e801e32f1c7dded78"
+    },
+    {
+      "name": "R80_next_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/main.cpp",
+      "translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier100",
+      "parent_sha256": "a98513798367c98770a5f22370a191171ed0d29a28fd0e2ee7996ff56f34c1cb"
+    }
+  ],
+  "dependencies": {
+    "tmp/r80_van_transfer/producer.json": "35ecb0a3dde9a7bca76898c624890f1d5b8722175e79a76502c442c3acd8a3cd",
+    "tmp/r80_eval/experiment.py": "ebfe95a63b954eee4d9208aa9fbdec7916e68d08505e57d8ed71256036381da0",
+    "tmp/r79_final_eval/dependencies/evaluation/evaluate.py": "e506579cb7fdef842601ec6e0ca1d7162da2df7178f8b2fc6d933eb2552b3ef6",
+    "tmp/r79_final_eval/process_helper.py": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+    "tmp/r79_final_eval/selection.json": "a542f0bf02737a56dd705e4477011c0085a5b9e9d8be9b6650d8e3deddc0ed82",
+    "tmp/r80_van_transfer/test_summary.json": "f0fad018eb149dce39c26ce15b4fce5a52171d2a873058ab64115d359ac807c0",
+    "tmp/r80_van_transfer/release.json": "6b3d50f5ac149cb7b4eba8d67c84456e6920d7300f40eb57ae7429ffed0cea5f",
+    "tmp/r79_final_eval/dependencies/evaluation/scripts/audit_datasets.py": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
+    "tmp/r79_final_eval/dependencies/evaluation/scripts/summarize_member_scores.py": "c28d4833bca804111e25653023f1dff377dcd5effafac653bea99e49b112af74",
+    "tmp/r79_final_eval/dependencies/evaluation/README.md": "f43af50a55e5f6794fea0b54fa53edac492959519f5ba4ffcbb7b4cca30f8ca7",
+    "tmp/r79_final_eval/dependencies/evaluation/MEMBER_SCORING.md": "ae7a09c157a7af71c09265fb895f1608b1c50bdc6852c67f96cd7da7ccbdf8b0",
+    "tmp/r79_final_eval/dependencies/final_dataset/eval/VERSION": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+    "tmp/r79_final_eval/dependencies/final_dataset/README.md": "1a9ac470483b86e738fc31758303a9bc70a85139c5f1e2c5be8febeb41d70f27",
+    "tmp/r80_train_panel/data_manifest.json": "b3bfdac9f0a62bc2190cc1d47f228fb5c7e819a5627866be4ef9f75cb5583943",
+    "tmp/r80_eval/train/selection.json": "a8adc28a15666b77c436fccc06e91914c259cf6d60b1cb39ee02e87ca92b2236",
+    "tmp/r80_eval/train/rows.json": "d316277a4b2390c9cecf5b191efe86bbc45d37551986fcd6609d388ae2368a22",
+    "tmp/r80_eval/train/summary.json": "b44ca4971be8b3c730c1d8a890ae2486a456ccbaa982e5d28619be9c45041152",
+    "tmp/r80_eval/lazy_followup.py": "adc254a0b4ae14a636e74890f0b40df54395a73e3f90d0d1e32201985708f6c6",
+    "tmp/r80_lazy_transfer/producer.json": "687278a20655f86475fd696d736f83cbf39507a32b3e1e8b2f4219c1017ab732",
+    "tmp/r80_lazy_transfer/release.json": "8bf5350e6ff92b7cfaf097e284cef3dd050f89129f85c0192d5f7b541673be23",
+    "tmp/r80_lazy_transfer/test_summary.json": "6fc678f5ded204a89e44a2560b23a9ed6020d812bb8c51c83bd2bc692f1cbc0a",
+    "tmp/r80_final_sample/selection.json": "38a8d93e23c33c174942648a828def2172089c728a3ee06f51a6aff34c4d8c90",
+    "tmp/r80_lazy_eval/train/advance.json": "55827fc7f3fa938660ab8267911684c116dea6471855dfb5348d311b798d5142",
+    "tmp/r79_final_eval/root_input_contract.json": "f7377bfc29ac5f23e09252d02923d5226f812b581c93809b51370437da3c787a",
+    "tmp/r80_eval/dyna_followup.py": "cab9e12894c0c55ae38e9f955ce02648636e6cfd1cc5a22747d668c2cb5084fd",
+    "tmp/r80_dyna_sample/selection.json": "3bad1352e30a5a74ab1ac5b5bbcd5887859677d15a1cb5a9dc245435acd508e2",
+    "tmp/r77_dyna_contract/cases.prepared.json": "428bc04f1aa19536cee068ff79d012f81e44e80c29cbc965f12c9e42da4165ac",
+    "tmp/r80_lazy_eval/final/selection.json": "4c9edc376a4b3fc222b5b7bb3c5395b774c4cd05becbe12b7c264b06921a5455",
+    "tmp/d70/dyna_dataset/manifest.json": "2ddcec4fd7ce5b7f37e92bb850a24abf66a5769de55cb543854ae412f035d038",
+    "tmp/d70/dyna_dataset/dataset.json": "4ff12f2e8f6441c2a4040535c4782ede6cd7b7adde6340a7a1702701091206cf",
+    "tmp/d70/dyna_dataset/VERSION": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+  },
+  "planned_cells": 30,
+  "repeats": 1,
+  "active_controller_budget_seconds": 360,
+  "official_per_case_seconds": 60,
+  "order": "fixed cases; rotate method order left by case index modulo method count",
+  "protocol": "official-2026-10-26",
+  "percentiles": "nearest-rank ceil(q*n)",
+  "score": "case-mean-v1",
+  "gpu": false,
+  "user_revision": "Prioritize final Total_Score including D; D ratio is reported, not a hard elimination criterion. Revision before any R80 final run.",
+  "probability_math_changed": false,
+  "dataset_commit": "f25adeedef7bfdf9ef433e3fd1eb6fc2cb48d246",
+  "dataset_identity": {
+    "member": "dyna_dataset",
+    "version": "1.0.0",
+    "manifest_sha256": "2ddcec4fd7ce5b7f37e92bb850a24abf66a5769de55cb543854ae412f035d038",
+    "dataset_sha256": "4ff12f2e8f6441c2a4040535c4782ede6cd7b7adde6340a7a1702701091206cf",
+    "version_sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+    "input_collection_sha256": "532e5a5333c4ce63c01381043a23ffcfbd07484ea529790db3a4a5a76da4c65a",
+    "cases": [
+      {
+        "case_id": "train_slow_shared_01",
+        "input_sha256": "450ef4467b69add26999b54684fe106d2c197a2f235881a961fdd8e0dfc7121c",
+        "metadata_sha256": "44316b086b18f31a489c5a61e0a3ebe39452977bfac613db9864f0e6ca1d3bea"
+      },
+      {
+        "case_id": "dev_slow_staggered_07",
+        "input_sha256": "87527853c2eeb49c6e05d8d387cd646b88ffd45dbec27f7d133c15e9f1b5c895",
+        "metadata_sha256": "b845d939d493dc37ddea5ebe32f6953ab75fd92bbf702cd86b01dc9826fd2fe8"
+      },
+      {
+        "case_id": "train_fast_shared_03",
+        "input_sha256": "572297ce49b732d7c04f36201860db1ad9b53b3576d49421441501e53d2a3b0e",
+        "metadata_sha256": "54673b57db028508ab71acd0d981f93bb23654e37def470107e1b3741360be63"
+      },
+      {
+        "case_id": "train_fast_staggered_04",
+        "input_sha256": "50464251e93169c4b4b57b352f2a864901cca736ec586412a3ffadcd70b5247c",
+        "metadata_sha256": "0a856d3915bb3d1350c4927c8f2f62fbe2a0fa33e005ec151fef4622acc51e8f"
+      },
+      {
+        "case_id": "train_burst_shared_05",
+        "input_sha256": "a9f4099282c63b346709483da683640bf1023581179a150029b9ae96c67342af",
+        "metadata_sha256": "02aa0c4b57aa549ca840e803ce3fc72c65e0f41b17a6b0c3b34c721bc11db8aa"
+      },
+      {
+        "case_id": "dev_burst_staggered_09",
+        "input_sha256": "74be2de1aaa29b1acef1a0b63c9ba4d9637d303acf174ac7333f61022f6e49f2",
+        "metadata_sha256": "beb82badd43ec4395beeb7c12b9cead56aff37365a642790f61dff4a2e007c1d"
+      }
+    ],
+    "sha256": "9579d118ee812c991b28ae64d080346ce49c01260731500769895f64d133f1bd"
+  },
+  "dataset_id": "dyna_dataset",
+  "dataset_version": "1.0.0",
+  "aggregation": "6 case equal-weight; cross-dataset summary averages the dyna6 and final24 means equally, not all30 cases"
+}

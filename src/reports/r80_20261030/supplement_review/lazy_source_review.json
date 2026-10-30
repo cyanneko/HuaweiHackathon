@@ -1,0 +1,17 @@
+{
+  "status": "PASS_STATIC_LAZY_REVIEW",
+  "producer_sha256": "687278a20655f86475fd696d736f83cbf39507a32b3e1e8b2f4219c1017ab732",
+  "test_summary_sha256": "6fc678f5ded204a89e44a2560b23a9ed6020d812bb8c51c83bd2bc692f1cbc0a",
+  "source_SHA_checks": 2,
+  "parent_SHA_checks": 2,
+  "variants_identical_except_mode": true,
+  "native_runs_by_reviewer": 0,
+  "findings": [],
+  "scope": "Source diff and producer test evidence; full TRAIN physical IO/hit/miss equivalence still requires the pending 52 saved outputs",
+  "observations": [
+    "Global clock/S/W2 and all operator refreshes remain before any per-ID query; per-ID numerator and denominator arithmetic unchanged.",
+    "Every production flat/hier array read now has ensureProbability(id); release invalidates global cache and increments epoch on next initialization.",
+    "Epoch wrap resets tags; first allocation tags zero versus epoch1. No new next samples, intents, callbacks or guard thresholds.",
+    "Producer test checks exact full probability vector, epoch wrap, and 400 ordered callback action steps against frozen parent; reviewer did not rerun it."
+  ]
+}

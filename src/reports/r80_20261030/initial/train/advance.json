@@ -1,0 +1,70 @@
+{
+  "selected": [
+    "R80_next_hier100"
+  ],
+  "choices": [
+    {
+      "method": "R80_penalty100",
+      "eligible": false,
+      "guards": {
+        "all_baseline_denominators_defined": true,
+        "old16_mean_le_1_05": true,
+        "all26_worst_le_1_25": true,
+        "D_ratio_le_2": true,
+        "new10_mean_lt_1": false
+      },
+      "new10_mean": 1.0118214445455134,
+      "old16_mean": 0.994839491742901,
+      "all26_worst": 1.0663424559916892,
+      "D_ratio": 1.019184400466017
+    },
+    {
+      "method": "R80_next_flat100",
+      "eligible": false,
+      "guards": {
+        "all_baseline_denominators_defined": true,
+        "old16_mean_le_1_05": true,
+        "all26_worst_le_1_25": true,
+        "D_ratio_le_2": false,
+        "new10_mean_lt_1": false
+      },
+      "new10_mean": 1.0066787584913293,
+      "old16_mean": 1.028827058706576,
+      "all26_worst": 1.0975899274030736,
+      "D_ratio": 2.3647329540951336
+    },
+    {
+      "method": "R80_next_hier100",
+      "eligible": true,
+      "guards": {
+        "all_baseline_denominators_defined": true,
+        "old16_mean_le_1_05": true,
+        "all26_worst_le_1_25": true,
+        "D_ratio_le_2": true,
+        "new10_mean_lt_1": true
+      },
+      "new10_mean": 0.9652198654023899,
+      "old16_mean": 0.9940512967205289,
+      "all26_worst": 1.0397907718905148,
+      "D_ratio": 1.7546032413332253
+    },
+    {
+      "method": "R80_paired_hier100",
+      "eligible": false,
+      "guards": {
+        "all_baseline_denominators_defined": true,
+        "old16_mean_le_1_05": true,
+        "all26_worst_le_1_25": true,
+        "D_ratio_le_2": false,
+        "new10_mean_lt_1": true
+      },
+      "new10_mean": 0.9564780452008723,
+      "old16_mean": 0.9831879480589112,
+      "all26_worst": 1.0180949375409771,
+      "D_ratio": 2.370935545161534
+    }
+  ],
+  "training_summary_sha256": "b44ca4971be8b3c730c1d8a890ae2486a456ccbaa982e5d28619be9c45041152",
+  "selection_rule": "new10 mean<1, old16 mean<=1.05, all26 worst<=1.25, cumulative D ratio<=2; best two by new10 mean, then name",
+  "no_final_scores_consulted": true
+}

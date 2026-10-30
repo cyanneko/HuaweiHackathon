@@ -1,0 +1,3 @@
+#include TEST_INCLUDE
+#include <cassert>
+int main(){SystemState s{};s.num_partitions=2;s.memory_limit=s.memory_used=100;s.hit_count=1;s.read_bandwidth=100;s.write_bandwidth=50;OperatorState o{};o.op_id=0;o.phase=Phase::PROBE;for(int p=0;p<2;++p){PartitionState x{};x.partition_id=p;x.data_size=100;x.in_memory=p==0;o.partitions.push_back(x);}s.operators.push_back(o);MySpillScheduler m;m.update(s);m.history_[0].last=1;m.history_[0].count=16;std::vector<Action>a;m.release(s,0,1,100,a);assert(a.size()==1&&a[0].partition_id==0);assert(m.victims_.size()==1);double expected=(64./66.)*(1./100.+1./50.+100./100.);assert(std::abs(m.victims_[0].priority-expected)<1e-12);std::cout<<"penalty100 exact objective PASS\n";}

@@ -1,0 +1,18 @@
+# R80 controlled Van transfer
+
+Four temporary CPU-only candidates from frozen R79 adaptive SHA `8eb171503ce6c30d8e99939dffef33b751dd96f7b276c1d4509c090d439d982d`. No default promotion, policy benchmark, training, Git write, or official-framework modification was performed here.
+
+- **R80_penalty100**: only the victim priority's fixed penalty surrogate changes from1 to100. The explanatory comment is corrected; no additional code or statistics are introduced.
+- **R80_next_flat100**: ordinary PROBE victims outside scans/cycles use64 times global flat next probability.
+- **R80_next_hier100**: the same path uses raw operator-mass sharing controlled by the unchanged R79 alpha. Raw partition next samples and independent refault base remain independent of operator heat.
+- **R80_paired_hier100**: the R79 refault/penalty100 proposal is compared with the hierarchical-next proposal. Both are pruned; only the final actions reach the original callback's record. The signed expected-difference/uncertainty gate uses **flat** next probabilities. No sample mass or squared-weight evidence means retaining the base, with no added ESS threshold.
+
+For the three frequency variants, one lazy cache per release uses q*=max(current hit+miss,last accepted next ordinal). Every operator mass and alpha is advanced to that common statistical clock; partition masses are queried at the same time. Flat p=(c_i+64/N)/(S+64); hierarchical p=((1-alpha)*c_i+alpha*S_op/P+64/N)/(S+64). No true penalty, future operation stream, unknown hit identity or case label enters either estimator. BUILD victims retain the existing nonfrequency ranking; scan/cycle and public-next protection are retained.
+
+The frequency cache is shared by the proposals. Its partition mass queries use a static8193-double table (65,544 bytes, approximately64KiB) for deltas0..8192 with exactly the existing nextDecay expression; zero masses skip evaluation, larger gaps use the original exp. First initialization occurs during a real callback and counts toward D. R79 sampleNext/group-decay semantics are unchanged. This optimization was requested by Root's static CPU review before any performance measurements.
+
+Pair comparison accumulates only changed spill IDs using reused sign/id vectors, O(v_base+v_alt), then resets their signs. Shared victims cancel. Immediate write difference and exact public-next read/miss difference are included; fixed64-horizon mean and2sd remain an IID-inspired heuristic. This paired base is genuinely the R79 planner, unlike Van's original history-shortlist/frequency-subset hybrid. Speculative proposals do not observe callbacks, complete refaults, record intents or append the mandatory miss LOAD twice.
+
+Meaningful tests cover the original R79 failing the100-surrogate objective expectation; the four candidates pass the intended objective/callback tests. Frequency tests check global normalization, cold prior/no-evidence guard, common-clock sparse/deduplicated samples, hierarchical mass mixing, independence from risk/pool heat, signed differences/shared-victim cancellation/known-next cost, conservative accept/reject, no duplicate refault completion or speculative intents, final-only actual intents, BUILD/scan guards and no-need return. Every lookup entry and long-gap fallback is compared with the original expression. Existing callback legality/refault-confirmation tests pass for all four candidates.
+
+Sources, full official TUs and uninstrumented ELF SHA values are in producer.json; source_manifest.json binds the plan, generator, tests and frozen parent. release.json is final only after all checks pass. Production builds use g++ -std=c++14 -O2. CPU time for two build/test passes is recorded; no formal D or performance claim is made here.

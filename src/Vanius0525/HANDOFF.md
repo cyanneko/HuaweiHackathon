@@ -1,6 +1,10 @@
-# 最新停止与交接（2026-10-30）
+# 新会话交接与周期检查取消（2026-10-30）
 
-用户已要求结束周期性检查，原进程已核实退出，STOP保留；当前无实验运行，不自动恢复。完整状态见[level1/SESSION_HANDOFF_20261030.md](level1/SESSION_HANDOFF_20261030.md)。最新成绩只用三人分别每题均分与三人等权平均：纯3.134088、AI3.211106；旧50分换算仅为历史。以下历史日志不覆盖本段停止指令。
+用户最新要求更新交接并取消每小时检查。小时检查/自动续接已核实停止，STOP保留；**已有后台实验仍在执行**，新会话先核查，不能重复启动或误报全部停止。不因旧排队消息自动恢复定时器。
+
+完整新入口：[level1/SESSION_HANDOFF_20261030.md](level1/SESSION_HANDOFF_20261030.md)。当前算法已推送d8369b0，入口[level1/MySpillSchedulerBest.cpp](level1/MySpillSchedulerBest.cpp)，完整同批三成员等权3.538860/10，已知反例及备选见README/CURRENT_CANDIDATE。原冻结两版保留。
+
+用户已授权从现在起只读参考两位合作者的进展与算法，所有修改仍仅在本人source/Vanius0525；当前完成fetch但尚未阅读算法正文/融合方法，断点见[level1/round5/HANDOFF.md](level1/round5/HANDOFF.md)。下方原目标、无后台任务和旧成绩均为历史，不能覆盖本段。
 
 ---
 

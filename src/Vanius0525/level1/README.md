@@ -89,16 +89,14 @@ python stress.py --n 5000000 --b 1 10000 --scheduler pure=MySpillScheduler.cpp -
 
 独立Python重放会检查每一步动作是否合法、容量、目标保护、Miss末项LOAD，以及I/O/Hit/Miss是否和未改引擎一致；小状态oracle仅在不超过8个分区时穷举所有合法回调动作，包括预取。它是测试专用离线最优，不在提交推理中运行。
 
-## 本轮持续优化与小时检查
+## 新会话接管与周期检查
 
-用户已恢复持续研究，要求至少推进至北京时间2026-10-30 07:00。本轮入口为 [round4/README.md](round4/README.md)，结果与负例见 [round4/HANDOFF.md](round4/HANDOFF.md)。上方两个冻结文件保持原字节；新版本单独保留，不能把旧候选分数当成本轮最好成绩。
+每小时检查和自动续接已按用户最新指令取消。`hourly_resume.py`已停止，`build/hourly-resume/STOP`及旧`build/hourly/STOP`保留，不自行移除或因历史排队消息重启。已启动实验继续执行，具体PID/日志仅在本地忽略目录；新会话应先核查，不重复启动。
 
-当前实际周期进程是 `hourly_resume.py`：每3600秒核对冻结指纹并通过 `codex queue` 向当前会话排队 [HOURLY_RESUME_PROMPT.md](HOURLY_RESUME_PROMPT.md)。状态保存在忽略的 `build/hourly-resume/`，不是云端Scheduled；依赖WSL和服务运行。原 `hourly_check.py` 与 `build/hourly/STOP` 是保留的历史状态，未重新启动。
-
-所有计时、训练和压力测试使用 `experiment.lock` 串行协调；它不能保证整个操作系统没有其他负载。接管先读交接和实际进程，避免重复启动。原始输入、动作与重复计时保留在本地忽略目录，公开文档不包含会话ID或本机路径。
+最新完整入口：[SESSION_HANDOFF_20261030.md](SESSION_HANDOFF_20261030.md)。用户已授权只读参考两位合作者的进展和算法，所有修改仍仅在本人分支；当前只完成来源fetch，未读算法正文/未融合方法，见[round5/HANDOFF.md](round5/HANDOFF.md)。
 
 版本与优化过程见[OPTIMIZATION_HISTORY.md](OPTIMIZATION_HISTORY.md)、[VERSION_LEDGER.json](VERSION_LEDGER.json)。第二轮新增568个团队样例的结果见[round2/RESULTS.json](round2/RESULTS.json)；较大团队集上纯算法均分略高于AI，尚无新的候选晋升。
 
 历史分层内部指标见[SCORING_POLICY.md](SCORING_POLICY.md)及[BALANCED_RESULTS.json](BALANCED_RESULTS.json)，已被当前逐成员每题均分口径取代，不再用于本轮选型。第三阶段外推反例与CPU结果见[round3/RESULTS.json](round3/RESULTS.json)。
 
-上一阶段曾收尾并停止检查，现已恢复持续工作。历史交接入口：[SESSION_HANDOFF_20261030.md](SESSION_HANDOFF_20261030.md)；最新三人分别均分与等权平均：[CURRENT_SCORES.json](CURRENT_SCORES.json)。
+当前检查已再次取消，新会话交接入口：[SESSION_HANDOFF_20261030.md](SESSION_HANDOFF_20261030.md)；当前发布候选与同批三成员成绩：[CURRENT_CANDIDATE.json](CURRENT_CANDIDATE.json)；原冻结两版的历史汇总保留于[CURRENT_SCORES.json](CURRENT_SCORES.json)。

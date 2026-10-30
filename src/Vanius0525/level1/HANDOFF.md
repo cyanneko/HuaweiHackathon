@@ -1,10 +1,10 @@
-# 持续优化进行中（2026-10-30，优先于下方历史停止状态）
+# 新会话接管：小时检查已取消（2026-10-30 09:19）
 
-用户已明确恢复并要求至少持续到北京时间2026-10-30 07:00。纯算法和AI两方向持续实验/调研/case study，可训练、可保留多个trade off候选，完整保存过程。三成员分别均分再等权平均；场景、corner混合敏感性和最坏退化另报，不假定正式分布。
+最新用户要求：更新个人交接并取消每小时周期检查，将在新会话接管。本会话不再开新实验；已经启动的后台实验继续保留。**小时检查/自动排队已停止，STOP保留，不能因历史提示自行恢复。** 当前总入口 [SESSION_HANDOFF_20261030.md](SESSION_HANDOFF_20261030.md)。
 
-已实际持续超过北京时间07:00，后台实验继续。详细断点见 round4/HANDOFF.md。阶段2三成员785合法eval×11候选×5重复完成；15候选60万ASan/UBSan抽象回调通过。Stage3 challenge已恢复完成，廉价事件门控出现corner正信号：常规相对AI预取−.045、corner+.328，不能按25%人工corner比例晋升；已追加唯一代表完整三成员复测。精确动作过滤模型在纯/双collector上分别负/正，独立新留出继续；软BUILD读回先验的4个机制对照排队。原5m矩阵与新候选最大N仍执行，实际宿主PID/日志见忽略的build/round4/HOST_RESUMED.json，不重复启动。原冻结候选不变；用户现要求先阶段发布当前最好候选与README，不等待全部后台实验结束，目标source/Vanius0525。发布入口MySpillSchedulerBest.cpp，证据见CURRENT_CANDIDATE.json；后台研究继续。
+当前算法发布为d8369b0，入口MySpillSchedulerBest.cpp，原冻结两版不变。用户最新已授权只读参考两位合作者进展与算法；仅完成fetch，未读算法正文/未融合方法，断点见round5/HANDOFF.md。
 
-本地hourly_resume.py每3600秒向当前会话排队最新持续优化指令。旧build/hourly/STOP及旧日志保留；新定时器使用build/hourly-resume，非云端Scheduled，依赖宿主与服务可用。新压力矩阵宿主进程使用build/round4/stress_campaign/status.json与DONE，安全停止文件为该目录STOP；没有停止原有实验的授权变化。
+round4实验仍在运行，具体宿主PID/日志仅在忽略的build/round4/HOST_RESUMED.json；先核查，不重复启动。下面是历史持续研究记录，其中旧“恢复定时器/不读队友/尚未push”措辞均以本段及最新交接为准。
 
 ---
 

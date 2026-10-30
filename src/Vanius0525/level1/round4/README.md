@@ -47,7 +47,7 @@
 - `run_stage2_external.py`、`run_stage2_members.py`复现本批，但重跑会改变测量；已有进程运行时不要重复启动。`summarize_stage2.py`和`plot_stage2.py`只基于已有报告分析；corner重加权仅作敏感性诊断，不替换当前计分。
 - `fuzz_stage2.py`、`fuzz_miss_lookahead.py`做ASan/UBSan抽象回调安全测试。`stress_campaign.py`及`run_stage2_maximum.py`保存最大N增量结果，只有state=complete才算整矩阵完成；未完成数据不能冒充最终压力结论。
 
-小时续接已恢复为`../hourly_resume.py`，当前要求至少持续到北京时间07:00；不是云端Scheduled，依赖本地宿主与Codex服务。最近状态以[../HANDOFF.md](../HANDOFF.md)及本目录交接为准。
+小时续接现已按用户最新指令取消，STOP保留，不自动恢复；已启动实验继续执行。新会话以[../SESSION_HANDOFF_20261030.md](../SESSION_HANDOFF_20261030.md)及[../HANDOFF.md](../HANDOFF.md)接管。
 
 
 ## 分数差的来源

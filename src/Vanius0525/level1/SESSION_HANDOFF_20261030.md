@@ -1,68 +1,93 @@
-# Level 1 会话交接（2026-10-30）
+# Level 1 新会话交接（2026-10-30 09:19 北京时间）
 
-## 当前状态与停止指令（优先于历史HANDOFF）
+## 最新指令与准确状态
 
-用户要求总结交接并结束当前周期性检查。本阶段已收尾，不再启动新实验。已创建本地`build/hourly/STOP`并在宿主WSL核实原hourly_check.py进程退出；核查时无本项目benchmark/stress/train进程运行。`build/hourly/status.json`及`build/LOCAL_RUNTIME.json`标记stopped、下一次时间为空；原始日志、锁文件、输入和模型不删除。停止标记不可自行移除。
+用户将到新会话接管，要求更新个人交接并取消每小时周期检查。本会话不再启动额外实验。**小时检查及自动codex queue续接已取消，已有实验保留继续执行**，不能把取消定时器误报为所有实验都停止。
 
-`HOURLY_RESUME_PROMPT.md`已改成停止说明，后续即使收到旧小时消息，也不能据此重启。CLI queue仅暴露排队接口，没有核实/取消历史排队消息的入口，未声称清空队列；最新用户停止指令优先。恢复研究须等用户明确新指令。没有云端Scheduled任务。
+已创建 `build/hourly-resume/STOP`，`build/hourly-resume/status.json` 实测为 `stopped`、`next_check_utc=null`；旧 `build/hourly/STOP` 保留。停止标记不得自行移除。`HOURLY_RESUME_PROMPT.md` 已改为停止说明，历史排队消息不能覆盖最新停止指令。未声称清空服务端历史消息队列；本地没有新建云端Scheduled任务。恢复周期检查须用户明确授权。
 
-## 原目标与硬约束
+## Git与发布入口
 
-对Hash Join Spill调度优先提高Level 1成本表现，同时维护纯算法及AI路线。只提交继承SpillScheduler的MySpillScheduler类，Linux、g++ -std=c++14 -O2、CPU/标准库、AI权重内嵌。不修改框架，不注入完整未来/不可见Hit等隐藏信息。参考输入规模K<=8/P<=64/N<=5000000，单回调复杂度建议O(KP log(KP))。先读项目AGENTS、README、docs/AGENT_GUIDE；只操作本人目录。团队数据可补充，暂不参考其他成员算法。
+- 工作树：本仓库；分支 `source/Vanius0525`。只写 `src/Vanius0525/`，不切他人分支、不改公共框架或队友目录。
+- 当前算法已推送：`d8369b04a74b2552aa3737f2f6213d808470eab1`，远端分支SHA已核对一致。
+- 提交入口：`src/Vanius0525/level1/MySpillSchedulerBest.cpp`；只提交该文件内容，类名已为 `MySpillScheduler`，C++14标准库/CPU，无main、无需第三方运行时。
+- 该文件逐字节等于 `round4/pure_set025_io_asymmetry_routecount.cpp`，SHA256=`2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db`。成绩/审核证据及已知风险见 `CURRENT_CANDIDATE.json`。
+- 原冻结 `MySpillScheduler.cpp`、`MySpillSchedulerAI.cpp` 未覆盖，分别SHA256=`5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e`、`cb13de53288303110e6e0fb0d62198f11af15402a78d8822aac7e03ef6213621`。
+- 本次只做交接/定时取消的文档提交；后台随后产生的新结果不属于已发布算法的完成证据。新会话先 `git status`、`git log -1` 检查，不能假定工作树或旧状态文件永远最新。
 
-## 当前可提交的两种方法
+## 最新授权：可以参考合作者算法
 
-- `MySpillScheduler.cpp`：纯算法，合法部分观测历史去重、衰减热度、stride预测、等大小全对象循环确认后的快速受害者路径；普通场景只用空闲空间预取。单受害者线性选择、多受害者堆。历史不完整，不能称完整LRU/LFU或全局最优。
-- `MySpillSchedulerAI.cpp`：在同类启发式候选中最多4个对象用内嵌12×16×1小网络重排，保持循环快路径与自适应预取。离线训练来自本人train96/val32，未用团队eval拟合。
-- 两文件二选一，不一起编译；冻结指纹见`CANDIDATE_FREEZE.json`。纯SHA256=5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e；AI=cb13de53288303110e6e0fb0d62198f11af15402a78d8822aac7e03ef6213621。第二/第三阶段未晋升替代版。
+用户于本次交接前明确授权：从现在起可只读参考另外两位合作者的仓库进展与算法、学习经验并在本人分支综合优化。该指令覆盖过去“不读队友算法”的限制；**过去测量的来源声明不追溯改写**。
 
-## 最新成绩与唯一汇报口径
+已fetch来源：
 
-只报三人各自测试的每题平均分，以及三个平均分等权平均；每题满分10分。每例相对Naive贡献=clamp(10×(1−VAL/BASE),0,10)，沿用题面对BASE/VAL零值、失败的边界。VAL包含I/O+Miss罚+决策时间。先平均重复运行，再在该成员合法测试间算术平均；不使用旧分层权重、去重权重、50分换算、封顶或全体混合均分。
+| 分支 | 固定来源commit | 已知内容的证据级别 |
+|---|---|---|
+| `origin/source/cyanneko` | `5b51cf1dbe93c76b1bc9b7a0517e79a0a7ba09ae` | commit标题称发布候选状态及hot-stream机制证据；尚未阅读算法正文/核验结果 |
+| `origin/source/liunianwww` | `0c6d963a1fcc364ecdf763c638571358928bab42` | commit标题称next-operation保护与write-cost credits；尚未阅读算法正文/核验结果 |
 
-| 成员数据 | 合法测试数 | 纯算法 | AI |
-|---|---:|---:|---:|
-| Vanius0525 v0.1.0 | 209 | 3.658058 | 3.722455 |
-| cyanneko v0.6.0 | 48 | 3.429539 | 3.614183 |
-| liunianwww v0.1.0 | 528 | 2.314665 | 2.296680 |
-| 三人等权平均 | 三成员各1/3 | **3.134088** | **3.211106** |
+目前没有据此合并、复制或改写候选，也没有启动合作者对照实验。上一轮按猜测 `src/cyanneko/` / `src/liunianwww/` 筛选文件清单未命中方法目录，只看到了AGENTS；不要把它写成已经读过方法。下一会话先用 **未过滤的** `git ls-tree --name-only <commit>` / `git ls-tree -r --name-only <commit>` 找真实路径，再 `git show <commit>:<path>` 只读查看约定、说明、代码。不要切分支或整体merge两位合作者分支。新阶段断点见 `round5/HANDOFF.md`。
 
-`python mean_score.py`从原始报告只读重算，输出`CURRENT_SCORES.json`，核验候选指纹。不同批次沿用原始3/5/7次重复，不是同一时间全库重跑。团队快照固定datasets@923d21e；cyanneko40个不变SHA样例复用已有5次计时，新增8例补测5次；liunian528例3次。本人由holdout64/OOD64、fresh32/新OOD32、合法corner17组成。AI略高不能声称稳定/显著优势；liunian数据上反而略低。
+## 目标、协议与计分
 
-旧`BALANCED_RESULTS.json`与`balanced_score.py`是历史80/20分层和50分尺度，保留但不再作当前成绩。corner继续适量构造、失败和最坏成本另报，不按候选表现好坏改标签。
+沿用纯算法和AI两方向，允许训练，保留多个风险/均分/CPU取舍及完整失败轨迹；遇到问题先调研并落盘，不能因模型名头晋升。保存参考框架不改，调度器只读真实回调状态与一条next_op；普通Hit对象身份、完整未来、Miss罚值不在接口内，不能注入隐藏信息或重复计next_op。
 
-## 已完成与主要负结果
+当前口径：每案例每重复计算 `clamp(10*(1-VAL/BASE),0,10)`，VAL含I/O+Miss罚+决策时间，BASE/VAL零值按现有规则记0；再平均重复、成员内案例，最后三成员等权。不是旧50分cap、80:20混合或全部案例混合均分。corner/family/CPU-only/最坏I/O比另报，不推定正式分布。
 
-- 首轮自造新种子/OOD/团队动作审核、36次边界sanitizer、40000抽象状态/80000回调属性检查；5百万操作循环压力最终约10–11秒。边界“动作运行通过”不能等同输入全部合法，见下条纠错。
-- 发布公共输入校验发现旧end_insert缺必须SWITCH。原引擎容忍不代表符合规范；移到diagnostics，不计评测，不删除原字节。其余train192/eval209共401例通过公共校验，输入和元数据指纹、算子头升序已核验，训练/评测操作流重复0。历史含该诊断的原始报告保留并明确排除，不能照搬其全部套件分。
-- AI cold BUILD与跨算子serial存在严重退化。serial_293046中纯I/O23311.50/Miss0，AI97131.25/Miss1；确证AI驱逐新BUILD而纯驱逐旧PROBE。阶段保护可修复单例，但不能泛化。
-- `round2/pure_phase_bestfit.cpp`与`ai_protect_build_next.cpp`在新fresh32均分改变量+0.0155/+0.1500，在新OOD32为−0.1663/−0.0167，均不晋升。纯阶段版在一个alternating_sets的I/O+Miss达到旧版2.598倍；保护新BUILD会牺牲仍有价值的PROBE。四版256次独立动作审核通过；阶段版5百万压力约9.6–10.6秒。
-- 早期即时最少写出的cover最差约189倍Naive；反事实门控teacher验证约3.07低于纯4.27；尾部网络在早期压力仍造成14%退化，后由循环快速路径修复。都保留为负结果。
-- 全面复现训练采集、特征与拟合打包得到相同两份提交SHA；见TRAINING_REPRO.json。没有以预测误差替代策略收益。
+## 已完成的可复核结论
 
-## 文件、数据与版本追溯
+阶段2固定11候选，同批三成员785合法eval（本人209/cyanneko48/liunianwww528），5重复；8635次独立动作审核通过。当前发布版是该面板等权均分最高者，而非所有分布上的赢家：
 
-- 总入口README.md；研究RESEARCH.md（22项来源）；首轮RESULTS.md/VALIDATION_SUMMARY.json；第二轮round2/RESULTS.json；第三轮round3/RESULTS.json。
-- OPTIMIZATION_HISTORY.md记录优化路径、现象、技巧、长短板；VERSION_LEDGER.json索引44个测量版本，其中43个精确源码已恢复，缺早期dev-v2 scan SHA3f2f9c1003bc32fc…，不以新版冒充。version_archive保存精确字节；后续build.py编译前自动存build/source_snapshots/<SHA>.cpp。
-- 原始重复计时/动作日志保存在本地忽略目录results/；输入、权重与运行记录在build/，不随源码分支上传大产物。不删除。新seed295000/296000已曝光，后续外推不能再叫盲测。
-- 自造数据已在datasets分支发布：个人提交b131982，合并并发公共更新后远端e119c23；目录datasets/Vanius0525，v0.1.0，train192/eval209/diagnostics1，输入总77498140字节。逐例meta/manifest/生成器/VALIDATION齐全，见该分支README。
-- 本人源码工作树分支source/Vanius0525；上一完整阶段提交9e39e51。独立数据发布工作树为同级HuaweiHackathon-data-Vanius0525（detached，已推送），不要切换/覆盖其他主线和共享datasets工作树。本交接另有收尾提交，以git log为准。
+| 候选 | 本人 | cyanneko | liunianwww | 等权均分/10 |
+|---|---:|---:|---:|---:|
+| 当前Best/纯IOasym | 3.814995 | 4.176432 | 2.625153 | **3.538860** |
+| 较稳健纯all-PROBE | 3.788724 | 4.093935 | 2.555011 | 3.479223 |
+| AI预取2048 | 3.872611 | 4.108126 | 2.543420 | 3.508052 |
 
-## 待用户恢复后的下一步（当前不执行）
+- Best在fresh3比原pure低0.126835；serial301030 I/O+Miss99707.54us，原pure15185.78us，候选等于Naive。三成员已测最坏I/O+Miss/Naive比5.299，稳健版3.393。反例不剔除，详见README、STAGE3_RESULTS、SERIAL_REVERSAL_CASE。
+- 原始无phase子集版本更早出现29502倍/550倍退化，已否决；prune也曾退化20%，不称安全支配。
+- 15候选各20000抽象状态/40000回调ASan/UBSan通过，总60万回调。新callback优化4候选各160完整轨迹动作字节一致且独立重放一致；其泛化/最终安全仍待下面队列。
+- 零I/O36例的同一Naive二进制自比较能产生约0.79截断均分；两个规范化源码和机器代码区完全相同的模型，val正式分差约0.025。不能把微小计时差当方法改进，亦不能从正式分数机械扣除null均分。
+- 固定成本/next操作相同、仅接口不可见罚值不同的N83精确配对流，最优首次驱逐相反。是信息边界，不是正式分布推断或新颖性保证。
+- 廉价事件门控在challenge3 32例得2.003938，AI预取1.955736；但常规24例相对AI预取−.045038、预先标记corner8例+.327927，样例内corner权重约12.1%以下翻转。不能套此阈值到别的样例组。最新完整本人209复测：门控3.615211、原AI3.672292、AI预取3.845386，corner也没胜AI预取。另外两成员还没结束，不能先报新的等权均分。
+- callback教师首输入的periodic边界修正，在72367事件标签变化0，已排除为负结果原因。真正改为精确Action过滤恢复9309组摘要相同但动作不同的样本；val纯collector反而变差，双collector小升但CPU高。贡献流也从合并198增至211（总输入仍288），不是固定贡献集消融。具体见round4训练/alias/负对照JSON。
+- 最大N新矩阵首例（uniform/M64MiB/B1/W=R10000/对象1MiB/500万操作）7程序×3重复完成。纯预算256三次Miss均1 vs Naive4374336，逐例分8.249143、墙时17.060s vs19.793s；AI预算2048为8.234871、25.113s。强收益仅限该条件，不能替代全套件选型。
 
-1. 先看AGENTS、本文、git status及宿主进程。停止标记保持，除非用户明确重新启用自动检查；不要重启已完成实验。
-2. 根据用户目标决定是否继续。当前优先研究scan/corner/hot-smallcold以及跨算子BUILD竞争；现有phase保护已被外推否决，不能只看fresh正收益晋升。
-3. 新候选固定后，三个成员完整集合分别审核/计时，同时用新seed297000起及独立新分布验证；不要为排名在已曝光样例上硬编码。三人分开报告+等权平均，CPU与最差退化另报。
-4. 新想法先核验论文；保持框架不改、C++14。已记录预取改变未来callback信息机会的独立研究问题，见HANDOFF的Open Ideas，新颖性/真实系统适用性未证实。
-5. 完成一个阶段才commit/push本人文件到source/Vanius0525；数据变更另升级eval/VERSION到datasets，不force、不改队友算法。
+## 仍在执行的原有实验：不要重复启动
 
-## 验证命令
+私有实际PID/日志映射只在 **`build/round4/HOST_RESUMED.json`**；旧矩阵的PID/状态在 `build/round4/stress_campaign/`，其他工具会话在 `build/round4/RUNTIME.json`。这些文件不能提交或在公开文档复制聊天ID/绝对路径。PID可能已退出，需对照命令行和状态，不只信旧JSON。
 
-本次收尾仅验证停机、指纹、成绩重算和文档，不重跑算法实验：
+| 角色 | 主脚本/结果 | 本次核查状态 |
+|---|---|---|
+| 原8候选最大N矩阵 | `round4/stress_campaign.py` → `results/round4-stress-campaign.json` | 27/30输入、729/810次测量，仍未全完成 |
+| 新6候选最大N | `round4/run_stage2_maximum.py` → `results/round4-stage2-maximum.json` | 2/6输入、42/126次测量，仍未全完成 |
+| joint-LOAD稀疏回调最大N | `round4/run_joint_maximum.py` → `results/round4-jointlookahead-maximum.json` | 等待锁，0/42次；已曝光输入定向诊断，不是盲测 |
+| 精确过滤模型新分布 | 宿主 `round4/resume_validation.py callback` | val/fresh已完成，challenge尚未完成；fresh待归约 |
+| 软BUILD读回先验 | `round4/run_build_read_prior.py` | val32及4个已曝光机制例完成，待逐例分析；不是新泛化证据 |
+| 廉价门控完整三成员 | `round4/run_eventgate_members.py` | 本人209完成，cyanneko48进行中，liu528未完成 |
+| 最终输入与安全审核 | `round4/final_safety_and_inputs.py` | 等callback challenge完成后自动执行，不要额外启动重复fuzz |
 
-```sh
-python mean_score.py
-python -m py_compile mean_score.py
-sha256sum MySpillScheduler.cpp MySpillSchedulerAI.cpp
-git diff --check
-```
+上述都使用 `experiment.lock` 串行CPU实验。`state=running`可能只是上次字段停留；结合测量数、PID的wchan和子进程判断持锁者。完整状态以新会话再核查为准。
+
+原普通控制器曾SIGTERM退出（143），原因未确认；已保留旧日志，只恢复缺失suite为宿主后台控制器，未重跑已完成fresh3。现在benchmark按完成案例追加`.cases.jsonl`，新恢复challenge3的journal与最终报告逐项一致。完整或部分原始报告均拒绝覆盖；若再次中断，先保存/核验checkpoint及原始输出再设计续跑，**不要直接重启旧矩阵脚本或清空目录**。
+
+## 新会话立即执行的顺序
+
+1. 读项目AGENTS、README/指南、本文件、`HANDOFF.md`、`round4/HANDOFF.md`、`round5/HANDOFF.md`；确认分支与本地修改。最新“取消小时检查”优先于旧恢复提示；不要自动恢复daemon。
+2. 核对HOST_RESUMED/旧矩阵进程和最新报告；保留已运行任务，不重复启动，优先收已有队列。只有三成员都完整才算新等权均分；保留失败/超时/未完成项。
+3. 分析callback fresh/challenge、soft BUILD4例及门控三成员。soft先验只是假设BUILD将读回，可能伤害活跃PROBE；开发集变化很小，不能据单例恢复就晋升/扩全部弱模型。
+4. 用 `python round4/summarize_maximum.py` 归约**完整案例**（脚本目前只汇总旧/阶段2新矩阵，joint需另外加入归约）；需要两个主矩阵state=complete才报完整压力结果。不要混同60秒与90秒本地timeout设置。
+5. 只读查看两位合作者的真实文件路径及算法，固定commit/SHA并注明来源；区分作者自报与同框架动作审核/同批性能，必要时再做独立验证。不用他人的测试分数替代自己的计分口径，不读输入隐藏信息。
+6. 后续研究继续保持纯算法/AI、多候选、corner与总体取舍。源代码、文献、失败、当前进程与下一动作及时写交接；明确完成的阶段按用户约定提交个人分支，不force、不替他人提交。
+
+## 关键证据位置
+
+- `README.md` / `CURRENT_CANDIDATE.json`：当前发布入口和完整同批分数、反例。
+- `round4/README.md` / `round4/HANDOFF.md` / `round4/VERSION_LEDGER.json`：完整探索轨迹、源码/报告指纹。增量报告的SHA只是当次快照，会继续改变。
+- `round4/RESEARCH_UPDATE.md`：实际核验论文与适用边界，含GUARD/LRB/Merlin/3L-Cache、DAgger、集合表示/DeepMDP、删失反馈、Saving Private Hash Join及Landlord；未核验正文的来源有明确标记。
+- `round4/STAGE2_RESULTS.json`、`EVENTGATE_CORNER_SENSITIVITY.json`、`SCORE_GAP_DECOMPOSITION.json`、`POLICY_ALIAS_CHECK.json`、`SERIAL_REVERSAL_CASE.json`：总体/尾部/噪声/机制分析。
+- 大输入、原始重复计时、教师行/模型缓存、二进制、私有会话绑定只在忽略的`build/`、`results/`；不删除，不随源码push。
+
+## Open Ideas / 值得深挖的问题
+
+沿用主HANDOFF里的固定Open Ideas：动作改变未来观测、aggregate-hit删失、截断分数噪声、动作摘要别名与接口不可辨识的区别。当前没有经新颖性核验足以宣称独立顶会立项的新结果，不能把已有经典理论或本项目反例包装为新贡献。

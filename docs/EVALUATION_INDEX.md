@@ -25,3 +25,5 @@ R79/R80/R81 的 final24、dyna6 都是历史抽样，保持原集合与字节；
 [R84加入Van的修订](EVALUATION_VAN_FULL_20261030.md)规定原数据全量为7方法、dyna12×7+final72×7共588格；Van须核最新作者推荐入口与原字节，不追溯加进R83已冻结八方法。R83报告待归档；R84正式v2的588格及独立复核已完成，完整报告待发布，v1仅metadata预检失败，尚不列为已发布完整成绩。
 
 从R83起采用完整原数据，不追溯改写旧抽样或R82未评测DEV。每轮协议、数据/方法身份、环境、日志、逐例结果、状态/限制和external publication映射共同发布。DEV不转TRAIN，不注册为新比赛eval；已曝光动态原train也不允许据此拟合AI。默认R75不因局部均分自动替换。更早研究见 src/reports 历史目录，本结构化索引从R79起建立，不虚补未记录字段。
+
+独立附录：[与Van保存记录的交叉核对](https://github.com/cyanneko/HuaweiHackathon/blob/28fcd850291dbb3914f7ea0ddfa02494be2d74f1/src/reports/r84_20261030/van_cross_audit/cross-audit.md)。84份input身份与216条物理指标记录一致，两侧D置换可解释分差；仅保存记录复算，无新策略运行，不改冻结R84成绩。发布期间移动datasets分支已出现final_dataset 3.0（e6613435），本轮仍只代表固定2.1.0全部72 eval，不将旧分数标为3.0成绩。

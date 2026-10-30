@@ -1,0 +1,89 @@
+{
+  "split": "eval",
+  "family": "near_full_partition",
+  "business_scenario": "near_full_partition",
+  "business_scenario_description": "One partition is one byte below the shared-memory capacity.",
+  "is_edge": true,
+  "edge_reason": "Largest partition is M-1, leaving a one-byte capacity margin.",
+  "seed": 17338230206379303802,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 1,
+    "p": 8,
+    "memory": 67108864,
+    "write": 1000,
+    "read": 2000,
+    "penalty": 100,
+    "period": 64,
+    "probes": 24000,
+    "variant": 0
+  },
+  "k": 1,
+  "p": 8,
+  "memory": 67108864,
+  "write": 1000,
+  "read": 2000,
+  "penalty": 100,
+  "period": 64,
+  "operations": 24123,
+  "counts": [
+    [
+      122,
+      24000
+    ]
+  ],
+  "build_bytes": 82837503,
+  "partition_sizes": [
+    0,
+    2097152,
+    0,
+    67108863,
+    8388608,
+    0,
+    4194304,
+    1048576
+  ],
+  "logical_partition_bytes": [
+    [
+      67108863,
+      8388608,
+      4194304,
+      2097152,
+      1048576,
+      0,
+      0,
+      0
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      3,
+      4,
+      6,
+      1,
+      7,
+      2,
+      0,
+      5
+    ]
+  ],
+  "sha256": "0cc52a609bfbef41b61f01492900fc869d8f593e6e59a327f63d399936f64a92",
+  "operation_stream_sha256": "37692613819ff9867819049986cb7c5f2b2087881bd61153806b38305019a59a",
+  "canonical_partition_stream_sha256": "f7ffe76a5dac2603d3a5498f628e397fbc8b6e55ecace103248eddaab9c91b96",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "file": "eval_044_near_full_partition.txt",
+  "metadata_file": "eval_044_near_full_partition.meta.json"
+}

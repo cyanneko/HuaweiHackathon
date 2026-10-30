@@ -1,0 +1,121 @@
+{
+  "split": "eval",
+  "family": "heterogeneous_partitions",
+  "business_scenario": "heterogeneous_partitions",
+  "business_scenario_description": "Small frequently reused partitions compete with larger colder partitions.",
+  "is_edge": false,
+  "edge_reason": null,
+  "seed": 13697550730375677290,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 2,
+    "p": 8,
+    "memory": 67108864,
+    "write": 200,
+    "read": 1000,
+    "penalty": 10,
+    "period": 8,
+    "probes": 20000,
+    "variant": 0
+  },
+  "k": 2,
+  "p": 8,
+  "memory": 67108864,
+  "write": 200,
+  "read": 1000,
+  "penalty": 10,
+  "period": 8,
+  "operations": 20111,
+  "counts": [
+    [
+      65,
+      6617
+    ],
+    [
+      44,
+      13383
+    ]
+  ],
+  "build_bytes": 73819751,
+  "partition_sizes": [
+    696412,
+    2089238,
+    9053365,
+    696412,
+    2089238,
+    696412,
+    27160106,
+    696412,
+    2785650,
+    1392825,
+    1392825,
+    1392825,
+    11142603,
+    1392825,
+    6964127,
+    4178476
+  ],
+  "logical_partition_bytes": [
+    [
+      27160106,
+      696412,
+      2089238,
+      696412,
+      696412,
+      2089238,
+      696412,
+      9053365
+    ],
+    [
+      1392825,
+      6964127,
+      2785650,
+      1392825,
+      11142603,
+      1392825,
+      4178476,
+      1392825
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      6,
+      5,
+      1,
+      3,
+      0,
+      4,
+      7,
+      2
+    ],
+    [
+      3,
+      6,
+      0,
+      5,
+      4,
+      2,
+      7,
+      1
+    ]
+  ],
+  "sha256": "d4bd36989df9f4c87bba4af3c0b022247e2f72f56d840bddcb6a90468f13a2ea",
+  "operation_stream_sha256": "4106d22ca6821ee674a46b9c28326234b29308385dde2c7846433724ef4813fd",
+  "canonical_partition_stream_sha256": "a833ba894468936af79554618ca8fa7417c94f33bd990b24c9f8a1de5909f903",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "file": "eval_036_heterogeneous_partitions.txt",
+  "metadata_file": "eval_036_heterogeneous_partitions.meta.json"
+}

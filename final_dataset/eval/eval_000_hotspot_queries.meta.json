@@ -1,0 +1,89 @@
+{
+  "split": "eval",
+  "family": "hotspot_queries",
+  "business_scenario": "hotspot_queries",
+  "business_scenario_description": "Repeated joins against popular customer/product keys with a cold-query tail.",
+  "is_edge": false,
+  "edge_reason": null,
+  "seed": 9863095092579256721,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 1,
+    "p": 8,
+    "memory": 67108864,
+    "write": 200,
+    "read": 1000,
+    "penalty": 10,
+    "period": 8,
+    "probes": 20000,
+    "variant": 0
+  },
+  "k": 1,
+  "p": 8,
+  "memory": 67108864,
+  "write": 200,
+  "read": 1000,
+  "penalty": 10,
+  "period": 8,
+  "operations": 20111,
+  "counts": [
+    [
+      110,
+      20000
+    ]
+  ],
+  "build_bytes": 73819751,
+  "partition_sizes": [
+    32808781,
+    1367032,
+    17771421,
+    2734064,
+    4101097,
+    4101097,
+    6835162,
+    4101097
+  ],
+  "logical_partition_bytes": [
+    [
+      32808781,
+      4101097,
+      2734064,
+      4101097,
+      6835162,
+      17771421,
+      4101097,
+      1367032
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      0,
+      7,
+      3,
+      5,
+      6,
+      2,
+      4,
+      1
+    ]
+  ],
+  "sha256": "86c43097fab4f667b9900e11593269b2261b287b4beefd05107bad7e1e460e2d",
+  "operation_stream_sha256": "4e0f776f5f934eb02698fbac687f16162448d0db02415e1abe46ea676bc9a29e",
+  "canonical_partition_stream_sha256": "858af29c07098229856baddccf0ac16edd60168a7d48121738a3916c0e9efd3c",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "file": "eval_000_hotspot_queries.txt",
+  "metadata_file": "eval_000_hotspot_queries.meta.json"
+}

@@ -1,0 +1,89 @@
+{
+  "split": "eval",
+  "family": "moving_hotspot",
+  "business_scenario": "moving_hotspot",
+  "business_scenario_description": "The active customer/product cohort changes during a long query stream.",
+  "is_edge": false,
+  "edge_reason": null,
+  "seed": 6653608073712398470,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 1,
+    "p": 8,
+    "memory": 67108864,
+    "write": 200,
+    "read": 1000,
+    "penalty": 10,
+    "period": 8,
+    "probes": 20000,
+    "variant": 0
+  },
+  "k": 1,
+  "p": 8,
+  "memory": 67108864,
+  "write": 200,
+  "read": 1000,
+  "penalty": 10,
+  "period": 8,
+  "operations": 20111,
+  "counts": [
+    [
+      110,
+      20000
+    ]
+  ],
+  "build_bytes": 73819751,
+  "partition_sizes": [
+    25936669,
+    3990256,
+    1995128,
+    15961027,
+    15961027,
+    1995128,
+    5985388,
+    1995128
+  ],
+  "logical_partition_bytes": [
+    [
+      5985388,
+      1995128,
+      25936669,
+      15961027,
+      1995128,
+      1995128,
+      15961027,
+      3990256
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      6,
+      5,
+      0,
+      4,
+      2,
+      7,
+      3,
+      1
+    ]
+  ],
+  "sha256": "1e6c68ee2fdc6941cb89e9a93f75ad773ae38c3b38d560c18dc541e65697bd90",
+  "operation_stream_sha256": "f652e508adc4c64cffe28d639a7059d8ab1348a41a98dbc844255026cb6ba403",
+  "canonical_partition_stream_sha256": "a3c24384305ff07a86c411498ab3654cfeb60b56711264a9ff141869e8ee22dc",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "file": "eval_018_moving_hotspot.txt",
+  "metadata_file": "eval_018_moving_hotspot.meta.json"
+}

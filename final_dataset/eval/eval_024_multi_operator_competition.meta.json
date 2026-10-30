@@ -1,0 +1,121 @@
+{
+  "split": "eval",
+  "family": "multi_operator_competition",
+  "business_scenario": "multi_operator_competition",
+  "business_scenario_description": "Concurrent joins take turns dominating shared-memory demand.",
+  "is_edge": false,
+  "edge_reason": null,
+  "seed": 7463844683896295050,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 2,
+    "p": 8,
+    "memory": 67108864,
+    "write": 200,
+    "read": 1000,
+    "penalty": 10,
+    "period": 8,
+    "probes": 20000,
+    "variant": 0
+  },
+  "k": 2,
+  "p": 8,
+  "memory": 67108864,
+  "write": 200,
+  "read": 1000,
+  "penalty": 10,
+  "period": 8,
+  "operations": 20116,
+  "counts": [
+    [
+      82,
+      9978
+    ],
+    [
+      32,
+      10022
+    ]
+  ],
+  "build_bytes": 73819751,
+  "partition_sizes": [
+    16283776,
+    2171169,
+    1085584,
+    8684676,
+    14112599,
+    5427922,
+    2171169,
+    5427922,
+    1085584,
+    1085584,
+    1085584,
+    1085584,
+    2171169,
+    2171169,
+    8684676,
+    1085584
+  ],
+  "logical_partition_bytes": [
+    [
+      16283776,
+      5427922,
+      1085584,
+      8684676,
+      2171169,
+      5427922,
+      2171169,
+      14112599
+    ],
+    [
+      1085584,
+      2171169,
+      1085584,
+      8684676,
+      2171169,
+      1085584,
+      1085584,
+      1085584
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      0,
+      5,
+      2,
+      3,
+      6,
+      7,
+      1,
+      4
+    ],
+    [
+      3,
+      5,
+      2,
+      6,
+      4,
+      0,
+      1,
+      7
+    ]
+  ],
+  "sha256": "faee52d4bb3dc9e2de3076b018c77f6abe290b7396342a5b60acea9979e969a5",
+  "operation_stream_sha256": "b6c393c7faeb8a410fd792b0f5f5a69810b4beb844c8d121436fb33a6d79e34d",
+  "canonical_partition_stream_sha256": "9f97db7984aed3de55b4fbfd44742d78c593541fc9cbad15751350f0d76d0f21",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "file": "eval_024_multi_operator_competition.txt",
+  "metadata_file": "eval_024_multi_operator_competition.meta.json"
+}

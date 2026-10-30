@@ -1,0 +1,89 @@
+{
+  "split": "eval",
+  "family": "callback_alias",
+  "business_scenario": "callback_alias",
+  "business_scenario_description": "A rare secondary demand correlates with the periodic callback interval.",
+  "is_edge": true,
+  "edge_reason": "B=64 and rare demand is aligned to the absolute non-SWITCH operation clock.",
+  "seed": 4452150525603736869,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 1,
+    "p": 8,
+    "memory": 67108864,
+    "write": 1000,
+    "read": 2000,
+    "penalty": 100,
+    "period": 64,
+    "probes": 24000,
+    "variant": 0
+  },
+  "k": 1,
+  "p": 8,
+  "memory": 67108864,
+  "write": 1000,
+  "read": 2000,
+  "penalty": 100,
+  "period": 64,
+  "operations": 24142,
+  "counts": [
+    [
+      141,
+      24000
+    ]
+  ],
+  "build_bytes": 109051904,
+  "partition_sizes": [
+    4194304,
+    16777216,
+    41943040,
+    8388608,
+    1048576,
+    2097152,
+    1048576,
+    33554432
+  ],
+  "logical_partition_bytes": [
+    [
+      33554432,
+      41943040,
+      16777216,
+      8388608,
+      4194304,
+      2097152,
+      1048576,
+      1048576
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      7,
+      2,
+      1,
+      3,
+      0,
+      5,
+      6,
+      4
+    ]
+  ],
+  "sha256": "7a6776cb50ab51951172a4adf7b335fed781ae3cea7f0dd31d746033e4d04656",
+  "operation_stream_sha256": "fbfa843fe0a0529ab65c8751475bf35f147717f70049266972388067c15f0352",
+  "canonical_partition_stream_sha256": "18f285175cbb65326770c0df391f9efd30003d2b8049069d18c0e25c9e5ea7fa",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "file": "eval_047_callback_alias.txt",
+  "metadata_file": "eval_047_callback_alias.meta.json"
+}

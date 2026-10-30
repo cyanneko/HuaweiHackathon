@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "case_id": "train_189_cyanneko_phase_overlap",
+  "split": "train",
+  "family": "phase_overlap",
+  "business_scenario": "heterogeneous_partitions",
+  "is_edge": true,
+  "edge_reason": [
+    "read/write bandwidth ratio >= 1000"
+  ],
+  "source_member": "cyanneko",
+  "source_path": "datasets/cyanneko/train/coverage_13.txt",
+  "source_revision": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "source_sha256": "9ee9c19ae3f13f4a4b1a25acced6f6edcfa4fb2331def9bd187f76c69943ed35",
+  "source_metadata_sha256": "60b847cb53023ded39f2c0ccfde191cabf9b42d75ef2084bb3c163655f278165",
+  "original_metadata": {
+    "scenario": "phase_overlap",
+    "seed": 2043117800,
+    "k": 4,
+    "p": 16,
+    "memory": 67108864,
+    "pressure": 2.5,
+    "actual_build_bytes": 167772160,
+    "max_partition_bytes": 67108864,
+    "operations": 1283,
+    "per_operator_counts": [
+      [
+        33,
+        256
+      ],
+      [
+        51,
+        256
+      ],
+      [
+        134,
+        256
+      ],
+      [
+        37,
+        256
+      ]
+    ],
+    "partition_sizes": [
+      10078531,
+      80208,
+      319069,
+      13663,
+      433522,
+      1614948,
+      413819,
+      87220,
+      85415,
+      78023,
+      945769,
+      2519634,
+      464952,
+      132315,
+      514311,
+      138,
+      25509881,
+      404207,
+      1160633,
+      132816,
+      81115,
+      86142,
+      171592,
+      108166,
+      419517,
+      317097,
+      936296,
+      182208,
+      235703,
+      43230,
+      957789,
+      433,
+      67108864,
+      168709,
+      202529,
+      150573,
+      4474671,
+      921682,
+      2056303,
+      19260799,
+      37978,
+      2909822,
+      255181,
+      321709,
+      597329,
+      37642,
+      100588,
+      182,
+      10507216,
+      123715,
+      73338,
+      44175,
+      2626805,
+      2418906,
+      121306,
+      47926,
+      126355,
+      1353983,
+      864484,
+      1820085,
+      371311,
+      125754,
+      13740,
+      138
+    ],
+    "probes": 256,
+    "period": 10000,
+    "write": 10000,
+    "read": 1,
+    "penalty": 1000,
+    "generator_source": {
+      "implementation": "Independently authored Python standard-library generator; upstream programs were not executed.",
+      "inspiration": [
+        {
+          "project": "YCSB",
+          "url": "https://github.com/brianfrankcooper/YCSB",
+          "ideas": "Zipf, scrambled key ranks, hotspot and latest-style locality concepts."
+        },
+        {
+          "project": "JSON Wisconsin Data Generator",
+          "url": "https://github.com/shivajah/JSON-Wisconsin-Data-Generator",
+          "ideas": "Independent adaptation of configurable distribution and Bernoulli mixture ideas."
+        }
+      ],
+      "mapping": "Official fixed mapping pid = key % P; keys are never hashed by the simulator.",
+      "size_models": "Bernoulli mixture, lognormal and gamma are independent local implementations. Tuple draws are clipped to [1024, 1048576]; final residuals may be smaller."
+    },
+    "partition_shape": "lognormal_skew",
+    "distribution": "One operator probes while other operators continue building; Zipf partition accesses. Partition byte budgets use lognormal sigma=1.6 weights, with an amplified maximum and suppressed minimum per operator; all partitions are positive and capped at M.",
+    "partition_order": [
+      [
+        14,
+        10,
+        2,
+        6,
+        15,
+        7,
+        1,
+        4,
+        12,
+        3,
+        5,
+        8,
+        11,
+        9,
+        0,
+        13
+      ],
+      [
+        12,
+        7,
+        11,
+        9,
+        8,
+        13,
+        0,
+        5,
+        14,
+        15,
+        2,
+        1,
+        6,
+        4,
+        10,
+        3
+      ],
+      [
+        5,
+        7,
+        11,
+        2,
+        1,
+        4,
+        8,
+        13,
+        14,
+        12,
+        10,
+        6,
+        9,
+        0,
+        3,
+        15
+      ],
+      [
+        13,
+        14,
+        8,
+        5,
+        4,
+        10,
+        6,
+        2,
+        12,
+        15,
+        3,
+        1,
+        11,
+        0,
+        7,
+        9
+      ]
+    ],
+    "bernoulli_large_classes": null,
+    "tuple_size_model": "uniform integer 512 KiB..1 MiB"
+  },
+  "historical_development_exposure": true,
+  "seed": 2043117800,
+  "partition_stream_sha256": "7582285541e2bfa1d6eada8549df3aa7372cad76085951114ad30303895f7d5e",
+  "k": 4,
+  "p": 16,
+  "memory": 67108864,
+  "write": 10000.0,
+  "read": 1.0,
+  "penalty": 1000,
+  "period": 10000,
+  "operations": 1283,
+  "per_operator_counts": [
+    [
+      33,
+      256
+    ],
+    [
+      51,
+      256
+    ],
+    [
+      134,
+      256
+    ],
+    [
+      37,
+      256
+    ]
+  ],
+  "build_bytes": 167772160,
+  "sha256": "9ee9c19ae3f13f4a4b1a25acced6f6edcfa4fb2331def9bd187f76c69943ed35",
+  "operation_stream_sha256": "5796117488fd207086048049cacaa89982ee885288eb505809b3f664456b9e8b"
+}

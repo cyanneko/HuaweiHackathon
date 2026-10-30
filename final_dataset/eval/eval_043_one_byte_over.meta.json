@@ -1,0 +1,90 @@
+{
+  "split": "eval",
+  "family": "one_byte_over",
+  "business_scenario": "one_byte_over",
+  "business_scenario_description": "A two-partition active working set exceeds shared memory by exactly one byte.",
+  "is_edge": true,
+  "edge_reason": "The active pair totals M+1 exactly; each individual partition remains <=M.",
+  "seed": 6755166464828228425,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 1,
+    "p": 8,
+    "memory": 67108864,
+    "write": 1000,
+    "read": 2000,
+    "penalty": 100,
+    "period": 64,
+    "probes": 24000,
+    "variant": 0
+  },
+  "k": 1,
+  "p": 8,
+  "memory": 67108864,
+  "write": 1000,
+  "read": 2000,
+  "penalty": 100,
+  "period": 64,
+  "operations": 24137,
+  "counts": [
+    [
+      136,
+      24000
+    ]
+  ],
+  "build_bytes": 100663297,
+  "partition_sizes": [
+    0,
+    33554433,
+    8388608,
+    0,
+    8388608,
+    16777216,
+    0,
+    33554432
+  ],
+  "logical_partition_bytes": [
+    [
+      33554432,
+      33554433,
+      16777216,
+      8388608,
+      8388608,
+      0,
+      0,
+      0
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      7,
+      1,
+      5,
+      4,
+      2,
+      3,
+      0,
+      6
+    ]
+  ],
+  "sha256": "1886dc82c65e46ef3d85e3d9d20e6f7457726ae66b9e3a542bb50ac07239fd75",
+  "operation_stream_sha256": "4f04350045906ed9d82e0382c8cf0332de32f6e49770981c59b80c74089e71e3",
+  "canonical_partition_stream_sha256": "7d645e6903b569f4c90dc8addacddbaf9b51eab8a19fb70958d0affdf24aabd6",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "active_pair_bytes": 67108865,
+  "file": "eval_043_one_byte_over.txt",
+  "metadata_file": "eval_043_one_byte_over.meta.json"
+}

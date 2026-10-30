@@ -1,0 +1,89 @@
+{
+  "split": "eval",
+  "family": "scan_hot_mix",
+  "business_scenario": "scan_hot_mix",
+  "business_scenario_description": "Batch fact-table scans share memory with recurring interactive hot-key joins.",
+  "is_edge": false,
+  "edge_reason": null,
+  "seed": 13424171886536923659,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 1,
+    "p": 8,
+    "memory": 67108864,
+    "write": 200,
+    "read": 1000,
+    "penalty": 10,
+    "period": 8,
+    "probes": 20000,
+    "variant": 0
+  },
+  "k": 1,
+  "p": 8,
+  "memory": 67108864,
+  "write": 200,
+  "read": 1000,
+  "penalty": 10,
+  "period": 8,
+  "operations": 20102,
+  "counts": [
+    [
+      101,
+      20000
+    ]
+  ],
+  "build_bytes": 73819751,
+  "partition_sizes": [
+    2545508,
+    5091017,
+    2545508,
+    20364069,
+    2545508,
+    22909581,
+    5091017,
+    12727543
+  ],
+  "logical_partition_bytes": [
+    [
+      22909581,
+      5091017,
+      2545508,
+      12727543,
+      2545508,
+      20364069,
+      2545508,
+      5091017
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      5,
+      1,
+      4,
+      7,
+      2,
+      3,
+      0,
+      6
+    ]
+  ],
+  "sha256": "46699f0e7eaa23870db629efead44941344bef0ed339bc88919498222263df67",
+  "operation_stream_sha256": "996ec548a59b9e4a9bc9320daa61d4937cc4b7ab9cb858c2a619072c011abd9d",
+  "canonical_partition_stream_sha256": "c6bc80fd66561841002403ce5ea8a9ef3ee23709121bf31e7980867e82491fc7",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "file": "eval_012_scan_hot_mix.txt",
+  "metadata_file": "eval_012_scan_hot_mix.meta.json"
+}

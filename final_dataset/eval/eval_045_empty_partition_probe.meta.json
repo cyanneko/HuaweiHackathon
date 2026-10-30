@@ -1,0 +1,89 @@
+{
+  "split": "eval",
+  "family": "empty_partition_probe",
+  "business_scenario": "empty_partition_probe",
+  "business_scenario_description": "Queries include keys mapping to empty build-side partitions.",
+  "is_edge": true,
+  "edge_reason": "Explicitly includes zero-byte partitions and probes to them.",
+  "seed": 4399435737277558082,
+  "generator_source": "final_dataset/tools/generate_eval.py",
+  "generator_sha256": "cc37c05d144c66f04da8bade71934ed0cdff7444c6ef38d0e755edfd027c4962",
+  "provenance_inspirations": {
+    "cyanneko": "Mixed workloads, long reuse distances, size/rate heterogeneity and capacity controls.",
+    "liunianwww": "Diverse training scenarios: hot/cold partitions, scans and build/probe competition.",
+    "Vanius0525": "Separate seeds and explicit boundary/period-alias diagnostics."
+  },
+  "synthetic_business_assumptions": true,
+  "actual_production_trace": false,
+  "official_distribution_claim": false,
+  "solver_or_score_input": false,
+  "source_commit": "750618cead2d8f9d815a47fd8217fdab23d786dd",
+  "parameters": {
+    "k": 1,
+    "p": 8,
+    "memory": 67108864,
+    "write": 1000,
+    "read": 2000,
+    "penalty": 100,
+    "period": 64,
+    "probes": 24000,
+    "variant": 0
+  },
+  "k": 1,
+  "p": 8,
+  "memory": 67108864,
+  "write": 1000,
+  "read": 2000,
+  "penalty": 100,
+  "period": 64,
+  "operations": 24110,
+  "counts": [
+    [
+      109,
+      24000
+    ]
+  ],
+  "build_bytes": 79691776,
+  "partition_sizes": [
+    0,
+    33554432,
+    25165824,
+    4194304,
+    0,
+    0,
+    0,
+    16777216
+  ],
+  "logical_partition_bytes": [
+    [
+      33554432,
+      25165824,
+      16777216,
+      4194304,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "logical_to_physical_pid": [
+    [
+      1,
+      2,
+      7,
+      3,
+      4,
+      6,
+      0,
+      5
+    ]
+  ],
+  "sha256": "133a9fc4cdeb0b8f26985d2b0e59d19e0fca3cdbbc68ad13301e841f206e2361",
+  "operation_stream_sha256": "bd4ed9f2f141d00c96bd91295e74aa64ae3b6931ba0ed4b94f6312ff11e8f33c",
+  "canonical_partition_stream_sha256": "bc404a61b15d1f9386b774b183b70b5f5fc9423370bfce9c64ca95ac969b1bb2",
+  "independent_of_earlier_input_bytes": true,
+  "unseen_family_claim": false,
+  "exposure": "Newly generated, no solver measurements used during construction; public after release.",
+  "file": "eval_045_empty_partition_probe.txt",
+  "metadata_file": "eval_045_empty_partition_probe.meta.json"
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "mode": "OFFLINE_ONLY",
+  "cases": [
+    {
+      "case_id": "scale_uniform_n1002052_p3p0",
+      "input": "${WORKSPACE}\\tmp\\r69_scale_inputs\\data\\dev\\scale_uniform_n1002052_p3p0.txt",
+      "input_sha256": "a6e0f247790454f1bf7c1178f4bb8d970963e3d018452fd5f64e1850b046eb92",
+      "N": 1002052,
+      "metadata": "${WORKSPACE}\\tmp\\r69_scale_inputs\\data\\dev\\scale_uniform_n1002052_p3p0.verified.json",
+      "metadata_sha256": "d55e0e600c362c36464f3136c05cbf225fae663c9ffa82697ae35f0d917acd47",
+      "bound_report": "${WORKSPACE}\\tmp\\r69_root_bounds\\scale_uniform.json",
+      "bound_report_sha256": "6130e1eebddec680a0ca3f36ba947ac6e5958c28ed90f0bd80f40e10a8e2ecbc",
+      "lower_bound_G": 1052702133201600,
+      "objective_G_denominator": 100000,
+      "purpose": "new_seed_same_family_offline_development_benchmark_not_NN_training"
+    },
+    {
+      "case_id": "scale_skewed_n1002052_p3p0",
+      "input": "${WORKSPACE}\\tmp\\r69_scale_inputs\\data\\dev\\scale_skewed_n1002052_p3p0.txt",
+      "input_sha256": "15ac26a51af98537b60bb0f60492ace80c6c6f868de77b3d86572fbd3abf137a",
+      "N": 1002052,
+      "metadata": "${WORKSPACE}\\tmp\\r69_scale_inputs\\data\\dev\\scale_skewed_n1002052_p3p0.verified.json",
+      "metadata_sha256": "b3c955bb1e9a135ecf2b24616486220a0cca612d15fee0e7a23ff6d232b54528",
+      "bound_report": "${WORKSPACE}\\tmp\\r69_root_bounds\\scale_skewed.json",
+      "bound_report_sha256": "0fd7f25ac4fb9440055db5dc5f1888ceac2cb0ad328c48b8f549dfe3dde2b301",
+      "lower_bound_G": 14573093056233800,
+      "objective_G_denominator": 100000,
+      "purpose": "new_seed_same_family_offline_development_benchmark_not_NN_training"
+    }
+  ],
+  "case_outer_seconds": 300,
+  "total_batch_seconds": 580,
+  "methods": [
+    "fif_greedy",
+    "cost_aware_greedy",
+    "size_time_single_first"
+  ],
+  "baselines": [
+    "actual_naive",
+    "actual_r65"
+  ],
+  "sources": {
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\run_scale.py": "f406820c15ea0885951384ba7116286994cc5d258a64f70ad6bb224603c6dcfa",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\compact_harness.py": "e0317eb771d576de6a647bea8009de1bc853ff5c7ba609dc7d39dab2b0679c50",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\framework\\manifest.json": "6e8fa1d160ed501bb62bb2a5bf8872705e82ae3ef800f26a320f53dcb042d2df",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\validation\\calibration.json": "33142221bf9e46fde4f4181ec7a59543b9d3e160d50bd5e4dc4fb3f4f1d0e035",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round67_offline_quality\\future_rollouts.py": "64efb86f273091327cd79461dd4913da938d52faed4a0f16c98b6378f47c0d7e",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round67_offline_quality\\baselines.py": "c5a4e5098be5b2d5b1e2939fac1f30bf02974905bd52a5155c1c8cf40f44360d",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round66_offline_oracle\\core.py": "e26b3bf6ca1aeb6841cd295023d1fcf218bfb56625738c8ca6080bb8ab6d5637",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\batch2_million\\run_million.py": "61cab7d0b0f968832ffbaf5be1a1574233fed0ef48a3269d2432d55a2db63f7c",
+    "tmp\\r69m\\run.py": "4bed7b62ca90530c2884fb9bb0ef5af78c07b274ad455199b4e9483fef7a8d76"
+  },
+  "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+  "binary_sha256": "dd15bd096086faa37c774694621a97056384fae53ca02bb52fdd27d68e87bf77",
+  "formal_D": null,
+  "no_old_source_modification": true,
+  "verification": "compact aggregate/public/actions plus EOF/legality; no large per-partition fullstate log",
+  "memory_scope": "measured Windows Python peak working set only; native WSL peak not included",
+  "batch": "million_short_output_retry",
+  "reuses_original_R69_worker_without_modification": true,
+  "source_generation_manifest_sha256": "794dd3c95c71450b15360bc59aa499be25f6c67df37358c15643659b822adc0e",
+  "original_failed_config_sha256": "60b98cc08c9f92b7f29e0f7dda6bbfd05aa31ed63936f73b3fb694da75f62986",
+  "original_attempt_wall_seconds": 18.975094399997033,
+  "case_remaining_seconds": {
+    "scale_uniform_n1002052_p3p0": 280,
+    "scale_skewed_n1002052_p3p0": 300
+  },
+  "reuse_verified_baselines": [
+    {
+      "input_sha256": "a6e0f247790454f1bf7c1178f4bb8d970963e3d018452fd5f64e1850b046eb92",
+      "mode": "actual_naive",
+      "report_path": "${WORKSPACE}\\hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\batch2_million\\runs\\scale_uniform_n1002052_p3p0\\actual_naive\\report.json",
+      "report_sha256": "97b114b26447f4aafca62d211e0cf5bc795ea53327f058dae907e80b89f9830b",
+      "witness_path": "${WORKSPACE}\\hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\batch2_million\\runs\\scale_uniform_n1002052_p3p0\\actual_naive\\witness.json",
+      "witness_raw_sha256": "2c5479a0c4a97517336efee1a9a7d9335cfaeaadec689562240beafa0c08bf1e",
+      "witness_hash": "2c5479a0c4a97517336efee1a9a7d9335cfaeaadec689562240beafa0c08bf1e"
+    }
+  ],
+  "no_algorithm_or_native_binary_change": true,
+  "path_check": {
+    "old_temp_path_chars": 264,
+    "new_temp_path_chars": 192,
+    "exact_short_archive_write_read_passed": true
+  }
+}

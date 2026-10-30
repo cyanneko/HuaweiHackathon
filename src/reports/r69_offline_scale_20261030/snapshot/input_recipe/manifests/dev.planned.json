@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "planned_not_generated",
+  "split": "dev",
+  "config_sha256": "239be172eaa46ad74c7f91558c518c157ea800de76c6116c77eb2fd98a652aac",
+  "usage": "deployment_evaluation_only_no_python_beam",
+  "common": {
+    "operators": 4,
+    "partitions": 16,
+    "memory": 67108864,
+    "period": 1000,
+    "write": 1000,
+    "read": 100,
+    "penalty": 100
+  },
+  "cases": [
+    {
+      "id": "dev_uniform_n262052_p1p5",
+      "split": "dev",
+      "scenario": "uniform",
+      "seed": 910300201,
+      "builds": 512,
+      "probes": 65000,
+      "pressure": 1.5,
+      "expected_N": 262052
+    },
+    {
+      "id": "dev_hotset_n262052_p3p0",
+      "split": "dev",
+      "scenario": "hotset",
+      "seed": 910300202,
+      "builds": 512,
+      "probes": 65000,
+      "pressure": 3.0,
+      "expected_N": 262052
+    }
+  ],
+  "expected_total_N": 524104
+}

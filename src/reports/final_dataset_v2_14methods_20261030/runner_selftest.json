@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "runner_sha256": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+  "checks": [
+    "valid five metrics",
+    "duplicates rejected",
+    "cost mismatch rejected",
+    "probe counts rejected",
+    "timeout kills process group"
+  ],
+  "timeout_result": {
+    "command": [
+      "/usr/bin/python3",
+      "-c",
+      "import subprocess,sys,time; subprocess.Popen([sys.executable,\"-c\",\"import time;time.sleep(20)\"]);time.sleep(20)"
+    ],
+    "status": "TIMEOUT",
+    "returncode": -9,
+    "wall_seconds": 0.20208888699999505,
+    "timeout_seconds": 0.2,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

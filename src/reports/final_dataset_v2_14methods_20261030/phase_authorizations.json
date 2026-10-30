@@ -1,0 +1,63 @@
+[
+  {
+    "phase": "prepare_initial",
+    "lease": "final50_prepare_lease_1793332727.json",
+    "lease_sha256": "bfaedc5bd248a06c23684f3a1e2a329cd3a3066aada640c3b1438d6d913ba8fd",
+    "runner_sha256": "ed588c2bc1d1f3cf475b47e6b9694da1c16eb0d91a3f6747c49a7b6cb108bce6",
+    "allowed_phases": [
+      "prepare"
+    ],
+    "result": "passed, original full input audit"
+  },
+  {
+    "phase": "build_initial",
+    "lease": "final50_build_lease_1793332982.json",
+    "lease_sha256": "a06a242679e524d807583cd4e1ddfc55367392fc4cfab41164772cb1ebcb9323",
+    "runner_sha256": "ed588c2bc1d1f3cf475b47e6b9694da1c16eb0d91a3f6747c49a7b6cb108bce6",
+    "allowed_phases": [
+      "build"
+    ],
+    "result": "failed before formal; transient cache missing"
+  },
+  {
+    "phase": "prepare_home",
+    "lease": "final50_prepare_lease_1793334310.json",
+    "lease_sha256": "2d452e1838dd76330100ef638eae7bd15513523fe7779cacab003a3092e7c435",
+    "runner_sha256": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+    "allowed_phases": [
+      "prepare"
+    ],
+    "result": "passed, SHA-verified persistent restaging"
+  },
+  {
+    "phase": "build_home",
+    "lease": "final50_prepare_build_root_1793334383.json",
+    "lease_sha256": "2d722f4a7b88e437b2ca7515aa4b7174138fd5e6f303d4e15d70032bc5377a8a",
+    "runner_sha256": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+    "allowed_phases": [
+      "prepare",
+      "build"
+    ],
+    "result": "passed, independent cache persistence and 14 builds/smokes"
+  },
+  {
+    "phase": "formal_window1",
+    "lease": "final50_formal_lease_1793334767.json",
+    "lease_sha256": "88b2bbab80a1a8944193ab66039c453793932146e97f4998f145d5ff0eac05a0",
+    "runner_sha256": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+    "allowed_phases": [
+      "formal"
+    ],
+    "result": "509/700 valid; remainder191, exit0, preserved all successes"
+  },
+  {
+    "phase": "formal_window2",
+    "lease": "final50_formal_lease_1793335208.json",
+    "lease_sha256": "a6446aa270164b6d4427e6eee7f73eeb3716eaed44798d4519ae8d382bc00de1",
+    "runner_sha256": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+    "allowed_phases": [
+      "formal"
+    ],
+    "result": "700/700 valid;191 newly measured,509 reused;exit0"
+  }
+]

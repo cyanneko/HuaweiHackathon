@@ -1,0 +1,214 @@
+{
+  "scope": "R69_million_two_fixed_offline_development_benchmarks",
+  "config_sha256": "67acb05169cd1b568db8eba1e9bf00e692c11cae6ce2a0516c484d01d4f7fdb8",
+  "cases": [
+    {
+      "case": "scale_uniform_n1002052_p3p0",
+      "status": "completed",
+      "baselines": {
+        "actual_naive": 23645962117.972,
+        "actual_r65": 23069099949.028
+      },
+      "best_G_decimal": "1240830674836200",
+      "best_cost": 12408306748.362,
+      "best_method": "cost_aware_greedy",
+      "replay_verified": true,
+      "gain_vs_strongest_pct": 46.21243665431856,
+      "worker_seconds": 93.33025530000305,
+      "parse_seconds": 0.520838399999775,
+      "baseline_total_seconds": 18.933989900004235,
+      "index_seconds": 0.13481890000548447,
+      "certificate": {
+        "lower_G": 1052702133201600,
+        "upper_G": 1240830674836200,
+        "relative_gap_to_OPT_upper_bound": 0.1787101362305039,
+        "maximum_remaining_reduction": 0.1516149990887633,
+        "scope": "physical IO+miss, no D, lower bound may be loose"
+      },
+      "memory_final": {
+        "measured": true,
+        "python_peak_working_set_bytes": 340975616,
+        "python_working_set_bytes": 240214016,
+        "includes_native_WSL_memory": false
+      },
+      "strategies": [
+        {
+          "method": "fif_greedy",
+          "cost": {
+            "G": 1240831812350600,
+            "ordered_objective": 12408318123.504917,
+            "grouped_objective": 12408318123.506,
+            "ordered_io": 12372789323.504917,
+            "grouped_io": 12372789323.506,
+            "write_bytes": 1124923054006,
+            "read_bytes": 1124786626950,
+            "total_io_bytes": 2249709680956,
+            "hits": 644712,
+            "misses": 355288,
+            "D": null
+          },
+          "rollout_seconds": 11.063090499999817,
+          "witness_persistence_seconds": 0.9158057999957236,
+          "replay_verified": true,
+          "verification_seconds": 16.81107210000482
+        },
+        {
+          "method": "cost_aware_greedy",
+          "cost": {
+            "G": 1240830674836200,
+            "ordered_objective": 12408306748.360918,
+            "grouped_objective": 12408306748.362,
+            "ordered_io": 12372777948.360918,
+            "grouped_io": 12372777948.362,
+            "write_bytes": 1124922019902,
+            "read_bytes": 1124785592846,
+            "total_io_bytes": 2249707612748,
+            "hits": 644712,
+            "misses": 355288,
+            "D": null
+          },
+          "rollout_seconds": 13.171199299998989,
+          "witness_persistence_seconds": 0.8635533999986365,
+          "replay_verified": true,
+          "verification_seconds": 16.484370500002115
+        },
+        {
+          "method": "size_time_single_first",
+          "cost": {
+            "G": 1356651381022400,
+            "ordered_objective": 13566513810.216993,
+            "grouped_objective": 13566513810.224,
+            "ordered_io": 13529857910.216993,
+            "grouped_io": 13529857910.223999,
+            "write_bytes": 1230111107344,
+            "read_bytes": 1229974680288,
+            "total_io_bytes": 2460085787632,
+            "hits": 633441,
+            "misses": 366559,
+            "D": null
+          },
+          "rollout_seconds": 12.880956799999694,
+          "witness_persistence_seconds": 0.8987199000039254,
+          "replay_verified": false,
+          "verification_seconds": null
+        }
+      ]
+    },
+    {
+      "case": "scale_skewed_n1002052_p3p0",
+      "status": "completed",
+      "baselines": {
+        "actual_naive": 147104671886.121,
+        "actual_r65": 146376899242.625
+      },
+      "best_G_decimal": "14610726527160600",
+      "best_cost": 146107265271.606,
+      "best_method": "size_time_single_first",
+      "replay_verified": true,
+      "gain_vs_strongest_pct": 0.18420527584210866,
+      "worker_seconds": 75.40502289999858,
+      "parse_seconds": 0.5082400000028429,
+      "baseline_total_seconds": 21.82873809999728,
+      "index_seconds": 0.1262053000027663,
+      "certificate": {
+        "lower_G": 14573093056233800,
+        "upper_G": 14610726527160600,
+        "relative_gap_to_OPT_upper_bound": 0.002582394196042128,
+        "maximum_remaining_reduction": 0.0025757426132671283,
+        "scope": "physical IO+miss, no D, lower bound may be loose"
+      },
+      "memory_final": {
+        "measured": true,
+        "python_peak_working_set_bytes": 420245504,
+        "python_working_set_bytes": 251809792,
+        "includes_native_WSL_memory": false
+      },
+      "strategies": [
+        {
+          "method": "fif_greedy",
+          "cost": {
+            "G": 14782777873279900,
+            "ordered_objective": 147827778732.37885,
+            "grouped_objective": 147827778732.799,
+            "ordered_io": 147764650632.37885,
+            "grouped_io": 147764650632.79898,
+            "write_bytes": 13433286844619,
+            "read_bytes": 13433136378818,
+            "total_io_bytes": 26866423223437,
+            "hits": 368719,
+            "misses": 631281,
+            "D": null
+          },
+          "rollout_seconds": 7.541908200000762,
+          "witness_persistence_seconds": 1.6157875999997486,
+          "replay_verified": false,
+          "verification_seconds": null
+        },
+        {
+          "method": "cost_aware_greedy",
+          "cost": {
+            "G": 14782780790556500,
+            "ordered_objective": 147827807905.14484,
+            "grouped_objective": 147827807905.565,
+            "ordered_io": 147764679405.14484,
+            "grouped_io": 147764679405.565,
+            "write_bytes": 13433289460325,
+            "read_bytes": 13433138994524,
+            "total_io_bytes": 26866428454849,
+            "hits": 368715,
+            "misses": 631285,
+            "D": null
+          },
+          "rollout_seconds": 7.9106335999968,
+          "witness_persistence_seconds": 1.5106955000010203,
+          "replay_verified": false,
+          "verification_seconds": null
+        },
+        {
+          "method": "size_time_single_first",
+          "cost": {
+            "G": 14610726527160600,
+            "ordered_objective": 146107265271.20566,
+            "grouped_objective": 146107265271.606,
+            "ordered_io": 146069284571.20566,
+            "grouped_io": 146069284571.606,
+            "write_bytes": 13279148098016,
+            "read_bytes": 13279013647359,
+            "total_io_bytes": 26558161745375,
+            "hits": 620193,
+            "misses": 379807,
+            "D": null
+          },
+          "rollout_seconds": 14.88839949999965,
+          "witness_persistence_seconds": 0.9449941999992006,
+          "replay_verified": true,
+          "verification_seconds": 18.019680899997184
+        }
+      ]
+    }
+  ],
+  "execution": {
+    "status": "RELEASED",
+    "retry_wall_seconds": 169.19176990000415,
+    "workers": [
+      {
+        "case_id": "scale_uniform_n1002052_p3p0",
+        "outer_seconds": 93.52607680000074,
+        "outer_timeout": false,
+        "exit_code": 0
+      },
+      {
+        "case_id": "scale_skewed_n1002052_p3p0",
+        "outer_seconds": 75.62336949999735,
+        "outer_timeout": false,
+        "exit_code": 0
+      }
+    ],
+    "formal_D": null,
+    "original_attempt_wall_seconds": 18.975094399997033,
+    "combined_execution_wall_seconds": 188.16686430000118
+  },
+  "formal_D": null,
+  "new_NN_training": false,
+  "failed_attempt_preserved": true
+}

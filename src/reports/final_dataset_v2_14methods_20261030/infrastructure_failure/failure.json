@@ -1,0 +1,16 @@
+{
+  "stage": "initial build smoke",
+  "formal_measurements": 0,
+  "runner_exit_code": 1,
+  "assertion": "('smoke', 'Naive')",
+  "observations": [
+    "prepare independently audited 50 cases and copied them into <LOCAL_TEMP>",
+    "a later WSL build invocation compiled Naive but its first smoke invocation returned nonzero",
+    "subsequent read-only WSL checks found no <LOCAL_TEMP> directories",
+    "all 50 audited workspace input files remain available"
+  ],
+  "diagnosis": "The /tmp cache did not survive separate WSL invocations. The build stage recreated an empty native directory without restaging the required input.",
+  "missing_evidence": "Original native smoke stderr and precise child return code were not copied before the assertion, and were lost with the native cache. They are not reconstructed or guessed.",
+  "change": "Use persistent /var/tmp native storage, restage only SHA-verified previously audited workspace bytes, preserve compile and smoke evidence immediately.",
+  "not_classified_as": "candidate performance failure or dataset corruption"
+}

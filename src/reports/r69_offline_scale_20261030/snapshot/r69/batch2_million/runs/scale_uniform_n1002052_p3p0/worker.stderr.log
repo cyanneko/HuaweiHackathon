@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "${WORKSPACE}\hashjoin_lab\reports\collaboration_20261020\round69_offline_scale\batch2_million\run_million.py", line 74, in <module>
+    elif args.worker:shared.worker(args.worker,args.seconds)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${WORKSPACE}\hashjoin_lab\reports\collaboration_20261020\round69_offline_scale\run_scale.py", line 111, in worker
+    check_time(deadline);publish(report,out/'A_incumbent',entry['input_sha256'],cfg['framework_sha256'])
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${WORKSPACE}\hashjoin_lab\reports\collaboration_20261020\round69_offline_scale\run_scale.py", line 51, in publish
+    write(folder/(report['witness_hash']+'.'+str(report['cost']['G'])+'.report.json'),report)
+  File "${WORKSPACE}\hashjoin_lab\reports\collaboration_20261020\round69_offline_scale\run_scale.py", line 24, in write
+    atomic_write_json(p,obj)
+  File "${WORKSPACE}\hashjoin_lab\reports\collaboration_20261020\round67_offline_quality\baselines.py", line 14, in atomic_write_json
+    fd,name=tempfile.mkstemp(prefix='.'+path.name+'.',suffix='.tmp',dir=path.parent)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH>", line 357, in mkstemp
+    return _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH>", line 256, in _mkstemp_inner
+    fd = _os.open(file, flags, 0o600)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '${WORKSPACE}\\hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\batch2_million\\runs\\scale_uniform_n1002052_p3p0\\A_incumbent\\.2c5479a0c4a97517336efee1a9a7d9335cfaeaadec689562240beafa0c08bf1e.2364596211797200.report.json.z9r4hma9.tmp'

@@ -1,0 +1,84 @@
+{
+  "latest_checked_commit": "5d466610958fba796681020575c2ac5cf6b6064e",
+  "measured_source_commit": "9c755a71b26f5a0937dbbfc7edf68272b3510e72",
+  "current_candidate": {
+    "entry": "MySpillSchedulerBest.cpp",
+    "candidate": "pure_set025_io_asymmetry_routecount",
+    "sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+    "selection": "highest equal-member mean in the completed stage2 fixed11-candidate same-batch full suites; no hidden-distribution or universal-dominance claim",
+    "max_per_case": 10,
+    "equal_member_mean": 3.5388599961650473,
+    "members": {
+      "Vanius0525": {
+        "cases": 209,
+        "repeats": 5,
+        "mean_score": 3.814995332250158,
+        "report_sha256": "35f2c5f9148ef0ef915a7afe1ee5210d6c2e221ac714fe0d6fdde903883ca259"
+      },
+      "cyanneko": {
+        "cases": 48,
+        "repeats": 5,
+        "mean_score": 4.176431713740106,
+        "report_sha256": "d9164931b21a27e4464225c40893a7e7c01101d4228bcbbca499dbea0f03fa7d"
+      },
+      "liunianwww": {
+        "cases": 528,
+        "repeats": 5,
+        "mean_score": 2.6251529425048776,
+        "report_sha256": "f75f187dae164c92caac47d264e97c4c1e68e89d61236cad7ac372b972dd1238"
+      }
+    },
+    "worst_io_miss_ratio_vs_naive": 5.298643981527011,
+    "standalone_class": "MySpillScheduler",
+    "language": "C++14 standard library, CPU",
+    "validation": {
+      "byte_identical_to_measured_source": true,
+      "independent_action_audits": 785,
+      "asan_ubsan_property_cases": 20000,
+      "asan_ubsan_callbacks": 40000,
+      "action_equivalence_trajectories": 160
+    },
+    "known_limitations": [
+      "fresh3 serial301030: IO+Miss99707.54us vs frozen pure15185.78us; candidate equals Naive on this case",
+      "fresh3 mean lower than frozen pure by0.126835; exposed generated distributions, not formal hidden mix",
+      "maximum-N campaign incomplete; uniform_m64_b1 favors finite-prefetch alternatives"
+    ],
+    "alternatives": {
+      "robust_pure": "round4/pure_set025_all_probe_routecount.cpp",
+      "ai": "round4/ai_prefetch_budget2048.cpp"
+    },
+    "source_roots_frozen_unchanged": true
+  },
+  "checks": [
+    {
+      "method": "VanLegacy",
+      "path": "src/Vanius0525/level1/MySpillScheduler.cpp",
+      "measured_sha256": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+      "latest_sha256": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+      "same_bytes": true
+    },
+    {
+      "method": "VanBest",
+      "path": "src/Vanius0525/level1/MySpillSchedulerBest.cpp",
+      "measured_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+      "latest_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+      "same_bytes": true
+    },
+    {
+      "method": "VanRobust",
+      "path": "src/Vanius0525/level1/round4/pure_set025_all_probe_routecount.cpp",
+      "measured_sha256": "6ce3494b77f598d754580038bab1670cad4053824844d3fcfe901ab590d416db",
+      "latest_sha256": "6ce3494b77f598d754580038bab1670cad4053824844d3fcfe901ab590d416db",
+      "same_bytes": true
+    },
+    {
+      "method": "VanAI2048",
+      "path": "src/Vanius0525/level1/round4/ai_prefetch_budget2048.cpp",
+      "measured_sha256": "1155dd462bf3e45fa8cf2ca922ef107fa9668af85397d04de17319028e848872",
+      "latest_sha256": "1155dd462bf3e45fa8cf2ca922ef107fa9668af85397d04de17319028e848872",
+      "same_bytes": true
+    }
+  ],
+  "shared_git_modified": false,
+  "verification_method": "isolated shallow bare read-only source snapshot; no source execution"
+}

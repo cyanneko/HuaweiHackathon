@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "artifact_status": "prepared_not_generated",
+  "purpose": "r69_exposed_offline_scale_benchmark_no_nn_training",
+  "generator": {
+    "path": "hashjoin_lab/tools/generate.py",
+    "sha256": "5c290dc800ed0312f10e1e81182a6343ea32b381f2195f21b8832902965af59d"
+  },
+  "validator": {
+    "path": "hashjoin_lab/tools/audit_datasets.py",
+    "sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3"
+  },
+  "common": {
+    "operators": 4,
+    "partitions": 16,
+    "memory": 67108864,
+    "period": 1000,
+    "write": 1000,
+    "read": 100,
+    "penalty": 100
+  },
+  "split_policy": {
+    "train": "unused_no_nn_training",
+    "dev": "exposed_offline_scale_benchmark_no_nn_training_not_blind_holdout",
+    "holdout": "unused_no_blind_holdout_claim",
+    "independence_claim": "new_seeds_same_generator_family_not_official_or_distribution_independent_not_blind_holdout"
+  },
+  "cases": [
+    {
+      "id": "scale_uniform_n1002052_p3p0",
+      "split": "dev",
+      "scenario": "uniform",
+      "seed": 910300301,
+      "builds": 512,
+      "probes": 250000,
+      "pressure": 3.0,
+      "expected_N": 1002052
+    },
+    {
+      "id": "scale_skewed_n1002052_p3p0",
+      "split": "dev",
+      "scenario": "skewed",
+      "seed": 910300302,
+      "builds": 512,
+      "probes": 250000,
+      "pressure": 3.0,
+      "expected_N": 1002052
+    }
+  ]
+}

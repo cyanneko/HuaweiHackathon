@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "mode": "OFFLINE_ONLY",
+  "cases": [
+    {
+      "case_id": "dev_uniform_n262052_p1p5",
+      "input": "${WORKSPACE}\\tmp\\r66_random_scale_20261030\\data\\dev\\dev_uniform_n262052_p1p5.txt",
+      "input_sha256": "084cec551b9181efd62efd93642e29cff2ce33550dcb00415fa34fb4b69ca582",
+      "N": 262052,
+      "metadata": "${WORKSPACE}\\tmp\\r66_random_scale_20261030\\data\\dev\\dev_uniform_n262052_p1p5.verified.json",
+      "metadata_sha256": "3916e8691f048e5d5dc304b9e7cf9ee6ca1a5473c3ae543dc11f5363305006e0",
+      "bound_report": "${WORKSPACE}\\tmp\\r69_root_bounds\\dev_uniform.json",
+      "bound_report_sha256": "2109668596983bd17c331ad9c546e0fbc0c09809f94dfa922740de6827a34951",
+      "lower_bound_G": 45558751283300,
+      "objective_G_denominator": 100000,
+      "purpose": "offline_development_benchmark_not_NN_training"
+    },
+    {
+      "case_id": "dev_hotset_n262052_p3p0",
+      "input": "${WORKSPACE}\\tmp\\r66_random_scale_20261030\\data\\dev\\dev_hotset_n262052_p3p0.txt",
+      "input_sha256": "f296e84efa7a9274a22fff82087f3490fc67920684c3723e8f385d8e2120df62",
+      "N": 262052,
+      "metadata": "${WORKSPACE}\\tmp\\r66_random_scale_20261030\\data\\dev\\dev_hotset_n262052_p3p0.verified.json",
+      "metadata_sha256": "473efdb7e557494121821e8b6c92636bc5687f8cf3b9ea31d0f83aced8258b7f",
+      "bound_report": "${WORKSPACE}\\tmp\\r69_root_bounds\\dev_hotset.json",
+      "bound_report_sha256": "3d1a6bb62d3f31cc38261af9b0d2995c89b1bfc75d896400b990e974bc1dfb1f",
+      "lower_bound_G": 30603783852600,
+      "objective_G_denominator": 100000,
+      "purpose": "offline_development_benchmark_not_NN_training"
+    }
+  ],
+  "case_outer_seconds": 180,
+  "total_batch_seconds": 360,
+  "methods": [
+    "fif_greedy",
+    "cost_aware_greedy",
+    "size_time_single_first"
+  ],
+  "baselines": [
+    "actual_naive",
+    "actual_r65"
+  ],
+  "sources": {
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\run_scale.py": "f406820c15ea0885951384ba7116286994cc5d258a64f70ad6bb224603c6dcfa",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\compact_harness.py": "e0317eb771d576de6a647bea8009de1bc853ff5c7ba609dc7d39dab2b0679c50",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\framework\\manifest.json": "6e8fa1d160ed501bb62bb2a5bf8872705e82ae3ef800f26a320f53dcb042d2df",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round69_offline_scale\\validation\\calibration.json": "33142221bf9e46fde4f4181ec7a59543b9d3e160d50bd5e4dc4fb3f4f1d0e035",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round67_offline_quality\\future_rollouts.py": "64efb86f273091327cd79461dd4913da938d52faed4a0f16c98b6378f47c0d7e",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round67_offline_quality\\baselines.py": "c5a4e5098be5b2d5b1e2939fac1f30bf02974905bd52a5155c1c8cf40f44360d",
+    "hashjoin_lab\\reports\\collaboration_20261020\\round66_offline_oracle\\core.py": "e26b3bf6ca1aeb6841cd295023d1fcf218bfb56625738c8ca6080bb8ab6d5637"
+  },
+  "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+  "binary_sha256": "dd15bd096086faa37c774694621a97056384fae53ca02bb52fdd27d68e87bf77",
+  "formal_D": null,
+  "no_old_source_modification": true,
+  "verification": "compact aggregate/public/actions plus EOF/legality; no large per-partition fullstate log",
+  "memory_scope": "measured Windows Python peak working set only; native WSL peak not included"
+}

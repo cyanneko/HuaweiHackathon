@@ -1,0 +1,603 @@
+{
+  "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "flags": [
+    "-std=c++14",
+    "-O2"
+  ],
+  "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+  "native_root": "${NATIVE_RUNTIME}",
+  "records": [
+    {
+      "name": "Naive",
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+      "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+      "binary": "${NATIVE_RUNTIME}/bin/Naive",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/Naive.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/Naive"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.5187480609999966,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1086708462.93,
+        "Total_Decision_Time": 2159.76,
+        "Hit_Count": 9879,
+        "Miss_Count": 10457,
+        "Total_Score": 1087034789.68
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/Naive",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.032491473999996856,
+        "timeout_seconds": 60,
+        "stdout_sha256": "901ad827aa588533dc92622defecff512554d3e1ba0e3058cfccc0d1d912dbf6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "VanLegacy",
+      "source_sha256": "5823016f30ba29bfa1264102d4888720aa34b490dd7c32a9c18ee9edded9ca0e",
+      "translation_unit_sha256": "2ca50910efacb7722d012dcb55e3e7d557a9eef5928540010d1295ba82477f78",
+      "binary_sha256": "e8daf7d08d5281a09faab60cd12b2dc562e3da307a3878359ecea33bd607e380",
+      "binary": "${NATIVE_RUNTIME}/bin/VanLegacy",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/VanLegacy.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/VanLegacy"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.4693728430000021,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1069789604.89,
+        "Total_Decision_Time": 1357.29,
+        "Hit_Count": 9092,
+        "Miss_Count": 11244,
+        "Total_Score": 1070139526.18
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/VanLegacy",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.03256902999999767,
+        "timeout_seconds": 60,
+        "stdout_sha256": "7e73df0c58842d8bd5b429c865a7a17914a15a235c419e164e2a058517de797a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "VanBest",
+      "source_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+      "translation_unit_sha256": "d9fb74a75cfe45f7ace8d95b73e629d937ff9b5e9c2658c1ef6a3c23e60ba791",
+      "binary_sha256": "710706abeb2b7f7455873b7f53c7faf461fb137e66c0ffbb31e4c5c195c0d601",
+      "binary": "${NATIVE_RUNTIME}/bin/VanBest",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/VanBest.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/VanBest"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.4705919899999955,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1057779165.84,
+        "Total_Decision_Time": 3073.03,
+        "Hit_Count": 9641,
+        "Miss_Count": 10695,
+        "Total_Score": 1058113783.87
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/VanBest",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.0326465589999998,
+        "timeout_seconds": 60,
+        "stdout_sha256": "37a1ee9134b2606250e83e2f2f0c19457099335564923839144c4d096745c23d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "VanRobust",
+      "source_sha256": "6ce3494b77f598d754580038bab1670cad4053824844d3fcfe901ab590d416db",
+      "translation_unit_sha256": "abde948c92628ed59c68c2694f7876cf692bde06bfe43a040a1c7287d2aafda4",
+      "binary_sha256": "38479356ae1c64e6f118cb20e543a747849f87a466a8844d7b63eeef23e19885",
+      "binary": "${NATIVE_RUNTIME}/bin/VanRobust",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/VanRobust.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/VanRobust"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.5688635590000004,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1057779165.84,
+        "Total_Decision_Time": 2967.91,
+        "Hit_Count": 9641,
+        "Miss_Count": 10695,
+        "Total_Score": 1058113678.75
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/VanRobust",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.032598951000004206,
+        "timeout_seconds": 60,
+        "stdout_sha256": "d7abe03b9fd9ff0a71c7edd2c681c79f80da6be7f379bd1bf3d90246de5ec9c0",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "VanAI2048",
+      "source_sha256": "1155dd462bf3e45fa8cf2ca922ef107fa9668af85397d04de17319028e848872",
+      "translation_unit_sha256": "433852170991e45e1f851122259cd29114e8a4e60ef9dd1deed4863f898256cf",
+      "binary_sha256": "3d4a8aafb709579e50d561816d75e50574b19c0abc68a37a49745e90e603cd54",
+      "binary": "${NATIVE_RUNTIME}/bin/VanAI2048",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/VanAI2048.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/VanAI2048"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.619466157000005,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1057977447.55,
+        "Total_Decision_Time": 6405.81,
+        "Hit_Count": 9632,
+        "Miss_Count": 10704,
+        "Total_Score": 1058315677.35
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/VanAI2048",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.03253921599999643,
+        "timeout_seconds": 60,
+        "stdout_sha256": "071a76e150f06a5dfa1c7acd07f4238c90327b8ffd14ccd7e7d048797cefcd01",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "LiuFinal",
+      "source_sha256": "af324f65c8f5e294621eab178b700731e959f5f53c98f92af370490566c1e4a5",
+      "translation_unit_sha256": "4555522cc565154be24ef09152441f18134df7871fc732f8d42aabb7c1174890",
+      "binary_sha256": "ab309b08dd60075f366f10e4c1796a859a2af5791cec4c78d09d5976756bf092",
+      "binary": "${NATIVE_RUNTIME}/bin/LiuFinal",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/LiuFinal.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/LiuFinal"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.7195449080000031,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1065399253.3,
+        "Total_Decision_Time": 2160.49,
+        "Hit_Count": 9965,
+        "Miss_Count": 10371,
+        "Total_Score": 1065722914.79
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/LiuFinal",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.03272846499999815,
+        "timeout_seconds": 60,
+        "stdout_sha256": "de55cd749130a4c55e4b3031c249dbb08cda709566e0c073d501f02f7c89fb50",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "LiuTree",
+      "source_sha256": "9b9238d7e9d7a1e65e4f37789c8c770673cc38beadc5db76c65ddae6e545b253",
+      "translation_unit_sha256": "c289ae1d750c2dbe9c4bbb995df25cdb217ae553c81a53e29816121e4fed697a",
+      "binary_sha256": "8b9a042c65801b8693fd0c8d87977a77e69e29d160084e00c93fcad58a049cf8",
+      "binary": "${NATIVE_RUNTIME}/bin/LiuTree",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/LiuTree.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/LiuTree"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.7684983700000032,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1057712708.14,
+        "Total_Decision_Time": 2104.13,
+        "Hit_Count": 9912,
+        "Miss_Count": 10424,
+        "Total_Score": 1058037956.27
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/LiuTree",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.03244108699999515,
+        "timeout_seconds": 60,
+        "stdout_sha256": "b76af1d92d541bd3193ed02d40d89f37cd06e3181cb408a161ffec7425e83466",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "LiuNeural",
+      "source_sha256": "dd02fb47e9e584ad706e2592809536b5f05aa24a86adfa7a4e244900b6ae28c0",
+      "translation_unit_sha256": "4eccfcc89f8719ff9cb6f6a97a3c74fac3708a61f71f959ec08cad7cc0ec45e2",
+      "binary_sha256": "36dd1d351efc3eac31427c48f7f7fce8ed221db226f72a64e7a382368fce66f7",
+      "binary": "${NATIVE_RUNTIME}/bin/LiuNeural",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/LiuNeural.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/LiuNeural"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.4176320500000088,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1065399253.3,
+        "Total_Decision_Time": 4582.91,
+        "Hit_Count": 9965,
+        "Miss_Count": 10371,
+        "Total_Score": 1065725337.21
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/LiuNeural",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.032065085999988696,
+        "timeout_seconds": 60,
+        "stdout_sha256": "34b5dd25e05f3d6ac0e0584798c3b282cc2008e0081dac415c9aa934fff48823",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "SingleFit",
+      "source_sha256": "2ee28d494c4d7d3b0edf9b130d776e30b1fb7dc2fff41b738833de41593707f8",
+      "translation_unit_sha256": "00578aafa3bd0691f4531f394ce4e8d19313dd94ff162483502fdfd53f3d7ca1",
+      "binary_sha256": "c9049034fd9c01ac6ca1034db66b631baaa63c246e87c9643ddea128105d6b25",
+      "binary": "${NATIVE_RUNTIME}/bin/SingleFit",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/SingleFit.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/SingleFit"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.2671907470000008,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1067533493.66,
+        "Total_Decision_Time": 989.14,
+        "Hit_Count": 9888,
+        "Miss_Count": 10448,
+        "Total_Score": 1067858370.8
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/SingleFit",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.016125123999998436,
+        "timeout_seconds": 60,
+        "stdout_sha256": "401de0651e46d2fe0ca1aa66e7b2951c59da8aa899d8049f2f85e3a4d3a49d46",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "R63",
+      "source_sha256": "81f4e90a5284b1ec9bda2ecd05772fb6b77ed38dc03822a5810ef52a4bd3242e",
+      "translation_unit_sha256": "b5fb17fe8dbecb0896fcf5a3d283e08913186f7b0ae45cebb115a587e7e5e8cc",
+      "binary_sha256": "2055f9887f85864fc64285be91083f08a08a86218ded22c656a31e160c580f5a",
+      "binary": "${NATIVE_RUNTIME}/bin/R63",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/R63.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/R63"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.368154349000008,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "6649d730b0d159e7733254cb40893fce19f44083eb1a2225025b8ccb457335ea"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1067841080.61,
+        "Total_Decision_Time": 1414.5,
+        "Hit_Count": 9877,
+        "Miss_Count": 10459,
+        "Total_Score": 1068166724.11
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/R63",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.03271940999999856,
+        "timeout_seconds": 60,
+        "stdout_sha256": "9c3096085cb5863298d0333edcfa91348133cbb08388a9e9b532a0aa8e63f526",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "R65",
+      "source_sha256": "f9eebb4dc44fc2059ed79879334a7bc5c6960d57f0b2453273be64accd617355",
+      "translation_unit_sha256": "290c07f68527695d2e311b0e646b07c54a34d0ac75548f88f8bf48695d55be3d",
+      "binary_sha256": "21f4853e70fa3196599b5b244bbab9f840c5297504865a14a7cbeb82bdea14d6",
+      "binary": "${NATIVE_RUNTIME}/bin/R65",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/R65.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/R65"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.6205735099999998,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1067811603.31,
+        "Total_Decision_Time": 1507.08,
+        "Hit_Count": 9880,
+        "Miss_Count": 10456,
+        "Total_Score": 1068137246.38
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/R65",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.03246029800000372,
+        "timeout_seconds": 60,
+        "stdout_sha256": "dc8d4dc3a69f95ebb427aa298178467947a5d951f69e8d3ad9719b34c358275c",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "Clean",
+      "source_sha256": "c4710e0de3e0928420dcfd2af658c8ca49a1a38f83bde45bc10c1b45ae63548a",
+      "translation_unit_sha256": "41366431e6e4d96bb723180c7832b6c1571c45032009b2485517f251867af4d0",
+      "binary_sha256": "7ea443bf029f72294561d5a6ab6408c0bae6348026eb1a2e55992e8a8e2e9eeb",
+      "binary": "${NATIVE_RUNTIME}/bin/Clean",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/Clean.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/Clean"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.3170852380000042,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1069789604.89,
+        "Total_Decision_Time": 1087.69,
+        "Hit_Count": 9092,
+        "Miss_Count": 11244,
+        "Total_Score": 1070139256.58
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/Clean",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.016248618000005877,
+        "timeout_seconds": 60,
+        "stdout_sha256": "770fbe5c2da145757465713a72891bf32d2ddac26671055e0605a331639c1f66",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "FitTie",
+      "source_sha256": "b59313d5f60aa8478f84bf576ea5e674b67191e59b0bd27783ea2126b59a90a5",
+      "translation_unit_sha256": "e33ebd8eeb4b6fdebbfd62d0c75f87d6b2ab078a3f3660fc2fb76777fddc23d7",
+      "binary_sha256": "e27cc53bd78fca8894641c72d1a695fb56bcdad9d3c4d04ecc6911ec8957d209",
+      "binary": "${NATIVE_RUNTIME}/bin/FitTie",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/FitTie.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/FitTie"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.3168531169999937,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1069789604.89,
+        "Total_Decision_Time": 1159.31,
+        "Hit_Count": 9092,
+        "Miss_Count": 11244,
+        "Total_Score": 1070139328.19
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/FitTie",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.032198805999996694,
+        "timeout_seconds": 60,
+        "stdout_sha256": "a86f8d1a4bb9e0aed8661215a72261ba530c0752012c1e63617a69a491d5be1e",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "BBP",
+      "source_sha256": "4ff9618b68e31f305222da964b406be4dad06191f211c333ccd5f738a44af6f2",
+      "translation_unit_sha256": "00c99e797b77297545d662315a95317d469f64a5f67b7c86f769c726db921ae2",
+      "binary_sha256": "cea79c26e06cf77d9f30a5b2bff2a5a86fe52a55a54d25181c1583cc63380290",
+      "binary": "${NATIVE_RUNTIME}/bin/BBP",
+      "compile": {
+        "command": [
+          "g++",
+          "-std=c++14",
+          "-O2",
+          "${NATIVE_RUNTIME}/sources/BBP.cpp",
+          "-o",
+          "${NATIVE_RUNTIME}/bin/BBP"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 1.4169453199999964,
+        "timeout_seconds": 30,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "smoke_metrics": {
+        "Total_IO_Time": 1070761061.19,
+        "Total_Decision_Time": 2165.9,
+        "Hit_Count": 9857,
+        "Miss_Count": 10479,
+        "Total_Score": 1071088076.09
+      },
+      "smoke_process": {
+        "command": [
+          "${NATIVE_RUNTIME}/bin/BBP",
+          "${NATIVE_RUNTIME}/inputs/eval_048_one_byte_over.txt"
+        ],
+        "status": "EXITED",
+        "returncode": 0,
+        "wall_seconds": 0.03230938699999797,
+        "timeout_seconds": 60,
+        "stdout_sha256": "4664930419613e6d21ec4c3384b66d9a4f0924effa9a26dbcc44513816488198",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "cpu_model": "Intel(R) Core(TM) i7-14700HX",
+  "total_seconds": 26.84247515399999,
+  "runner_sha256": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f"
+}

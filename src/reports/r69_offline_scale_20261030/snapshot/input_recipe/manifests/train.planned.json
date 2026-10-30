@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "planned_not_generated",
+  "split": "train",
+  "config_sha256": "239be172eaa46ad74c7f91558c518c157ea800de76c6116c77eb2fd98a652aac",
+  "usage": "eligible_for_offline_teacher_after_explicit_coordination",
+  "common": {
+    "operators": 4,
+    "partitions": 16,
+    "memory": 67108864,
+    "period": 1000,
+    "write": 1000,
+    "read": 100,
+    "penalty": 100
+  },
+  "cases": [
+    {
+      "id": "train_uniform_p1p2",
+      "split": "train",
+      "scenario": "uniform",
+      "seed": 910300101,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.2,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_uniform_p3p0",
+      "split": "train",
+      "scenario": "uniform",
+      "seed": 910300102,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 3.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_hotset_p1p2",
+      "split": "train",
+      "scenario": "hotset",
+      "seed": 910300103,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.2,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_hotset_p3p0",
+      "split": "train",
+      "scenario": "hotset",
+      "seed": 910300104,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 3.0,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_skewed_p1p2",
+      "split": "train",
+      "scenario": "skewed",
+      "seed": 910300105,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 1.2,
+      "expected_N": 7028
+    },
+    {
+      "id": "train_skewed_p3p0",
+      "split": "train",
+      "scenario": "skewed",
+      "seed": 910300106,
+      "builds": 256,
+      "probes": 1500,
+      "pressure": 3.0,
+      "expected_N": 7028
+    }
+  ],
+  "expected_total_N": 42168
+}

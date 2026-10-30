@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "planned_not_generated",
+  "split": "dev",
+  "config_sha256": "1706a55ca33b47e4846e3df035d1e3c64fe8c0abf23a50cea841cba70a9af0b3",
+  "usage": "exposed_offline_scale_benchmark_no_nn_training_not_blind_holdout",
+  "common": {
+    "operators": 4,
+    "partitions": 16,
+    "memory": 67108864,
+    "period": 1000,
+    "write": 1000,
+    "read": 100,
+    "penalty": 100
+  },
+  "cases": [
+    {
+      "id": "scale_uniform_n1002052_p3p0",
+      "split": "dev",
+      "scenario": "uniform",
+      "seed": 910300301,
+      "builds": 512,
+      "probes": 250000,
+      "pressure": 3.0,
+      "expected_N": 1002052
+    },
+    {
+      "id": "scale_skewed_n1002052_p3p0",
+      "split": "dev",
+      "scenario": "skewed",
+      "seed": 910300302,
+      "builds": 512,
+      "probes": 250000,
+      "pressure": 3.0,
+      "expected_N": 1002052
+    }
+  ],
+  "expected_total_N": 2004104
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "artifact_status": "prepared_not_generated",
+  "purpose": "fresh_seed_same_family_random_scale_complement",
+  "generator": {
+    "path": "hashjoin_lab/tools/generate.py",
+    "sha256": "5c290dc800ed0312f10e1e81182a6343ea32b381f2195f21b8832902965af59d"
+  },
+  "validator": {
+    "path": "hashjoin_lab/tools/audit_datasets.py",
+    "sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3"
+  },
+  "common": {
+    "operators": 4,
+    "partitions": 16,
+    "memory": 67108864,
+    "period": 1000,
+    "write": 1000,
+    "read": 100,
+    "penalty": 100
+  },
+  "split_policy": {
+    "train": "eligible_for_offline_teacher_after_explicit_coordination",
+    "dev": "deployment_evaluation_only_no_python_beam",
+    "holdout": "deployment_evaluation_only_no_python_beam_no_fitting",
+    "independence_claim": "new_seeds_same_generator_family_not_official_or_distribution_independent"
+  },
+  "cases": [
+    {"id": "train_uniform_p1p2", "split": "train", "scenario": "uniform", "seed": 910300101, "builds": 256, "probes": 1500, "pressure": 1.2, "expected_N": 7028},
+    {"id": "train_uniform_p3p0", "split": "train", "scenario": "uniform", "seed": 910300102, "builds": 256, "probes": 1500, "pressure": 3.0, "expected_N": 7028},
+    {"id": "train_hotset_p1p2", "split": "train", "scenario": "hotset", "seed": 910300103, "builds": 256, "probes": 1500, "pressure": 1.2, "expected_N": 7028},
+    {"id": "train_hotset_p3p0", "split": "train", "scenario": "hotset", "seed": 910300104, "builds": 256, "probes": 1500, "pressure": 3.0, "expected_N": 7028},
+    {"id": "train_skewed_p1p2", "split": "train", "scenario": "skewed", "seed": 910300105, "builds": 256, "probes": 1500, "pressure": 1.2, "expected_N": 7028},
+    {"id": "train_skewed_p3p0", "split": "train", "scenario": "skewed", "seed": 910300106, "builds": 256, "probes": 1500, "pressure": 3.0, "expected_N": 7028},
+    {"id": "dev_uniform_n262052_p1p5", "split": "dev", "scenario": "uniform", "seed": 910300201, "builds": 512, "probes": 65000, "pressure": 1.5, "expected_N": 262052},
+    {"id": "dev_hotset_n262052_p3p0", "split": "dev", "scenario": "hotset", "seed": 910300202, "builds": 512, "probes": 65000, "pressure": 3.0, "expected_N": 262052},
+    {"id": "holdout_uniform_n1002052_p3p0", "split": "holdout", "scenario": "uniform", "seed": 910300203, "builds": 512, "probes": 250000, "pressure": 3.0, "expected_N": 1002052},
+    {"id": "holdout_hotset_n1002052_p1p5", "split": "holdout", "scenario": "hotset", "seed": 910300204, "builds": 512, "probes": 250000, "pressure": 1.5, "expected_N": 1002052}
+  ]
+}

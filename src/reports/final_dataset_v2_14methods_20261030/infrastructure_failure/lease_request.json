@@ -1,0 +1,50 @@
+{
+  "scope": "final_dataset_v2_14x50_repeat1",
+  "granted": false,
+  "selection_sha256": "929d3fa132e9ec22a79929c4c8f4a90d287b54ebdcac851251cd1bbbc65fc5e7",
+  "case_manifest_sha256": "8334417714075cb9a19cba4f55e656acb5842af34b15c4db297c77b56fdf692b",
+  "runner_sha256": "ed588c2bc1d1f3cf475b47e6b9694da1c16eb0d91a3f6747c49a7b6cb108bce6",
+  "case_count": 50,
+  "method_count": 14,
+  "repeats": 1,
+  "max_cells": 700,
+  "case_timeout_seconds": 60,
+  "requested_windows": [
+    {
+      "allowed_phases": [
+        "prepare"
+      ],
+      "execution_budget_seconds": 90,
+      "total_window_seconds": 110
+    },
+    {
+      "allowed_phases": [
+        "build"
+      ],
+      "execution_budget_seconds": 180,
+      "total_window_seconds": 210
+    },
+    {
+      "allowed_phases": [
+        "formal"
+      ],
+      "execution_budget_seconds": 240,
+      "total_window_seconds": 275
+    }
+  ],
+  "planned_native_root": "<LOCAL_TEMP>",
+  "concurrency": "one compiler or one solver at a time; no background training/solvers",
+  "resume": "formal result files are identity-checked and not repeated; further windows cover pending cells only",
+  "runner_gate_fields": [
+    "granted",
+    "scope",
+    "selection_sha256",
+    "case_manifest_sha256",
+    "runner_sha256",
+    "expires_unix_seconds",
+    "allowed_phases",
+    "execution_budget_seconds"
+  ],
+  "formal_admission": "at least 70 seconds remaining for 60-second child and cleanup; preserve partial results",
+  "later_repeats": "not authorized by this scope; separately schedule after complete first repeat"
+}

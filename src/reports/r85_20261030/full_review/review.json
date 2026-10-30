@@ -1,0 +1,39 @@
+{
+  "status": "PASS_STATIC_READY_FOR_ROOT_PREPARE",
+  "methods": 8,
+  "expected_cells": {
+    "dyna": 96,
+    "final": 576,
+    "total": 672
+  },
+  "budgets_seconds": {
+    "dyna": 1100,
+    "final": 650
+  },
+  "per_case_seconds": 60,
+  "repeats": 1,
+  "parallelism": 1,
+  "methods_sha256": "120ee46d35d3370c05938115b01bffa37f4e12b42df24a0417bceb42def68c83",
+  "dataset_proof_sha256": "64b3e3066a8aa52ccca813e0e878606bf4f17ecbcaf7980ca2aaf05ae55c847a",
+  "dataset_commit": "c65c7b32b06a5764ce9ad4881133a3c6eb33ed17",
+  "inventory_sha256": {
+    "dyna": "1070fd19967650827af5ab1e862c109daa7656ed3641428c76d02e3a9c84efa9",
+    "final": "061175d623a59104479ece8d199b7c70da7b1b1e96895dadbf3dcbe4d03eb29b"
+  },
+  "controls": "Six immutable R84 dictionaries, excluding R79; A/B frozen producer identity with direct-parent source/TU/ELF checks",
+  "direct_parent_methods": {
+    "R85_fast_prior8": "R81_op256_cond2048",
+    "R85_hier_anchor": "R80_next_hier_fast100"
+  },
+  "completeness": "Both selections required before any run; each selection methods/cases compared field-for-field to frozen methods/inventory, independently of the other selection.",
+  "exception_gate": "Before/after-last-cell exception writes INCOMPLETE gate and rethrows. Combine requires PASS gates. Tests simulate both without native calls.",
+  "scoring": "Same-window Naive, D included, raw negative points and physical costs retained; closest-rank ceil(q*n); dataset means each50%, never84-case pooling",
+  "tests_sha256": "9036cf7080a9eb7607bd0f7a602f623f6a10dc6c459a196e6e5577fc2fe912ac",
+  "linux_checks_sha256": "428aee306a0f72f6dd344466c6ee5cbf19b097335d4e4ae4f838fed24eccbcc7",
+  "native_runs": 0,
+  "compile_runs": 0,
+  "input_body_scans": 0,
+  "old_outputs_modified": false,
+  "new_panel_performance_consulted": false,
+  "remaining": "Root must prepare both full input/header/ELF gates, then run under separately coordinated CPU quiet windows; these are exposed regressions, no automatic promotion"
+}

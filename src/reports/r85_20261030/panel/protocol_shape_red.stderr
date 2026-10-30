@@ -1,0 +1,17 @@
+.......E.
+======================================================================
+ERROR: test_real_manifest_shape_dynamic_and_iid_operations (__main__.Protocol.test_real_manifest_shape_dynamic_and_iid_operations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "${WORKSPACE}\tmp\r85_eval\test_protocol.py", line 61, in test_real_manifest_shape_dynamic_and_iid_operations
+    self.assertEqual(ex.verify_data_cases(cfg,data)['valid_total'],18)
+                     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "${WORKSPACE}\tmp\r85_eval\experiment.py", line 34, in verify_data_cases
+    assert c['split'] in ('train','dev') and c['stats']['operations']==c['parameters']['n']==150000
+                                                                       ~~~~~~~~~~~~~~~^^^^^
+KeyError: 'n'
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.661s
+
+FAILED (errors=1)

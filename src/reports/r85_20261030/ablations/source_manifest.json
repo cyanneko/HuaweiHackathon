@@ -1,0 +1,78 @@
+{
+  "plan_path": "docs\\superpowers\\plans\\2026-10-30-r85-prior-and-anchor-ablations.md",
+  "plan_sha256": "7f7cd0823c62f05159cef756ad8681a541ec124ab900c929d2e7e1cc49b2294a",
+  "prepared_sha256": "a37b36966532a9acbccc0080f13e8a99248eb5baa89dfcc4f740255142bd2eb5",
+  "parents": {
+    "R85_fast_prior8": {
+      "name": "R81_op256_cond2048",
+      "source_path": "tmp/r81_two_timescale/R81_op256_cond2048/MySpillScheduler.cpp",
+      "source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+      "translation_unit_path": "tmp/r81_two_timescale/R81_op256_cond2048/main.cpp",
+      "translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier_fast100",
+      "parent_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d"
+    },
+    "R85_hier_anchor": {
+      "name": "R80_next_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/main.cpp",
+      "translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier100",
+      "parent_sha256": "a98513798367c98770a5f22370a191171ed0d29a28fd0e2ee7996ff56f34c1cb"
+    },
+    "paired_reference": {
+      "name": "R80_paired_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_paired_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "5c5c5412fe1f56a64a97fc2a9bba2860b0f30cd51b1ace86e6fc258a60a0cbe0",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_paired_hier_fast100/main.cpp",
+      "translation_unit_sha256": "a9a6bd9cae5520f64493edfdda800834f5e6bfa0e5f4419993af164caada33f4",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "287795281d7748615a77e6d5b210a7a7d83ca6caff96687c9d343dea26ebf3ea",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_paired_hier100",
+      "parent_sha256": "174c125c3bf3c03dd92aff74ae2e38728e742e5e2172940e801e32f1c7dded78"
+    }
+  },
+  "framework_unchanged": true,
+  "files": {
+    "build.py": "ee899d45ca25198140f9016aadf78869130bf7fc9bb30d21f9658505940770b7",
+    "prepare.py": "c98b730e514ec03375669dadb34f0f659ecee50841189c5ddfed13b85a6b6a6f",
+    "test_anchor.cpp": "e313cecb2b861bc7ec159deb744ff6f28459b217d6eea31beac15df138963d75",
+    "test_prior.cpp": "dac9549731653f1339f28e5929265651cc342258f78fe7bf4ec3864b0cb4d943",
+    "test_transfer.cpp": "77df4f47ae43609c85f2ce2119585660a7aab2623dbd50952d7ae5ad15aa64ee",
+    "paired_reference/parent_test_include.hpp": "6638ea8e143793cd652a29310541e1e77b19202e7d10d4cd171dc4a6255b3769",
+    "R85_fast_prior8/main.cpp": "733d9b8df4c2a2cc1cfc9e644ae4b115144c3bd54abc36600dc80d5e5f2ce67a",
+    "R85_fast_prior8/MySpillScheduler.cpp": "a0ebc08399a8cd8c039dae59a779231df0c35306af3ea3269df3067c321779b5",
+    "R85_fast_prior8/parent.diff": "ff51932d46603a282e83baec72efb672cc3daeab7b205e3b15301c80e2d2b220",
+    "R85_fast_prior8/parent_test_include.hpp": "9a5b154a2c4b53cae41c9c44b1a09469241b31c59deeaa302ed1087c3707dae3",
+    "R85_fast_prior8/test_callbacks.cpp": "80a34a059ff389c3c7a878d72790df40838860cead2bcc0621e02755447a9bf2",
+    "R85_fast_prior8/test_include.hpp": "6c829e60bc61afccaa2dfb2180de8954071bba853583e65d99c9d89b50421850",
+    "R85_fast_prior8/test_legality.cpp": "4ba799c0207dbb76e06054faa0feb6b351597b2bcc9dee91f1546383f74f8f0a",
+    "R85_hier_anchor/main.cpp": "22cac4f9e773ac81965938251cceecc9943391acd1342ea8136d830541070b18",
+    "R85_hier_anchor/MySpillScheduler.cpp": "0aefb3c4c488ca8f315ea5fbb33c32eef757309d780927e7b8376ba6c61142f0",
+    "R85_hier_anchor/parent.diff": "5dfd4f03e53da4685d06ce6d1bac06d0640fb60d67d0197ead447da9093b8655",
+    "R85_hier_anchor/parent_test_include.hpp": "d7bf8c2b8deb5a5708b0b2a72deb23273851058b708a3c87bbec1c577798d7a7",
+    "R85_hier_anchor/test_callbacks.cpp": "80a34a059ff389c3c7a878d72790df40838860cead2bcc0621e02755447a9bf2",
+    "R85_hier_anchor/test_include.hpp": "650ecce515b48a9894a7089b14bb3aef14c881645d2d5c308b6493e3167546bb",
+    "R85_hier_anchor/test_legality.cpp": "4ba799c0207dbb76e06054faa0feb6b351597b2bcc9dee91f1546383f74f8f0a"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "plan_path": "docs\\superpowers\\plans\\2026-10-30-r85-prior-and-anchor-ablations.md",
+  "plan_sha256": "7f7cd0823c62f05159cef756ad8681a541ec124ab900c929d2e7e1cc49b2294a",
+  "parents": {
+    "R85_fast_prior8": {
+      "name": "R81_op256_cond2048",
+      "source_path": "tmp/r81_two_timescale/R81_op256_cond2048/MySpillScheduler.cpp",
+      "source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+      "translation_unit_path": "tmp/r81_two_timescale/R81_op256_cond2048/main.cpp",
+      "translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier_fast100",
+      "parent_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d"
+    },
+    "R85_hier_anchor": {
+      "name": "R80_next_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/main.cpp",
+      "translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier100",
+      "parent_sha256": "a98513798367c98770a5f22370a191171ed0d29a28fd0e2ee7996ff56f34c1cb"
+    },
+    "paired_reference": {
+      "name": "R80_paired_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_paired_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "5c5c5412fe1f56a64a97fc2a9bba2860b0f30cd51b1ace86e6fc258a60a0cbe0",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_paired_hier_fast100/main.cpp",
+      "translation_unit_sha256": "a9a6bd9cae5520f64493edfdda800834f5e6bfa0e5f4419993af164caada33f4",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "287795281d7748615a77e6d5b210a7a7d83ca6caff96687c9d343dea26ebf3ea",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_paired_hier100",
+      "parent_sha256": "174c125c3bf3c03dd92aff74ae2e38728e742e5e2172940e801e32f1c7dded78"
+    }
+  },
+  "tests": {
+    "test_prior.cpp": "dac9549731653f1339f28e5929265651cc342258f78fe7bf4ec3864b0cb4d943",
+    "test_anchor.cpp": "e313cecb2b861bc7ec159deb744ff6f28459b217d6eea31beac15df138963d75",
+    "test_transfer.cpp": "77df4f47ae43609c85f2ce2119585660a7aab2623dbd50952d7ae5ad15aa64ee"
+  },
+  "scope": "two independent variants; no performance runs, no data generation; 90s compile/test window"
+}

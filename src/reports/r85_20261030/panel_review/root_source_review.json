@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "scope": "Root source/test inspection and identity rehash, not a second test execution or performance validation",
+  "producer_sha256": "992a69c8c4c3a54e1136d9e342a4822fb67ce7e214fd5ec4c4cf31004e8cc9be",
+  "test_summary_sha256": "8f5a2b01e868826d5c704b946768be236a70c1c2b5d83229b9b8bbef256a65e4",
+  "release_sha256": "064bec09282ade275eb96c1d750c99622acf05c85c8e9067e0540a3fc821f555",
+  "checks": [
+    {
+      "method": "R85_fast_prior8",
+      "source_sha256": "a0ebc08399a8cd8c039dae59a779231df0c35306af3ea3269df3067c321779b5",
+      "binary_sha256": "eed09a7345b8ff117fcea51eed3b96ebca3449dbf75d3935c11b1f3d05e9499a",
+      "parent_unchanged": true,
+      "official_skeleton_unchanged": true
+    },
+    {
+      "method": "R85_hier_anchor",
+      "source_sha256": "0aefb3c4c488ca8f315ea5fbb33c32eef757309d780927e7b8376ba6c61142f0",
+      "binary_sha256": "ba1cb184e2b845c313c2f918850d0d8dc58c9886d60c4345256af3d59399cda2",
+      "parent_unchanged": true,
+      "official_skeleton_unchanged": true
+    }
+  ],
+  "fast_prior_formula_value": 8.009479828345365,
+  "directed_tests_reviewed": [
+    "test_prior.cpp",
+    "test_anchor.cpp",
+    "test_transfer.cpp"
+  ],
+  "findings": [
+    "A splits fast and slow priors; slow prior64 unchanged",
+    "B defaults hierarchy; existing strict comparator and eligible guards retained",
+    "B lazy advancement may differ privately; no speculative final-intent recording",
+    "RED anchor reference is old paired, not original hierarchy"
+  ],
+  "native_runs": 0
+}

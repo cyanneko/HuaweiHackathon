@@ -1,0 +1,91 @@
+{
+  "observed_utc": "2026-10-30T14:35:47.870508+00:00",
+  "commit": "c65c7b32b06a5764ce9ad4881133a3c6eb33ed17",
+  "parents": [
+    "f4a7fcf6e957afde7ffce0a4a7d61253cd8777f9"
+  ],
+  "compared_to": "f4a7fcf6e957afde7ffce0a4a7d61253cd8777f9",
+  "commit_subject": "docs: sync R82 report and fixed evaluation index",
+  "changed_root_entries": {
+    "README.md": {
+      "old": [
+        "blob",
+        "a4b7fb1b25b98ae56681bb4d0d655c8e5d960300"
+      ],
+      "new": [
+        "blob",
+        "ca555a1decade74bef3ae10ca1e17c6b73ec5e83"
+      ]
+    },
+    "docs": {
+      "old": [
+        "tree",
+        "955712433a203b6878d3f9a11ef495aa1b9401a5"
+      ],
+      "new": [
+        "tree",
+        "03e8c3205d002404526d6c9fabd912fda26abaa5"
+      ]
+    }
+  },
+  "changed_doc_paths": [
+    "README.md",
+    "docs/EVALUATION_INDEX.json",
+    "docs/EVALUATION_INDEX.md",
+    "docs/EVALUATION_POLICY_20261030.md",
+    "docs/EVALUATION_VAN_FULL_20261030.md",
+    "docs/PUBLISHED_R82_20261030.json",
+    "docs/R82_RESULTS_20261030.md"
+  ],
+  "unchanged_dataset_trees": {
+    "final_dataset": "41197783dd577dfccf5b007a6ece67cbfb241e4b",
+    "dyna_dataset": "808ce8b11f57a1a96051f22aa572eceb82b1fba0",
+    "balanced_dataset": "b05fced93f31a5dc32c324974b03c0e4730a8293",
+    "inde_dataset": "8dedbdc988f24bd3faf390c2eff55d85810f3bb0",
+    "corner_case": "e385dc19ad3865d4567a6615d262b357d54efc2a",
+    "experiments": "3e090317a2d3b85d7a14321723e2810710a32961"
+  },
+  "read_small_metadata": {
+    "README.md": {
+      "git_oid": "ca555a1decade74bef3ae10ca1e17c6b73ec5e83",
+      "bytes": 13320,
+      "sha256": "ddda2fe91667786ea0d77ad2a67bb04e03597a000c6d28b4d2078a2f08e67d3b"
+    },
+    "docs/EVALUATION_POLICY_20261030.md": {
+      "git_oid": "88bd763b0f9226e60e6fcc7b8124484203ec2999",
+      "bytes": 4951,
+      "sha256": "f94e916e5a745fcd4e1ad4b5c2c27709a9eb4f591309bfde0a0cd6d678902300"
+    }
+  },
+  "readme_only_added_line": "评测与版本比较入口：[统一评测索引](docs/EVALUATION_INDEX.md)。包含固定代码/数据身份、协议、逐例结果、原始日志和失败状态。",
+  "frozen_policy_original_body_sha256": "5e69b82e2f444f7452d4815fa6f094136b86ee97f5f4c3678af0b4879e52c893",
+  "policy_scope": "Published source/cyanneko R83-and-later amendment, preserved future tense; actual execution status is in separate index/results which this monitor did not read. Not an instruction to change source/Vanius0525 frozen experiments.",
+  "policy_protocol": {
+    "r83_panel_plan": {
+      "train_cases": 12,
+      "dev_cases": 6,
+      "methods": 8,
+      "repeat": 1,
+      "dev_not_skipped_based_on_selector": true,
+      "declared_post_measurement_role": "exposed development validation"
+    },
+    "original_regression_plan": {
+      "dyna_cases": 12,
+      "dyna_original_splits": "6 train / 3 dev / 3 holdout retained",
+      "final_eval_cases": 72,
+      "final_train_excluded_from_eval_mean": true,
+      "methods": 6,
+      "repeat": 1,
+      "fresh_same_window_naive": true,
+      "cpu_serial": true,
+      "official_per_cell_wall_seconds": 60,
+      "separate_immutable_dataset_windows": true,
+      "included_inde": false,
+      "included_other_member_suites": false
+    },
+    "aggregate_rule": "Compute each dataset case mean, then give dyna and final means equal weight; do not pool all 84 cases equally.",
+    "reporting": "Per-case results and raw cost components including IO, actual evaluation penalty*miss, decision time; nearest-rank quantiles with denominators.",
+    "publication": "Exact source/data/protocol/baseline identities, all outcomes and logs, code-version mapping; default source R75 unchanged."
+  },
+  "scope": "Dataset identities and explicit small policy/README metadata only. No performance-report content, input bytes or algorithm runs. The policy is a preserved plan/amendment, not independent evidence that its cells completed. Existing final72/dyna/inde locks and current user branch protocol unchanged."
+}

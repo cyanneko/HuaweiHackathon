@@ -1,6 +1,6 @@
 # 方法与评测结果比较入口
 
-维护分支：`source/Vanius0525`。2026-10-30用户要求后续每轮完整测试将协议、结果、代码版本同步到本分支；本入口随阶段完成更新。最新性能阶段为Round10，后续增加只读机制诊断；AI更新与测试暂停，后续默认每方法每题单遍。
+维护分支：`source/Vanius0525`。2026-10-30用户要求后续每轮完整测试将协议、结果、代码版本同步到本分支；本入口随阶段完成更新。最新性能阶段为Round10，Round11增加共同状态机制观察；AI更新与测试暂停，后续默认每方法每题单遍。
 
 ## 当前可对齐的完整结果
 
@@ -40,4 +40,13 @@ Round10为CPU单线程、C++14/O2、g++11.4；每例60秒wall限制。任务锁�
 - [大小与成本感知缓存调研](round10/SIZE_COST_RESEARCH_V1.md)：包含近期预印本、NSDI论文和Google数据库实践，分别注明目标与可见性差异；未据文献收益替代本题测量。
 - [inde1.1.0更新审核](round9/dataset_monitor/INDE_V11_REVIEW_d144cdd1c3b7.md)：datasets固定d144cdd新增20条每条200万总操作的eval，原train500/eval50保留；final/dyna/balanced未变。仅小元数据/Git身份核验，没有下载新输入、读取方法成绩或纳入比较。发布者已测过新20，不称未曝光盲测；其中2条均匀对照不自动恢复为主测。
 
-最新工作交接见[后续阶段](round10/POST_R80_HANDOFF_V1.md)。旧性能结果和代码保持原字节，后续诊断没有产生新冠军或替换方法。
+## Round11：同状态观察与上游R82
+
+- [两条固定训练流的观察报告](round11/observer/REPORT_V1.md)：548/593各一个仪器化运行、各3快照，原R80 IO/Hit/Miss精确保持；不是新增性能评分。只有548的q4100改变flat/hier驱逐集合，且各自估计偏好自己的集合，不能推断完整轨迹优劣。
+- [观察源码](round11/observer/r80_observer_v1.cpp)、[原码恢复证明](round11/observer/SOURCE_RECOVERY_V1.json)、[合同](round11/observer/CONTRACT_V1.md)、[全部快照/审核](round11/observer/RESULTS_V1.json)、[执行冻结](round11/observer/EXECUTION_FREEZE_V1.json)、[root独立重建12套局部规划](round11/OBSERVER_ROOT_REVIEW_V1.json)。logger和反事实仅作用于副本；源码用于诊断，没有替换正式方法。
+- [运行前代数分析](round11/MECHANISM_NOTES_V1.md)：单算子概率排序在共享下保持，但大小和离散集合仍可改变动作。观察结果和此推导的适用范围分开记录。
+- [R82负结果与write1源码差异](round9/source_monitor/R82_UPDATE_REVIEW_V1.md)、[R82 reserved DEV来源审核](round9/dataset_monitor/R82_RESERVED_DEV_REVIEW_f4a7fcf6e957.md)：上游TRAIN38与本分支主60不同；其DEV12未下载/接入。资料来自发布归档，未独立重跑上游228格。
+
+最新工作交接见[Round11](round11/HANDOFF.md)。旧性能结果和代码保持原字节，后续诊断没有产生新冠军或替换方法。上游R84全72+12报告仍待正式归档，文档中的完成声明不等于本分支已经核验其方法身份或成绩。
+
+与上游R84对齐时，其冻结口径为dyna全12、final eval全72各自逐例均分，再对两个数据集各赋50%权重；不是将84例混合等权，且保留dyna原train/dev/holdout标记，不称新盲测。需核Van确切branch/commit/path/SHA及同窗Naive。本文原60训练诊断仍单独报告，不按新口径重写旧结果。政策来源记录见[source文档更新](round9/source_monitor/UPDATE_8e380ad4c664.json)和[datasets文档更新](round9/dataset_monitor/UPDATE_c65c7b32b06a.json)；该口径是上游比较合同，不冒称官方隐藏评测规则。

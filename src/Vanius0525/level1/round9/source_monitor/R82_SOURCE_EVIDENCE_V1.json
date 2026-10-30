@@ -1,0 +1,112 @@
+{
+  "observed_utc": "2026-10-30T14:16:40.674204+00:00",
+  "revision": "b1246ae64a006c679e57789766dc401da2a9ecb9",
+  "files": [
+    {
+      "path": "src/experiments/r82_victim_search_20261030/README.md",
+      "bytes": 421,
+      "sha256": "711f2693182a53619b82be872b692300b99a3f8102c6d471834c553aad49d85e"
+    },
+    {
+      "path": "src/experiments/r82_victim_search_20261030/manifest.json",
+      "bytes": 1104,
+      "sha256": "8585ec4751d8d1bf6d090a910395d291b9c97def8f544ee63b3ed64e85d96ce8"
+    },
+    {
+      "path": "src/reports/r82_20261030/report_zh.md",
+      "bytes": 7882,
+      "sha256": "260141d7f48d4ab5c32592ceaaaeff9df66ce3a9eeb8a55eeed0518b184c4a40"
+    },
+    {
+      "path": "src/experiments/r82_victim_search_20261030/R82_write1.cpp",
+      "bytes": 25721,
+      "sha256": "d23b0fa17bbec229fae40343b502b31160fda6a155ce4357afec40b0d977c44e"
+    },
+    {
+      "path": "src/experiments/r82_victim_search_20261030/R82_singlefit025.cpp",
+      "bytes": 26991,
+      "sha256": "f51a53c07ef19bedcadfce06b6f2d2ed985095ed54cd198d03b960325af4249e"
+    },
+    {
+      "path": "src/reports/r82_20261030/evaluation/train/advance.json",
+      "bytes": 1604,
+      "sha256": "16ceefff3879fc4686d9a13695d31ba08562ad0ef4c52e924d560a4c0172d044"
+    },
+    {
+      "path": "src/reports/r82_20261030/review/failure_report.json",
+      "bytes": 1821,
+      "sha256": "b6b5bb42ba750f0cf78a5c162ed74997955e397d27d155daad13a87c7008a291"
+    }
+  ],
+  "parent": {
+    "revision": "388183be301a09157730d3a4b1e966e7d036bf9e",
+    "path": "src/experiments/r80_van_transfer_20261030/R80_next_hier_fast100.cpp",
+    "sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d"
+  },
+  "our_write1": {
+    "path": "src/Vanius0525/level1/round10/R80_write1.cpp",
+    "sha256": "bc2be976f444854c746f1d568a8fabab0e7302d627a5211aa718d5a94ecf2207",
+    "source_scope": "top4 coefficient is 1.0 on all paths reaching subset enumeration"
+  },
+  "write1_diff_checks": {
+    "normalized_R82_exactly_adds_ordinary_gate_and_changes_coefficient": true,
+    "normalized_ours_exactly_changes_coefficient_without_gate": true,
+    "same_control_on_all_paths": false,
+    "R82_scope": "All operators PROBE, not scan, not uniform cycle; coefficient elsewhere remains .25"
+  },
+  "singlefit_scope": "Same ordinary gate; compare best non-next covering resident singleton to pruned original proposal including fallback; strict surrogate improvement only.",
+  "publisher_train_status": {
+    "complete": true,
+    "selected": [],
+    "choices": [
+      {
+        "method": "R82_singlefit025",
+        "eligible": false,
+        "guards": {
+          "required_groups_present": true,
+          "all_parent_and_naive_denominators_defined": true,
+          "new_train_score_improves": false,
+          "old26_score_loss_le_0_05": false,
+          "worst_train_cost_parent_le_1_25": true
+        },
+        "new_train_mean_score": 5.715462101620104,
+        "new_train_score_delta": -0.19542802355498187,
+        "old26_score_delta": -0.13754934689426213,
+        "worst_cost_parent": 1.1396432750273642,
+        "D_total_us": 3200383.4400000004,
+        "D_hard_veto": false
+      },
+      {
+        "method": "R82_write1",
+        "eligible": false,
+        "guards": {
+          "required_groups_present": true,
+          "all_parent_and_naive_denominators_defined": true,
+          "new_train_score_improves": false,
+          "old26_score_loss_le_0_05": true,
+          "worst_train_cost_parent_le_1_25": true
+        },
+        "new_train_mean_score": 5.903564674224015,
+        "new_train_score_delta": -0.007325450951070918,
+        "old26_score_delta": -0.0135859859750686,
+        "worst_cost_parent": 1.011477685485859,
+        "D_total_us": 2839575.9800000004,
+        "D_hard_veto": false
+      }
+    ],
+    "rule": "Highest same-run Naive new-TRAIN mean score; strictly improve parent, old26 loss<=.05 points, all-TRAIN worst cost/parent<=1.25, complete defined denominators; ties lower D then name; no hard D veto",
+    "reserved_dev_results_consulted": false,
+    "training_summary_sha256": "7fb689f37072c3f03a802045fe1be6be34da67872d9fa3d6f3e4fd1152150b31"
+  },
+  "reserved_dev_archive_checks": {
+    "policy_evaluation_dev_directory_present": false,
+    "evaluation_archive_file_count": 1149,
+    "advance_selected_empty": true,
+    "advance_reserved_dev_results_consulted": false,
+    "failure_report_dev12_policy_runs": 0,
+    "scope": "Archived records and tree only; not proof of no runs outside the archive."
+  },
+  "new_solver_runs": 0,
+  "input_downloaded_bytes": 0,
+  "independent_performance_reproduction": false
+}

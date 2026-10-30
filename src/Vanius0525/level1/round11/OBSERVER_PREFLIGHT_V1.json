@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "review_scope": "Root manual source/control-flow review plus frozen bytes and AST verification, before compile/execute.",
+  "build_freeze_sha256": "52c3c8c39dbb386b3bac0955779ca7e4d918204f52d9ad7aa0249e2efc79a6b3",
+  "instrumented_source_sha256": "5b52e59126fd5802fec433783cd3b0fb0176a98d6f5631d58deafeb338dbd831",
+  "reference_source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+  "checks": [
+    "Complete original class body preserved byte-for-byte except class name and appended helper; original 357 CRLF unchanged.",
+    "Wrapper deep-copies before live callback; live callback actions returned unchanged; prepared/hier/flat/view copies independent.",
+    "Same-state hier copy must exactly reproduce actual pruned SPILL sequence; counterfactual actions never executed.",
+    "Fixed q thresholds and pressure rule; no action/result-based selection; at most one instrumented run per input.",
+    "Frozen runner stops on any failure and requires old R80 IO/Hit/Miss exact equality; no retry or new timing score.",
+    "Builder hard-binds official framework SHA and C++14/O2 flags; no engine instrumentation or hidden features.",
+    "Preflight does not establish execution success or full-trajectory action equivalence."
+  ],
+  "authorized_next_action": "Compile once and run the fixed two instrumented cases once each under shared experiment_lock; retain any failure and stop.",
+  "new_solver_runs_before_review": 0,
+  "ai_paused": true
+}

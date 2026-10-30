@@ -1,0 +1,612 @@
+{
+  "complete": true,
+  "results_sha256": "0b5bc2f4914bead75e4bd53fb4c0a7a07ce33deadfe6fce0687d3cdcfb3600e9",
+  "flows": [
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "input_sha256": "8328d3f733888bfb15944fb8454b6cd1f235132a7b61b6504a6d1fae5e60b7cb",
+      "snapshots": 3,
+      "physical_output": {
+        "Total_IO_Time": "70437086.95",
+        "Hit_Count": "154637",
+        "Miss_Count": "37158"
+      },
+      "reference_io_hit_miss_exact": true,
+      "numeric": {
+        "comparisons": 474,
+        "max_absolute_error": 1.0913936421275139e-11,
+        "max_scaled_error": 2.5206708538153173e-15
+      },
+      "diagnostic_execution_returncode": 0
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "input_sha256": "c8467f36c5f46b3b2dd3cddaaef37495bfa3af7f54ec413b9f60d09dc4eaf24f",
+      "snapshots": 3,
+      "physical_output": {
+        "Total_IO_Time": "6343769118.50",
+        "Hit_Count": "34646",
+        "Miss_Count": "26281"
+      },
+      "reference_io_hit_miss_exact": true,
+      "numeric": {
+        "comparisons": 216,
+        "max_absolute_error": 1.1350493878126144e-09,
+        "max_scaled_error": 8.608515302873765e-15
+      },
+      "diagnostic_execution_returncode": 0
+    }
+  ],
+  "snapshots": [
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "q": 258,
+      "thresholds": [
+        256
+      ],
+      "callback": 156,
+      "current_target": [
+        0,
+        6
+      ],
+      "scan": false,
+      "cycle": false,
+      "different_spill_sequence": false,
+      "different_spill_set": false,
+      "hier_copy_equals_actual_spills": true,
+      "hier_spills": [
+        [
+          "S",
+          1,
+          6
+        ],
+        [
+          "S",
+          0,
+          7
+        ]
+      ],
+      "flat_spills": [
+        [
+          "S",
+          1,
+          6
+        ],
+        [
+          "S",
+          0,
+          7
+        ]
+      ],
+      "hier_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 2,
+        "spill_bytes": 1261230,
+        "released_excess_bytes": 478132,
+        "actual_current_write_us": 1000.9761904761905,
+        "flat_future_proxy_us": 742.59754183,
+        "hier_future_proxy_us": 1010.0442021701726,
+        "next_protection_term": 0,
+        "flat_subset_objective": 992.8415894490475,
+        "hier_subset_objective": 1260.2882497892203
+      },
+      "flat_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 2,
+        "spill_bytes": 1261230,
+        "released_excess_bytes": 478132,
+        "actual_current_write_us": 1000.9761904761905,
+        "flat_future_proxy_us": 742.59754183,
+        "hier_future_proxy_us": 1010.0442021701726,
+        "next_protection_term": 0,
+        "flat_subset_objective": 992.8415894490475,
+        "hier_subset_objective": 1260.2882497892203
+      },
+      "flat_minus_hier_current_write_us": 0.0,
+      "flat_minus_hier_flat_objective": 0.0,
+      "flat_minus_hier_hier_objective": 0.0,
+      "group_share": [
+        0.37644599214319274,
+        0.24249979890529647
+      ],
+      "group_mass": [
+        41.07230401339787,
+        31.551963860521948
+      ],
+      "group_n_eff": [
+        42.96961757309439,
+        32.983158221282686
+      ]
+    },
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "q": 1059,
+      "thresholds": [
+        1024
+      ],
+      "callback": 294,
+      "current_target": [
+        1,
+        2
+      ],
+      "scan": false,
+      "cycle": false,
+      "different_spill_sequence": false,
+      "different_spill_set": false,
+      "hier_copy_equals_actual_spills": true,
+      "hier_spills": [
+        [
+          "S",
+          0,
+          3
+        ]
+      ],
+      "flat_spills": [
+        [
+          "S",
+          0,
+          3
+        ]
+      ],
+      "hier_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 1,
+        "spill_bytes": 513121,
+        "released_excess_bytes": 398070,
+        "actual_current_write_us": 407.2388888888889,
+        "flat_future_proxy_us": 177.0882573545642,
+        "hier_future_proxy_us": 409.85467128596326,
+        "next_protection_term": 0,
+        "flat_subset_objective": 278.89797957678644,
+        "hier_subset_objective": 511.66439350818547
+      },
+      "flat_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 1,
+        "spill_bytes": 513121,
+        "released_excess_bytes": 398070,
+        "actual_current_write_us": 407.2388888888889,
+        "flat_future_proxy_us": 177.0882573545642,
+        "hier_future_proxy_us": 409.85467128596326,
+        "next_protection_term": 0,
+        "flat_subset_objective": 278.89797957678644,
+        "hier_subset_objective": 511.66439350818547
+      },
+      "flat_minus_hier_current_write_us": 0.0,
+      "flat_minus_hier_flat_objective": 0.0,
+      "flat_minus_hier_hier_objective": 0.0,
+      "group_share": [
+        0.4224967869651447,
+        0.20364407190664294
+      ],
+      "group_mass": [
+        99.55363436739127,
+        76.26635916190787
+      ],
+      "group_n_eff": [
+        120.71873724507616,
+        90.87646986670752
+      ]
+    },
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "q": 4100,
+      "thresholds": [
+        4096
+      ],
+      "callback": 864,
+      "current_target": [
+        1,
+        5
+      ],
+      "scan": false,
+      "cycle": false,
+      "different_spill_sequence": true,
+      "different_spill_set": true,
+      "hier_copy_equals_actual_spills": true,
+      "hier_spills": [
+        [
+          "S",
+          0,
+          4
+        ],
+        [
+          "S",
+          0,
+          29
+        ],
+        [
+          "S",
+          1,
+          25
+        ],
+        [
+          "S",
+          1,
+          7
+        ],
+        [
+          "S",
+          0,
+          1
+        ],
+        [
+          "S",
+          0,
+          26
+        ],
+        [
+          "S",
+          0,
+          20
+        ],
+        [
+          "S",
+          1,
+          26
+        ]
+      ],
+      "flat_spills": [
+        [
+          "S",
+          0,
+          29
+        ],
+        [
+          "S",
+          0,
+          4
+        ],
+        [
+          "S",
+          0,
+          20
+        ],
+        [
+          "S",
+          0,
+          1
+        ],
+        [
+          "S",
+          0,
+          26
+        ],
+        [
+          "S",
+          1,
+          25
+        ],
+        [
+          "S",
+          0,
+          2
+        ],
+        [
+          "S",
+          0,
+          10
+        ],
+        [
+          "S",
+          1,
+          7
+        ],
+        [
+          "S",
+          0,
+          27
+        ],
+        [
+          "S",
+          0,
+          24
+        ]
+      ],
+      "hier_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 8,
+        "spill_bytes": 19506890,
+        "released_excess_bytes": 110667,
+        "actual_current_write_us": 15481.65873015873,
+        "flat_future_proxy_us": 14618.104373739441,
+        "hier_future_proxy_us": 16652.329116837973,
+        "next_protection_term": 0,
+        "flat_subset_objective": 18488.519056279125,
+        "hier_subset_objective": 20522.743799377655
+      },
+      "flat_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 11,
+        "spill_bytes": 19517966,
+        "released_excess_bytes": 121743,
+        "actual_current_write_us": 15490.449206349207,
+        "flat_future_proxy_us": 14381.52721231496,
+        "hier_future_proxy_us": 16744.141303510398,
+        "next_protection_term": 0,
+        "flat_subset_objective": 18254.139513902264,
+        "hier_subset_objective": 20616.7536050977
+      },
+      "flat_minus_hier_current_write_us": 8.79047619047742,
+      "flat_minus_hier_flat_objective": -234.37954237686063,
+      "flat_minus_hier_hier_objective": 94.00980572004482,
+      "group_share": [
+        0.3078988413774226,
+        0.18171996729118498
+      ],
+      "group_mass": [
+        222.99433264754518,
+        204.64388036947778
+      ],
+      "group_n_eff": [
+        351.7526790665468,
+        322.7572542190141
+      ]
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "q": 260,
+      "thresholds": [
+        256
+      ],
+      "callback": 5715,
+      "current_target": [
+        0,
+        10
+      ],
+      "scan": false,
+      "cycle": false,
+      "different_spill_sequence": false,
+      "different_spill_set": false,
+      "hier_copy_equals_actual_spills": true,
+      "hier_spills": [
+        [
+          "S",
+          0,
+          15
+        ]
+      ],
+      "flat_spills": [
+        [
+          "S",
+          0,
+          15
+        ]
+      ],
+      "hier_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 1,
+        "spill_bytes": 268898688,
+        "released_excess_bytes": 87968828,
+        "actual_current_write_us": 43203.51670951157,
+        "flat_future_proxy_us": 238192.36984167446,
+        "hier_future_proxy_us": 362636.3180911674,
+        "next_protection_term": 0,
+        "flat_subset_objective": 248993.24901905234,
+        "hier_subset_objective": 373437.19726854534
+      },
+      "flat_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 1,
+        "spill_bytes": 268898688,
+        "released_excess_bytes": 87968828,
+        "actual_current_write_us": 43203.51670951157,
+        "flat_future_proxy_us": 238192.36984167446,
+        "hier_future_proxy_us": 362636.3180911674,
+        "next_protection_term": 0,
+        "flat_subset_objective": 248993.24901905234,
+        "hier_subset_objective": 373437.19726854534
+      },
+      "flat_minus_hier_current_write_us": 0.0,
+      "flat_minus_hier_flat_objective": 0.0,
+      "flat_minus_hier_hier_objective": 0.0,
+      "group_share": [
+        0.5290633300386121
+      ],
+      "group_mass": [
+        124.82076466151108
+      ],
+      "group_n_eff": [
+        129.92237571624688
+      ]
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "q": 1024,
+      "thresholds": [
+        1024
+      ],
+      "callback": 6121,
+      "current_target": [
+        0,
+        6
+      ],
+      "scan": false,
+      "cycle": false,
+      "different_spill_sequence": false,
+      "different_spill_set": false,
+      "hier_copy_equals_actual_spills": true,
+      "hier_spills": [
+        [
+          "S",
+          0,
+          12
+        ],
+        [
+          "S",
+          0,
+          11
+        ],
+        [
+          "S",
+          0,
+          7
+        ],
+        [
+          "S",
+          0,
+          10
+        ],
+        [
+          "S",
+          0,
+          4
+        ]
+      ],
+      "flat_spills": [
+        [
+          "S",
+          0,
+          12
+        ],
+        [
+          "S",
+          0,
+          11
+        ],
+        [
+          "S",
+          0,
+          7
+        ],
+        [
+          "S",
+          0,
+          10
+        ],
+        [
+          "S",
+          0,
+          4
+        ]
+      ],
+      "hier_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 5,
+        "spill_bytes": 2740550255,
+        "released_excess_bytes": 161173553,
+        "actual_current_write_us": 440319.7710475578,
+        "flat_future_proxy_us": 4706696.007954341,
+        "hier_future_proxy_us": 4759546.968020102,
+        "next_protection_term": 0,
+        "flat_subset_objective": 4816775.950716231,
+        "hier_subset_objective": 4869626.910781992
+      },
+      "flat_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 5,
+        "spill_bytes": 2740550255,
+        "released_excess_bytes": 161173553,
+        "actual_current_write_us": 440319.7710475578,
+        "flat_future_proxy_us": 4706696.007954341,
+        "hier_future_proxy_us": 4759546.968020102,
+        "next_protection_term": 0,
+        "flat_subset_objective": 4816775.950716231,
+        "hier_subset_objective": 4869626.910781992
+      },
+      "flat_minus_hier_current_write_us": 0.0,
+      "flat_minus_hier_flat_objective": 0.0,
+      "flat_minus_hier_hier_objective": 0.0,
+      "group_share": [
+        0.45527195636460455
+      ],
+      "group_mass": [
+        432.2210944092673
+      ],
+      "group_n_eff": [
+        508.0474379557145
+      ]
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "q": 4097,
+      "thresholds": [
+        4096
+      ],
+      "callback": 7661,
+      "current_target": [
+        0,
+        3
+      ],
+      "scan": false,
+      "cycle": false,
+      "different_spill_sequence": false,
+      "different_spill_set": false,
+      "hier_copy_equals_actual_spills": true,
+      "hier_spills": [
+        [
+          "S",
+          0,
+          11
+        ],
+        [
+          "S",
+          0,
+          1
+        ]
+      ],
+      "flat_spills": [
+        [
+          "S",
+          0,
+          11
+        ],
+        [
+          "S",
+          0,
+          1
+        ]
+      ],
+      "hier_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 2,
+        "spill_bytes": 546855852,
+        "released_excess_bytes": 30646863,
+        "actual_current_write_us": 87862.4440874036,
+        "flat_future_proxy_us": 959354.9593590858,
+        "hier_future_proxy_us": 960744.7940252156,
+        "next_protection_term": 0,
+        "flat_subset_objective": 981320.5703809366,
+        "hier_subset_objective": 982710.4050470665
+      },
+      "flat_set": {
+        "ordinary_frequency_objective_valid": true,
+        "victim_count": 2,
+        "spill_bytes": 546855852,
+        "released_excess_bytes": 30646863,
+        "actual_current_write_us": 87862.4440874036,
+        "flat_future_proxy_us": 959354.9593590858,
+        "hier_future_proxy_us": 960744.7940252156,
+        "next_protection_term": 0,
+        "flat_subset_objective": 981320.5703809366,
+        "hier_subset_objective": 982710.4050470665
+      },
+      "flat_minus_hier_current_write_us": 0.0,
+      "flat_minus_hier_flat_objective": 0.0,
+      "flat_minus_hier_hier_objective": 0.0,
+      "group_share": [
+        0.40933478689275404
+      ],
+      "group_mass": [
+        1065.1418827213874
+      ],
+      "group_n_eff": [
+        1695.4850516031777
+      ]
+    }
+  ],
+  "counts": {
+    "flows": 2,
+    "snapshots": 6,
+    "hier_equals_actual": 6,
+    "flat_hier_different_sets": 1,
+    "flat_hier_different_sequences": 1
+  },
+  "interpretation_limits": [
+    "Fixed six snapshots in two existing train flows are not six independent flows.",
+    "No full action trace: exact IO/Hit/Miss plus selected-state action equality do not prove full trajectory equality.",
+    "Counterfactual proposals were not executed; cross-objective disagreement is not realized cost or a teacher label.",
+    "Instrumented decision/wall time is diagnostic only and is not a new performance comparison.",
+    "These snapshots do not establish a mechanism explaining all 24 Zipf outcomes or support disabling sharing globally."
+  ]
+}

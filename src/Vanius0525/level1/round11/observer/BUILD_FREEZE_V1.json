@@ -1,0 +1,99 @@
+{
+  "stage": "fixed-two-R80-copy-observer-v1",
+  "cases": [
+    {
+      "case": "train/train_548_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_548_random_zipf.txt",
+      "input_sha256": "8328d3f733888bfb15944fb8454b6cd1f235132a7b61b6504a6d1fae5e60b7cb",
+      "family": "random_zipf",
+      "seed": 10730359742581714376,
+      "operations": 427113,
+      "probes": 191795,
+      "phase_overlap": false,
+      "order": [
+        "write1",
+        "naive",
+        "r80",
+        "risk_pool100",
+        "value_rank",
+        "paired100"
+      ],
+      "reference_run": {
+        "Total_IO_Time": 70437086.95,
+        "Total_Decision_Time": 74309.64,
+        "Hit_Count": 154637.0,
+        "Miss_Count": 37158.0,
+        "Total_Score": 102281486.59,
+        "wall_seconds": 0.56709146600042,
+        "stdout_sha256": "16301535761d424d541c247a901e7b8f8c6ddd7309b141854bf3624e248734b6",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reference_stdout": "build/round10_r80_v1/train_548_random_zipf/r80.stdout",
+      "reference_stderr": "build/round10_r80_v1/train_548_random_zipf/r80.stderr"
+    },
+    {
+      "case": "train/train_593_random_zipf.txt",
+      "input": "build/round9/dataset_snapshots/42fbd682f6fadc54e23c4ee7cc0bef6563a4513d/final_dataset/train/train_593_random_zipf.txt",
+      "input_sha256": "c8467f36c5f46b3b2dd3cddaaef37495bfa3af7f54ec413b9f60d09dc4eaf24f",
+      "family": "random_zipf",
+      "seed": 7256044700735148566,
+      "operations": 150079,
+      "probes": 60927,
+      "phase_overlap": false,
+      "order": [
+        "write1",
+        "risk_pool100",
+        "r80",
+        "paired100",
+        "naive",
+        "value_rank"
+      ],
+      "reference_run": {
+        "Total_IO_Time": 6343769118.5,
+        "Total_Decision_Time": 23166.34,
+        "Hit_Count": 34646.0,
+        "Miss_Count": 26281.0,
+        "Total_Score": 6365185018.84,
+        "wall_seconds": 0.21530442600487731,
+        "stdout_sha256": "9bf00b5a5a89fd655975cc9025c8bc2563809d65f1cacc8b6d43e4d8ec564f63",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reference_stdout": "build/round10_r80_v1/train_593_random_zipf/r80.stdout",
+      "reference_stderr": "build/round10_r80_v1/train_593_random_zipf/r80.stderr"
+    }
+  ],
+  "thresholds": [
+    256,
+    1024,
+    4096
+  ],
+  "files": {
+    "CONTRACT_V1.md": "654f2e29c302a7cca0fa41cee63ffde9b923f92c28e798b71e8faf8aedcc3396",
+    ".gitattributes": "0bd28d98f5cf11ee4865310fb0bb859ec8164a9fc28f6e335b2b37c2438234de",
+    "prepare_v1.py": "0c55816771c9d673cc67c8970d62667dbb3362b29af4c09754c4a82679980032",
+    "log_support_v1.hpp": "86fa1be3f38ab99298b04570ffd59015c868d3b0e72a4472326617f672a0166f",
+    "copy_observer_v1.hpp": "4fb844f08df1531a5ff361e2feefa16c3f4802ff9934b465ab2c329881fa41b0",
+    "wrapper_v1.hpp": "50206ed45f873d788579a9280894e4dc1b9f2abe1177e2dbba2439c1c28ffa08",
+    "r80_observer_v1.cpp": "5b52e59126fd5802fec433783cd3b0fb0176a98d6f5631d58deafeb338dbd831",
+    "INSTRUMENTATION_V1.patch": "5a260e248563a579b9e1f98e0e6767a7df0dbf71230bf8400f0b0792a8a3fdac",
+    "SOURCE_RECOVERY_V1.json": "a8a86ebd81499fdff95b5bee0fee7c06695cf5cb69be38b31c8ecae52b19ebb1",
+    "run_v1.py": "19bc9d59a4b64e55b3547dae5c840458bd2e2a69d8f9d2c995b5930b83ccaf5d",
+    "audit_v1.py": "8eb3a229ac990a83e0e5d69b5512622115a5aab0b3a249431894a2a96536dafc"
+  },
+  "dependencies": {
+    "round10/PLAN_V1.json": "255d497edaf83379b8974d798f2e104bad3d09a21c0aff62d64878cb4cd5bec3",
+    "round10/RESULTS_V1.json": "84956f2cc6d783e28bdb562f3004894f08c9f6a8600fc80a2f43f32066892942",
+    "round10/R80_next_hier_fast100_reference.cpp": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+    "round10/EXECUTION_FREEZE_V1.json": "7480004c3602f23e55d6856de09af261c3cb8924df706d4ee0d79a6e4215d556",
+    "round10/diagnostic/FINAL_FREEZE_V2.json": "b014a3c141b79ba9eac5fe152c266083dccf07227aa19ee48a984c9c670cad3f",
+    "round11/MECHANISM_NOTES_V1.md": "d713d1c6459b7cb6b32a9cde2023e68d88770c2b11edf545d2477a97e4a9e5c6",
+    "build.py": "fb67b8754ec527f01c543192db3424de9200b17f6308c873583416eff6471b17",
+    "workflow.py": "60e788669e24a09d7f884b5416297a91d9ff41f4ffec2ab55abf34839d95f329"
+  },
+  "maximum_instrumented_solver_runs": 2,
+  "new_reference_solver_runs": 0,
+  "new_performance_runs": 0,
+  "new_teacher_runs": 0,
+  "dev_eval_dyna_inputs": 0,
+  "status": "Source prepared only; root pre-run review required."
+}

@@ -1,0 +1,20 @@
+--- R80_next_hier_fast100.cpp
++++ R82_write1.cpp
+@@ -371,6 +371,8 @@
+         const bool evidence = s.hit_count + s.miss_count > 0;
+         const bool scan = streak_ >= 6 && stride_ > 0 &&
+             observed_count_ * 2 > now;
++        bool ordinary=!scan && !uniform_cycle_;
++        for(const auto& state_op:s.operators)if(state_op.phase!=Phase::PROBE)ordinary=false;
+         const double observed_weight=demandWeight(now-1);
+         victims_.clear();
+         for (const auto& o : s.operators) for (const auto& part : o.partitions) {
+@@ -414,7 +416,7 @@
+                 int64_t bytes=0;double loss=0;
+                 for(int j=0;j<cap;++j) if(mask&(1<<j)) {
+                     const auto& v=victims_[j];bytes+=v.bytes;
+-                    loss+=v.priority*v.bytes+0.25*static_cast<double>(v.bytes)/s.write_bandwidth;
++                    loss+=v.priority*v.bytes+(ordinary?1.:0.25)*static_cast<double>(v.bytes)/s.write_bandwidth;
+                 }
+                 if(bytes>=need && loss<best_loss) {best_mask=mask;best_loss=loss;}
+             }

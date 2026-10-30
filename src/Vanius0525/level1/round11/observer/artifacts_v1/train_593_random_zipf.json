@@ -1,0 +1,1432 @@
+{
+  "case": "train/train_593_random_zipf.txt",
+  "seed": 7256044700735148566,
+  "input_sha256": "c8467f36c5f46b3b2dd3cddaaef37495bfa3af7f54ec413b9f60d09dc4eaf24f",
+  "build_freeze_sha256": "52c3c8c39dbb386b3bac0955779ca7e4d918204f52d9ad7aa0249e2efc79a6b3",
+  "execution_freeze_sha256": "375344b321c8dcba87af4f73c4b1142484bf850f68cec168f672259b1684edf4",
+  "stdout_sha256": "16caac23b669028e0949b4e7b71319e4e5a32c795ead373b0a3b401b02b12214",
+  "stderr_sha256": "8597c14895af940d1719063c38112ec623f44317c227dc069c079e439a831531",
+  "audit": {
+    "passed": true,
+    "snapshots": 3,
+    "thresholds_consumed": [
+      256,
+      1024,
+      4096
+    ],
+    "reference_io_hit_miss_exact": true,
+    "physical_output": {
+      "Total_IO_Time": "6343769118.50",
+      "Hit_Count": "34646",
+      "Miss_Count": "26281"
+    },
+    "printed_cost_formula_residual_us": "0.00",
+    "numeric": {
+      "comparisons": 216,
+      "max_absolute_error": 1.1350493878126144e-09,
+      "max_scaled_error": 8.608515302873765e-15
+    },
+    "checks": [
+      {
+        "q": 260,
+        "thresholds": [
+          256
+        ],
+        "callback": 5715,
+        "raw_operation_index_0based": 89411,
+        "current_operation": {
+          "type": "PROBE",
+          "op_id": 0,
+          "key": 177430410,
+          "tuple_size": 0
+        },
+        "next_operation": {
+          "type": "PROBE",
+          "op_id": 0,
+          "key": 835098285,
+          "tuple_size": 0
+        },
+        "hier_copy_equals_actual": true,
+        "flat_vs_hier_spill_sequence_different": false,
+        "flat_vs_hier_spill_set_different": false,
+        "flat_minus_hier_spill_bytes": 0,
+        "flat_minus_hier_current_write_us": 0.0,
+        "flat_minus_hier_flat_objective": 0.0,
+        "flat_minus_hier_hier_objective": 0.0,
+        "all_spills_ordinary_frequency": true,
+        "scan": false,
+        "cycle": false,
+        "group_share": [
+          0.5290633300386121
+        ],
+        "group_mass": [
+          124.82076466151108
+        ],
+        "group_n_eff": [
+          129.92237571624688
+        ]
+      },
+      {
+        "q": 1024,
+        "thresholds": [
+          1024
+        ],
+        "callback": 6121,
+        "raw_operation_index_0based": 90175,
+        "current_operation": {
+          "type": "PROBE",
+          "op_id": 0,
+          "key": 479529270,
+          "tuple_size": 0
+        },
+        "next_operation": {
+          "type": "PROBE",
+          "op_id": 0,
+          "key": 162131721,
+          "tuple_size": 0
+        },
+        "hier_copy_equals_actual": true,
+        "flat_vs_hier_spill_sequence_different": false,
+        "flat_vs_hier_spill_set_different": false,
+        "flat_minus_hier_spill_bytes": 0,
+        "flat_minus_hier_current_write_us": 0.0,
+        "flat_minus_hier_flat_objective": 0.0,
+        "flat_minus_hier_hier_objective": 0.0,
+        "all_spills_ordinary_frequency": true,
+        "scan": false,
+        "cycle": false,
+        "group_share": [
+          0.45527195636460455
+        ],
+        "group_mass": [
+          432.2210944092673
+        ],
+        "group_n_eff": [
+          508.0474379557145
+        ]
+      },
+      {
+        "q": 4097,
+        "thresholds": [
+          4096
+        ],
+        "callback": 7661,
+        "raw_operation_index_0based": 93248,
+        "current_operation": {
+          "type": "PROBE",
+          "op_id": 0,
+          "key": 576136995,
+          "tuple_size": 0
+        },
+        "next_operation": {
+          "type": "PROBE",
+          "op_id": 0,
+          "key": 134659626,
+          "tuple_size": 0
+        },
+        "hier_copy_equals_actual": true,
+        "flat_vs_hier_spill_sequence_different": false,
+        "flat_vs_hier_spill_set_different": false,
+        "flat_minus_hier_spill_bytes": 0,
+        "flat_minus_hier_current_write_us": 0.0,
+        "flat_minus_hier_flat_objective": 0.0,
+        "flat_minus_hier_hier_objective": 0.0,
+        "all_spills_ordinary_frequency": true,
+        "scan": false,
+        "cycle": false,
+        "group_share": [
+          0.40933478689275404
+        ],
+        "group_mass": [
+          1065.1418827213874
+        ],
+        "group_n_eff": [
+          1695.4850516031777
+        ]
+      }
+    ],
+    "states": [
+      {
+        "callback": 5715,
+        "tag": "M",
+        "target_op": 0,
+        "target_partition": 10,
+        "required_bytes": 253280258,
+        "q": 260,
+        "thresholds": [
+          256
+        ],
+        "hier_copy_equals_actual_spills": true,
+        "scan": false,
+        "cycle": false,
+        "state": {
+          "memory_used": 4222616898,
+          "memory_limit": 4294967296,
+          "num_partitions": 16,
+          "write_bandwidth": 6224,
+          "read_bandwidth": 3583,
+          "hit_count": 138,
+          "miss_count": 122,
+          "total_io_bytes": 121861447908,
+          "next_op": {
+            "type": "PROBE",
+            "op_id": 0,
+            "key": 835098285,
+            "tuple_size": 0
+          },
+          "operators": [
+            {
+              "op_id": 0,
+              "phase": "PROBE",
+              "partitions": [
+                {
+                  "partition_id": 0,
+                  "data_size": 331456464,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 1,
+                  "data_size": 239492439,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 2,
+                  "data_size": 394468689,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 3,
+                  "data_size": 656768661,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 4,
+                  "data_size": 1022877479,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 5,
+                  "data_size": 490539978,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 6,
+                  "data_size": 2652373610,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 7,
+                  "data_size": 360020059,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 8,
+                  "data_size": 286749532,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 9,
+                  "data_size": 1453948335,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 10,
+                  "data_size": 253280258,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 11,
+                  "data_size": 307363413,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 12,
+                  "data_size": 797009046,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 13,
+                  "data_size": 560709473,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 14,
+                  "data_size": 436895456,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 15,
+                  "data_size": 268898688,
+                  "in_memory": true
+                }
+              ]
+            }
+          ]
+        },
+        "probability_clock": 261,
+        "next_sample_q": 261,
+        "total_mass": 124.82076466151108,
+        "total_weight2": 119.9194765704705,
+        "probability_prior_per_object": 4,
+        "probability_denom": 188.82076466151108,
+        "groups": [
+          {
+            "op": 0,
+            "last": 261,
+            "mass": 124.82076466151108,
+            "squares": 1572.6010889327076,
+            "weight2": 119.9194765704705,
+            "share": 0.5290633300386121,
+            "heterogeneity": 0.29458222661518385,
+            "n_eff": 129.92237571624688
+          }
+        ],
+        "objects": [
+          {
+            "id": 0,
+            "op": 0,
+            "partition": 0,
+            "size": 331456464,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 4.84986446433384,
+            "flat_p": 0.04686912734517584,
+            "hier_p": 0.05513884888334659
+          },
+          {
+            "id": 1,
+            "op": 0,
+            "partition": 1,
+            "size": 239492439,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 13.507380427422243,
+            "flat_p": 0.09271957169968456,
+            "hier_p": 0.07673150446390885
+          },
+          {
+            "id": 2,
+            "op": 0,
+            "partition": 2,
+            "size": 394468689,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 11.474920455182996,
+            "flat_p": 0.0819556073873764,
+            "hier_p": 0.07166235895508721
+          },
+          {
+            "id": 3,
+            "op": 0,
+            "partition": 3,
+            "size": 656768661,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 4.685901973101036,
+            "flat_p": 0.04600077744983074,
+            "hier_p": 0.05472991107527145
+          },
+          {
+            "id": 4,
+            "op": 0,
+            "partition": 4,
+            "size": 1022877479,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 11.721385832756408,
+            "flat_p": 0.08326089485411892,
+            "hier_p": 0.07227706668801728
+          },
+          {
+            "id": 5,
+            "op": 0,
+            "partition": 5,
+            "size": 490539978,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 4.851185729602141,
+            "flat_p": 0.04687612480263592,
+            "hier_p": 0.055142144242661034
+          },
+          {
+            "id": 6,
+            "op": 0,
+            "partition": 6,
+            "size": 2652373610,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 0.9909034553534213,
+            "flat_p": 0.026431962948038835,
+            "hier_p": 0.04551423873870545
+          },
+          {
+            "id": 7,
+            "op": 0,
+            "partition": 7,
+            "size": 360020059,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 9.58877128820076,
+            "flat_p": 0.07196650915253218,
+            "hier_p": 0.0669581262964525
+          },
+          {
+            "id": 8,
+            "op": 0,
+            "partition": 8,
+            "size": 286749532,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 6.708615609064338,
+            "flat_p": 0.0567131248952471,
+            "hier_p": 0.05977474830868521
+          },
+          {
+            "id": 9,
+            "op": 0,
+            "partition": 9,
+            "size": 1453948335,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 0.9247959797070583,
+            "flat_p": 0.02608185592583251,
+            "hier_p": 0.04534936050353751
+          },
+          {
+            "id": 10,
+            "op": 0,
+            "partition": 10,
+            "size": 253280258,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 9.650259300379185,
+            "flat_p": 0.07229215136825273,
+            "hier_p": 0.06711148315712279
+          },
+          {
+            "id": 11,
+            "op": 0,
+            "partition": 11,
+            "size": 307363413,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 7.662896975115566,
+            "flat_p": 0.06176702544353646,
+            "hier_p": 0.06215481540321264
+          },
+          {
+            "id": 12,
+            "op": 0,
+            "partition": 12,
+            "size": 797009046,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 4.757776828761377,
+            "flat_p": 0.04638142867634805,
+            "hier_p": 0.054909173696304235
+          },
+          {
+            "id": 13,
+            "op": 0,
+            "partition": 13,
+            "size": 560709473,
+            "resident": false,
+            "eligible": false,
+            "next_protected": true,
+            "frequency_branch": false,
+            "mass": 26.67800437940585,
+            "flat_p": 0.16247156097689083,
+            "hier_p": 0.10958027401729882
+          },
+          {
+            "id": 14,
+            "op": 0,
+            "partition": 14,
+            "size": 436895456,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 4.830350021289613,
+            "flat_p": 0.046765778314261736,
+            "hier_p": 0.05509017803488416
+          },
+          {
+            "id": 15,
+            "op": 0,
+            "partition": 15,
+            "size": 268898688,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 1.937751941835239,
+            "flat_p": 0.03144649876023715,
+            "hier_p": 0.04787576753550426
+          }
+        ],
+        "actual_actions": [
+          [
+            "S",
+            0,
+            15
+          ],
+          [
+            "L",
+            0,
+            10
+          ]
+        ],
+        "hier_spills": [
+          [
+            "S",
+            0,
+            15
+          ]
+        ],
+        "flat_spills": [
+          [
+            "S",
+            0,
+            15
+          ]
+        ],
+        "cross_objectives": {
+          "hier_set": {
+            "ordinary_frequency_objective_valid": true,
+            "victim_count": 1,
+            "spill_bytes": 268898688,
+            "released_excess_bytes": 87968828,
+            "actual_current_write_us": 43203.51670951157,
+            "flat_future_proxy_us": 238192.36984167446,
+            "hier_future_proxy_us": 362636.3180911674,
+            "next_protection_term": 0,
+            "flat_subset_objective": 248993.24901905234,
+            "hier_subset_objective": 373437.19726854534
+          },
+          "flat_set": {
+            "ordinary_frequency_objective_valid": true,
+            "victim_count": 1,
+            "spill_bytes": 268898688,
+            "released_excess_bytes": 87968828,
+            "actual_current_write_us": 43203.51670951157,
+            "flat_future_proxy_us": 238192.36984167446,
+            "hier_future_proxy_us": 362636.3180911674,
+            "next_protection_term": 0,
+            "flat_subset_objective": 248993.24901905234,
+            "hier_subset_objective": 373437.19726854534
+          }
+        }
+      },
+      {
+        "callback": 6121,
+        "tag": "M",
+        "target_op": 0,
+        "target_partition": 6,
+        "required_bytes": 2652373610,
+        "q": 1024,
+        "thresholds": [
+          1024
+        ],
+        "hier_copy_equals_actual_spills": true,
+        "scan": false,
+        "cycle": false,
+        "state": {
+          "memory_used": 4221970388,
+          "memory_limit": 4294967296,
+          "num_partitions": 16,
+          "write_bandwidth": 6224,
+          "read_bandwidth": 3583,
+          "hit_count": 543,
+          "miss_count": 481,
+          "total_io_bytes": 488073640122,
+          "next_op": {
+            "type": "PROBE",
+            "op_id": 0,
+            "key": 162131721,
+            "tuple_size": 0
+          },
+          "operators": [
+            {
+              "op_id": 0,
+              "phase": "PROBE",
+              "partitions": [
+                {
+                  "partition_id": 0,
+                  "data_size": 331456464,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 1,
+                  "data_size": 239492439,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 2,
+                  "data_size": 394468689,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 3,
+                  "data_size": 656768661,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 4,
+                  "data_size": 1022877479,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 5,
+                  "data_size": 490539978,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 6,
+                  "data_size": 2652373610,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 7,
+                  "data_size": 360020059,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 8,
+                  "data_size": 286749532,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 9,
+                  "data_size": 1453948335,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 10,
+                  "data_size": 253280258,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 11,
+                  "data_size": 307363413,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 12,
+                  "data_size": 797009046,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 13,
+                  "data_size": 560709473,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 14,
+                  "data_size": 436895456,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 15,
+                  "data_size": 268898688,
+                  "in_memory": false
+                }
+              ]
+            }
+          ]
+        },
+        "probability_clock": 1025,
+        "next_sample_q": 1025,
+        "total_mass": 432.2210944092673,
+        "total_weight2": 367.7118719544238,
+        "probability_prior_per_object": 4,
+        "probability_denom": 496.2210944092673,
+        "groups": [
+          {
+            "op": 0,
+            "last": 1025,
+            "mass": 432.2210944092673,
+            "squares": 19991.19568803019,
+            "weight2": 367.7118719544238,
+            "share": 0.45527195636460455,
+            "heterogeneity": 0.39297072484719403,
+            "n_eff": 508.0474379557145
+          }
+        ],
+        "objects": [
+          {
+            "id": 0,
+            "op": 0,
+            "partition": 0,
+            "size": 331456464,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 11.49824371510572,
+            "flat_p": 0.031232537047937877,
+            "hier_p": 0.04546773607668099
+          },
+          {
+            "id": 1,
+            "op": 0,
+            "partition": 1,
+            "size": 239492439,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 48.26413692293388,
+            "flat_p": 0.10532429498014868,
+            "hier_p": 0.08582759442460147
+          },
+          {
+            "id": 2,
+            "op": 0,
+            "partition": 2,
+            "size": 394468689,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 48.5722375145918,
+            "flat_p": 0.10594518876142717,
+            "hier_p": 0.08616581267938268
+          },
+          {
+            "id": 3,
+            "op": 0,
+            "partition": 3,
+            "size": 656768661,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 16.96533667382038,
+            "flat_p": 0.04224999080052982,
+            "hier_p": 0.05146925210517385
+          },
+          {
+            "id": 4,
+            "op": 0,
+            "partition": 4,
+            "size": 1022877479,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 32.92812942379522,
+            "flat_p": 0.07441870134069326,
+            "hier_p": 0.0689924508639904
+          },
+          {
+            "id": 5,
+            "op": 0,
+            "partition": 5,
+            "size": 490539978,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 9.721274521182552,
+            "flat_p": 0.027651534116092377,
+            "hier_p": 0.04351706335536418
+          },
+          {
+            "id": 6,
+            "op": 0,
+            "partition": 6,
+            "size": 2652373610,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 6.266642819207619,
+            "flat_p": 0.02068965413779854,
+            "hier_p": 0.039724732094763744
+          },
+          {
+            "id": 7,
+            "op": 0,
+            "partition": 7,
+            "size": 360020059,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 27.9800529257693,
+            "flat_p": 0.06444718551080614,
+            "hier_p": 0.06356068655389661
+          },
+          {
+            "id": 8,
+            "op": 0,
+            "partition": 8,
+            "size": 286749532,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 22.883835441585916,
+            "flat_p": 0.054177131412742774,
+            "hier_p": 0.05796630007702888
+          },
+          {
+            "id": 9,
+            "op": 0,
+            "partition": 9,
+            "size": 1453948335,
+            "resident": false,
+            "eligible": false,
+            "next_protected": true,
+            "frequency_branch": false,
+            "mass": 9.531503029644025,
+            "flat_p": 0.027269100774026493,
+            "hier_p": 0.04330874118911968
+          },
+          {
+            "id": 10,
+            "op": 0,
+            "partition": 10,
+            "size": 253280258,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 29.795252300155944,
+            "flat_p": 0.06810523107726392,
+            "hier_p": 0.06555332655884229
+          },
+          {
+            "id": 11,
+            "op": 0,
+            "partition": 11,
+            "size": 307363413,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 24.140961070240728,
+            "flat_p": 0.056710529615314906,
+            "hier_p": 0.05934631312366542
+          },
+          {
+            "id": 12,
+            "op": 0,
+            "partition": 12,
+            "size": 797009046,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 16.643984360589336,
+            "flat_p": 0.041602391742667104,
+            "hier_p": 0.05111648673732416
+          },
+          {
+            "id": 13,
+            "op": 0,
+            "partition": 13,
+            "size": 560709473,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 100.87276958656331,
+            "flat_p": 0.21134282836446205,
+            "hier_p": 0.14357886270413237
+          },
+          {
+            "id": 14,
+            "op": 0,
+            "partition": 14,
+            "size": 436895456,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 12.061647613832754,
+            "flat_p": 0.032367925899953014,
+            "hier_p": 0.046086214224804634
+          },
+          {
+            "id": 15,
+            "op": 0,
+            "partition": 15,
+            "size": 268898688,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 14.09508649024782,
+            "flat_p": 0.036465774418133805,
+            "hier_p": 0.04831842723122746
+          }
+        ],
+        "actual_actions": [
+          [
+            "S",
+            0,
+            12
+          ],
+          [
+            "S",
+            0,
+            11
+          ],
+          [
+            "S",
+            0,
+            7
+          ],
+          [
+            "S",
+            0,
+            10
+          ],
+          [
+            "S",
+            0,
+            4
+          ],
+          [
+            "L",
+            0,
+            6
+          ]
+        ],
+        "hier_spills": [
+          [
+            "S",
+            0,
+            12
+          ],
+          [
+            "S",
+            0,
+            11
+          ],
+          [
+            "S",
+            0,
+            7
+          ],
+          [
+            "S",
+            0,
+            10
+          ],
+          [
+            "S",
+            0,
+            4
+          ]
+        ],
+        "flat_spills": [
+          [
+            "S",
+            0,
+            12
+          ],
+          [
+            "S",
+            0,
+            11
+          ],
+          [
+            "S",
+            0,
+            7
+          ],
+          [
+            "S",
+            0,
+            10
+          ],
+          [
+            "S",
+            0,
+            4
+          ]
+        ],
+        "cross_objectives": {
+          "hier_set": {
+            "ordinary_frequency_objective_valid": true,
+            "victim_count": 5,
+            "spill_bytes": 2740550255,
+            "released_excess_bytes": 161173553,
+            "actual_current_write_us": 440319.7710475578,
+            "flat_future_proxy_us": 4706696.007954341,
+            "hier_future_proxy_us": 4759546.968020102,
+            "next_protection_term": 0,
+            "flat_subset_objective": 4816775.950716231,
+            "hier_subset_objective": 4869626.910781992
+          },
+          "flat_set": {
+            "ordinary_frequency_objective_valid": true,
+            "victim_count": 5,
+            "spill_bytes": 2740550255,
+            "released_excess_bytes": 161173553,
+            "actual_current_write_us": 440319.7710475578,
+            "flat_future_proxy_us": 4706696.007954341,
+            "hier_future_proxy_us": 4759546.968020102,
+            "next_protection_term": 0,
+            "flat_subset_objective": 4816775.950716231,
+            "hier_subset_objective": 4869626.910781992
+          }
+        }
+      },
+      {
+        "callback": 7661,
+        "tag": "M",
+        "target_op": 0,
+        "target_partition": 3,
+        "required_bytes": 656768661,
+        "q": 4097,
+        "thresholds": [
+          4096
+        ],
+        "hier_copy_equals_actual_spills": true,
+        "scan": false,
+        "cycle": false,
+        "state": {
+          "memory_used": 4154407624,
+          "memory_limit": 4294967296,
+          "num_partitions": 16,
+          "write_bandwidth": 6224,
+          "read_bandwidth": 3583,
+          "hit_count": 2268,
+          "miss_count": 1829,
+          "total_io_bytes": 1996236748660,
+          "next_op": {
+            "type": "PROBE",
+            "op_id": 0,
+            "key": 134659626,
+            "tuple_size": 0
+          },
+          "operators": [
+            {
+              "op_id": 0,
+              "phase": "PROBE",
+              "partitions": [
+                {
+                  "partition_id": 0,
+                  "data_size": 331456464,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 1,
+                  "data_size": 239492439,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 2,
+                  "data_size": 394468689,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 3,
+                  "data_size": 656768661,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 4,
+                  "data_size": 1022877479,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 5,
+                  "data_size": 490539978,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 6,
+                  "data_size": 2652373610,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 7,
+                  "data_size": 360020059,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 8,
+                  "data_size": 286749532,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 9,
+                  "data_size": 1453948335,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 10,
+                  "data_size": 253280258,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 11,
+                  "data_size": 307363413,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 12,
+                  "data_size": 797009046,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 13,
+                  "data_size": 560709473,
+                  "in_memory": true
+                },
+                {
+                  "partition_id": 14,
+                  "data_size": 436895456,
+                  "in_memory": false
+                },
+                {
+                  "partition_id": 15,
+                  "data_size": 268898688,
+                  "in_memory": false
+                }
+              ]
+            }
+          ]
+        },
+        "probability_clock": 4098,
+        "next_sample_q": 4098,
+        "total_mass": 1065.1418827213874,
+        "total_weight2": 669.1461120547785,
+        "probability_prior_per_object": 4,
+        "probability_denom": 1129.1418827213874,
+        "groups": [
+          {
+            "op": 0,
+            "last": 4098,
+            "mass": 1065.1418827213874,
+            "squares": 131851.93356555843,
+            "weight2": 669.1461120547785,
+            "share": 0.40933478689275404,
+            "heterogeneity": 0.45422028414299453,
+            "n_eff": 1695.4850516031777
+          }
+        ],
+        "objects": [
+          {
+            "id": 0,
+            "op": 0,
+            "partition": 0,
+            "size": 331456464,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 35.59895020435609,
+            "flat_p": 0.035069950738978145,
+            "hier_p": 0.04629802410769627
+          },
+          {
+            "id": 1,
+            "op": 0,
+            "partition": 1,
+            "size": 239492439,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 89.09846256442471,
+            "flat_p": 0.08245063263444324,
+            "hier_p": 0.07428414467664779
+          },
+          {
+            "id": 2,
+            "op": 0,
+            "partition": 2,
+            "size": 394468689,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 139.9256811052828,
+            "flat_p": 0.1274646555120266,
+            "hier_p": 0.10087236209245003
+          },
+          {
+            "id": 3,
+            "op": 0,
+            "partition": 3,
+            "size": 656768661,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 34.94528381923395,
+            "flat_p": 0.03449104529305959,
+            "hier_p": 0.04595608479911384
+          },
+          {
+            "id": 4,
+            "op": 0,
+            "partition": 4,
+            "size": 1022877479,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 79.25649604747665,
+            "flat_p": 0.07373430861214449,
+            "hier_p": 0.0691357152905049
+          },
+          {
+            "id": 5,
+            "op": 0,
+            "partition": 5,
+            "size": 490539978,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 21.720574747547,
+            "flat_p": 0.022778868750804704,
+            "hier_p": 0.03903810954583317
+          },
+          {
+            "id": 6,
+            "op": 0,
+            "partition": 6,
+            "size": 2652373610,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 34.763146536618336,
+            "flat_p": 0.03432973936206654,
+            "hier_p": 0.045860806997008376
+          },
+          {
+            "id": 7,
+            "op": 0,
+            "partition": 7,
+            "size": 360020059,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 48.22863123804738,
+            "flat_p": 0.04625515361468054,
+            "hier_p": 0.052904734347920805
+          },
+          {
+            "id": 8,
+            "op": 0,
+            "partition": 8,
+            "size": 286749532,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 47.38134816731873,
+            "flat_p": 0.04550477575367464,
+            "hier_p": 0.052461512248738795
+          },
+          {
+            "id": 9,
+            "op": 0,
+            "partition": 9,
+            "size": 1453948335,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 26.573643600078075,
+            "flat_p": 0.027076883842437394,
+            "hier_p": 0.041576797545870556
+          },
+          {
+            "id": 10,
+            "op": 0,
+            "partition": 10,
+            "size": 253280258,
+            "resident": false,
+            "eligible": false,
+            "next_protected": true,
+            "frequency_branch": false,
+            "mass": 77.82773465437165,
+            "flat_p": 0.07246895709612289,
+            "hier_p": 0.06838831616763841
+          },
+          {
+            "id": 11,
+            "op": 0,
+            "partition": 11,
+            "size": 307363413,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 48.57210075594052,
+            "flat_p": 0.04655933993807272,
+            "hier_p": 0.05308440662745156
+          },
+          {
+            "id": 12,
+            "op": 0,
+            "partition": 12,
+            "size": 797009046,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 42.340008438075806,
+            "flat_p": 0.041040022646569446,
+            "hier_p": 0.04982433790325927
+          },
+          {
+            "id": 13,
+            "op": 0,
+            "partition": 13,
+            "size": 560709473,
+            "resident": true,
+            "eligible": true,
+            "next_protected": false,
+            "frequency_branch": true,
+            "mass": 276.4912170527143,
+            "flat_p": 0.24841095821960998,
+            "hier_p": 0.1723111357557582
+          },
+          {
+            "id": 14,
+            "op": 0,
+            "partition": 14,
+            "size": 436895456,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 30.15478534953067,
+            "flat_p": 0.030248444302865583,
+            "hier_p": 0.04345012798111189
+          },
+          {
+            "id": 15,
+            "op": 0,
+            "partition": 15,
+            "size": 268898688,
+            "resident": false,
+            "eligible": false,
+            "next_protected": false,
+            "frequency_branch": false,
+            "mass": 32.26381844036249,
+            "flat_p": 0.03211626368243617,
+            "hier_p": 0.044553383912991795
+          }
+        ],
+        "actual_actions": [
+          [
+            "S",
+            0,
+            11
+          ],
+          [
+            "S",
+            0,
+            1
+          ],
+          [
+            "L",
+            0,
+            3
+          ]
+        ],
+        "hier_spills": [
+          [
+            "S",
+            0,
+            11
+          ],
+          [
+            "S",
+            0,
+            1
+          ]
+        ],
+        "flat_spills": [
+          [
+            "S",
+            0,
+            11
+          ],
+          [
+            "S",
+            0,
+            1
+          ]
+        ],
+        "cross_objectives": {
+          "hier_set": {
+            "ordinary_frequency_objective_valid": true,
+            "victim_count": 2,
+            "spill_bytes": 546855852,
+            "released_excess_bytes": 30646863,
+            "actual_current_write_us": 87862.4440874036,
+            "flat_future_proxy_us": 959354.9593590858,
+            "hier_future_proxy_us": 960744.7940252156,
+            "next_protection_term": 0,
+            "flat_subset_objective": 981320.5703809366,
+            "hier_subset_objective": 982710.4050470665
+          },
+          "flat_set": {
+            "ordinary_frequency_objective_valid": true,
+            "victim_count": 2,
+            "spill_bytes": 546855852,
+            "released_excess_bytes": 30646863,
+            "actual_current_write_us": 87862.4440874036,
+            "flat_future_proxy_us": 959354.9593590858,
+            "hier_future_proxy_us": 960744.7940252156,
+            "next_protection_term": 0,
+            "flat_subset_objective": 981320.5703809366,
+            "hier_subset_objective": 982710.4050470665
+          }
+        }
+      }
+    ],
+    "full_action_trace_available": false,
+    "new_performance_result": false,
+    "global_trajectory_benefit_claimed": false
+  },
+  "execution": {
+    "case": "train/train_593_random_zipf.txt",
+    "input_sha256": "c8467f36c5f46b3b2dd3cddaaef37495bfa3af7f54ec413b9f60d09dc4eaf24f",
+    "executable_sha256": "7ea069f8f796f1d117154f64d6b2301ddb27da18d2ea98eabcb251ad85f80895",
+    "returncode": 0,
+    "timed_out": false,
+    "diagnostic_only": true,
+    "diagnostic_wall_seconds": 0.26590282798861153
+  }
+}

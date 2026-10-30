@@ -437,6 +437,13 @@ def validate(package, cache_path=None):
 
 
 def main(argv=None):
+    # Dispatch by the requested package, preserving the historical v2 validator.
+    version_parser = argparse.ArgumentParser(add_help=False)
+    version_parser.add_argument('--package', type=Path, default=Path(__file__).resolve().parents[1])
+    known, _ = version_parser.parse_known_args(argv)
+    if (known.package/'recipe.json').is_file() and load(known.package/'recipe.json').get('version') == '2.1.0':
+        from verify_v21 import main as current_main
+        return current_main(argv)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--package', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--cache', type=Path, help='optional local pre-audit cache, never a substitute for raw-byte checks')

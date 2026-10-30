@@ -108,7 +108,7 @@ Total_Score: 33.00
 2. 每案例对重复分取算术平均，再对所有案例等权平均，得到0–10的 `normalization.average_score`；不按成员等权、不施加总分50封顶。
 3. 各成员的 `normalization.datasets[].average_score` 仅用于分组分析，合并时按案例数加权。例如A一例5分、B六例各9分，总均分为 `(5+6*9)/7=8.428571`。
 
-用户提供正式8例，目标均分6.25对应 `8*6.25=50` 的Level 1封顶。平均分仍允许超过6.25；本地50例均分不预测隐藏8例结果。详细规则、边界及旧报告迁移见 [MEMBER_SCORING.md](MEMBER_SCORING.md)。
+用户提供正式8例，目标均分6.25对应 `8*6.25=50` 的Level 1封顶。平均分仍允许超过6.25；本地均分不预测隐藏8例结果。详细规则、边界及旧报告迁移见 [MEMBER_SCORING.md](MEMBER_SCORING.md)。
 
 schema4的 `average_score` 已更改含义，不能直接与schema3同名字段比较。旧封顶成员均值保存在 `legacy_capped_member_average`；逐集 `level1_estimate`、其重复封顶值及未封顶sum只作历史诊断，不用于主排名。所有逐例逐重复成本与贡献继续保存。
 

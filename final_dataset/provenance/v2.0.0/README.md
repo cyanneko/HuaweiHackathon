@@ -1,0 +1,1 @@
+父版本来源：Git提交`53e7aed05bad46aac4048950d9f8aedef020ef8d`中的`final_dataset/`。此目录保存manifest、recipe、validation原字节，作为2.1.0筛选与历史审核的依据；旧50例输入可在该提交恢复。这里不复制历史测试到训练，也不把历史完整审核冒充本轮逐操作重测。

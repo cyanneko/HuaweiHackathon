@@ -2,6 +2,8 @@
 
 团队协作仓库，研究内存受限下 Hash Join 算子的 Spill-to-Disk 动态调度。
 
+当前综合数据集为[final_dataset 2.1.0](final_dataset/README.md)：主测试只含72例非均匀独立请求（Zipf28、热点28、对数正态16），均匀请求退出主测试，容量边界单列诊断。主指标是72例逐例平均分；原训练500例保留并新增270，推荐训练540例按清单导出。旧50例成绩仍绑定2.0.0，不与新均分直接比较。
+
 Agent 先读 [AGENTS.md](AGENTS.md)，再按 [中文上手指南](docs/AGENT_GUIDE.md) 开始工作；开发独立专家与后续选择器先读 [专家接口技术规范 v1](docs/EXPERT_INTERFACE_V1.md)，评测细节见 [evaluation/README.md](evaluation/README.md)。2026-10-28 重新核对官方公开接口，响应与此前保存件相同；核对来源和 SHA 见专家规范，评测协议名仍为 `official-2026-10-26`。
 
 题干存档：[PDF 的完整 Markdown 版（2026-10-20，含参考代码）](docs/statement-2026-10-20/README.md)。这是历史 PDF 提取结果，版本边界与原文疑点见存档说明。

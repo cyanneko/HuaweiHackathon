@@ -66,4 +66,4 @@ schema_version=3 的归一化评分以每个成员的有 VERSION 的 eval 为一
 
 数据校验通过只说明满足脚本检查项，不保证数据代表性、训练评测无泄漏或新版官方引擎行为一致。
 
-当前报告主汇总单列未封顶dataset sum：每成员`mean_repeat(sum_case(original single_score))`，再对全部实际非空成员等权平均。空成员不占权重且列出，失败非空成员不静默排除；单例平均与本轮全案例均分只作辅助。原schema3封顶raw/逐例规则和evaluate.py不变。[只读重算与定义](MEMBER_SCORING.md)保证已有测量无需重跑；[数据更新清单](../docs/GITHUB_UPDATES_20261030.md)区分576例冻结旧矩阵与785例三成员快照。
+当前报告主指标为所有参与案例的逐例平均分（0–10）：先逐例逐重复计算官方single_score，再平均重复与案例，不按成员等权、不以总分封顶排名。空成员不占权重且列出，非空集合失败不能静默排除。当前评分版本case-mean-v1、报告schema4；[只读重算与定义](MEMBER_SCORING.md)保证已有测量无需重跑；[数据更新清单](../docs/GITHUB_UPDATES_20261030.md)区分576例冻结旧矩阵与785例三成员快照。

@@ -2,6 +2,8 @@
 
 团队协作仓库，研究内存受限下 Hash Join 算子的 Spill-to-Disk 动态调度。
 
+比赛日入口：[当前候选、单文件提交包与针对性验证交接](docs/CONTEST_HANDOFF_20261030.md)。当前重点是推进方法和少量机制/反例样本，R65仍为experimental，不恢复全方法矩阵；[热度与轻量学习论文笔记](docs/HEAT_AND_LIGHT_LEARNING_20261030.md)提供下一步依据。
+
 Agent 先读 [AGENTS.md](AGENTS.md)，再按 [中文上手指南](docs/AGENT_GUIDE.md) 开始工作；开发独立专家与后续选择器先读 [专家接口技术规范 v1](docs/EXPERT_INTERFACE_V1.md)，评测细节见 [evaluation/README.md](evaluation/README.md)。2026-10-28 重新核对官方公开接口，响应与此前保存件相同；核对来源和 SHA 见专家规范，评测协议名仍为 `official-2026-10-26`。
 
 题干存档：[PDF 的完整 Markdown 版（2026-10-20，含参考代码）](docs/statement-2026-10-20/README.md)。这是历史 PDF 提取结果，版本边界与原文疑点见存档说明。

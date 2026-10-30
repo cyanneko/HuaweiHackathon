@@ -1,0 +1,3 @@
+#include IDENTITY_INCLUDE
+#include <cassert>
+int main(){SystemState s{};s.num_partitions=3;s.memory_limit=10000;for(int o=0;o<2;++o){OperatorState op{};op.op_id=o;op.phase=Phase::PROBE;for(int p=0;p<3;++p){PartitionState x{};x.partition_id=p;x.data_size=100;x.in_memory=true;op.partitions.push_back(x);}s.operators.push_back(op);}FrozenScheduler a;MySpillScheduler b;a.update(s);b.update(s);for(int q=1;q<=5000;++q)if(q%7){int o=(q/153)%2,p=q%3;a.sampleNext(o,p,q);b.sampleNext(o,p,q);}s.hit_count=20000;a.ensureProbabilities(s);b.ensureProbabilities(s);for(int id=0;id<6;++id){a.ensureProbability(id);b.ensureProbability(id);assert(std::abs(a.hier_probability_[id]-b.hier_probability_[id])<1e-12);}std::cout<<"test-only half-life2048 identity within1e-12 PASS\n";}

@@ -1,0 +1,13 @@
+# R81: original dyna and final regression after fresh DEV
+
+TRAIN selection was frozen before DEV: only R81_op256_cond2048 advances. DEV6 completed30/30, score5.984669 versus R80 hierarchy5.821737 and paired5.859564; independent review PASS, dev_review.json SHAfe6a562514732baf47cc129d81d5b393f0dc07914853ef699a4ab9aec452cb62. No parameter or source edits follow these outcomes.
+
+After independent DEV verification, evaluate this unchanged candidate on exactly the previously frozen R80 dyna existing_eval6 (5M operations each) and final24 samples. Both are exposed regression samples, not a new blind test. Include frozen R75 as requested by the user, along with same-run Naive, R79, R80 hierarchy, R80 paired, and R81_op256_cond2048: six methods,36 dyna cells and144 final cells. Do not substitute sample identities or silently remove failed cells. R75 source SHA must be cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458 and all other identities must match R81 TRAIN.
+
+Reuse frozen official framework/parser, Linux C++14/O2 binaries. Root is sole native executor. CPU serial, one repeat, official60s per case. Internal campaign budgets360s dyna,180s final, declared before execution. Keep measured D in final score; no hard D-ratio veto. Each method has a fresh same-campaign Naive reference, including R75, avoiding a timing comparison stitched from historical campaigns.
+
+Report each case, dataset sample mean, median/P90/worst total-cost ratios, paired versus R75/R80, and decision time separately by campaign. Combined result is exactly50% dyna6 mean plus50% final24 mean, never30 equally weighted points, and not the full GitHub suite. Six-case nearest-rank P90 equals maximum by construction. Both raw negative improvements and clipped case scores are retained.
+
+Do not change the final default automatically. Recommend retaining the new candidate only if complete valid results show improvement over R80 hierarchy in the equal-dataset mean; report any per-dataset decline and every material tail regression. Observed worst cost/parent>1.25 rules out an unqualified replacement recommendation even if mean score improves. Do not tune on these results within this experiment; a later change receives a separate version and disclosed regression status.
+
+Implementation lives in tmp/r81_eval/regression.py; new immutable outputs go to tmp/r81_regression_eval/{dyna,final}. Do not edit any frozen R80/R81 training/dev runners, inputs, sources, or results. Independent reviewer parses outputs and checks all source/input identities after CPU release, then append full results to docs/20261030_R81双时间尺度热度实验.md and publish through Master.

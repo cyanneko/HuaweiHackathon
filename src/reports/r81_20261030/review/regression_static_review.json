@@ -1,0 +1,18 @@
+{
+  "status": "PASS_STATIC_NO_BLOCKER",
+  "wrapper_sha256": "fd0692f2fc83c1a6520e985f86f95c726399154424604f666ad05ecb8d7f77dd",
+  "plan_sha256": "0061e36064e16169af2b80ecac274ad739b42a91c00b01e8f408625cd227c7f7",
+  "reviewer_script_sha256": "fbe68c2f3c19bb3dd4d09584cf731228517af4ca8fc3bed6dedd7e94a154fda8",
+  "checks": [
+    "Both dyna/final call ex.summarize, which forces BASE_SUMMARIZE scoring mode final; same-run Naive scores therefore exist.",
+    "core.run only performs advance for mode train; regression modes do not rescreen candidates.",
+    "R75 pinned source cab5cae; all other six-method identities inherited from TRAIN, selected256 only.",
+    "Original R80 dyna6/final24 input identities are inherited, actual input/metadata hashes checked by prepare; no sample replacement.",
+    "Official60s case limit and controller360s/180s remain distinct.",
+    "Two datasets each get .5 weight; no blind-test claim or automatic default promotion; tail regression>1.25 precludes unqualified replacement."
+  ],
+  "results_read": false,
+  "native_runs": 0,
+  "ready_command": "python tmp/r81_review/review_regression.py --dyna-selection-sha <root_frozen_sha> --final-selection-sha <root_frozen_sha>",
+  "activation": "Only after Root release; parser also requires both cpu_released active0."
+}

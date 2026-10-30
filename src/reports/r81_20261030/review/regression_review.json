@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "campaigns": {
+    "dyna": {
+      "status": "PASS",
+      "cells": 36,
+      "stdout_stderr_hashes": 72,
+      "selection_sha256": "771e47a678bb8c981236d2448f2054b87e69e4e06643cb107239286c0a91d5e7",
+      "rows_sha256": "3a66c32f9bd7ca1ca2c0b665f10a3f8ef7c5c1b995521885ed631b03904684ef",
+      "summary_sha256": "72365df3c39360c48c1ebfcb41cb98606b46dcfcbadc9445bbc8487fa5682c0f",
+      "seconds": 258.515110617,
+      "max_cost_rounding_residual_us": 0.010014648549258709
+    },
+    "final": {
+      "status": "PASS",
+      "cells": 144,
+      "stdout_stderr_hashes": 288,
+      "selection_sha256": "5e86c6ed7670c7eb987ab90fba6a2adfeba822a104b4ff6a277ccd771db6c797",
+      "rows_sha256": "80308858d768e67ace70d21fb811196915b52e991f5fd6313b2c1349b8ea6986",
+      "summary_sha256": "fb0b226be520dbd33732ee17a7e03d249fb51af970852a950618b724573a675b",
+      "seconds": 74.08801294699998,
+      "max_cost_rounding_residual_us": 0.010000267028772214
+    }
+  },
+  "same_frozen_six_methods": true,
+  "training_selected_candidate": "R81_op256_cond2048",
+  "samples_exactly_inherited": true,
+  "combined_weights": {
+    "dyna6": 0.5,
+    "final24": 0.5
+  },
+  "combined_gain_over_parent": 0.04977170808246445,
+  "worst_cost_over_parent": 1.2703554411558426,
+  "mean_and_tail_support_qualified_retention": false,
+  "default_promotion": false,
+  "scope": "Two exposed original regression samples; not blind, full12/full72 or entire suite. Campaign timing kept separate. One serial repeat; no retuning.",
+  "native_runs_by_reviewer": 0,
+  "input_traces_read_or_hashed_by_reviewer": 0,
+  "artifacts": {
+    "dyna_regression_per_case.csv": "0320e10e2b25a5a3c2ff4a4d1da21d2c9f1f85b841043cdf7f719da15a34eb67",
+    "dyna_regression_groups.json": "2529b4d81432a430259ea16108305a987eec0aca50e17fdb9d0459f0829c52b2",
+    "final_regression_per_case.csv": "b92395e986558a4da72993002eb521b97e5a39f274c3612f0018d124b8bfeffa",
+    "final_regression_groups.json": "78fd9e21623e75af18435cf51c33bcd1b3c88c8c0a0622c8cd34e62e1ca0839e",
+    "regression_member_equal_scores.csv": "d297304a9ffa9b4a4976d91d046351a90856dd23338b47220929ff9c3b7c53e9",
+    "regression_member_equal_scores.json": "f68a7ff038d9dee265caf9d8165439b66b4c92242ef92a813f8ac5a39bbcc011",
+    "regression_paired.csv": "e62bb6c441835b0ed234cf85ddb0c99af633a5520b5a13f72537b48c16a67527",
+    "regression_paired.json": "9ea28f4cb8e04df8755eea4450d3e82c48cf5cf4dc29e16c99aca02de145db56",
+    "regression_raw_clipped_cases.csv": "c46f48291fe2819bcf44d492d1623bcae25f76b5f698115932643d0239af52b4",
+    "regression_raw_clipped_groups.csv": "12a5ff171e3cb7c26dc2baaf438c3214e1f60be099a8e550115799a8ab27feae",
+    "regression_raw_clipped_groups.json": "7a810f5738bed24fa080c9ad62db14e9e3f9799c0480e8376df54cda8f7d5f96"
+  },
+  "raw_clipped_diagnostics": {
+    "groups": [
+      {
+        "dataset": "dyna",
+        "cases": 6,
+        "candidate_mean_clipped_score": 4.0073508524400925,
+        "parent_mean_clipped_score": 3.91179003114804,
+        "clipped_delta": 0.09556082129205261,
+        "candidate_mean_raw_score": 4.0073508524400925,
+        "parent_mean_raw_score": 3.91179003114804,
+        "raw_delta": 0.0955608212920528,
+        "candidate_mean_cost_to_Naive": 0.5992649147559908,
+        "parent_mean_cost_to_Naive": 0.608820996885196,
+        "candidate_negative_raw_cases": 0,
+        "parent_negative_raw_cases": 0
+      },
+      {
+        "dataset": "final",
+        "cases": 24,
+        "candidate_mean_clipped_score": 4.094139825165013,
+        "parent_mean_clipped_score": 4.090157230292138,
+        "clipped_delta": 0.0039825948728752225,
+        "candidate_mean_raw_score": 3.833618506995378,
+        "parent_mean_raw_score": 3.954713826618786,
+        "raw_delta": -0.12109531962340754,
+        "candidate_mean_cost_to_Naive": 0.6166381493004622,
+        "parent_mean_cost_to_Naive": 0.6045286173381215,
+        "candidate_negative_raw_cases": 2,
+        "parent_negative_raw_cases": 2
+      }
+    ],
+    "dataset_equal_raw_delta": -0.012767249165677369,
+    "unqualified_replacement_supported": false,
+    "reason": "Worst totalcost/parent1.270355441 exceeds predeclared1.25 guard"
+  }
+}

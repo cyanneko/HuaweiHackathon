@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "train": {
+    "status": "PASS",
+    "cells": 228,
+    "stdout_stderr_hashes": 456,
+    "selection_sha256": "ffc6c8620ae569563582e7aa23194db5c28aaff78978d1d75224e3bd2dc2e1aa",
+    "rows_sha256": "341fa208bbde5b13595e14beedfbfa0ad0a2cb4826785080f73a664454dd0e83",
+    "summary_sha256": "1d13a9f39e4095765542f4e8a16c107842b1f520a0f1b46962d030e19f3c25ce",
+    "seconds": 92.965785545,
+    "max_cost_rounding_residual_us": 0.01000057220517192
+  },
+  "selected": [
+    "R81_op256_cond2048"
+  ],
+  "choices": [
+    {
+      "method": "R81_op256_cond2048",
+      "eligible": true,
+      "guards": {
+        "required_groups_present": true,
+        "all_parent_and_naive_denominators_defined": true,
+        "new_train_score_improves": true,
+        "old26_score_loss_le_0_05": true,
+        "worst_train_cost_parent_le_1_25": true
+      },
+      "new_train_mean_score": 6.0750250221473125,
+      "new_train_score_delta": 0.16414062016338063,
+      "old26_score_delta": 0.20677549044188875,
+      "worst_cost_parent": 1.0137863805587084,
+      "D_total_us": 2990867.49,
+      "D_hard_veto": false
+    },
+    {
+      "method": "R81_op512_cond2048",
+      "eligible": true,
+      "guards": {
+        "required_groups_present": true,
+        "all_parent_and_naive_denominators_defined": true,
+        "new_train_score_improves": true,
+        "old26_score_loss_le_0_05": true,
+        "worst_train_cost_parent_le_1_25": true
+      },
+      "new_train_mean_score": 6.060171211083153,
+      "new_train_score_delta": 0.14928680909922068,
+      "old26_score_delta": 0.18030366256603922,
+      "worst_cost_parent": 1.0072990395338108,
+      "D_total_us": 2953695.6,
+      "D_hard_veto": false
+    }
+  ],
+  "score_definition": "Same-run Naive clip(10*(1-C/B),0,10), C or B<=0 gives0; D is included in C. Candidate selection uses new-TRAIN case mean score, not mean ratio.",
+  "group_denominators": {
+    "all": 38,
+    "old26": 26,
+    "new_train": 12
+  },
+  "new_train_independent_seed_lineages": 6,
+  "dev_results_read": false,
+  "failed_cells_dropped": 0,
+  "native_runs_by_reviewer": 0,
+  "input_traces_read_or_hashed_by_reviewer": 0,
+  "scope": "TRAIN screening: six paired seed lineages produce12 fresh cases. Not12 independent draws; no DEV result access. No hard D ratio veto. One serial repeat.",
+  "artifacts": {
+    "train_per_case_scores.csv": "9b4cdf0278c7ed59d0309cbd7a7319ea47e8125cd39c8a5d004b1b787c1db65c",
+    "train_groups.csv": "1b54d290540147ccfc047726cc8beee3d569421f21ca63d1af9e9d170d2b802b",
+    "train_paired.csv": "6311c72b5b366504c7fac24e92787b0a2b696a9741a65c751ea06b1f4b4a4786",
+    "train_paired.json": "7db5ea284c3180488d6f44847cbb7cf304bb636dfe4099f49a590aca56539848",
+    "train_independent_groups.json": "63484a34d4b9a82dc1fb842a0a50771be625417ae06b474428aa8cd3019be848"
+  }
+}

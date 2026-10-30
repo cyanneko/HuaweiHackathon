@@ -1,0 +1,3 @@
+#include TEST_INCLUDE
+#include <cassert>
+int main(){SystemState s{};s.num_partitions=2;s.memory_limit=1000;s.read_bandwidth=100;s.write_bandwidth=50;for(int op=0;op<2;++op){OperatorState o{};o.op_id=op;o.phase=Phase::PROBE;for(int p=0;p<2;++p){PartitionState x{};x.partition_id=p;x.data_size=100;x.in_memory=true;o.partitions.push_back(x);}s.operators.push_back(o);}MySpillScheduler x;x.update(s);for(int q=1;q<=5120;++q)x.sampleNext(q<=4096?0:1,q%2,q);s.hit_count=5120;x.ensureProbabilities(s);double marginal[2]={};for(int id=0;id<4;++id){x.ensureProbability(id);marginal[id/2]+=x.hier_probability_[id];}std::cerr<<"op switch marginal old="<<marginal[0]<<" new="<<marginal[1]<<std::endl;assert(marginal[1]>.5);}

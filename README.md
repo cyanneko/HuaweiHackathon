@@ -4,6 +4,8 @@
 
 最新独立材料：[BUILD对照](docs/R81_BUILD_COMPARISON_20261031.md) · [创新与消融](docs/R81_ABLATION_20261031.md) · [算法/复杂度](docs/R81_ALGORITHM_COMPLEXITY_20261031.md) · [stat评测](docs/R81_STAT_RESULTS_20261031.md)。BUILD已试未采用，消融保留中断与固定恢复，最终算法不变。
 
+新增 [stat_dataset 1.0.0压缩数据](https://github.com/cyanneko/HuaweiHackathon/tree/e78279e316d578cd1d15cee29f84295d2602b55d/stat_dataset)：40例、train30/eval10、168M操作，eval10已曝光，独立于旧主榜。
+
 评测与版本比较入口：[统一评测索引](docs/EVALUATION_INDEX.md)。包含固定代码/数据身份、协议、逐例结果、原始日志和失败状态。
 
 

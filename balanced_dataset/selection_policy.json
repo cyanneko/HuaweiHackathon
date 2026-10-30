@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0",
+  "source_revision": "cf14092b6bc8a3bf8cfb65466c44acc81e2cf38a",
+  "purpose": "exposed_regression_standard_not_blind_test",
+  "groups": {"static": 12, "dynamic": 12},
+  "static_source": "final_dataset",
+  "static_source_version": "2.1.0",
+  "static_split": "eval",
+  "static_family_quotas": {"random_zipf": 5, "random_hotspot": 5, "random_lognormal": 2},
+  "quota_rule": "Hamilton proportional allocation from 28/28/16 to 12; equal fractional remainders break by larger source family then family name. Result: 5/5/2.",
+  "static_selection": "Within each family, sort eligible eval cases by (operations,path), divide ranks into quota contiguous strata using boundaries floor(s*n/quota), and select the smallest SHA256(salt + newline + path + newline + raw_sha256) in each stratum. No reselection.",
+  "selection_salt": "balanced-static-dynamic-v1-20261030",
+  "dynamic_source": "dyna_dataset",
+  "dynamic_source_version": "1.0.0",
+  "dynamic_selection": "All 12 distinct published base streams, retaining original train/dev/holdout labels.",
+  "score": "case-mean-v1: mean of 24 per-case scores; exactly one half of total weight per source group; first normalize each repetition against paired Naive then average repetitions and cases.",
+  "no_score_based_selection": true,
+  "no_input_truncation_or_regeneration": true,
+  "source_inputs_immutable": true,
+  "scale_means_equal_case_count_not_equal_operation_count": true,
+  "known_original_dynamic_splits": {"train": 6, "dev": 3, "holdout": 3},
+  "limitations": [
+    "All12 dynamic contains prior training examples and previously evaluated holdouts; this is a regression benchmark, not a new blind generalization test.",
+    "Static and dynamic also differ in length, memory pressure, phase overlap, conditional skew, bandwidths and penalty; this is not a controlled causal ablation of cross-partition heat correlation.",
+    "The 50/50 group weight is a user-selected coverage policy, not an estimate of the hidden-test distribution.",
+    "Future training must not consume this suite as a training or label-generation source; existing exposure cannot be undone."
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "passed": true,
+  "cases": 72,
+  "runs_checked": 216,
+  "runs_per_method_case": 1,
+  "source_json_sha256": {
+    "round9/eval72/PLAN_V1.json": "e1647c7ec28a15c70647bb1dec47eedcc16b3ac25c870c4db0152c26de99ea01",
+    "round9/eval72/RESULTS_V1.json": "e37afbdc44427b5fec53b952e28e7c7b7cff250a78ead1fea3a6f6f6f23c3973",
+    "round9/eval72/SUMMARY_V1.json": "8714edf76f842a745a65ad34ce3fc83cc731ce08576756718ec0928c3a457d44",
+    "round9/eval72/EXECUTION_FREEZE_V1.json": "74e4053aabb7e2bc22a3aa05bba3d9a3de1ac39dd64c7b407fb3074b01dd206d"
+  },
+  "reviewer_sha256": "f641e3e1ed0df2e626c1d62bf992a5ad9a7bd4b9cf675376b1fa10b33dcdfc09",
+  "source_binary_bindings": {
+    "naive": {
+      "source_sha256": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+      "binary_sha256": "a3211a186ab1b1992899a17c1ac48992bf79c88d41a48be10791eb94353e89c7",
+      "generated_source_sha256": "6a8bdf149248c400823c2c0dd5a252ddc95a8d281f4d620a27ccb9d742c50311"
+    },
+    "paired100": {
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "binary_sha256": "ca26b9ee028a05ed1bd5dc1a250786724860138a3851c0abed73d0199b93ed00",
+      "generated_source_sha256": "7a5f3713171005f692c7ff506e8145f62936c875f00601d47e16ef7ed94e52ab"
+    },
+    "risk_pool100": {
+      "source_sha256": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e",
+      "binary_sha256": "dd24df2d3ac2a22a20e9258084288dfb1a21f31ca6a6ef9589d54e1383239e0e",
+      "generated_source_sha256": "85e198552dfb9bd2b48d8bf72ad72a2bcd495f83c1c530275a51a746e63946c0"
+    }
+  },
+  "methods": {
+    "naive": {
+      "mean_score": 0.0,
+      "mean_physical_over_paired": 2.0381545284965643,
+      "worst_physical_over_paired": 7.983064016684013,
+      "better_equal_worse": [
+        8,
+        0,
+        64
+      ],
+      "mean_decision_us": 93760.30291666667,
+      "max_wall_seconds": 3.7279127500078175
+    },
+    "paired100": {
+      "mean_score": 3.4813891299618427,
+      "mean_physical_over_paired": 1.0,
+      "worst_physical_over_paired": 1.0,
+      "better_equal_worse": [
+        0,
+        72,
+        0
+      ],
+      "mean_decision_us": 93241.38611111112,
+      "max_wall_seconds": 3.5279871900129365
+    },
+    "risk_pool100": {
+      "mean_score": 3.4814741729504077,
+      "mean_physical_over_paired": 0.9985694927062685,
+      "worst_physical_over_paired": 1.0547540577993408,
+      "better_equal_worse": [
+        42,
+        7,
+        23
+      ],
+      "mean_decision_us": 126550.64583333333,
+      "max_wall_seconds": 3.77934706499218
+    }
+  },
+  "joint_score_delta": 8.504298856519562e-05,
+  "joint_score_better_equal_worse": [
+    33,
+    8,
+    31
+  ],
+  "worst_joint_case": "eval/eval_044_random_zipf.txt",
+  "max_output_formula_residual_us": 0.01,
+  "reused_cases_exact_bytes": [
+    {
+      "case": "eval/eval_083_random_lognormal.txt",
+      "canonical_sha256": "86ec154fb52c7fd4560d0e5069abbbe7cde73ce64be636fccba963a264a60d5b",
+      "input_sha256": "f544d1603a5b11543a13e48c9fa27aa5d64b768ecc5c4ae024f82cc6385532aa"
+    },
+    {
+      "case": "eval/eval_039_random_lognormal.txt",
+      "canonical_sha256": "b31d78070e59b6b654dac8a906fe0d0df6c5c6092d4114fd08b5868ede5073f5",
+      "input_sha256": "afa97fb2c003a5f9b1e087a5e58ea91dcad25b498f749a7bc3dd772294a4241b"
+    },
+    {
+      "case": "eval/eval_056_random_zipf.txt",
+      "canonical_sha256": "42c0b52f1d86e3a5346decdc87101599d9052e221548f6c0473479eae10d0906",
+      "input_sha256": "57b50fe785f8935b4e0383ccee2931dcf46d1bf7119816aef6f07b51b37aa0ff"
+    },
+    {
+      "case": "eval/eval_066_random_hotspot.txt",
+      "canonical_sha256": "5d2219274ed50debb4a2c6128b8676386e45b8f2bb346811b26a66d8b01dd114",
+      "input_sha256": "677acc92eae4d78d3d34666f27a7544fe1e52c00c9148dec5d50a0bf782fa76d"
+    },
+    {
+      "case": "eval/eval_006_random_hotspot.txt",
+      "canonical_sha256": "fe763ea91bc319f463e35a619146ef07c6a7963a948c7173ca9fd24a3ac0b3ad",
+      "input_sha256": "35f84b0c3abc47b77e3b071f2146dc1959b810c86da26ed858da40bf520743d9"
+    },
+    {
+      "case": "eval/eval_080_random_lognormal.txt",
+      "canonical_sha256": "11173ee838e690576b7936be9a8dfbf48d2b33380d8590ec931c643c9df9a595",
+      "input_sha256": "5a3bb148603fb26993943df454bb04570e6b95b7e3368717f88e776953ccfb0a"
+    },
+    {
+      "case": "eval/eval_045_random_lognormal.txt",
+      "canonical_sha256": "93d0e123e4d83af9498a47593934af5ab8be8acf11c9621a2ea48d2b79a96ae6",
+      "input_sha256": "88de0fed49e5bd8c0970e9960c3aff2f667325617a1a0068df7cfc9b5820624d"
+    },
+    {
+      "case": "eval/eval_046_random_zipf.txt",
+      "canonical_sha256": "9e6b16a2656d7ddbdfd84d7a60f3d6bae73555b8f2584d04644c63d11cc9bb4d",
+      "input_sha256": "4cf961cfec7c5974bcc56f7a8a10703ee25fa04ef615932e9af6fcebd5d5a1b0"
+    },
+    {
+      "case": "eval/eval_022_random_hotspot.txt",
+      "canonical_sha256": "e1bfd6a9949787cf5fe7a0f1eec161c1e9c2475b72eed753f2a8b7dbe4215e39",
+      "input_sha256": "c187aca1958c17aff6f1bb08de4b54790ef51e32baa9f1d18280a37b958ae3aa"
+    },
+    {
+      "case": "eval/eval_028_random_zipf.txt",
+      "canonical_sha256": "946d96a3abd17e27ac094db3483cb8fb4985e636936b1ed405b6c96928cfe7a5",
+      "input_sha256": "adb4bba9d1bbcb29d707e3657f32cb87f77c5670be7164f7d896d236befbc743"
+    },
+    {
+      "case": "eval/eval_025_random_zipf.txt",
+      "canonical_sha256": "a8a2724825d4a307891739063a6bbc66f240c8a8538ea603f3651c23c240d744",
+      "input_sha256": "806e3b77538f2e55f246f607b87c73bd875c1d3414f6c083b12bdb6b4cbe2aa1"
+    },
+    {
+      "case": "eval/eval_036_random_lognormal.txt",
+      "canonical_sha256": "7ecd1caa41f91f0fea100932ac3b71a95f229a1528a1d6d04ddd07e9387dd53e",
+      "input_sha256": "2c2caef19a5bdbfd065ab730267f5bacb3fd71430a95897d0d73e0f9f82ed80e"
+    },
+    {
+      "case": "eval/eval_014_random_hotspot.txt",
+      "canonical_sha256": "626f9844d557721b14a4ddb5a242500a0587da36557341237e8290dfc35f487e",
+      "input_sha256": "1c931ced3442a84b47fb949bbe16803d1f7e35fa84594a55eff4c6eee975de82"
+    },
+    {
+      "case": "eval/eval_085_random_lognormal.txt",
+      "canonical_sha256": "69913a05eb6102db3076062a4b479b696ce7991123b3f365743fd677e4431de5",
+      "input_sha256": "1af3ceeaa8aa0256fc5e07bb8ee9f52c303cd1e381194a16b8fb5e740b3c1b33"
+    },
+    {
+      "case": "eval/eval_073_random_hotspot.txt",
+      "canonical_sha256": "0df94e7e78354d107dd80a793c58eae26fdc8ba007470fea4f2a09fd9eec5807",
+      "input_sha256": "d8e88f2740fa3010e761b5951427414c117e4ddf828bb3e9967f96b2ee4500b6"
+    },
+    {
+      "case": "eval/eval_015_random_hotspot.txt",
+      "canonical_sha256": "6b7a38d148e07273470740dd0d4e3b1217636bac91fe3c131badb1429f60ade7",
+      "input_sha256": "1c540c2c6e49b363f2ed9c28e005656867ed8c6688b301f427b465812bc2f873"
+    },
+    {
+      "case": "eval/eval_008_random_zipf.txt",
+      "canonical_sha256": "6de416a38dfa2d48d950f8a1ab4a98aee84d8cbc1a2c1012aeef9e51f16cefc1",
+      "input_sha256": "a391f54b43432fb9033af7e38f5c41659812435c95c3b2beefadb8cfbe2317ba"
+    },
+    {
+      "case": "eval/eval_003_random_zipf.txt",
+      "canonical_sha256": "d2c7ab100febfebaaaaa995adbca64b700befbd5c3f2a5e2bd4318fe9a690820",
+      "input_sha256": "a5fffa766b7e59d6490d36d98fea5cf4a31b00141913917e23e9c3b07ac605b4"
+    },
+    {
+      "case": "eval/eval_075_random_hotspot.txt",
+      "canonical_sha256": "8ec3303450d778cbeb6115f548c6ac4f2e415f5d1aa662944a47c007291135c0",
+      "input_sha256": "ce98d7082e551cc69861d3d7dc8c7e9973ae07333f482d20a3f74c816cba5f11"
+    },
+    {
+      "case": "eval/eval_071_random_hotspot.txt",
+      "canonical_sha256": "daf53ddbf4a5ca2961fde7dea61bbe22c853542e4238dcdba04a829ed3d90f01",
+      "input_sha256": "7b53ce48fb089983e928690d61134718b2d00b2799541af4da813878f4e223bb"
+    }
+  ],
+  "new_solver_runs_by_reviewer": 0,
+  "new_action_audits": 0,
+  "new_input_or_trace_replays": 0,
+  "AI_runs": 0,
+  "checks": "Frozen source/binary/generated-source identities; plan/input SHA and expected-PROBE bindings; canonical records; raw output hashes/parse, integer Hit/Miss, reported-cost formula, exits/runtime; independently recomputed equal-case score and physical ratios.",
+  "limits": "Single pass, no repeat variance or new action audit. Physical costs use program-reported IO plus actual penalty; original inputs were not rehashed by this small review. CPU difference combines estimator work and changed policy trajectories, not causal component overhead."
+}

@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "cases": 20,
+  "runs_checked": 60,
+  "runs_per_method_case": 1,
+  "source_json_sha256": {
+    "round9/eval20/PLAN_V2.json": "401406c841d1d3f32b61d52fc6cfb1e5884d76d7ccf55959262382b72cd9e5fe",
+    "round9/eval20/RESULTS_V2.json": "e21c0179a4ee0e5b50e5d4a7fe142dbe4e879ccd5be6f81921baac1e7e1435fa",
+    "round9/eval20/SUMMARY_V2.json": "9b2e1eb9849d172a84ff8347530b12805b64197472e4dd47410695d150024ff5",
+    "round9/eval20/EXECUTION_FREEZE_V2.json": "91a3354c57165c1a41191e9e4d84be96ddcb00d0bc6b42e7ba51a39000c765cb"
+  },
+  "reviewer_sha256": "f641e3e1ed0df2e626c1d62bf992a5ad9a7bd4b9cf675376b1fa10b33dcdfc09",
+  "source_binary_bindings": {
+    "naive": {
+      "source_sha256": "fdd77db179d5f921e46a58f5dd0994c629f76adab7449ac60dd9fcb9edbb97ab",
+      "binary_sha256": "a3211a186ab1b1992899a17c1ac48992bf79c88d41a48be10791eb94353e89c7",
+      "generated_source_sha256": "6a8bdf149248c400823c2c0dd5a252ddc95a8d281f4d620a27ccb9d742c50311"
+    },
+    "paired100": {
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "binary_sha256": "ca26b9ee028a05ed1bd5dc1a250786724860138a3851c0abed73d0199b93ed00",
+      "generated_source_sha256": "7a5f3713171005f692c7ff506e8145f62936c875f00601d47e16ef7ed94e52ab"
+    },
+    "risk_pool100": {
+      "source_sha256": "52ae25812a9863eae0774b2d45e837fd499506431650b8943ed6e4e979c76d2e",
+      "binary_sha256": "dd24df2d3ac2a22a20e9258084288dfb1a21f31ca6a6ef9589d54e1383239e0e",
+      "generated_source_sha256": "85e198552dfb9bd2b48d8bf72ad72a2bcd495f83c1c530275a51a746e63946c0"
+    }
+  },
+  "methods": {
+    "naive": {
+      "mean_score": 0.0,
+      "mean_physical_over_paired": 2.132123773265751,
+      "worst_physical_over_paired": 7.772444691523267,
+      "better_equal_worse": [
+        3,
+        0,
+        17
+      ],
+      "mean_decision_us": 231412.312,
+      "max_wall_seconds": 3.7279127500078175
+    },
+    "paired100": {
+      "mean_score": 3.3191809068996565,
+      "mean_physical_over_paired": 1.0,
+      "worst_physical_over_paired": 1.0,
+      "better_equal_worse": [
+        0,
+        20,
+        0
+      ],
+      "mean_decision_us": 169591.42,
+      "max_wall_seconds": 3.5279871900129365
+    },
+    "risk_pool100": {
+      "mean_score": 3.3205048225948754,
+      "mean_physical_over_paired": 0.9993518092027481,
+      "worst_physical_over_paired": 1.0506731934536944,
+      "better_equal_worse": [
+        12,
+        2,
+        6
+      ],
+      "mean_decision_us": 238411.7605,
+      "max_wall_seconds": 3.77934706499218
+    }
+  },
+  "joint_score_delta": 0.0013239156952188746,
+  "joint_score_better_equal_worse": [
+    10,
+    3,
+    7
+  ],
+  "worst_joint_case": "eval/eval_025_random_zipf.txt",
+  "max_output_formula_residual_us": 0.01,
+  "reused_cases_exact_bytes": [],
+  "new_solver_runs_by_reviewer": 0,
+  "new_action_audits": 0,
+  "new_input_or_trace_replays": 0,
+  "AI_runs": 0,
+  "checks": "Frozen source/binary/generated-source identities; plan/input SHA and expected-PROBE bindings; canonical records; raw output hashes/parse, integer Hit/Miss, reported-cost formula, exits/runtime; independently recomputed equal-case score and physical ratios.",
+  "limits": "Single pass, no repeat variance or new action audit. Physical costs use program-reported IO plus actual penalty; original inputs were not rehashed by this small review. CPU difference combines estimator work and changed policy trajectories, not causal component overhead."
+}

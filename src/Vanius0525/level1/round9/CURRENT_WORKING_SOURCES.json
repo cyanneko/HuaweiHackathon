@@ -12,7 +12,7 @@
   "adoption_basis": "Explicit user choice, not a measured improvement or new dataset ranking.",
   "historical_releases": "round8/CURRENT_BEST.json remains immutable evidence, not a request to rerun1us.",
   "dataset_lock_sha256": "79e1f003fe808ea1380a7cd1bc679cb0ebccb75718fd0a485115e108472e0b08",
-  "validation_status": "Main60 baseline complete:180 audits/540 timed. Dyna fixed all12 complete:72 audits/216 timed. Fixed risk candidates on original main60 complete:180 new audits/900 contemporaneous timed; all three failed predeclared performance gates. Main108dev/72eval remain sealed.",
+  "validation_status": "Main60 and dyna historical checks complete. User-requested full original eval72 complete for paired100/pool100/Naive; no AI evaluation. Original main108dev untouched; full eval72 now exposed to these frozen versions.",
   "baseline_evidence": "round9/PROXY100_BASELINE_REVIEW.json",
   "active_comparison_plan": "round9/DYNA_FULL_EVALUATION_PLAN_V1.json",
   "experimental_risk_candidates": "round9/pure/RETURN_RISK_DEPLOY_FINAL_FREEZE_V1.json",
@@ -29,5 +29,9 @@
     "composition": "12 static stratified cases + existing dyna12, equal per-case weighting",
     "status": "Metadata/input identity review ongoing; no full24 result or new promotion. Existing experiment scores remain bound to original snapshots.",
     "training_use": "Excluded, including original dyna train6; already exposed regression benchmark, not blind generalization."
-  }
+  },
+  "AI_track_status": "Paused by explicit latest user instruction: no further AI updates, training or tests until user resumes.",
+  "default_timing_repeats": 1,
+  "latest_user_requested_evaluation": "round9/eval72/REPORT_V1.md",
+  "latest_evaluation_scope": "Full original eval72, paired100 and risk_pool100 plus Naive;20 reused/52 new;single-pass,output/counter/formula checks,no new action replay. No candidate promotion."
 }

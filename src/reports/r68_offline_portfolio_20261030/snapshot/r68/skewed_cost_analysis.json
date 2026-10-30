@@ -1,0 +1,71 @@
+{
+  "scope": "existing_complete_witness_trace_and_static_input_only_no_solver",
+  "all_BUILD_before_first_PROBE": true,
+  "large_definition": "final_partition_bytes > M/2, so no two can be resident together",
+  "large_partitions": [
+    {
+      "id": 0,
+      "op": 0,
+      "partition": 0,
+      "bytes": 40957375,
+      "probe_requests": 669,
+      "actual_loads": 481,
+      "actual_read_bytes": 19700497375,
+      "actual_spill_bytes": 19716338328
+    },
+    {
+      "id": 16,
+      "op": 1,
+      "partition": 0,
+      "bytes": 39079956,
+      "probe_requests": 727,
+      "actual_loads": 542,
+      "actual_read_bytes": 21181336152,
+      "actual_spill_bytes": 21214042116
+    },
+    {
+      "id": 32,
+      "op": 2,
+      "partition": 0,
+      "bytes": 37308233,
+      "probe_requests": 677,
+      "actual_loads": 518,
+      "actual_read_bytes": 19325664694,
+      "actual_spill_bytes": 19347808274
+    },
+    {
+      "id": 48,
+      "op": 3,
+      "partition": 0,
+      "bytes": 39333523,
+      "probe_requests": 642,
+      "actual_loads": 480,
+      "actual_read_bytes": 18880091040,
+      "actual_spill_bytes": 18857416033
+    }
+  ],
+  "large_probe_requests": 2715,
+  "unavoidable_large_ID_transitions": 2020,
+  "total_cost": 872157740.9859947,
+  "observed_components": {
+    "all_demand_reads": 792543561.34,
+    "all_spill_writes": 79321606.336,
+    "BUILD_disk_appends": 70473.31,
+    "all_miss_penalties": 222100,
+    "large_partition_IO_and_miss_penalty": 870213597.3610001,
+    "large_cost_fraction": 0.9977708807321979
+  },
+  "lower_bounds_from_pairwise_capacity_exclusion": {
+    "required_spill_bytes": 79048255738,
+    "required_load_bytes": 79048509305,
+    "IO_only_G": 86953334878800,
+    "IO_only_cost": 869533348.788,
+    "IO_only_fraction_of_best": 0.9969909202490904,
+    "demand_only_with_penalty_G": 86973534878800,
+    "demand_only_with_penalty_cost": 869735348.788,
+    "demand_only_fraction_of_best": 0.9972225297280956
+  },
+  "proof_scope": "Each consecutive different >M/2 object request requires the old whole object to leave and the new whole object to enter between service times. Intervals are disjoint; write/read IO bound holds even with prefetch. Extra transition miss penalty bound applies only to demand-only LOAD. No BUILD/small-object lower bound or global-optimality claim is added.",
+  "trace": "snapshot/r67/runs/train_skewed_p3p0/size_time_single_first/official/official_trace.log",
+  "seed_report": "snapshot/r67/runs/train_skewed_p3p0/A_incumbent/best.json"
+}

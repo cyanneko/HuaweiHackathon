@@ -1,0 +1,80 @@
+{
+  "scope": "read_only_existing_complete_seed_witness_and_trace_no_new_solver",
+  "seed_witness": "snapshot/r67/runs/train_skewed_p3p0/A_incumbent/f5bc5683178827b87266f0c02fc120ab77169b91ecf393fada8c1031bfc8baca.witness.json",
+  "seed_witness_raw_sha256": "446e586bda6854ab9af2f6e17bc3e6239b64a0f0e4ab337d8c379b4b6b3b1d72",
+  "trace": "snapshot/r67/runs/train_skewed_p3p0/size_time_single_first/official/official_trace.log",
+  "trace_sha256": "05fb9a9aec5e1d8e1fcfc2429d8f05767edc1931bd0b645849920d4ff98db45f",
+  "chains": [
+    {
+      "miss_anchor": {
+        "callback_index": 1141,
+        "raw_zero_based": 4029,
+        "raw_one_based": 4030,
+        "operation": "PROBE 0 711078000",
+        "target_flat": 0,
+        "target_bytes": 40957375,
+        "deficit": 37472002,
+        "hit_plus_miss": 3002
+      },
+      "preceding_SPILL_of_target": {
+        "callback_index": 1128,
+        "raw_zero_based": 3997,
+        "raw_one_based": 3998,
+        "operation": "PROBE 3 485195472",
+        "callback_kind": "M",
+        "callback_target_flat": 48,
+        "callback_target_bytes": 39333523,
+        "needed_bytes": 39333523,
+        "free_bytes": 1016051,
+        "deficit_bytes": 38317472,
+        "spill_ids": [
+          0
+        ],
+        "evicted_target_bytes": 40957375,
+        "hit_plus_miss": 2970
+      },
+      "raw_operation_gap": 32,
+      "callback_gap": 13,
+      "probe_clock_gap": 32,
+      "target_and_incoming_pair_exceed_M": true,
+      "pair_sum_bytes": 80290898,
+      "M": 67108864
+    },
+    {
+      "miss_anchor": {
+        "callback_index": 792,
+        "raw_zero_based": 3115,
+        "raw_one_based": 3116,
+        "operation": "PROBE 0 986656976",
+        "target_flat": 0,
+        "target_bytes": 40957375,
+        "deficit": 39829576,
+        "hit_plus_miss": 2088
+      },
+      "preceding_SPILL_of_target": {
+        "callback_index": 784,
+        "raw_zero_based": 3094,
+        "raw_one_based": 3095,
+        "operation": "PROBE 1 432195968",
+        "callback_kind": "M",
+        "callback_target_flat": 16,
+        "callback_target_bytes": 39079956,
+        "needed_bytes": 39079956,
+        "free_bytes": 118884,
+        "deficit_bytes": 38961072,
+        "spill_ids": [
+          0
+        ],
+        "evicted_target_bytes": 40957375,
+        "hit_plus_miss": 2067
+      },
+      "raw_operation_gap": 21,
+      "callback_gap": 8,
+      "probe_clock_gap": 21,
+      "target_and_incoming_pair_exceed_M": true,
+      "pair_sum_bytes": 80037331,
+      "M": 67108864
+    }
+  ],
+  "interpretation": "Earlier eviction anchors are only a search hypothesis. Here pair size>M means the old target cannot remain while the incoming whole partition is compulsory-resident, so retaining it at that prior callback is infeasible under the model."
+}

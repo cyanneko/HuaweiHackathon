@@ -1,0 +1,56 @@
+{
+  "tag": "members_standalone_r5",
+  "source_only": true,
+  "normalized_includes": "Generated sources use relative include paths; current compiled binaries match the timed binary SHA values.",
+  "measured_binary_sha256_by_mode": {
+    "0": "855102db79f89464351ab781c6a1812788473463bff8460896ac4f3293cf8996",
+    "2": "fb8accd375a93e3a08db1884ab42a20e2592f5603b7046b0680b201a2d07dc24",
+    "146": "fe227133942f9e0e5f8264060f7761ea86acd48d2f747f4e1b1b6769b2af9633"
+  },
+  "binary_identity_verified": true,
+  "historical_build_sources": {
+    "0": {
+      "source": "design/build/engine_neural.cpp",
+      "sha256": "0e1d9f4610442ad4e122237b4507687b309f91144543928a12c3354f6fc03a26"
+    },
+    "2": {
+      "source": "design/build/engine_baseline.cpp",
+      "sha256": "6541374100b22de6395cfe713cfc21b958c20bc36b88da5d36ed89465fda06c6"
+    },
+    "146": {
+      "source": "design/build/engine_recommended.cpp",
+      "sha256": "9e7d42f3dd9ff04d9b96b0691c16beb23fa4ec67bd09a9742ce51a3132fdd31e"
+    }
+  },
+  "files": {
+    "design/build/engine_neural.cpp": {
+      "bytes": 15094,
+      "sha256": "0e1d9f4610442ad4e122237b4507687b309f91144543928a12c3354f6fc03a26"
+    },
+    "design/build/engine_baseline.cpp": {
+      "bytes": 15055,
+      "sha256": "6541374100b22de6395cfe713cfc21b958c20bc36b88da5d36ed89465fda06c6"
+    },
+    "design/build/engine_recommended.cpp": {
+      "bytes": 15092,
+      "sha256": "9e7d42f3dd9ff04d9b96b0691c16beb23fa4ec67bd09a9742ce51a3132fdd31e"
+    },
+    "design/MySpillScheduler_tree.cpp": {
+      "bytes": 31611,
+      "sha256": "9b9238d7e9d7a1e65e4f37789c8c770673cc38beadc5db76c65ddae6e545b253"
+    },
+    "design/MySpillScheduler_neural.cpp": {
+      "bytes": 34811,
+      "sha256": "dd02fb47e9e584ad706e2592809536b5f05aa24a86adfa7a4e244900b6ae28c0"
+    }
+  },
+  "compiler_flags": [
+    "-std=c++14",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-pedantic-errors"
+  ],
+  "reproduction": "Compile each design/build/engine_{recommended,neural,baseline}.cpp separately using these flags; run each program with the input path only. Original input files and binaries are excluded.",
+  "archive_sha256": "a511a41dea092a6d48c114939d48a5b314f56c5f271482633f8ff37fef4ee613"
+}

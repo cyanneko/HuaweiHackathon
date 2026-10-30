@@ -1,0 +1,489 @@
+{
+  "status": "completed measurement checkpoint; iteration continues",
+  "date": "2026-10-30",
+  "objective": "minimise complete raw average SDK Score including callback time",
+  "name": "tree_exactcredit_exact142_r1_s1",
+  "mode": 146,
+  "model": "current_model.json",
+  "source": "design/MySpillScheduler_tree.cpp",
+  "source_sha256": "9b9238d7e9d7a1e65e4f37789c8c770673cc38beadc5db76c65ddae6e545b253",
+  "dataset_commit": "e119c2326e198922243306eac062785420ed8156",
+  "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+  "cases": 785,
+  "repeats": 3,
+  "aggregation": "sum of per-case arithmetic means; mean_score=total_score/case_count",
+  "member_report": "members_r13_members.json",
+  "sdk_report": "members_r13_summary.json",
+  "sdk_runs": "members_r13_runs.jsonl",
+  "binary_sha256": "6e95fa132bbf277f3de5b2f791a8af1a99eee01a90695247eefcd55a064b3eec",
+  "reference_sha256": "90fbeded47d599b74c7c91c669f5113aa3b1e70a562b78f01bb3dd8f1f8da8d5",
+  "source_bundle": "exact_next_credit_sources.zip",
+  "measurement_bundle": "exact_next_credit_measurements.zip",
+  "deployment": "combined research program; mode chosen before timed callbacks",
+  "audits": [
+    "exact_r13_audit_summary.json"
+  ],
+  "summary": {
+    "cases": 785,
+    "mean_score": 66823206255.05337,
+    "total_score": 52456216910216.89,
+    "mean_decision_us": 1679.467855626327,
+    "miss_count": 605929.0,
+    "decrease_vs_nn_percent": 4.705515678939931,
+    "worst_vs_nn": 5.900265405374972,
+    "decrease_vs_naive_percent": 29.484632867533556,
+    "worst_vs_naive": 696.2094240837696
+  },
+  "members": [
+    {
+      "member": "Vanius0525",
+      "version": "0.1.0",
+      "case_count": 209,
+      "mean_score_us": 158386210.5106539,
+      "naive_mean_score_us": 245548435.8464753,
+      "decrease_vs_naive_percent": 35.496958078901386,
+      "mean_decision_us": 1507.7783572567782,
+      "worst_score_ratio_vs_naive": 696.2094240837696,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 718.3189809551254,
+      "mean_case_points_0_10": 3.4369329232302652
+    },
+    {
+      "member": "cyanneko",
+      "version": "0.6.0",
+      "case_count": 48,
+      "mean_score_us": 7051730125.445069,
+      "naive_mean_score_us": 13498555319.76632,
+      "decrease_vs_naive_percent": 47.759371589054275,
+      "mean_decision_us": 7050.742847222222,
+      "worst_score_ratio_vs_naive": 15.018838508509809,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 168.50588290531292,
+      "mean_case_points_0_10": 3.5105392271940192
+    },
+    {
+      "member": "liunianwww",
+      "version": "0.1.0",
+      "case_count": 528,
+      "mean_score_us": 98645134746.58864,
+      "naive_mean_score_us": 139565371507.54013,
+      "decrease_vs_naive_percent": 29.31976343339633,
+      "mean_decision_us": 1259.1305555555555,
+      "worst_score_ratio_vs_naive": 135.38283378746593,
+      "capped_score_0_50": 50.0,
+      "uncapped_dataset_score": 1333.5357528970053,
+      "mean_case_points_0_10": 2.5256358956382674
+    }
+  ],
+  "public_score_summary": {
+    "status": "available",
+    "score_final": 740.1202055858145,
+    "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
+    "dataset_count": 3,
+    "member_weights": {
+      "Vanius0525": 0.3333333333333333,
+      "cyanneko": 0.3333333333333333,
+      "liunianwww": 0.3333333333333333
+    },
+    "datasets": [
+      {
+        "member": "Vanius0525",
+        "version": "0.1.0",
+        "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
+        "case_count": 209,
+        "score_dataset_uncapped": 718.3189809551254,
+        "mean_case_points_aux": 3.4369329232302652,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 719.0092601120947
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 718.3469360281192
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 717.6007467251623
+          }
+        ]
+      },
+      {
+        "member": "cyanneko",
+        "version": "0.6.0",
+        "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
+        "case_count": 48,
+        "score_dataset_uncapped": 168.50588290531292,
+        "mean_case_points_aux": 3.5105392271940192,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 168.50236114472025
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 168.5074504476494
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 168.50783712356915
+          }
+        ]
+      },
+      {
+        "member": "liunianwww",
+        "version": "0.1.0",
+        "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+        "case_count": 528,
+        "score_dataset_uncapped": 1333.5357528970053,
+        "mean_case_points_aux": 2.5256358956382674,
+        "per_repeat": [
+          {
+            "repeat": 0,
+            "score_dataset_uncapped": 1333.2353506482677
+          },
+          {
+            "repeat": 1,
+            "score_dataset_uncapped": 1333.430753788467
+          },
+          {
+            "repeat": 2,
+            "score_dataset_uncapped": 1333.9411542542814
+          }
+        ]
+      }
+    ],
+    "skipped_members": [
+      {
+        "member": "member2",
+        "reason": "empty evaluation set"
+      },
+      {
+        "member": "member3",
+        "reason": "empty evaluation set"
+      }
+    ],
+    "partial": false,
+    "eligible_for_full_collection_ranking": true,
+    "auxiliary": {
+      "all_cases_mean_points": 2.828484862111393,
+      "total_case_count": 785,
+      "used_for_ranking": false
+    },
+    "note": "Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.",
+    "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+    "raw_capped_average_score": 50.0,
+    "raw_scoring_unchanged": true,
+    "per_case_zero_cost_rule": "Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0."
+  },
+  "train_search": [
+    {
+      "tag": "train_g0_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        32
+      ],
+      "best_new_mode": 53,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34974818763.34594,
+        "total_score": 29378847761210.59,
+        "mean_decision_us": 1131.888880952381,
+        "miss_count": 443557.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513147798.96,
+        "decrease_vs_base30_percent": 0.45291089213234104
+      },
+      "all_modes_best": 32,
+      "candidate_count": 16,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g10_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        142
+      ],
+      "best_new_mode": 145,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34241225675.6278,
+        "total_score": 28762629567527.35,
+        "mean_decision_us": 1197.263,
+        "miss_count": 447885.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513180077.85,
+        "decrease_vs_base30_percent": 2.5409005596199186
+      },
+      "all_modes_best": 145,
+      "candidate_count": 3,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g1_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        53
+      ],
+      "best_new_mode": 60,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34565041313.364395,
+        "total_score": 29034634703226.09,
+        "mean_decision_us": 1222.7262142857144,
+        "miss_count": 457260.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513249296.84,
+        "decrease_vs_base30_percent": 1.6192404287430073
+      },
+      "all_modes_best": 60,
+      "candidate_count": 16,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g2_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        30,
+        53,
+        60
+      ],
+      "best_new_mode": 80,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34305451880.36919,
+        "total_score": 28816579579510.12,
+        "mean_decision_us": 1105.131738095238,
+        "miss_count": 489063.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513113067.97,
+        "decrease_vs_base30_percent": 2.3580964823008976
+      },
+      "all_modes_best": 80,
+      "candidate_count": 6,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g3_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        60
+      ],
+      "best_new_mode": 82,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34300572444.043583,
+        "total_score": 28812480852996.61,
+        "mean_decision_us": 1133.4106428571429,
+        "miss_count": 508192.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513128736.43,
+        "decrease_vs_base30_percent": 2.3719846313535298
+      },
+      "all_modes_best": 82,
+      "candidate_count": 8,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g4_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        60
+      ],
+      "best_new_mode": 94,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34132572133.67037,
+        "total_score": 28671360592283.11,
+        "mean_decision_us": 1195.0982857142858,
+        "miss_count": 463296.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513229157.6,
+        "decrease_vs_base30_percent": 2.850155899442186
+      },
+      "all_modes_best": 94,
+      "candidate_count": 8,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g5_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        92
+      ],
+      "best_new_mode": 98,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34280478441.690384,
+        "total_score": 28795601891019.92,
+        "mean_decision_us": 1048.4487738095238,
+        "miss_count": 457394.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513266633.99,
+        "decrease_vs_base30_percent": 2.429177647925318
+      },
+      "all_modes_best": 98,
+      "candidate_count": 4,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g6_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        108
+      ],
+      "best_new_mode": 121,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34227607490.08943,
+        "total_score": 28751190291675.12,
+        "mean_decision_us": 917.2042857142857,
+        "miss_count": 487564.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513178005.35,
+        "decrease_vs_base30_percent": 2.579661317686821
+      },
+      "all_modes_best": 121,
+      "candidate_count": 16,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g7_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        113
+      ],
+      "best_new_mode": 128,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34351294103.288963,
+        "total_score": 28855087046762.73,
+        "mean_decision_us": 879.813380952381,
+        "miss_count": 472375.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513196190.87,
+        "decrease_vs_base30_percent": 2.2276183158572715
+      },
+      "all_modes_best": 113,
+      "candidate_count": 8,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g8_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        113
+      ],
+      "best_new_mode": 140,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34314919707.39481,
+        "total_score": 28824532554211.64,
+        "mean_decision_us": 1118.095369047619,
+        "miss_count": 494675.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513172406.57,
+        "decrease_vs_base30_percent": 2.3311488729403584
+      },
+      "all_modes_best": 113,
+      "candidate_count": 8,
+      "eval_used_for_fitness": false
+    },
+    {
+      "tag": "train_g9_840",
+      "scope": "train",
+      "cases": 840,
+      "repeats": 1,
+      "train_suite_id": "bb94b1ecaeb574efa0497ba98dedafbb24f9b9ff94b0bbce0a6dae5197bcea66",
+      "control_modes": [
+        0,
+        1,
+        2,
+        30,
+        113
+      ],
+      "best_new_mode": 142,
+      "best_new": {
+        "cases": 840,
+        "mean_score": 34241599005.17625,
+        "total_score": 28762943164348.05,
+        "mean_decision_us": 1322.210238095238,
+        "miss_count": 447945.0,
+        "paired_base30_cases": 840,
+        "base30_total_score": 29512513204275.14,
+        "decrease_vs_base30_percent": 2.539838050181742
+      },
+      "all_modes_best": 142,
+      "candidate_count": 3,
+      "eval_used_for_fitness": false
+    }
+  ],
+  "search_note": "Development-selected conservative forced-cover p-credit after three-member regression: retain 8-expert depth5 tree, admission2 and next-deficit0; exact_next_credit_shift=1; g10 train-best full credit worsened eval. Full unknown-distribution optimality is not claimed.",
+  "caution": "Observed development/regression inputs, not hidden tests. Training-only full-trace fitness is separate from final regression. No universal optimality or all-member improvement claim.",
+  "model_metadata_normalization": {
+    "original_candidate": "tree_exactcredit_exact142_r1_s1.json",
+    "original_sha256": "0e52b19b6e7d02d1aa6b21c63a074f7ab0efacf9d47a09467950581db21bb5d4",
+    "canonical_model_sha256": "a5b59a0712fafcc1900aaaef90fd1605a1271434a229b86445b365ccfa9892da",
+    "cpp_byte_identity_verified": true
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "status": "passed_with_scope_notes",
+  "review_date": "2026-10-30",
+  "review_kind": "Independent static publication and mathematical scope review",
+  "sdk_or_compiler_invoked": false,
+  "input_cases_reexecuted": false,
+  "dynamic_programming_recomputed": false,
+  "blocking_findings": [],
+  "published_checkpoint": {
+    "mode": 142,
+    "name": "tree_nextcredit_next113_r1_s0",
+    "path": "design/portfolio_iter_20261029/published_checkpoint.json",
+    "sha256": "67d0739715d7b7746a7adf6fa41e76ae19cc00c1c77a9ae34c87ca0b64a6409f",
+    "source": "design/MySpillScheduler_tree.cpp",
+    "source_sha256": "4722ac530ca45039b3521e910eea6f543c452dd5690690cbae18267a5f3ba23b",
+    "model_sha256": "7e9ed56f658628d040562c465fe6786ce4ef711ab5b4f466d2d56a13c26582d6",
+    "source_matches_frozen_candidate_r12_standalone_audit": true,
+    "canonical_model_executable_fields_match_frozen_candidate": true,
+    "standalone_all_three_binary_and_build_source_hashes_match_actual_bytes": true,
+    "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+    "cases": 785,
+    "repeats": 3,
+    "incoming_checkpoint_reference": {
+      "recorded_in_standalone_summary_sha256": "de1a833cbcb5306b428682757005471970d42c69f8be7bdf3976cb074cdd127f",
+      "matches": "design/portfolio_iter_20261029/checkpoint_members_r12.json",
+      "interpretation": "Historical pre-measurement checkpoint identity; correctly differs from the later standalone publication checkpoint."
+    }
+  },
+  "score_consistency": {
+    "checkpoint_summary_equals_standalone_summary": true,
+    "checkpoint_members_and_public_score_equal_member_report": true,
+    "current_raw_mean_score_us": 66825878722.01895,
+    "decrease_vs_naive_percent": 29.481812664929418,
+    "uncapped_member_equal_points": 744.9310403636313,
+    "uncapped_member_equal_formula_verified": true,
+    "all_members_capped_points": 50.0,
+    "r12_selected_raw_mean_score_us": 66825879369.16688,
+    "r12_raw_mean_by_mode": {
+      "113": 66918828197.550835,
+      "142": 66825879369.16688,
+      "143": 66827445599.24421,
+      "144": 66849152188.90209
+    },
+    "r12_and_standalone_saved_measurements_compared": 2355,
+    "r12_and_standalone_io_hit_miss_equal": true,
+    "max_abs_io_difference_us": 0.0,
+    "standalone_minus_r12_mean_decision_us": -647.1478683651806,
+    "deployment_note": "The small standalone versus combined-program Score difference is callback timing, not additional IO or miss improvement; different historical timing reports retain separate identities.",
+    "members": [
+      {"member": "Vanius0525", "cases": 209, "raw_mean_score_us": 158385686.7916906, "decrease_vs_naive_percent": 35.4971580315673, "uncapped_points": 730.7401944126564, "mean_case_points": 3.496364566567734},
+      {"member": "cyanneko", "cases": 48, "raw_mean_score_us": 7051729735.447223, "decrease_vs_naive_percent": 47.75937430399284, "uncapped_points": 168.8819740551511, "mean_case_points": 3.5183744594823145},
+      {"member": "liunianwww", "cases": 528, "raw_mean_score_us": 98649108259.36353, "decrease_vs_naive_percent": 29.316916307984155, "uncapped_points": 1335.1709526230861, "mean_case_points": 2.528732864816451}
+    ],
+    "member_tradeoff": "All three improve over Naive in aggregate raw cost. The neural reference still has lower member raw mean on Vanius0525 and cyanneko; no all-member or all-case superiority is established. Raw case-weighted cost and uncapped member-equal points are separate objectives."
+  },
+  "evidence_integrity": {
+    "standalone_action_verification_original_evidence_hashes_match": true,
+    "r12_candidate_verification_original_evidence_and_actual_source_hashes_match": true,
+    "archives": [
+      {"file": "standalone_next_credit_sources.zip", "sha256": "e46d6a02f3329873cda3f2482b3e8b9fd645b50ce0b0418b06ff31f17f18878e", "manifested_files_verified": 5, "expected_extra_manifest": "standalone_manifest.json"},
+      {"file": "standalone_next_credit_measurements.zip", "sha256": "7f0c79853094583be9339bd9dbca578aee5648a3d4923485d9d360cba951cc40", "manifested_files_verified": 2},
+      {"file": "next_credit_sources.zip", "sha256": "e172491f793d1f80d298f84d96c8eeda44025f1f46298bccfa07858f055a1d1e", "manifested_files_verified": 139, "expected_extra_manifest": "benchmark_manifest.json"},
+      {"file": "next_credit_measurements.zip", "sha256": "290e926430fd67538dd77f807174d3219f2edc69ee43dfcb981e7ce00f62323d", "manifested_files_verified": 4}
+    ],
+    "all_archive_hashes_member_hashes_and_lengths_match": true,
+    "embedded_source_manifests_match_external_file_maps": true,
+    "source_binary_correspondence_limit": "Matching hashes bind the preserved build workflow and measured binary identities; this static review does not independently certify compilation."
+  },
+  "next_deficit_scope_evidence": {
+    "public_copy": "design/portfolio_iter_20261029/next_deficit_scope_verification.json",
+    "public_copy_sha256": "ee54e87b8e89dac7a70ce7f712c89c5351155bfe7aa3ca6e170832d1ca109dfd",
+    "original_result_sha256": "2d324e40cbd4426f8f5557ad1e8a3ffd811bde2b8777b963689021b13efe365a",
+    "original_hash_and_parent_source_binding_verified": true,
+    "typed_numeric_boolean_hex_leaf_sequence_verified": true,
+    "original_payload_semantic_leaf_count": 280,
+    "forced_expert": 1,
+    "independent_programs": 4,
+    "current_online_router_evaluated": false,
+    "prefix_parent_new_io_mib_equivalent": [137, 125],
+    "future_tail_parent_new_io_mib_equivalent": [137, 185],
+    "interpretation": "Saved forced-expert1 diagnostic programs establish a local known-prefix IO calculation and an unknown-tail reversal. They are not router performance measurements, and do not certify D or complete Score."
+  },
+  "exact_p_credit_static_review": {
+    "source": "design/portfolio_iter_20261029/exact_next_credit_patch.py",
+    "source_sha256": "7444000c8352b9cd71c7a002ce484618c05851bb25a66860678e3d765784e4bf",
+    "implemented_in_published_checkpoint": false,
+    "prefix_certificate_counterexample_found": false,
+    "result": "The real-arithmetic IO certificate is valid under the stated frozen-plan preconditions; this is a static proof review, not an execution test or machine certification.",
+    "argument": [
+      "The protected plan is legal, distinct-SPILL, retains q, and loads p; every returned victim larger than M-size(p)-size(q) is compulsory. Legal capacity implies no other such initial resident victim can remain, so f2 equals the compulsory write total.",
+      "If unprotected execution ends q service with both p and q resident, it must already write all compulsory victims plus its distinct initial q spill. Its IO therefore cannot beat the protected f2 plan after cancelling the common p read.",
+      "If p is absent at q service, it must have undergone an additional full-size SPILL after its own service. The unprotected branch also reloads q; thus extra p-write credit up to size(p)/W is justified.",
+      "Periodic preloading can avoid a q miss but cannot avoid its read and necessary spills. The protected frozen periodic path performs no IO when q is resident. The comparison cut is before q's own periodic callback."
+    ],
+    "implementation_contract_notes": [
+      "The helper does not itself prove victim uniqueness, full plan feasibility, or exclusion of p/q. These properties come from the frozen plan implementation and caller. Do not reuse it as a validator for arbitrary action vectors.",
+      "The old guard is preserved as the first short-circuit OR operand. Only the newly accepted, forced-victim-certified p-credit region has this new argument. The inherited +1us/d-credit acceptance region is not all certified by it.",
+      "Zero-size targets, incompatible p+q, non-SPILL victims and non-forced victims are rejected by the helper. Signed deficit arithmetic remains within int64 under formal capacity limits.",
+      "Double comparison rounding, callback D, miss-penalty credit, unknown future operations and full Score remain outside the guarantee."
+    ],
+    "unknown_future_counterexample_not_a_prefix_refutation": {
+      "units": "Sizes in MiB; times in 2^20 microseconds at W=1 byte/us and R=2 bytes/us.",
+      "state": "M=64; p=16 on disk; A=39 and q=16 resident, used=55; fixed expert1; consecutive service p,q followed by unknown A.",
+      "unprotected_write_bytes_mib": 16,
+      "protected_write_bytes_mib": 39,
+      "old_d_credit_rhs_time_units": 15,
+      "shift0_p_credit_rhs_time_units": 24,
+      "extra_write_time_units": 23,
+      "certificate": "A39 > M-p-q =32; shift0 accepts while the old guard rejects.",
+      "protected_unprotected_prefix_io_time_units": [47, 48],
+      "protected_unprotected_io_after_A_time_units": [82.5, 48],
+      "reason": "After q, protected execution must write one 16MiB partition and read A39; unprotected execution retains A. B=1 forced periodic preloading cannot avoid this reversal. This is a hand-derived continuation of a legal state, not a newly executed SDK workload."
+    }
+  },
+  "exact_credit_verifier_static_review": {
+    "source": "design/portfolio_iter_20261029/verify_exact_next_credit.py",
+    "source_sha256": "aa0fe77b94befd7234cfbc4b3307a85a471ee673627dc96b1cd1dc17c0ec3037",
+    "executed_by_this_review": false,
+    "status": "Static construction and expected arithmetic agree; execution remains pending.",
+    "legal_reachability": "71 one-MiB INSERTs build p16,A39,q16. At q9, resident bytes reach64. Before q10, admission2 rejects because its40MiB cutoff exceeds p16; exact expert1 uniquely spills p16. The resulting A39+q16 resident state uses55MiB and has16MiB common prior BUILD writes. Empty partition1 is untouched; no synthetic engine state or zero-SPILL callback is used.",
+    "formal_counts": {"insert_count": 71, "prefix_probe_count": 2, "bad_tail_probe_count": 3, "prefix_N": 74, "bad_tail_N": 75, "period": 1},
+    "parent142_old_d_credit_accepts": false,
+    "new_p_credit_acceptance_by_shift": {"0": true, "1": false, "2": false},
+    "expected_full_case_mib_time_and_hit_miss": {
+      "prefix": {"parent142": [64, 0, 2], "shift0": [63, 1, 1], "shift1": [64, 0, 2], "shift2": [64, 0, 2]},
+      "bad_tail": {"parent142": [64, 1, 2], "shift0": [98.5, 1, 2], "shift1": [64, 1, 2], "shift2": [64, 1, 2]}
+    },
+    "expected_value_interpretation": "Triples are complete-case IO in 2^20 microseconds, hit count, miss count; the16MiB common BUILD cost is included. Event-prefix47/48 figures elsewhere exclude that common cost.",
+    "frozen_wrapper_contract": "Shared engine_source replaces only the policy include and factory with MySpillScheduler(1), reversibly preserving public engine/timer bodies. LF/CRLF and patch reversibility checks are present; none were executed by this review.",
+    "not_a_current_router_or_suite_measurement": true
+  },
+  "claim_scope_review": {
+    "files_read": ["design/portfolio_iter_20261029/README.txt", "design/portfolio_iter_20261029/published_checkpoint.json", "design/portfolio_iter_20261029/current_model.json", "design/portfolio_iter_20261029/next_deficit_scope_verification.json"],
+    "development_eval_exposure_disclosed": true,
+    "no_unqualified_hidden_blind_test_claim_found": true,
+    "no_unqualified_global_optimality_claim_found": true,
+    "historical_candidate_metadata_distinguished_from_later_measurements": true,
+    "limit": "This review covers the cited source, JSON, text and archive evidence. It does not visually review the generated PDF or predict hidden-test performance."
+  }
+}

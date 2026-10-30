@@ -12,7 +12,11 @@ def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def dump(p,obj):p.write_text(json.dumps(obj,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf8')
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--tag',required=True);ap.add_argument('--mode',required=True,type=int);ap.add_argument('--search-note',default='');a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--tag',required=True);ap.add_argument('--mode',required=True,type=int);ap.add_argument('--search-note',default='')
+    ap.add_argument('--source-stem');ap.add_argument('--measurement-stem');a=ap.parse_args()
+    assert (a.source_stem is None)==(a.measurement_stem is None),'Specify both bundle stems'
+    for stem in [a.source_stem,a.measurement_stem]:
+        if stem is not None:assert stem and all(c.isalnum() or c in '._-' for c in stem) and '/' not in stem and '\\' not in stem
     raw=read(ROOT/(a.tag+'_summary.json'));member=read(M/(a.tag+'_members.json'));key=str(a.mode)
     assert raw['scope']=='members' and raw['suite_id']==SUITE and raw['repeats']==3
     assert member['case_count']==785 and member['suite_id']==SUITE and member['repeats']==3
@@ -23,9 +27,14 @@ def main():
     audited=[]
     for path in sorted(ROOT.glob('*_audit_summary.json')):
         for record in read(path).values():
-            if record['name']==v['name'] and record['source_sha256']==sha and record['cases']==785:
+            if not isinstance(record,dict):continue
+            if record.get('name')==v['name'] and record.get('source_sha256')==sha and record.get('cases')==785:
                 assert record['strict_actions'] and record['feature_prediction_parity'];audited.append(path.name)
     assert audited,'No independent full-suite action and feature-parity audit for this source'
+    source_bundles={'members_r3':'benchmark_sources','members_r4':'scratch_sources','members_r5':'refine_sources','members_r6':'gate_sources','members_r8':'admission_sources','members_r9':'full_horizon_sources','members_standalone_r1':'standalone_sources','members_standalone_r2':'standalone_admission_sources','members_standalone_r3':'standalone_category_sources'}
+    measurement_bundles={'members_r3':'benchmark_measurements','members_r4':'scratch_measurements','members_r5':'refine_measurements','members_r6':'gate_measurements','members_r8':'admission_measurements','members_r9':'full_horizon_measurements','members_standalone_r1':'standalone_measurements','members_standalone_r2':'standalone_admission_measurements','members_standalone_r3':'standalone_category_measurements'}
+    source_bundle=(a.source_stem or source_bundles[a.tag])+'.zip';measurement_bundle=(a.measurement_stem or measurement_bundles[a.tag])+'.zip'
+    assert (ROOT/source_bundle).is_file() and (ROOT/measurement_bundle).is_file()
     original_model=read(ROOT/(v['name']+'.json'))
     from normalize_candidate_metadata import normalize
     model=normalize(original_model)
@@ -45,13 +54,9 @@ def main():
         report=read(path)
         if report['status']!='complete':continue
         ranking=sorted(report['summary'].items(),key=lambda pair:pair[1]['mean_score'])
-        controls={'train_g0_840':{30,32},'train_g1_840':{30,53},'train_g2_840':{30,53,60},'train_g5_840':{0,1,2,30,92},'train_g6_840':{0,1,2,30,108}}.get(report['tag'],{0,1,2,30,60})
+        controls={'train_g0_840':{30,32},'train_g1_840':{30,53},'train_g2_840':{30,53,60},'train_g5_840':{0,1,2,30,92},'train_g6_840':{0,1,2,30,108},'train_g7_840':{0,1,2,30,113},'train_g8_840':{0,1,2,30,113},'train_g9_840':{0,1,2,30,113},'train_g10_840':{0,1,2,30,142}}.get(report['tag'],{0,1,2,30,60})
         new=[(k,v) for k,v in ranking if int(k) not in controls]
         train.append(dict(tag=report['tag'],scope='train',cases=report['case_count'],repeats=report['repeats'],train_suite_id=report['train_suite_id'],control_modes=sorted(controls),best_new_mode=int(new[0][0]),best_new=new[0][1],all_modes_best=int(ranking[0][0]),candidate_count=len(new),eval_used_for_fitness=False))
-    source_bundles={'members_r3':'benchmark_sources','members_r4':'scratch_sources','members_r5':'refine_sources','members_r6':'gate_sources','members_r8':'admission_sources','members_r9':'full_horizon_sources','members_standalone_r1':'standalone_sources','members_standalone_r2':'standalone_admission_sources','members_standalone_r3':'standalone_category_sources'}
-    measurement_bundles={'members_r3':'benchmark_measurements','members_r4':'scratch_measurements','members_r5':'refine_measurements','members_r6':'gate_measurements','members_r8':'admission_measurements','members_r9':'full_horizon_measurements','members_standalone_r1':'standalone_measurements','members_standalone_r2':'standalone_admission_measurements','members_standalone_r3':'standalone_category_measurements'}
-    source_bundle=source_bundles[a.tag]+'.zip';measurement_bundle=measurement_bundles[a.tag]+'.zip'
-    assert (ROOT/source_bundle).is_file() and (ROOT/measurement_bundle).is_file()
     result=dict(status='completed measurement checkpoint; iteration continues',date='2026-10-30',objective='minimise complete raw average SDK Score including callback time',
         name=v['name'],mode=a.mode,model='current_model.json',source='design/MySpillScheduler_tree.cpp',source_sha256=sha,
         dataset_commit=COMMIT,suite_id=SUITE,cases=785,repeats=3,aggregation=raw['aggregation'],

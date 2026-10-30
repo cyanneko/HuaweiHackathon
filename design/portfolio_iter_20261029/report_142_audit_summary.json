@@ -1,0 +1,231 @@
+{
+  "status": "passed",
+  "audit_date": "2026-10-30",
+  "audit_scope": "Historical QA of the mode142 standalone_r4 PDF and entry documentation only; this is not an SDK performance audit.",
+  "binding_policy": "This record applies only to the PDF SHA256 and source SHA256 below. Replacing the report or current checkpoint does not transfer these QA results to a successor.",
+  "checkpoint": {
+    "mode": 142,
+    "name": "tree_nextcredit_next113_r1_s0",
+    "sdk_report": "members_standalone_r4_summary.json",
+    "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+    "cases": 785,
+    "repeats": 3,
+    "mean_score_us": 66825878722.01895,
+    "mean_decision_us": 1105.3850488322717,
+    "decrease_vs_naive_percent": 29.481812664929418
+  },
+  "artifacts": {
+    "pdf": {
+      "path": "design/topic20_portfolio_iteration_report.pdf",
+      "sha256": "7fa856f5d0bb6e0627ebf87babee4d4258ba97d86a1eb4b94885169af4b2fdf0",
+      "bytes": 185518,
+      "page_count": 10
+    },
+    "source": {
+      "path": "design/MySpillScheduler_tree.cpp",
+      "sha256": "4722ac530ca45039b3521e910eea6f543c452dd5690690cbae18267a5f3ba23b",
+      "matches_checkpoint": true
+    },
+    "generators_observed_at_audit": {
+      "design/portfolio_iter_20261029/make_report.py": "723f65f8fe3ef7ea3de8695dcd2ad1c6c7f9c21d78310524424cd6edc82c61c3",
+      "design/portfolio_iter_20261029/update_public_docs.py": "98e42242fbab43f90cba3e8ce53b622ee5ccc07b037ed4a2ed8f4c59c2e41073",
+      "design/portfolio_iter_20261029/snapshot_reader.py": "6c2de47ce880e699088f88b037c099ac741b053392e5c9170a89e712cc17f96e"
+    }
+  },
+  "visual_check": {
+    "status": "passed",
+    "method": "All ten pdftoppm-rendered page PNGs were inspected, with a contact sheet and individual pages.",
+    "render_scale_to_pixels": 1100,
+    "inspected_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "clipping_or_overlap_found": false,
+    "unexpected_page_breaks_found": false,
+    "temporary_previews": "design/tmp/pdfs/portfolio142_qa",
+    "temporary_previews_required_for_reproduction": false
+  },
+  "content_check": {
+    "status": "passed",
+    "page_count_and_explicit_headings_checked": true,
+    "checks": [
+      "P1 identifies current mode142 and shows Score 66,825,878,722.02 us, D 1105.39 us/case and 29.4818% decrease versus the same-batch Naive.",
+      "P3 and P7 describe category113 as the preceding adopted tree, inherited by mode142, rather than a newly fitted current classifier.",
+      "P4 describes legal next_op visibility, full_remaining labels (3854 states / 783 represented / 840 inventory), and complete callback timing boundaries.",
+      "P8 and P9 identify R10/R11 results as historical mode113-layer comparisons; they do not transfer those measurements to mode142.",
+      "P10 distinguishes members_r12 research-batch D from independent standalone_r4 D, prints the expert1 diagnostic prefix 137/125 and appended-tail 137/185, and states the limited two-known-PROBE service-prefix scope.",
+      "README.txt and CURRENT_SOLUTION.txt show the current mode142 Score and completed independent deployment status.",
+      "No tested result is claimed for the later exact142 successor candidates."
+    ]
+  },
+  "character_boundary_check": {
+    "status": "passed",
+    "method": "pdfplumber per-character coordinate assertions against the SHA-bound mode142 PDF, with separate footer and page-number checks; no PDF regeneration.",
+    "body_rectangle_points": [
+      43,
+      41,
+      553,
+      791
+    ],
+    "footer_exclusion_top_points": 790,
+    "pages": [
+      {
+        "page": 1,
+        "body_characters": 1017,
+        "body_bounds_points": [
+          50.0,
+          49.617,
+          545.0,
+          653.239
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 156.886
+      },
+      {
+        "page": 2,
+        "body_characters": 750,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          548.5,
+          480.239
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 329.886
+      },
+      {
+        "page": 3,
+        "body_characters": 1011,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          550.0,
+          556.406
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 253.719
+      },
+      {
+        "page": 4,
+        "body_characters": 1042,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          548.5,
+          625.406
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 184.719
+      },
+      {
+        "page": 5,
+        "body_characters": 1368,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          552.2,
+          565.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 244.386
+      },
+      {
+        "page": 6,
+        "body_characters": 1069,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          545.0,
+          519.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 290.386
+      },
+      {
+        "page": 7,
+        "body_characters": 1243,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          545.0,
+          588.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 221.386
+      },
+      {
+        "page": 8,
+        "body_characters": 1100,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          552.2,
+          525.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 284.386
+      },
+      {
+        "page": 9,
+        "body_characters": 1383,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          545.0,
+          622.239
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 187.886
+      },
+      {
+        "page": 10,
+        "body_characters": 1146,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          545.0,
+          505.239
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 304.886
+      }
+    ]
+  },
+  "zip_fallback_check": {
+    "status": "passed",
+    "method": "Mock Path.is_file to report the tested raw SDK/train summaries absent, then call snapshot_reader.available and read_json; compare parsed results with the local JSON loaded before the mock. No raw file was renamed, deleted or extracted.",
+    "completed_count": 11,
+    "summary_paths_relative_to_port": [
+      "members_standalone_r4_summary.json",
+      "members_r5_summary.json",
+      "members_r6_summary.json",
+      "members_r9_summary.json",
+      "members_r10_summary.json",
+      "members_r11_summary.json",
+      "members_r12_summary.json",
+      "train_g6_840_summary.json",
+      "train_g7_840_summary.json",
+      "train_g8_840_summary.json",
+      "train_g9_840_summary.json"
+    ],
+    "all_completed_reads_equal_local_json": true,
+    "raw_files_renamed_or_deleted": false,
+    "archive_extraction_performed": false,
+    "static_reader_review": "Fallback is limited to *_summary.json directly in PORT and exact ZIP-entry basenames; all matching local/ZIP copies must have identical bytes, and conflicts raise errors.",
+    "tracked_audit_summary_exception": "The initial broad mock also hid mlp_r10_audit_summary.json, which has no ZIP copy. This is outside the intended missing-raw simulation: mlp_r10_audit_summary.json and fixed_r11_audit_summary.json are Git-tracked, and .gitignore explicitly retains *_audit_summary.json. Their absence from measurement ZIPs is not a fresh-clone gap. The eleven SDK/train cases above completed successfully before that over-broad mock stopped."
+  },
+  "execution_limits": {
+    "cpp_compilation_run": false,
+    "solver_or_sdk_run": false,
+    "cpp_model_or_checkpoint_modified": false,
+    "pdf_or_existing_report_modified_by_this_record": false
+  }
+}

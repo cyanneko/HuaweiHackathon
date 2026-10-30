@@ -1,0 +1,791 @@
+{
+  "tag": "members_r12",
+  "dataset_commit": "e119c2326e198922243306eac062785420ed8156",
+  "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+  "case_count": 785,
+  "repeats": 3,
+  "score_helper_sha256": "e343b01183f584ff2600700641108fc24b672fc4295ab04311416e594506c393",
+  "candidates": {
+    "0": {
+      "name": "neural_reference",
+      "members": [
+        {
+          "member": "Vanius0525",
+          "version": "0.1.0",
+          "case_count": 209,
+          "mean_score_us": 150268831.88342902,
+          "naive_mean_score_us": 245548437.03138754,
+          "decrease_vs_naive_percent": 38.80277402693436,
+          "mean_decision_us": 1315.467894736842,
+          "worst_score_ratio_vs_naive": 276.054347826087,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 710.5622316734347,
+          "mean_case_points_0_10": 3.3998192903035154
+        },
+        {
+          "member": "cyanneko",
+          "version": "0.6.0",
+          "case_count": 48,
+          "mean_score_us": 6774058083.087153,
+          "naive_mean_score_us": 13498555304.953056,
+          "decrease_vs_naive_percent": 49.81642160919597,
+          "mean_decision_us": 2737.562638888889,
+          "worst_score_ratio_vs_naive": 7.14228481243171,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 135.29531144243091,
+          "mean_case_points_0_10": 2.8186523217173107
+        },
+        {
+          "member": "liunianwww",
+          "version": "0.1.0",
+          "case_count": 528,
+          "mean_score_us": 103579307936.33406,
+          "naive_mean_score_us": 139565371490.793,
+          "decrease_vs_naive_percent": 25.784378438625023,
+          "mean_decision_us": 908.1440467171717,
+          "worst_score_ratio_vs_naive": 82.6435950413223,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 1224.331577722805,
+          "mean_case_points_0_10": 2.3188098062931912
+        }
+      ],
+      "all_case_summary": {
+        "cases": 785,
+        "mean_score": 70122847852.5302,
+        "total_score": 55046435564236.2,
+        "mean_decision_us": 1128.4533163481954,
+        "miss_count": 397224.0,
+        "decrease_vs_nn_percent": 0.0,
+        "worst_vs_nn": 1.0,
+        "decrease_vs_naive_percent": 26.002677236998238,
+        "worst_vs_naive": 276.054347826087
+      },
+      "public_score_summary": {
+        "status": "available",
+        "score_final": 690.0630402795568,
+        "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
+        "dataset_count": 3,
+        "member_weights": {
+          "Vanius0525": 0.3333333333333333,
+          "cyanneko": 0.3333333333333333,
+          "liunianwww": 0.3333333333333333
+        },
+        "datasets": [
+          {
+            "member": "Vanius0525",
+            "version": "0.1.0",
+            "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
+            "case_count": 209,
+            "score_dataset_uncapped": 710.5622316734347,
+            "mean_case_points_aux": 3.3998192903035154,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 710.2765426137831
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 711.1448336626519
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 710.2653187438686
+              }
+            ]
+          },
+          {
+            "member": "cyanneko",
+            "version": "0.6.0",
+            "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
+            "case_count": 48,
+            "score_dataset_uncapped": 135.29531144243091,
+            "mean_case_points_aux": 2.8186523217173107,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 135.30006161146528
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 135.28483829069464
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 135.30103442513283
+              }
+            ]
+          },
+          {
+            "member": "liunianwww",
+            "version": "0.1.0",
+            "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+            "case_count": 528,
+            "score_dataset_uncapped": 1224.331577722805,
+            "mean_case_points_aux": 2.3188098062931912,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 1223.9407704241198
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 1224.4745964829679
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 1224.579366261327
+              }
+            ]
+          }
+        ],
+        "skipped_members": [
+          {
+            "member": "member2",
+            "reason": "empty evaluation set"
+          },
+          {
+            "member": "member3",
+            "reason": "empty evaluation set"
+          }
+        ],
+        "partial": false,
+        "eligible_for_full_collection_ranking": true,
+        "auxiliary": {
+          "all_cases_mean_points": 2.637183593425058,
+          "total_case_count": 785,
+          "used_for_ranking": false
+        },
+        "note": "Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.",
+        "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+        "raw_capped_average_score": 50.0,
+        "raw_scoring_unchanged": true,
+        "per_case_zero_cost_rule": "Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0."
+      }
+    },
+    "113": {
+      "name": "tree_category_full108_r1_3",
+      "members": [
+        {
+          "member": "Vanius0525",
+          "version": "0.1.0",
+          "case_count": 209,
+          "mean_score_us": 158658995.1111962,
+          "naive_mean_score_us": 245548437.03138754,
+          "decrease_vs_naive_percent": 35.38586641831672,
+          "mean_decision_us": 1344.6342105263159,
+          "worst_score_ratio_vs_naive": 325.61748633879785,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 716.6023125125712,
+          "mean_case_points_0_10": 3.4287191986247425
+        },
+        {
+          "member": "cyanneko",
+          "version": "0.6.0",
+          "case_count": 48,
+          "mean_score_us": 7060697474.796666,
+          "naive_mean_score_us": 13498555304.953056,
+          "decrease_vs_naive_percent": 47.69293961253862,
+          "mean_decision_us": 6854.26625,
+          "worst_score_ratio_vs_naive": 7.851037999271579,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 167.25882766429604,
+          "mean_case_points_0_10": 3.484558909672834
+        },
+        {
+          "member": "liunianwww",
+          "version": "0.1.0",
+          "case_count": 528,
+          "mean_score_us": 98786376754.37296,
+          "naive_mean_score_us": 139565371490.793,
+          "decrease_vs_naive_percent": 29.2185620980561,
+          "mean_decision_us": 1109.9047285353536,
+          "worst_score_ratio_vs_naive": 105.30371900826445,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 1325.9680975340946,
+          "mean_case_points_0_10": 2.511303215026694
+        }
+      ],
+      "all_case_summary": {
+        "cases": 785,
+        "mean_score": 66918828197.550835,
+        "total_score": 52531280135077.41,
+        "mean_decision_us": 1523.6471677282377,
+        "miss_count": 607081.0,
+        "decrease_vs_nn_percent": 4.569152213722805,
+        "worst_vs_nn": 5.900253058529473,
+        "decrease_vs_naive_percent": 29.38372754811954,
+        "worst_vs_naive": 325.61748633879785
+      },
+      "public_score_summary": {
+        "status": "available",
+        "score_final": 736.609745903654,
+        "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
+        "dataset_count": 3,
+        "member_weights": {
+          "Vanius0525": 0.3333333333333333,
+          "cyanneko": 0.3333333333333333,
+          "liunianwww": 0.3333333333333333
+        },
+        "datasets": [
+          {
+            "member": "Vanius0525",
+            "version": "0.1.0",
+            "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
+            "case_count": 209,
+            "score_dataset_uncapped": 716.6023125125712,
+            "mean_case_points_aux": 3.4287191986247425,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 716.0512095094168
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 717.7254712230338
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 716.030256805263
+              }
+            ]
+          },
+          {
+            "member": "cyanneko",
+            "version": "0.6.0",
+            "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
+            "case_count": 48,
+            "score_dataset_uncapped": 167.25882766429604,
+            "mean_case_points_aux": 3.484558909672834,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 167.2623281004318
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 167.24498354187233
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 167.26917135058392
+              }
+            ]
+          },
+          {
+            "member": "liunianwww",
+            "version": "0.1.0",
+            "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+            "case_count": 528,
+            "score_dataset_uncapped": 1325.9680975340946,
+            "mean_case_points_aux": 2.511303215026694,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 1325.8811041639985
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 1326.0948223872783
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 1325.9283660510066
+              }
+            ]
+          }
+        ],
+        "skipped_members": [
+          {
+            "member": "member2",
+            "reason": "empty evaluation set"
+          },
+          {
+            "member": "member3",
+            "reason": "empty evaluation set"
+          }
+        ],
+        "partial": false,
+        "eligible_for_full_collection_ranking": true,
+        "auxiliary": {
+          "all_cases_mean_points": 2.8150690926254294,
+          "total_case_count": 785,
+          "used_for_ranking": false
+        },
+        "note": "Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.",
+        "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+        "raw_capped_average_score": 50.0,
+        "raw_scoring_unchanged": true,
+        "per_case_zero_cost_rule": "Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0."
+      }
+    },
+    "142": {
+      "name": "tree_nextcredit_next113_r1_s0",
+      "members": [
+        {
+          "member": "Vanius0525",
+          "version": "0.1.0",
+          "case_count": 209,
+          "mean_score_us": 158386259.2910367,
+          "naive_mean_score_us": 245548437.03138754,
+          "decrease_vs_naive_percent": 35.49693852427546,
+          "mean_decision_us": 1556.5584210526315,
+          "worst_score_ratio_vs_naive": 554.7608695652174,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 717.9653465062311,
+          "mean_case_points_0_10": 3.435240892374311
+        },
+        {
+          "member": "cyanneko",
+          "version": "0.6.0",
+          "case_count": 48,
+          "mean_score_us": 7051730262.625417,
+          "naive_mean_score_us": 13498555304.953056,
+          "decrease_vs_naive_percent": 47.759370515466124,
+          "mean_decision_us": 7187.92375,
+          "worst_score_ratio_vs_naive": 11.672210756343329,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 168.48605890894723,
+          "mean_case_points_0_10": 3.510126227269734
+        },
+        {
+          "member": "liunianwww",
+          "version": "0.1.0",
+          "case_count": 528,
+          "mean_score_us": 98649108946.96619,
+          "naive_mean_score_us": 139565371490.793,
+          "decrease_vs_naive_percent": 29.316915870156247,
+          "mean_decision_us": 1335.9797159090908,
+          "worst_score_ratio_vs_naive": 133.31404958677686,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 1332.6432807885603,
+          "mean_case_points_0_10": 2.5239456075540914
+        }
+      ],
+      "all_case_summary": {
+        "cases": 785,
+        "mean_score": 66825879369.16688,
+        "total_score": 52458315304796.0,
+        "mean_decision_us": 1752.5329171974522,
+        "miss_count": 605934.0,
+        "decrease_vs_nn_percent": 4.701703630601129,
+        "worst_vs_nn": 5.90026073522096,
+        "decrease_vs_naive_percent": 29.48181204789393,
+        "worst_vs_naive": 554.7608695652174
+      },
+      "public_score_summary": {
+        "status": "available",
+        "score_final": 739.6982287345795,
+        "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
+        "dataset_count": 3,
+        "member_weights": {
+          "Vanius0525": 0.3333333333333333,
+          "cyanneko": 0.3333333333333333,
+          "liunianwww": 0.3333333333333333
+        },
+        "datasets": [
+          {
+            "member": "Vanius0525",
+            "version": "0.1.0",
+            "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
+            "case_count": 209,
+            "score_dataset_uncapped": 717.9653465062311,
+            "mean_case_points_aux": 3.435240892374311,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 717.5972803778972
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 718.6795959432296
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 717.6191631975662
+              }
+            ]
+          },
+          {
+            "member": "cyanneko",
+            "version": "0.6.0",
+            "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
+            "case_count": 48,
+            "score_dataset_uncapped": 168.48605890894723,
+            "mean_case_points_aux": 3.510126227269734,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 168.4995713465298
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 168.4651858988916
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 168.49341948142026
+              }
+            ]
+          },
+          {
+            "member": "liunianwww",
+            "version": "0.1.0",
+            "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+            "case_count": 528,
+            "score_dataset_uncapped": 1332.6432807885603,
+            "mean_case_points_aux": 2.5239456075540914,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 1333.0438105579929
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 1332.7766592637063
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 1332.109372543982
+              }
+            ]
+          }
+        ],
+        "skipped_members": [
+          {
+            "member": "member2",
+            "reason": "empty evaluation set"
+          },
+          {
+            "member": "member3",
+            "reason": "empty evaluation set"
+          }
+        ],
+        "partial": false,
+        "eligible_for_full_collection_ranking": true,
+        "auxiliary": {
+          "all_cases_mean_points": 2.8268722117245075,
+          "total_case_count": 785,
+          "used_for_ranking": false
+        },
+        "note": "Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.",
+        "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+        "raw_capped_average_score": 50.0,
+        "raw_scoring_unchanged": true,
+        "per_case_zero_cost_rule": "Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0."
+      }
+    },
+    "143": {
+      "name": "tree_nextcredit_next113_r1_s1",
+      "members": [
+        {
+          "member": "Vanius0525",
+          "version": "0.1.0",
+          "case_count": 209,
+          "mean_score_us": 158659922.14288676,
+          "naive_mean_score_us": 245548437.03138754,
+          "decrease_vs_naive_percent": 35.3854888831543,
+          "mean_decision_us": 1550.5533014354066,
+          "worst_score_ratio_vs_naive": 582.3804347826087,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 715.7883375328132,
+          "mean_case_points_0_10": 3.424824581496714
+        },
+        {
+          "member": "cyanneko",
+          "version": "0.6.0",
+          "case_count": 48,
+          "mean_score_us": 7048714717.65875,
+          "naive_mean_score_us": 13498555304.953056,
+          "decrease_vs_naive_percent": 47.781710276266764,
+          "mean_decision_us": 7098.905486111111,
+          "worst_score_ratio_vs_naive": 11.907490591234673,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 168.66554837191282,
+          "mean_case_points_0_10": 3.513865591081517
+        },
+        {
+          "member": "liunianwww",
+          "version": "0.1.0",
+          "case_count": 528,
+          "mean_score_us": 98651603343.24095,
+          "naive_mean_score_us": 139565371490.793,
+          "decrease_vs_naive_percent": 29.315128610001295,
+          "mean_decision_us": 1337.2174684343433,
+          "worst_score_ratio_vs_naive": 152.26446280991735,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 1329.838523749196,
+          "mean_case_points_0_10": 2.5186335677068104
+        }
+      ],
+      "all_case_summary": {
+        "cases": 785,
+        "mean_score": 66827445599.24421,
+        "total_score": 52459544795406.7,
+        "mean_decision_us": 1746.323473460722,
+        "miss_count": 606828.0,
+        "decrease_vs_nn_percent": 4.699470078876844,
+        "worst_vs_nn": 5.900262713216274,
+        "decrease_vs_naive_percent": 29.48015927941543,
+        "worst_vs_naive": 582.3804347826087
+      },
+      "public_score_summary": {
+        "status": "available",
+        "score_final": 738.0974698846406,
+        "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
+        "dataset_count": 3,
+        "member_weights": {
+          "Vanius0525": 0.3333333333333333,
+          "cyanneko": 0.3333333333333333,
+          "liunianwww": 0.3333333333333333
+        },
+        "datasets": [
+          {
+            "member": "Vanius0525",
+            "version": "0.1.0",
+            "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
+            "case_count": 209,
+            "score_dataset_uncapped": 715.7883375328132,
+            "mean_case_points_aux": 3.424824581496714,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 715.5795329679595
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 716.2625909073752
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 715.522888723105
+              }
+            ]
+          },
+          {
+            "member": "cyanneko",
+            "version": "0.6.0",
+            "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
+            "case_count": 48,
+            "score_dataset_uncapped": 168.66554837191282,
+            "mean_case_points_aux": 3.513865591081517,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 168.6765341082291
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 168.64291898772638
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 168.67719201978298
+              }
+            ]
+          },
+          {
+            "member": "liunianwww",
+            "version": "0.1.0",
+            "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+            "case_count": 528,
+            "score_dataset_uncapped": 1329.838523749196,
+            "mean_case_points_aux": 2.5186335677068104,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 1329.685562868967
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 1330.0165791761224
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 1329.8134292024981
+              }
+            ]
+          }
+        ],
+        "skipped_members": [
+          {
+            "member": "member2",
+            "reason": "empty evaluation set"
+          },
+          {
+            "member": "member3",
+            "reason": "empty evaluation set"
+          }
+        ],
+        "partial": false,
+        "eligible_for_full_collection_ranking": true,
+        "auxiliary": {
+          "all_cases_mean_points": 2.8207546619795183,
+          "total_case_count": 785,
+          "used_for_ranking": false
+        },
+        "note": "Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.",
+        "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+        "raw_capped_average_score": 50.0,
+        "raw_scoring_unchanged": true,
+        "per_case_zero_cost_rule": "Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0."
+      }
+    },
+    "144": {
+      "name": "tree_nextcredit_next113_r1_s2",
+      "members": [
+        {
+          "member": "Vanius0525",
+          "version": "0.1.0",
+          "case_count": 209,
+          "mean_score_us": 158659926.083429,
+          "naive_mean_score_us": 245548437.03138754,
+          "decrease_vs_naive_percent": 35.38548727836207,
+          "mean_decision_us": 1554.4936044657097,
+          "worst_score_ratio_vs_naive": 512.4619565217391,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 715.7682275174553,
+          "mean_case_points_0_10": 3.4247283613275377
+        },
+        {
+          "member": "cyanneko",
+          "version": "0.6.0",
+          "case_count": 48,
+          "mean_score_us": 7049417625.755138,
+          "naive_mean_score_us": 13498555304.953056,
+          "decrease_vs_naive_percent": 47.77650299237224,
+          "mean_decision_us": 7179.905,
+          "worst_score_ratio_vs_naive": 11.49714701954595,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 168.55908812772495,
+          "mean_case_points_0_10": 3.511647669327603
+        },
+        {
+          "member": "liunianwww",
+          "version": "0.1.0",
+          "case_count": 528,
+          "mean_score_us": 98683811548.67511,
+          "naive_mean_score_us": 139565371490.793,
+          "decrease_vs_naive_percent": 29.292051105108698,
+          "mean_decision_us": 1333.5274936868686,
+          "worst_score_ratio_vs_naive": 136.4814049586777,
+          "capped_score_0_50": 50.0,
+          "uncapped_dataset_score": 1324.976468821377,
+          "mean_case_points_0_10": 2.509425130343517
+        }
+      ],
+      "all_case_summary": {
+        "cases": 785,
+        "mean_score": 66849152188.90209,
+        "total_score": 52476584468288.14,
+        "mean_decision_us": 1749.8434649681528,
+        "miss_count": 607752.0,
+        "decrease_vs_nn_percent": 4.668514990310657,
+        "worst_vs_nn": 5.900259926969079,
+        "decrease_vs_naive_percent": 29.45725334261754,
+        "worst_vs_naive": 512.4619565217391
+      },
+      "public_score_summary": {
+        "status": "available",
+        "score_final": 736.4345948221858,
+        "primary_formula": "mean_nonempty_members(mean_repeats(sum_cases(original single_score))) without dataset50 cap",
+        "dataset_count": 3,
+        "member_weights": {
+          "Vanius0525": 0.3333333333333333,
+          "cyanneko": 0.3333333333333333,
+          "liunianwww": 0.3333333333333333
+        },
+        "datasets": [
+          {
+            "member": "Vanius0525",
+            "version": "0.1.0",
+            "sha256": "ffb67eae2f23002bf3050a4b5b038c0bb5eadcc86c069f424ed1b26f4518458a",
+            "case_count": 209,
+            "score_dataset_uncapped": 715.7682275174553,
+            "mean_case_points_aux": 3.4247283613275377,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 715.5097992000665
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 716.2894773557307
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 715.5054059965688
+              }
+            ]
+          },
+          {
+            "member": "cyanneko",
+            "version": "0.6.0",
+            "sha256": "b22cd2f478cb798b84484ffe3432d54e1f25721314c65935c1a7d1fe5a0a3f50",
+            "case_count": 48,
+            "score_dataset_uncapped": 168.55908812772495,
+            "mean_case_points_aux": 3.511647669327603,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 168.5663353938991
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 168.5427435040601
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 168.56818548521565
+              }
+            ]
+          },
+          {
+            "member": "liunianwww",
+            "version": "0.1.0",
+            "sha256": "ef37977db33edfa06d400cda486b2bf9098a3df6c1e754eb6b7908c7c89e4788",
+            "case_count": 528,
+            "score_dataset_uncapped": 1324.976468821377,
+            "mean_case_points_aux": 2.509425130343517,
+            "per_repeat": [
+              {
+                "repeat": 0,
+                "score_dataset_uncapped": 1324.540996293621
+              },
+              {
+                "repeat": 1,
+                "score_dataset_uncapped": 1325.310572097864
+              },
+              {
+                "repeat": 2,
+                "score_dataset_uncapped": 1325.0778380726458
+              }
+            ]
+          }
+        ],
+        "skipped_members": [
+          {
+            "member": "member2",
+            "reason": "empty evaluation set"
+          },
+          {
+            "member": "member3",
+            "reason": "empty evaluation set"
+          }
+        ],
+        "partial": false,
+        "eligible_for_full_collection_ranking": true,
+        "auxiliary": {
+          "all_cases_mean_points": 2.8143997254351047,
+          "total_case_count": 785,
+          "used_for_ranking": false
+        },
+        "note": "Local rule diagnostic only; unknown official population is not predicted. Case clipping can hide severe cost tails.",
+        "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+        "raw_capped_average_score": 50.0,
+        "raw_scoring_unchanged": true,
+        "per_case_zero_cost_rule": "Preserves original runner contribution: if candidate or baseline cost is not positive, original single_score is0."
+      }
+    }
+  },
+  "caution": "All data are observed development/regression inputs. Uncapped member-equal score, raw capped score and raw average Score are different metrics; none predicts official hidden tests."
+}

@@ -291,6 +291,19 @@ selected_expert_=next_expert;++inferences_;}
         else a.emplace_back(Action::SPILL,c[i].o,c[i].p);
         return a;
     }
+    // Caller supplies the existing legal, distinct-SPILL protect-q plan.
+    static bool exactNextVictimsForced(const SystemState& s,const std::vector<Action>& victims,int64_t current,int64_t next) {
+        if(victims.empty()||current<=0||next<=0||next>s.memory_limit||current>s.memory_limit-next)return false;
+        const int64_t threshold=s.memory_limit-current-next;
+        for(const auto& victim:victims) {
+            if(victim.type!=Action::SPILL||victim.op_id<0||unsigned(victim.op_id)>=s.operators.size())return false;
+            const auto& parts=s.operators[victim.op_id].partitions;
+            if(victim.partition_id<0||unsigned(victim.partition_id)>=parts.size())return false;
+            const auto& part=parts[victim.partition_id];
+            if(!part.in_memory||part.data_size<=threshold)return false;
+        }
+        return true;
+    }
     static int64_t written(const SystemState& s,const std::vector<Action>& a) {
         int64_t n=0;for(const auto& x:a)if(x.type==Action::SPILL)n+=s.operators[x.op_id].partitions[x.partition_id].data_size;return n;
     }
@@ -388,7 +401,7 @@ public:
                 bool evicts=false;for(const auto& x:a)if(x.op_id==no&&x.partition_id==np)evicts=true;
                 if(b.in_memory&&evicts) {
                     auto other=plan(s,size,o,p,false,no,np);int64_t f=written(s,other);
-                    if(double(f-freed)/s.write_bandwidth<=double(b.data_size)/s.read_bandwidth+1.0){a.swap(other);freed=f;}
+                    if(double(f-freed)/s.write_bandwidth<=double(b.data_size)/s.read_bandwidth+std::max(1.0,double(std::max(int64_t(0),b.data_size-(s.memory_limit-s.memory_used+freed-size))>>0)/s.write_bandwidth)||(double(f-freed)/s.write_bandwidth<=double(b.data_size)/s.read_bandwidth+double(size>>1)/s.write_bandwidth&&exactNextVictimsForced(s,other,size,b.data_size))){a.swap(other);freed=f;}
                 }
                 // Forced-victim prefetch is used at periodic callbacks only.
                 // Here the existing no-extra-spill joint load remains cheaper.

@@ -563,51 +563,114 @@
     "selection": "Alternate objective-specific positive-gain ranks; distinct masks; no SDK fitness here",
     "raw_proxy_horizon_semantics": "This legacy finite_window field refers here to the full_remaining counterfactual suffix under the frozen parent continuation. Literal T/S weights estimate sampled exposure; suffixes overlap. It is not a short truncated window, measured whole-input SDK Score, or a global oracle."
   },
+  "next_deficit_shift": 0,
+  "next_deficit_experiment": {
+    "parent": "tree_category_full108_r1_3.json",
+    "parent_json_sha256": "c28958cd93303d1370c62e2b610ec979ae0f2c43fb923099e0b18a7d28e8a7c2",
+    "parent_source": "tree_category_full108_r1_3.cpp",
+    "parent_cpp_sha256": "11745a01ca7c0aa8b30df22fa30a52be4aa1e02343c1995369cb71ba6a22a4b0",
+    "patch_module": "next_deficit_patch.py",
+    "patch_sha256": "9252e3366ad663bba5ac018095a2b5853043ba9edc13183f618140e68fe56bb3",
+    "tag": "next113_r1",
+    "shift": 0,
+    "credit_fraction": 1.0,
+    "credit_formula": "max(1us, floor(max(0,qsize-(M-U+f1-sizep))/2^shift)/W)",
+    "local_proof": {
+      "state": "Current PROBE target p is being loaded. The one known next operation is PROBE q, q is initially resident, q differs from p, and size(p)+size(q)<=M. The unprotected SPILL plan a evicts q; f1=written(a). The alternative protects q and writes f2. Plans are valid and contain only SPILL actions.",
+      "deficit": "free_after_p=M-U+f1-size(p); d=max(0,size(q)-free_after_p)",
+      "unprotected_lower_bound": "After a and LOAD(p), q is on disk. Before q can be served it must be loaded, costing size(q)/R whether this occurs in the intervening periodic callback or on miss. With no data-changing operation between these consecutive probes, capacity forces at least d additional SPILL bytes. Additional loads can only increase the required writes.",
+      "protected_cost": "Protect-q plan writes f2 and retains q while LOAD(p) completes. The existing periodic PROBE path performs no IO for an already resident q. Thus, through service of q, it needs neither a q read nor another spill.",
+      "common_costs": "Initial p read and already incurred p miss penalty are common and cancel.",
+      "local_dominance": "(f2-f1)/W <= size(q)/R+d/W implies no greater IO for this fixed p,q service prefix.",
+      "credit": "max(1us, floor(d/2^shift)/W), shift in {0,1,2}",
+      "legacy_boundary": "Keep the old size(q)/R+1us acceptance region. A decision newly accepted by the expanded comparison necessarily has credit>1us; its extra write time is then <=size(q)/R+floor(d/2^shift)/W<=size(q)/R+d/W. The inherited +1us region itself has no general IO-dominance proof.",
+      "cut": "After service of the known next q, BEFORE the periodic callback belonging to q.",
+      "not_claimed": "No claim that q must miss: periodic preloading may avoid its miss penalty. No bound on callback D, unknown operations after q, or full Score. Real-arithmetic certificate only; floating comparisons are not machine-certified.",
+      "legal_information": "Uses only current SystemState, one legal next_op and the two already computed plans.",
+      "integer_domain": "For valid plans f1,f2<=U<=M, partition sizes<=M<=4GiB. Deficit arithmetic and f2-f1 are safely int64; max(0,...) precedes the right shift."
+    },
+    "tree_unchanged": true,
+    "expert_classes_unchanged": 8,
+    "history_and_action_construction_unchanged": true,
+    "only_one_comparison_changed": true,
+    "common_admission_shift_preserved": 2,
+    "candidate_has_measured_fitness": false,
+    "inherits_parent_results_as_candidate_fitness": false,
+    "status": "candidate JSON prepared only; no compilation, train fitness or eval has been performed by this generator",
+    "builder_support_required": "Apply next_deficit_patch.patch(source, obj[next_deficit_shift]) when the key exists, including shift=0."
+  },
+  "exact_next_credit_shift": 1,
+  "exact_next_credit_experiment": {
+    "parent": "tree_nextcredit_next113_r1_s0.json",
+    "parent_json_sha256": "c3d5999e60135fedc0a407c954b09052bf68a5c2be2f00f1c6e4793dd7acb786",
+    "parent_source": "tree_nextcredit_next113_r1_s0.cpp",
+    "parent_cpp_sha256": "4722ac530ca45039b3521e910eea6f543c452dd5690690cbae18267a5f3ba23b",
+    "patch_module": "exact_next_credit_patch.py",
+    "patch_sha256": "7444000c8352b9cd71c7a002ce484618c05851bb25a66860678e3d765784e4bf",
+    "tag": "exact142_r1",
+    "shift": 1,
+    "p_credit_fraction": 0.5,
+    "p_credit_formula": "floor(size(p)/2^shift)/W",
+    "guard_order": [
+      "old next-deficit-0 comparison",
+      "p-credit can pass",
+      "scan only existing other victims for forcedness"
+    ],
+    "certificate": "Every protected-plan victim has size>M-size(p)-size(q); the already legal plan is an exact compulsory cover.",
+    "local_proof": {
+      "preconditions": "p is the current missed target; q is the one known next PROBE target. q was resident and the unprotected legal plan a spills it. p!=q and size(p)+size(q)<=M. The alternative other is a legal distinct-SPILL plan retaining q while loading p. Partition sizes do not change between these consecutive probes; data is not deleted.",
+      "certificate": "Every victim x in other has size(x)>M-size(p)-size(q).",
+      "exact_cover_argument": "Every returned victim is impossible beside resident p and q and therefore compulsory. Conversely a legal protected plan cannot leave any other initial resident partition with that property. Thus other contains exactly the compulsory set, and f2 is its minimum immediate write-byte total for the fixed co-residency request.",
+      "case_p_resident_after_q": "If unprotected execution has p and q resident at q service, it must have spilled every compulsory victim by then. Its total writes are at least f2, plus the already executed distinct q spill. It also reads q. The protected execution writes f2 and needs no q read.",
+      "case_p_not_resident_after_q": "p was resident at its own service and absent at q service, so at least one extra size(p)-byte SPILL occurred after the current plan a. q must also be read after a spilled it. Therefore unprotected IO, after cancelling the common initial p read, is at least f1/W+size(q)/R+size(p)/W.",
+      "acceptance": "(f2-f1)/W<=size(q)/R+floor(size(p)/2^shift)/W, shift in {0,1,2}, is sufficient in both cases when the certificate passes. The floor credit never exceeds the necessary size(p)/W in the second case.",
+      "periodic": "Periodic preloading may avoid a q miss but still pays its LOAD and any needed SPILL. In the protected branch the existing periodic PROBE path returns no IO actions when q is already resident.",
+      "cut": "After q service and BEFORE q's own periodic callback.",
+      "not_claimed": "The inherited +1us/d-credit region is unchanged and is not all covered by this certificate. No q-miss penalty is credited. Callback D, unknown future operations and complete Score have no guarantee. The proof uses real arithmetic; float comparisons are not machine-certified.",
+      "work": "Check the old guard, then p-credit, then scan only other: O(|other|), no extra partition scan or expert planning.",
+      "example": {
+        "cost_scope": "IO from the current p-miss callback through q service; earlier workload IO is common and excluded.",
+        "memory_bytes": 67108864,
+        "used_bytes": 57671680,
+        "p_bytes": 16777216,
+        "q_bytes": 16777216,
+        "A_bytes": 40894464,
+        "write_bandwidth": 1,
+        "read_bandwidth": 2,
+        "f1_bytes": 16777216,
+        "f2_bytes": 40894464,
+        "extra_write_us": 24117248,
+        "d_bytes": 7340032,
+        "old_d_credit_rhs_us": 15728640,
+        "new_shift0_rhs_us": 25165824,
+        "protected_prefix_io_us": 49283072,
+        "unprotected_expert1_prefix_io_us": 50331648,
+        "only_shift0_accepts_this_example": true
+      }
+    },
+    "tree_unchanged": true,
+    "expert_classes_unchanged": 8,
+    "history_and_action_construction_unchanged": true,
+    "only_helper_and_comparison_OR_added": true,
+    "periodic_admission_shift_preserved": 2,
+    "next_deficit_shift_preserved": 0,
+    "additional_work": "O(|other|) only after both numerical comparisons; no new plan call or whole-partition scan.",
+    "candidate_has_measured_fitness": false,
+    "inherits_parent_results_as_candidate_fitness": false,
+    "status": "candidate JSON prepared only; no compilation, train fitness or eval performed by this generator",
+    "builder_support_required": "After next_deficit_patch, apply exact_next_credit_patch.patch(source,obj[exact_next_credit_shift]) by key presence."
+  },
   "ancestor_metadata": {
     "category_transition_legacy_top_level": {
       "role": "Historical parent diagnostics, not the current category training source.",
       "original_values": {
-        "data_isolation": {
-          "train_inputs": 640,
-          "eval_inputs": 568,
-          "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
-          "cross_split_exact_input_overlap": 0,
-          "cross_split_raw_operation_overlap": 0,
-          "cross_split_partition_operation_overlap": 0,
-          "inventory": {
-            "omitted": true,
-            "entries": 1208,
-            "sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
-            "split_counts": {
-              "train": 640,
-              "eval": 568
-            }
-          }
-        },
-        "label_caveat": "Exact mask search only optimizes a constrained local frozen-state proxy; it does not establish complete SDK Score improvement.",
         "config": {
           "feature_set": "cheap",
           "objective": "relative",
           "event_weighting": true,
           "absolute_cap_quantile": 0.995
         },
-        "input_artifacts": {
-          "training_jsonl": {
-            "path": "design/portfolio_iter_20261029/round3_labels.jsonl",
-            "sha256": "3e06db353fd96b37cccc26c1df3db06ea2521aa1fbe26845d1e1057c86f3142f"
-          },
-          "valid_npz": {
-            "path": "design/neural_selector/valid_labels.npz",
-            "sha256": "ebadf99453a29d0d766e424036a4dd075acfb15ee3ffc73b8bedc2392299f869"
-          },
-          "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee"
-        },
-        "objective": {
-          "name": "relative",
-          "formula": "min((C_e-min(C))/max(1,min(C)),10)",
-          "scale_us": 1.0,
-          "clip_relative": 10.0
-        },
+        "label_caveat": "Exact mask search only optimizes a constrained local frozen-state proxy; it does not establish complete SDK Score improvement.",
         "refinement": {
           "parent_path": "design/portfolio_iter_20261029/tree_search_g1_1.json",
           "parent_sha256": "b4268045e24a8cb21948af860e090259188f75735a4ad3f32a18217fdfbc6c2d",
@@ -687,7 +750,41 @@
           "added_nodes": 2,
           "added_leaves": 1
         },
-        "validation_role": "No eval or validation labels or performance used."
+        "data_isolation": {
+          "train_inputs": 640,
+          "eval_inputs": 568,
+          "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
+          "cross_split_exact_input_overlap": 0,
+          "cross_split_raw_operation_overlap": 0,
+          "cross_split_partition_operation_overlap": 0,
+          "inventory": {
+            "omitted": true,
+            "entries": 1208,
+            "sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee",
+            "split_counts": {
+              "train": 640,
+              "eval": 568
+            }
+          }
+        },
+        "validation_role": "No eval or validation labels or performance used.",
+        "input_artifacts": {
+          "training_jsonl": {
+            "path": "design/portfolio_iter_20261029/round3_labels.jsonl",
+            "sha256": "3e06db353fd96b37cccc26c1df3db06ea2521aa1fbe26845d1e1057c86f3142f"
+          },
+          "valid_npz": {
+            "path": "design/neural_selector/valid_labels.npz",
+            "sha256": "ebadf99453a29d0d766e424036a4dd075acfb15ee3ffc73b8bedc2392299f869"
+          },
+          "inventory_sha256": "bcc5a327b4e423a627592dde057256404088c8c7e14358b3feb40c51707619ee"
+        },
+        "objective": {
+          "name": "relative",
+          "formula": "min((C_e-min(C))/max(1,min(C)),10)",
+          "scale_us": 1.0,
+          "clip_relative": 10.0
+        }
       }
     }
   },

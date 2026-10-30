@@ -62,6 +62,9 @@ def render_source(obj,code):
     if 'next_deficit_shift' in obj:
         from next_deficit_patch import patch as patch_next_deficit
         source=patch_next_deficit(source,obj['next_deficit_shift'])
+    if 'exact_next_credit_shift' in obj:
+        from exact_next_credit_patch import patch as patch_exact_next_credit
+        source=patch_exact_next_credit(source,obj['exact_next_credit_shift'])
     return source
 
 def export(path):

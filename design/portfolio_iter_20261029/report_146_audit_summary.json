@@ -1,0 +1,256 @@
+{
+  "status": "passed",
+  "audit_date": "2026-10-30",
+  "audit_scope": "Mode146 standalone_r5 PDF and entry-document QA; this record does not replace the SDK action and performance audit.",
+  "binding_policy": "Applies only to the following PDF and source SHA256 values.",
+  "checkpoint": {
+    "mode": 146,
+    "name": "tree_exactcredit_exact142_r1_s1",
+    "sdk_report": "members_standalone_r5_summary.json",
+    "suite_id": "a176758680d7c6a99805cfb1eeeff9786314d8309db7c0e80e269843880e8ce1",
+    "cases": 785,
+    "repeats": 3,
+    "source_sha256": "9b9238d7e9d7a1e65e4f37789c8c770673cc38beadc5db76c65ddae6e545b253"
+  },
+  "checkpoint_summary": {
+    "cases": 785,
+    "mean_score": 66823205678.74065,
+    "total_score": 52456216457811.41,
+    "mean_decision_us": 1103.1548025477707,
+    "miss_count": 605929.0,
+    "decrease_vs_nn_percent": 4.705516131985588,
+    "worst_vs_nn": 5.9002701761410545,
+    "decrease_vs_naive_percent": 29.484633399700165,
+    "worst_vs_naive": 9.378330497447703
+  },
+  "artifacts": {
+    "pdf": {
+      "path": "design/topic20_portfolio_iteration_report.pdf",
+      "sha256": "03ddf58cea201b1088022d49700d0b2669ff9a606cd521ee25bf5f1d5a096380",
+      "bytes": 191117,
+      "page_count": 11
+    },
+    "source": {
+      "path": "design/MySpillScheduler_tree.cpp",
+      "sha256": "9b9238d7e9d7a1e65e4f37789c8c770673cc38beadc5db76c65ddae6e545b253",
+      "matches_checkpoint": true
+    },
+    "generators_observed_at_audit": {
+      "design/portfolio_iter_20261029/make_report.py": "0a0febb3983e18fd2f72dc4794388acedd7963f0ef55f16eba82d2df7f08dbbd",
+      "design/portfolio_iter_20261029/update_public_docs.py": "54bc564a4619cb814996fa9930660b5215b19e3d74b6ee6107ad76c7b644185a",
+      "design/portfolio_iter_20261029/snapshot_reader.py": "6c2de47ce880e699088f88b037c099ac741b053392e5c9170a89e712cc17f96e"
+    }
+  },
+  "visual_check": {
+    "status": "passed",
+    "method": "All eleven pdftoppm-rendered PNGs inspected individually and on a contact sheet.",
+    "render_scale_to_pixels": 1100,
+    "inspected_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "clipping_or_overlap_found": false,
+    "unexpected_page_breaks_found": false,
+    "temporary_previews": "design/tmp/pdfs/portfolio146_qa",
+    "temporary_previews_required_for_reproduction": false
+  },
+  "content_check": {
+    "status": "passed",
+    "page_count_and_explicit_headings_checked": true,
+    "checks": [
+      "P1 shows mode146 standalone_r5 Score 66,823,205,678.74 us, D 1103.15 us/case and 29.4846 percent decrease versus same-batch Naive.",
+      "P3/P7 category113 and P8/P9 matched-layer studies remain explicitly historical.",
+      "P4 states only one legal next_op and distinguishes offline label time from SDK callback time.",
+      "P10 identifies inherited mode142 d-credit, its original local certificate, and the older fixed-expert diagnostic.",
+      "P11 includes g10/r13 four-mode comparison, 145 train/eval reversal, two-state exact forced-set prefix-IO proof and limits.",
+      "P11 physical decomposition states only 3 changed cases (2 improved, 1 regressed, all liunian), 782 physically equal; average physical saving 2,673,041.05 us is concentrated in one case. Vanius/Cy changes are D only.",
+      "P11 validated fixed-expert diagnostic is 64/63 then 64/98.5 and explicitly leaves shift1/2 on the parent in this example.",
+      "P11 identifies completed independent deployment and the source-bound standalone_r5 result.",
+      "README.txt and CURRENT_SOLUTION.txt show the same current mean and completed independent-deployment status."
+    ]
+  },
+  "character_boundary_check": {
+    "status": "passed",
+    "method": "pdfplumber per-character bounds, separate footer and explicit page-number assertions; pypdf confirms total page count.",
+    "body_rectangle_points": [
+      43,
+      41,
+      553,
+      791
+    ],
+    "footer_exclusion_top_points": 790,
+    "pages": [
+      {
+        "page": 1,
+        "body_characters": 1019,
+        "body_bounds_points": [
+          50.0,
+          49.617,
+          545.0,
+          653.239
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 156.886
+      },
+      {
+        "page": 2,
+        "body_characters": 750,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          548.5,
+          480.239
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 329.886
+      },
+      {
+        "page": 3,
+        "body_characters": 1012,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          550.0,
+          556.406
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 253.719
+      },
+      {
+        "page": 4,
+        "body_characters": 1136,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          548.5,
+          656.406
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 153.719
+      },
+      {
+        "page": 5,
+        "body_characters": 1478,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          552.2,
+          581.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 228.386
+      },
+      {
+        "page": 6,
+        "body_characters": 1069,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          545.0,
+          519.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 290.386
+      },
+      {
+        "page": 7,
+        "body_characters": 1248,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          550.0,
+          588.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 221.386
+      },
+      {
+        "page": 8,
+        "body_characters": 1101,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          552.2,
+          525.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 284.386
+      },
+      {
+        "page": 9,
+        "body_characters": 1384,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          545.0,
+          622.239
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 187.886
+      },
+      {
+        "page": 10,
+        "body_characters": 1155,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          545.0,
+          521.239
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 288.886
+      },
+      {
+        "page": 11,
+        "body_characters": 1271,
+        "body_bounds_points": [
+          50.0,
+          50.391,
+          552.2,
+          540.739
+        ],
+        "footer_min_top_points": 810.125,
+        "body_footer_gap_points": 269.386
+      }
+    ],
+    "minimum_body_footer_gap_points": 153.719
+  },
+  "zip_readback_check": {
+    "status": "passed",
+    "method": "Copy byte-identical measurement ZIPs into an ignored mock directory without raw summaries; snapshot_reader uses ZIP fallback, and parsed JSON equals original.",
+    "archives": [
+      "standalone_exact_credit_measurements.zip",
+      "exact_next_credit_measurements.zip"
+    ],
+    "checks": [
+      {
+        "summary": "members_standalone_r5_summary.json",
+        "real_summary_absent_in_mock": true,
+        "zip_readback_identical": true,
+        "summary_sha256": "e1b0898d01fcae75702536a96ea56191dc9a848e0a71445f5ad07a2b71702084"
+      },
+      {
+        "summary": "members_r13_summary.json",
+        "real_summary_absent_in_mock": true,
+        "zip_readback_identical": true,
+        "summary_sha256": "f4855b8fd1b1adea5b46cb045d4844bfd00b8a2ea1df1619929e030f9cc7ff6d"
+      },
+      {
+        "summary": "train_g10_840_summary.json",
+        "real_summary_absent_in_mock": true,
+        "zip_readback_identical": true,
+        "summary_sha256": "0bfbbd8b45f0dcb338b232a433d348cb77b24d5b8ca0e6d6240b171438bd09d8"
+      }
+    ],
+    "archives_extracted": false
+  }
+}

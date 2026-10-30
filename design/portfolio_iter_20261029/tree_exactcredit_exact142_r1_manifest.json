@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "kind": "exact_next_credit_manifest",
+  "tag": "exact142_r1",
+  "parent": "tree_nextcredit_next113_r1_s0.json",
+  "parent_json_sha256": "c3d5999e60135fedc0a407c954b09052bf68a5c2be2f00f1c6e4793dd7acb786",
+  "parent_source": "tree_nextcredit_next113_r1_s0.cpp",
+  "parent_cpp_sha256": "4722ac530ca45039b3521e910eea6f543c452dd5690690cbae18267a5f3ba23b",
+  "patch_module": "exact_next_credit_patch.py",
+  "patch_sha256": "7444000c8352b9cd71c7a002ce484618c05851bb25a66860678e3d765784e4bf",
+  "generator": "prepare_exact_next_credit.py",
+  "generator_sha256": "c41e55910e0fd1e4e55906e476e164bc694b63fd612aaa1c2c2bde05771f92f2",
+  "candidate_count": 3,
+  "candidates": [
+    {
+      "path": "tree_exactcredit_exact142_r1_s0.json",
+      "sha256": "7c49c1e25eff8c5c57b483091fc046f4ba5eb1e09e36d28fefa331b0053a9cc1",
+      "exact_next_credit_shift": 0,
+      "p_credit_fraction": 1.0
+    },
+    {
+      "path": "tree_exactcredit_exact142_r1_s1.json",
+      "sha256": "0e52b19b6e7d02d1aa6b21c63a074f7ab0efacf9d47a09467950581db21bb5d4",
+      "exact_next_credit_shift": 1,
+      "p_credit_fraction": 0.5
+    },
+    {
+      "path": "tree_exactcredit_exact142_r1_s2.json",
+      "sha256": "5f4b5a0b2275b81e158324dd064b71f770125a88f3b23642416138307100b1d7",
+      "exact_next_credit_shift": 2,
+      "p_credit_fraction": 0.25
+    }
+  ],
+  "tree_unchanged": true,
+  "classes": 8,
+  "periodic_admission_shift": 2,
+  "next_deficit_shift": 0,
+  "fit_or_sdk_executed": false,
+  "candidate_fitness_unknown": true,
+  "local_proof": {
+    "preconditions": "p is the current missed target; q is the one known next PROBE target. q was resident and the unprotected legal plan a spills it. p!=q and size(p)+size(q)<=M. The alternative other is a legal distinct-SPILL plan retaining q while loading p. Partition sizes do not change between these consecutive probes; data is not deleted.",
+    "certificate": "Every victim x in other has size(x)>M-size(p)-size(q).",
+    "exact_cover_argument": "Every returned victim is impossible beside resident p and q and therefore compulsory. Conversely a legal protected plan cannot leave any other initial resident partition with that property. Thus other contains exactly the compulsory set, and f2 is its minimum immediate write-byte total for the fixed co-residency request.",
+    "case_p_resident_after_q": "If unprotected execution has p and q resident at q service, it must have spilled every compulsory victim by then. Its total writes are at least f2, plus the already executed distinct q spill. It also reads q. The protected execution writes f2 and needs no q read.",
+    "case_p_not_resident_after_q": "p was resident at its own service and absent at q service, so at least one extra size(p)-byte SPILL occurred after the current plan a. q must also be read after a spilled it. Therefore unprotected IO, after cancelling the common initial p read, is at least f1/W+size(q)/R+size(p)/W.",
+    "acceptance": "(f2-f1)/W<=size(q)/R+floor(size(p)/2^shift)/W, shift in {0,1,2}, is sufficient in both cases when the certificate passes. The floor credit never exceeds the necessary size(p)/W in the second case.",
+    "periodic": "Periodic preloading may avoid a q miss but still pays its LOAD and any needed SPILL. In the protected branch the existing periodic PROBE path returns no IO actions when q is already resident.",
+    "cut": "After q service and BEFORE q's own periodic callback.",
+    "not_claimed": "The inherited +1us/d-credit region is unchanged and is not all covered by this certificate. No q-miss penalty is credited. Callback D, unknown future operations and complete Score have no guarantee. The proof uses real arithmetic; float comparisons are not machine-certified.",
+    "work": "Check the old guard, then p-credit, then scan only other: O(|other|), no extra partition scan or expert planning.",
+    "example": {
+      "cost_scope": "IO from the current p-miss callback through q service; earlier workload IO is common and excluded.",
+      "memory_bytes": 67108864,
+      "used_bytes": 57671680,
+      "p_bytes": 16777216,
+      "q_bytes": 16777216,
+      "A_bytes": 40894464,
+      "write_bandwidth": 1,
+      "read_bandwidth": 2,
+      "f1_bytes": 16777216,
+      "f2_bytes": 40894464,
+      "extra_write_us": 24117248,
+      "d_bytes": 7340032,
+      "old_d_credit_rhs_us": 15728640,
+      "new_shift0_rhs_us": 25165824,
+      "protected_prefix_io_us": 49283072,
+      "unprotected_expert1_prefix_io_us": 50331648,
+      "only_shift0_accepts_this_example": true
+    }
+  },
+  "warning": "Certificate proves only additional p-credit acceptance in real-arithmetic p,q prefix IO; no full-Score or machine-certified guarantee."
+}

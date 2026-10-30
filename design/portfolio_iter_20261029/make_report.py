@@ -7,11 +7,15 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+if __package__:
+    from .snapshot_reader import read_json, available
+else:
+    from snapshot_reader import read_json, available
 
 ROOT=Path(__file__).resolve().parent
 D=ROOT.parent
 OUT=D/'topic20_portfolio_iteration_report.pdf'
-def read(p):return json.loads(p.read_text(encoding='utf8'))
+def read(p):return read_json(p)
 
 def admission_evidence(result):
     """Short historical comparisons; omit any metrics absent from the record."""
@@ -52,7 +56,9 @@ def full_horizon_status(record,model=None):
         if 'label_rows' in validation:details.append(f'{validation["label_rows"]}个状态')
         if 'represented_training_inputs' in validation:details.append(f'覆盖{validation["represented_training_inputs"]}份train')
         if record.get('training_cases'):details.append(f'{record["training_cases"]}份train inventory')
-        suffix='；已用于当前类别节点更新，并完成完整Score回归及独立部署复测。' if isinstance(model,dict) and model.get('training_horizon')=='full_remaining' else '；训练与完整Score结论见各轮绑定记录。'
+        if isinstance(model,dict) and model.get('training_horizon')=='full_remaining':
+            suffix=('；用于前轮类别节点更新，本轮继续沿用；当前部署状态另见checkpoint。' if 'next_deficit_shift' in model else '；已用于当前类别节点更新，并完成完整Score回归及独立部署复测。')
+        else:suffix='；训练与完整Score结论见各轮绑定记录。'
         return '完整后缀标签已采集'+('，'+'、'.join(details) if details else '')+suffix
     if status=='collecting':return '完整后缀标签正在采集，不能计作已完成结果。'
     if status=='prepared':return '完整后缀教师已准备，尚未开始采集。'
@@ -62,6 +68,17 @@ def full_horizon_status(record,model=None):
 
 def category_ids(mask):
     return '{'+','.join(str(i) for i in range(8) if mask&(1<<i))+'}'
+
+
+def binary_for_mode(record,mode):
+    value=record.get('binary_sha256_by_mode',record.get('binary_sha256'))
+    return value.get(str(mode)) if isinstance(value,dict) else value
+
+
+def independent_checkpoint(checkpoint):
+    return (checkpoint.get('status','').startswith('completed')
+        and 'standalone' in checkpoint.get('sdk_report','').lower()
+        and 'independently' in checkpoint.get('deployment','').lower())
 
 
 def member_tradeoff_line(record,mode):
@@ -80,18 +97,21 @@ def main():
     member=read(D/'member_eval_20261030'/checkpoint['member_report'])
     chosen=member['candidates'][str(checkpoint['mode'])]
     model=read(ROOT/checkpoint['model'])
+    next_deficit_model='next_deficit_shift' in model
+    exact_credit_model='exact_next_credit_shift' in model
+    next_pages='第10、11页' if exact_credit_model else '第10页'
     admission_model='periodic_admission_shift' in model or 'admission_model' in model
     admission_result=read(ROOT/'admission_result.json') if (ROOT/'admission_result.json').is_file() else None
     admission_factor=(1<<model['periodic_admission_shift']) if type(model.get('periodic_admission_shift')) is int and 0<=model['periodic_admission_shift']<=3 else None
-    standalone='standalone' in checkpoint.get('sdk_report','').lower() or 'independently' in checkpoint.get('deployment','').lower()
+    standalone=independent_checkpoint(checkpoint)
     full_path=ROOT/'members_full108_r1_provenance.json'
     full_record=read(full_path) if full_path.is_file() else None
     category=model.get('category_transition',{})
     category_proposal=category.get('proposal',{})
     round9_path=ROOT/'members_r9_summary.json'
-    round9=read(round9_path) if round9_path.is_file() else None
+    round9=read(round9_path) if available(round9_path) else None
     train6_path=ROOT/'train_g6_840_summary.json'
-    train6=read(train6_path) if train6_path.is_file() else None
+    train6=read(train6_path) if available(train6_path) else None
     old=read(ROOT/'progress.json')
     candidates=[]
     if os.environ.get('CHINESE_PDF_FONT'):candidates.append(Path(os.environ['CHINESE_PDF_FONT']))
@@ -167,11 +187,13 @@ def main():
     h('贡献三：沿树路径付出特征成本')
     p(f'当前模型深度{model["max_depth"]}、{model["node_count"]}节点、{model["leaf_count"]}叶子。路由展开为内嵌if/else，最多{model["max_depth"]}次判断（含类别位测试）；cheap特征按路径懒计算，避免先汇总全部分区统计。无需在线模型文件或推理库。')
     p('这不表示整个回调O(1)：公开getSystemState复制、专家候选收集和规划仍可能O(Q)。真正收益必须由实际回调时间和完整Score检验。')
-    h('贡献四：完整train Score筛选与类别切换')
+    h('贡献四：前轮类别选择与本轮公共层调整' if next_deficit_model else '贡献四：完整train Score筛选与类别切换')
     p('前一轮曾限制每次只改一个子叶，保留另一侧原专家；变化侧约占父叶10.18%的训练事件质量。其变更是在原热度密度叶遇到极低读带宽时改用恢复代价密度。这是历史父模型调整，不是本轮唯一变化，也不构成部署风险界。')
     if category and type(category_proposal.get('category_mask')) is int:
         mask=category_proposal['category_mask'];parent_mask=category.get('parent_mask',7)
-        p(f'本轮把原节点{category["node"]}的上次专家数值阈值改成类别集合：左侧ID由{category_ids(parent_mask)}改为{category_ids(mask)}（mask={mask}），仍为深度{model["max_depth"]}。只改这一处路由，保留子树与8类专家。经840份完整train筛选、785例回归和独立部署复测采用；公共周期层见第7页。')
+        if next_deficit_model:
+            p(f'前轮113已把节点{category["node"]}左侧ID由{category_ids(parent_mask)}改为{category_ids(mask)}（mask={mask}）。本轮沿用其{model["node_count"]}节点、深度{model["max_depth"]}及8类专家，不重新拟合树；新增下一PROBE保护比较见{next_pages}。当前成绩和独立接入状态均以checkpoint为准。')
+        else:p(f'本轮把原节点{category["node"]}的上次专家数值阈值改成类别集合：左侧ID由{category_ids(parent_mask)}改为{category_ids(mask)}（mask={mask}），仍为深度{model["max_depth"]}。只改这一处路由，保留子树与8类专家。经840份完整train筛选、785例回归和独立部署复测采用；公共周期层见第7页。')
     else:p('本轮实际采用变化以current_model与绑定测量为准；所有局部变更均经完整Score评测，不主张首次见于文献。')
 
     page(4,'在线运行与训练边界')
@@ -179,6 +201,10 @@ def main():
     table([['触发时机','实际行为'],['首次及后续PROBE miss','每次重新分类，再更新当前可观测反馈，执行所选专家并把当前目标LOAD放在最后。'],['INSERT内存溢出','每次重新分类，排除当前插入目标，跨算子落盘。'],['周期回调看到下一INSERT将溢出',periodic_insert],['周期回调看到下一PROBE','不进行树分类；仅在空闲空间或强制集合条件下保守预载，并更新部分可见历史。'],['普通hit','无对应回调，不编造完整访问时间线。']],[143,364])
     h('next_op只是一条已知操作')
     p('只使用接口给出的next_op，做保守的目标保护、无需额外落盘的联合加载等。没有下一步之后的未来访问流，也看不到真实miss罚分p、总操作数N或周期B。若接口中的pair_fits历史特征有同分区重复计数，它仅为训练特征，容量判断始终由精确动作层完成。')
+    if next_deficit_model:
+        p(f'当前额外启用next_deficit_shift={model["next_deficit_shift"]}（0也有效）：若原方案驱逐下一PROBE的驻留目标q，比较保留q的额外写盘时间与q读取时间及必要腾挪写量补偿。只扩展一处阈值，不改变类别树；局部证书与边界见第10页。','small')
+    if exact_credit_model:
+        p(f'另启用exact_next_credit_shift={model["exact_next_credit_shift"]}：旧比较未通过时，先检查p字节补偿，再核对已算出的保留q方案是否全部为必落盘分区。该新增接受区的证明与完整Score结果见第11页。','small')
     h('离线标签与信息隔离')
     p('教师复制同一状态，让8个专家分别执行首动作，再由共同父策略续行。成本含ΔIO+p·Δmiss及离线回调计时代理，后者不是正式引擎D。未来流和真实p只用于离线评分，不进入在线特征。')
     if model.get('training_horizon')=='full_remaining':
@@ -189,12 +215,20 @@ def main():
     h('时间与容量边界')
     diagnosis_path=ROOT/(checkpoint['sdk_report'].replace('_summary.json','_diagnosis.json'))
     if diagnosis_path.is_file():
-        dr=read(diagnosis_path)['candidates'][str(checkpoint['mode'])]['aggregate']
-        p(f'本批sum(D)/sum(Score)约{dr["global_decision_share_percent"]:.8f}%，即使把D全部消除，对总体原始Score的收益也受此比例限制；但有{dr["decision_dominant_ge_90_percent_cases"]}个正成本案例的D占比≥90%，逐例归一化仍对回调开销敏感。两种目标须分别衡量。')
+        diagnostic=read(diagnosis_path);key=str(checkpoint['mode'])
+        match=(diagnostic.get('tag')==raw.get('tag') and diagnostic.get('suite_id')==checkpoint['suite_id']
+            and key in diagnostic.get('candidates',{}) and binary_for_mode(diagnostic,key) is not None
+            and binary_for_mode(diagnostic,key)==binary_for_mode(raw,key))
+        if match:
+            dr=diagnostic['candidates'][key]['aggregate']
+            p(f'本批sum(D)/sum(Score)约{dr["global_decision_share_percent"]:.8f}%，即使把D全部消除，对总体原始Score的收益也受此比例限制；但有{dr["decision_dominant_ge_90_percent_cases"]}个正成本案例的D占比≥90%，逐例归一化仍对回调开销敏感。两种目标须分别衡量。')
     callbacks_path=ROOT/checkpoint['sdk_report'].replace('_summary.json','_callback_cost.json')
     if callbacks_path.is_file():
         cb=read(callbacks_path);pair=cb.get('candidates',{});key=str(checkpoint['mode'])
-        if cb.get('status')=='passed' and '0' in pair and key in pair:
+        if (cb.get('status')=='passed' and cb.get('measurement_tag')==raw.get('tag')
+            and cb.get('suite_id')==checkpoint['suite_id'] and '0' in pair and key in pair
+            and pair[key].get('source_sha256')==checkpoint['source_sha256']
+            and pair[key].get('sdk_binary_sha256')==binary_for_mode(raw,key)):
             nn=pair['0']['aggregate'];tr=pair[key]['aggregate']
             p(f'独立计数（原NN/当前树）：回调{nn["callbacks_per_suite_pass"]:,}/{tr["callbacks_per_suite_pass"]:,}次，分类{nn["classifications_per_suite_pass"]:,}/{tr["classifications_per_suite_pass"]:,}次；混合D/回调{nn["D_per_callback_mixed_us"]:.6f}/{tr["D_per_callback_mixed_us"]:.6f} μs，D/分类{nn["D_per_classification_mixed_us"]:.5f}/{tr["D_per_classification_mixed_us"]:.5f} μs。两种比值都含其他回调与规划，不是纯推理耗时；见对应callback_cost.json。','small')
     p('完整Score=IO时间+p·miss次数+实际决策时间。保留官方计时范围，包含状态获取；不把路由比较数当成实测速度。所有动作独立核对容量、插入目标排除、LOAD阶段、miss末动作及lazy特征预测一致性。')
@@ -238,7 +272,7 @@ def main():
     p('该结论只针对这185例，不能推广到其余600例；差距不是可实现收益。数学证明按实数I/O计价；数值用long double与下调余量，未做机器认证。完整未来、真实p/B只用于这个离线工具，绝不进入在线专家或特征。')
     p('推导与源代码：portfolio_iter_20261029/offline_suffix_bound_proof.txt、expert1_cover_approx_proof.txt，以及offline_bounds_20261030。当前只实现后缀耦合松弛，并未声称求出整题全输入最优策略。','small')
     page(7,'完整后缀与类别切换：已完成验证')
-    p('完整后缀重拟合与类别切换均已完成候选实验；当前采用类别节点更新，公共admission层继续保留。“原创”指本项目自行设计和实现，不主张文献首次提出。')
+    p((f'本页回顾前轮完整后缀与类别更新；当前沿用113的树和公共admission层，新增next保护的收益另见{next_pages}。' if next_deficit_model else '完整后缀重拟合与类别切换均已完成候选实验；当前采用类别节点更新，公共admission层继续保留。')+'“原创”指本项目自行设计和实现，不主张文献首次提出。')
     h('一、用完整剩余轨迹提高教师标签保真度')
     p('教师让每种首动作推进到输入末尾，以冻结父树共同续行，每文件最多采6个状态。已拟合8棵实际深度3至6的小树；其中118/121在840份train胜出，785例回归却比108退化，均未采用。完整后缀提高观测范围，仍不能消除固定续行与重叠采样偏差。')
     if isinstance(round9,dict) and '108' in round9.get('summary',{}):
@@ -256,8 +290,9 @@ def main():
     h('二、把上次专家当类别，学习策略切换集合')
     if category and type(category_proposal.get('category_mask')) is int:
         mask=category_proposal['category_mask'];parent_mask=category.get('parent_mask',7)
-        p(f'已生成8个类别掩码候选；当前采用mode {checkpoint["mode"]}，节点{category["node"]}由左侧集合{category_ids(parent_mask)}改为{category_ids(mask)}、mask={mask}，仍为深度{model["max_depth"]}。在线用一次位测试，未观察类别保留父侧。局部代理最优不等于闭环最优；本候选经完整Score回归和独立部署785例×3次确认。')
-    p(member_tradeoff_line(round9,checkpoint['mode']),'small')
+        category_label='前轮采用mode 113，本轮继续沿用' if next_deficit_model else f'当前采用mode {checkpoint["mode"]}'
+        p(f'已生成8个类别掩码候选；{category_label}，节点{category["node"]}由左侧集合{category_ids(parent_mask)}改为{category_ids(mask)}、mask={mask}，仍为深度{model["max_depth"]}。在线用一次位测试，未观察类别保留父侧。局部代理最优不等于闭环最优；类别113已完成完整Score回归及独立部署785例×3次。')
+    p(('历史113：' if next_deficit_model else '')+member_tradeoff_line(round9,113 if next_deficit_model else checkpoint['mode']),'small')
     h('三、周期回调提前将增长目标转为磁盘追加')
     p('periodic看到下一INSERT将溢出，若正大小驻留目标b满足(s+t)·2^k≤最小其他正大小分区，可提前SPILL b，下一INSERT磁盘追加；k=0..3。该局部证书只覆盖已知写入体、截止其后periodic动作之前，后续增长、Probe与D仍可反转收益。')
     admission_lines=admission_evidence(admission_result)
@@ -272,10 +307,10 @@ def main():
         p('状态：admission_patch.py、prepare_admission.py及推导已准备，尚未评测；公共层不增加第9类专家。','small')
 
     page(8,'新MLP对照与全785例可扩展下界')
-    h('一、微型MLP已实测，本轮仍保留小树')
-    p('在同一完整后缀标签上训练8个微型MLP：20个便宜数值特征＋8类上次专家，隐藏层8/16，参数304/600，部署仅乘加和argmax。840份完整train评分均未胜过113；按训练侧选择127/128/131，在785例各测3次仍退化，保持小树。')
+    h('一、历史113公共层下的微型MLP对照')
+    p(f'R10训练8个微型MLP：20数值特征＋8类上次专家，隐藏层8/16、参数304/600。840份train均未胜过113，三个代表127/128/131在785例各测3次仍输，故当时保留113。本页不含后续next保护，其收益另见{next_pages}。')
     r10_path=ROOT/'members_r10_summary.json'
-    if r10_path.is_file():
+    if available(r10_path):
         r10=read(r10_path);scores=r10.get('summary',{})
         if '113' in scores:
             base=scores['113']['mean_score']
@@ -285,10 +320,10 @@ def main():
                 value=scores[mode];delta=100*(value['mean_score']/base-1)
                 compare.append([label+' / '+mode,f'{value["mean_score"]:,.2f}',f'{value["mean_decision_us"]:,.2f}',('基准' if mode=='113' else (f'上升{delta:.4f}%' if delta>0 else f'下降{-delta:.4f}%'))])
             table(compare,[86,179,115,127])
-    p('以上取members_r10同批数据，与首页独立部署批次区分。差距主要来自I/O及动作选择；本批MLP的D/例更低，不能把失利归因于“NN太慢”。回调数量、类型及规划内容也会变化，D/例或混合D/分类都不能单独证明路由快慢。','small')
+    p('以上取members_r10同批数据，与首页checkpoint批次区分。差距主要来自I/O及动作选择；本批MLP的D/例更低，不能把失利归因于“NN太慢”。回调数量、类型及规划内容也会变化，D/例或混合D/分类都不能单独证明路由快慢。','small')
     kernel_path=ROOT/'cheap_mlp_kernel_verification.json'
     audit_path=ROOT/'mlp_r10_audit_summary.json'
-    if kernel_path.is_file() and audit_path.is_file():
+    if kernel_path.is_file() and available(audit_path):
         kernel=read(kernel_path);audited=read(audit_path)
         passed=[row for row in audited.values() if row.get('strict_actions') is True and row.get('feature_prediction_parity') is True and row.get('cases')==785]
         comparisons=len(kernel.get('models',[]))*kernel.get('rows',0)
@@ -300,14 +335,14 @@ def main():
     suite_path=window_dir/'suite_verification.json';toy_path=window_dir/'toy_verification_final.json'
     if suite_path.is_file() and toy_path.is_file():
         suite=read(suite_path);toy=read(toy_path);coverage=suite['aggregate'];cross=suite.get('old_suffix_crosscheck',{})
-        p(f'验证状态{suite["status"]}：{suite["case_count"]}例中{coverage["eligible"]}例已计算，跳过{coverage["skipped"]}、错误{coverage["errors"]}；{toy["hand_cases"]}个手算例及{toy["random_cases"]}个随机toy通过，并与旧后缀工具{cross.get("compared",0)}个可算例的raw界完成交叉核对。当前113同一全库ΣC/ΣLB≈{coverage["sum_C_over_sum_LB"]:.6f}。此界较松，不能把界与现价的间隙当作可达收益，也不能据此宣称已近最优。')
+        p(f'验证状态{suite["status"]}：{suite["case_count"]}例中{coverage["eligible"]}例已计算，跳过{coverage["skipped"]}、错误{coverage["errors"]}；{toy["hand_cases"]}个手算例及{toy["random_cases"]}个随机toy通过，并与旧后缀工具{cross.get("compared",0)}个可算例的raw界完成交叉核对。历史113同一全库ΣC/ΣLB≈{coverage["sum_C_over_sum_LB"]:.6f}，不挪作新公共层比值。界较松，不能把间隙当作可达收益或宣称近最优。')
     p('整数读写字节使用int64精确计算；最终带宽除法为浮点、并非机器认证。该工具只做离线放松分析，完整未来及真实p/B绝不进入在线模型。新全库结果与第6页旧185例子集结论分别保留；来源见window_bounds_20261030的proof.txt及suite_verification.json。','small')
 
-    page(9,'同公共层八固定专家消融')
-    p('为区分动态选策与公共证书收益，本轮把分类器改为固定返回一个专家的单叶，同时保持113的专家实现、forced_cover及admission=2。旧100..107沿用历史NN公共层，因此另建134..141作同层对照；e0..e7才是专家标签，mode只是离线实验编号。')
+    page(9,'历史113公共层的八固定专家消融')
+    p(f'R11将分类器固定为单叶，保持113的专家实现、forced_cover及admission=2。旧100..107沿用历史NN公共层，故另建134..141作同层对照。本页不含后续next保护，只作历史消融；其额外收益见{next_pages}。e0..e7才是专家标签。')
     fixed_path=ROOT/'members_r11_summary.json'
     fixed_train_path=ROOT/'train_g8_840_summary.json'
-    if fixed_path.is_file():
+    if available(fixed_path):
         fixed=read(fixed_path);fixed_summary=fixed['summary'];by_member=fixed['by_member']
         catalog={row['id']:row['name'] for row in read(D/'neural_selector/catalog.json')}
         fixed_modes=[str(134+i) for i in range(8)]
@@ -339,12 +374,102 @@ def main():
             change=100*(values['113']['mean_score']/best-1)
             findings.append(f'{member}最佳固定为e{expert}（{selected}），树相对它'+(f'上升{change:.4f}%' if change>0 else f'下降{-change:.4f}%'))
         p('；'.join(findings)+'。逐成员最优是事后分析，成员ID和数据来源绝不进入在线特征；总体目标是785案例等权rawmean。','small')
-        if fixed_train_path.is_file():
+        if available(fixed_train_path):
             ft=read(fixed_train_path)
             p(f'固定对照另已完成train_g8的{ft["case_count"]}份train评分。观测最近访问不是全访问LRU，热度密度和观测GDS也不是标准LHD/GDS复现；Naive与原NN公共层不同，仅作历史参照，不能归入同层消融。','small')
     fixed_check=D/'member_eval_20261030/members_r11_candidate_verification.json'
     verified=read(fixed_check) if fixed_check.is_file() else None
     p('可复核源码包：portfolio_iter_20261029/fixed_expert_sources.zip；测量包：fixed_expert_measurements.zip。'+('8个固定方法均通过785例严格动作/特征审计；18,840次SDK的IO、hit与miss逐条匹配独立审计，源代码与原输入哈希均绑定。' if verified and verified.get('status')=='passed' else '严格动作与特征审计状态以fixed_r11_audit_summary.json及源码绑定为准，不将评分完成等同于独立审计通过。'),'small')
+
+    page(10,'下一PROBE缺口保护：证书与完整Score')
+    p(('本页回顾已继承的142缺口保护；当前新增强制集合补偿见第11页。' if exact_credit_model else '本轮只扩展113的一处next目标保护比较。')+'树结构、专家库及admission=2不变。next_deficit_shift按字段是否存在启用；k=0同样有效，142/143/144分别采用k=0/1/2。局部IO证明和完整Score实测分别展示。')
+    next_path=ROOT/'members_r12_summary.json';next_train_path=ROOT/'train_g9_840_summary.json'
+    if available(next_path):
+        next_record=read(next_path);next_scores=next_record['summary']
+        next_train=read(next_train_path) if available(next_train_path) else None
+        if '113' in next_scores:
+            base=next_scores['113']['mean_score']
+            compare=[['mode / k','840 train Score / 百万μs','785回归Score / 百万μs','回归D / μs每例','比113下降']]
+            for mode,shift in [('113','原'),('142','0'),('143','1'),('144','2')]:
+                if mode not in next_scores:continue
+                row=next_scores[mode];gain=100*(1-row['mean_score']/base)
+                train_score='无该轮记录'
+                if isinstance(next_train,dict) and mode in next_train.get('summary',{}):
+                    train_score=f'{next_train["summary"][mode]["mean_score"]/1e6:,.3f}'
+                compare.append([mode+' / '+shift,train_score,f'{row["mean_score"]/1e6:,.3f}',f'{row["mean_decision_us"]:,.2f}',('基准' if mode=='113' else f'{gain:.5f}%')])
+            table(compare,[48,150,150,80,79])
+            p('同批members_r12各例3次，train_g9为完整train筛选。Score为题面计价成本、不是墙钟；D已计入其中。当前交付及独立接入数据以首页checkpoint为准，不把研究批次的D迁移为独立程序测值。','small')
+    h('仅新增接受区域具有两次已知访问的IO证书')
+    p('当前miss目标为p，下一操作PROBE q；q原本驻留、与p不同且两者可共存。原SPILL方案写出f1并驱逐q，保留q的替代方案写出f2。令：')
+    p('<b>d=max(0, qsize-(M-used+f1-sizep))</b>；qRead=qsize/R。接受阈值扩展为 <b>qRead+max(1, d/(2^k·W))</b>；代码先对字节右移取floor(d/2^k)，比实数式更保守。')
+    p('只对新增接受区，补偿大于旧1μs，故(f2-f1)/W≤qRead+d/W。原方案在服务q前必须读取q并至少再写出d字节；q可能由中间periodic预载，不可假设它必然miss。保留q因而不增加该两已知PROBE服务前缀的IO。')
+    p('范围截止q服务结束、排除q之后的periodic。旧qRead+1μs接受区仍是启发式；新增证书不保证D、未知未来、全Score或浮点机器认证。','small')
+    scope_path=ROOT/'next_deficit_scope_verification.json'
+    if scope_path.is_file():
+        scope=read(scope_path);hand=scope.get('hand_proof',{})
+        prefix=hand.get('expected_prefix',{}) if isinstance(hand,dict) else {}
+        tail=hand.get('expected_bad_tail',{}) if isinstance(hand,dict) else {}
+        fields=['parent_io_us','new_io_us']
+        if (scope.get('status')=='passed' and scope.get('forced_expert')==1
+            and scope.get('actual_io_and_hitmiss_verified') is True
+            and all(isinstance(row,dict) and all(key in row for key in fields) for row in [prefix,tail])):
+            mib=1<<20
+            p(f'固定expert1正式诊断（非当前树路由）：该例W=R=1字节/μs，等价累计IO字节按MiB计，已知前缀父/新方案为{prefix["parent_io_us"]/mib:g}/{prefix["new_io_us"]/mib:g}；追加未知A后为{tail["parent_io_us"]/mib:g}/{tail["new_io_us"]/mib:g}。局部收益可被后续反转；原始记录见next_deficit_scope_verification.json。','small')
+        else:p('诊断记录已提供；状态与具体数值以next_deficit_scope_verification.json实际字段为准，此处不补推未绑定的通过结论。','small')
+    else:p('固定expert1范围诊断以next_deficit_scope_verification.json为准；未提供该可移植记录时不补写数值或通过状态。','small')
+    state='独立接入复测已由当前checkpoint确认为完成' if standalone else '当前checkpoint尚未确认独立接入复测完成'
+    p(f'当前checkpoint采用mode {checkpoint["mode"]}，平均Score {checkpoint["summary"]["mean_score"]:,.2f} μs，比同批Naive下降{checkpoint["summary"]["decrease_vs_naive_percent"]:.4f}%；{state}。绑定'+escape(checkpoint['sdk_report'])+'。','small')
+
+    if exact_credit_model:
+        page(11,'强制集合证书：当前目标字节补偿')
+        shift=model['exact_next_credit_shift']
+        p(f'本轮保留142的缺口比较，另启用exact_next_credit_shift={shift}。只在旧比较失败且新阈值可通过时，扫描已经算出的保留q方案other；其余树、8专家和admission=2保持不变。')
+        exact_path=ROOT/'members_r13_summary.json';exact_train_path=ROOT/'train_g10_840_summary.json'
+        if available(exact_path):
+            exact=read(exact_path);scores=exact.get('summary',{})
+            training=read(exact_train_path) if available(exact_train_path) else None
+            if '142' in scores:
+                base=scores['142']['mean_score']
+                compare=[['mode / 补偿档','840 train Score / 百万μs','785回归Score / 百万μs','比142变化']]
+                for mode,label in [('142','原d'),('145','p全量'),('146','p半量'),('147','p四分一')]:
+                    if mode not in scores:continue
+                    row=scores[mode];delta=100*(row['mean_score']/base-1)
+                    train_value=(f'{training["summary"][mode]["mean_score"]/1e6:,.3f}'
+                        if isinstance(training,dict) and mode in training.get('summary',{}) else '无该轮记录')
+                    compare.append([mode+' / '+label,train_value,f'{row["mean_score"]/1e6:,.3f}',
+                        '基准' if mode=='142' else (f'上升{delta:.5f}%' if delta>0 else f'下降{-delta:.5f}%')])
+                table(compare,[89,148,148,122])
+                p('表为train_g10完整train与members_r13同批785例×3。train最优145在回归退化；146按已经观察的开发回归集选择，不能当作未见盲测证明。表内研究程序D已计入Score，独立部署值另见当前checkpoint。','small')
+        effects_path=ROOT/'exact_credit_result.json'
+        effects=read(effects_path) if effects_path.is_file() else None
+        if (isinstance(effects,dict) and effects.get('status')=='passed'
+            and effects.get('source_identity',{}).get(str(checkpoint['mode']),{}).get('sha256')==checkpoint['source_sha256']):
+            row=effects.get('comparisons',{}).get(str(checkpoint['mode']),{}).get('aggregate',{})
+            if all(key in row for key in ['action_digest_changed_cases','physical_improved_cases','physical_regressed_cases','physical_equal_cases','mean_delta']):
+                benefit=-row['mean_delta']['physical_cost_delta_us']
+                p(f'同批物理分解：仅{row["action_digest_changed_cases"]}例动作改变（{row["physical_improved_cases"]}好、{row["physical_regressed_cases"]}坏，均为liunianwww），其余{row["physical_equal_cases"]}例物理成本相同；剔D后平均净节省{benefit:,.2f} μs，主要来自一例。Vanius/Cy微小变化仅来自D，不是普遍IO提升。见exact_credit_result.json。','small')
+        h('证书与两种后续状态')
+        p('仍要求当前miss为p、下一PROBE为原驻留q，p≠q且sizep+sizeq≤M。若合法、无重复的other中每个牺牲分区x都满足 <b>s(x)&gt;M-sizep-sizeq</b>，每个x都无法与p、q共存，因而不可避免；合法other恰好覆盖该强制集合，写出量f2达到这一固定共存需求的下界。')
+        p('扣掉双方共同的当前p读取：原方案若在q服务时仍保留p，就已必须落盘整个强制集合，还额外写读q；若此时p已不驻留，则至少在原方案f1之外又写出了sizep，并读取q。因此在证书通过时，新增条件 <b>(f2-f1)/W≤sizeq/R+floor(sizep/2^k)/W</b> 足以保证这段已知前缀IO不增。')
+        p('先旧条件、再数值条件、最后扫描other，额外O(|other|)，不新增规划调用或全分区扫描。证明仅覆盖新接受区，截止q服务结束、q自己的periodic之前；旧启发式区域、回调D、未知未来、完整Score和浮点机器认证均不在保证内。','small')
+        scope_path=ROOT/'exact_next_credit_scope_verification.json'
+        scope=read(scope_path) if scope_path.is_file() else None
+        valid=(isinstance(scope,dict) and scope.get('status')=='passed'
+            and scope.get('forced_expert')==1 and scope.get('current_online_router_evaluated') is False
+            and scope.get('actual_io_and_hitmiss_verified') is True
+            and scope.get('only_shift0_prefix_improves_verified') is True
+            and scope.get('future_tail_io_reversal_verified') is True)
+        if valid:
+            cases=scope.get('cases',{});values={}
+            for name in ['prefix','bad_tail']:
+                measurements=cases.get(name,{}).get('measurements',{})
+                values[name]={mode:measurements.get(mode,{}).get('metrics',{}).get('Total_IO_Time')
+                    for mode in ['parent142','shift0','shift1','shift2']}
+            if all(isinstance(value,(int,float)) for group in values.values() for value in group.values()):
+                mib=1<<20;prefix=values['prefix'];tail=values['bad_tail']
+                p(f'固定expert1正式诊断（非当前树路由）：W=1、R=2，含共同BUILD写量的IO/2^20 μs为：两PROBE父/全量补偿{prefix["parent142"]/mib:g}/{prefix["shift0"]/mib:g}；追加未知A后{tail["parent142"]/mib:g}/{tail["shift0"]/mib:g}。该例只有全量shift0改善，shift1/2保持父方案；局部收益可被未来反转。来源：exact_next_credit_scope_verification.json。','small')
+        else:p('固定expert1范围诊断尚未绑定已通过的可移植JSON；不补写实测数值或路由通过结论。','small')
+        p(f'当前独立接入状态：'+('已完成' if standalone else '尚待确认')+f'；采用mode {checkpoint["mode"]}，完整平均Score {checkpoint["summary"]["mean_score"]:,.2f} μs、D {checkpoint["summary"]["mean_decision_us"]:,.2f} μs/例。来源：'+escape(checkpoint['sdk_report'])+'。','small')
     def footer(c,doc):
         c.setStrokeColor(colors.HexColor('#D1DDE2'));c.line(44,39,551,39)
         c.setFont('Song',8);c.setFillColor(blue);c.drawString(44,25,'第20题 · 三成员数据集 / 专家选择器')

@@ -19,7 +19,8 @@ NORMALIZATION_KIND = 'category_full_remaining_metadata_v1'
 # These are the object fields consumed by the existing build_candidates.export
 # implementation. Missing keys and keys explicitly set to null are distinct.
 EXECUTABLE_FIELDS = ('kind', 'tree', 'used_features', 'forced_cover',
-                     'shared_scratch', 'periodic_admission_shift', 'next_deficit_shift')
+                     'shared_scratch', 'periodic_admission_shift', 'next_deficit_shift',
+                     'exact_next_credit_shift')
 REWRITTEN_METADATA = frozenset((
     'ancestor_metadata', 'input_artifacts', 'data_isolation', 'config',
     'refinement', 'objective', 'validation_role', 'validation_performed',

@@ -4,7 +4,7 @@
 
 ## 当前最终主评分（最新约定）
 
-先算每成员数据集`score_dataset=mean_repeat(sum_case(single_score))`，集内sum不封顶50；再算`score_final=mean_nonempty_members(score_dataset)`。当前两个实际非空成员各50%系数，空成员跳过并列出。单例均分、全576点均分仅辅助、不排名；逐例函数、原评分器raw不改，已有结果只重算摘要。各集案例数仍影响sum范围，不转换成member mean_case。完整定义与只读工具见[MEMBER_SCORING](../evaluation/MEMBER_SCORING.md)。下文R62/R63旧单成员案例均分和成本倍率是历史分析，不能代替当前完整集合主分；失败和严重尾部保留。
+先算每成员数据集`score_dataset=mean_repeat(sum_case(single_score))`，集内sum不封顶50；再算`score_final=mean_nonempty_members(score_dataset)`。本页发布时的576例矩阵冻结旧快照含两个非空成员，各占1/2；2026-10-30核对的785例三成员快照完整评测时各占1/3，详见[更新清单](GITHUB_UPDATES_20261030.md)。空成员跳过并列出，不要求等齐三人。单例均分、全案例均分仅辅助、不排名；逐例函数、原评分器raw不改，已有结果只重算摘要。各集案例数仍影响sum范围，不转换成member mean_case。完整定义与只读工具见[MEMBER_SCORING](../evaluation/MEMBER_SCORING.md)。下文R62/R63旧单成员案例均分和成本倍率是历史分析，不能代替当前完整集合主分；失败和严重尾部保留。
 
 ## 评价口径
 
@@ -67,6 +67,6 @@ R63冻结提交：main `87860d3e5ff1801f7ac0c5ba6f0d05459bc916c0`，datasets `9e
 
 ## 后续数据与归档更新
 
-MXV1八类固定配方新增8训练/8评测，cyanneko升0.6.0、48/48；首次生成/严格审计5.625秒、21,279,105字节，32个输入/meta字节复现通过。Root独立核对16例1,179,648 PROBE。hotset_phase_reverse_train压力1.0可全驻留，是无压力反转对照，未改或筛掉。新增数据与原80及另一成员1128例三种流签名无碰撞。当前全体为cyanneko0.6.0/48与liunianwww0.1.0/528，总576eval；新全量性能待测，旧R63固定0.5/40证据不改。
+MXV1八类固定配方新增8训练/8评测，cyanneko升0.6.0、48/48；首次生成/严格审计5.625秒、21,279,105字节，32个输入/meta字节复现通过。Root独立核对16例1,179,648 PROBE。hotset_phase_reverse_train压力1.0可全驻留，是无压力反转对照，未改或筛掉。新增数据与原80及另一成员1128例三种流签名无碰撞。该轮矩阵冻结旧快照为cyanneko0.6.0/48与liunianwww0.1.0/528，共576eval；后续新三成员785例另记集合身份，不在本页补写新性能结论，旧R63固定0.5/40证据不改。
 
 R61/R62未胜出方法的原源码/模型/标签/配置/复现材料已归档，状态见[索引](EXPERIMENT_STATUS_20261029.md)。共享接口只读检查确认all-observe/selected-decide/all-final-dispatch可承载实际轨迹，但原R63不能直接作为纯提案；建议先拆分并明确共同最终派发的确认语义，不加ID或跑验收。论文补充见[有界候选与惰性维护](BOUNDED_LAZY_PAPERS_20261029.md)。

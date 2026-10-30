@@ -13,10 +13,11 @@ Agent 先读 [AGENTS.md](AGENTS.md)，再按 [中文上手指南](docs/AGENT_GUI
 | `main` | 公共说明、评测工具、数据规范；后续集成方案 | 已创建 |
 | `datasets` | 按成员存放训练集与评测集 | 已创建 |
 | `source/cyanneko` | cyanneko 的算法源码 | 已创建 |
+| `source/Vanius0525` | Vanius0525 维护的源码分支 | 已存在，由该成员协调维护 |
 | `source/liunianwww` | 另一成员维护的源码分支 | 已存在，由该成员协调维护 |
 | `source/<用户名>` | 其他成员的算法源码 | 按需创建 |
 
-这是 2026-10-27 的分支快照，实际以 `git branch -r` 为准，不限制固定成员数。公共更新不会未经协调改写其他成员的源码分支。
+这是 2026-10-30 的分支快照，实际以 `git branch -r` 为准，不限制固定成员数。公共更新不会未经协调改写其他成员的源码分支。
 
 ## 目录
 
@@ -40,18 +41,11 @@ evaluation/
 
 ```text
 datasets/
-  cyanneko/
-    train/
-    eval/
-      VERSION
-  member2/
-    train/
-    eval/
-      VERSION
-  member3/
-    train/
-    eval/
-      VERSION
+  Vanius0525/                 # train/ 与 eval/，评测版本在 eval/VERSION
+  cyanneko/                   # train/ 与 eval/，评测版本在 eval/VERSION
+  liunianwww/                 # train/ 与 eval/，评测版本在 eval/VERSION
+  member2/                    # 空占位
+  member3/                    # 空占位
 ```
 
 `source/cyanneko` 分支另有 `src/`，用于个人源码。已上传 [R49 三种 CPU/C++14 方法及 Naive 基线](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/methods/r49)：仅包含 `MySpillScheduler` 定义，无 `main`，须接入官方 2026-10-26 框架。
@@ -60,9 +54,17 @@ datasets/
 
 [R57完整公共结果包](https://github.com/cyanneko/HuaweiHackathon/tree/source/cyanneko/src/reports/r57_public_suite_20261028)保留原直接版本的432条测量、216配对单分及逐例/逐集/均分和尾部。逐例结果中BF/NG/SF最差分别约9.30/8.29/7.42倍Naive；原直接版本计时不继承给ID103。
 
-2026-10-29 当前cyanneko数据为 **eval0.6.0、train/eval各48，共96输入＋96原meta**。原80对不改，新MXV1 8/8按冻结配方生成并严格审计/Root复核、双次逐字复现。当前另有liunianwww0.1.0的528eval，团队固定快照共576例；版本/指纹与集合suite见[数据集合快照](https://github.com/cyanneko/HuaweiHackathon/blob/datasets/datasets/cyanneko/provenance/collection_0.6_snapshot.json)。
+截至2026-10-30，本次核对的[固定数据提交 e119c23](https://github.com/cyanneko/HuaweiHackathon/tree/e119c2326e198922243306eac062785420ed8156/datasets)有三个非空成员，合计 **840训练例、785评测例**：
 
-[MXV1生成器](generators/mixed_extremes_v1/README.md)记录八类新组合、长流和预算。热点相位反转train压力恰1.0，按无压力控制解释；不删改冻结样本。0.6全部实际非空集合尚无完整成绩，R63只对应旧固定cyanneko0.5/40，历史R60/R61/R62保持各自0.4范围。
+| 成员 | eval/VERSION | train | eval |
+| --- | --- | ---: | ---: |
+| Vanius0525 | 0.1.0 | 192 | 209 |
+| cyanneko | 0.6.0 | 48 | 48 |
+| liunianwww | 0.1.0 | 600 | 528 |
+
+**576例是矩阵冻结的旧快照**，固定于[数据提交 e4fd35e](https://github.com/cyanneko/HuaweiHackathon/tree/e4fd35e0bb2839c5b001020853fb367a73045d67/datasets)，只含cyanneko48例与liunianwww528例。两人的原eval字节保持不变；新增Vanius0525的209例不自动进入已启动的旧矩阵。新旧集合指纹、源码/报告更新及评分差异见[本次更新清单](docs/GITHUB_UPDATES_20261030.md)。[collection_0.6_snapshot.json](https://github.com/cyanneko/HuaweiHackathon/blob/e4fd35e0bb2839c5b001020853fb367a73045d67/datasets/cyanneko/provenance/collection_0.6_snapshot.json)记录旧576例快照，不能当作当前全体成员清单。
+
+[MXV1生成器](generators/mixed_extremes_v1/README.md)记录八类新组合、长流和预算。cyanneko原80对不改，新增MXV1 8/8按冻结配方生成、严格审计并双次逐字复现，形成0.6.0的48/48。热点相位反转train压力恰1.0，按无压力控制解释；不删改冻结样本。R63只对应旧固定cyanneko0.5/40，历史R60/R61/R62保持各自0.4范围，不能迁移为785例成绩。
 
 **实际数据文件只在 datasets 分支。** main 保存公共工具、规范和 [R54](generators/r54/README.md)、[R58](generators/r58/README.md)生成器，source 分支保存方法源码与公共工具。评测时使用 datasets 分支的数据目录，或将 `--datasets-root` 指向其独立工作目录。
 
@@ -115,9 +117,9 @@ python evaluation/evaluate.py --datasets-root ../HuaweiHackathon-datasets/datase
 
 默认自动发现 `datasets/` 下所有成员的非空 `eval/`，包括后来加入的成员。成绩 JSON 与终端摘要包含本次实际参与成员的 `VERSION`、SHA-256 和这些数据合并后的 `suite_id`，并列出被跳过的空目录。显式 `--members` 运行会标为 `partial=true`。比较成绩时应核对 `suite_id` 及评测脚本版本，不能只看人工版本号。
 
-当前主评分先把每个成员数据集的原逐例贡献相加（不施加总分50封顶），重复时先对该集每次sum取均值，最后对所有非空成员的dataset score等权平均：`score_final = mean_member(mean_repeat(sum_case(single_score)))`。当前固定两成员系数各50%。每集内部保留逐例sum；单例均分和全576例均分只作辅助、不用于主排名。原评分器含总分封顶的raw值并列保留，不改原逐例函数或代码；[详细定义与只读摘要工具](evaluation/MEMBER_SCORING.md)可直接重算已有报告。
+当前主评分先把每个成员数据集的原逐例贡献相加（不施加总分50封顶），重复时先对该集每次sum取均值，最后对所有非空成员的dataset score等权平均：`score_final = mean_member(mean_repeat(sum_case(single_score)))`。785例完整三成员快照的系数各1/3；576例旧矩阵仍按其两个成员各1/2。每集内部保留逐例sum；单例均分和全案例均分只作辅助、不用于主排名。原评分器含总分封顶的raw值并列保留，不改原逐例函数或代码；[详细定义与只读摘要工具](evaluation/MEMBER_SCORING.md)可直接重算已有报告。
 
-目前默认评测实际两个非空成员：cyanneko `0.6.0` 的48例与liunianwww `0.1.0` 的528例；空member2/member3会被跳过，无需等待全部成员上传。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
+默认评测使用传入数据快照里实际存在的非空集合，不要求三人全部上传。使用上述785例快照时会发现三个非空成员，空member2/member3跳过；只有一人或两人提供数据时也可评测，成绩只绑定本次实际参与版本。也可用 `--members cyanneko` 显式选择一人。若没有任何可用评测集，或非空集合缺少版本、数据非法、程序失败或超时，则不会产生有效汇总成绩。完整用法见 [evaluation/README.md](evaluation/README.md)。
 
 当前最终主排名按成员dataset未封顶sum的等权平均；实际`Total_Score`/Naive倍率mean/P50/P90/worst、D和家族分组同时展示，用于解释成本、尾部和维护开销。原始封顶归一化分保留，不作为目标或主要成果。官方数据数量/分布未知，不据本地样本预测官方成绩。见[R60/R61实际倍率与家族表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/reports/precontest_20261029/comparison_tables.md)。
 

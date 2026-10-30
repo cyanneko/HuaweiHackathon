@@ -154,4 +154,4 @@ python evaluation/scripts/legacy_checker.py case.txt actions.trace.jsonl output.
 
 ## 当前报告主汇总：成员等权、集内未封顶sum
 
-原evaluate.py已按成员数据集等权平均，无需改代码。当前报告对原逐例贡献按每集求sum（重复时mean_repeat），不施加50总封顶，然后`score_final=mean_nonempty_members(score_dataset)`。当前两个成员系数各50%，空成员列出不占权重。每集单例均分与全576等权均分仅辅助、不用于主排名；原封顶raw并列保留。规则、边界和只读重算命令见[MEMBER_SCORING.md](MEMBER_SCORING.md)。新工具只读原normalization.cases和冻结身份，不重跑solver，不允许缺案例/重复后给有效完整分。
+原evaluate.py已按成员数据集等权平均，无需改代码。当前报告对原逐例贡献按每集求sum（重复时mean_repeat），不施加50总封顶，然后`score_final=mean_nonempty_members(score_dataset)`。截至2026-10-30核对的[固定数据提交 e119c23](https://github.com/cyanneko/HuaweiHackathon/tree/e119c2326e198922243306eac062785420ed8156/datasets)有三个非空成员、785评测例，完整评测时各占1/3；原576例矩阵仍绑定其旧快照、两个成员各占1/2。只按传入快照的实际非空成员计算，空成员列出不占权重，无需等齐三人。每集单例均分与全案例等权均分仅辅助、不用于主排名；原封顶raw并列保留。规则、边界和只读重算命令见[MEMBER_SCORING.md](MEMBER_SCORING.md)，新旧集合身份见[更新清单](../docs/GITHUB_UPDATES_20261030.md)。新工具只读原normalization.cases和冻结身份，不重跑solver，不允许缺案例/重复后给有效完整分。

@@ -2,6 +2,11 @@
 
 团队协作仓库，研究内存受限下 Hash Join 算子的 Spill-to-Disk 动态调度。
 
+## 最新动态热度倾斜数据集
+
+[**dyna_dataset · 版本1.0.0 · 下载与说明**](dyna_dataset/README.md)：12例×500万操作，共6000万次操作，按6 train / 3 dev / 3 holdout划分。算子与分区两层概率随时间变化，不预设各算子/分区的出现次数；附真实压缩输入、生成源码、概率示例图和独立完整审核。压缩合计约386 MB，解压约1.17 GB。该目录独立保存，不自动加入原成员评测套件。
+
+
 Agent 先读 [AGENTS.md](AGENTS.md)，再按 [中文上手指南](docs/AGENT_GUIDE.md) 开始工作；开发独立专家与后续选择器先读 [专家接口技术规范 v1](docs/EXPERT_INTERFACE_V1.md)，评测细节见 [evaluation/README.md](evaluation/README.md)。2026-10-28 重新核对官方公开接口，响应与此前保存件相同；核对来源和 SHA 见专家规范，评测协议名仍为 `official-2026-10-26`。
 
 题干存档：[PDF 的完整 Markdown 版（2026-10-20，含参考代码）](docs/statement-2026-10-20/README.md)。这是历史 PDF 提取结果，版本边界与原文疑点见存档说明。

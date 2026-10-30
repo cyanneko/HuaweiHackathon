@@ -1,0 +1,5 @@
+# R80 新100k训练输入与生成拒绝记录
+
+仅含10份合法新TRAIN，每份100000操作。预定6条新种子、none/hot共12例，两例hot因分区超过M被拒绝；未换种子，保留4完整对和2缺hot谱系，不是10个独立种子。inputs.json给实际公开输入/元数据路径、SHA和原16份R78/R79的固定Git引用，不重复数据。
+
+diagnostics保留两个失败的stdout/stderr，generation保留原参数、命令清理版与审核；不发布不完整input、空meta或探针trace，只在inputs.json列其SHA/大小。原研究data_manifest有26例与PARTIAL状态，是来源身份而非本10例归档路径索引。未创建eval、未注册测试，不改旧VERSION/suite或非空eval发现。稀有热点同时影响INSERT/PROBE及分区大小，不声称纯热度因果。冻结脚本需按source_record恢复环境后运行。

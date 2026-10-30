@@ -1,6 +1,6 @@
 # 比赛日交接：推进方法与针对性验证
 
-日期：2026-10-30。优先推进一个有机制依据的新方法，使用少量机制、反例和场景样本加速迭代。24例仅为回归池，不把全24或全库验证作为发布experimental候选的门槛；局部结果不能表述为全局最优。
+日期：2026-10-30。优先推进一个有机制依据的新方法，使用机制、反例和场景抽样加速迭代。原24例保留为历史回归池，后续另按三成员各10例冻结30例样本；不把全24或全库验证作为发布experimental候选的门槛，局部结果不能表述为全局最优。
 
 ## 当前候选与提交形态
 
@@ -9,9 +9,11 @@
 | official Naive | [已发布MySpillScheduler类源码](https://github.com/cyanneko/HuaweiHackathon/blob/018ab3a8868460210191f7497c344a73b1538cf1/src/methods/r49/official_naive.cpp) | 对照基线，保留原逻辑；本页不声称重新构建了该基线 |
 | Single-Fit直接版 | [独立规则源码](https://github.com/cyanneko/HuaweiHackathon/blob/018ab3a8868460210191f7497c344a73b1538cf1/src/experts/single_fit_phase/reference.cpp) | 既有规则参考；直接版结果不能移作SDK适配版时延 |
 | R63 Ghost64 | [单文件快照与限制](https://github.com/cyanneko/HuaweiHackathon/tree/018ab3a8868460210191f7497c344a73b1538cf1/src/experiments/r63_ghost_refault64) | 已发布实验前身，仍未推广；历史0.5/40结果维持原范围 |
-| R65 TurnoverRisk | [最终单文件MySpillScheduler.cpp](https://github.com/cyanneko/HuaweiHackathon/blob/018ab3a8868460210191f7497c344a73b1538cf1/src/experiments/r65_turnover_risk/MySpillScheduler.cpp) | experimental：契约GREEN、独立源码审查、C++14/O2单文件编译和接口样例通过；针对性探索结果另记，未升默认 |
+| R65 TurnoverRisk | [最终单文件MySpillScheduler.cpp](https://github.com/cyanneko/HuaweiHackathon/blob/018ab3a8868460210191f7497c344a73b1538cf1/src/experiments/r65_turnover_risk/MySpillScheduler.cpp) | experimental：契约GREEN、独立源码审查、C++14/O2编译和接口样例通过；已完成三例探索性九格，保留growth退化，未升默认 |
 
 [候选状态表](https://github.com/cyanneko/HuaweiHackathon/blob/source/cyanneko/src/releases/contest_20261030/candidate_status.json)持续保留源码身份、实验状态与结果入口。[R65完整提交包](https://github.com/cyanneko/HuaweiHackathon/tree/018ab3a8868460210191f7497c344a73b1538cf1/src/experiments/r65_turnover_risk)包含原依赖、审查、契约及失败尝试记录，最终单文件SHA-256为`f9eebb4dc44fc2059ed79879334a7bc5c6960d57f0b2453273be64accd617355`。
+
+[三例探索性结果包](https://github.com/cyanneko/HuaweiHackathon/tree/3371abbb5a2546b0357c9e0124b2e216adef83cc/src/reports/r65_targeted_exploration_20261030)保留全部九格、原始stdout、输出/输入/二进制/框架/参数身份和单次计时范围。R65/Naive成本在hot、heterogeneous、growth三例分别为0.611416、0.831144、1.433597；growth还比R63差3.279%。这是已知反例，不能隐去；单次D不支持稳定改善或显著性结论。
 
 正式提交物只有调度器和助手定义，无main/engine；由官方框架先提供类型，仅替换MySpillScheduler。纯CPU、C++14、`-O2`和标准库；不改框架、计时、可见观测，不使用文件名、未来输入、隐藏penalty或外部模型。最终构建不得定义R65_UNIT_TEST/R65_DIAGNOSTIC。接口样例通过不替代物理动作审核、性能证据或任意输入上的正确性保证。
 
@@ -23,9 +25,11 @@
 
 ## 验证、评分与失败记录
 
-首轮仅计划候选、直接前身R63及新鲜Naive在hot_stream、heterogeneous和grow_after_overlap三例上的九项针对验证。后续只因具体机制或反例增补必要的小样本，使用明确冻结的源码、输入、二进制和原生输出；单次结果须保留计时噪声限制。正式计时独占，打包编译与批量I/O在窗口外。
+首轮已完成候选、直接前身R63及新鲜Naive测量在hot_stream、heterogeneous和grow_after_overlap三例上的九项针对验证。后续只因具体机制或反例增补必要的小样本，使用明确冻结的源码、输入、二进制和原生输出；单次结果须保留计时噪声限制。正式计时独占，打包编译与批量I/O在窗口外。
 
-数据父集合仍为750618/e119的785例、三非空成员；24例另记抽样身份，三例针对验证再记自身范围。评分沿用[每成员样本内sum，再按实际参与成员等权平均](../evaluation/MEMBER_SCORING.md)，同时给成本倍率、绝对D、IO/miss和坏例；没有覆盖的成员不虚构分数，显式标partial/sample。成员自报逐题均分是另一口径。
+下一轮计划三成员各10例、共30例的分层开发回归抽样，仅R65/R63/Naive作必要对照，最多90格；样本身份、结果和计时窗口另记，保留已知反例。原九格保持独立，不改称30例结果，也不恢复全方法矩阵。未完成的新样本不预写成绩，三成员样本sum等权仍不是785例全库得分。
+
+数据父集合仍为750618/e119的785例、三非空成员；24例另记抽样身份，三例针对验证再记自身范围。本组三例实际为cyanneko两例、liunianwww一例，Vanius数据可用但未选入，不能称三成员全库结果。评分沿用[每成员样本内sum，再按实际参与成员等权平均](../evaluation/MEMBER_SCORING.md)，同时给成本倍率、绝对D、IO/miss和坏例；没有覆盖的成员不虚构分数，显式标partial/sample。成员自报逐题均分是另一口径。
 
 [负结果与失败索引](EXPERIMENT_STATUS_20261029.md)保留R61/R62及未完成执行，R65修正前的单测失败单列为实现尝试，不混为最终方法性能负结果。未经充分证据不提升默认，也不以选择性样本宣称全局最优。
 

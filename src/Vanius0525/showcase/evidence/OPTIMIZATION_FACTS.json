@@ -1,0 +1,208 @@
+{
+  "created": "2026-10-31",
+  "purpose": "中文PDF和私有展示网站的材料，不是新增实验结果",
+  "paths_relative_to": "src/Vanius0525/level1",
+  "sources": {
+    "S1": [
+      {
+        "path": "round9/candidates/paired_penalty100.cpp",
+        "sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15"
+      },
+      {
+        "path": "round8/pure/REVIEW.md",
+        "sha256": "396a40cfe6a96bb705696d0e278921f808886d35223f2c5405576f5b82dfa8b1"
+      }
+    ],
+    "S2": [
+      {
+        "path": "round9/pure/BOUNDED_HIT_REVIEW_V1.md",
+        "sha256": "b68bb5379bc8fdd8a9bf2b64729a86dd27f1f47f46a75996dcb31ca995c6c546"
+      }
+    ],
+    "S3": [
+      {
+        "path": "round9/pure/EVICTION_RETURN_RISK_DESIGN_V1.md",
+        "sha256": "b907637901219772590807b5be39fc63f7aacd684ffb87a4dc1cca1e9b2a8e3e"
+      },
+      {
+        "path": "round9/pure/return_risk_core_v1.hpp",
+        "sha256": "605c30a3728ee3cc05a6fdb3f5f97a12087f9eb4e8f44202002199eca8d70512"
+      },
+      {
+        "path": "round9/pure/RETURN_RISK_DEPLOY_REVIEW_V1.md",
+        "sha256": "75f94cfb34de5a4365ab4032f5241dfd4faeb4f2c3061a05d4d89017f616be1c"
+      }
+    ],
+    "S4": [
+      {
+        "path": "round9/pure/DYNA_FULL12_PURE_REVIEW_V1.md",
+        "sha256": "6aa21e36e6b6e0af74f5c9968a35d50ef75d52f4122f406433c8a313966b261a"
+      }
+    ],
+    "S5": [
+      {
+        "path": "round9/pure/RETURN_RISK_MAIN60_REVIEW_V1.md",
+        "sha256": "e7a767306aa3529f765cca9c4687e20e0516ea435cba705de93dd5e723bc1182"
+      }
+    ],
+    "S6": [
+      {
+        "path": "round9/pure/EVAL72_SINGLE_REVIEW_V1.json",
+        "sha256": "0266ade87954267aaec85f3e68d356e5de111afb1dd89312370637762ce36c0a"
+      }
+    ],
+    "S7": [
+      {
+        "path": "round10/REPORT_V1.md",
+        "sha256": "ac59368fae21a9b8be790c832a3030e45beba95253944a0f6250d29a26eaaffa"
+      }
+    ],
+    "S8": [
+      {
+        "path": "round12/pure/REPORT_V1.md",
+        "sha256": "414a8c481a0a299d54fc2a6c82cccdc865fa4028eae39d0ef2183f50eb48a8bf"
+      },
+      {
+        "path": "round12/COST_DIAGNOSIS_V1.md",
+        "sha256": "944f95576e9f44d5dbef0d37bed8ca7c6988b977f8dc02cf00f1169d113f50ef"
+      }
+    ],
+    "S9": [
+      {
+        "path": "round9/pure/BUILD_HISTORY_REVIEW_V1.md",
+        "sha256": "432f6686f341cfca96ff8566907ecbf68d7f658e386d3b70b72b1db9b7df89a4"
+      },
+      {
+        "path": "round9/pure/COLD_BUILD_REVIEW_V1.md",
+        "sha256": "4ec9d4dcdfa639c9d54d4732d51bca667db9f85498ac03ad69586b0548c0aa95"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "joint_dyna12",
+      "sources": [
+        "S4"
+      ],
+      "scope": "旧dyna补充集12例，固定pooling对paired100；不是主测试集",
+      "metric": "逐例物理成本比等权均值",
+      "ratio": 0.980570026,
+      "better_equal_worse": [
+        12,
+        0,
+        0
+      ],
+      "note": "旧阶段每方法每例3次计时；12个输入，不是36个独立样本。"
+    },
+    {
+      "id": "joint_train60",
+      "sources": [
+        "S5"
+      ],
+      "scope": "原主训练60流；pooling对paired100",
+      "mean_physical_ratio": 1.00245189,
+      "worst_physical_ratio": 1.119007461,
+      "better_equal_worse": [
+        31,
+        4,
+        25
+      ],
+      "note": "未通过既定平均/尾部/分数门槛。"
+    },
+    {
+      "id": "joint_eval72",
+      "sources": [
+        "S6"
+      ],
+      "scope": "旧final_dataset 2.1全部72例，用户指定描述性比较，每方法每题单遍",
+      "paired_mean_score": 3.4813891299618427,
+      "pool_mean_score": 3.4814741729504077,
+      "score_delta": 8.504298856519562e-05,
+      "mean_physical_ratio": 0.9985694927062685,
+      "worst_physical_ratio": 1.0547540577993408,
+      "better_equal_worse": [
+        42,
+        7,
+        23
+      ],
+      "note": "不是final3.0结果；微小单遍分差不构成稳定胜出证据。"
+    },
+    {
+      "id": "r10_value_rank",
+      "sources": [
+        "S7"
+      ],
+      "scope": "原60训练流，value_rank对R80；单遍",
+      "mean_per_case_physical_ratio": 1.577965,
+      "ratio_of_total_physical_cost": 1.018162,
+      "worst_case": "train600",
+      "worst_physical_ratio_rounded": 23.565,
+      "reference_miss": 211,
+      "candidate_miss": 12176,
+      "note": "只把候选排序改为整对象价值，子集费用未再次乘大小；不是所有大小感知策略的否定。"
+    },
+    {
+      "id": "r12_train519",
+      "sources": [
+        "S8"
+      ],
+      "scope": "原60训练中的train519，soft_tail100对R80；单遍",
+      "reference_miss": 3766,
+      "candidate_miss": 2933,
+      "actual_penalty_us": 119,
+      "proxy_penalty_us": 100,
+      "reference_io_us": 56951757.06,
+      "candidate_io_us": 64298633.1,
+      "extra_io_us": 7346876.04,
+      "saved_miss_cost_us": 99127,
+      "extra_physical_cost_us": 7247749.04,
+      "physical_ratio": 1.1262676005268362,
+      "note": "IO为模拟费用，不是墙钟；不能仅凭终态数据识别core/γ因果。"
+    },
+    {
+      "id": "r12_aggregation",
+      "sources": [
+        "S8"
+      ],
+      "scope": "原60训练，soft_tail100对paired100",
+      "mean_per_case_physical_ratio": 0.99417,
+      "ratio_of_total_physical_cost": 1.024217,
+      "note": "两个聚合口径权重不同，不能混用。"
+    },
+    {
+      "id": "cold_build",
+      "sources": [
+        "S9"
+      ],
+      "scope": "原60训练，唯一cold-BUILD gate对paired100；只改q=0选择",
+      "sum_build_write_delta_us": -409122.06,
+      "sum_probe_write_delta_us": 8601132.71,
+      "sum_probe_read_delta_us": 3791958.81,
+      "sum_miss_cost_delta_us": 914357.0,
+      "mean_physical_ratio": 1.003365788,
+      "worst_physical_ratio": 1.209434612,
+      "note": "60流分项求和不是逐流均比；旧阶段3次计时不变成更多数据。"
+    }
+  ],
+  "formula_notes": {
+    "physical_cost": "write_bytes/W + read_bytes/R + actual_penalty*miss_count",
+    "total_cost": "physical_cost + decision_time",
+    "proxy": "后期我方固定100μs在线估值，评分仍用实际输入罚值",
+    "build": "对最终在BUILD内落盘的同一分区，首次a字节+后续b字节=最终大小；不意味着所有策略总写量相等",
+    "joint": "h是逐对象风险代理，不要求和为1；算子项排除目标分区，匿名Hit模型未部署到当前联合版"
+  },
+  "work_performed": {
+    "algorithm_implementations": 0,
+    "compiles": 0,
+    "solver_runs": 0,
+    "training_runs": 0,
+    "request_stream_scans": 0
+  },
+  "editorial_limits": [
+    "不把R80称作我方原创或联合风险的同一版本。",
+    "不把2σ称为95%置信保证。",
+    "不跨数据版本合并得分走势。",
+    "不把模拟I/O秒数解释为运行墙钟。",
+    "当前优化暂停，不把设计中的成本额度候选列为已实现。"
+  ]
+}

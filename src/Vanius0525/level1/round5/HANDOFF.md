@@ -1,5 +1,46 @@
 # 合作者经验吸收与持续迭代（2026-10-30）
 
+**最新授权覆盖**：用户要求停止当前评测，切换同学发布的综合dataset。旧round4/5评测/排队控制器和旧小时启动器已停止，partial全部保留；不能按下方旧计划恢复。当前入口是[../round6/HANDOFF.md](../round6/HANDOFF.md)，采用final_dataset2.0.0@33ab5af的50例，train/dev隔离后迭代，新小时服务仅查进度、不自动刷test。
+
+## 当前续接：优化实施与每小时检查恢复
+- 用户最新授权继续实现、迭代和每小时检查，覆盖历史的取消定时器指令。仅写本人个人目录/分支。
+- 已读个人README、Session HANDOFF、评议全文及训练实现。工作区原有未跟踪round4/RESUMED_CALLBACK_CHALLENGE_INPUT_AUDITS.json保留且不纳入本任务提交。
+- 初查沙箱PID列表未见旧矩阵，后经宿主`ps`/`lslocks`核实旧任务仍在运行。沙箱PID命名空间不可用于判断宿主实验是否存活。旧STOP文件保留，改用独立round5检查目录，避免恢复历史会话绑定。
+- 第一阶段：扩大纯算法covering singleton候选池、同树不同调用频率的AI对照、操作语义级数据去重。尚未晋升新候选。
+- 数据事实：原始训练96/验证32为整流划分；已反复选型的785例和fresh/OOD历史例已曝光。原标签是未来距离代理；有限4096步纯策略续接和固定配置完整后缀也均不是全局OPT。
+- 下一动作：运行split审计、首轮动作审核/成对基准，记录负结果；新家族测试必须在策略冻结后一次性使用，随后记为已曝光。
+- Open Ideas沿用评议第9节，当前无新验证的独立科研贡献。
+
+### 2026-10-30 10:04 北京时间：可续跑的实施断点
+- 已实现：`make_candidates.py`及三份单类C++14消融候选；`audit_splits.py`及原train拟合前强制检查；`train_interval.py`的区间控制、多续接、逐流等权小树教师；`campaign.py`与后接`finish_mechanism.py`；`hourly.py`。
+- 数据审计：`SPLIT_AUDIT.json`中96/32/64/64共256流，三种跨划分重复均为0；仅覆盖该四批，不代表审计过所有round4扩充训练流和团队集合。`SPLIT_CHECKS.json`复制/键重命名/隐藏罚值变体三种泄漏检测均通过。
+- 代码验证：`python -m py_compile round5/*.py train.py`与`git diff --check`通过；新教师`g++ -std=c++14 -O2`编译通过。`SMOKE_VALIDATION.json`中三候选在opaque-hit例上独立动作审核通过，各6回调/3动作/33Hit/1Miss；不代表完整套件合法性。
+- 教师验证：`INTERVAL_TEACHER_SMOKE.json`中单train流2行、每行14合法特征/6个反事实成本；pure收集器的Hit/Miss与未改引擎一致（7967/33），I/O+Miss在打印精度内一致，42回调/69动作重放通过。未完成新模型拟合或总体性能验证。
+- 新收齐旧面板：`PRIOR_COMPLETED_PANEL.json`，209/48/528例每例5次；本批Best=3.533419、AI预取=3.508535、事件门控=3.143843。保持Best，记录门控负结果；不混同新round5成绩或跨批精确排名。编译/正确性检查与旧任务有时间窗重叠，后续小时分析不能把细微时间差解释成改进。
+- 持久任务：宿主`build/round5-campaign/launch.json`对应控制器等待同一`build/experiment.lock`；原定顺序是cadence-val→interval训练→interval-val→三成员。现进程加载的是追加机制测试前的代码，因此另有`build/round5-mechanism-followup/`控制器等待既有campaign完整结束再接机制测试，不重复既有阶段。
+- 小时检查：宿主`build/round5-hourly/status.json`为waiting，间隔3600秒，下一次2026-10-30 10:55:53北京时间；当前会话`codex queue`连通性验证成功。实验锁繁忙只跳过新增回归，不推迟续接提醒。停止新检查需创建其独立STOP。宿主、服务、额度不可用时不保证唤醒，不切换账户或无限重试。
+- 审批边界：自动审批曾拒绝重启本轮等待控制器，理由为可能终止活动评测并丢失测量。未重试终止操作；保留原进程，采用单独后接机制测试的安全方案。当前没有等待用户批准的阻塞动作。
+- 当前不提交/推送：完整训练、同批基准、安全与最大规模验证尚未完成，符合用户“未完成/测试未过不推”约定。原有和旧后台新产出的round4未跟踪文件不纳入本轮提交；保留原始日志和全部partial数据。
+- 下一条可执行动作：先看上述三个忽略目录status/log和宿主锁；若旧阶段失败保留partial并恢复，不能重跑覆盖。训练完成后核验`INTERVAL_TRAINING.json`及新C++SHA；读取完整同批报告分析按流收益、续接冲突、CPU与尾部，之后补最大规模/属性验证。三成员不完整不能报新等权均分；新机制测试结果打开后标为已曝光。完整任务验证后仅提交本次本人文件并推source/Vanius0525。
+
+### 连通性消息收到后的续接核查
+- 本会话已实际收到此前排队的验证消息；忽略目录`build/round5-hourly/connectivity_verified.json`记录“queue确认＋本会话收到”，无私人会话ID入库。未重复启动实验或小时daemon。
+- 宿主核查确认小时daemon、campaign、mechanism-followup各只有现有一个锁持有者；campaign仍等待experiment锁，followup等待campaign结束。旧stress在推进，已完成783/810次测量，当前hot_sparse_m256_b1；这只是进度快照，不是全部完成。
+- 新增`EXTENDED_SPLIT_AUDIT.json`：原train96/context fresh96/context OOD96/val32/本人回归209/cyanneko48/liunianwww528，共1105流；跨集合字节、语义、动态过程重复均0。输入去重不等于所有训练缓存来源已核查，不消除机制相似和人工选型过拟合。
+- 设计审查发现：既有面板ai_callback参照来自不同树/标签，不能用于识别纯调用频率效应；同树三列prefix/refresh256/refresh1024才是当前可用频率消融。README已明确这一限制；不修改已排队的源码身份或重启控制器。后续应补同树14维每回调对照，而不是跨树作因果解释。
+
+### 正式8组与当前运行状态（用户新增信息）
+- 用户告知最终有8组正式测试数据；按保存题面8个single_score求和且Level1封顶50，目标是每组平均6.25/10，即截断后有效相对成本降幅平均62.5%。并非要求每组各自都超过62.5%；无退化且BASE/VAL均正时，等价于逐组VAL/BASE算术平均<=0.375。不能用总成本比、内部三成员均分或未截断收益替代正式8组实际分。
+- 宿主实查：当前在执行round4 joint maximum的scan_hot_m64_b10000，真实solver子进程存在且R状态；round5控制器在等同一个experiment锁，新的区间模型尚未开始拟合，不得声称“正在训练”。小时daemon与后接机制控制器均存活；未重复启动。
+- 已将8组封顶目标记录到SCORING_POLICY.md；保留原内部三成员逐题均分口径，不因8组信息把曝光回归成绩包装成正式预测。8组数量来自用户，未独立核验官方更新。
+
+### 接口与信息边界复核
+- 已重新对照保存题面SystemState、三个SpillScheduler回调、getSystemState及主循环setNextOp时机，核查当前Best、冻结AI、AI预取参照和round5三候选；指纹及窄范围静态扫描见`INTERFACE_AUDIT.json`。
+- 可见：内存容量/占用、P、带宽、累计Hit/Miss/I/O字节、全部算子phase和分区大小/驻留、一步next_op及其适用字段；K可由operators.size取得。overflow额外给当前op/pid/tuple_size；miss给当前op/pid；periodic仅state。
+- 不直接可见：真实miss_penalty、N、B、完整已处理操作计数、普通Hit对象身份/完整访问史、更远未来、框架累计I/O/决策时间/Score及Naive成绩。允许从合法历史估计，不能当作框架已提供的真值或通过改框架注入。
+- 当前Best指纹仍匹配已发布785例动作审核/20000属性状态的manifest；没有文件/环境/标准输入读取路径或main。history来自合法回调且Probe序号去重；不把Hit总增量分配为某个对象完整访问频率。原AI权重内嵌，未来/真实罚值仅用于离线train标签。
+- 结论边界：已核查源码未发现信息越界，当前Best已有广泛本地动作证据；round5新候选仅完成小例审核，完整验证尚未完成。静态扫描和历史manifest不是对未知官方隐藏引擎的认证。本次不重跑无关性能实验、不改engine或候选。
+
 ## 用户授权与目标
 用户最新明确授权参考另外两位合作者的仓库进展和算法，学习经验并综合优化；所有修改继续仅在本人目录/个人分支source/Vanius0525，不能修改他人目录或分支。此授权自本次消息起覆盖之前“不读队友算法”的限制，不追溯改变先前实验的来源声明。
 

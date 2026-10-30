@@ -1,0 +1,82 @@
+{
+  "train_rows": 150,
+  "contributing_flows": 75,
+  "targets_per_mode": {
+    "0": {
+      "min": 0.0,
+      "median": 0.0,
+      "max": 0.0,
+      "positive_rows": 0,
+      "rows_above_margin005": 0
+    },
+    "2": {
+      "min": -0.4597748510368582,
+      "median": 0.0,
+      "max": 0.3903723255731175,
+      "positive_rows": 63,
+      "rows_above_margin005": 8
+    },
+    "3": {
+      "min": -1.4966150302852366,
+      "median": 0.0,
+      "max": 0.5869252683318185,
+      "positive_rows": 62,
+      "rows_above_margin005": 10
+    }
+  },
+  "leaves": [
+    {
+      "node": 1,
+      "rows": 26,
+      "mean_gains": [
+        0.0,
+        0.01229603543448496,
+        -0.09956239647108787
+      ],
+      "best_mode_without_margin": 2
+    },
+    {
+      "node": 4,
+      "rows": 27,
+      "mean_gains": [
+        0.0,
+        -0.04677267527581744,
+        -0.005126190086329875
+      ],
+      "best_mode_without_margin": 0
+    },
+    {
+      "node": 5,
+      "rows": 27,
+      "mean_gains": [
+        0.0,
+        -0.013952719258286615,
+        -0.0016798572162698546
+      ],
+      "best_mode_without_margin": 0
+    },
+    {
+      "node": 7,
+      "rows": 27,
+      "mean_gains": [
+        0.0,
+        -0.006438867466260504,
+        -0.007121311209147825
+      ],
+      "best_mode_without_margin": 0
+    },
+    {
+      "node": 8,
+      "rows": 43,
+      "mean_gains": [
+        0.0,
+        0.00016283683334814713,
+        0.00013074843629386502
+      ],
+      "best_mode_without_margin": 2
+    }
+  ],
+  "all_leaves_choose_default_at_original_margin": true,
+  "all_leaves_choose_default_even_without_margin": false,
+  "scope": "exact refit of preserved train rows for diagnosis only; no new submission or eval call; label best is conditional on two continuation teachers, not OPT"
+}

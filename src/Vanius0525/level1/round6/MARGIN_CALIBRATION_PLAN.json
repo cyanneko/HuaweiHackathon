@@ -1,0 +1,19 @@
+{
+  "scope": "post-baseline TRAIN-diagnosed margin calibration; dev100 only, no eval call; not original pretest freeze",
+  "trigger": "original tree routes all leaves to default because leaf gains <0.05; training positive leaf gains0.012296 and0.000163",
+  "train_rows_sha256": "59f099cb740e9d4dd31974d64df9a053daaa6838aee251d6a462676526ceacf3",
+  "policies": {
+    "ai_interval_margin000": {
+      "margin": 0.0,
+      "sha256": "82fd0001b62127e3213a3130d041fd1ee5cda2879889f0c8abdaf532970e7ca4"
+    },
+    "ai_interval_margin005": {
+      "margin": 0.005,
+      "sha256": "6aba09507392a46c41e2cdf26f66f1450826d89f4346f0add16698e8833bbe8d"
+    }
+  },
+  "same_tree_features_samples": true,
+  "selection": "dev score improvement >=0.02 and worst physical ratio <=1.05 times contemporaneous ai_best",
+  "no_auto_test": true,
+  "stop_rule": "if neither wins, stop tree enlargement and examine candidate/teacher opportunity on train only"
+}

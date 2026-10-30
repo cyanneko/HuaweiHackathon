@@ -1,5 +1,11 @@
 # Level 1：纯算法与小神经网络调度器
 
+**最新完成结果**：[综合集当前结果](round6/CURRENT_RESULTS.json)、[首轮及dev校准](round6/RESULTS.md)。没有新候选通过开发门槛，Best保持；测试仅查询初始基准一次，1000次动作审核通过。当前无训练/评测进程，小时只读续接服务保留；不要重复已完成测试或恢复旧矩阵。
+
+**最新任务覆盖**：用户已要求停止旧评测，以`final_dataset 2.0.0@33ab5af`综合集为唯一主要测试标准，不再三成员分别/平均。当前纯/AI冻结基准、新train/dev隔离优化和只读小时检查见[round6/README.md](round6/README.md)及[round6/HANDOFF.md](round6/HANDOFF.md)。旧后台控制器已停止，Best未覆盖；下方round5运行说明及三成员成绩保留作历史。
+
+**2026-10-30新授权状态**：已恢复每小时本地检查，开始按三人评议实现第五轮优化；下文“取消检查”段落是历史状态，现由本段覆盖。数据划分、过拟合风险、训练教师与离线最优的区别、新候选及运行状态见 [round5/README.md](round5/README.md) 和 [round5/HANDOFF.md](round5/HANDOFF.md)。当前Best尚未变更。
+
 本轮只优化可测的Level 1成本，不讨论主观加分包装。调研、反例与适用边界见 [RESEARCH.md](RESEARCH.md)，实验结果见 [RESULTS.md](RESULTS.md)，机器可读证据见 [VALIDATION_SUMMARY.json](VALIDATION_SUMMARY.json)。
 
 ## 当前发布候选

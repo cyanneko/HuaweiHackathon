@@ -75,6 +75,10 @@ def mlp_cpp(model):
     return definition
 
 def main(train_data,val_data,recollect=False):
+    from round5.audit_splits import audit
+    split_audit = audit({'train': train_data, 'val': val_data})
+    if not split_audit['passed']:
+        raise ValueError('Train/val overlap (bytes, logical operations, or dynamics); see round5/audit_splits.py')
     start=time.time();results={};data={}
     for split,path in [('train',train_data),('val',val_data)]:
         cache=ROOT/'build'/f'{split}_features.npz'

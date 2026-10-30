@@ -1,5 +1,9 @@
 # 新会话交接与周期检查取消（2026-10-30）
 
+**最新任务入口**：[level1/round6/HANDOFF.md](level1/round6/HANDOFF.md)。用户已要求停止旧评测，改用final_dataset2.0.0@33ab5af综合集，纯/AI冻结后测试并在隔离train/dev迭代。停止已执行，旧partial保留；新小时服务只查进度并续接，不能按历史记录恢复旧矩阵或自动刷测试。
+
+**后续授权覆盖**：用户已重新要求继续优化实现、持续迭代并恢复每小时检查。当前入口改为[level1/round5/HANDOFF.md](level1/round5/HANDOFF.md)和[level1/round5/README.md](level1/round5/README.md)。旧取消说明为历史；新小时服务使用独立忽略目录，不移除旧STOP。Best保持不变，新区间教师、动作池消融和三成员验证排队中。
+
 用户最新要求更新交接并取消每小时检查。小时检查/自动续接已核实停止，STOP保留；**已有后台实验仍在执行**，新会话先核查，不能重复启动或误报全部停止。不因旧排队消息自动恢复定时器。
 
 完整新入口：[level1/SESSION_HANDOFF_20261030.md](level1/SESSION_HANDOFF_20261030.md)。当前算法已推送d8369b0，入口[level1/MySpillSchedulerBest.cpp](level1/MySpillSchedulerBest.cpp)，完整同批三成员等权3.538860/10，已知反例及备选见README/CURRENT_CANDIDATE。原冻结两版保留。

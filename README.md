@@ -1,5 +1,7 @@
 # 华为 Hackathon · 第20题 Hash Join 调度
 
+**2026-10-31最终选择：R81易读版，停止继续优化。** [提交文件](submission/MySpillScheduler.cpp) · [提交说明](docs/FINAL_SUBMISSION_20261031.md)。以下带日期内容保留为历史，不构成继续实验指令。
+
 评测与版本比较入口：[统一评测索引](docs/EVALUATION_INDEX.md)。包含固定代码/数据身份、协议、逐例结果、原始日志和失败状态。
 
 

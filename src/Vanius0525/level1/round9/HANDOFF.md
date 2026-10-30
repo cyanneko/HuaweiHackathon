@@ -1,4 +1,25 @@
-# 最新接管：100-only训练基线完成，下一阶段两路线继续（2026-10-30）
+# 最新：两路observer完成，继续归因与AI续接标签设计（2026-10-30）
+
+- 持续goal active。三个子agent仍分别推进pure、AI、数据监测；用户再次明确Python离线训练后把权重内嵌C++，已采纳为后续默认。所有新solver固定100μs；新108dev/72eval仍未访问。
+- pure RETURN_RISK阶段完成：12训练observer+5协议各参考/observer，共22新100运行，session37609已exit0。全TRACE/字节/183,238个pair独立重建通过。pooling改变15,151影子选择，但10/12流总log loss不及no-pooling，11/12的event分项更差；不能称物理增益。最终报告/冻结为pure/RETURN_RISK_REVIEW_V1.md与RETURN_RISK_FINAL_FREEZE_V1.json。下一已授权仅复用旧轨迹的past-only缩放g=(1+ΣD)/(1+ΣZ)归因，同2048衰减和伪计数1，先冻后执行，无新solver/闭环/扫描。
+- AI Phase A完成：24新observer、0新reference，session87611已完成；732,040回调TRACE/字节/来源账通过。387,204压力中242,099集合不同，23/24seed有分歧；只有1seed覆盖q≥262144压力，长流证据仍有限。PHASE_A_REVIEW/SUMMARY/FINAL_FREEZE已生成，没有新模型。下一最小标签阶段已授权实施：原24seed/70预定状态（65完整8192后缀、5终端不足），最多23collector恢复前缀、260分支；C0 paired100、C1 fixed-dynamic100，4096/8192真实PROBE端点，先8分支通过后复用结果继续。无EM/新pure风险依赖，不等pure晋升。70状态均为集合成员不同，不包含PhaseA的3个仅顺序差异。当前是实现/冻结准备，尚未报告实际教师句柄；接管看ai/HANDOFF，不自行重复启动。
+- root新增TRAIN600_TRAJECTORY_DIAGNOSIS：复用旧3条TRACE，运行diagnose_training_tail.py成功，未启动solver。34/690/734 Miss涉及9/466/487对象；pure额外成本中570720μs来自Miss、20227μs来自I/O。q33496同一74MB冷对象，Naive已有21.6MB余量、驱逐7对象，pure几乎满、驱逐117。不是同状态反事实，不改候选池/策略、不用该事后异常重选教师样本。
+- 数据monitor最新远端0f3000f015d8，主final2.1数据树不变；后续fetch关闭auto gc/maintenance。没有新服务、没有重启旧小时服务。63b2ec3为上次已推送阶段；当前收尾产物待检查后单独发布，只暂存本任务文件，Round4/6无关改动保留。
+- root已独立复核pure最终14件、AI最终9件SHA；新归因脚本已成功重放旧3条完整轨迹，JSON/语法/私有路径预检通过。下一动作：完成当前阶段提交/推送，监督已授权的纯离线缩放和AI最小续接实现/协议审核。旧命令均不要重复启动。
+
+以下为前序记录。
+
+# 发布后续接：63b2ec3已推送，两个observer阶段继续（2026-10-30）
+
+- 完成本阶段156个文件的验证、commit和push：63b2ec317adba034280531bb9d326b7f31a44f67，个人分支source/Vanius0525。只提交本任务产物，Round4/6无关脏文件保持。PUBLICATION_STAGE1.json中的哈希描述这个Git提交快照；活跃HANDOFF之后正常更新，闭合实验freeze原件仍不改。
+- 主agent100基线已完成，无未完成solver。不要重新运行原PENALTY100_PILOT_PLAN、旧1版本或已完成60基线。后续源码固定100，AI权重导出和新训练另按机会证据推进。
+- pure新RETURN_RISK_CONTRACT/PLAN已冻结，12seed按先验规则选取，正在实现独立事件/暴露账审核；AI的PHASE_A_CONTRACT/BUILD_FREEZE已冻结并编译通过，准备按共享锁运行24observer。两者只读旧paired100已完成参考轨迹，不重跑参考；下一接管先看子agent真实状态及它们的新HANDOFF/进程，不能把“准备”称“已完成”。
+- 数据monitor继续跟踪后续独立归档更新，主final_dataset树未见变更。08:40一次小元数据fetch意外触发Git后台packing，后续显式关闭自动gc/maintenance；该窗口不声称整宿主独占。未干预维护任务，也未读独立诊断的算法成绩。
+- 持续goal active。下一条动作是核查新12/24observer的合同、实现和实际进程，监督完成事件/动作/资源审核；若有稳定动作收益证据再进入纯闭环和AI教师/训练，不扩候选池或扫描旧树。新108dev与72eval继续封存。
+
+以下为本阶段发布前的完成记录。
+
+# 前序接管：100-only训练基线完成，下一阶段两路线继续（2026-10-30）
 
 - 持续goal active；本轮progress包括数据划分、100-only源码、180完整审核/540计时、数值审核修复与下一机制实施授权，不是等待或无进展。
 - 主agent的100-only60训练基线已完整结束，run_proxy100_baseline_v3.py进程确认exit0。日志build/round9_proxy100_baseline_v3.log；结果PROXY100_BASELINE_RESULTS_V3.json与独立核查PROXY100_BASELINE_REVIEW.json。pure3.744318、AI3.268412，均为训练分；新108dev/72eval仍无solver访问。当前无主agent运行中的solver，不重复旧命令。

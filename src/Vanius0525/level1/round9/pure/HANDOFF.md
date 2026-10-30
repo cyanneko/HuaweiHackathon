@@ -2,6 +2,12 @@
 
 ## 最新状态（优先于以下历史阶段）
 
+Return-risk 正式报告 `RETURN_RISK_REVIEW_V1.md`、汇总及 14 文件最终冻结均完成，FINAL_FREEZE SHA `4ab35b60c41a798da968491feb9a2997f945b3441b9e274c9274fe76d5a9f5a9`。pooling 10/12 流比 no-pooling 差；改变的 15,151 个影子决定中 10,398 当前更多写，4,753 更少写，不能提前解释为“只是少写”。当前无 solver/审核进程。已提出 `RETURN_RISK_SCALE_PLAN_V1.md`：复用原 12 流完整合法轨迹，新增唯一 past-only 全局 g=(1+ΣD)/(1+ΣZ) 缩放，先审阅再离线复算，不新 solver、不闭环、不扫温度。
+
+Return-risk 100 影子完成，session 37609 exit0：12 train + 5 协议共 22 新 100 solver，复用 12 训练基线，全 TRACE/精确字节/独立两本账/全部 pair 比较/序贯评分通过。train 共 1,477,503 PROBE，307,328 pressure、183,238 不同 pair，pooling 改变影子选择 15,151（8.27% pair / 4.93% pressure）。流均相对 log loss：pooling −1.408%（8好/4坏），no-pooling −1.442%（9好/3坏）；无无限 loss。但 pooling 的 event 分项在 11/12 流更差，改善来自多数 non-event 项，算子池化也未稳定胜过无池化。不能将其叫更好保护热点或闭环收益。正在写正式分解/停止建议，当前无运行 solver。固定对象 20,440 B，总统计 CPU 6.293 秒、wall 8.314 秒；总 h 最大 1.601，明确不是归一化 p。
+
+Return-risk 100 影子已获主agent授权，执行合同 `RETURN_RISK_CONTRACT_V1.md` 和 12 train 选择 `RETURN_RISK_PLAN_V1.json` 已冻结。BUILD_FREEZE_V1 SHA `16b830a0873e040f15386eabd3dc56f7264eb5c44fab076ed65f04e9cf1d0cbd` 绑定 9 文件、12 已完成 paired100 参考和 5 旧协议小例。Python 语法通过。当前执行 `python src/Vanius0525/level1/round9/pure/run_return_risk_v1.py`，session 37609：共享锁编译，接着 5 小例（100参考+observer）与 12 train observer，共 22 新 100 solver；训练基线复用，不改动作。尚无运行结果，不把启动称通过。输出目录 `level1/build/round9_pure_return_risk_v1`。
+
 驱逐重访风险研究已落盘 `EVICTION_RETURN_RISK_DESIGN_V1.md` 与 `EVICTION_RETURN_RISK_RESEARCH_V1.md`，目前仅设计、未执行：分真实等待账/未知请求风险账；已透露 next 位置对所有对象一致排除随机暴露，避免前视选择混杂，B1 回退 next；未返回持续贡献暴露，预取另记已知返回。一个固定 2048 半衰期、伪计数 1 的算子/分区相对 next 校准，先保持 paired100 两 proposal 完全固定。h 不称全局 p、不强行归一化，旧 risk/n_eff 不称新估计置信保证。等待主agent审阅并另冻最小影子合同；没有新 solver 或运行任务。
 
 补充 `EVICTION_RETURN_RISK_BOUNDARIES_V1.md` 已列明未知区间 U 的精确去重式、稀疏回调的指数权重积分、初始在盘/首回调不回填、预取确认与 EOF 边界、触顶 h=1 的无限 log loss必须显式报告。它是静态核对，不是已通过的执行测试。
@@ -31,6 +37,8 @@
 主agent收到结果后决定停止有限next第一阶段，不进入大续接/新候选。本结果不证明无限保护最优，也不用于选阈值。接下来的授权工作是先给出概率加权冷对象周转预算的一页研究设计，说明与旧core负结果的差别、静态模型及停止条件；不直接扫配置，不重复AI的匿名Hit统计实现，不使用正在更新但未冻结的2.1数据。
 
 ## Open Ideas / 值得深挖的问题
+
+2026-10-30：正确评分的总 log loss 改善也可能主要是整体风险尺度校准，而没有更好区分最昂贵的返回对象。触发：return-risk 12train 中 pooling 总 loss 8好/4坏，但真实返回 event 分项 11/12 更差；一条 −5.39% 总误差改善的流原池没有不同 pair。最小后续验证应固定历史/候选，加入单个预定全局尺度对照并分解判别排序与尺度，先不做大闭环或增加层次模型。尚未检查原始文献的新颖性，不宣称独立立项价值。
 
 2026-10-30：带 next 前视的缓存反馈产生“预测目标改变自身观测窗口”的依赖。触发为 paired 对 next 的强保护：即使 IID，被驱逐对象首步也常必然不返回。潜在科研问题是短前视下如何区分直接需求分布与策略条件周转风险；最小验证是已知位置全局排除、B1 零未知暴露、固定动作轨迹上的序贯校准对照。已有 refault/hazard 文献，尚未确认独立新颖性，不宣称顶会价值或已发现收益。
 

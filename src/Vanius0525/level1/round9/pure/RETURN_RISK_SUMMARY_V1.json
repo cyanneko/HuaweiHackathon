@@ -1,0 +1,4142 @@
+{
+  "scope": "Same paired100 actions; sequential risk prediction on observable unknown on-disk trials, not global popularity accuracy or closed-loop cost. Flow is the aggregation unit; no independence/CI claim.",
+  "complete": true,
+  "training_flows": 12,
+  "protocol_flows": 5,
+  "all_trace_and_byte_audits_passed": true,
+  "all_independent_risk_audits_passed": true,
+  "totals": {
+    "probes": 1477503,
+    "unknown_positions": 1033605,
+    "known_positions": 443804,
+    "unknown_trials": 138681341,
+    "unknown_events": 246703,
+    "pressure": 307328,
+    "checks": 307328,
+    "different_pairs": 183238,
+    "pool_changed": 15151,
+    "flat_changed": 14979,
+    "kernel_cpu_us": 6292926,
+    "kernel_wall_us": 8313631.935999914
+  },
+  "model_comparisons": {
+    "pooling": {
+      "comparable_flows": 12,
+      "mean_flow_relative_logloss_delta": -0.014081147835848249,
+      "best_flow_relative_logloss_delta": -0.08818636613947284,
+      "worst_flow_relative_logloss_delta": 0.0010399914999288384,
+      "flows_lower_loss": 8,
+      "flows_higher_loss": 4,
+      "flows_infinite_loss": 0,
+      "event_loss_worse_flows": 11,
+      "aggregate_event_delta": 20754.712468787122,
+      "aggregate_nonevent_delta": -26716.58809938288,
+      "changed_actions_less_current_write": 4753,
+      "changed_actions_more_current_write": 10398
+    },
+    "no_pooling": {
+      "comparable_flows": 12,
+      "mean_flow_relative_logloss_delta": -0.014422723668775636,
+      "best_flow_relative_logloss_delta": -0.09149912641543612,
+      "worst_flow_relative_logloss_delta": 0.0010294612017702764,
+      "flows_lower_loss": 9,
+      "flows_higher_loss": 3,
+      "flows_infinite_loss": 0,
+      "event_loss_worse_flows": 11,
+      "aggregate_event_delta": 20656.537837398253,
+      "aggregate_nonevent_delta": -26756.199158704934,
+      "changed_actions_less_current_write": 4655,
+      "changed_actions_more_current_write": 10324
+    }
+  },
+  "real_ledger_totals": {
+    "starts": 393925,
+    "initial": 587,
+    "demand": 391262,
+    "known_demand": 144548,
+    "unknown_demand": 246714,
+    "prefetch": 2304,
+    "prefetch_confirmed": 2304,
+    "other_load": 0,
+    "own_returns": 392979,
+    "own_wait_sum": 201041207,
+    "own_wait_max": 25566,
+    "disk_exposure_closed": 201724169,
+    "disk_exposure_open": 1291472,
+    "own_censored_count": 946,
+    "own_censored_age": 1291472,
+    "spill_bytes": 35242269720494,
+    "read_bytes": 35241924673425
+  },
+  "rows": [
+    {
+      "id": "edge_all_resident_constant_first_callback_tail",
+      "edge": true,
+      "family": null,
+      "seed": null,
+      "probes": 8400,
+      "period": 97,
+      "unknown_positions": 8160,
+      "known_positions": 85,
+      "unknown_trials": 0,
+      "unknown_events": 0,
+      "pressure": 0,
+      "checks": 0,
+      "different_pairs": 0,
+      "pool_changed": 0,
+      "flat_changed": 0,
+      "pool_changed_fraction_of_pairs": 0,
+      "pool_changed_fraction_of_pressure": 0,
+      "loss": {
+        "next": {
+          "event": 0,
+          "nonevent": 0,
+          "events": 0,
+          "nonevents": 0,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 0,
+          "infinite_count": 0,
+          "finite_sum": 0,
+          "total_is_infinite": false,
+          "mean_log_loss": null,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": null
+        },
+        "pooling": {
+          "event": 0,
+          "nonevent": 0,
+          "events": 0,
+          "nonevents": 0,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 0,
+          "infinite_count": 0,
+          "finite_sum": 0,
+          "total_is_infinite": false,
+          "mean_log_loss": null,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": null
+        },
+        "no_pooling": {
+          "event": 0,
+          "nonevent": 0,
+          "events": 0,
+          "nonevents": 0,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 0,
+          "infinite_count": 0,
+          "finite_sum": 0,
+          "total_is_infinite": false,
+          "mean_log_loss": null,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": null
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": 0,
+          "relative_total_delta": null,
+          "mean_log_loss_delta": null,
+          "event_delta": 0,
+          "nonevent_delta": 0
+        },
+        "no_pooling": {
+          "finite_total_delta": 0,
+          "relative_total_delta": null,
+          "mean_log_loss_delta": null,
+          "event_delta": 0,
+          "nonevent_delta": 0
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 0,
+          "initial": 0,
+          "demand": 0,
+          "known_demand": 0,
+          "unknown_demand": 0,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 0,
+          "own_wait_sum": 0,
+          "own_wait_max": 0,
+          "disk_exposure_closed": 0,
+          "disk_exposure_open": 0,
+          "own_censored_count": 0,
+          "own_censored_age": 0,
+          "spill_bytes": 0,
+          "read_bytes": 0
+        }
+      ],
+      "kernel_cpu_us": 483,
+      "kernel_wall_us": 765.5159999999997,
+      "observer_wall_seconds": 0.016027168996515684,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0,
+      "sum_h_max": 0
+    },
+    {
+      "id": "edge_b1_duplicate_next_window_rollover",
+      "edge": true,
+      "family": null,
+      "seed": null,
+      "probes": 5200,
+      "period": 1,
+      "unknown_positions": 0,
+      "known_positions": 5199,
+      "unknown_trials": 0,
+      "unknown_events": 0,
+      "pressure": 419,
+      "checks": 419,
+      "different_pairs": 15,
+      "pool_changed": 0,
+      "flat_changed": 0,
+      "pool_changed_fraction_of_pairs": 0.0,
+      "pool_changed_fraction_of_pressure": 0.0,
+      "loss": {
+        "next": {
+          "event": 0,
+          "nonevent": 0,
+          "events": 0,
+          "nonevents": 0,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 0,
+          "infinite_count": 0,
+          "finite_sum": 0,
+          "total_is_infinite": false,
+          "mean_log_loss": null,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": null
+        },
+        "pooling": {
+          "event": 0,
+          "nonevent": 0,
+          "events": 0,
+          "nonevents": 0,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 0,
+          "infinite_count": 0,
+          "finite_sum": 0,
+          "total_is_infinite": false,
+          "mean_log_loss": null,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": null
+        },
+        "no_pooling": {
+          "event": 0,
+          "nonevent": 0,
+          "events": 0,
+          "nonevents": 0,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 0,
+          "infinite_count": 0,
+          "finite_sum": 0,
+          "total_is_infinite": false,
+          "mean_log_loss": null,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": null
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": 0,
+          "relative_total_delta": null,
+          "mean_log_loss_delta": null,
+          "event_delta": 0,
+          "nonevent_delta": 0
+        },
+        "no_pooling": {
+          "finite_total_delta": 0,
+          "relative_total_delta": null,
+          "mean_log_loss_delta": null,
+          "event_delta": 0,
+          "nonevent_delta": 0
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 0,
+            "nonevent": 0,
+            "events": 0,
+            "nonevents": 0,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 373,
+          "initial": 3,
+          "demand": 375,
+          "known_demand": 375,
+          "unknown_demand": 0,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 372,
+          "own_wait_sum": 5663,
+          "own_wait_max": 42,
+          "disk_exposure_closed": 5705,
+          "disk_exposure_open": 33,
+          "own_censored_count": 1,
+          "own_censored_age": 33,
+          "spill_bytes": 6257901568,
+          "read_bytes": 6291456000
+        },
+        {
+          "starts": 46,
+          "initial": 1,
+          "demand": 44,
+          "known_demand": 44,
+          "unknown_demand": 0,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 43,
+          "own_wait_sum": 14730,
+          "own_wait_max": 357,
+          "disk_exposure_closed": 14742,
+          "disk_exposure_open": 316,
+          "own_censored_count": 3,
+          "own_censored_age": 316,
+          "spill_bytes": 771751936,
+          "read_bytes": 738197504
+        }
+      ],
+      "kernel_cpu_us": 15721,
+      "kernel_wall_us": 30432.698000000728,
+      "observer_wall_seconds": 0.1885452139977133,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 1,
+      "sum_h_max": 1
+    },
+    {
+      "id": "edge_mixed_phase_to_full_probe",
+      "edge": true,
+      "family": null,
+      "seed": null,
+      "probes": 5132,
+      "period": 5,
+      "unknown_positions": 3808,
+      "known_positions": 1291,
+      "unknown_trials": 15232,
+      "unknown_events": 180,
+      "pressure": 273,
+      "checks": 273,
+      "different_pairs": 23,
+      "pool_changed": 0,
+      "flat_changed": 0,
+      "pool_changed_fraction_of_pairs": 0.0,
+      "pool_changed_fraction_of_pressure": 0.0,
+      "loss": {
+        "next": {
+          "event": 604.3269786019941,
+          "nonevent": 397.39509375310627,
+          "events": 180,
+          "nonevents": 15052,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 15232,
+          "infinite_count": 0,
+          "finite_sum": 1001.7220723551004,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.06576431672499346,
+          "mean_event_log_loss": 3.357372103344412,
+          "mean_nonevent_log_loss": 0.026401481115672754
+        },
+        "pooling": {
+          "event": 598.6832186050965,
+          "nonevent": 143.21678773564085,
+          "events": 180,
+          "nonevents": 15052,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 15232,
+          "infinite_count": 0,
+          "finite_sum": 741.9000063407374,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.04870667058434463,
+          "mean_event_log_loss": 3.326017881139425,
+          "mean_nonevent_log_loss": 0.009514801204865855
+        },
+        "no_pooling": {
+          "event": 597.3195515466366,
+          "nonevent": 157.87521219348884,
+          "events": 180,
+          "nonevents": 15052,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 15232,
+          "infinite_count": 0,
+          "finite_sum": 755.1947637401254,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.04957948816571201,
+          "mean_event_log_loss": 3.31844195303687,
+          "mean_nonevent_log_loss": 0.01048865348083237
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -259.82206601436303,
+          "relative_total_delta": -0.25937540280360194,
+          "mean_log_loss_delta": -0.01705764614064883,
+          "event_delta": -5.643759996897643,
+          "nonevent_delta": -254.17830601746542
+        },
+        "no_pooling": {
+          "finite_total_delta": -246.52730861497503,
+          "relative_total_delta": -0.24610350058013253,
+          "mean_log_loss_delta": -0.016184828559281446,
+          "event_delta": -7.007427055357539,
+          "nonevent_delta": -239.51988155961743
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 0,
+            "nonevent": 262.99802646766216,
+            "events": 0,
+            "nonevents": 11416,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 604.3269786019941,
+            "nonevent": 134.3970672854441,
+            "events": 180,
+            "nonevents": 3636,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 0,
+            "nonevent": 2.6590287053189385,
+            "events": 0,
+            "nonevents": 11416,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 598.6832186050965,
+            "nonevent": 140.5577590303219,
+            "events": 180,
+            "nonevents": 3636,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 0,
+            "nonevent": 16.139589413258772,
+            "events": 0,
+            "nonevents": 11416,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 597.3195515466366,
+            "nonevent": 141.73562278023007,
+            "events": 180,
+            "nonevents": 3636,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 2,
+          "initial": 1,
+          "demand": 0,
+          "known_demand": 0,
+          "unknown_demand": 0,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 0,
+          "own_wait_sum": 0,
+          "own_wait_max": 0,
+          "disk_exposure_closed": 0,
+          "disk_exposure_open": 15286,
+          "own_censored_count": 2,
+          "own_censored_age": 10187,
+          "spill_bytes": 33554432,
+          "read_bytes": 0
+        },
+        {
+          "starts": 271,
+          "initial": 3,
+          "demand": 273,
+          "known_demand": 92,
+          "unknown_demand": 181,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 270,
+          "own_wait_sum": 5060,
+          "own_wait_max": 33,
+          "disk_exposure_closed": 5093,
+          "disk_exposure_open": 17,
+          "own_censored_count": 1,
+          "own_censored_age": 17,
+          "spill_bytes": 4546625536,
+          "read_bytes": 4580179968
+        }
+      ],
+      "kernel_cpu_us": 4750,
+      "kernel_wall_us": 8314.293000000016,
+      "observer_wall_seconds": 0.06128120799257886,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.13279592669883275,
+      "sum_h_max": 0.4311844473873061
+    },
+    {
+      "id": "edge_sparse_callbacks_long_hit_tail",
+      "edge": true,
+      "family": null,
+      "seed": null,
+      "probes": 20411,
+      "period": 10000,
+      "unknown_positions": 9999,
+      "known_positions": 1,
+      "unknown_trials": 39996,
+      "unknown_events": 0,
+      "pressure": 0,
+      "checks": 0,
+      "different_pairs": 0,
+      "pool_changed": 0,
+      "flat_changed": 0,
+      "pool_changed_fraction_of_pairs": 0,
+      "pool_changed_fraction_of_pressure": 0,
+      "loss": {
+        "next": {
+          "event": 0,
+          "nonevent": 5252.9147384352345,
+          "events": 0,
+          "nonevents": 39996,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 39996,
+          "infinite_count": 0,
+          "finite_sum": 5252.9147384352345,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.13133600206108698,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": 0.13133600206108698
+        },
+        "pooling": {
+          "event": 0,
+          "nonevent": 5252.9147384352345,
+          "events": 0,
+          "nonevents": 39996,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 39996,
+          "infinite_count": 0,
+          "finite_sum": 5252.9147384352345,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.13133600206108698,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": 0.13133600206108698
+        },
+        "no_pooling": {
+          "event": 0,
+          "nonevent": 5252.9147384352345,
+          "events": 0,
+          "nonevents": 39996,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 39996,
+          "infinite_count": 0,
+          "finite_sum": 5252.9147384352345,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.13133600206108698,
+          "mean_event_log_loss": null,
+          "mean_nonevent_log_loss": 0.13133600206108698
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": 0.0,
+          "relative_total_delta": 0.0,
+          "mean_log_loss_delta": 0.0,
+          "event_delta": 0,
+          "nonevent_delta": 0.0
+        },
+        "no_pooling": {
+          "finite_total_delta": 0.0,
+          "relative_total_delta": 0.0,
+          "mean_log_loss_delta": 0.0,
+          "event_delta": 0,
+          "nonevent_delta": 0.0
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 0,
+            "nonevent": 3939.686053826426,
+            "events": 0,
+            "nonevents": 29997,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 0,
+            "nonevent": 1313.2286846088086,
+            "events": 0,
+            "nonevents": 9999,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 0,
+            "nonevent": 3939.686053826426,
+            "events": 0,
+            "nonevents": 29997,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 0,
+            "nonevent": 1313.2286846088086,
+            "events": 0,
+            "nonevents": 9999,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 0,
+            "nonevent": 3939.686053826426,
+            "events": 0,
+            "nonevents": 29997,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 0,
+            "nonevent": 1313.2286846088086,
+            "events": 0,
+            "nonevents": 9999,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 0,
+          "initial": 3,
+          "demand": 0,
+          "known_demand": 0,
+          "unknown_demand": 0,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 0,
+          "own_wait_sum": 0,
+          "own_wait_max": 0,
+          "disk_exposure_closed": 0,
+          "disk_exposure_open": 30000,
+          "own_censored_count": 0,
+          "own_censored_age": 0,
+          "spill_bytes": 0,
+          "read_bytes": 0
+        },
+        {
+          "starts": 0,
+          "initial": 1,
+          "demand": 0,
+          "known_demand": 0,
+          "unknown_demand": 0,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 0,
+          "own_wait_sum": 0,
+          "own_wait_max": 0,
+          "disk_exposure_closed": 0,
+          "disk_exposure_open": 10000,
+          "own_censored_count": 0,
+          "own_censored_age": 0,
+          "spill_bytes": 0,
+          "read_bytes": 0
+        }
+      ],
+      "kernel_cpu_us": 61,
+      "kernel_wall_us": 84.57900000000001,
+      "observer_wall_seconds": 0.020684631992480718,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0,
+      "sum_h_max": 0
+    },
+    {
+      "id": "edge_variable_objects_prefetch",
+      "edge": true,
+      "family": null,
+      "seed": null,
+      "probes": 5200,
+      "period": 5,
+      "unknown_positions": 2969,
+      "known_positions": 2227,
+      "unknown_trials": 2969,
+      "unknown_events": 1188,
+      "pressure": 1484,
+      "checks": 1484,
+      "different_pairs": 0,
+      "pool_changed": 0,
+      "flat_changed": 0,
+      "pool_changed_fraction_of_pairs": 0,
+      "pool_changed_fraction_of_pressure": 0.0,
+      "loss": {
+        "next": {
+          "event": 2966.3070922870074,
+          "nonevent": 154.9355220921644,
+          "events": 1188,
+          "nonevents": 1781,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 2969,
+          "infinite_count": 0,
+          "finite_sum": 3121.2426143791718,
+          "total_is_infinite": false,
+          "mean_log_loss": 1.0512774046410145,
+          "mean_event_log_loss": 2.4968914918240803,
+          "mean_nonevent_log_loss": 0.08699355535775655
+        },
+        "pooling": {
+          "event": 1230.0900881048356,
+          "nonevent": 749.586409893853,
+          "events": 1188,
+          "nonevents": 1781,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 2969,
+          "infinite_count": 0,
+          "finite_sum": 1979.6764979986885,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.6667822492417274,
+          "mean_event_log_loss": 1.0354293670916124,
+          "mean_nonevent_log_loss": 0.4208795114507878
+        },
+        "no_pooling": {
+          "event": 1261.1523172100349,
+          "nonevent": 726.236496399364,
+          "events": 1188,
+          "nonevents": 1781,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 2969,
+          "infinite_count": 0,
+          "finite_sum": 1987.3888136093988,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.6693798631220609,
+          "mean_event_log_loss": 1.0615760245875714,
+          "mean_nonevent_log_loss": 0.4077689480063807
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -1141.5661163804832,
+          "relative_total_delta": -0.3657409107262062,
+          "mean_log_loss_delta": -0.38449515539928714,
+          "event_delta": -1736.2170041821719,
+          "nonevent_delta": 594.6508878016886
+        },
+        "no_pooling": {
+          "finite_total_delta": -1133.853800769773,
+          "relative_total_delta": -0.3632699987967136,
+          "mean_log_loss_delta": -0.3818975415189536,
+          "event_delta": -1705.1547750769726,
+          "nonevent_delta": 571.3009743071996
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 2966.3070922870074,
+            "nonevent": 154.9355220921644,
+            "events": 1188,
+            "nonevents": 1781,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 1230.0900881048356,
+            "nonevent": 749.586409893853,
+            "events": 1188,
+            "nonevents": 1781,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 1261.1523172100349,
+            "nonevent": 726.236496399364,
+            "events": 1188,
+            "nonevents": 1781,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 1484,
+          "initial": 3,
+          "demand": 1486,
+          "known_demand": 297,
+          "unknown_demand": 1189,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 1483,
+          "own_wait_sum": 5193,
+          "own_wait_max": 6,
+          "disk_exposure_closed": 5197,
+          "disk_exposure_open": 0,
+          "own_censored_count": 1,
+          "own_censored_age": 0,
+          "spill_bytes": 27231518720,
+          "read_bytes": 27233615872
+        }
+      ],
+      "kernel_cpu_us": 9770,
+      "kernel_wall_us": 17561.685000000038,
+      "observer_wall_seconds": 0.13609659500070848,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0,
+      "sum_h_max": 0
+    },
+    {
+      "id": "train_669_random_hotspot",
+      "edge": false,
+      "family": "random_hotspot",
+      "seed": 12796682547846436763,
+      "probes": 415080,
+      "period": 8,
+      "unknown_positions": 293054,
+      "known_positions": 122024,
+      "unknown_trials": 110991720,
+      "unknown_events": 57820,
+      "pressure": 67687,
+      "checks": 67687,
+      "different_pairs": 66902,
+      "pool_changed": 2495,
+      "flat_changed": 2367,
+      "pool_changed_fraction_of_pairs": 0.03729335445876057,
+      "pool_changed_fraction_of_pressure": 0.03686084477078316,
+      "loss": {
+        "next": {
+          "event": 434528.66823391366,
+          "nonevent": 58111.029652120604,
+          "events": 57820,
+          "nonevents": 110933900,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 110991720,
+          "infinite_count": 0,
+          "finite_sum": 492639.69788603426,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.004438526566540588,
+          "mean_event_log_loss": 7.515196614215041,
+          "mean_nonevent_log_loss": 0.0005238347308813682
+        },
+        "pooling": {
+          "event": 439135.4758825901,
+          "nonevent": 51192.23228363737,
+          "events": 57820,
+          "nonevents": 110933900,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 110991720,
+          "infinite_count": 0,
+          "finite_sum": 490327.7081662275,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.0044176962764990715,
+          "mean_event_log_loss": 7.594871599491355,
+          "mean_nonevent_log_loss": 0.0004614660828082071
+        },
+        "no_pooling": {
+          "event": 439017.9501610035,
+          "nonevent": 51134.79709574785,
+          "events": 57820,
+          "nonevents": 110933900,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 110991720,
+          "infinite_count": 0,
+          "finite_sum": 490152.74725675135,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.004416119934502784,
+          "mean_event_log_loss": 7.592838985835412,
+          "mean_nonevent_log_loss": 0.00046094834036978637
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -2311.989719806763,
+          "relative_total_delta": -0.004693064180023909,
+          "mean_log_loss_delta": -2.0830290041516306e-05,
+          "event_delta": 4606.807648676448,
+          "nonevent_delta": -6918.797368483232
+        },
+        "no_pooling": {
+          "finite_total_delta": -2486.9506292829174,
+          "relative_total_delta": -0.005048214019200414,
+          "mean_log_loss_delta": -2.2406632037804027e-05,
+          "event_delta": 4489.281927089847,
+          "nonevent_delta": -6976.232556372757
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 2495,
+          "less_current_write": 618,
+          "more_current_write": 1877,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 3866986.4627027004,
+          "sum_freed_delta_bytes": 3576962478,
+          "mean_current_write_delta_us": 1549.8943738287376,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 2367,
+          "less_current_write": 561,
+          "more_current_write": 1806,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 3707385.078918914,
+          "sum_freed_delta_bytes": 3429331198,
+          "mean_current_write_delta_us": 1566.280134735494,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 55909.13548231648,
+            "nonevent": 7457.218953438529,
+            "events": 7350,
+            "nonevents": 14609055,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 54937.024072949214,
+            "nonevent": 7216.131912051168,
+            "events": 7251,
+            "nonevents": 13850525,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 55296.7112685504,
+            "nonevent": 7514.477709837991,
+            "events": 7296,
+            "nonevents": 14512374,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 53530.55608967537,
+            "nonevent": 7212.2796788798305,
+            "events": 7132,
+            "nonevents": 13797165,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 54559.07219404134,
+            "nonevent": 7342.481706047488,
+            "events": 7241,
+            "nonevents": 14179337,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 52817.54774961238,
+            "nonevent": 6989.973196826892,
+            "events": 7228,
+            "nonevents": 12497898,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 55615.43151722341,
+            "nonevent": 7354.519653004385,
+            "events": 7325,
+            "nonevents": 14413402,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 51863.189859545084,
+            "nonevent": 7023.946842034324,
+            "events": 6997,
+            "nonevents": 13074144,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 56522.512767672095,
+            "nonevent": 6529.541217426086,
+            "events": 7350,
+            "nonevents": 14609055,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 55370.44395514881,
+            "nonevent": 6407.714121304022,
+            "events": 7251,
+            "nonevents": 13850525,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 55985.30081070611,
+            "nonevent": 6493.187232379924,
+            "events": 7296,
+            "nonevents": 14512374,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 54162.53132366519,
+            "nonevent": 6320.452803092227,
+            "events": 7132,
+            "nonevents": 13797165,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 55238.8571752726,
+            "nonevent": 6460.47366152607,
+            "events": 7241,
+            "nonevents": 14179337,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 53247.65495239246,
+            "nonevent": 6303.911444815072,
+            "events": 7228,
+            "nonevents": 12497898,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 56107.785219155674,
+            "nonevent": 6522.574766957871,
+            "events": 7325,
+            "nonevents": 14413402,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 52500.389678577165,
+            "nonevent": 6154.377036136098,
+            "events": 6997,
+            "nonevents": 13074144,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 56453.31298986337,
+            "nonevent": 6567.139173093195,
+            "events": 7350,
+            "nonevents": 14609055,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 55405.897381945375,
+            "nonevent": 6358.065485334987,
+            "events": 7251,
+            "nonevents": 13850525,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 55873.17311201643,
+            "nonevent": 6567.0588297673985,
+            "events": 7296,
+            "nonevents": 14512374,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 54126.268458990984,
+            "nonevent": 6331.243490731285,
+            "events": 7132,
+            "nonevents": 13797165,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 55178.05754287859,
+            "nonevent": 6489.08425334191,
+            "events": 7241,
+            "nonevents": 14179337,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 53401.065412963624,
+            "nonevent": 6160.231192219335,
+            "events": 7228,
+            "nonevents": 12497898,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 56100.3085567504,
+            "nonevent": 6512.470902266139,
+            "events": 7325,
+            "nonevents": 14413402,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 52479.86670559471,
+            "nonevent": 6149.503768993598,
+            "events": 6997,
+            "nonevents": 13074144,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 10458,
+          "initial": 29,
+          "demand": 10183,
+          "known_demand": 2833,
+          "unknown_demand": 7350,
+          "prefetch": 253,
+          "prefetch_confirmed": 253,
+          "other_load": 0,
+          "own_returns": 10407,
+          "own_wait_sum": 20553800,
+          "own_wait_max": 19294,
+          "disk_exposure_closed": 20595751,
+          "disk_exposure_open": 109218,
+          "own_censored_count": 51,
+          "own_censored_age": 109218,
+          "spill_bytes": 149058553521,
+          "read_bytes": 149041146704
+        },
+        {
+          "starts": 10307,
+          "initial": 29,
+          "demand": 10047,
+          "known_demand": 2796,
+          "unknown_demand": 7251,
+          "prefetch": 239,
+          "prefetch_confirmed": 239,
+          "other_load": 0,
+          "own_returns": 10257,
+          "own_wait_sum": 19476149,
+          "own_wait_max": 20403,
+          "disk_exposure_closed": 19546918,
+          "disk_exposure_open": 83441,
+          "own_censored_count": 50,
+          "own_censored_age": 83441,
+          "spill_bytes": 137793741235,
+          "read_bytes": 137899585497
+        },
+        {
+          "starts": 10459,
+          "initial": 29,
+          "demand": 10229,
+          "known_demand": 2933,
+          "unknown_demand": 7296,
+          "prefetch": 210,
+          "prefetch_confirmed": 210,
+          "other_load": 0,
+          "own_returns": 10410,
+          "own_wait_sum": 20408202,
+          "own_wait_max": 22542,
+          "disk_exposure_closed": 20471317,
+          "disk_exposure_open": 95430,
+          "own_censored_count": 49,
+          "own_censored_age": 95430,
+          "spill_bytes": 142844884187,
+          "read_bytes": 142770100878
+        },
+        {
+          "starts": 10120,
+          "initial": 23,
+          "demand": 9847,
+          "known_demand": 2715,
+          "unknown_demand": 7132,
+          "prefetch": 246,
+          "prefetch_confirmed": 246,
+          "other_load": 0,
+          "own_returns": 10070,
+          "own_wait_sum": 19405992,
+          "own_wait_max": 18272,
+          "disk_exposure_closed": 19425943,
+          "disk_exposure_open": 128276,
+          "own_censored_count": 50,
+          "own_censored_age": 128276,
+          "spill_bytes": 145967704044,
+          "read_bytes": 145767315295
+        },
+        {
+          "starts": 10330,
+          "initial": 31,
+          "demand": 10102,
+          "known_demand": 2861,
+          "unknown_demand": 7241,
+          "prefetch": 209,
+          "prefetch_confirmed": 209,
+          "other_load": 0,
+          "own_returns": 10280,
+          "own_wait_sum": 19939695,
+          "own_wait_max": 18991,
+          "disk_exposure_closed": 19997812,
+          "disk_exposure_open": 98795,
+          "own_censored_count": 50,
+          "own_censored_age": 98795,
+          "spill_bytes": 132487524316,
+          "read_bytes": 132483181873
+        },
+        {
+          "starts": 10282,
+          "initial": 34,
+          "demand": 10074,
+          "known_demand": 2846,
+          "unknown_demand": 7228,
+          "prefetch": 202,
+          "prefetch_confirmed": 202,
+          "other_load": 0,
+          "own_returns": 10242,
+          "own_wait_sum": 17579834,
+          "own_wait_max": 21887,
+          "disk_exposure_closed": 17646745,
+          "disk_exposure_open": 68318,
+          "own_censored_count": 40,
+          "own_censored_age": 68318,
+          "spill_bytes": 164203694932,
+          "read_bytes": 164357673852
+        },
+        {
+          "starts": 10406,
+          "initial": 30,
+          "demand": 10162,
+          "known_demand": 2837,
+          "unknown_demand": 7325,
+          "prefetch": 222,
+          "prefetch_confirmed": 222,
+          "other_load": 0,
+          "own_returns": 10354,
+          "own_wait_sum": 20242398,
+          "own_wait_max": 22788,
+          "disk_exposure_closed": 20293736,
+          "disk_exposure_open": 134459,
+          "own_censored_count": 52,
+          "own_censored_age": 134459,
+          "spill_bytes": 128410570193,
+          "read_bytes": 128316967275
+        },
+        {
+          "starts": 9994,
+          "initial": 34,
+          "demand": 9786,
+          "known_demand": 2788,
+          "unknown_demand": 6998,
+          "prefetch": 196,
+          "prefetch_confirmed": 196,
+          "other_load": 0,
+          "own_returns": 9948,
+          "own_wait_sum": 18366640,
+          "own_wait_max": 22453,
+          "disk_exposure_closed": 18407462,
+          "disk_exposure_open": 124978,
+          "own_censored_count": 46,
+          "own_censored_age": 124978,
+          "spill_bytes": 141968081769,
+          "read_bytes": 142097589395
+        }
+      ],
+      "kernel_cpu_us": 3683792,
+      "kernel_wall_us": 4465848.060999926,
+      "observer_wall_seconds": 22.332336403997033,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.7680371589264061,
+      "sum_h_max": 1.408740534849467
+    },
+    {
+      "id": "train_680_random_hotspot",
+      "edge": false,
+      "family": "random_hotspot",
+      "seed": 16867375401207270052,
+      "probes": 46169,
+      "period": 256,
+      "unknown_positions": 40212,
+      "known_positions": 5938,
+      "unknown_trials": 442312,
+      "unknown_events": 5041,
+      "pressure": 4548,
+      "checks": 4548,
+      "different_pairs": 4261,
+      "pool_changed": 754,
+      "flat_changed": 735,
+      "pool_changed_fraction_of_pairs": 0.1769537667214269,
+      "pool_changed_fraction_of_pressure": 0.16578715919085313,
+      "loss": {
+        "next": {
+          "event": 21733.57138809088,
+          "nonevent": 6042.865646840263,
+          "events": 5041,
+          "nonevents": 437271,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 442312,
+          "infinite_count": 0,
+          "finite_sum": 27776.437034931143,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.06279828952172029,
+          "mean_event_log_loss": 4.311361116463178,
+          "mean_nonevent_log_loss": 0.013819497855655333
+        },
+        "pooling": {
+          "event": 22975.0685727562,
+          "nonevent": 4798.609475595713,
+          "events": 5041,
+          "nonevents": 437271,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 442312,
+          "infinite_count": 0,
+          "finite_sum": 27773.678048351914,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.06279205187368173,
+          "mean_event_log_loss": 4.557641057876651,
+          "mean_nonevent_log_loss": 0.01097399433210918
+        },
+        "no_pooling": {
+          "event": 22854.40106501257,
+          "nonevent": 4906.391493238618,
+          "events": 5041,
+          "nonevents": 437271,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 442312,
+          "infinite_count": 0,
+          "finite_sum": 27760.79255825119,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.0627629197450017,
+          "mean_event_log_loss": 4.533703841502196,
+          "mean_nonevent_log_loss": 0.011220482248396573
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -2.7589865792288037,
+          "relative_total_delta": -9.93283111062615e-05,
+          "mean_log_loss_delta": -6.237648038559529e-06,
+          "event_delta": 1241.4971846653207,
+          "nonevent_delta": -1244.2561712445504
+        },
+        "no_pooling": {
+          "finite_total_delta": -15.644476679954096,
+          "relative_total_delta": -0.0005632283456759035,
+          "mean_log_loss_delta": -3.5369776718585655e-05,
+          "event_delta": 1120.8296769216904,
+          "nonevent_delta": -1136.4741536016454
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 754,
+          "less_current_write": 119,
+          "more_current_write": 635,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 4283586.908447442,
+          "sum_freed_delta_bytes": 36915951977,
+          "mean_current_write_delta_us": 5681.149745951514,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 735,
+          "less_current_write": 127,
+          "more_current_write": 608,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 3934911.4961708104,
+          "sum_freed_delta_bytes": 33911067274,
+          "mean_current_write_delta_us": 5353.621083225592,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 21733.57138809088,
+            "nonevent": 6042.865646840263,
+            "events": 5041,
+            "nonevents": 437271,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 22975.0685727562,
+            "nonevent": 4798.609475595713,
+            "events": 5041,
+            "nonevents": 437271,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 22854.40106501257,
+            "nonevent": 4906.391493238618,
+            "events": 5041,
+            "nonevents": 437271,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 5793,
+          "initial": 3,
+          "demand": 5779,
+          "known_demand": 737,
+          "unknown_demand": 5042,
+          "prefetch": 8,
+          "prefetch_confirmed": 8,
+          "other_load": 0,
+          "own_returns": 5784,
+          "own_wait_sum": 510381,
+          "own_wait_max": 784,
+          "disk_exposure_closed": 510636,
+          "disk_exposure_open": 718,
+          "own_censored_count": 9,
+          "own_censored_age": 718,
+          "spill_bytes": 241620137259,
+          "read_bytes": 241726539797
+        }
+      ],
+      "kernel_cpu_us": 44313,
+      "kernel_wall_us": 70691.10199999998,
+      "observer_wall_seconds": 0.925141371000791,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.16876061463352893,
+      "sum_h_max": 0.9392806896621188
+    },
+    {
+      "id": "train_675_random_hotspot",
+      "edge": false,
+      "family": "random_hotspot",
+      "seed": 7658318111382599390,
+      "probes": 75077,
+      "period": 64,
+      "unknown_positions": 66915,
+      "known_positions": 8160,
+      "unknown_trials": 312811,
+      "unknown_events": 6429,
+      "pressure": 5350,
+      "checks": 5350,
+      "different_pairs": 0,
+      "pool_changed": 0,
+      "flat_changed": 0,
+      "pool_changed_fraction_of_pairs": 0,
+      "pool_changed_fraction_of_pressure": 0.0,
+      "loss": {
+        "next": {
+          "event": 20751.091203278564,
+          "nonevent": 12229.048568830201,
+          "events": 6429,
+          "nonevents": 306382,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 312811,
+          "infinite_count": 0,
+          "finite_sum": 32980.13977210876,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.10543152182023255,
+          "mean_event_log_loss": 3.2277323383541083,
+          "mean_nonevent_log_loss": 0.03991438324976729
+        },
+        "pooling": {
+          "event": 25055.985729092317,
+          "nonevent": 6146.161221357949,
+          "events": 6429,
+          "nonevents": 306382,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 312811,
+          "infinite_count": 0,
+          "finite_sum": 31202.146950450267,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.09974760142849921,
+          "mean_event_log_loss": 3.8973379575505236,
+          "mean_nonevent_log_loss": 0.020060451401707508
+        },
+        "no_pooling": {
+          "event": 24938.9843729065,
+          "nonevent": 6258.950005332981,
+          "events": 6429,
+          "nonevents": 306382,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 312811,
+          "infinite_count": 0,
+          "finite_sum": 31197.93437823948,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.09973413459961279,
+          "mean_event_log_loss": 3.8791389598547985,
+          "mean_nonevent_log_loss": 0.02042858263648968
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -1777.9928216584958,
+          "relative_total_delta": -0.05391101535482701,
+          "mean_log_loss_delta": -0.005683920391733335,
+          "event_delta": 4304.894525813754,
+          "nonevent_delta": -6082.887347472252
+        },
+        "no_pooling": {
+          "finite_total_delta": -1782.2053938692843,
+          "relative_total_delta": -0.054038745929648635,
+          "mean_log_loss_delta": -0.005697387220619757,
+          "event_delta": 4187.893169627936,
+          "nonevent_delta": -5970.09856349722
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 0,
+          "less_current_write": 0,
+          "more_current_write": 0,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 0.0,
+          "sum_freed_delta_bytes": 0,
+          "mean_current_write_delta_us": null,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 20751.091203278564,
+            "nonevent": 12229.048568830201,
+            "events": 6429,
+            "nonevents": 306382,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 25055.985729092317,
+            "nonevent": 6146.161221357949,
+            "events": 6429,
+            "nonevents": 306382,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 24938.9843729065,
+            "nonevent": 6258.950005332981,
+            "events": 6429,
+            "nonevents": 306382,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 7107,
+          "initial": 3,
+          "demand": 7090,
+          "known_demand": 660,
+          "unknown_demand": 6430,
+          "prefetch": 15,
+          "prefetch_confirmed": 15,
+          "other_load": 0,
+          "own_returns": 7102,
+          "own_wait_sum": 351630,
+          "own_wait_max": 480,
+          "disk_exposure_closed": 351628,
+          "disk_exposure_open": 210,
+          "own_censored_count": 5,
+          "own_censored_age": 210,
+          "spill_bytes": 1809179284705,
+          "read_bytes": 1809371121352
+        }
+      ],
+      "kernel_cpu_us": 43192,
+      "kernel_wall_us": 73126.43399999983,
+      "observer_wall_seconds": 0.8040460469928803,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0,
+      "sum_h_max": 0
+    },
+    {
+      "id": "train_693_random_hotspot",
+      "edge": false,
+      "family": "random_hotspot",
+      "seed": 13061813804494280177,
+      "probes": 72507,
+      "period": 10000,
+      "unknown_positions": 63769,
+      "known_positions": 8733,
+      "unknown_trials": 196207,
+      "unknown_events": 7757,
+      "pressure": 7020,
+      "checks": 7020,
+      "different_pairs": 216,
+      "pool_changed": 17,
+      "flat_changed": 17,
+      "pool_changed_fraction_of_pairs": 0.0787037037037037,
+      "pool_changed_fraction_of_pressure": 0.0024216524216524216,
+      "loss": {
+        "next": {
+          "event": 22738.48405934256,
+          "nonevent": 10420.95513256521,
+          "events": 7757,
+          "nonevents": 188450,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 196207,
+          "infinite_count": 0,
+          "finite_sum": 33159.439191907775,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.16900232505419163,
+          "mean_event_log_loss": 2.931350271927622,
+          "mean_nonevent_log_loss": 0.055298249575830245
+        },
+        "pooling": {
+          "event": 25216.660201013856,
+          "nonevent": 7526.462473915644,
+          "events": 7757,
+          "nonevents": 188450,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 196207,
+          "infinite_count": 0,
+          "finite_sum": 32743.122674929502,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.16688050209691552,
+          "mean_event_log_loss": 3.250826376307059,
+          "mean_nonevent_log_loss": 0.03993877672547436
+        },
+        "no_pooling": {
+          "event": 25153.805805466778,
+          "nonevent": 7583.874924747498,
+          "events": 7757,
+          "nonevents": 188450,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 196207,
+          "infinite_count": 0,
+          "finite_sum": 32737.680730214277,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.16685276636518717,
+          "mean_event_log_loss": 3.242723450492043,
+          "mean_nonevent_log_loss": 0.040243432872101345
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -416.3165169782733,
+          "relative_total_delta": -0.01255499269963134,
+          "mean_log_loss_delta": -0.002121822957276115,
+          "event_delta": 2478.1761416712943,
+          "nonevent_delta": -2894.492658649566
+        },
+        "no_pooling": {
+          "finite_total_delta": -421.75846169349825,
+          "relative_total_delta": -0.012719107197579627,
+          "mean_log_loss_delta": -0.0021495586890044605,
+          "event_delta": 2415.3217461242166,
+          "nonevent_delta": -2837.080207817712
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 17,
+          "less_current_write": 2,
+          "more_current_write": 15,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 16577.84975490196,
+          "sum_freed_delta_bytes": 67637627,
+          "mean_current_write_delta_us": 975.1676326412917,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 17,
+          "less_current_write": 2,
+          "more_current_write": 15,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 16577.84975490196,
+          "sum_freed_delta_bytes": 67637627,
+          "mean_current_write_delta_us": 975.1676326412917,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 22738.48405934256,
+            "nonevent": 10420.95513256521,
+            "events": 7757,
+            "nonevents": 188450,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 25216.660201013856,
+            "nonevent": 7526.462473915644,
+            "events": 7757,
+            "nonevents": 188450,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 25153.805805466778,
+            "nonevent": 7583.874924747498,
+            "events": 7757,
+            "nonevents": 188450,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 8723,
+          "initial": 7,
+          "demand": 8727,
+          "known_demand": 969,
+          "unknown_demand": 7758,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 8720,
+          "own_wait_sum": 223823,
+          "own_wait_max": 260,
+          "disk_exposure_closed": 223975,
+          "disk_exposure_open": 37,
+          "own_censored_count": 3,
+          "own_censored_age": 37,
+          "spill_bytes": 359928357437,
+          "read_bytes": 359974605174
+        }
+      ],
+      "kernel_cpu_us": 42810,
+      "kernel_wall_us": 71927.25999999946,
+      "observer_wall_seconds": 0.801791569989291,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.6561675475338635,
+      "sum_h_max": 1.0456776410766397
+    },
+    {
+      "id": "train_758_random_lognormal",
+      "edge": false,
+      "family": "random_lognormal",
+      "seed": 6300307795782966787,
+      "probes": 239333,
+      "period": 1024,
+      "unknown_positions": 104181,
+      "known_positions": 135151,
+      "unknown_trials": 1238597,
+      "unknown_events": 60867,
+      "pressure": 101839,
+      "checks": 101839,
+      "different_pairs": 4300,
+      "pool_changed": 432,
+      "flat_changed": 433,
+      "pool_changed_fraction_of_pairs": 0.10046511627906977,
+      "pool_changed_fraction_of_pressure": 0.004241989807441157,
+      "loss": {
+        "next": {
+          "event": 173956.17010883574,
+          "nonevent": 59312.412847395004,
+          "events": 60867,
+          "nonevents": 1177730,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1238597,
+          "infinite_count": 0,
+          "finite_sum": 233268.58295623073,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.1883329145446265,
+          "mean_event_log_loss": 2.8579718091714024,
+          "mean_nonevent_log_loss": 0.050361638785965376
+        },
+        "pooling": {
+          "event": 174798.5185210129,
+          "nonevent": 58712.66177869276,
+          "events": 60867,
+          "nonevents": 1177730,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1238597,
+          "infinite_count": 0,
+          "finite_sum": 233511.18029970568,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.18852877917490973,
+          "mean_event_log_loss": 2.871810973450522,
+          "mean_nonevent_log_loss": 0.04985239552248203
+        },
+        "no_pooling": {
+          "event": 174771.74305860803,
+          "nonevent": 58736.98085336805,
+          "events": 60867,
+          "nonevents": 1177730,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1238597,
+          "infinite_count": 0,
+          "finite_sum": 233508.7239119761,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.1885267959731665,
+          "mean_event_log_loss": 2.8713710723151795,
+          "mean_nonevent_log_loss": 0.049873044631085266
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": 242.59734347494668,
+          "relative_total_delta": 0.0010399914999288384,
+          "mean_log_loss_delta": 0.0001958646302832323,
+          "event_delta": 842.3484121771762,
+          "nonevent_delta": -599.7510687022441
+        },
+        "no_pooling": {
+          "finite_total_delta": 240.14095574535895,
+          "relative_total_delta": 0.0010294612017702764,
+          "mean_log_loss_delta": 0.00019388142853998813,
+          "event_delta": 815.5729497722932,
+          "nonevent_delta": -575.4319940269561
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 432,
+          "less_current_write": 232,
+          "more_current_write": 200,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 1237827.0197109068,
+          "sum_freed_delta_bytes": 941986362,
+          "mean_current_write_delta_us": 2865.340323404877,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 433,
+          "less_current_write": 233,
+          "more_current_write": 200,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 1189472.6925098556,
+          "sum_freed_delta_bytes": 905188719,
+          "mean_current_write_delta_us": 2747.050098175186,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 173956.17010883574,
+            "nonevent": 59312.412847395004,
+            "events": 60867,
+            "nonevents": 1177730,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 174798.5185210129,
+            "nonevent": 58712.66177869276,
+            "events": 60867,
+            "nonevents": 1177730,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 174771.74305860803,
+            "nonevent": 58736.98085336805,
+            "events": 60867,
+            "nonevents": 1177730,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 135085,
+          "initial": 14,
+          "demand": 135056,
+          "known_demand": 74188,
+          "unknown_demand": 60868,
+          "prefetch": 32,
+          "prefetch_confirmed": 32,
+          "other_load": 0,
+          "own_returns": 135074,
+          "own_wait_sum": 2877621,
+          "own_wait_max": 416,
+          "disk_exposure_closed": 2878324,
+          "disk_exposure_open": 165,
+          "own_censored_count": 11,
+          "own_censored_age": 165,
+          "spill_bytes": 17647233758815,
+          "read_bytes": 17647263748599
+        }
+      ],
+      "kernel_cpu_us": 576891,
+      "kernel_wall_us": 989885.4499999597,
+      "observer_wall_seconds": 9.479240161992493,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.904024222803817,
+      "sum_h_max": 1.1471611938866988
+    },
+    {
+      "id": "train_725_random_lognormal",
+      "edge": false,
+      "family": "random_lognormal",
+      "seed": 10481288076045297175,
+      "probes": 100000,
+      "period": 16,
+      "unknown_positions": 72048,
+      "known_positions": 27948,
+      "unknown_trials": 989062,
+      "unknown_events": 17157,
+      "pressure": 20310,
+      "checks": 20310,
+      "different_pairs": 19128,
+      "pool_changed": 2754,
+      "flat_changed": 2725,
+      "pool_changed_fraction_of_pairs": 0.14397741530740277,
+      "pool_changed_fraction_of_pressure": 0.13559822747415065,
+      "loss": {
+        "next": {
+          "event": 67781.83159637268,
+          "nonevent": 17376.590430211403,
+          "events": 17157,
+          "nonevents": 971905,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 989062,
+          "infinite_count": 0,
+          "finite_sum": 85158.42202658408,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.08610018585951547,
+          "mean_event_log_loss": 3.950680864741661,
+          "mean_nonevent_log_loss": 0.01787889807153107
+        },
+        "pooling": {
+          "event": 68404.73279480051,
+          "nonevent": 16812.891802689654,
+          "events": 17157,
+          "nonevents": 971905,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 989062,
+          "infinite_count": 0,
+          "finite_sum": 85217.62459749017,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.08616004314945895,
+          "mean_event_log_loss": 3.986986815573848,
+          "mean_nonevent_log_loss": 0.017298904525328763
+        },
+        "no_pooling": {
+          "event": 68388.45395381626,
+          "nonevent": 16825.00948550271,
+          "events": 17157,
+          "nonevents": 971905,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 989062,
+          "infinite_count": 0,
+          "finite_sum": 85213.46343931898,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.08615583597319378,
+          "mean_event_log_loss": 3.986037999289868,
+          "mean_nonevent_log_loss": 0.01731137249577141
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": 59.202570906083565,
+          "relative_total_delta": 0.0006952051188502395,
+          "mean_log_loss_delta": 5.9857289943482384e-05,
+          "event_delta": 622.9011984278332,
+          "nonevent_delta": -563.6986275217496
+        },
+        "no_pooling": {
+          "finite_total_delta": 55.04141273489222,
+          "relative_total_delta": 0.0006463413884971736,
+          "mean_log_loss_delta": 5.565011367830719e-05,
+          "event_delta": 606.6223574435862,
+          "nonevent_delta": -551.580944708694
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 2754,
+          "less_current_write": 1095,
+          "more_current_write": 1659,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 439398.47315257863,
+          "sum_freed_delta_bytes": 826508528,
+          "mean_current_write_delta_us": 159.54919141342725,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 2725,
+          "less_current_write": 1068,
+          "more_current_write": 1657,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 450993.0925039876,
+          "sum_freed_delta_bytes": 848318007,
+          "mean_current_write_delta_us": 165.50205229504132,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 12118.687438596695,
+            "nonevent": 3146.29590544801,
+            "events": 3165,
+            "nonevents": 157416,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 17241.55668472166,
+            "nonevent": 4644.109365192656,
+            "events": 4558,
+            "nonevents": 209722,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 22271.757750164972,
+            "nonevent": 5651.8838317636055,
+            "events": 5433,
+            "nonevents": 382675,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16149.829722889343,
+            "nonevent": 3934.301327807133,
+            "events": 4001,
+            "nonevents": 222092,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 12214.362287139938,
+            "nonevent": 3077.778940122201,
+            "events": 3165,
+            "nonevents": 157416,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 17462.622221232265,
+            "nonevent": 4448.86145185061,
+            "events": 4558,
+            "nonevents": 209722,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 22541.7740373631,
+            "nonevent": 5371.359238575412,
+            "events": 5433,
+            "nonevents": 382675,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16185.974249065202,
+            "nonevent": 3914.8921721414313,
+            "events": 4001,
+            "nonevents": 222092,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 12216.58892562555,
+            "nonevent": 3075.4939892699153,
+            "events": 3165,
+            "nonevents": 157416,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 17464.031171266015,
+            "nonevent": 4447.273401196046,
+            "events": 4558,
+            "nonevents": 209722,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 22528.773431279067,
+            "nonevent": 5383.478680954005,
+            "events": 5433,
+            "nonevents": 382675,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16179.060425645635,
+            "nonevent": 3918.763414082742,
+            "events": 4001,
+            "nonevents": 222092,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 4340,
+          "initial": 1,
+          "demand": 4262,
+          "known_demand": 1096,
+          "unknown_demand": 3166,
+          "prefetch": 77,
+          "prefetch_confirmed": 77,
+          "other_load": 0,
+          "own_returns": 4338,
+          "own_wait_sum": 224596,
+          "own_wait_max": 527,
+          "disk_exposure_closed": 224519,
+          "disk_exposure_open": 103,
+          "own_censored_count": 2,
+          "own_censored_age": 103,
+          "spill_bytes": 6345373592,
+          "read_bytes": 6348796209
+        },
+        {
+          "starts": 6280,
+          "initial": 1,
+          "demand": 6241,
+          "known_demand": 1683,
+          "unknown_demand": 4558,
+          "prefetch": 36,
+          "prefetch_confirmed": 36,
+          "other_load": 0,
+          "own_returns": 6276,
+          "own_wait_sum": 298917,
+          "own_wait_max": 515,
+          "disk_exposure_closed": 298884,
+          "disk_exposure_open": 170,
+          "own_censored_count": 4,
+          "own_censored_age": 170,
+          "spill_bytes": 14170825120,
+          "read_bytes": 14166922712
+        },
+        {
+          "starts": 7344,
+          "initial": 1,
+          "demand": 7278,
+          "known_demand": 1845,
+          "unknown_demand": 5433,
+          "prefetch": 63,
+          "prefetch_confirmed": 63,
+          "other_load": 0,
+          "own_returns": 7340,
+          "own_wait_sum": 538400,
+          "own_wait_max": 1972,
+          "disk_exposure_closed": 538397,
+          "disk_exposure_open": 388,
+          "own_censored_count": 4,
+          "own_censored_age": 388,
+          "spill_bytes": 20745223186,
+          "read_bytes": 20736211403
+        },
+        {
+          "starts": 5412,
+          "initial": 2,
+          "demand": 5406,
+          "known_demand": 1405,
+          "unknown_demand": 4001,
+          "prefetch": 6,
+          "prefetch_confirmed": 6,
+          "other_load": 0,
+          "own_returns": 5410,
+          "own_wait_sum": 313035,
+          "own_wait_max": 563,
+          "disk_exposure_closed": 313304,
+          "disk_exposure_open": 159,
+          "own_censored_count": 2,
+          "own_censored_age": 159,
+          "spill_bytes": 19367751015,
+          "read_bytes": 19377191036
+        }
+      ],
+      "kernel_cpu_us": 214685,
+      "kernel_wall_us": 353562.4900000041,
+      "observer_wall_seconds": 3.8460464859963395,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.8931789675777422,
+      "sum_h_max": 1.440996888644793
+    },
+    {
+      "id": "train_722_random_lognormal",
+      "edge": false,
+      "family": "random_lognormal",
+      "seed": 14469534270711647131,
+      "probes": 73867,
+      "period": 4096,
+      "unknown_positions": 39041,
+      "known_positions": 34821,
+      "unknown_trials": 14136823,
+      "unknown_events": 18352,
+      "pressure": 28988,
+      "checks": 28988,
+      "different_pairs": 28791,
+      "pool_changed": 1748,
+      "flat_changed": 1756,
+      "pool_changed_fraction_of_pairs": 0.060713417387378,
+      "pool_changed_fraction_of_pressure": 0.06030081412998482,
+      "loss": {
+        "next": {
+          "event": 123342.62615773406,
+          "nonevent": 16122.934130487094,
+          "events": 18352,
+          "nonevents": 14118471,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 14136823,
+          "infinite_count": 0,
+          "finite_sum": 139465.56028822117,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.009865410374609711,
+          "mean_event_log_loss": 6.7209364732854215,
+          "mean_nonevent_log_loss": 0.0011419745190882988
+        },
+        "pooling": {
+          "event": 121965.4393296613,
+          "nonevent": 17319.63559862258,
+          "events": 18352,
+          "nonevents": 14118471,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 14136823,
+          "infinite_count": 0,
+          "finite_sum": 139285.07492828387,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.00985264333636234,
+          "mean_event_log_loss": 6.645893599044316,
+          "mean_nonevent_log_loss": 0.001226735926193607
+        },
+        "no_pooling": {
+          "event": 123175.90223246683,
+          "nonevent": 16265.9632019657,
+          "events": 18352,
+          "nonevents": 14118471,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 14136823,
+          "infinite_count": 0,
+          "finite_sum": 139441.86543443252,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.009863734265784647,
+          "mean_event_log_loss": 6.711851690958306,
+          "mean_nonevent_log_loss": 0.0011521051537355356
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -180.48535993730184,
+          "relative_total_delta": -0.0012941213555827114,
+          "mean_log_loss_delta": -1.2767038247370882e-05,
+          "event_delta": -1377.186828072765,
+          "nonevent_delta": 1196.701468135485
+        },
+        "no_pooling": {
+          "finite_total_delta": -23.694853788649198,
+          "relative_total_delta": -0.0001698975269570635,
+          "mean_log_loss_delta": -1.6761088250643458e-06,
+          "event_delta": -166.7239252672298,
+          "nonevent_delta": 143.02907147860606
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 1748,
+          "less_current_write": 488,
+          "more_current_write": 1260,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 118753.74662162154,
+          "sum_freed_delta_bytes": 316359981,
+          "mean_current_write_delta_us": 67.93692598490935,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 1756,
+          "less_current_write": 485,
+          "more_current_write": 1271,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 121902.86148648651,
+          "sum_freed_delta_bytes": 324749223,
+          "mean_current_write_delta_us": 69.4207639444684,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 14034.655459816631,
+            "nonevent": 1904.8668182207682,
+            "events": 2105,
+            "nonevents": 1649637,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16594.307904369754,
+            "nonevent": 2033.1189760270706,
+            "events": 2483,
+            "nonevents": 1701028,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15011.36608969349,
+            "nonevent": 1983.328376220107,
+            "events": 2241,
+            "nonevents": 1773959,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16316.02716847266,
+            "nonevent": 2048.620659961505,
+            "events": 2408,
+            "nonevents": 1850522,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 14750.12432680682,
+            "nonevent": 2029.0005254846706,
+            "events": 2205,
+            "nonevents": 1697950,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15482.985801876112,
+            "nonevent": 2015.9293920884606,
+            "events": 2283,
+            "nonevents": 1841594,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15761.269612556036,
+            "nonevent": 2036.2057128290783,
+            "events": 2340,
+            "nonevents": 1817678,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15391.889794142558,
+            "nonevent": 2071.8636696554336,
+            "events": 2287,
+            "nonevents": 1786103,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 13916.830671502756,
+            "nonevent": 1984.7735924676801,
+            "events": 2105,
+            "nonevents": 1649637,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16280.232655330847,
+            "nonevent": 2342.8054995010216,
+            "events": 2483,
+            "nonevents": 1701028,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 14856.808979404384,
+            "nonevent": 2133.081407459275,
+            "events": 2241,
+            "nonevents": 1773959,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16066.250582742638,
+            "nonevent": 2283.378009519773,
+            "events": 2408,
+            "nonevents": 1850522,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 14712.048700285577,
+            "nonevent": 2062.5118241416862,
+            "events": 2205,
+            "nonevents": 1697950,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15319.239576052125,
+            "nonevent": 2147.2834260658483,
+            "events": 2283,
+            "nonevents": 1841594,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15559.828511328971,
+            "nonevent": 2212.0268510382316,
+            "events": 2340,
+            "nonevents": 1817678,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15254.199653014004,
+            "nonevent": 2153.7749884290647,
+            "events": 2287,
+            "nonevents": 1786103,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 14043.516531195657,
+            "nonevent": 1873.4897584471466,
+            "events": 2105,
+            "nonevents": 1649637,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16499.177401135807,
+            "nonevent": 2154.8355341468796,
+            "events": 2483,
+            "nonevents": 1701028,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15006.356044338405,
+            "nonevent": 2003.5598139502733,
+            "events": 2241,
+            "nonevents": 1773959,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 16263.490267925574,
+            "nonevent": 2113.3453014779184,
+            "events": 2408,
+            "nonevents": 1850522,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 14805.408361437698,
+            "nonevent": 1979.8526014141623,
+            "events": 2205,
+            "nonevents": 1697950,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15458.6831086432,
+            "nonevent": 2026.0592965055928,
+            "events": 2283,
+            "nonevents": 1841594,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15726.470110473127,
+            "nonevent": 2066.608993354623,
+            "events": 2340,
+            "nonevents": 1817678,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 15372.800407317363,
+            "nonevent": 2048.2119026691034,
+            "events": 2287,
+            "nonevents": 1786103,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 4063,
+          "initial": 34,
+          "demand": 4052,
+          "known_demand": 1946,
+          "unknown_demand": 2106,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 4018,
+          "own_wait_sum": 3052807,
+          "own_wait_max": 25566,
+          "disk_exposure_closed": 3080865,
+          "disk_exposure_open": 45460,
+          "own_censored_count": 45,
+          "own_censored_age": 45460,
+          "spill_bytes": 8359200632,
+          "read_bytes": 8380761669
+        },
+        {
+          "starts": 4584,
+          "initial": 22,
+          "demand": 4562,
+          "known_demand": 2079,
+          "unknown_demand": 2483,
+          "prefetch": 1,
+          "prefetch_confirmed": 1,
+          "other_load": 0,
+          "own_returns": 4541,
+          "own_wait_sum": 3161804,
+          "own_wait_max": 13951,
+          "disk_exposure_closed": 3182960,
+          "disk_exposure_open": 40895,
+          "own_censored_count": 43,
+          "own_censored_age": 40895,
+          "spill_bytes": 7275033034,
+          "read_bytes": 7267109417
+        },
+        {
+          "starts": 4256,
+          "initial": 32,
+          "demand": 4241,
+          "known_demand": 2000,
+          "unknown_demand": 2241,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 4209,
+          "own_wait_sum": 3274658,
+          "own_wait_max": 17254,
+          "disk_exposure_closed": 3306099,
+          "disk_exposure_open": 56359,
+          "own_censored_count": 47,
+          "own_censored_age": 56359,
+          "spill_bytes": 7901148503,
+          "read_bytes": 7904063100
+        },
+        {
+          "starts": 4508,
+          "initial": 28,
+          "demand": 4484,
+          "known_demand": 2076,
+          "unknown_demand": 2408,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 4456,
+          "own_wait_sum": 3441986,
+          "own_wait_max": 10776,
+          "disk_exposure_closed": 3460957,
+          "disk_exposure_open": 46603,
+          "own_censored_count": 52,
+          "own_censored_age": 46603,
+          "spill_bytes": 7339203503,
+          "read_bytes": 7335322165
+        },
+        {
+          "starts": 4303,
+          "initial": 27,
+          "demand": 4284,
+          "known_demand": 2079,
+          "unknown_demand": 2205,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 4257,
+          "own_wait_sum": 3133386,
+          "own_wait_max": 19198,
+          "disk_exposure_closed": 3165261,
+          "disk_exposure_open": 53882,
+          "own_censored_count": 46,
+          "own_censored_age": 53882,
+          "spill_bytes": 7607972069,
+          "read_bytes": 7608150542
+        },
+        {
+          "starts": 4331,
+          "initial": 29,
+          "demand": 4313,
+          "known_demand": 2030,
+          "unknown_demand": 2283,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 4284,
+          "own_wait_sum": 3374097,
+          "own_wait_max": 21016,
+          "disk_exposure_closed": 3423355,
+          "disk_exposure_open": 65934,
+          "own_censored_count": 47,
+          "own_censored_age": 65934,
+          "spill_bytes": 5914760520,
+          "read_bytes": 5908224662
+        },
+        {
+          "starts": 4456,
+          "initial": 30,
+          "demand": 4441,
+          "known_demand": 2101,
+          "unknown_demand": 2340,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 4411,
+          "own_wait_sum": 3376041,
+          "own_wait_max": 16565,
+          "disk_exposure_closed": 3400699,
+          "disk_exposure_open": 44623,
+          "own_censored_count": 45,
+          "own_censored_age": 44623,
+          "spill_bytes": 9347241463,
+          "read_bytes": 9341332715
+        },
+        {
+          "starts": 4449,
+          "initial": 27,
+          "demand": 4434,
+          "known_demand": 2147,
+          "unknown_demand": 2287,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 4407,
+          "own_wait_sum": 3281596,
+          "own_wait_max": 15742,
+          "disk_exposure_closed": 3329428,
+          "disk_exposure_open": 55528,
+          "own_censored_count": 42,
+          "own_censored_age": 55528,
+          "spill_bytes": 6802789021,
+          "read_bytes": 6802796748
+        }
+      ],
+      "kernel_cpu_us": 861389,
+      "kernel_wall_us": 1024624.7600000646,
+      "observer_wall_seconds": 5.944383743990329,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.7329477617181355,
+      "sum_h_max": 1.6008640899573754
+    },
+    {
+      "id": "train_752_random_lognormal",
+      "edge": false,
+      "family": "random_lognormal",
+      "seed": 5798404805832685362,
+      "probes": 100298,
+      "period": 4096,
+      "unknown_positions": 80358,
+      "known_positions": 19935,
+      "unknown_trials": 1813050,
+      "unknown_events": 16097,
+      "pressure": 18286,
+      "checks": 18286,
+      "different_pairs": 18100,
+      "pool_changed": 2988,
+      "flat_changed": 3008,
+      "pool_changed_fraction_of_pairs": 0.1650828729281768,
+      "pool_changed_fraction_of_pressure": 0.16340369681723724,
+      "loss": {
+        "next": {
+          "event": 75629.49237456347,
+          "nonevent": 15421.436875534375,
+          "events": 16097,
+          "nonevents": 1796953,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1813050,
+          "infinite_count": 0,
+          "finite_sum": 91050.92925009785,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.05021975634985127,
+          "mean_event_log_loss": 4.698359469128625,
+          "mean_nonevent_log_loss": 0.008581992336769172
+        },
+        "pooling": {
+          "event": 75670.28781180034,
+          "nonevent": 15420.66547719872,
+          "events": 16097,
+          "nonevents": 1796953,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1813050,
+          "infinite_count": 0,
+          "finite_sum": 91090.95328899907,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.050241831879429176,
+          "mean_event_log_loss": 4.700893819457063,
+          "mean_nonevent_log_loss": 0.008581563055460394
+        },
+        "no_pooling": {
+          "event": 75747.03995175846,
+          "nonevent": 15344.964479894861,
+          "events": 16097,
+          "nonevents": 1796953,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1813050,
+          "infinite_count": 0,
+          "finite_sum": 91092.00443165332,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.050242411644275294,
+          "mean_event_log_loss": 4.705661921585293,
+          "mean_nonevent_log_loss": 0.00853943563348338
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": 40.024038901217864,
+          "relative_total_delta": 0.0004395785878392733,
+          "mean_log_loss_delta": 2.2075529577905706e-05,
+          "event_delta": 40.795437236869475,
+          "nonevent_delta": -0.771398335655249
+        },
+        "no_pooling": {
+          "finite_total_delta": 41.07518155546859,
+          "relative_total_delta": 0.00045112314496686956,
+          "mean_log_loss_delta": 2.2655294424023253e-05,
+          "event_delta": 117.54757719498593,
+          "nonevent_delta": -76.4723956395137
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 2988,
+          "less_current_write": 992,
+          "more_current_write": 1996,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 1493784.1564110324,
+          "sum_freed_delta_bytes": 4927993932,
+          "mean_current_write_delta_us": 499.9277631897699,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 3008,
+          "less_current_write": 999,
+          "more_current_write": 2009,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 1489492.7335556222,
+          "sum_freed_delta_bytes": 4913836528,
+          "mean_current_write_delta_us": 495.1771055703531,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 18811.944903316515,
+            "nonevent": 3675.2394578575972,
+            "events": 4064,
+            "nonevents": 381811,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 19915.546881281734,
+            "nonevent": 4022.9753696656176,
+            "events": 4113,
+            "nonevents": 532750,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 19100.61569088553,
+            "nonevent": 4076.383428901631,
+            "events": 4056,
+            "nonevents": 496462,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 17801.384899079698,
+            "nonevent": 3646.83861910953,
+            "events": 3864,
+            "nonevents": 385930,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 18601.025851763938,
+            "nonevent": 3889.2138604558204,
+            "events": 4064,
+            "nonevents": 381811,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 19989.639343915107,
+            "nonevent": 3947.2384489194214,
+            "events": 4113,
+            "nonevents": 532750,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 19308.362619144187,
+            "nonevent": 3891.606443136664,
+            "events": 4056,
+            "nonevents": 496462,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 17771.25999697711,
+            "nonevent": 3692.606724686813,
+            "events": 3864,
+            "nonevents": 385930,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 18647.12047624849,
+            "nonevent": 3845.802026605194,
+            "events": 4064,
+            "nonevents": 381811,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 19994.752945858585,
+            "nonevent": 3940.217074945971,
+            "events": 4113,
+            "nonevents": 532750,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 19307.449091516835,
+            "nonevent": 3891.9953664173026,
+            "events": 4056,
+            "nonevents": 496462,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 17797.717438134554,
+            "nonevent": 3666.9500119263944,
+            "events": 3864,
+            "nonevents": 385930,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 5028,
+          "initial": 3,
+          "demand": 5026,
+          "known_demand": 962,
+          "unknown_demand": 4064,
+          "prefetch": 1,
+          "prefetch_confirmed": 1,
+          "other_load": 0,
+          "own_returns": 5024,
+          "own_wait_sum": 482655,
+          "own_wait_max": 1073,
+          "disk_exposure_closed": 482732,
+          "disk_exposure_open": 518,
+          "own_censored_count": 4,
+          "own_censored_age": 518,
+          "spill_bytes": 44891188751,
+          "read_bytes": 44910066807
+        },
+        {
+          "starts": 5050,
+          "initial": 5,
+          "demand": 5049,
+          "known_demand": 936,
+          "unknown_demand": 4113,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 5044,
+          "own_wait_sum": 668063,
+          "own_wait_max": 1862,
+          "disk_exposure_closed": 668822,
+          "disk_exposure_open": 597,
+          "own_censored_count": 6,
+          "own_censored_age": 597,
+          "spill_bytes": 70639674561,
+          "read_bytes": 70649234588
+        },
+        {
+          "starts": 5047,
+          "initial": 2,
+          "demand": 5044,
+          "known_demand": 987,
+          "unknown_demand": 4057,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 5042,
+          "own_wait_sum": 624890,
+          "own_wait_max": 1620,
+          "disk_exposure_closed": 624961,
+          "disk_exposure_open": 604,
+          "own_censored_count": 5,
+          "own_censored_age": 604,
+          "spill_bytes": 58643682445,
+          "read_bytes": 58629234267
+        },
+        {
+          "starts": 4799,
+          "initial": 4,
+          "demand": 4798,
+          "known_demand": 934,
+          "unknown_demand": 3864,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 4794,
+          "own_wait_sum": 485631,
+          "own_wait_max": 1385,
+          "disk_exposure_closed": 486064,
+          "disk_exposure_open": 809,
+          "own_censored_count": 5,
+          "own_censored_age": 809,
+          "spill_bytes": 63509955959,
+          "read_bytes": 63505216249
+        }
+      ],
+      "kernel_cpu_us": 181436,
+      "kernel_wall_us": 275795.158000007,
+      "observer_wall_seconds": 3.1934585830022115,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.7264097950831138,
+      "sum_h_max": 1.2638258742475463
+    },
+    {
+      "id": "train_548_random_zipf",
+      "edge": false,
+      "family": "random_zipf",
+      "seed": 10730359742581714376,
+      "probes": 191795,
+      "period": 4096,
+      "unknown_positions": 143807,
+      "known_positions": 47971,
+      "unknown_trials": 5196259,
+      "unknown_events": 35611,
+      "pressure": 38176,
+      "checks": 38176,
+      "different_pairs": 36624,
+      "pool_changed": 3458,
+      "flat_changed": 3446,
+      "pool_changed_fraction_of_pairs": 0.09441896024464831,
+      "pool_changed_fraction_of_pressure": 0.0905804694048617,
+      "loss": {
+        "next": {
+          "event": 173457.79265864997,
+          "nonevent": 37353.115461708294,
+          "events": 35611,
+          "nonevents": 5160648,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 5196259,
+          "infinite_count": 0,
+          "finite_sum": 210810.90812035825,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.04056974606545945,
+          "mean_event_log_loss": 4.870904851272078,
+          "mean_nonevent_log_loss": 0.007238066898131454
+        },
+        "pooling": {
+          "event": 176162.5448504173,
+          "nonevent": 34653.253331709675,
+          "events": 35611,
+          "nonevents": 5160648,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 5196259,
+          "infinite_count": 0,
+          "finite_sum": 210815.79818212698,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.040570687138983444,
+          "mean_event_log_loss": 4.9468575678980455,
+          "mean_nonevent_log_loss": 0.006714903502759668
+        },
+        "no_pooling": {
+          "event": 175953.46772877,
+          "nonevent": 34842.15739078028,
+          "events": 35611,
+          "nonevents": 5160648,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 5196259,
+          "infinite_count": 0,
+          "finite_sum": 210795.62511955027,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.04056680491090807,
+          "mean_event_log_loss": 4.940986429158687,
+          "mean_nonevent_log_loss": 0.006751508219661616
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": 4.8900617687322665,
+          "relative_total_delta": 2.3196436144345967e-05,
+          "mean_log_loss_delta": 9.410735239967494e-07,
+          "event_delta": 2704.7521917673294,
+          "nonevent_delta": -2699.862129998619
+        },
+        "no_pooling": {
+          "finite_total_delta": -15.28300080797635,
+          "relative_total_delta": -7.249625242000679e-05,
+          "mean_log_loss_delta": -2.941154551378e-06,
+          "event_delta": 2495.6750701200217,
+          "nonevent_delta": -2510.9580709280126
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 3458,
+          "less_current_write": 1032,
+          "more_current_write": 2426,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 680661.383333333,
+          "sum_freed_delta_bytes": 857633343,
+          "mean_current_write_delta_us": 196.83672161172152,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 3446,
+          "less_current_write": 1014,
+          "more_current_write": 2432,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 696729.8388888886,
+          "sum_freed_delta_bytes": 877879597,
+          "mean_current_write_delta_us": 202.1850954407686,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 87636.13868268118,
+            "nonevent": 18741.927667784774,
+            "events": 18176,
+            "nonevents": 2473167,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 85821.6539759688,
+            "nonevent": 18611.187793923524,
+            "events": 17435,
+            "nonevents": 2687481,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 88764.53022321001,
+            "nonevent": 17653.810304801285,
+            "events": 18176,
+            "nonevents": 2473167,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 87398.0146272073,
+            "nonevent": 16999.44302690839,
+            "events": 17435,
+            "nonevents": 2687481,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 88683.42868859772,
+            "nonevent": 17724.450988946188,
+            "events": 18176,
+            "nonevents": 2473167,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 87270.03904017225,
+            "nonevent": 17117.706401834097,
+            "events": 17435,
+            "nonevents": 2687481,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 24476,
+          "initial": 10,
+          "demand": 24469,
+          "known_demand": 6293,
+          "unknown_demand": 18176,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 24459,
+          "own_wait_sum": 3366519,
+          "own_wait_max": 1756,
+          "disk_exposure_closed": 3367446,
+          "disk_exposure_open": 1095,
+          "own_censored_count": 17,
+          "own_censored_age": 1095,
+          "spill_bytes": 28363286518,
+          "read_bytes": 28363747473
+        },
+        {
+          "starts": 23477,
+          "initial": 13,
+          "demand": 23469,
+          "known_demand": 6033,
+          "unknown_demand": 17436,
+          "prefetch": 0,
+          "prefetch_confirmed": 0,
+          "other_load": 0,
+          "own_returns": 23456,
+          "own_wait_sum": 3635776,
+          "own_wait_max": 1909,
+          "disk_exposure_closed": 3636986,
+          "disk_exposure_open": 3076,
+          "own_censored_count": 21,
+          "own_censored_age": 3076,
+          "spill_bytes": 43068536989,
+          "read_bytes": 43068681052
+        }
+      ],
+      "kernel_cpu_us": 416280,
+      "kernel_wall_us": 627172.9519999566,
+      "observer_wall_seconds": 6.849503404999268,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.7633392743343478,
+      "sum_h_max": 1.4859278921739705
+    },
+    {
+      "id": "train_562_random_zipf",
+      "edge": false,
+      "family": "random_zipf",
+      "seed": 5641382687939364132,
+      "probes": 75519,
+      "period": 1024,
+      "unknown_positions": 58169,
+      "known_positions": 17339,
+      "unknown_trials": 1295854,
+      "unknown_events": 12968,
+      "pressure": 8507,
+      "checks": 8507,
+      "different_pairs": 1789,
+      "pool_changed": 159,
+      "flat_changed": 156,
+      "pool_changed_fraction_of_pairs": 0.0888764673001677,
+      "pool_changed_fraction_of_pressure": 0.018690490184553897,
+      "loss": {
+        "next": {
+          "event": 52295.23087374336,
+          "nonevent": 15326.947236244921,
+          "events": 12968,
+          "nonevents": 1282886,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1295854,
+          "infinite_count": 0,
+          "finite_sum": 67622.17810998828,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.05218348526144788,
+          "mean_event_log_loss": 4.032636557197977,
+          "mean_nonevent_log_loss": 0.01194724023509877
+        },
+        "pooling": {
+          "event": 54571.333048198416,
+          "nonevent": 12638.383914044276,
+          "events": 12968,
+          "nonevents": 1282886,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1295854,
+          "infinite_count": 0,
+          "finite_sum": 67209.71696224269,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.051865192345929935,
+          "mean_event_log_loss": 4.208153381261445,
+          "mean_nonevent_log_loss": 0.009851525321847987
+        },
+        "no_pooling": {
+          "event": 54384.44885434683,
+          "nonevent": 12811.93665245066,
+          "events": 12968,
+          "nonevents": 1282886,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1295854,
+          "infinite_count": 0,
+          "finite_sum": 67196.3855067975,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.05185490457011167,
+          "mean_event_log_loss": 4.193742200366042,
+          "mean_nonevent_log_loss": 0.009986808377712954
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -412.461147745591,
+          "relative_total_delta": -0.006099495154899048,
+          "mean_log_loss_delta": -0.000318292915517944,
+          "event_delta": 2276.1021744550526,
+          "nonevent_delta": -2688.5633222006454
+        },
+        "no_pooling": {
+          "finite_total_delta": -425.7926031907846,
+          "relative_total_delta": -0.006296641354826327,
+          "mean_log_loss_delta": -0.0003285806913362055,
+          "event_delta": 2089.217980603469,
+          "nonevent_delta": -2515.010583794261
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 159,
+          "less_current_write": 64,
+          "more_current_write": 95,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 2026942.60012755,
+          "sum_freed_delta_bytes": 12712983988,
+          "mean_current_write_delta_us": 12748.06666746887,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 156,
+          "less_current_write": 61,
+          "more_current_write": 95,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 2020451.5140306114,
+          "sum_freed_delta_bytes": 12672271896,
+          "mean_current_write_delta_us": 12951.612269426996,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 20654.89330081674,
+            "nonevent": 6145.517894211294,
+            "events": 4784,
+            "nonevents": 648772,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 31640.33757292662,
+            "nonevent": 9181.429342033627,
+            "events": 8184,
+            "nonevents": 634114,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 21877.229915279237,
+            "nonevent": 4648.259218041545,
+            "events": 4784,
+            "nonevents": 648772,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 32694.10313291918,
+            "nonevent": 7990.12469600273,
+            "events": 8184,
+            "nonevents": 634114,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 21762.140715058023,
+            "nonevent": 4754.130751535554,
+            "events": 4784,
+            "nonevents": 648772,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 32622.308139288813,
+            "nonevent": 8057.805900915107,
+            "events": 8184,
+            "nonevents": 634114,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 6412,
+          "initial": 2,
+          "demand": 6400,
+          "known_demand": 1616,
+          "unknown_demand": 4784,
+          "prefetch": 3,
+          "prefetch_confirmed": 3,
+          "other_load": 0,
+          "own_returns": 6401,
+          "own_wait_sum": 853230,
+          "own_wait_max": 2532,
+          "disk_exposure_closed": 854157,
+          "disk_exposure_open": 2165,
+          "own_censored_count": 11,
+          "own_censored_age": 2165,
+          "spill_bytes": 2225332231919,
+          "read_bytes": 2223665254193
+        },
+        {
+          "starts": 10907,
+          "initial": 6,
+          "demand": 10893,
+          "known_demand": 2708,
+          "unknown_demand": 8185,
+          "prefetch": 7,
+          "prefetch_confirmed": 7,
+          "other_load": 0,
+          "own_returns": 10894,
+          "own_wait_sum": 843720,
+          "own_wait_max": 2440,
+          "disk_exposure_closed": 844425,
+          "disk_exposure_open": 2247,
+          "own_censored_count": 13,
+          "own_censored_age": 2247,
+          "spill_bytes": 9568119717328,
+          "read_bytes": 9568202880142
+        }
+      ],
+      "kernel_cpu_us": 98543,
+      "kernel_wall_us": 155841.8729999986,
+      "observer_wall_seconds": 1.5139608000026783,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.4347730288824597,
+      "sum_h_max": 1.221196150133001
+    },
+    {
+      "id": "train_588_random_zipf",
+      "edge": false,
+      "family": "random_zipf",
+      "seed": 2357249348037649374,
+      "probes": 42441,
+      "period": 16,
+      "unknown_positions": 31128,
+      "known_positions": 11297,
+      "unknown_trials": 1591147,
+      "unknown_events": 6971,
+      "pressure": 5807,
+      "checks": 5807,
+      "different_pairs": 2599,
+      "pool_changed": 266,
+      "flat_changed": 260,
+      "pool_changed_fraction_of_pairs": 0.10234705656021546,
+      "pool_changed_fraction_of_pressure": 0.04580678491475805,
+      "loss": {
+        "next": {
+          "event": 34462.482796208526,
+          "nonevent": 8369.318449916944,
+          "events": 6971,
+          "nonevents": 1584176,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1591147,
+          "infinite_count": 0,
+          "finite_sum": 42831.80124612547,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.02691882098016429,
+          "mean_event_log_loss": 4.943692841229168,
+          "mean_nonevent_log_loss": 0.0052830736293927845
+        },
+        "pooling": {
+          "event": 35860.65151854856,
+          "nonevent": 6785.544007217559,
+          "events": 6971,
+          "nonevents": 1584176,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1591147,
+          "infinite_count": 0,
+          "finite_sum": 42646.19552576612,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.02680217197139304,
+          "mean_event_log_loss": 5.144262160170501,
+          "mean_nonevent_log_loss": 0.004283327109625167
+        },
+        "no_pooling": {
+          "event": 35649.64006002575,
+          "nonevent": 6976.904653307097,
+          "events": 6971,
+          "nonevents": 1584176,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 1591147,
+          "infinite_count": 0,
+          "finite_sum": 42626.54471333284,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.026789821879017364,
+          "mean_event_log_loss": 5.113992262232929,
+          "mean_nonevent_log_loss": 0.004404122176643944
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -185.60572035935184,
+          "relative_total_delta": -0.004333362477398572,
+          "mean_log_loss_delta": -0.000116649008771251,
+          "event_delta": 1398.1687223400368,
+          "nonevent_delta": -1583.774442699385
+        },
+        "no_pooling": {
+          "finite_total_delta": -205.2565327926277,
+          "relative_total_delta": -0.0047921527187978485,
+          "mean_log_loss_delta": -0.00012899910114692534,
+          "event_delta": 1187.157263817222,
+          "nonevent_delta": -1392.413796609847
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 266,
+          "less_current_write": 91,
+          "more_current_write": 175,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 3840508.9832685282,
+          "sum_freed_delta_bytes": 32594399741,
+          "mean_current_write_delta_us": 14438.003696498226,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 260,
+          "less_current_write": 90,
+          "more_current_write": 170,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 3330906.478850006,
+          "sum_freed_delta_bytes": 28269403286,
+          "mean_current_write_delta_us": 12811.178764807715,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 16830.36826734916,
+            "nonevent": 4150.216064434632,
+            "events": 3304,
+            "nonevents": 845203,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 17632.11452885936,
+            "nonevent": 4219.1023854823125,
+            "events": 3667,
+            "nonevents": 738973,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 17674.777420254228,
+            "nonevent": 3191.8774777639815,
+            "events": 3304,
+            "nonevents": 845203,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 18185.87409829433,
+            "nonevent": 3593.666529453578,
+            "events": 3667,
+            "nonevents": 738973,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 17543.029968727897,
+            "nonevent": 3309.997519814932,
+            "events": 3304,
+            "nonevents": 845203,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          },
+          {
+            "event": 18106.61009129785,
+            "nonevent": 3666.907133492165,
+            "events": 3667,
+            "nonevents": 738973,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 4553,
+          "initial": 5,
+          "demand": 4417,
+          "known_demand": 1113,
+          "unknown_demand": 3304,
+          "prefetch": 116,
+          "prefetch_confirmed": 116,
+          "other_load": 0,
+          "own_returns": 4528,
+          "own_wait_sum": 1148355,
+          "own_wait_max": 3431,
+          "disk_exposure_closed": 1149244,
+          "disk_exposure_open": 9860,
+          "own_censored_count": 25,
+          "own_censored_age": 9860,
+          "spill_bytes": 388579132440,
+          "read_bytes": 387928340434
+        },
+        {
+          "starts": 4965,
+          "initial": 6,
+          "demand": 4843,
+          "known_demand": 1176,
+          "unknown_demand": 3667,
+          "prefetch": 105,
+          "prefetch_confirmed": 105,
+          "other_load": 0,
+          "own_returns": 4942,
+          "own_wait_sum": 1004328,
+          "own_wait_max": 5057,
+          "disk_exposure_closed": 1004770,
+          "disk_exposure_open": 10656,
+          "own_censored_count": 23,
+          "own_censored_age": 10656,
+          "spill_bytes": 745566459421,
+          "read_bytes": 746223167520
+        }
+      ],
+      "kernel_cpu_us": 94263,
+      "kernel_wall_us": 145181.21099999905,
+      "observer_wall_seconds": 1.2648695289972238,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.539453507348656,
+      "sum_h_max": 1.026029203870706
+    },
+    {
+      "id": "train_532_random_zipf",
+      "edge": false,
+      "family": "random_zipf",
+      "seed": 17108583945564347376,
+      "probes": 45417,
+      "period": 16,
+      "unknown_positions": 40923,
+      "known_positions": 4487,
+      "unknown_trials": 477499,
+      "unknown_events": 1633,
+      "pressure": 810,
+      "checks": 810,
+      "different_pairs": 528,
+      "pool_changed": 80,
+      "flat_changed": 76,
+      "pool_changed_fraction_of_pairs": 0.15151515151515152,
+      "pool_changed_fraction_of_pressure": 0.09876543209876543,
+      "loss": {
+        "next": {
+          "event": 7528.207706981581,
+          "nonevent": 4049.311781313747,
+          "events": 1633,
+          "nonevents": 475866,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 477499,
+          "infinite_count": 0,
+          "finite_sum": 11577.51948829533,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.024246164888921923,
+          "mean_event_log_loss": 4.610047585414318,
+          "mean_nonevent_log_loss": 0.008509353013902541
+        },
+        "pooling": {
+          "event": 9143.663366610353,
+          "nonevent": 1412.8767491032809,
+          "events": 1633,
+          "nonevents": 475866,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 477499,
+          "infinite_count": 0,
+          "finite_sum": 10556.540115713635,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.022107983714549424,
+          "mean_event_log_loss": 5.599303959957351,
+          "mean_nonevent_log_loss": 0.0029690642935264987
+        },
+        "no_pooling": {
+          "event": 8826.349750931795,
+          "nonevent": 1691.8368181268252,
+          "events": 1633,
+          "nonevents": 475866,
+          "event_inf": 0,
+          "nonevent_inf": 0,
+          "clipped_trials": 0,
+          "trials": 477499,
+          "infinite_count": 0,
+          "finite_sum": 10518.18656905862,
+          "total_is_infinite": false,
+          "mean_log_loss": 0.02202766198266095,
+          "mean_event_log_loss": 5.404990661930064,
+          "mean_nonevent_log_loss": 0.003555279885780504
+        }
+      },
+      "deltas": {
+        "pooling": {
+          "finite_total_delta": -1020.9793725816944,
+          "relative_total_delta": -0.08818636613947284,
+          "mean_log_loss_delta": -0.0021381811743724985,
+          "event_delta": 1615.455659628772,
+          "nonevent_delta": -2636.435032210466
+        },
+        "no_pooling": {
+          "finite_total_delta": -1059.3329192367091,
+          "relative_total_delta": -0.09149912641543612,
+          "mean_log_loss_delta": -0.002218502906260973,
+          "event_delta": 1298.1420439502135,
+          "nonevent_delta": -2357.4749631869217
+        }
+      },
+      "shadow_action_deltas": {
+        "pooling": {
+          "count": 80,
+          "less_current_write": 20,
+          "more_current_write": 60,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 1722055.2941439424,
+          "sum_freed_delta_bytes": 7704475386,
+          "mean_current_write_delta_us": 21525.69117679928,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        },
+        "no_pooling": {
+          "count": 76,
+          "less_current_write": 15,
+          "more_current_write": 61,
+          "same_current_write": 0,
+          "sum_current_write_delta_us": 1329203.1358962895,
+          "sum_freed_delta_bytes": 5946854830,
+          "mean_current_write_delta_us": 17489.51494600381,
+          "warning": "Repeated common states on the unchanged reference trajectory: sum is not a realizable closed-loop saving."
+        }
+      },
+      "operator_loss": [
+        [
+          {
+            "event": 7528.207706981581,
+            "nonevent": 4049.311781313747,
+            "events": 1633,
+            "nonevents": 475866,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 9143.663366610353,
+            "nonevent": 1412.8767491032809,
+            "events": 1633,
+            "nonevents": 475866,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ],
+        [
+          {
+            "event": 8826.349750931795,
+            "nonevent": 1691.8368181268252,
+            "events": 1633,
+            "nonevents": 475866,
+            "event_inf": 0,
+            "nonevent_inf": 0,
+            "clipped_trials": 0
+          }
+        ]
+      ],
+      "real_by_operator": [
+        {
+          "starts": 1821,
+          "initial": 31,
+          "demand": 1774,
+          "known_demand": 140,
+          "unknown_demand": 1634,
+          "prefetch": 57,
+          "prefetch_confirmed": 57,
+          "other_load": 0,
+          "own_returns": 1800,
+          "own_wait_sum": 520552,
+          "own_wait_max": 4459,
+          "disk_exposure_closed": 529587,
+          "disk_exposure_open": 5696,
+          "own_censored_count": 21,
+          "own_censored_age": 5696,
+          "spill_bytes": 683683040092,
+          "read_bytes": 684532392631
+        }
+      ],
+      "kernel_cpu_us": 35332,
+      "kernel_wall_us": 59975.184999999256,
+      "observer_wall_seconds": 0.5849689599999692,
+      "sizeof_estimator": 20440,
+      "sum_h_min": 0.23798928776697623,
+      "sum_h_max": 0.65844143909059
+    }
+  ]
+}

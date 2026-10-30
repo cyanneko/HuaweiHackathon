@@ -10,6 +10,8 @@
 - 历史基线：`final_dataset 2.0.0@33ab5af221069fe8b8832fd77e85563e9997633a`。Round8成绩只属于旧集。
 
 ## 当前状态
+08:40:09 UTC远端最新为`0f3000f015d8ef96b9a1e45a75b0672fcbf97925`。自c332以来，final_dataset与dyna_dataset整树都未变化；后续仅加入独立R73/R74、R75开发归档和报告链接。主agent阶段已提交推送`63b2ec3`，允许继续更新本live交接；阶段发布哈希针对该提交快照，不限制后续实时文档更新。
+
 08:00:26 UTC远端推进到`cbca7d31323425c89573bd781941b300cc326c05`；08:03核查其父为c332，final_dataset与dyna_dataset整个tree均与c332相同。新增内容只属独立R73/R74开发诊断归档，主72/推荐540划分不变。主agent已冻结`V21_DATASET_LOCK.json`（SHA前缀79e1f003），固定公开c332及自有42fbd输入快照；其独立`V21_RELEASE_EQUIVALENCE.json`证明42fbd与c332的输入子树及核心元数据相同、仅final README改变，不能说这两个提交整个final tree相同。
 
 07:32:56 UTC已由`git ls-remote --heads origin datasets`确认远端正式发布`c33270386e6899a878e12f3b0031e33737e9d960`。该提交父提交为42fbd与28db22；final_dataset关键元数据与42fbd逐字一致，dyna_dataset版本/manifest与28db22一致。根README明确final 2.1是当前综合主测试，dyna独立且不自动加入成员套件。主eval72、推荐train540；manifest SHA为217e8e24ad6fcf6c1c057bb2031d5cde23fe2e2b35595b095d119922a47aee87。已通知主agent及两研发agent，等待主agent独立接入审核解锁。证据`INTEGRATION_c33270386e68.json`、`SNAPSHOT_c33270386e68.json`与`CHECKS.jsonl`。
@@ -45,6 +47,7 @@
 - 该提交新增`allocation_equivalence.json`，记录400组分配和25完整输入/metadata重放passed；哈希与初始配方/backend匹配。见`ALLOCATION_EQUIVALENCE_RELEASE.json`，这是publisher有限测试证据，不是监测独立重跑或普遍等价证明。
 - 一次查看新远端变更误用`git diff --stat`，它可能触发输入blob读取/惰性下载；已立即中断退出130，无统计输出。promisor仓库下不能宣称该次严格零blob访问/下载，已通知主agent并记录`METADATA_SCOPE_CORRECTION.json`。未启动solver/训练。此后只用限定小路径的`diff-tree --no-renames`和元数据读取。
 - 07:32进一步收紧`check_remote.py`：Git调用设置`GIT_NO_LAZY_FETCH=1`，每个blob先`ls-tree -l`检查小文件大小；变更列表只含明确元数据路径并`--no-renames`，不执行全树stat或相似度分析。
+- 08:40获取新commit/tree时Git输出自动后台packing提示；08:41:10宿主只读快照未见维护进程，但不能排除之前短暂CPU/I/O占用。未停止任何进程。以后显式fetch增加`-c gc.auto=0 -c maintenance.auto=false -c fetch.writeCommitGraph=false`，避免再次触发。主agent确认root100在08:31前已结束，此时没有主solver；不推断其他agent任务的宿主独占。见`FETCH_MAINTENANCE_OBSERVED_20261030T0840.json`。
 - 主agent报告独立接入审核在train_757因发布者整合期间工作树文件消失而退出1，原session4734已终止，约527例缓存保留。计划从固定42fbd本地blob建立自有快照续审，不把共享工作树视为稳定数据。监测未恢复/停止该审核或发布者任务，不重复输入审计。
 
 ## 独立动态补充集
@@ -63,6 +66,9 @@
 ## 后续独立诊断归档
 - cbca新增`experiments/r73_r74_diagnostics_20261030`1.0.0：33基础例=24合成（16select/8check）+9个R72 train/dev的160008操作小例，另4隐藏罚值派生和8只改周期B的配对输入。`default_suite=false`，不进入主测试，配对派生不算独立样本，smoke不是完整5M。
 - manifest归档文件共42,092,543字节，但本监测只获取commit/tree及38,226字节明确小元数据，未读取输入或方法报告/负结果分数。final与dyna的tree均和c332相同，无须修改主agent的split锁。见`UPDATE_cbca7d313234.json`。
+- 716c只更新`docs/PUBLISHED_R73_R74_20261030.json`与`docs/R73_R74_RESULTS_20261030.md`；只看文件路径，不读新成绩。所有数据树和根README相同。见`UPDATE_716c642f44f9.json`。
+- 0bedef增加`experiments/r75_development_20261030`1.0.0：8新seed各200008操作，其中04/06另有同seed500万操作版，共10输入但8独立seed。原始233,177,345字节、压缩78,115,427字节；只读取58,164字节小元数据。两种规模的阶段阈值和tuple大小按N重算，不是简单文本延长。明确已用于开发、不是untouched holdout、不入默认suite；配对不能跨split。未读输入/成绩，未独立重验合法性。见`UPDATE_0bedef702d88.json`。
+- 0f3000只更新`docs/PUBLISHED_R75_20261030.json`与`docs/R75_RESULTS_20261030.md`，所有数据树不变。只检查目录身份与文件名，不读取报告成绩；主数据锁继续有效。见`UPDATE_0f3000f015d8.json`。
 
 ## 计时旁证
 `GENERATION_TIME_EVIDENCE.json`记录：Round8 final50账本开始06:15:50 UTC、结果文件mtime06:22:41；新expansion计划mtime06:32:45、最早新增sidecar06:32:58。未见本批新增生成与该终检窗口重叠，但selection文件06:17:47修改，更早整理/审核或其他CPU活动无法由mtime排除。没有据此声称宿主独占。

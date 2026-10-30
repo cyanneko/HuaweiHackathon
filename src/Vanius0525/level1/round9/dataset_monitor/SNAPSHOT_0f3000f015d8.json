@@ -1,0 +1,99 @@
+{
+  "first_checked_utc": "2026-10-30T08:42:03.233982+00:00",
+  "commit": "0f3000f015d8ef96b9a1e45a75b0672fcbf97925",
+  "version": "2.1.0",
+  "metadata_sha256": {
+    "manifest.json": "217e8e24ad6fcf6c1c057bb2031d5cde23fe2e2b35595b095d119922a47aee87",
+    "recipe.json": "d1108eb643b5419fc10952c7e3ae7e592288ac6a8a9d6b50f8fc5329bcb26871",
+    "validation.json": "93f54d887420a8bff86a90b71b5babd766c8051bbe0878589577fdc1a7278955",
+    "eval/VERSION": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+    "README.md": "1a9ac470483b86e738fc31758303a9bc70a85139c5f1e2c5be8febeb41d70f27",
+    "tools/random_workloads.py": "1d38c7fa79d02f0d5c0a223fb427b40f5a50cf0c8e6783a429a2074b19d64da4"
+  },
+  "metadata_bytes_read": 1520190,
+  "families": {
+    "eval": {
+      "random_hotspot": 28,
+      "random_zipf": 28,
+      "random_lognormal": 16
+    },
+    "train": {
+      "partition_zipf": 1,
+      "moving_hotspot": 1,
+      "build_heavy": 9,
+      "near_uniform": 11,
+      "zipf": 7,
+      "hot_small": 11,
+      "hot_large": 10,
+      "moving_hot": 13,
+      "operator_competition": 9,
+      "uniform": 16,
+      "hot": 16,
+      "markov": 16,
+      "random_hotspot": 216,
+      "random_lognormal": 108,
+      "random_zipf": 216,
+      "random_uniform": 90,
+      "one_byte_over": 10,
+      "empty_partition_probe": 10
+    }
+  },
+  "counts": {
+    "eval": 72,
+    "train": 770
+  },
+  "ranges_from_manifest": {
+    "k": [
+      1,
+      8
+    ],
+    "p": [
+      2,
+      64
+    ],
+    "memory": [
+      67108864,
+      4294967296
+    ],
+    "operations": [
+      306,
+      1048576
+    ],
+    "insert_count": [
+      83,
+      633488
+    ],
+    "probe_count": [
+      148,
+      558834
+    ],
+    "pressure": [
+      0.699999213218689,
+      7.999999582767487
+    ],
+    "file_bytes": [
+      6216,
+      22856498
+    ]
+  },
+  "manifest_unchanged_from_v2_base": false,
+  "changed_small_metadata_paths_from_v2": [
+    "final_dataset/README.md",
+    "final_dataset/eval/VERSION",
+    "final_dataset/manifest.json",
+    "final_dataset/recipe.json",
+    "final_dataset/validation.json"
+  ],
+  "cross_split_manifest_signature_overlaps": {
+    "sha256": 0,
+    "operation_stream_sha256": 0,
+    "partition_stream_sha256": 0
+  },
+  "generated_specs_checked": 722,
+  "generated_spec_range_errors": [],
+  "publisher_validation_status": "passed",
+  "publisher_errors": [],
+  "uniform_iid_removed": true,
+  "uniform_flag_scope": "Primary eval family-name check only. Historical uniform train may be retained. This flag is not a semantic proof of nonuniformity for arbitrary renamed generators.",
+  "scope": "Independent small-metadata hash/range/signature checks only. Publisher full-input validation is reported, not independently rerun. No raw inputs, solver results, or test-performance access."
+}

@@ -4,16 +4,16 @@
 持续双路线研究，当前负责含AI路线；本目录唯一写者。Round8/ai原字节冻结，不读取本轮final50或fresh逐例结果调参，learning-validation32封存。只写本目录，不commit/push、不改根目录、不启动小时服务。所有solver/训练/较重重计算持公共experiment.lock。
 
 ## 当前阶段
-旧划分审计、分层复核、skew-only有限计算基线、CPU修正及唯一温度校准机会审计均完成并保持冻结。下一“真实压力决策互补”设计/文献已准备，尚未执行；无模型训练、无保留验证查询。
+旧划分审计、分层复核、skew-only有限计算基线、CPU修正及唯一温度校准机会审计均完成并保持冻结。压力互补设计已由root审阅；Phase A原paired100观察器24/24完成，逐字TRACE及独立字节/覆盖/采样审核全过。尚无教师/EM新比较/模型训练/保留验证查询。
 
 ## 已验证的继承事实
 Round8两学习候选未晋升；8流有限前缀匿名Hit MLE预测改善，但保留集合概率质量下降、I/O价值代理5seed正3负。完整MLE最多785步，未证明可部署。真实概率与后续窗只能用于离线标签，不进入在线特征。
 
 ## 下一可执行动作
-向root交付PRESSURE_DECISION_DESIGN_V1.md及合同草案，等统一可执行合同/纯统计接口冻结，不自动solver/训练。不启动标量温度学习；旧负结果不推及新100骨架。新2.1本阶段仅读已授权pilot60元数据，未读输入；108dev/72eval及learning-validation继续封存。
+读取PHASE_A_REVIEW_V1.md及最终冻结清单，向root交接已完成动作空间审计；不重跑24个observer。等pure风险配置和统一执行合同冻结后，再审查同状态强固定配置的实际动作互补；完整比较/教师/训练须另冻。不启动标量温度学习；108dev/72eval及learning-validation封存。
 
 ## 运行状态
-全部已完成命令已结束，无运行训练/评测。不要重跑6流基线/CPU修正；文件已完整存在。family_reanalysis.log只本地并被精确ignore，缓存均在本目录build。
+历史命令及Phase A观察/汇总命令均已结束，本阶段无运行进程。不要重跑6流基线/CPU修正/温度、24个observer或root100基线。family_reanalysis.log只本地并被精确ignore，缓存均在本目录build。
 
 ## 校准机会预冻（续接）
 有限基线12件产物已写FINITE_STAGE_FREEZE.json。唯一校准审计预定协议见CALIBRATION_OPPORTUNITY_PLAN.md：EM4逆温度[0.5,2]的未来半窗oracle，比较强EM16/充分prior64、prior1及固定矩规则；不训练。一次执行完成，session66338已正常退出；复现命令为`PYTHONDONTWRITEBYTECODE=1 python src/Vanius0525/level1/round9/ai/audit_calibration_opportunity.py`，无需重复执行。外部数据审核逐case占锁，不能声明全宿主独占。
@@ -32,6 +32,7 @@ Round8两学习候选未晋升；8流有限前缀匿名Hit MLE预测改善，但
 ## Open Ideas / 值得深挖的问题
 - 2026-10-30：16步暖启动已关闭充分MLE的优化差距，真正尚未验证的是统计校准与物理决策之间的差别。单次增量logloss反差，但保留价值代理略高，可能说明预测指标不是最终调度目标；最小验证是同状态实际规划动作/集合变化审计。并非新颖性或AI增益结论。
 - 2026-10-30续：本次已确认一个具体脱节：温度oracle后半窗logloss降低约0.10535，却0/23动作变化（只有11状态需SPILL）。未来研究应先度量概率误差是否落在规划器决策边界附近，再决定是否训练校准；最小检验是预冻合法train状态的动作敏感性与可学习信息审计。排序保持变换无动作收益不是新颖性结论，当前不宣称独立顶会课题。
+- 2026-10-30 Phase A：24seed已有387,204真实压力事件，其中62.52%原集合成员不同，但单流身份覆盖率4.78%–81.90%，且q≥262,144层仅1seed。可证伪问题是“来源/删失置信度能否辨别强固定配置的真实动作收益”，而不是仅凭集合不同训练。最小检验是固定两原集合/强估计合同的同状态动作比较，再做稳定双续接标签；尚无未来收益或独立新颖性证据。各族最长总N并不保证长PROBE覆盖这一缺口已即时记录，不追加后选case。
 
 ## 用户新范围与有限基线结果
 - 用户要求不再启动uniform相关性能/学习评测；已完成32seed分层结果保留含uniform旧scope。新基线仅6条skew V2 train、24前缀，无新test/fresh/learning-validation查询。
@@ -48,3 +49,15 @@ Round8两学习候选未晋升；8流有限前缀匿名Hit MLE预测改善，但
 - 分层joint分解本身无新信息；只有共享先验/不同时间尺度等明确纯统计归纳偏置可形成候选，且须先冻强固定参照再看教师标签。两teacher×4096/8192真实PROBE对齐、分项读写/Miss及末驻留、不确定标签和门槛已写草案；当前不训练、不solver、不访问dev/eval。
 - 全部旧冻结SHA已复核：Round8的74件、有限阶段12件、温度阶段8件均未变。无运行命令，无提交。
 - pure新有界核查结果已只读纳入设计：sizeof52,584B，旧低Miss1M流内核CPU3.501s；窗口截断/刷新滞后TV均值约.149/.214。不是新100候选收益或免费基准；学习若依赖全部估计输出须支付全部计算，廉价计算门控不能使用尚未计算的重估计特征。
+
+## Phase A执行续接（2026-10-30）
+- root已完成100-only60case基线，允许复用每case canonical/成功attempt的paired100 TRACE/stdout/三重复。本阶段最多24次新observer，不重跑参考、旧1、EM、教师或模型。使用root新cost_replay_precise精确字节/roundoff审核。
+- PHASE_A_CONTRACT_V1.md先冻，phase_a_observer.hpp/audit_phase_a.py/run_phase_a.py已实现；PHASE_A_BUILD_FREEZE_V1.json在运行前绑定源码/合同/输入提案/root基线/精确核算器SHA。官方引擎片段保持原样。首次prepare因statement本地不在而失败，随后按根构建器相同的git-show+固定SHA回退修正；无solver执行消耗，最终编译通过。
+- 实际命令`PYTHONDONTWRITEBYTECODE=1 python -u src/Vanius0525/level1/round9/ai/run_phase_a.py`，session87611。每case先独立复核旧参考，再仅运行一次新observer；.started.json保留未完成标记，若中断/失败不能自动重跑。完整日志在忽略build/phase_a_v1。
+- root已发布完成阶段commit63b2ec3；此前设计稿和闭合实验freeze保持不改。新PhaseA合同/实现未纳入该提交，HANDOFF可继续更新；旧发布快照SHA不应与之后HANDOFF混比。
+
+## Phase A完成（2026-10-30）
+- 预定24/24 observer全部成功，运行命令正常结束；root参考0次重跑，旧1/新EM/教师/训练/dev/eval均0。最终review再逐字节核查732,040条TRACE全相同，独立精确字节、身份来源、bottom-k采样和样本公式均通过。PHASE_A_RESULTS_V1.json、SUMMARY及REVIEW保存结果。
+- 全压力387,204、不同集合242,099（事件62.52%/24seed等权69.24%）、原选dynamic142,295（事件36.75%/等权31.64%）；23/24seed有分歧。423小样本记录为419唯一状态，3状态只是顺序不同而集合相同。没有把集合差异当学习收益。
+- 完整覆盖2,294,066 PROBE，唯一已知919,585、匿名Hit1,374,481；next并集588,635、Miss-only330,950。409,729个已曝光后Hit从匿名计数扣除；预取后knownHit3,461。首回调前192、末尾95请求未回填。全身份覆盖事件40.09%/seed等权36.72%，是内生观测覆盖，不是热度/B。
+- q≥262,144层仅1seed，已在报告显式限制长流结论。当前没有运行命令；后续只等待配置/执行合同协调，未自动启动下一实验。本阶段未commit/push。

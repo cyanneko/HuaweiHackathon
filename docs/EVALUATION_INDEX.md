@@ -1,5 +1,7 @@
 # 统一评测与代码版本索引
 
+用户已选择**以旧版为准**：主评测固定为 `dyna_dataset 1.0.0` 全12例与 `final_dataset 2.1.0` 全72个eval，固定数据提交 `c65c7b32b06a5764ce9ad4881133a3c6eb33ed17`（dyna tree `808ce8b11f57a1a96051f22aa572eceb82b1fba0`，final tree `41197783dd577dfccf5b007a6ece67cbfb241e4b`）。后续新方法按两套完整测试，输入/程序/评分身份与全部结果固定记录。移动 `datasets` 分支的3.0不等于主评测版本；R86的3.0结果仅作补充敏感性实验，不用于主榜、选优或晋升。保留新版数据和全部旧结果，不回滚数据分支，不改冻结输出，不因均分自动替换默认R75。
+
 这是 source/cyanneko 的比较入口。机器清单 [EVALUATION_INDEX.json](EVALUATION_INDEX.json) 将每轮运行前的源码/TU/ELF、数据逐文件SHA和协议身份，映射到发布后的固定Git提交；不回写冻结selection或历史成绩。
 
 | 轮次 | 实际范围 | 已发布格数 | 状态与固定入口 |
@@ -31,3 +33,5 @@ R79/R80/R81 的 final24、dyna6 都是历史抽样，保持原集合与字节；
 独立附录：[与Van保存记录的交叉核对](https://github.com/cyanneko/HuaweiHackathon/blob/28fcd850291dbb3914f7ea0ddfa02494be2d74f1/src/reports/r84_20261030/van_cross_audit/cross-audit.md)。84份input身份与216条物理指标记录一致，两侧D置换可解释分差；仅保存记录复算，无新策略运行，不改冻结R84成绩。发布期间移动datasets分支已出现final_dataset 3.0（e6613435），本轮仍只代表固定2.1.0全部72 eval，不将旧分数标为3.0成绩。
 
 R85全量与新面板分开发布，A/B独立不合并。A仅+.003361等权分领先R81却在final退步；B裁剪分升但raw和尾部退，默认R75不变。四窗口以finalized_summary/completion_gate为完成依据；新面板raw summary仍complete=false。所有原final结果固定2.1/c65，后来移动分支3.0另行评测。
+
+当前主评测数据版本的完整约定见[评测版本约定](EVALUATION_DATA_VERSIONS_20261030.md)。

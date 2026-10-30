@@ -12310,7 +12310,8 @@
           "actual_D_total_us": 52988993.18,
           "quantiles": "Reported separately per dataset; no pooled or averaged quantiles"
         }
-      ]
+      ],
+      "primary_evaluation_role": "current full old-version benchmark evidence; no automatic promotion"
     }
   ],
   "policies": [
@@ -12325,5 +12326,30 @@
       "published_sha256": "c5d6e25c0bd1ccdcde15d9595d274be2ab44312aa871c078c44e14b783a2f288"
     }
   ],
-  "pending_publication": []
+  "pending_publication": [],
+  "primary_evaluation": {
+    "status": "user_selected_old_version_primary",
+    "decision_date": "2026-10-30",
+    "dataset_commit": "c65c7b32b06a5764ce9ad4881133a3c6eb33ed17",
+    "dyna": {
+      "dataset": "dyna_dataset",
+      "version": "1.0.0",
+      "cases": 12,
+      "scope": "all original train/dev/holdout, exposed regression",
+      "tree": "808ce8b11f57a1a96051f22aa572eceb82b1fba0"
+    },
+    "final": {
+      "dataset": "final_dataset",
+      "version": "2.1.0",
+      "cases": 72,
+      "scope": "all eval; no train",
+      "tree": "41197783dd577dfccf5b007a6ece67cbfb241e4b"
+    },
+    "future_new_method_requirement": "full dyna12 and full final2.1 eval72; preserve fixed identities and separate measurement windows",
+    "moving_dataset_branch_is_primary_version": false,
+    "R86_role": "final3.0 supplemental sensitivity only; not primary ranking, selection or promotion",
+    "newer_data_preserved": true,
+    "historical_results_not_rewritten": true,
+    "default_R75_changed": false
+  }
 }

@@ -1,0 +1,2493 @@
+{
+  "summary": {
+    "mean_ratio": 0.9859045360478504,
+    "worst_ratio": 1.0929888640096963,
+    "wins_over_1pct": 28,
+    "regressions_over_1pct": 4,
+    "total_cost_ratio": 0.9718458569073156,
+    "groups": {
+      "build_heavy": {
+        "n": 2,
+        "mean_ratio": 0.998202528326756,
+        "worst_ratio": 1.0
+      },
+      "empty_partition_probe": {
+        "n": 3,
+        "mean_ratio": 0.9998435610620681,
+        "worst_ratio": 0.999877894266308
+      },
+      "hot": {
+        "n": 3,
+        "mean_ratio": 0.8764791853662068,
+        "worst_ratio": 1.0
+      },
+      "hot_large": {
+        "n": 3,
+        "mean_ratio": 1.030675723475314,
+        "worst_ratio": 1.0929888640096963
+      },
+      "hot_small": {
+        "n": 3,
+        "mean_ratio": 0.9882205937082233,
+        "worst_ratio": 1.0
+      },
+      "markov": {
+        "n": 4,
+        "mean_ratio": 1.0055032801236208,
+        "worst_ratio": 1.0220131204944836
+      },
+      "moving_hot": {
+        "n": 2,
+        "mean_ratio": 0.9884349286763278,
+        "worst_ratio": 1.0
+      },
+      "near_uniform": {
+        "n": 3,
+        "mean_ratio": 0.9504981008908819,
+        "worst_ratio": 1.016914554845425
+      },
+      "one_byte_over": {
+        "n": 3,
+        "mean_ratio": 0.9998437382302762,
+        "worst_ratio": 1.000006228400807
+      },
+      "operator_competition": {
+        "n": 1,
+        "mean_ratio": 1.0,
+        "worst_ratio": 1.0
+      },
+      "random_hotspot": {
+        "n": 14,
+        "mean_ratio": 0.9779316499416891,
+        "worst_ratio": 1.002560873479666
+      },
+      "random_lognormal": {
+        "n": 9,
+        "mean_ratio": 0.9850145211860765,
+        "worst_ratio": 1.0116849389584177
+      },
+      "random_uniform": {
+        "n": 10,
+        "mean_ratio": 0.9984470919129459,
+        "worst_ratio": 1.0012919856051044
+      },
+      "random_zipf": {
+        "n": 15,
+        "mean_ratio": 0.9867913079979858,
+        "worst_ratio": 1.0081005460868402
+      },
+      "uniform": {
+        "n": 3,
+        "mean_ratio": 0.9992926040569652,
+        "worst_ratio": 1.0
+      },
+      "zipf": {
+        "n": 2,
+        "mean_ratio": 1.0,
+        "worst_ratio": 1.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "file": "train_004_liunianwww_build_heavy.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "8130b63245befa551a6bdfffa76de0724de026100010f5b8f72f34cafc38f480",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 97249498,
+          "build_append_bytes": 39509710,
+          "probe_spill_bytes": 244283788,
+          "probe_read_bytes": 244954293,
+          "build_write_us": 1367592.08,
+          "probe_write_us": 2442837.88,
+          "probe_read_us": 24495.4293,
+          "miss_us": 85
+        },
+        "callbacks": 141,
+        "actions": 235,
+        "hits": 538,
+        "misses": 85,
+        "io": 3834925.3893000004
+      },
+      "metrics": {
+        "Total_IO_Time": 3834925.39,
+        "Total_Decision_Time": 6096.89,
+        "Hit_Count": 538.0,
+        "Miss_Count": 85.0,
+        "Total_Score": 3841107.28
+      },
+      "group": "build_heavy"
+    },
+    {
+      "file": "train_008_liunianwww_build_heavy.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d23a36e66df2d4861d8f75d9d44116a5b721de2adb9e32c7850416589832c64f",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 100558373,
+          "build_append_bytes": 107847410,
+          "probe_spill_bytes": 340289396,
+          "probe_read_bytes": 346771795,
+          "build_write_us": 20840578.3,
+          "probe_write_us": 34028939.6,
+          "probe_read_us": 34677179.5,
+          "miss_us": 680
+        },
+        "callbacks": 203,
+        "actions": 188,
+        "hits": 186,
+        "misses": 68,
+        "io": 89546697.40000007
+      },
+      "metrics": {
+        "Total_IO_Time": 89546697.4,
+        "Total_Decision_Time": 7735.54,
+        "Hit_Count": 186.0,
+        "Miss_Count": 68.0,
+        "Total_Score": 89555112.94
+      },
+      "group": "build_heavy"
+    },
+    {
+      "file": "train_018_liunianwww_near_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "ae9d4f07d2d49ca162c392278a9f3c1f8f48e3f89dad87bef4b7e2195efd5afa",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 33650769,
+          "build_append_bytes": 2097152,
+          "probe_spill_bytes": 932081263,
+          "probe_read_bytes": 932451366,
+          "build_write_us": 3574792.1,
+          "probe_write_us": 93208126.3,
+          "probe_read_us": 932451366.0,
+          "miss_us": 15600
+        },
+        "callbacks": 170,
+        "actions": 318,
+        "hits": 986,
+        "misses": 156,
+        "io": 1029234284.4000002
+      },
+      "metrics": {
+        "Total_IO_Time": 1029234284.4,
+        "Total_Decision_Time": 7570.01,
+        "Hit_Count": 986.0,
+        "Miss_Count": 156.0,
+        "Total_Score": 1029257454.41
+      },
+      "group": "near_uniform"
+    },
+    {
+      "file": "train_020_liunianwww_near_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "f894ec09d76e12029e6913e746ecbc65f931567f7b6089f55936671f5943b62a",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 62965567,
+          "build_append_bytes": 22984626,
+          "probe_spill_bytes": 3597679136,
+          "probe_read_bytes": 3596584038,
+          "build_write_us": 859501.93,
+          "probe_write_us": 35976791.36,
+          "probe_read_us": 3596584038.0,
+          "miss_us": 119
+        },
+        "callbacks": 260,
+        "actions": 241,
+        "hits": 623,
+        "misses": 119,
+        "io": 3633420331.2900066
+      },
+      "metrics": {
+        "Total_IO_Time": 3633420331.29,
+        "Total_Decision_Time": 8026.46,
+        "Hit_Count": 623.0,
+        "Miss_Count": 119.0,
+        "Total_Score": 3633428476.75
+      },
+      "group": "near_uniform"
+    },
+    {
+      "file": "train_021_liunianwww_near_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "39351ffe7d6be5bfb75f2fd465c9101d06444e90c0aadacf33e6de74ab082388",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 64352532,
+          "build_append_bytes": 6291456,
+          "probe_spill_bytes": 839175795,
+          "probe_read_bytes": 839988280,
+          "build_write_us": 7064.3988,
+          "probe_write_us": 83917.5795,
+          "probe_read_us": 8399882.8,
+          "miss_us": 154
+        },
+        "callbacks": 173,
+        "actions": 321,
+        "hits": 596,
+        "misses": 154,
+        "io": 8490864.778300002
+      },
+      "metrics": {
+        "Total_IO_Time": 8490864.78,
+        "Total_Decision_Time": 8664.54,
+        "Hit_Count": 596.0,
+        "Miss_Count": 154.0,
+        "Total_Score": 8499683.31
+      },
+      "group": "near_uniform"
+    },
+    {
+      "file": "train_026_liunianwww_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "ec5eb7f2256b43836a3bfa32589fafe4901b864b2b2b039240b91008ed94540b",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 5115676,
+          "build_append_bytes": 0,
+          "probe_spill_bytes": 13505562,
+          "probe_read_bytes": 15027204,
+          "build_write_us": 51156.76,
+          "probe_write_us": 135055.62,
+          "probe_read_us": 1502.7204,
+          "miss_us": 90
+        },
+        "callbacks": 72,
+        "actions": 24,
+        "hits": 1781,
+        "misses": 9,
+        "io": 187715.10039999997
+      },
+      "metrics": {
+        "Total_IO_Time": 187715.1,
+        "Total_Decision_Time": 3100.68,
+        "Hit_Count": 1781.0,
+        "Miss_Count": 9.0,
+        "Total_Score": 190905.78
+      },
+      "group": "zipf"
+    },
+    {
+      "file": "train_028_liunianwww_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "8430348d78c8f1ad27d8e602bf095ec993ba6fa7c5e3c8640de7a0756870d413",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 57800149,
+          "build_append_bytes": 18781882,
+          "probe_spill_bytes": 126987948,
+          "probe_read_bytes": 117038931,
+          "build_write_us": 765820.31,
+          "probe_write_us": 1269879.48,
+          "probe_read_us": 11703.8931,
+          "miss_us": 2400
+        },
+        "callbacks": 686,
+        "actions": 107,
+        "hits": 970,
+        "misses": 24,
+        "io": 2047403.6830999998
+      },
+      "metrics": {
+        "Total_IO_Time": 2047403.68,
+        "Total_Decision_Time": 13794.1,
+        "Hit_Count": 970.0,
+        "Miss_Count": 24.0,
+        "Total_Score": 2063597.79
+      },
+      "group": "zipf"
+    },
+    {
+      "file": "train_035_liunianwww_hot_small.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "b74a3e3b27831453a916c0303a4e2d637299a62d4708e9b557490953800a6ff7",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 58276455,
+          "build_append_bytes": 21378644,
+          "probe_spill_bytes": 807409580,
+          "probe_read_bytes": 784222795,
+          "build_write_us": 79655099.0,
+          "probe_write_us": 807409580.0,
+          "probe_read_us": 78422279.5,
+          "miss_us": 82
+        },
+        "callbacks": 755,
+        "actions": 210,
+        "hits": 1729,
+        "misses": 82,
+        "io": 965486958.5
+      },
+      "metrics": {
+        "Total_IO_Time": 965486958.5,
+        "Total_Decision_Time": 13711.84,
+        "Hit_Count": 1729.0,
+        "Miss_Count": 82.0,
+        "Total_Score": 965500752.34
+      },
+      "group": "hot_small"
+    },
+    {
+      "file": "train_036_liunianwww_hot_small.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "cfb68a5a6b1525b7500807252ea1e6b455bf49fc4d2242cf8d2c1ab6ce1817f1",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 56780798,
+          "build_append_bytes": 10710622,
+          "probe_spill_bytes": 10569568,
+          "probe_read_bytes": 10594437,
+          "build_write_us": 6749.142,
+          "probe_write_us": 1056.9568,
+          "probe_read_us": 10594.437,
+          "miss_us": 120
+        },
+        "callbacks": 73,
+        "actions": 97,
+        "hits": 1308,
+        "misses": 12,
+        "io": 18400.535799999994
+      },
+      "metrics": {
+        "Total_IO_Time": 18400.54,
+        "Total_Decision_Time": 6728.04,
+        "Hit_Count": 1308.0,
+        "Miss_Count": 12.0,
+        "Total_Score": 25248.57
+      },
+      "group": "hot_small"
+    },
+    {
+      "file": "train_037_liunianwww_hot_small.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "246c5d9bbaeb30d497b8244274d174421728a648d1398272233b505e60e1aa59",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 34260214,
+          "build_append_bytes": 0,
+          "probe_spill_bytes": 0,
+          "probe_read_bytes": 0,
+          "build_write_us": 342602.14,
+          "probe_write_us": 0.0,
+          "probe_read_us": 0.0,
+          "miss_us": 0
+        },
+        "callbacks": 555,
+        "actions": 1,
+        "hits": 876,
+        "misses": 0,
+        "io": 342602.14
+      },
+      "metrics": {
+        "Total_IO_Time": 342602.14,
+        "Total_Decision_Time": 11004.17,
+        "Hit_Count": 876.0,
+        "Miss_Count": 0.0,
+        "Total_Score": 353606.31
+      },
+      "group": "hot_small"
+    },
+    {
+      "file": "train_042_liunianwww_hot_large.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "f5ded885b8c2f78846f13ed6da1fb9f5c2c2519629f5a460a1e37f2156db2801",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 737808272,
+          "build_append_bytes": 904433187,
+          "probe_spill_bytes": 211304285925,
+          "probe_read_bytes": 211314432818,
+          "build_write_us": 164224.1459,
+          "probe_write_us": 21130428.5925,
+          "probe_read_us": 211314432.818,
+          "miss_us": 8100
+        },
+        "callbacks": 943,
+        "actions": 1661,
+        "hits": 507,
+        "misses": 810,
+        "io": 232609085.5563968
+      },
+      "metrics": {
+        "Total_IO_Time": 232609085.56,
+        "Total_Decision_Time": 32500.19,
+        "Hit_Count": 507.0,
+        "Miss_Count": 810.0,
+        "Total_Score": 232649685.75
+      },
+      "group": "hot_large"
+    },
+    {
+      "file": "train_045_liunianwww_hot_large.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "4939fd8050cdf81ed4669f8adec04d150287a779e233bbc288afe303ab334961",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 47999665,
+          "build_append_bytes": 20527555,
+          "probe_spill_bytes": 612504223,
+          "probe_read_bytes": 613594785,
+          "build_write_us": 685272.2,
+          "probe_write_us": 6125042.23,
+          "probe_read_us": 613594785.0,
+          "miss_us": 14100
+        },
+        "callbacks": 148,
+        "actions": 306,
+        "hits": 1820,
+        "misses": 141,
+        "io": 620405099.4300003
+      },
+      "metrics": {
+        "Total_IO_Time": 620405099.43,
+        "Total_Decision_Time": 6762.37,
+        "Hit_Count": 1820.0,
+        "Miss_Count": 141.0,
+        "Total_Score": 620425961.8
+      },
+      "group": "hot_large"
+    },
+    {
+      "file": "train_048_liunianwww_hot_large.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "a9a1927a0784eefd3b72346d17925e75161e35d16e2c3bc5f226f445865ace77",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 55186187,
+          "build_append_bytes": 15338815,
+          "probe_spill_bytes": 249616162,
+          "probe_read_bytes": 250822241,
+          "build_write_us": 7052.5002,
+          "probe_write_us": 24961.6162,
+          "probe_read_us": 250822.241,
+          "miss_us": 39000
+        },
+        "callbacks": 232,
+        "actions": 91,
+        "hits": 1027,
+        "misses": 39,
+        "io": 282836.3574
+      },
+      "metrics": {
+        "Total_IO_Time": 282836.36,
+        "Total_Decision_Time": 5750.98,
+        "Hit_Count": 1027.0,
+        "Miss_Count": 39.0,
+        "Total_Score": 327587.34
+      },
+      "group": "hot_large"
+    },
+    {
+      "file": "train_056_liunianwww_moving_hot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "34bf6d795b140acc2cf10f3c96f53890849de1188ace71f5b572aa9e68c580ee",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 82170596,
+          "build_append_bytes": 55480937,
+          "probe_spill_bytes": 454143225,
+          "probe_read_bytes": 457090453,
+          "build_write_us": 1376515.33,
+          "probe_write_us": 4541432.25,
+          "probe_read_us": 45709.0453,
+          "miss_us": 117
+        },
+        "callbacks": 131,
+        "actions": 269,
+        "hits": 1745,
+        "misses": 117,
+        "io": 5963656.625299999
+      },
+      "metrics": {
+        "Total_IO_Time": 5963656.63,
+        "Total_Decision_Time": 7104.07,
+        "Hit_Count": 1745.0,
+        "Miss_Count": 117.0,
+        "Total_Score": 5970877.69
+      },
+      "group": "moving_hot"
+    },
+    {
+      "file": "train_057_liunianwww_moving_hot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "b2d5bccf98c774d927884b16b81aa152e55f37cc377995316624815fa1d2e5f7",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 53754478,
+          "build_append_bytes": 14673773,
+          "probe_spill_bytes": 100719093,
+          "probe_read_bytes": 102023448,
+          "build_write_us": 6842825.1,
+          "probe_write_us": 10071909.3,
+          "probe_read_us": 102023.448,
+          "miss_us": 32
+        },
+        "callbacks": 115,
+        "actions": 93,
+        "hits": 1841,
+        "misses": 32,
+        "io": 17016757.848
+      },
+      "metrics": {
+        "Total_IO_Time": 17016757.85,
+        "Total_Decision_Time": 5120.2,
+        "Hit_Count": 1841.0,
+        "Miss_Count": 32.0,
+        "Total_Score": 17021910.05
+      },
+      "group": "moving_hot"
+    },
+    {
+      "file": "train_070_liunianwww_operator_competition.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "f32a99bef1b488503f0b16a2a1d6d9b9fc10f3a6df32dd6c0812a79aa95608da",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 56411316,
+          "build_append_bytes": 11308122,
+          "probe_spill_bytes": 51641843,
+          "probe_read_bytes": 52207314,
+          "build_write_us": 67719.438,
+          "probe_write_us": 51641.843,
+          "probe_read_us": 5220731.4,
+          "miss_us": 2200
+        },
+        "callbacks": 54,
+        "actions": 91,
+        "hits": 1566,
+        "misses": 22,
+        "io": 5340092.681
+      },
+      "metrics": {
+        "Total_IO_Time": 5340092.68,
+        "Total_Decision_Time": 2999.46,
+        "Hit_Count": 1566.0,
+        "Miss_Count": 22.0,
+        "Total_Score": 5345292.14
+      },
+      "group": "operator_competition"
+    },
+    {
+      "file": "train_074_Vanius0525_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "5f09db61c8425e4939e4519ad75cd817308bda1cc904075a3306a29f4ec58362",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 100401152,
+          "build_append_bytes": 100925440,
+          "probe_spill_bytes": 72307703808,
+          "probe_read_bytes": 72307703808,
+          "build_write_us": 20132.6592,
+          "probe_write_us": 7230770.3808,
+          "probe_read_us": 723077038.08,
+          "miss_us": 814200
+        },
+        "callbacks": 8348,
+        "actions": 16372,
+        "hits": 3858,
+        "misses": 8142,
+        "io": 730327941.1199455
+      },
+      "metrics": {
+        "Total_IO_Time": 730327941.12,
+        "Total_Decision_Time": 272757.03,
+        "Hit_Count": 3858.0,
+        "Miss_Count": 8142.0,
+        "Total_Score": 731414898.15
+      },
+      "group": "uniform"
+    },
+    {
+      "file": "train_077_Vanius0525_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "337172c72cc590b09c6f1a7823b9145fb614f567d188b0ba567229c05639ce57",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 0,
+          "build_append_bytes": 0,
+          "probe_spill_bytes": 0,
+          "probe_read_bytes": 0,
+          "build_write_us": 0.0,
+          "probe_write_us": 0.0,
+          "probe_read_us": 0.0,
+          "miss_us": 0
+        },
+        "callbacks": 1,
+        "actions": 0,
+        "hits": 12000,
+        "misses": 0,
+        "io": 0.0
+      },
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 81.48,
+        "Hit_Count": 12000.0,
+        "Miss_Count": 0.0,
+        "Total_Score": 81.48
+      },
+      "group": "uniform"
+    },
+    {
+      "file": "train_087_Vanius0525_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "be3c5eab5e7c20aebc976b762bf36b3d579e1e71e6f9e2cb6fdc7ca79be9392b",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 123333509,
+          "build_append_bytes": 94099210,
+          "probe_spill_bytes": 396453787658,
+          "probe_read_bytes": 396453787658,
+          "build_write_us": 217432.719,
+          "probe_write_us": 396453787.658,
+          "probe_read_us": 3964537876.58,
+          "miss_us": 602600
+        },
+        "callbacks": 7099,
+        "actions": 12055,
+        "hits": 1974,
+        "misses": 6026,
+        "io": 4361209096.956928
+      },
+      "metrics": {
+        "Total_IO_Time": 4361209096.96,
+        "Total_Decision_Time": 223002.72,
+        "Hit_Count": 1974.0,
+        "Miss_Count": 6026.0,
+        "Total_Score": 4362034699.68
+      },
+      "group": "uniform"
+    },
+    {
+      "file": "train_091_Vanius0525_hot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "fd2c98bd336646567cf944cd1ea0e1886abc53de81448a789ce5e348d00e2002",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 43289870,
+          "build_append_bytes": 24382932,
+          "probe_spill_bytes": 460899860,
+          "probe_read_bytes": 394193874,
+          "build_write_us": 676728.02,
+          "probe_write_us": 4608998.6,
+          "probe_read_us": 39419.3874,
+          "miss_us": 516000
+        },
+        "callbacks": 586,
+        "actions": 1194,
+        "hits": 11484,
+        "misses": 516,
+        "io": 5325146.0073999865
+      },
+      "metrics": {
+        "Total_IO_Time": 5325146.01,
+        "Total_Decision_Time": 30484.74,
+        "Hit_Count": 11484.0,
+        "Miss_Count": 516.0,
+        "Total_Score": 5871630.75
+      },
+      "group": "hot"
+    },
+    {
+      "file": "train_094_Vanius0525_hot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "c3dadba7fe86b3ca6966196b5ea9c9d579915474bd2ece4e2e6ba1e5f7c847ad",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 21364736,
+          "build_append_bytes": 44523966,
+          "probe_spill_bytes": 2009605356,
+          "probe_read_bytes": 1993133183,
+          "build_write_us": 658887.02,
+          "probe_write_us": 20096053.56,
+          "probe_read_us": 19931331.83,
+          "miss_us": 2340
+        },
+        "callbacks": 238,
+        "actions": 477,
+        "hits": 11766,
+        "misses": 234,
+        "io": 40686272.410000004
+      },
+      "metrics": {
+        "Total_IO_Time": 40686272.41,
+        "Total_Decision_Time": 14316.48,
+        "Hit_Count": 11766.0,
+        "Miss_Count": 234.0,
+        "Total_Score": 40702928.89
+      },
+      "group": "hot"
+    },
+    {
+      "file": "train_102_Vanius0525_hot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d1b181d68ee79f196643e6c1eb864cadcecc7bb3a6d399056a12be39e02a600a",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 0,
+          "build_append_bytes": 0,
+          "probe_spill_bytes": 23622312,
+          "probe_read_bytes": 16732471,
+          "build_write_us": 0.0,
+          "probe_write_us": 2362.2312,
+          "probe_read_us": 16732.471,
+          "miss_us": 17
+        },
+        "callbacks": 32,
+        "actions": 41,
+        "hits": 7983,
+        "misses": 17,
+        "io": 19094.702199999996
+      },
+      "metrics": {
+        "Total_IO_Time": 19094.7,
+        "Total_Decision_Time": 1985.49,
+        "Hit_Count": 7983.0,
+        "Miss_Count": 17.0,
+        "Total_Score": 21097.19
+      },
+      "group": "hot"
+    },
+    {
+      "file": "train_109_Vanius0525_markov.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "bf85f7fd6673b330da2deafced40d07cdec077f275efb60e7b4539aae89bf098",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 0,
+          "build_append_bytes": 0,
+          "probe_spill_bytes": 0,
+          "probe_read_bytes": 0,
+          "build_write_us": 0.0,
+          "probe_write_us": 0.0,
+          "probe_read_us": 0.0,
+          "miss_us": 0
+        },
+        "callbacks": 190,
+        "actions": 0,
+        "hits": 12000,
+        "misses": 0,
+        "io": 0.0
+      },
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 9102.52,
+        "Hit_Count": 12000.0,
+        "Miss_Count": 0.0,
+        "Total_Score": 9102.52
+      },
+      "group": "markov"
+    },
+    {
+      "file": "train_115_Vanius0525_markov.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "521c2a86ca58f862091147abd62625f9fc6feb208ba5a4927136ecf4504a4cd2",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 143051187,
+          "build_append_bytes": 191834703,
+          "probe_spill_bytes": 30881827333,
+          "probe_read_bytes": 30891323871,
+          "build_write_us": 33488.589,
+          "probe_write_us": 3088182.7333,
+          "probe_read_us": 30891323.871,
+          "miss_us": 1177000
+        },
+        "callbacks": 1185,
+        "actions": 2365,
+        "hits": 6823,
+        "misses": 1177,
+        "io": 34012995.19330061
+      },
+      "metrics": {
+        "Total_IO_Time": 34012995.19,
+        "Total_Decision_Time": 49070.09,
+        "Hit_Count": 6823.0,
+        "Miss_Count": 1177.0,
+        "Total_Score": 35239065.28
+      },
+      "group": "markov"
+    },
+    {
+      "file": "train_116_Vanius0525_markov.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "7ed6755c95ea2766ee0030bf35ad3214336b29b81883f9e29c281eb3d0517fd5",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 76844056,
+          "build_append_bytes": 136596734,
+          "probe_spill_bytes": 2674739990,
+          "probe_read_bytes": 2618976180,
+          "build_write_us": 2134407.9,
+          "probe_write_us": 26747399.9,
+          "probe_read_us": 2618976.18,
+          "miss_us": 100400
+        },
+        "callbacks": 1096,
+        "actions": 2115,
+        "hits": 6996,
+        "misses": 1004,
+        "io": 31500783.979999863
+      },
+      "metrics": {
+        "Total_IO_Time": 31500783.98,
+        "Total_Decision_Time": 54588.28,
+        "Hit_Count": 6996.0,
+        "Miss_Count": 1004.0,
+        "Total_Score": 31655772.26
+      },
+      "group": "markov"
+    },
+    {
+      "file": "train_119_Vanius0525_markov.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "2146ac5db6f5c8f3c75d8e9995b0694b8f56b64817d3a85eb3775c9a974fce07",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 0,
+          "build_append_bytes": 0,
+          "probe_spill_bytes": 0,
+          "probe_read_bytes": 0,
+          "build_write_us": 0.0,
+          "probe_write_us": 0.0,
+          "probe_read_us": 0.0,
+          "miss_us": 0
+        },
+        "callbacks": 8,
+        "actions": 0,
+        "hits": 8000,
+        "misses": 0,
+        "io": 0.0
+      },
+      "metrics": {
+        "Total_IO_Time": 0.0,
+        "Total_Decision_Time": 400.33,
+        "Hit_Count": 8000.0,
+        "Miss_Count": 0.0,
+        "Total_Score": 400.33
+      },
+      "group": "markov"
+    },
+    {
+      "file": "train_120_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d8f2b2b03d4adffcccb5396de24b5c6a3421d130d59384c70b99ca575069e085",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 272124688,
+          "build_append_bytes": 205924451,
+          "probe_spill_bytes": 16588110885,
+          "probe_read_bytes": 16589035489,
+          "build_write_us": 112800.64629542237,
+          "probe_write_us": 3914136.593912223,
+          "probe_read_us": 5424799.048070635,
+          "miss_us": 1369335
+        },
+        "callbacks": 3129,
+        "actions": 5871,
+        "hits": 28394,
+        "misses": 2895,
+        "io": 9451736.288278341
+      },
+      "metrics": {
+        "Total_IO_Time": 9451736.29,
+        "Total_Decision_Time": 166112.1,
+        "Hit_Count": 28394.0,
+        "Miss_Count": 2895.0,
+        "Total_Score": 10987183.39
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_121_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "23a19fcb7f65974d7f0a9b61ddbeaa867684089930bc2846d0c5a03c5b85b9ed",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 388025662,
+          "build_append_bytes": 191644460,
+          "probe_spill_bytes": 262559742899,
+          "probe_read_bytes": 262484065634,
+          "build_write_us": 123307.8328015316,
+          "probe_write_us": 55851891.70368007,
+          "probe_read_us": 42875541.593270175,
+          "miss_us": 2546700
+        },
+        "callbacks": 6635,
+        "actions": 13083,
+        "hits": 14348,
+        "misses": 6530,
+        "io": 98850741.12975106
+      },
+      "metrics": {
+        "Total_IO_Time": 98850741.13,
+        "Total_Decision_Time": 258227.26,
+        "Hit_Count": 14348.0,
+        "Miss_Count": 6530.0,
+        "Total_Score": 101655668.39
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_127_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "68611f61c84f913eb128be59cb081b3e5b8368f6dfdfb8f38b6a8bc9f5151fd7",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 201918407,
+          "build_append_bytes": 142785149,
+          "probe_spill_bytes": 58229279577,
+          "probe_read_bytes": 58229160650,
+          "build_write_us": 88886.94069107788,
+          "probe_write_us": 15015286.120938629,
+          "probe_read_us": 52648427.35081375,
+          "miss_us": 878057
+        },
+        "callbacks": 6053,
+        "actions": 11821,
+        "hits": 33702,
+        "misses": 5893,
+        "io": 67752600.41244474
+      },
+      "metrics": {
+        "Total_IO_Time": 67752600.41,
+        "Total_Decision_Time": 264381.65,
+        "Hit_Count": 33702.0,
+        "Miss_Count": 5893.0,
+        "Total_Score": 68895039.06
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_134_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "3d5fbb5aede6bf80dc26612187895b213653acc5af739a4ea99970e0b288afe2",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 84040926,
+          "build_append_bytes": 88379888,
+          "probe_spill_bytes": 143651006140,
+          "probe_read_bytes": 143661456105,
+          "build_write_us": 34580.989570798236,
+          "probe_write_us": 28810871.668672282,
+          "probe_read_us": 61736766.69746455,
+          "miss_us": 1303732
+        },
+        "callbacks": 8873,
+        "actions": 17639,
+        "hits": 8758,
+        "misses": 8809,
+        "io": 90582219.3556988
+      },
+      "metrics": {
+        "Total_IO_Time": 90582219.36,
+        "Total_Decision_Time": 325610.06,
+        "Hit_Count": 8758.0,
+        "Miss_Count": 8809.0,
+        "Total_Score": 92211561.42
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_137_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "6978711549535f7df92b87dc1e8d26682cef1c736e28215dff2e66ceff0458a9",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 162044746,
+          "build_append_bytes": 60364023,
+          "probe_spill_bytes": 199509830578,
+          "probe_read_bytes": 199512470077,
+          "build_write_us": 234114.49368421052,
+          "probe_write_us": 210010347.9768421,
+          "probe_read_us": 169653460.94982994,
+          "miss_us": 833220
+        },
+        "callbacks": 13995,
+        "actions": 27792,
+        "hits": 15880,
+        "misses": 13887,
+        "io": 379897923.4203505
+      },
+      "metrics": {
+        "Total_IO_Time": 379897923.42,
+        "Total_Decision_Time": 504255.74,
+        "Hit_Count": 15880.0,
+        "Miss_Count": 13887.0,
+        "Total_Score": 381235399.17
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_142_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "5d970f53c4a514a1bda6e4b5949993b26b837706eafecec8aff5d3876c16a76d",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 97182088,
+          "build_append_bytes": 102617157,
+          "probe_spill_bytes": 510109994938,
+          "probe_read_bytes": 510122660563,
+          "build_write_us": 47902.00071925198,
+          "probe_write_us": 122299207.60920642,
+          "probe_read_us": 84359626.35405986,
+          "miss_us": 442624
+        },
+        "callbacks": 34291,
+        "actions": 68114,
+        "hits": 11557,
+        "misses": 34048,
+        "io": 206706735.96398804
+      },
+      "metrics": {
+        "Total_IO_Time": 206706735.96,
+        "Total_Decision_Time": 1126707.92,
+        "Hit_Count": 11557.0,
+        "Miss_Count": 34048.0,
+        "Total_Score": 208276067.88
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_143_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "11f7f64f4e2a27c3a4c1750965ed696e90cca3ed0f5c34e51d256d2d143bbbb3",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 210816183,
+          "build_append_bytes": 213405948,
+          "probe_spill_bytes": 83971683724,
+          "probe_read_bytes": 83968911438,
+          "build_write_us": 64451.85824977211,
+          "probe_write_us": 12757776.317836523,
+          "probe_read_us": 11981865.21660959,
+          "miss_us": 335978
+        },
+        "callbacks": 5497,
+        "actions": 10869,
+        "hits": 10701,
+        "misses": 5419,
+        "io": 24804093.392695893
+      },
+      "metrics": {
+        "Total_IO_Time": 24804093.39,
+        "Total_Decision_Time": 215129.99,
+        "Hit_Count": 10701.0,
+        "Miss_Count": 5419.0,
+        "Total_Score": 25355201.38
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_149_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "41f8c0f5b67fc3290d14a9bdedbbb90a4ab7f2003bc4003bd9b2524d50e92b49",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 158233174,
+          "build_append_bytes": 161142478,
+          "probe_spill_bytes": 27809575630,
+          "probe_read_bytes": 27808901488,
+          "build_write_us": 50606.18792584376,
+          "probe_write_us": 4406524.422437015,
+          "probe_read_us": 5211563.247376312,
+          "miss_us": 2114208
+        },
+        "callbacks": 10994,
+        "actions": 15146,
+        "hits": 18547,
+        "misses": 7341,
+        "io": 9668693.857739333
+      },
+      "metrics": {
+        "Total_IO_Time": 9668693.86,
+        "Total_Decision_Time": 424410.4,
+        "Hit_Count": 18547.0,
+        "Miss_Count": 7341.0,
+        "Total_Score": 12207312.26
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_160_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "69b44a358e7c68bed84d7c6d4ef5a0c1d86506ea3bbcb134d44938934cf610de",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 280171258,
+          "build_append_bytes": 229166686,
+          "probe_spill_bytes": 82132593422,
+          "probe_read_bytes": 82136595289,
+          "build_write_us": 78347.63021073681,
+          "probe_write_us": 12633839.9357022,
+          "probe_read_us": 23787024.410367794,
+          "miss_us": 205216
+        },
+        "callbacks": 6500,
+        "actions": 12866,
+        "hits": 24705,
+        "misses": 6413,
+        "io": 36499211.97628134
+      },
+      "metrics": {
+        "Total_IO_Time": 36499211.98,
+        "Total_Decision_Time": 343985.46,
+        "Hit_Count": 24705.0,
+        "Miss_Count": 6413.0,
+        "Total_Score": 37048413.44
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_182_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "5b3b617cfa56aab2382a24a48d843ad1c57c8a64d0576ded6e990cbaeb2d52f0",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 191974996,
+          "build_append_bytes": 157747347,
+          "probe_spill_bytes": 727281169405,
+          "probe_read_bytes": 727303172852,
+          "build_write_us": 609272.3745644599,
+          "probe_write_us": 1267040364.817073,
+          "probe_read_us": 172674067.62867996,
+          "miss_us": 5407857
+        },
+        "callbacks": 13572,
+        "actions": 26848,
+        "hits": 6026,
+        "misses": 13419,
+        "io": 1440323704.8205073
+      },
+      "metrics": {
+        "Total_IO_Time": 1440323704.82,
+        "Total_Decision_Time": 424992.26,
+        "Hit_Count": 6026.0,
+        "Miss_Count": 13419.0,
+        "Total_Score": 1446156554.08
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_183_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d100eab315084bac6150f286c6f638cba8938f1e6f8eba8a83c774ddbd3495d2",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 174277821,
+          "build_append_bytes": 176033403,
+          "probe_spill_bytes": 138740239356,
+          "probe_read_bytes": 138741942591,
+          "build_write_us": 67955.62056256062,
+          "probe_write_us": 26913722.474490784,
+          "probe_read_us": 202542981.88467154,
+          "miss_us": 2952783
+        },
+        "callbacks": 37580,
+        "actions": 74856,
+        "hits": 13951,
+        "misses": 37377,
+        "io": 229524659.97971755
+      },
+      "metrics": {
+        "Total_IO_Time": 229524659.98,
+        "Total_Decision_Time": 1528622.81,
+        "Hit_Count": 13951.0,
+        "Miss_Count": 37377.0,
+        "Total_Score": 234006065.79
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_184_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "71d203528dcba746576e2dcfcfd88c5550d9818257dbbc4348c11616c7454f53",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 11105200,
+          "build_append_bytes": 1010760,
+          "probe_spill_bytes": 325328194,
+          "probe_read_bytes": 309479883,
+          "build_write_us": 18110.55306427504,
+          "probe_write_us": 486290.2750373692,
+          "probe_read_us": 192223.5298136646,
+          "miss_us": 40320
+        },
+        "callbacks": 527,
+        "actions": 901,
+        "hits": 33404,
+        "misses": 448,
+        "io": 696624.3579153086
+      },
+      "metrics": {
+        "Total_IO_Time": 696624.36,
+        "Total_Decision_Time": 34034.56,
+        "Hit_Count": 33404.0,
+        "Miss_Count": 448.0,
+        "Total_Score": 770978.91
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_186_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "f13bf9a8841101a539a9089676e2b08ec2c18f96cb089373e0f7156edb3f514f",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 270794040,
+          "build_append_bytes": 289906245,
+          "probe_spill_bytes": 24297529675,
+          "probe_read_bytes": 24168910834,
+          "build_write_us": 802146.330472103,
+          "probe_write_us": 34760414.41344778,
+          "probe_read_us": 57682364.75894988,
+          "miss_us": 545088
+        },
+        "callbacks": 2876,
+        "actions": 5449,
+        "hits": 34118,
+        "misses": 2672,
+        "io": 93244925.50287017
+      },
+      "metrics": {
+        "Total_IO_Time": 93244925.5,
+        "Total_Decision_Time": 137287.03,
+        "Hit_Count": 34118.0,
+        "Miss_Count": 2672.0,
+        "Total_Score": 93927300.53
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_187_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d191f1176b6ad645ff7595b3ddcc3d56f4a32429cea723bf3abb8815122e3731",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 65029898,
+          "build_append_bytes": 47634321,
+          "probe_spill_bytes": 9996376534,
+          "probe_read_bytes": 9997469070,
+          "build_write_us": 16420.961813146772,
+          "probe_write_us": 1456985.3569450518,
+          "probe_read_us": 33548553.926174495,
+          "miss_us": 1498584
+        },
+        "callbacks": 3906,
+        "actions": 7392,
+        "hits": 13439,
+        "misses": 3673,
+        "io": 35021960.24493268
+      },
+      "metrics": {
+        "Total_IO_Time": 35021960.24,
+        "Total_Decision_Time": 173834.34,
+        "Hit_Count": 13439.0,
+        "Miss_Count": 3673.0,
+        "Total_Score": 36694378.58
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_189_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "fcfac1fa21b76b1a1e913fb72907893533d343c33878dbf0eb60f5ec348065f1",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 88844485,
+          "build_append_bytes": 83976275,
+          "probe_spill_bytes": 98453724202,
+          "probe_read_bytes": 98450191768,
+          "build_write_us": 73728.99317406143,
+          "probe_write_us": 42002442.06569966,
+          "probe_read_us": 29887732.777170613,
+          "miss_us": 4517359
+        },
+        "callbacks": 14366,
+        "actions": 28372,
+        "hits": 31996,
+        "misses": 14161,
+        "io": 71963903.83604519
+      },
+      "metrics": {
+        "Total_IO_Time": 71963903.84,
+        "Total_Decision_Time": 540519.5,
+        "Hit_Count": 31996.0,
+        "Miss_Count": 14161.0,
+        "Total_Score": 77021782.34
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_199_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "85cb17573c27713c3a00a82e94869e0ce4a004c1ab5c2505d71f60a83a422628",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 84450424,
+          "build_append_bytes": 36311084,
+          "probe_spill_bytes": 10368970861,
+          "probe_read_bytes": 10371152267,
+          "build_write_us": 48362.638366039246,
+          "probe_write_us": 4152571.4301161394,
+          "probe_read_us": 8185597.685082873,
+          "miss_us": 1513974
+        },
+        "callbacks": 5125,
+        "actions": 9555,
+        "hits": 16939,
+        "misses": 4746,
+        "io": 12386531.753564866
+      },
+      "metrics": {
+        "Total_IO_Time": 12386531.75,
+        "Total_Decision_Time": 236216.0,
+        "Hit_Count": 16939.0,
+        "Miss_Count": 4746.0,
+        "Total_Score": 14136721.75
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_203_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "c4e14f435b1d05e78e98608ae23f7ea70a250aa84e9b797af9cf6c08e8b13cda",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 563864865,
+          "build_append_bytes": 429935713,
+          "probe_spill_bytes": 238580243738,
+          "probe_read_bytes": 238578891394,
+          "build_write_us": 244899.1074420897,
+          "probe_write_us": 58792568.68851651,
+          "probe_read_us": 71623804.08105674,
+          "miss_us": 1183490
+        },
+        "callbacks": 20576,
+        "actions": 40900,
+        "hits": 10310,
+        "misses": 20405,
+        "io": 130661271.87701434
+      },
+      "metrics": {
+        "Total_IO_Time": 130661271.88,
+        "Total_Decision_Time": 694762.87,
+        "Hit_Count": 10310.0,
+        "Miss_Count": 20405.0,
+        "Total_Score": 132539524.75
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_208_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "8d2da2ab0dd0aecb5d4224894a1f84b5118488ca3706270e83e4ddc3a07f6088",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 221329424,
+          "build_append_bytes": 233600720,
+          "probe_spill_bytes": 1011770082218,
+          "probe_read_bytes": 1011771549172,
+          "build_write_us": 869847.3116634799,
+          "probe_write_us": 1934550826.42065,
+          "probe_read_us": 1053928697.0541667,
+          "miss_us": 3643190
+        },
+        "callbacks": 26335,
+        "actions": 52452,
+        "hits": 19121,
+        "misses": 26210,
+        "io": 2989349370.786669
+      },
+      "metrics": {
+        "Total_IO_Time": 2989349370.79,
+        "Total_Decision_Time": 675558.09,
+        "Hit_Count": 19121.0,
+        "Miss_Count": 26210.0,
+        "Total_Score": 2993668118.87
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_229_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "95ce3ada8256f4af34c0cca538fd0d77c8d1af2a5619d2019e77cd775f8d72e4",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 103710461,
+          "build_append_bytes": 50290635,
+          "probe_spill_bytes": 95888928420,
+          "probe_read_bytes": 95892801381,
+          "build_write_us": 76846.85429141717,
+          "probe_write_us": 47848766.67664671,
+          "probe_read_us": 75984787.14817749,
+          "miss_us": 3588207
+        },
+        "callbacks": 22424,
+        "actions": 44615,
+        "hits": 18834,
+        "misses": 22287,
+        "io": 123910400.67912413
+      },
+      "metrics": {
+        "Total_IO_Time": 123910400.68,
+        "Total_Decision_Time": 606520.87,
+        "Hit_Count": 18834.0,
+        "Miss_Count": 22287.0,
+        "Total_Score": 128105128.55
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_252_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "cb498da12002f67dfa64eac638654d4b405f39d30558e9910f0023d3c10c748c",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 49524384,
+          "build_append_bytes": 9613562,
+          "probe_spill_bytes": 29877039808,
+          "probe_read_bytes": 29877931959,
+          "build_write_us": 16404.423300970873,
+          "probe_write_us": 8287667.075728156,
+          "probe_read_us": 19865646.249335106,
+          "miss_us": 1081235
+        },
+        "callbacks": 10270,
+        "actions": 20232,
+        "hits": 22864,
+        "misses": 10105,
+        "io": 28169717.7483651
+      },
+      "metrics": {
+        "Total_IO_Time": 28169717.75,
+        "Total_Decision_Time": 347390.06,
+        "Hit_Count": 22864.0,
+        "Miss_Count": 10105.0,
+        "Total_Score": 29598342.81
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_285_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "b58af5d5ac632335d447cf1b19da302e2453ee3c5bf7cc41986f55cdd3f386cc",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 89883978,
+          "build_append_bytes": 110553867,
+          "probe_spill_bytes": 72219685643,
+          "probe_read_bytes": 72196365693,
+          "build_write_us": 36858.74310408239,
+          "probe_write_us": 13280560.066752482,
+          "probe_read_us": 12719585.217230445,
+          "miss_us": 4232609
+        },
+        "callbacks": 13991,
+        "actions": 27659,
+        "hits": 34033,
+        "misses": 13787,
+        "io": 26037004.02708529
+      },
+      "metrics": {
+        "Total_IO_Time": 26037004.03,
+        "Total_Decision_Time": 437017.65,
+        "Hit_Count": 34033.0,
+        "Miss_Count": 13787.0,
+        "Total_Score": 30706630.68
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_289_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "c4d9dc4084decd8a7adcdf277978ed438f8eded619bf1919717198b7f84ae160",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 378896806,
+          "build_append_bytes": 426503383,
+          "probe_spill_bytes": 13407186824,
+          "probe_read_bytes": 13406312043,
+          "build_write_us": 266600.52598477324,
+          "probe_write_us": 4437996.300562727,
+          "probe_read_us": 2113226.9929066836,
+          "miss_us": 1517280
+        },
+        "callbacks": 3530,
+        "actions": 6514,
+        "hits": 33284,
+        "misses": 3161,
+        "io": 6817823.819454175
+      },
+      "metrics": {
+        "Total_IO_Time": 6817823.82,
+        "Total_Decision_Time": 179304.7,
+        "Hit_Count": 33284.0,
+        "Miss_Count": 3161.0,
+        "Total_Score": 8514408.52
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_294_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "338d2cff687855abc6657b507ae8875aa9694aba1c3ac00fec13d2c01ee282d4",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 307295028,
+          "build_append_bytes": 236299119,
+          "probe_spill_bytes": 13579273674,
+          "probe_read_bytes": 13545262890,
+          "build_write_us": 315309.8300464037,
+          "probe_write_us": 7876608.8596287705,
+          "probe_read_us": 3086887.623062899,
+          "miss_us": 698784
+        },
+        "callbacks": 3456,
+        "actions": 6229,
+        "hits": 34292,
+        "misses": 3012,
+        "io": 11278806.312738122
+      },
+      "metrics": {
+        "Total_IO_Time": 11278806.31,
+        "Total_Decision_Time": 186811.67,
+        "Hit_Count": 34292.0,
+        "Miss_Count": 3012.0,
+        "Total_Score": 12164401.99
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_297_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "395dcac554e9b0ef778016b51f040f43c9ec3717ce7c5ad2abd371b9871884da",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 178351169,
+          "build_append_bytes": 214034317,
+          "probe_spill_bytes": 105669597881,
+          "probe_read_bytes": 105669271485,
+          "build_write_us": 204261.05465903177,
+          "probe_write_us": 55007599.10515357,
+          "probe_read_us": 13687729.466968913,
+          "miss_us": 1843072
+        },
+        "callbacks": 6931,
+        "actions": 13580,
+        "hits": 22034,
+        "misses": 6776,
+        "io": 68899589.62678352
+      },
+      "metrics": {
+        "Total_IO_Time": 68899589.63,
+        "Total_Decision_Time": 316989.41,
+        "Hit_Count": 22034.0,
+        "Miss_Count": 6776.0,
+        "Total_Score": 71059651.03
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_300_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d5016cb78ece99490f4ddd80a2bc5df127869e95dc428739673923eba606400f",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 99976394,
+          "build_append_bytes": 8212342,
+          "probe_spill_bytes": 153214118899,
+          "probe_read_bytes": 153236220637,
+          "build_write_us": 58010.04611260054,
+          "probe_write_us": 82152342.57319035,
+          "probe_read_us": 24211758.6723021,
+          "miss_us": 1723230
+        },
+        "callbacks": 8807,
+        "actions": 16819,
+        "hits": 47145,
+        "misses": 8406,
+        "io": 106422111.29160845
+      },
+      "metrics": {
+        "Total_IO_Time": 106422111.29,
+        "Total_Decision_Time": 400625.36,
+        "Hit_Count": 47145.0,
+        "Miss_Count": 8406.0,
+        "Total_Score": 108545966.65
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_304_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "ce172dc31d56a4855a6b68e4dd0207067ae8eba728d2720f82056fa33c7eeb82",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 303791357,
+          "build_append_bytes": 249258592,
+          "probe_spill_bytes": 62735321413,
+          "probe_read_bytes": 62740877985,
+          "build_write_us": 170064.55996309963,
+          "probe_write_us": 19291304.247539975,
+          "probe_read_us": 9251087.877469772,
+          "miss_us": 473940
+        },
+        "callbacks": 5473,
+        "actions": 10585,
+        "hits": 37218,
+        "misses": 5266,
+        "io": 28712456.684972648
+      },
+      "metrics": {
+        "Total_IO_Time": 28712456.68,
+        "Total_Decision_Time": 270448.86,
+        "Hit_Count": 37218.0,
+        "Miss_Count": 5266.0,
+        "Total_Score": 29456845.54
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_305_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "2845735486e69280d425594b904121a2398c13591f9dc5931e8d48dd95e6493f",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 75993076,
+          "build_append_bytes": 69364779,
+          "probe_spill_bytes": 4378299593,
+          "probe_read_bytes": 4377829378,
+          "build_write_us": 90228.33954065798,
+          "probe_write_us": 2717752.6958410926,
+          "probe_read_us": 788229.9924378826,
+          "miss_us": 132447
+        },
+        "callbacks": 2832,
+        "actions": 5501,
+        "hits": 12875,
+        "misses": 2703,
+        "io": 3596211.027819628
+      },
+      "metrics": {
+        "Total_IO_Time": 3596211.03,
+        "Total_Decision_Time": 126345.37,
+        "Hit_Count": 12875.0,
+        "Miss_Count": 2703.0,
+        "Total_Score": 3855003.39
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_307_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "fcc407dc4eedd419ed180a128d285c6973e8a7f4a5984eb426e2ffd24466ef63",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 150642029,
+          "build_append_bytes": 59163412,
+          "probe_spill_bytes": 65592353232,
+          "probe_read_bytes": 65587582409,
+          "build_write_us": 35297.01228129206,
+          "probe_write_us": 11035052.69717362,
+          "probe_read_us": 11248084.789744468,
+          "miss_us": 137328
+        },
+        "callbacks": 8889,
+        "actions": 17206,
+        "hits": 43323,
+        "misses": 8583,
+        "io": 22318434.499200057
+      },
+      "metrics": {
+        "Total_IO_Time": 22318434.5,
+        "Total_Decision_Time": 433245.26,
+        "Hit_Count": 43323.0,
+        "Miss_Count": 8583.0,
+        "Total_Score": 22889007.76
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_311_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "f1e4d283b817a09c0d355292d739b1d65420408c765681f7ef564fff6aed31ad",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 168241030,
+          "build_append_bytes": 81195692,
+          "probe_spill_bytes": 76451830972,
+          "probe_read_bytes": 76450903633,
+          "build_write_us": 31991.37129665256,
+          "probe_write_us": 9805288.055918943,
+          "probe_read_us": 147304245.92100194,
+          "miss_us": 554496
+        },
+        "callbacks": 5066,
+        "actions": 9749,
+        "hits": 20676,
+        "misses": 4864,
+        "io": 157141525.3482193
+      },
+      "metrics": {
+        "Total_IO_Time": 157141525.35,
+        "Total_Decision_Time": 215779.54,
+        "Hit_Count": 20676.0,
+        "Miss_Count": 4864.0,
+        "Total_Score": 157911800.89
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_323_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d36e0f8c9184965a386c63ea1446fea3eadf5d549c760572130e9395a9f09989",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 80830359,
+          "build_append_bytes": 32549227,
+          "probe_spill_bytes": 10268437556,
+          "probe_read_bytes": 10270367524,
+          "build_write_us": 22105.59290310002,
+          "probe_write_us": 2002035.007993761,
+          "probe_read_us": 3003909.7759578824,
+          "miss_us": 857010
+        },
+        "callbacks": 2807,
+        "actions": 5425,
+        "hits": 16858,
+        "misses": 2695,
+        "io": 5028050.376854715
+      },
+      "metrics": {
+        "Total_IO_Time": 5028050.38,
+        "Total_Decision_Time": 123491.48,
+        "Hit_Count": 16858.0,
+        "Miss_Count": 2695.0,
+        "Total_Score": 6008551.85
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_324_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "90207045cf94e3c85d5cf6f1eb6593a24ebdcdb762376135f092df40566ac8ea",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 296542296,
+          "build_append_bytes": 253806172,
+          "probe_spill_bytes": 30446682878,
+          "probe_read_bytes": 30446013619,
+          "build_write_us": 79656.74743088725,
+          "probe_write_us": 4406814.7167462725,
+          "probe_read_us": 5570072.012257593,
+          "miss_us": 4739933
+        },
+        "callbacks": 10338,
+        "actions": 20220,
+        "hits": 31708,
+        "misses": 10021,
+        "io": 10056543.47643489
+      },
+      "metrics": {
+        "Total_IO_Time": 10056543.48,
+        "Total_Decision_Time": 487582.26,
+        "Hit_Count": 31708.0,
+        "Miss_Count": 10021.0,
+        "Total_Score": 15284058.74
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_327_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "be7165c6352ba82888fdff82a274f4744dc8d06138d9ab9b36df5b585ace6183",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 36366115,
+          "build_append_bytes": 5869116,
+          "probe_spill_bytes": 6475100905,
+          "probe_read_bytes": 6476780187,
+          "build_write_us": 62110.63382352941,
+          "probe_write_us": 9522207.213235294,
+          "probe_read_us": 827386.3294583546,
+          "miss_us": 2368100
+        },
+        "callbacks": 5086,
+        "actions": 10001,
+        "hits": 52718,
+        "misses": 4975,
+        "io": 10411704.176517317
+      },
+      "metrics": {
+        "Total_IO_Time": 10411704.18,
+        "Total_Decision_Time": 275768.4,
+        "Hit_Count": 52718.0,
+        "Miss_Count": 4975.0,
+        "Total_Score": 13055572.57
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_334_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "9a6786a7a13da0b23f97aa564e6f99a5cf3e0e6bb7f2134e6bc55ac46021082f",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 328409082,
+          "build_append_bytes": 154681388,
+          "probe_spill_bytes": 8906428171,
+          "probe_read_bytes": 8934110355,
+          "build_write_us": 76523.12212894027,
+          "probe_write_us": 1410807.5670837953,
+          "probe_read_us": 1565739.634595163,
+          "miss_us": 121278
+        },
+        "callbacks": 2373,
+        "actions": 4359,
+        "hits": 13370,
+        "misses": 2091,
+        "io": 3053070.3238079147
+      },
+      "metrics": {
+        "Total_IO_Time": 3053070.32,
+        "Total_Decision_Time": 124231.42,
+        "Hit_Count": 13370.0,
+        "Miss_Count": 2091.0,
+        "Total_Score": 3298579.75
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_338_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "9ef934fd1fc923028fe39426605aced85958987fa97001cbe2b4e56af493fa01",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 70840260,
+          "build_append_bytes": 60454769,
+          "probe_spill_bytes": 218885759336,
+          "probe_read_bytes": 218886550189,
+          "build_write_us": 19462.648828935664,
+          "probe_write_us": 32446747.60391343,
+          "probe_read_us": 35089219.331356205,
+          "miss_us": 6413225
+        },
+        "callbacks": 36946,
+        "actions": 73324,
+        "hits": 18034,
+        "misses": 36647,
+        "io": 67555429.58409293
+      },
+      "metrics": {
+        "Total_IO_Time": 67555429.58,
+        "Total_Decision_Time": 1271471.44,
+        "Hit_Count": 18034.0,
+        "Miss_Count": 36647.0,
+        "Total_Score": 75240126.03
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_356_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d7493701c64a7c89ec3589e3da1241afc1691f8818e3fe112800ea30b73a58b1",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 94491989,
+          "build_append_bytes": 44660781,
+          "probe_spill_bytes": 70400408625,
+          "probe_read_bytes": 70389944398,
+          "build_write_us": 179320.5798969072,
+          "probe_write_us": 90722176.06314433,
+          "probe_read_us": 24620477.229101084,
+          "miss_us": 3100816
+        },
+        "callbacks": 9424,
+        "actions": 18058,
+        "hits": 40969,
+        "misses": 9014,
+        "io": 115521973.87214068
+      },
+      "metrics": {
+        "Total_IO_Time": 115521973.87,
+        "Total_Decision_Time": 378787.49,
+        "Hit_Count": 40969.0,
+        "Miss_Count": 9014.0,
+        "Total_Score": 119001577.36
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_357_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "71459e978e075f0f8c039c547626760121b426e90ea1811922ce63688a5195d1",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 295826666,
+          "build_append_bytes": 298637619,
+          "probe_spill_bytes": 511856520671,
+          "probe_read_bytes": 511749145037,
+          "build_write_us": 151765.19913198877,
+          "probe_write_us": 130675649.90324228,
+          "probe_read_us": 218976955.51433462,
+          "miss_us": 4251044
+        },
+        "callbacks": 13496,
+        "actions": 26521,
+        "hits": 29108,
+        "misses": 13202,
+        "io": 349804370.61671555
+      },
+      "metrics": {
+        "Total_IO_Time": 349804370.62,
+        "Total_Decision_Time": 506159.86,
+        "Hit_Count": 29108.0,
+        "Miss_Count": 13202.0,
+        "Total_Score": 354561574.47
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_360_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "0e2ab44cd8610a9d4589c36dc49ad3e47dc5e0d9c69296e3c811efc435102411",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 73954614,
+          "build_append_bytes": 61742365,
+          "probe_spill_bytes": 4476084404,
+          "probe_read_bytes": 4476401987,
+          "build_write_us": 48671.80021520804,
+          "probe_write_us": 1605482.2109038737,
+          "probe_read_us": 1028112.5372071658,
+          "miss_us": 899680
+        },
+        "callbacks": 5963,
+        "actions": 11425,
+        "hits": 24474,
+        "misses": 5623,
+        "io": 2682266.548326246
+      },
+      "metrics": {
+        "Total_IO_Time": 2682266.55,
+        "Total_Decision_Time": 297163.85,
+        "Hit_Count": 24474.0,
+        "Miss_Count": 5623.0,
+        "Total_Score": 3879110.4
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_363_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "9740a888b818bbf0b16f298c0477b46e52f250bfa35efc7c697d427934536d3a",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 126540367,
+          "build_append_bytes": 87241215,
+          "probe_spill_bytes": 15141718618,
+          "probe_read_bytes": 15140677149,
+          "build_write_us": 106890.791,
+          "probe_write_us": 7570859.309,
+          "probe_read_us": 5134173.329603256,
+          "miss_us": 1914497
+        },
+        "callbacks": 6036,
+        "actions": 11451,
+        "hits": 38675,
+        "misses": 5681,
+        "io": 12811923.42960333
+      },
+      "metrics": {
+        "Total_IO_Time": 12811923.43,
+        "Total_Decision_Time": 294418.42,
+        "Hit_Count": 38675.0,
+        "Miss_Count": 5681.0,
+        "Total_Score": 15020838.85
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_372_random_uniform.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "dd9d9d243a751ebd96c2d7395dc7d12cf41318422a9e75eb9f3fdab80c4ee26e",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 121253130,
+          "build_append_bytes": 75234643,
+          "probe_spill_bytes": 53240574639,
+          "probe_read_bytes": 53238928352,
+          "build_write_us": 56771.965616873735,
+          "probe_write_us": 15383003.362900896,
+          "probe_read_us": 54049673.45380711,
+          "miss_us": 5108193
+        },
+        "callbacks": 10819,
+        "actions": 21456,
+        "hits": 6692,
+        "misses": 10709,
+        "io": 69489448.78232625
+      },
+      "metrics": {
+        "Total_IO_Time": 69489448.78,
+        "Total_Decision_Time": 375158.14,
+        "Hit_Count": 6692.0,
+        "Miss_Count": 10709.0,
+        "Total_Score": 74972799.92
+      },
+      "group": "random_uniform"
+    },
+    {
+      "file": "train_401_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "ea05cbbd1c94839a25e2c9d622c874564c40df2d07e1df85e55a38ccbe66872a",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 171904052,
+          "build_append_bytes": 204049406,
+          "probe_spill_bytes": 23189424817,
+          "probe_read_bytes": 23203891804,
+          "build_write_us": 180833.79413179413,
+          "probe_write_us": 11154124.49110149,
+          "probe_read_us": 5311030.39688716,
+          "miss_us": 894970
+        },
+        "callbacks": 3076,
+        "actions": 5809,
+        "hits": 32223,
+        "misses": 2887,
+        "io": 16645988.682120403
+      },
+      "metrics": {
+        "Total_IO_Time": 16645988.68,
+        "Total_Decision_Time": 142271.27,
+        "Hit_Count": 32223.0,
+        "Miss_Count": 2887.0,
+        "Total_Score": 17683229.95
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_416_random_lognormal.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "3978381547d1268e660a2b21187ed1f0d8672a44b52fb93f90fd23badacb03f6",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 340169516,
+          "build_append_bytes": 358780355,
+          "probe_spill_bytes": 168983717058,
+          "probe_read_bytes": 168935093850,
+          "build_write_us": 603062.8740293357,
+          "probe_write_us": 145801308.93701467,
+          "probe_read_us": 27835737.98813643,
+          "miss_us": 5418849
+        },
+        "callbacks": 11283,
+        "actions": 22315,
+        "hits": 24562,
+        "misses": 11127,
+        "io": 174240109.7991864
+      },
+      "metrics": {
+        "Total_IO_Time": 174240109.8,
+        "Total_Decision_Time": 422869.35,
+        "Hit_Count": 24562.0,
+        "Miss_Count": 11127.0,
+        "Total_Score": 180081828.15
+      },
+      "group": "random_lognormal"
+    },
+    {
+      "file": "train_419_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "2a5904b542f53fb62db0befbac6a1b3b2608401ff52b533ee79c73d8853aa7ff",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 32768253,
+          "build_append_bytes": 20918838,
+          "probe_spill_bytes": 16227341008,
+          "probe_read_bytes": 16236626410,
+          "build_write_us": 39244.94956140351,
+          "probe_write_us": 11862091.380116958,
+          "probe_read_us": 14355991.520778073,
+          "miss_us": 297926
+        },
+        "callbacks": 1690,
+        "actions": 3302,
+        "hits": 16373,
+        "misses": 1646,
+        "io": 26257327.85045625
+      },
+      "metrics": {
+        "Total_IO_Time": 26257327.85,
+        "Total_Decision_Time": 79541.28,
+        "Hit_Count": 16373.0,
+        "Miss_Count": 1646.0,
+        "Total_Score": 26634795.13
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_424_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "5136f30e1ea8a304bc6323bc24d08d673013f77482e852a977ccbe7719cfe9b2",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 65134668,
+          "build_append_bytes": 35049407,
+          "probe_spill_bytes": 148760310097,
+          "probe_read_bytes": 148786292610,
+          "build_write_us": 13582.439669197396,
+          "probe_write_us": 20168154.83961497,
+          "probe_read_us": 20914575.85184144,
+          "miss_us": 2815556
+        },
+        "callbacks": 6957,
+        "actions": 13778,
+        "hits": 31074,
+        "misses": 6884,
+        "io": 41096313.13112779
+      },
+      "metrics": {
+        "Total_IO_Time": 41096313.13,
+        "Total_Decision_Time": 288043.12,
+        "Hit_Count": 31074.0,
+        "Miss_Count": 6884.0,
+        "Total_Score": 44199912.25
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_426_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "bb71fd1a476656ed8b69b60a401c431e0493b43d7f1150c5ea0e769c20f8efa5",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 119650627,
+          "build_append_bytes": 81313901,
+          "probe_spill_bytes": 20891984558,
+          "probe_read_bytes": 20865170035,
+          "build_write_us": 67642.04914170313,
+          "probe_write_us": 7031970.568158869,
+          "probe_read_us": 2990993.4109805045,
+          "miss_us": 145484
+        },
+        "callbacks": 2159,
+        "actions": 3953,
+        "hits": 45345,
+        "misses": 1966,
+        "io": 10090606.028281003
+      },
+      "metrics": {
+        "Total_IO_Time": 10090606.03,
+        "Total_Decision_Time": 124228.69,
+        "Hit_Count": 45345.0,
+        "Miss_Count": 1966.0,
+        "Total_Score": 10360318.72
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_440_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "f9756fc7bc571851a0dc7e0f188c4d5f5d10426f7d583e02888a179823e45dc9",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 101039852,
+          "build_append_bytes": 22804177,
+          "probe_spill_bytes": 2774404462,
+          "probe_read_bytes": 2780041185,
+          "build_write_us": 20078.474221789882,
+          "probe_write_us": 449806.1708819715,
+          "probe_read_us": 995004.0032211882,
+          "miss_us": 150012
+        },
+        "callbacks": 534,
+        "actions": 944,
+        "hits": 18841,
+        "misses": 463,
+        "io": 1464888.6483249483
+      },
+      "metrics": {
+        "Total_IO_Time": 1464888.65,
+        "Total_Decision_Time": 29769.43,
+        "Hit_Count": 18841.0,
+        "Miss_Count": 463.0,
+        "Total_Score": 1644670.08
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_474_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "bc975f79d9942ee747805257158042bcaa7756466c176ca3ac06c0e1ca245f03",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 159161474,
+          "build_append_bytes": 147059802,
+          "probe_spill_bytes": 20542545653,
+          "probe_read_bytes": 20541521916,
+          "build_write_us": 46027.547873139934,
+          "probe_write_us": 3087711.6568465354,
+          "probe_read_us": 6262659.120731708,
+          "miss_us": 2850162
+        },
+        "callbacks": 12408,
+        "actions": 24254,
+        "hits": 30437,
+        "misses": 12026,
+        "io": 9396398.325451648
+      },
+      "metrics": {
+        "Total_IO_Time": 9396398.33,
+        "Total_Decision_Time": 606341.3,
+        "Hit_Count": 30437.0,
+        "Miss_Count": 12026.0,
+        "Total_Score": 12852901.63
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_478_random_zipf.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "aa626c382b846628f2733da3ec499a92e43cb03db0e7f8d2ba6f1291f06add7f",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 230602810,
+          "build_append_bytes": 185486422,
+          "probe_spill_bytes": 886646530165,
+          "probe_read_bytes": 886524575258,
+          "build_write_us": 60778.44463920537,
+          "probe_write_us": 129513077.73371312,
+          "probe_read_us": 130179820.15535976,
+          "miss_us": 1375157
+        },
+        "callbacks": 9227,
+        "actions": 18230,
+        "hits": 34732,
+        "misses": 9107,
+        "io": 259753676.33374268
+      },
+      "metrics": {
+        "Total_IO_Time": 259753676.33,
+        "Total_Decision_Time": 385391.78,
+        "Hit_Count": 34732.0,
+        "Miss_Count": 9107.0,
+        "Total_Score": 261514225.11
+      },
+      "group": "random_zipf"
+    },
+    {
+      "file": "train_479_random_hotspot.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "a14dc95182c2f27e80c0f2c7b335aa39545ad24429f412c162efd553dd2ab799",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 558401914,
+          "build_append_bytes": 427458296,
+          "probe_spill_bytes": 70709191169,
+          "probe_read_bytes": 70699673628,
+          "build_write_us": 295256.1275831087,
+          "probe_write_us": 21176756.864031147,
+          "probe_read_us": 11755848.624542734,
+          "miss_us": 758861
+        },
+        "callbacks": 3459,
+        "actions": 6742,
+        "hits": 12014,
+        "misses": 3343,
+        "io": 33227861.616156515
+      },
+      "metrics": {
+        "Total_IO_Time": 33227861.62,
+        "Total_Decision_Time": 165233.14,
+        "Hit_Count": 12014.0,
+        "Miss_Count": 3343.0,
+        "Total_Score": 34151955.76
+      },
+      "group": "random_hotspot"
+    },
+    {
+      "file": "train_480_one_byte_over.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "1ccd47e86e4694149783daf981fc9a5f52a05e95e4e7e5c5a7d0a4752e4d1623",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 65252625,
+          "build_append_bytes": 12167986,
+          "probe_spill_bytes": 287855445834,
+          "probe_read_bytes": 287887170324,
+          "build_write_us": 58919.795281582956,
+          "probe_write_us": 219068071.41095892,
+          "probe_read_us": 122505178.8612766,
+          "miss_us": 3236450
+        },
+        "callbacks": 9373,
+        "actions": 18500,
+        "hits": 9521,
+        "misses": 9247,
+        "io": 341632170.06752
+      },
+      "metrics": {
+        "Total_IO_Time": 341632170.07,
+        "Total_Decision_Time": 317450.77,
+        "Hit_Count": 9521.0,
+        "Miss_Count": 9247.0,
+        "Total_Score": 345186070.83
+      },
+      "group": "one_byte_over"
+    },
+    {
+      "file": "train_486_one_byte_over.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "7382e040a3f18c468c34603d62d65a654495f0c240582cab069fa569249d5b6b",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 91274690,
+          "build_append_bytes": 42943039,
+          "probe_spill_bytes": 1267552227954,
+          "probe_read_bytes": 1267552227954,
+          "build_write_us": 22155.452129415648,
+          "probe_write_us": 209236089.1307362,
+          "probe_read_us": 989502129.5503513,
+          "miss_us": 151104
+        },
+        "callbacks": 9578,
+        "actions": 18889,
+        "hits": 11474,
+        "misses": 9444,
+        "io": 1198760374.1331618
+      },
+      "metrics": {
+        "Total_IO_Time": 1198760374.13,
+        "Total_Decision_Time": 337441.4,
+        "Hit_Count": 11474.0,
+        "Miss_Count": 9444.0,
+        "Total_Score": 1199248919.53
+      },
+      "group": "one_byte_over"
+    },
+    {
+      "file": "train_488_one_byte_over.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "d4babcf791526c7d24d61dac86abd6866f94c4a1c199ed6d8f737fd53fd04b3e",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 122011457,
+          "build_append_bytes": 14366371,
+          "probe_spill_bytes": 621754892233,
+          "probe_read_bytes": 621820022265,
+          "build_write_us": 230367.9527027027,
+          "probe_write_us": 1050261642.285473,
+          "probe_read_us": 215685058.0176899,
+          "miss_us": 160225
+        },
+        "callbacks": 9786,
+        "actions": 18852,
+        "hits": 11106,
+        "misses": 9425,
+        "io": 1266177068.256038
+      },
+      "metrics": {
+        "Total_IO_Time": 1266177068.26,
+        "Total_Decision_Time": 382009.69,
+        "Hit_Count": 11106.0,
+        "Miss_Count": 9425.0,
+        "Total_Score": 1266719302.94
+      },
+      "group": "one_byte_over"
+    },
+    {
+      "file": "train_490_empty_partition_probe.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "e591f2eacc83e76388c41c642c6d6bd87f5b24279e45d960aa02db0c48372d7c",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 156001005,
+          "build_append_bytes": 116087951,
+          "probe_spill_bytes": 677386407009,
+          "probe_read_bytes": 677384271924,
+          "build_write_us": 96348.78045325779,
+          "probe_write_us": 239867707.86437678,
+          "probe_read_us": 143210205.4807611,
+          "miss_us": 3785355
+        },
+        "callbacks": 12475,
+        "actions": 24837,
+        "hits": 10879,
+        "misses": 12411,
+        "io": 383174262.12556636
+      },
+      "metrics": {
+        "Total_IO_Time": 383174262.13,
+        "Total_Decision_Time": 430197.33,
+        "Hit_Count": 10879.0,
+        "Miss_Count": 12411.0,
+        "Total_Score": 387389814.46
+      },
+      "group": "empty_partition_probe"
+    },
+    {
+      "file": "train_495_empty_partition_probe.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "01b7560d2dc0c1c8b19d88eff27de9925ba80626f5e76d2a6106dfb57b98c019",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 173946462,
+          "build_append_bytes": 194324541,
+          "probe_spill_bytes": 547611226206,
+          "probe_read_bytes": 547631342872,
+          "build_write_us": 65680.57838416265,
+          "probe_write_us": 97665636.91920814,
+          "probe_read_us": 520067752.01519465,
+          "miss_us": 1027620
+        },
+        "callbacks": 7711,
+        "actions": 15229,
+        "hits": 4842,
+        "misses": 7612,
+        "io": 617799069.5127743
+      },
+      "metrics": {
+        "Total_IO_Time": 617799069.51,
+        "Total_Decision_Time": 257476.1,
+        "Hit_Count": 4842.0,
+        "Miss_Count": 7612.0,
+        "Total_Score": 619084165.61
+      },
+      "group": "empty_partition_probe"
+    },
+    {
+      "file": "train_497_empty_partition_probe.txt",
+      "source_sha256": "275cab3f2ddfeb3553fc9131ccef17abfc5e9a859fb443ca73e6e2815a584bd8",
+      "input_sha256": "9bf1fd74373cdd2fca53fc2d3d163000e37f9095de806b72f3a38401fd993e75",
+      "audit": {
+        "costs": {
+          "build_spill_bytes": 152340718,
+          "build_append_bytes": 181620401,
+          "probe_spill_bytes": 664521527280,
+          "probe_read_bytes": 664464855925,
+          "build_write_us": 62074.55743494424,
+          "probe_write_us": 123517012.50557621,
+          "probe_read_us": 191543630.99596426,
+          "miss_us": 1212120
+        },
+        "callbacks": 8706,
+        "actions": 17320,
+        "hits": 7031,
+        "misses": 8658,
+        "io": 315122718.058984
+      },
+      "metrics": {
+        "Total_IO_Time": 315122718.06,
+        "Total_Decision_Time": 313724.39,
+        "Hit_Count": 7031.0,
+        "Miss_Count": 8658.0,
+        "Total_Score": 316648562.45
+      },
+      "group": "empty_partition_probe"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "runs": [
+    {
+      "name": "decay64_fixed_pool",
+      "sha256": "cfb02add6155c0ed998db464e07e6d3435ba22984bbf2a2d10894291864460ed",
+      "returncode": 0,
+      "stdout": "property_cases=20000 callbacks=40000 passed",
+      "stderr": ""
+    },
+    {
+      "name": "decay64",
+      "sha256": "6e0e7fd66c8160bb0b9bbc4d39e661853215f1aec12728289dd9f2097ff73610",
+      "returncode": 0,
+      "stdout": "property_cases=20000 callbacks=40000 passed",
+      "stderr": ""
+    }
+  ],
+  "scope": "40000 abstract states / 80000 pressure+periodic callbacks plus 128 warmup callbacks per state with a PROBE operator; ASan+UBSan. Not a maximum-N timing test.",
+  "metrics_zero_cases_passed": true
+}

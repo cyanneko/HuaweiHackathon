@@ -1,0 +1,79 @@
+{
+  "completed": true,
+  "train_flows": 80,
+  "audited_runs": 320,
+  "baseline_probe_share": 0.9947876068448331,
+  "test_ledger_unchanged": true,
+  "dev_queries": 0,
+  "test_queries": 0,
+  "summary": [
+    {
+      "name": "best",
+      "totals": {
+        "build_spill_bytes": 11608829935,
+        "build_append_bytes": 9290186650,
+        "probe_spill_bytes": 11482922572302,
+        "probe_read_bytes": 11482394190317,
+        "build_write_us": 127508906.51216495,
+        "probe_write_us": 8279043828.864845,
+        "probe_read_us": 15948434554.264336,
+        "miss_us": 107654479
+      },
+      "physical_us": 24462641768.641346
+    },
+    {
+      "name": "periodic64",
+      "totals": {
+        "build_spill_bytes": 11651646917,
+        "build_append_bytes": 9367587611,
+        "probe_spill_bytes": 12075300991073,
+        "probe_read_bytes": 12075033967786,
+        "build_write_us": 128642876.51626496,
+        "probe_write_us": 9010109193.010572,
+        "probe_read_us": 21076709815.05315,
+        "miss_us": 107092545
+      },
+      "physical_us": 30322554429.579987,
+      "mean_cost_ratio": 1.3192494360020321,
+      "worst_cost_ratio": 7.038388698814659,
+      "wins": 11,
+      "regressions": 49
+    },
+    {
+      "name": "mixed64",
+      "totals": {
+        "build_spill_bytes": 11651646917,
+        "build_append_bytes": 9367587611,
+        "probe_spill_bytes": 11659630943847,
+        "probe_read_bytes": 11659233437607,
+        "build_write_us": 128642876.51626496,
+        "probe_write_us": 8765846023.732088,
+        "probe_read_us": 18061293336.84272,
+        "miss_us": 95565703
+      },
+      "physical_us": 27051347940.091072,
+      "mean_cost_ratio": 1.0256298503074548,
+      "worst_cost_ratio": 2.89953426210108,
+      "wins": 31,
+      "regressions": 22
+    },
+    {
+      "name": "mixed64_core",
+      "totals": {
+        "build_spill_bytes": 11650552873,
+        "build_append_bytes": 9368923343,
+        "probe_spill_bytes": 11431764764934,
+        "probe_read_bytes": 11431251987720,
+        "build_write_us": 128645293.39626496,
+        "probe_write_us": 8480394195.591618,
+        "probe_read_us": 17217271568.81306,
+        "miss_us": 94272269
+      },
+      "physical_us": 25920583326.80094,
+      "mean_cost_ratio": 0.9534435743727203,
+      "worst_cost_ratio": 1.9149366981382892,
+      "wins": 35,
+      "regressions": 17
+    }
+  ]
+}

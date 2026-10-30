@@ -1,0 +1,701 @@
+{
+  "schema_version": 1,
+  "dataset": "inde_dataset",
+  "version": "1.0.0",
+  "recipe": {
+    "id": "eval_05_002_dynamic_sinusoidal",
+    "split": "eval",
+    "family": "dynamic_sinusoidal",
+    "seed": 4585201822813677166,
+    "k": 1,
+    "p": 32,
+    "memory": 268435456,
+    "target_build_bytes": 1207175301,
+    "total_probes": 32768,
+    "write": 512,
+    "read": 512,
+    "penalty": 500,
+    "period": 256,
+    "schedule": "asynchronous",
+    "size_heat_relation": "anti_aligned",
+    "windows": 64,
+    "zipf_alpha": 1.2585406329947029,
+    "lognormal_sigma": 1.3005982693564704,
+    "hot_mass": 0.8721710157476753,
+    "hot_fraction": 0.08127695477443407,
+    "provenance": "new_synthetic_no_reuse"
+  },
+  "profiles": [
+    {
+      "rank": [
+        20,
+        19,
+        18,
+        31,
+        15,
+        9,
+        2,
+        13,
+        28,
+        10,
+        22,
+        21,
+        27,
+        16,
+        12,
+        23,
+        3,
+        6,
+        4,
+        0,
+        24,
+        8,
+        25,
+        17,
+        1,
+        29,
+        26,
+        5,
+        7,
+        30,
+        11,
+        14
+      ],
+      "lognormal": [
+        0.06239576297526366,
+        0.08807999913118691,
+        0.005984392209694461,
+        0.017073853604642242,
+        0.009015764120239083,
+        0.03315846976202315,
+        0.0173728364798972,
+        0.03207652041863269,
+        0.018723603338294155,
+        0.0013188571005705442,
+        0.007933546445419675,
+        0.02889650992943789,
+        0.005144410069761609,
+        0.012419893369875312,
+        0.03766122099243655,
+        0.009685312158415697,
+        0.011754267278169734,
+        0.0026717046809490836,
+        0.04974882583074045,
+        0.022133072783069658,
+        0.0069395265808977575,
+        0.10843885124185998,
+        0.03244417147780413,
+        0.022344966305368256,
+        0.05943137834462234,
+        0.017318100263468444,
+        0.11955120983116553,
+        0.009659946340164835,
+        0.008671006969966,
+        0.03788492064942719,
+        0.09147365667251679,
+        0.012593442644019072
+      ],
+      "origin": 2.485510487846419,
+      "speed": 1.7688833389464937,
+      "amplitude": 14.704914598238323,
+      "cycles": 1.3785590396271654,
+      "phase": 2.8163143390965644,
+      "width": 1.2598234019724717,
+      "step_count": 9,
+      "step_shift": 4,
+      "breaks": [
+        7,
+        10,
+        21,
+        28,
+        42,
+        54
+      ],
+      "jump_centers": [
+        1,
+        16,
+        30,
+        21,
+        10,
+        2,
+        17
+      ],
+      "walk": [
+        10,
+        10,
+        10,
+        10,
+        11,
+        10,
+        8,
+        8,
+        7,
+        7,
+        8,
+        8,
+        6,
+        8,
+        5,
+        4,
+        4,
+        3,
+        3,
+        7,
+        8,
+        8,
+        8,
+        5,
+        3,
+        1,
+        4,
+        6,
+        10,
+        11,
+        12,
+        10,
+        6,
+        6,
+        3,
+        1,
+        30,
+        31,
+        27,
+        24,
+        23,
+        23,
+        22,
+        18,
+        22,
+        19,
+        23,
+        23,
+        23,
+        19,
+        21,
+        19,
+        19,
+        17,
+        18,
+        17,
+        19,
+        19,
+        17,
+        18,
+        21,
+        18,
+        20,
+        24
+      ],
+      "sigmoid_centers": [
+        17,
+        7,
+        25
+      ],
+      "sigmoid_times": [
+        0.26419770641417745,
+        0.7117144879359001
+      ],
+      "sigmoid_sharpness": 26.581923351061402
+    }
+  ],
+  "probe_windows": [
+    [
+      {
+        "begin": 0,
+        "end": 512,
+        "expected_peak": 2,
+        "expected_max_share": 0.2755428151428471,
+        "profile_sha256": "d96620bbca4365d580c310dc06f59a3f3c607f2a7473912a742361383e85fb12"
+      },
+      {
+        "begin": 512,
+        "end": 1024,
+        "expected_peak": 15,
+        "expected_max_share": 0.2734912686785517,
+        "profile_sha256": "a758e7fdb8db7cce4532c55aa1703a3a4be7ce6405b60d104475eadd16e24bf5"
+      },
+      {
+        "begin": 1024,
+        "end": 1536,
+        "expected_peak": 18,
+        "expected_max_share": 0.2727962535500551,
+        "profile_sha256": "21b95c427c46132171c567e95553bcd8813f3cd2473512fb6c975d266794e366"
+      },
+      {
+        "begin": 1536,
+        "end": 2048,
+        "expected_peak": 20,
+        "expected_max_share": 0.27188475194474476,
+        "profile_sha256": "b2091d14318e1cf16f0ab31fddf317f0078744f4fbd03a96301ebe29f7d3b754"
+      },
+      {
+        "begin": 2048,
+        "end": 2560,
+        "expected_peak": 11,
+        "expected_max_share": 0.2685997681989816,
+        "profile_sha256": "8d34eba53cf01ddfc29fa61cf3ce9fe22ab4a5437b2d4f8df9b0abfb7f03436a"
+      },
+      {
+        "begin": 2560,
+        "end": 3072,
+        "expected_peak": 30,
+        "expected_max_share": 0.2593959928544405,
+        "profile_sha256": "46a3cd5dad46e81eab35c43f89759086655722045cb8762e1c5ef9203ca0f4ca"
+      },
+      {
+        "begin": 3072,
+        "end": 3584,
+        "expected_peak": 5,
+        "expected_max_share": 0.27453646381992614,
+        "profile_sha256": "dc7d347828777fd7850d2fc40eb7b84a07d1f36c58a295d3465ae3c9a7ddd8ac"
+      },
+      {
+        "begin": 3584,
+        "end": 4096,
+        "expected_peak": 29,
+        "expected_max_share": 0.27876128706531544,
+        "profile_sha256": "357903c33e7b960994dd1e799b53bb5bc2edef0d5cc6bc680a2990f30176f966"
+      },
+      {
+        "begin": 4096,
+        "end": 4608,
+        "expected_peak": 1,
+        "expected_max_share": 0.27157236671096135,
+        "profile_sha256": "f66ee7f3e97f4127a94a875455ed1a468b35cbc89a026346f62ef2cfa6307ae1"
+      },
+      {
+        "begin": 4608,
+        "end": 5120,
+        "expected_peak": 25,
+        "expected_max_share": 0.2641565654718501,
+        "profile_sha256": "d6d58e2b1ab6dbca61fa8ba1733032fddd746abb8809cd48d25a7e6f12b37d85"
+      },
+      {
+        "begin": 5120,
+        "end": 5632,
+        "expected_peak": 8,
+        "expected_max_share": 0.2660309794247712,
+        "profile_sha256": "3f2c254ec2a69726b01447ea2ce400c6651c9388c03e8011ef7448109081e710"
+      },
+      {
+        "begin": 5632,
+        "end": 6144,
+        "expected_peak": 8,
+        "expected_max_share": 0.26794632318770245,
+        "profile_sha256": "8bdf619ba1485417be35aa148bb66ab4f527389cab73cc0bb3dbf70236ab50c5"
+      },
+      {
+        "begin": 6144,
+        "end": 6656,
+        "expected_peak": 24,
+        "expected_max_share": 0.2795307432981265,
+        "profile_sha256": "112981b2f9e096637f8be79e0209fd13e74e9be5e9a48bd27e3409b5701d4f32"
+      },
+      {
+        "begin": 6656,
+        "end": 7168,
+        "expected_peak": 24,
+        "expected_max_share": 0.27723738686109994,
+        "profile_sha256": "3b80f8af02674771fb94d79f6d38fc7a08e66f2a85931d2080736d60f37d37e4"
+      },
+      {
+        "begin": 7168,
+        "end": 7680,
+        "expected_peak": 24,
+        "expected_max_share": 0.2771535514713954,
+        "profile_sha256": "80f7f57e3267ca448de7f37f99a78a124b064be5b7b8d8d33765287b313fb728"
+      },
+      {
+        "begin": 7680,
+        "end": 8192,
+        "expected_peak": 24,
+        "expected_max_share": 0.2796428636050879,
+        "profile_sha256": "4626f51e87f711826b0ec1ac821b943f7304d6929122a3ca0bd33ae71bf07667"
+      },
+      {
+        "begin": 8192,
+        "end": 8704,
+        "expected_peak": 8,
+        "expected_max_share": 0.2671219838886247,
+        "profile_sha256": "e3707098516f807071be6fc40835ce710b1f01e95d3258614bc149ef4f1134d4"
+      },
+      {
+        "begin": 8704,
+        "end": 9216,
+        "expected_peak": 8,
+        "expected_max_share": 0.2672010853265386,
+        "profile_sha256": "8c2fe0eb165a35509669326319d59fb89923842e7bd22356f7cce048aab93a07"
+      },
+      {
+        "begin": 9216,
+        "end": 9728,
+        "expected_peak": 25,
+        "expected_max_share": 0.26570480073748737,
+        "profile_sha256": "3a5395ba098f5f4617ef278cdb617527c93771b26dc40c5a5b36bf8ac164e6d4"
+      },
+      {
+        "begin": 9728,
+        "end": 10240,
+        "expected_peak": 1,
+        "expected_max_share": 0.2701138435367912,
+        "profile_sha256": "578ac8378d43131c5ba034cd7988f53139e68638a7996763dbaf883ea2cea8ef"
+      },
+      {
+        "begin": 10240,
+        "end": 10752,
+        "expected_peak": 29,
+        "expected_max_share": 0.2793462556473538,
+        "profile_sha256": "e3e8d8a4d29c82462218855dfdc787c53af3bbb9ac6135e62573a4fdd77a2f29"
+      },
+      {
+        "begin": 10752,
+        "end": 11264,
+        "expected_peak": 5,
+        "expected_max_share": 0.27301061690139466,
+        "profile_sha256": "fb015df58b590e079d7bc678257c5a24018d86a253be7f84dbdc63586e1d60dd"
+      },
+      {
+        "begin": 11264,
+        "end": 11776,
+        "expected_peak": 7,
+        "expected_max_share": 0.26190016743620037,
+        "profile_sha256": "31a9d118af667db6a6fdf841b07c68f0aea3d9837bcb0f9d8c8735513a33b399"
+      },
+      {
+        "begin": 11776,
+        "end": 12288,
+        "expected_peak": 11,
+        "expected_max_share": 0.27078111265554666,
+        "profile_sha256": "05daa61bf50a8c96820ceee19529fad3fbf0d0c83bfbfd996346b08082d6d7aa"
+      },
+      {
+        "begin": 12288,
+        "end": 12800,
+        "expected_peak": 20,
+        "expected_max_share": 0.27378116254820034,
+        "profile_sha256": "4e8a33f24c798424c63dbf47c0da6fb5c42ae2da2a4edaa222a812a2916bc538"
+      },
+      {
+        "begin": 12800,
+        "end": 13312,
+        "expected_peak": 18,
+        "expected_max_share": 0.2746011464901826,
+        "profile_sha256": "90c2a665b067d3d7e5e288ff3e1c2fdef440ae0f2ff2d11cdea6f78be511c404"
+      },
+      {
+        "begin": 13312,
+        "end": 13824,
+        "expected_peak": 15,
+        "expected_max_share": 0.2751944380801787,
+        "profile_sha256": "76b19d4466f396cb3c4e8e1fa560907354ef85add17008685ec3642c50acf461"
+      },
+      {
+        "begin": 13824,
+        "end": 14336,
+        "expected_peak": 2,
+        "expected_max_share": 0.27691400989871195,
+        "profile_sha256": "ef8da1d96f7ba1861a12aaff44de2b307d399996b6470b7afd2a1caf3918b952"
+      },
+      {
+        "begin": 14336,
+        "end": 14848,
+        "expected_peak": 28,
+        "expected_max_share": 0.27961935639433766,
+        "profile_sha256": "81bb4a8f16e258e9b4d6ee07a5e6e57385a2e170c9f085727a305cde79b0088c"
+      },
+      {
+        "begin": 14848,
+        "end": 15360,
+        "expected_peak": 22,
+        "expected_max_share": 0.2785782574998998,
+        "profile_sha256": "484495493ef4da3697ef96fbe9901a5e8636839bf1cda0035d8bdb76b7f8a8c0"
+      },
+      {
+        "begin": 15360,
+        "end": 15872,
+        "expected_peak": 27,
+        "expected_max_share": 0.26028524616130067,
+        "profile_sha256": "93cc73135d079fd7af1af101299f207484c871c6af7ad4c29e2ef66a5ef77a7b"
+      },
+      {
+        "begin": 15872,
+        "end": 16384,
+        "expected_peak": 16,
+        "expected_max_share": 0.2801798352861222,
+        "profile_sha256": "d1b6d05430f3a21e76e5a2228508827ca7ffa2a8cdd5f8dbceb72ffa5a5b86ef"
+      },
+      {
+        "begin": 16384,
+        "end": 16896,
+        "expected_peak": 12,
+        "expected_max_share": 0.2730612705792202,
+        "profile_sha256": "9df3368696560657540108b2c3c584b482eb56c2e1f9cb274c2119835718189e"
+      },
+      {
+        "begin": 16896,
+        "end": 17408,
+        "expected_peak": 23,
+        "expected_max_share": 0.2689205993066899,
+        "profile_sha256": "0042accdbabf79322b382286e0e8ec100ad6fdd606275640d2be7fb91c3c1a1e"
+      },
+      {
+        "begin": 17408,
+        "end": 17920,
+        "expected_peak": 3,
+        "expected_max_share": 0.27659955752785986,
+        "profile_sha256": "7181d81c99989e406e46e51be91209dbc2e980d27a1e0ff105badc1caaeb59bb"
+      },
+      {
+        "begin": 17920,
+        "end": 18432,
+        "expected_peak": 6,
+        "expected_max_share": 0.2764673292074866,
+        "profile_sha256": "b8cbf19a6375b7e619013da052928c0659382453d811e1ff4717219dc29cc75b"
+      },
+      {
+        "begin": 18432,
+        "end": 18944,
+        "expected_peak": 6,
+        "expected_max_share": 0.27892662748453867,
+        "profile_sha256": "05b2e1d076f2cabd31aca3c601f91cbeb57cfcc4ee611cb53c8c8a648eb81579"
+      },
+      {
+        "begin": 18944,
+        "end": 19456,
+        "expected_peak": 6,
+        "expected_max_share": 0.27737475990344695,
+        "profile_sha256": "7513549968a518c900dbd8afc652916b06ba36dfc04e16892af6ff4a571146fc"
+      },
+      {
+        "begin": 19456,
+        "end": 19968,
+        "expected_peak": 6,
+        "expected_max_share": 0.2801084659909401,
+        "profile_sha256": "e91e2da72e85979dc08bd6bf2df8d9a069d121703704d528a5f65bac4a51c806"
+      },
+      {
+        "begin": 19968,
+        "end": 20480,
+        "expected_peak": 3,
+        "expected_max_share": 0.2594790556742539,
+        "profile_sha256": "88e78c52db94f674407480a67d6191c302d1e2d5511f598d7b864f974038bdaf"
+      },
+      {
+        "begin": 20480,
+        "end": 20992,
+        "expected_peak": 3,
+        "expected_max_share": 0.27550660816993916,
+        "profile_sha256": "d6eaf35f28eca6b000d16a44c1c76db017fcd3fb6c17a429daaac515a83b5de0"
+      },
+      {
+        "begin": 20992,
+        "end": 21504,
+        "expected_peak": 23,
+        "expected_max_share": 0.2765213925708751,
+        "profile_sha256": "8cd6dae17a33fb612208cbb8618546b5f4970fe5507163936321710ad03625c1"
+      },
+      {
+        "begin": 21504,
+        "end": 22016,
+        "expected_peak": 12,
+        "expected_max_share": 0.26634695888311055,
+        "profile_sha256": "a252c86f159178c4cf2399f68bc8cff0cde6ff28dfebaa72012eba94d8fc5654"
+      },
+      {
+        "begin": 22016,
+        "end": 22528,
+        "expected_peak": 27,
+        "expected_max_share": 0.27689858774300974,
+        "profile_sha256": "f39ef116837b08fa09faabab62733a537bb9d7c062aa51c1b853a262d0e4406c"
+      },
+      {
+        "begin": 22528,
+        "end": 23040,
+        "expected_peak": 21,
+        "expected_max_share": 0.26763997928667776,
+        "profile_sha256": "49cb9a2a7cc45d98a91d32813a3c9ee65aa0be0254767407da6143432299bf0b"
+      },
+      {
+        "begin": 23040,
+        "end": 23552,
+        "expected_peak": 10,
+        "expected_max_share": 0.27909836945290173,
+        "profile_sha256": "2f9c49eef5f0a08aaec183db07a0861c36074a89fee21feff584613258269ecb"
+      },
+      {
+        "begin": 23552,
+        "end": 24064,
+        "expected_peak": 13,
+        "expected_max_share": 0.2800150460410263,
+        "profile_sha256": "e234191cdfa589e9b1e4f8cace7c3d710301a0e016ee9460725b42b902d1e23a"
+      },
+      {
+        "begin": 24064,
+        "end": 24576,
+        "expected_peak": 9,
+        "expected_max_share": 0.27902018230624404,
+        "profile_sha256": "55029bb64f4250141b26525028dafd08afc233bcab348cc80f801618e726e681"
+      },
+      {
+        "begin": 24576,
+        "end": 25088,
+        "expected_peak": 31,
+        "expected_max_share": 0.27849345741751186,
+        "profile_sha256": "e9888374354b406486d8e4e5bf6cf0ebc205244172221c2604b8abdab8791827"
+      },
+      {
+        "begin": 25088,
+        "end": 25600,
+        "expected_peak": 19,
+        "expected_max_share": 0.2781944748679672,
+        "profile_sha256": "ae3f4a850c7954878069a23b0a61d508652d71ca0735d08dca2415845c19ea54"
+      },
+      {
+        "begin": 25600,
+        "end": 26112,
+        "expected_peak": 14,
+        "expected_max_share": 0.2771336215758279,
+        "profile_sha256": "497dc41ae2d8e5a649e314cd5afbf43d4d7f5967d802cfd87cbcd8c0c46f1e52"
+      },
+      {
+        "begin": 26112,
+        "end": 26624,
+        "expected_peak": 30,
+        "expected_max_share": 0.273238544111975,
+        "profile_sha256": "85f7902b652f773c85c319fc61d27ce3bf1cd1c9c14c9d4c693c0b1d83bacbe2"
+      },
+      {
+        "begin": 26624,
+        "end": 27136,
+        "expected_peak": 5,
+        "expected_max_share": 0.26115396136128094,
+        "profile_sha256": "41078016b0cc6d32492a6e87ef2ff7eb90baad56dafa1f5dc6259ed087b54e2d"
+      },
+      {
+        "begin": 27136,
+        "end": 27648,
+        "expected_peak": 26,
+        "expected_max_share": 0.27658135940239514,
+        "profile_sha256": "810384f5910c1c56c8a14dc736c8a466aa91b08600a603aaf45455ea129e1a1c"
+      },
+      {
+        "begin": 27648,
+        "end": 28160,
+        "expected_peak": 1,
+        "expected_max_share": 0.27368877937234176,
+        "profile_sha256": "18ab3d3c7e1b10bf80ad95469c28d655138a2c8b94cea321b1993573d97af7bb"
+      },
+      {
+        "begin": 28160,
+        "end": 28672,
+        "expected_peak": 17,
+        "expected_max_share": 0.2798718081283704,
+        "profile_sha256": "379bf263934f7e12ab3364a95807189d941489ab1a7f5120350464b95e5cc61a"
+      },
+      {
+        "begin": 28672,
+        "end": 29184,
+        "expected_peak": 25,
+        "expected_max_share": 0.277286310229806,
+        "profile_sha256": "035d9c65414ed35b6a971726dac024f5dc704d9f0098d082647c13222795ff46"
+      },
+      {
+        "begin": 29184,
+        "end": 29696,
+        "expected_peak": 8,
+        "expected_max_share": 0.279699132511905,
+        "profile_sha256": "f9548aeeaac949c08685f5e9c4e5212a77b40e1ffd54e4a0d838fa86580996eb"
+      },
+      {
+        "begin": 29696,
+        "end": 30208,
+        "expected_peak": 24,
+        "expected_max_share": 0.2733484353673289,
+        "profile_sha256": "b7020859475bd8397f7c0061b33c6960d3fd5b8505d584c8c42aab0b1a76bc60"
+      },
+      {
+        "begin": 30208,
+        "end": 30720,
+        "expected_peak": 24,
+        "expected_max_share": 0.27928037634140823,
+        "profile_sha256": "2e479269d90e97593e599b8dffb17413ee1b3ebc266e1b23929732edec4ace2e"
+      },
+      {
+        "begin": 30720,
+        "end": 31232,
+        "expected_peak": 24,
+        "expected_max_share": 0.2760455050650083,
+        "profile_sha256": "0983f24d142ee7ad2caaaf75e820208ecb50060fd0b32574feb257b7623889d0"
+      },
+      {
+        "begin": 31232,
+        "end": 31744,
+        "expected_peak": 24,
+        "expected_max_share": 0.27979145532298244,
+        "profile_sha256": "c436a75aa6608e37e029a60374ce569925f0a1e1494ea789066be1fb172da2c3"
+      },
+      {
+        "begin": 31744,
+        "end": 32256,
+        "expected_peak": 24,
+        "expected_max_share": 0.2696592913436245,
+        "profile_sha256": "5908a45e857a44aae9475927506210002bd7787b171160cbe9acaf138c9708bc"
+      },
+      {
+        "begin": 32256,
+        "end": 32768,
+        "expected_peak": 8,
+        "expected_max_share": 0.2801142002276786,
+        "profile_sha256": "9866c20072d28bc1ed72f3ce90f38b8b2b626acf6dfac341c07e14c766ba8fb4"
+      }
+    ]
+  ],
+  "operator_schedule_weights": [
+    0.26167988714752866
+  ],
+  "partition_sizes": [
+    187904819,
+    187904819,
+    8717503,
+    8720432,
+    187904819,
+    9184804,
+    8825933,
+    8734410,
+    187904819,
+    8717503,
+    8717503,
+    8717506,
+    8717503,
+    8717503,
+    8717503,
+    8717503,
+    8717503,
+    134207463,
+    8717503,
+    8717503,
+    8717503,
+    8717503,
+    8717503,
+    8717545,
+    62638093,
+    31160842,
+    15595965,
+    8717503,
+    8717503,
+    10855146,
+    8717838,
+    8717503
+  ],
+  "build_bytes": 1207175301,
+  "per_operator_counts": [
+    [
+      2155,
+      32768
+    ]
+  ],
+  "operations": 34924,
+  "input_sha256": "812d7bd2ddc9fffb21fdf96681a89dafc5ac2b17976a3d2a5e334ec15ce4eb0a",
+  "payload_note": "size fields simulate actual bytes; payload data are not stored. INSERT chunks are 64KiB..1MiB except final per-partition tails.",
+  "dynamic_scope": "Only partition probabilities change within each operator; operator schedule weights are fixed within a case."
+}

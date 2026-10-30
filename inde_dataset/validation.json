@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "cases": 550,
+  "errors": [],
+  "suite_id": "ee11e28136e3cc408f5f8c4a7b4e35b64bd4a45912423f9a92d1f2fd4c837c67",
+  "independent_auditor_sha256": "348ae10751c3c0ebbfc750c8e039c313204108518b3e72c89fde785c6ebc2ed3",
+  "verifier_sha256": "8253f9cada7fb5f62cef80bc4acf10eb7202d4c698cf9c0907fddffdf526d05e",
+  "checks": [
+    "exact split and family counts",
+    "official fields, phases, counts and whole-partition capacity",
+    "ascending operator headers",
+    "recipe and metadata identity",
+    "raw, operation and partition-semantic uniqueness",
+    "train/eval isolation",
+    "large memory pressure",
+    "constant static profiles and varying dynamic profiles",
+    "realized peak mass statistical check"
+  ],
+  "historical_manifest_sources": [
+    "balanced_dataset/manifest.json",
+    "corner_case/manifest.json",
+    "dyna_dataset/manifest.json",
+    "final_dataset/manifest.json",
+    "datasets/cyanneko/manifest.json",
+    "datasets/liunianwww/manifest.json",
+    "datasets/Vanius0525/manifest.json"
+  ],
+  "historical_hash_counts": {
+    "sha256": 2415,
+    "operation_stream_sha256": 937,
+    "partition_stream_sha256": 843
+  },
+  "summary": {
+    "train": {
+      "cases": 500,
+      "families": {
+        "static_uniform": 50,
+        "static_zipf": 50,
+        "static_lognormal": 50,
+        "static_hot_cold": 50,
+        "dynamic_linear": 50,
+        "dynamic_sinusoidal": 50,
+        "dynamic_periodic_steps": 50,
+        "dynamic_irregular_jumps": 50,
+        "dynamic_random_walk": 50,
+        "dynamic_sigmoid_mix": 50
+      },
+      "operations_total": 36918217,
+      "operations_min": 33781,
+      "operations_median": 59677.0,
+      "operations_max": 191189,
+      "input_bytes": 719938890,
+      "build_bytes_min": 547010810,
+      "build_bytes_max": 34101565583,
+      "build_bytes_total": 4110879183721,
+      "memory_bytes_min": 268435456,
+      "memory_bytes_max": 4294967296,
+      "pressure_min": 2.0248389281332493,
+      "pressure_max": 7.999189216643572,
+      "mixed_phase_cases": 353,
+      "schedule_counts": {
+        "bulk": 100,
+        "asynchronous": 400
+      },
+      "relation_counts": {
+        "aligned": 130,
+        "independent": 130,
+        "anti_aligned": 120,
+        "balanced": 120
+      }
+    },
+    "eval": {
+      "cases": 50,
+      "families": {
+        "static_uniform": 5,
+        "static_zipf": 5,
+        "static_lognormal": 5,
+        "static_hot_cold": 5,
+        "dynamic_linear": 5,
+        "dynamic_sinusoidal": 5,
+        "dynamic_periodic_steps": 5,
+        "dynamic_irregular_jumps": 5,
+        "dynamic_random_walk": 5,
+        "dynamic_sigmoid_mix": 5
+      },
+      "operations_total": 3565372,
+      "operations_min": 34467,
+      "operations_median": 55182.0,
+      "operations_max": 189513,
+      "input_bytes": 68717608,
+      "build_bytes_min": 653144484,
+      "build_bytes_max": 32456052794,
+      "build_bytes_total": 340988345433,
+      "memory_bytes_min": 268435456,
+      "memory_bytes_max": 4294967296,
+      "pressure_min": 2.0585738881491125,
+      "pressure_max": 7.73915015347302,
+      "mixed_phase_cases": 37,
+      "schedule_counts": {
+        "bulk": 10,
+        "asynchronous": 40
+      },
+      "relation_counts": {
+        "aligned": 20,
+        "independent": 10,
+        "anti_aligned": 10,
+        "balanced": 10
+      }
+    }
+  },
+  "limitations": "Synthetic workload recipe, not official hidden workloads; distribution audit is not algorithm performance validation."
+}

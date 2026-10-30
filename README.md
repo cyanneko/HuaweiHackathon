@@ -1,5 +1,7 @@
 # 华为 Hackathon · 第20题 Hash Join 调度
 
+新增 [inde_dataset 1.0.0](inde_dataset/README.md)：500 条训练、50 条测试，覆盖静态均匀/Zipf/对数正态/冷热混合，以及六类分区热点迁移；模拟大数据量与跨算子阶段竞争。独立生成和审核，不自动切换现有回归标准。
+
 团队协作仓库，研究内存受限下 Hash Join 算子的 Spill-to-Disk 动态调度。
 
 后续统一回归标准为[balanced_dataset 1.0.0](balanced_dataset/README.md)：从静态集确定性分层选12例，合并完整动态12例，共24例逐例等权、两侧各50%。来源输入原字节与原split保留，已曝光且包含动态原train6，不能称为盲测泛化集。提供冻结清单、无网络导出工具、完整审核及[两套生成机制审查](balanced_dataset/DESIGN_REVIEW.md)。不自动改写已启动实验的旧快照。

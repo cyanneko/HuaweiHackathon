@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "dataset": "inde_dataset",
+  "version": "1.0.0",
+  "recipe": {
+    "id": "train_05_025_dynamic_sinusoidal",
+    "split": "train",
+    "family": "dynamic_sinusoidal",
+    "seed": 11345787402688873018,
+    "k": 1,
+    "p": 16,
+    "memory": 1073741824,
+    "target_build_bytes": 3718949193,
+    "total_probes": 32768,
+    "write": 256,
+    "read": 256,
+    "penalty": 1000,
+    "period": 8,
+    "schedule": "bulk",
+    "size_heat_relation": "independent",
+    "windows": 64,
+    "zipf_alpha": 1.902001886048284,
+    "lognormal_sigma": 1.4722038960537107,
+    "hot_mass": 0.9181077628392914,
+    "hot_fraction": 0.0671303683427652,
+    "provenance": "new_synthetic_no_reuse"
+  },
+  "profiles": [
+    {
+      "rank": [
+        2,
+        5,
+        4,
+        7,
+        12,
+        8,
+        10,
+        9,
+        11,
+        0,
+        15,
+        1,
+        3,
+        13,
+        14,
+        6
+      ],
+      "lognormal": [
+        0.029782343749269483,
+        0.03717520570338158,
+        0.03836569987402548,
+        0.030963278364591198,
+        0.05134106261601909,
+        0.25127555555890635,
+        0.08024456939107005,
+        0.09293282234989074,
+        0.08256883913057313,
+        0.013244893910897566,
+        0.0019538057865359187,
+        0.014310077692987722,
+        0.12551149747523205,
+        0.010695323446596848,
+        0.017334513190566687,
+        0.12230051175945611
+      ],
+      "origin": 7.538957241579249,
+      "speed": 1.000375580619906,
+      "amplitude": 6.867305087215108,
+      "cycles": 2.0535119867338416,
+      "phase": 5.908116536931492,
+      "width": 0.7474854396308676,
+      "step_count": 8,
+      "step_shift": 2,
+      "breaks": [
+        11,
+        22,
+        23
+      ],
+      "jump_centers": [
+        2,
+        7,
+        3,
+        14
+      ],
+      "walk": [
+        10,
+        8,
+        7,
+        8,
+        8,
+        10,
+        10,
+        9,
+        9,
+        10,
+        10,
+        8,
+        6,
+        8,
+        7,
+        7,
+        7,
+        7,
+        7,
+        8,
+        8,
+        8,
+        7,
+        8,
+        8,
+        10,
+        10,
+        10,
+        10,
+        8,
+        7,
+        8,
+        9,
+        9,
+        8,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        5,
+        5,
+        4,
+        5,
+        3,
+        3,
+        5,
+        3,
+        4,
+        2,
+        3,
+        3,
+        4,
+        3,
+        2,
+        0,
+        15,
+        0,
+        0,
+        2,
+        2,
+        4,
+        5
+      ],
+      "sigmoid_centers": [
+        7,
+        8,
+        12
+      ],
+      "sigmoid_times": [
+        0.20396995119010017,
+        0.6755508383439689
+      ],
+      "sigmoid_sharpness": 27.56610910568677
+    }
+  ],
+  "probe_windows": [
+    [
+      {
+        "begin": 0,
+        "end": 512,
+        "expected_peak": 10,
+        "expected_max_share": 0.45196888505174015,
+        "profile_sha256": "e71d565dd6095f6a8b75a64216f08f81ad610600cc352522e6ecd915b0a65e9e"
+      },
+      {
+        "begin": 512,
+        "end": 1024,
+        "expected_peak": 9,
+        "expected_max_share": 0.4943936414911952,
+        "profile_sha256": "247225c963c30e2ef980cb0dba57b41f38dba924a7082b61d83afe6694dc0f07"
+      },
+      {
+        "begin": 1024,
+        "end": 1536,
+        "expected_peak": 11,
+        "expected_max_share": 0.422961101531296,
+        "profile_sha256": "b849fc9f655832933f2c227ca1a93475bd34c6d381484bb9dbdd3e466a401bc2"
+      },
+      {
+        "begin": 1536,
+        "end": 2048,
+        "expected_peak": 15,
+        "expected_max_share": 0.4720372712374264,
+        "profile_sha256": "0855da98ea8db6873fc4e2dd831d5ce23132504707d3eeafecaa3d9afb9268ba"
+      },
+      {
+        "begin": 2048,
+        "end": 2560,
+        "expected_peak": 1,
+        "expected_max_share": 0.4948698663916044,
+        "profile_sha256": "e7405252a710b451fd49ac3f8ea1a6b2943134e6cab225204e0451e59815357f"
+      },
+      {
+        "begin": 2560,
+        "end": 3072,
+        "expected_peak": 3,
+        "expected_max_share": 0.48686905339420206,
+        "profile_sha256": "c2f70c087c76e5bd6701b708c0cacf9f89fd8cefc33d8643a9628ee43d565907"
+      },
+      {
+        "begin": 3072,
+        "end": 3584,
+        "expected_peak": 13,
+        "expected_max_share": 0.49321350608194847,
+        "profile_sha256": "9dc053db3e4d8d25ad92d049d9d09475581e58983e8e18824fdc491b4b0d038f"
+      },
+      {
+        "begin": 3584,
+        "end": 4096,
+        "expected_peak": 14,
+        "expected_max_share": 0.4724769665169022,
+        "profile_sha256": "774a3d21b81dde3661e39c35d986a02e88b1f4e9fdf802161cd1556d681e3f86"
+      },
+      {
+        "begin": 4096,
+        "end": 4608,
+        "expected_peak": 14,
+        "expected_max_share": 0.4739986825680358,
+        "profile_sha256": "f4cf82014901c17b21cad843fc5b08c1a07372170d9bb11d3b795fd5e8a009da"
+      },
+      {
+        "begin": 4608,
+        "end": 5120,
+        "expected_peak": 14,
+        "expected_max_share": 0.42884046770430373,
+        "profile_sha256": "ec23f7e45e4c8917990420b9bb4c825764a78ca3c7f37ce12e703f497a742b00"
+      },
+      {
+        "begin": 5120,
+        "end": 5632,
+        "expected_peak": 14,
+        "expected_max_share": 0.4557080361045804,
+        "profile_sha256": "9c3bb78275629d8cf3eef1f439c23d4bf1a472962e1745792cae30f0aa1509bd"
+      },
+      {
+        "begin": 5632,
+        "end": 6144,
+        "expected_peak": 14,
+        "expected_max_share": 0.49326747810174626,
+        "profile_sha256": "8d08835502ecd98ec8397cc48ee82acb1a8af3c54ead0cb894eeea310fcf739d"
+      },
+      {
+        "begin": 6144,
+        "end": 6656,
+        "expected_peak": 13,
+        "expected_max_share": 0.4559813887237696,
+        "profile_sha256": "b4de536336bf6fccf7376f365e5a7e80b18a351004f0b86a1929f476a147e982"
+      },
+      {
+        "begin": 6656,
+        "end": 7168,
+        "expected_peak": 3,
+        "expected_max_share": 0.41674447715446455,
+        "profile_sha256": "3685db68b0fa00de3dc6c9319fe6e3872023b052c5d7a985447fce904ff0c866"
+      },
+      {
+        "begin": 7168,
+        "end": 7680,
+        "expected_peak": 1,
+        "expected_max_share": 0.43598893437940206,
+        "profile_sha256": "b0525cb22156e5c47a555f5f8f572591af92c57f3876d00813607ecfab2e4dd6"
+      },
+      {
+        "begin": 7680,
+        "end": 8192,
+        "expected_peak": 15,
+        "expected_max_share": 0.4838326694868734,
+        "profile_sha256": "6fed25d98260a487a2eb5493e0e06ab9b34588ede7bb5eb795e76ffb8e0a5607"
+      },
+      {
+        "begin": 8192,
+        "end": 8704,
+        "expected_peak": 0,
+        "expected_max_share": 0.48364880072878164,
+        "profile_sha256": "0c78a1e371a3b19d1a1fd33ee11bdd7b1bb048c9695dd777d637c2d7958cfaf0"
+      },
+      {
+        "begin": 8704,
+        "end": 9216,
+        "expected_peak": 9,
+        "expected_max_share": 0.4103643472296644,
+        "profile_sha256": "0be75964b7892e383f40688161c35f294a21fcdaa3e35937dbab886770448dc3"
+      },
+      {
+        "begin": 9216,
+        "end": 9728,
+        "expected_peak": 10,
+        "expected_max_share": 0.49178070428636705,
+        "profile_sha256": "e43546bcdef60fbe6885f2bafbf6e124ce5b461116c7be75c2312564218b4906"
+      },
+      {
+        "begin": 9728,
+        "end": 10240,
+        "expected_peak": 8,
+        "expected_max_share": 0.4729734280015462,
+        "profile_sha256": "5f58823258d87776f4f26701cd250f254f42c6b495a8848e23833d0610004617"
+      },
+      {
+        "begin": 10240,
+        "end": 10752,
+        "expected_peak": 12,
+        "expected_max_share": 0.42043329935186335,
+        "profile_sha256": "156f978b6b81008f6c82a829a7d710f9cc2730a4c656803f060c699854f3cff9"
+      },
+      {
+        "begin": 10752,
+        "end": 11264,
+        "expected_peak": 7,
+        "expected_max_share": 0.40665460262809067,
+        "profile_sha256": "2912cf7b85ada8c60ffc40d14bef3dc47330b3235ec7794036d1a6516cd92863"
+      },
+      {
+        "begin": 11264,
+        "end": 11776,
+        "expected_peak": 4,
+        "expected_max_share": 0.4546014925513712,
+        "profile_sha256": "5ee7d04fe3bf62c0e794f122204e413f5aeedd2986a6c901b1e30cb54e637465"
+      },
+      {
+        "begin": 11776,
+        "end": 12288,
+        "expected_peak": 5,
+        "expected_max_share": 0.4917650623962528,
+        "profile_sha256": "6571367c3d3158808cdd3c38a2870af22e636917b21effe11c7425f6b5de8211"
+      },
+      {
+        "begin": 12288,
+        "end": 12800,
+        "expected_peak": 5,
+        "expected_max_share": 0.46782643064969587,
+        "profile_sha256": "ff7b7a870dc3540367e34ba5e98d0d0a7058d4cc69e3d106347b6c03d7d84f64"
+      },
+      {
+        "begin": 12800,
+        "end": 13312,
+        "expected_peak": 5,
+        "expected_max_share": 0.4525940190188479,
+        "profile_sha256": "ece5dc5a9599619665914358767f1f161eec1b0f40c002d38b85e82aea265f96"
+      },
+      {
+        "begin": 13312,
+        "end": 13824,
+        "expected_peak": 5,
+        "expected_max_share": 0.4901869801766834,
+        "profile_sha256": "5324800baeb03e4f0a87cda1894012a3ba334c69d8e252cb12c1242e2f79b6b9"
+      },
+      {
+        "begin": 13824,
+        "end": 14336,
+        "expected_peak": 5,
+        "expected_max_share": 0.4371222725051621,
+        "profile_sha256": "899349b3759708f6d3e2ccc934cdd501c3323efeffff2bcec83365a05ccaca10"
+      },
+      {
+        "begin": 14336,
+        "end": 14848,
+        "expected_peak": 4,
+        "expected_max_share": 0.49017285036008557,
+        "profile_sha256": "38d144f3c6186d6cee89a15188a5f2f7f3cdbac6852ec4dbf9ac514da0a88bd6"
+      },
+      {
+        "begin": 14848,
+        "end": 15360,
+        "expected_peak": 7,
+        "expected_max_share": 0.49365632286702626,
+        "profile_sha256": "bae04cf159cf403a8349f4eca2708649ccbbb03680c4f0fd722f70c65d8c9ced"
+      },
+      {
+        "begin": 15360,
+        "end": 15872,
+        "expected_peak": 12,
+        "expected_max_share": 0.47948837137948097,
+        "profile_sha256": "102b0b2dbf78deca248fd8a888ec21bc4e54c4f0ed9f8849ea2c81048c2ec971"
+      },
+      {
+        "begin": 15872,
+        "end": 16384,
+        "expected_peak": 8,
+        "expected_max_share": 0.41104063755273806,
+        "profile_sha256": "f25b8263fd1c2d314966d607bf8a83f912dc87c95f79407c98fc3ed0868e4308"
+      },
+      {
+        "begin": 16384,
+        "end": 16896,
+        "expected_peak": 9,
+        "expected_max_share": 0.4797553239829316,
+        "profile_sha256": "4cffc8fdce2d703bf6d0dfcfb023b241e87c7ee53700985dabd1dc0e665f4d99"
+      },
+      {
+        "begin": 16896,
+        "end": 17408,
+        "expected_peak": 11,
+        "expected_max_share": 0.4789824080286891,
+        "profile_sha256": "bc4c09540cc746ee1b5dead0c21eca0d977a755b1db0d8c01dc0a38a6a926040"
+      },
+      {
+        "begin": 17408,
+        "end": 17920,
+        "expected_peak": 15,
+        "expected_max_share": 0.4136033687965733,
+        "profile_sha256": "2a76491372de2983e70d5e151f7d3067d33bc901769a291d3369b52df6c62593"
+      },
+      {
+        "begin": 17920,
+        "end": 18432,
+        "expected_peak": 1,
+        "expected_max_share": 0.4816015953656742,
+        "profile_sha256": "b9c02d51bcfdf8f742295d89935d873f3c8c27e8cc39731d2542e2d4e3520fe2"
+      },
+      {
+        "begin": 18432,
+        "end": 18944,
+        "expected_peak": 3,
+        "expected_max_share": 0.4945513736738607,
+        "profile_sha256": "bafadbf6a2f1804152bd41ba9a70abd0d8673dd84ec9800a9f858f2a3657770f"
+      },
+      {
+        "begin": 18944,
+        "end": 19456,
+        "expected_peak": 13,
+        "expected_max_share": 0.4927295915326099,
+        "profile_sha256": "67c3c05c719a6e9851bd4dcbbe4f6d340eed85d1ee2247c59c57ccb2959d9289"
+      },
+      {
+        "begin": 19456,
+        "end": 19968,
+        "expected_peak": 14,
+        "expected_max_share": 0.4496062899990018,
+        "profile_sha256": "0d2398400c1118de630fee9c00db024db8693f6eca066bebdcd8a95b0a7a9da2"
+      },
+      {
+        "begin": 19968,
+        "end": 20480,
+        "expected_peak": 14,
+        "expected_max_share": 0.4832898281251901,
+        "profile_sha256": "921a6c50bb6851b4b17e371f98dd195f1c3838c775fb81fbdfd6c8a373ad5235"
+      },
+      {
+        "begin": 20480,
+        "end": 20992,
+        "expected_peak": 14,
+        "expected_max_share": 0.4321369481310097,
+        "profile_sha256": "db248140ad9eb557527ce7c5d3fbc7c02427f4379a1b918b701e265c1a1ef448"
+      },
+      {
+        "begin": 20992,
+        "end": 21504,
+        "expected_peak": 14,
+        "expected_max_share": 0.4465796522378113,
+        "profile_sha256": "f520857f8d6688d77632b200c429885de27e43e5e81041098f3c2e8fbea2d145"
+      },
+      {
+        "begin": 21504,
+        "end": 22016,
+        "expected_peak": 14,
+        "expected_max_share": 0.4950060729403075,
+        "profile_sha256": "707ae591a7dc1031e776ec6dd9b78c685ea89ed37d5b28326c9bb072ecfdfe6d"
+      },
+      {
+        "begin": 22016,
+        "end": 22528,
+        "expected_peak": 13,
+        "expected_max_share": 0.42146526192706074,
+        "profile_sha256": "53034ed251d9bee7e97eb92ff542c09e2e0422aefbafce55dadfdcf7ae15d12c"
+      },
+      {
+        "begin": 22528,
+        "end": 23040,
+        "expected_peak": 13,
+        "expected_max_share": 0.42965961318645945,
+        "profile_sha256": "6a1c28d6a33d1967aa879b885ed3cf08d8949a980a106cdea4027a2caec922d8"
+      },
+      {
+        "begin": 23040,
+        "end": 23552,
+        "expected_peak": 3,
+        "expected_max_share": 0.4196462826106241,
+        "profile_sha256": "077fe5a49dce040f1506407f6c82265806d86c7364b5dc06d61290a4889ad334"
+      },
+      {
+        "begin": 23552,
+        "end": 24064,
+        "expected_peak": 15,
+        "expected_max_share": 0.4379465380913029,
+        "profile_sha256": "a61f197df06ef7f17725460d2a853ab51f8ae370361631ae91e880c724415099"
+      },
+      {
+        "begin": 24064,
+        "end": 24576,
+        "expected_peak": 0,
+        "expected_max_share": 0.49340475083299523,
+        "profile_sha256": "bfcc6598eda7a2f31655fc712c859c127b01045770ba1ad25e2dbb9e5c1a1645"
+      },
+      {
+        "begin": 24576,
+        "end": 25088,
+        "expected_peak": 11,
+        "expected_max_share": 0.45492478058371166,
+        "profile_sha256": "7d87a0f0ce78234d2f9df110c981801ca7c4b0cbe09b509410b11aef901679c6"
+      },
+      {
+        "begin": 25088,
+        "end": 25600,
+        "expected_peak": 10,
+        "expected_max_share": 0.45403733059192375,
+        "profile_sha256": "46861259aa0bc97203e37a0f219c47a06531b3271ccd8e9057ad323e8a41961f"
+      },
+      {
+        "begin": 25600,
+        "end": 26112,
+        "expected_peak": 8,
+        "expected_max_share": 0.49500490415752224,
+        "profile_sha256": "b3c816c38b342b90dfbcb20867dc8a7b91f6194e694445652fe62e1791ce0572"
+      },
+      {
+        "begin": 26112,
+        "end": 26624,
+        "expected_peak": 12,
+        "expected_max_share": 0.47049527687713033,
+        "profile_sha256": "9826be8fe228e3b5b28000f40172165b1e9b4090509fcb00efd5e51ac1c26a33"
+      },
+      {
+        "begin": 26624,
+        "end": 27136,
+        "expected_peak": 7,
+        "expected_max_share": 0.4543271923552773,
+        "profile_sha256": "af65306caabbb6d4ca435154ee2add2bec94060460a0c3b4f705795f5b16df67"
+      },
+      {
+        "begin": 27136,
+        "end": 27648,
+        "expected_peak": 4,
+        "expected_max_share": 0.4800442286644743,
+        "profile_sha256": "d78b6c2a6d2f82b19d7f5739e27ed5656051c01e29383888f4a746644a5bbfb8"
+      },
+      {
+        "begin": 27648,
+        "end": 28160,
+        "expected_peak": 5,
+        "expected_max_share": 0.4826189854466676,
+        "profile_sha256": "04a6ee2e1ed49f87bdedf56e4c7c50684d7634c27bab13646af5de095ba27cca"
+      },
+      {
+        "begin": 28160,
+        "end": 28672,
+        "expected_peak": 5,
+        "expected_max_share": 0.4752045309484768,
+        "profile_sha256": "b72a6903427007fcb38576d479fdf76935ab442462ffd49704567052b0181d59"
+      },
+      {
+        "begin": 28672,
+        "end": 29184,
+        "expected_peak": 5,
+        "expected_max_share": 0.4504202139920444,
+        "profile_sha256": "f9afe0430059aeb52d64609235a7dd8813731c08f156bba9bf938f46170589ca"
+      },
+      {
+        "begin": 29184,
+        "end": 29696,
+        "expected_peak": 5,
+        "expected_max_share": 0.48394586970207704,
+        "profile_sha256": "4240e7a787633df716f682e46625d3399a832ddb92b3ad1302ed0c17e007b24d"
+      },
+      {
+        "begin": 29696,
+        "end": 30208,
+        "expected_peak": 5,
+        "expected_max_share": 0.4625396665554237,
+        "profile_sha256": "b3784d0ce7e7a83131ec91719554224b9987b503d6a85394008b23053e949b0c"
+      },
+      {
+        "begin": 30208,
+        "end": 30720,
+        "expected_peak": 4,
+        "expected_max_share": 0.49468099656632447,
+        "profile_sha256": "419689aa765aff7eb98949c8a0a48f04f2b4bfc15902e3f443a7fa49a4e2e989"
+      },
+      {
+        "begin": 30720,
+        "end": 31232,
+        "expected_peak": 7,
+        "expected_max_share": 0.48943401690082505,
+        "profile_sha256": "f205e6d88899a866d6e2482114311dc2f6c0c9a553e3f4e1a11981a56524eed4"
+      },
+      {
+        "begin": 31232,
+        "end": 31744,
+        "expected_peak": 12,
+        "expected_max_share": 0.4950758856889643,
+        "profile_sha256": "183052a4f73a7db9663d696fdd27c575b50826cf163b165b31466af291f48e80"
+      },
+      {
+        "begin": 31744,
+        "end": 32256,
+        "expected_peak": 8,
+        "expected_max_share": 0.4703605484891774,
+        "profile_sha256": "90f7f5626c5515146cae417b26dc43cb5c0bb7ad1719cbd4179bceab5c220ce1"
+      },
+      {
+        "begin": 32256,
+        "end": 32768,
+        "expected_peak": 9,
+        "expected_max_share": 0.42455034718533174,
+        "profile_sha256": "a39f989c95e7225d0f5f7f0fa07e92bc6501a45a4e5f0a298df12426dbf1574f"
+      }
+    ]
+  ],
+  "operator_schedule_weights": [
+    1.1705248729583835
+  ],
+  "partition_sizes": [
+    67770979,
+    751619276,
+    68070773,
+    588087862,
+    67735725,
+    67735365,
+    67735365,
+    67735386,
+    78269414,
+    67735365,
+    751619276,
+    67735373,
+    67735365,
+    751619276,
+    67735365,
+    120009028
+  ],
+  "build_bytes": 3718949193,
+  "per_operator_counts": [
+    [
+      6669,
+      32768
+    ]
+  ],
+  "operations": 39438,
+  "input_sha256": "c8d37654d0c26d6ac239570e8bc5cebb60c35c320d05c964e8b9cec18c6e5cca",
+  "payload_note": "size fields simulate actual bytes; payload data are not stored. INSERT chunks are 64KiB..1MiB except final per-partition tails.",
+  "dynamic_scope": "Only partition probabilities change within each operator; operator schedule weights are fixed within a case."
+}

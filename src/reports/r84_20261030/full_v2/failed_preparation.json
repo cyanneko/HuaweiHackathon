@@ -1,0 +1,23 @@
+{
+  "status": "V1_PRE_EXECUTION_PREPARE_FAILED",
+  "failure": "AssertionError: metadata inventory changed",
+  "stage": "prepare dyna; fresh inventory compared to frozen inventory before input hash loop",
+  "methods_binding_sha256": "c9c9b9c44bf3d77b7dffadf3aa714fa7d06d280fa05801dc498ce123fd844ee3",
+  "selection_files": 0,
+  "campaign_files": 0,
+  "solver_runs": 0,
+  "diagnosis": "Only dependency dictionary path separators differ between Windows frozen and Linux fresh. Dyna3 keys/final2 keys; all corresponding SHA and all other fields equal.",
+  "observed_diff": {
+    "dyna": [
+      "tmp/d70/dyna_dataset/manifest.json",
+      "tmp/d70/dyna_dataset/dataset.json",
+      "tmp/d70/dyna_dataset/VERSION"
+    ],
+    "final": [
+      "tmp/d70/final_dataset/manifest.json",
+      "tmp/d70/final_dataset/eval/VERSION"
+    ]
+  },
+  "evidence_source": "Root failure report plus separate Linux metadata-only recursive comparisons before v2; no whole-input hash/solver execution",
+  "v1_unchanged": true
+}

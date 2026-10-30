@@ -1,0 +1,79 @@
+{
+  "status": "PASS_STATIC_READY_FOR_ROOT_BIND_PREPARE",
+  "methods": 7,
+  "planned_dyna_cases": 12,
+  "planned_final_cases": 72,
+  "planned_dyna_cells": 84,
+  "planned_final_cells": 504,
+  "planned_cells": 588,
+  "protocol_tests": {
+    "status": "PASS",
+    "synthetic_only": true,
+    "checks": [
+      "official zero-cost rules",
+      "D included; physical separate",
+      "dyna mode same-run Naive scoring",
+      "missing/invalid/duplicate/unknown cells",
+      "negative raw loss retained despite clipping",
+      "nearest-rank P90 n6/n12",
+      "undefined denominator reported",
+      "12/72 dataset means weighted equally; incomplete combined null",
+      "post-last-cell controller failure blocks complete aggregate"
+    ]
+  },
+  "Van_latest": {
+    "name": "Van_latest",
+    "source_path": "tmp/van_latest_reference_20261030/d92ceb0262b5/paired_penalty100.cpp",
+    "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+    "translation_unit_path": "tmp/r79_adaptive_operator/Van_paired_penalty100/main.cpp",
+    "translation_unit_sha256": "d89c9455e9519be89aca25c30b274c64b6f668e2eeebfb0d3623efc5065edefd",
+    "binary": "${WORKSPACE}<LOCAL_TEMP>",
+    "binary_sha256": "c01849371905fa3460ed979ab6deaf0333f585e968397d95de92848096cc9edc",
+    "compile_flags": [
+      "-std=c++14",
+      "-O2"
+    ],
+    "instrumented": false,
+    "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+    "compiler_flags": [
+      "-std=c++14",
+      "-O2"
+    ],
+    "source_commit": "d92ceb0262b556eb57aae61127d062174ffe6016",
+    "source_branch": "source/Vanius0525",
+    "upstream_source_path": "src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp",
+    "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/d92ceb0262b556eb57aae61127d062174ffe6016/src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp",
+    "build_strategy": "REUSE_VERIFIED_IDENTICAL_SOURCE_TU_ELF",
+    "previous_method_name": "Van_paired_penalty100"
+  },
+  "Van_build": "REUSE_VERIFIED_IDENTICAL_SOURCE_TU_ELF; no new compilation/solver test",
+  "current_environment_path": "tmp/r84_van_build/environment.json",
+  "current_environment_bound_in_selection_dependencies": true,
+  "input_gate": "Root prepare not executed by this agent; full input SHA and headers still required",
+  "ELF_scope": "Van ELF rehashed here, historical six ELF hashes deferred to Linux prepare",
+  "no_native_runs": true,
+  "no_large_input_scans": true,
+  "dependencies": {
+    "tmp/r84_full_eval/regression.py": "dc3784bb4b624eed94d3bedb89127768278dbc258a47be7ce0de7586d44da49e",
+    "tmp/r84_full_eval/inventory.py": "8e36af127f6edeffdcf35b475ef70ecdd9b96d1d9edadc8150a30682bf533b67",
+    "tmp/r84_full_eval/scoring.py": "5a23978d3cdd4620619888ce5f0ae4fe1614a1cb00fc8d7602de305f85807fd2",
+    "tmp/r84_full_eval/test_protocol.py": "1fcba6b243c8a10f64f9c750e7bcfd0860bf40c6c491c08c4bf6dba4c221241d",
+    "tmp/r84_full_eval/README.md": "80d6334bd69889a510c5f81e6313d4b217fd4b53d693e9693cb37aea79e03706",
+    "tmp/r84_full_eval/dyna.inventory.json": "86740ab9a015635a012aee5a6e0750f9df76fea2df73b93ee9d8e2f5a064bbc3",
+    "tmp/r84_full_eval/final.inventory.json": "7259494eb1e251c1dcb4d5dcffdd06e1bb9a5fe623bacc0eb5afd27ea5d00778",
+    "tmp/r84_full_eval/base_methods.prepared.json": "f380de031aa41238b6a63d0397d471798856c04e36186cf52ffa2dbeee247436",
+    "tmp/r84_review/static_review.json": "b88d2073228fc52818bc118088cdde1f00c5bcce97b9b9ee789a41b914047bfa",
+    "tmp/r84_review/STATIC_REVIEW.md": "ca2695172ca1962ca99ef975d8dd079f3892812097b1cd1f7a34f33f98987cd7",
+    "tmp/r84_review/finalize_static_review.py": "6285dd6ba6828a01fe2bb5a1a7847d1687f9f067ea3f64a561fe771b9d4cb282",
+    "tmp/r84_van_build/producer.json": "b6603fce041ba7e0ece971f4835a12284bfbd5e7ea5b761639a02a021443f4cc",
+    "tmp/r84_van_build/latest_proof.json": "13e23973c1f3aca1aad7b0398d00563579c52c94fb6ddcc2d4c523a57ed3f17b",
+    "tmp/r84_van_build/release.json": "3a02ba5c6fadbd86f57a199d8cbbee7268aa12810e679fbc33d4882a37ede495",
+    "tmp/r84_van_build/test_summary.json": "77d48549dbb04ce155cd2a5c3b242e4544b7e3997827b4936a40ac9840a7ed4b",
+    "tmp/r84_van_build/environment.json": "9710156957cbcefe271343652867fcc4738efb127a1b6ac0f46818aaa5b054ba",
+    "tmp/pub82/latest_eval_metadata.json": "8281b8cb6816589e4aa1d436169118ea9dcc3f6a98929efadf36e50712242b1a",
+    "docs/superpowers/plans/2026-10-30-r83-full-evaluation-amendment.md": "5e69b82e2f444f7452d4815fa6f094136b86ee97f5f4c3678af0b4879e52c893",
+    "docs/superpowers/plans/2026-10-30-r84-van-full-comparison.md": "172d0d279313ce6266de7d29ff1b5b9d312e8fa132b4c4e00b030d43ec3091c8",
+    "tmp/van_latest_reference_20261030/d92ceb0262b5/contract.json": "ccf87e2c8be32135590e83c1db1c8d713c9f82b403a2e77d9d8ca1adfccc642a"
+  },
+  "final_release_gate": "Runner requires final release and pins its tests/review/environment artifacts into both selections."
+}

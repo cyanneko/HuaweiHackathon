@@ -1,0 +1,37 @@
+{
+  "version": "round9-100us-user-adoption",
+  "penalty_proxy_us": 100.0,
+  "pure": {
+    "path": "round9/candidates/paired_penalty100.cpp",
+    "sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15"
+  },
+  "ai": {
+    "path": "round9/candidates/ai_penalty100.cpp",
+    "sha256": "e721f4a030fd519df8946230ab44660b1d69508a43a23ba8e65cae017527b2fa"
+  },
+  "adoption_basis": "Explicit user choice, not a measured improvement or new dataset ranking.",
+  "historical_releases": "round8/CURRENT_BEST.json remains immutable evidence, not a request to rerun1us.",
+  "dataset_lock_sha256": "79e1f003fe808ea1380a7cd1bc679cb0ebccb75718fd0a485115e108472e0b08",
+  "validation_status": "Main60 and dyna historical checks complete. User-requested full original eval72 complete for paired100/pool100/Naive; no AI evaluation. Original main108dev untouched; full eval72 now exposed to these frozen versions.",
+  "baseline_evidence": "round9/PROXY100_BASELINE_REVIEW.json",
+  "active_comparison_plan": "round9/DYNA_FULL_EVALUATION_PLAN_V1.json",
+  "experimental_risk_candidates": "round9/pure/RETURN_RISK_DEPLOY_FINAL_FREEZE_V1.json",
+  "incumbent_selection": "paired100 and ai100 remain current. Dyna pool/flat improved all12 physical costs, but none of the three fixed risk candidates passed main60 train gates. No promotion or main dev/eval access. Cold-BUILD also failed its train gate.",
+  "ai_weights_retrained": false,
+  "deployment": "One selected class-only C++14 source; actual engine score still uses the input true penalty.",
+  "completed_comparison_report": "round9/DYNA_FULL_REVIEW_V1.md",
+  "risk_main60_evidence": "round9/RETURN_RISK_MAIN60_COST_DIAGNOSIS_V1.md",
+  "new_regression_standard_pending": {
+    "name": "balanced_dataset",
+    "version": "1.0.0",
+    "upstream_commit": "7968fb8ae63610cb10535ee79bede04d089eb88f",
+    "cases": 24,
+    "composition": "12 static stratified cases + existing dyna12, equal per-case weighting",
+    "status": "Metadata/input identity review ongoing; no full24 result or new promotion. Existing experiment scores remain bound to original snapshots.",
+    "training_use": "Excluded, including original dyna train6; already exposed regression benchmark, not blind generalization."
+  },
+  "AI_track_status": "Paused by explicit latest user instruction: no further AI updates, training or tests until user resumes.",
+  "default_timing_repeats": 1,
+  "latest_user_requested_evaluation": "round9/eval72/REPORT_V1.md",
+  "latest_evaluation_scope": "Full original eval72, paired100 and risk_pool100 plus Naive;20 reused/52 new;single-pass,output/counter/formula checks,no new action replay. No candidate promotion."
+}

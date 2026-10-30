@@ -1,0 +1,66 @@
+{
+  "status": "PASS_PRE_EXECUTION_V2_READY",
+  "v1_preserved_byte_for_byte": true,
+  "v1_failure_before_selection_campaign_or_solver": true,
+  "change_scope": "Only dependency key POSIX normalization with strict collision check, full normalized inventory comparison, and approved newer fixed remote proof/commit. All case fields and seven methods unchanged.",
+  "remote_commit": "d144cdd1c3b78f9a73702b4facb382e6a3e31212",
+  "local_cache_commit": "01e9de234cc735bc442f020c8b1b503d961543db",
+  "selected_dataset_trees_unchanged": true,
+  "other_remote_paths_not_inferred": true,
+  "planned_cases": {
+    "dyna": 12,
+    "final": 72
+  },
+  "planned_cells": {
+    "dyna": 84,
+    "final": 504
+  },
+  "methods_binding_sha256": "c9c9b9c44bf3d77b7dffadf3aa714fa7d06d280fa05801dc498ce123fd844ee3",
+  "score_implementation_identical_to_v1": true,
+  "linux_metadata_checks": {
+    "status": "PASS",
+    "whole_inventory_equal": [
+      "dyna12",
+      "final72"
+    ],
+    "path_tests": {
+      "status": "PASS",
+      "checks": [
+        "Windows/POSIX key positive",
+        "real dependency SHA difference negative",
+        "actual tiny-file byte mutation recomputed SHA negative",
+        "input SHA difference negative",
+        "case parameter difference negative",
+        "duplicate canonical key rejected even if SHA same",
+        "non-relative keys rejected"
+      ]
+    },
+    "protocol_tests": {
+      "status": "PASS",
+      "synthetic_only": true,
+      "checks": [
+        "official zero-cost rules",
+        "D included; physical separate",
+        "dyna mode same-run Naive scoring",
+        "missing/invalid/duplicate/unknown cells",
+        "negative raw loss retained despite clipping",
+        "nearest-rank P90 n6/n12",
+        "undefined denominator reported",
+        "12/72 dataset means weighted equally; incomplete combined null",
+        "post-last-cell controller failure blocks complete aggregate"
+      ]
+    },
+    "input_body_scans": 0,
+    "solver_runs": 0
+  },
+  "path_tests_red_before_fix": "AttributeError: normalized_inventory absent in copied v1; retained test before implementation",
+  "test_environment_note": "Initial tiny-file negative test used OS temp and hit permission denial; fixture moved under owned test_scratch, then Windows/Linux PASS. No original input affected.",
+  "input_body_scans": 0,
+  "solver_runs": 0,
+  "new_bind_runs": 0,
+  "compile_runs": 0,
+  "full_input_gate": "Root prepare still required",
+  "inventory_revision_sha256": "df4ce35fc60439768b41915246c6fccd24d241c3df629066467535e2c765f5dc",
+  "failed_preparation_sha256": "c996cbd08f097f9786094c0efffb9e0d9907ab36da7ccf1e1ac637c5e3bddfad",
+  "v1_hashes_sha256": "cdd2892598f946570be69c0651ef88d4f6047f7a653d96397cd1b95143c3d418"
+}

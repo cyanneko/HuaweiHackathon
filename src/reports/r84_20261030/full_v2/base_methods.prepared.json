@@ -1,0 +1,107 @@
+{
+  "status": "SIX_HISTORICAL_SOURCE_TU_PASS_ELF_RECHECK_AT_PREPARE_VAN_PENDING",
+  "source_reference": "tmp/r81_regression_eval/final/selection.json",
+  "source_reference_sha256": "5e86c6ed7670c7eb987ab90fba6a2adfeba822a104b4ff6a277ccd771db6c797",
+  "methods": [
+    {
+      "name": "Naive",
+      "method_id": "src/methods/r49/official_naive.cpp",
+      "source_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+      "source_path": "tmp/r77_dyna_full_eval/sources/Naive.policy.cpp",
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/Naive.cpp",
+      "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "instrumented": false,
+      "build_record": "tmp/dataset_score_audit_20261030/benchmark/build_identity.json",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R75_dense_switch",
+      "source_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.policy.cpp",
+      "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.cpp",
+      "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da"
+    },
+    {
+      "name": "R79_adaptive",
+      "source_path": "tmp/r79_adaptive_operator/R79_adaptive/MySpillScheduler.cpp",
+      "source_sha256": "8eb171503ce6c30d8e99939dffef33b751dd96f7b276c1d4509c090d439d982d",
+      "translation_unit_path": "tmp/r79_adaptive_operator/R79_adaptive/main.cpp",
+      "translation_unit_sha256": "0a8a66174dbb42b0fbbf163a479e170a57115a8be286e338e761e40565693d96",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "9c77744aab4cb0180c1fdb017f9426e0931955265a57373ec1d81573f305f4ab",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R80_next_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/main.cpp",
+      "translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier100",
+      "parent_sha256": "a98513798367c98770a5f22370a191171ed0d29a28fd0e2ee7996ff56f34c1cb"
+    },
+    {
+      "name": "R80_paired_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_paired_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "5c5c5412fe1f56a64a97fc2a9bba2860b0f30cd51b1ace86e6fc258a60a0cbe0",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_paired_hier_fast100/main.cpp",
+      "translation_unit_sha256": "a9a6bd9cae5520f64493edfdda800834f5e6bfa0e5f4419993af164caada33f4",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "287795281d7748615a77e6d5b210a7a7d83ca6caff96687c9d343dea26ebf3ea",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_paired_hier100",
+      "parent_sha256": "174c125c3bf3c03dd92aff74ae2e38728e742e5e2172940e801e32f1c7dded78"
+    },
+    {
+      "name": "R81_op256_cond2048",
+      "source_path": "tmp/r81_two_timescale/R81_op256_cond2048/MySpillScheduler.cpp",
+      "source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+      "translation_unit_path": "tmp/r81_two_timescale/R81_op256_cond2048/main.cpp",
+      "translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier_fast100",
+      "parent_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "status": "STATIC_PASS_VAN_BIND_AND_FULL_INPUT_GATE_PENDING",
+  "methods": 7,
+  "expected_dyna_cells": 84,
+  "expected_final_cells": 504,
+  "total_cells": 588,
+  "datasets": {
+    "dyna": {
+      "dataset": "dyna_dataset",
+      "version": "1.0.0",
+      "commit": "01e9de234cc735bc442f020c8b1b503d961543db",
+      "tree": "808ce8b11f57a1a96051f22aa572eceb82b1fba0",
+      "cases": 12,
+      "operations": 60000000,
+      "input_bytes": 1170613062
+    },
+    "final": {
+      "dataset": "final_dataset",
+      "version": "2.1.0",
+      "commit": "01e9de234cc735bc442f020c8b1b503d961543db",
+      "tree": "41197783dd577dfccf5b007a6ece67cbfb241e4b",
+      "cases": 72,
+      "operations": 22528629,
+      "input_bytes": 474874705
+    }
+  },
+  "provenance": "Master latest-remote metadata proof verified by pinned SHA; local metadata and sizes checked independently. No separate remote network query performed by this reviewer.",
+  "historical_six_source_TU_identity": "PASS; exact inherited method dictionaries and normalized official framework skeleton",
+  "ELF_gate": "Deferred to Linux prepare; no ELF identity assumed verified on this Windows static pass",
+  "Van_latest": "Pending immutable submit-class proof, producer/release/test gate and source/TU/ELF identity",
+  "input_gate": "0 input bodies hashed in static pass. Root prepare must hash all inputs and check headers before timing.",
+  "protocol_tests": {
+    "status": "PASS",
+    "synthetic_only": true,
+    "checks": [
+      "official zero-cost rules",
+      "D included; physical separate",
+      "dyna mode same-run Naive scoring",
+      "missing/invalid/duplicate/unknown cells",
+      "negative raw loss retained despite clipping",
+      "nearest-rank P90 n6/n12",
+      "undefined denominator reported",
+      "12/72 dataset means weighted equally; incomplete combined null",
+      "post-last-cell controller failure blocks complete aggregate"
+    ]
+  },
+  "per_case_timeout_seconds": 60,
+  "internal_controller_budgets": {
+    "dyna": 900,
+    "final": 600
+  },
+  "repeats": 1,
+  "parallelism": 1,
+  "aggregate": "Same-window Naive clipped points per case, dataset mean first, two dataset means weighted 0.5 each; no pooled84-case mean.",
+  "raw_and_timing": "Raw loss, physical IO+actual penalty*miss and D microseconds separately; D included in scored total.",
+  "completeness": "Missing/invalid/duplicate cells cannot form a complete aggregate. finalized_summary additionally requires successful controller completion after last cell. Both complete datasets and identical methods required for equal-dataset result.",
+  "no_retry": true,
+  "old_outputs_modified": false,
+  "solver_runs": 0,
+  "compile_runs": 0,
+  "input_body_scans": 0,
+  "exposure": "All dyna original train/dev/holdout and all final eval; exposed regression, not new blind evidence or all-member leaderboard.",
+  "artifacts": {
+    "tmp/r84_full_eval/inventory.py": "8e36af127f6edeffdcf35b475ef70ecdd9b96d1d9edadc8150a30682bf533b67",
+    "tmp/r84_full_eval/scoring.py": "5a23978d3cdd4620619888ce5f0ae4fe1614a1cb00fc8d7602de305f85807fd2",
+    "tmp/r84_full_eval/regression.py": "84accaed82e96b0803dedb6b28e003f11ba3018f5ff05a1928bc0d1a57262471",
+    "tmp/r84_full_eval/test_protocol.py": "1fcba6b243c8a10f64f9c750e7bcfd0860bf40c6c491c08c4bf6dba4c221241d",
+    "tmp/r84_full_eval/dyna.inventory.json": "86740ab9a015635a012aee5a6e0750f9df76fea2df73b93ee9d8e2f5a064bbc3",
+    "tmp/r84_full_eval/final.inventory.json": "7259494eb1e251c1dcb4d5dcffdd06e1bb9a5fe623bacc0eb5afd27ea5d00778",
+    "tmp/r84_full_eval/base_methods.prepared.json": "f380de031aa41238b6a63d0397d471798856c04e36186cf52ffa2dbeee247436",
+    "tmp/pub82/latest_eval_metadata.json": "8281b8cb6816589e4aa1d436169118ea9dcc3f6a98929efadf36e50712242b1a",
+    "docs/superpowers/plans/2026-10-30-r83-full-evaluation-amendment.md": "5e69b82e2f444f7452d4815fa6f094136b86ee97f5f4c3678af0b4879e52c893",
+    "docs/superpowers/plans/2026-10-30-r84-van-full-comparison.md": "172d0d279313ce6266de7d29ff1b5b9d312e8fa132b4c4e00b030d43ec3091c8",
+    "tmp/r80_eval/experiment.py": "ebfe95a63b954eee4d9208aa9fbdec7916e68d08505e57d8ed71256036381da0",
+    "tmp/r84_review/static_review.py": "827b3a6ef9f6786f5c96d2b3f794399109a3132c77a6b3f727ac7a6bd72b1211",
+    "tmp/r84_review/protocol_tests.json": "5cfdc1d9606b9a80a034526411d913a53aab3fcac1f7e0b844e9b1b755af4b29"
+  }
+}

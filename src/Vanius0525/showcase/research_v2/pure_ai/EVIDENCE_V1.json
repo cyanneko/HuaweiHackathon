@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-31",
+  "purpose": "展示内容只读审稿；当前最终算法按用户指定为R81，本文不重新验证或改变选型。",
+  "source_root": "src/Vanius0525/level1",
+  "sources": [
+    {
+      "path": "round7/OBSERVATION_PROFILE.json",
+      "sha256": "12e509fde81cd76169ad15201e913166f7c9176993e7568c4fc3ce9e2ea9552c"
+    },
+    {
+      "path": "round7/RESULTS_RESUME.md",
+      "sha256": "8f2d6222c43c36cc0ce28b2ef481312e563682fb7211336be74bb0e1cb021e0e"
+    },
+    {
+      "path": "round6/TRAIN_LABEL_DIAGNOSTICS.json",
+      "sha256": "3980841cd5e918194e5407fe2a32a70959ea9db5b1956bf80c868ff413b98b9e"
+    },
+    {
+      "path": "round6/INTERVAL_TRAINING.json",
+      "sha256": "f1e13df9ba11f8d72d8d842911167cb95ede8c5a048dc62dfd6fde2d91ec1e3d"
+    },
+    {
+      "path": "round6/MARGIN_CALIBRATION_OUTCOME.json",
+      "sha256": "9155302a2d979dd7b642f96775a70f207e8bcc2969c278dfca10821b967d86c4"
+    },
+    {
+      "path": "round6/RESULTS.md",
+      "sha256": "5ec153615b066755b55411af9035abd3a46c57b5905addd8a168f0375489f670"
+    },
+    {
+      "path": "round8/ai/LOCAL_LEARNABILITY_RESULTS.json",
+      "sha256": "eeb68a39dcb83bb40b863ae1e2d69b8cabd7a252fd7d2bf98d4a758e28bf3288"
+    },
+    {
+      "path": "round8/ai/PROBABILITY_PILOT_SUMMARY.json",
+      "sha256": "12327350135cc33f6796f373d37d0fe3efd62d11ffabbfd0bc671d74147b1a95"
+    },
+    {
+      "path": "round8/ai/PROBABILITY_RESULTS.md",
+      "sha256": "97faea8a2cc83614090aff5bc6f1bc1c3be1d51e9fd64d45a2550159f346c9c9"
+    },
+    {
+      "path": "round8/AI_SPLIT_SCOPE_AUDIT.json",
+      "sha256": "3727b1a75cca117857aa33e01815bbbf30cedffcade5caab87b9c983e14ff6a5"
+    },
+    {
+      "path": "round9/ai/FOLD_REANALYSIS.md",
+      "sha256": "fe257f92f9aae94a7577593b9c3bccc4228b55fded8f4db9e2687669c69f7dbd"
+    },
+    {
+      "path": "round12/pure/REPORT_V1.md",
+      "sha256": "414a8c481a0a299d54fc2a6c82cccdc865fa4028eae39d0ef2183f50eb48a8bf"
+    }
+  ],
+  "verified_facts": {
+    "observation_profile": {
+      "scope": "旧80训练流的同一Best轨迹、全流经验直方图；平均平滑总变差",
+      "next_union": {
+        "mean_smoothed_tv": 0.08965810368178515,
+        "median_samples": 5217.0
+      },
+      "miss_target": {
+        "mean_smoothed_tv": 0.4571903405380464,
+        "median_samples": 5166.0
+      }
+    },
+    "small_tree": {
+      "contributing_flows": 75,
+      "states": 150,
+      "original_margin": 0.05,
+      "all_leaves_default_at_original_margin": true,
+      "all_leaves_default_at_zero_margin": false,
+      "continuation_ranking_disagreements": 44,
+      "disagreement_kind": "动作原始排名不同，不是收益符号冲突或标签错误率"
+    },
+    "margin_development": {
+      "ai_best_dev_mean": 2.7139575600693076,
+      "ai_best_physical_tail": 2.0142368866501164,
+      "models": {
+        "ai_interval_margin000": {
+          "dev_mean": 2.6488275471762837,
+          "delta": -0.06513001289302389,
+          "worst_physical_ratio": 1.944859682990844,
+          "passes_dev_gate": false
+        },
+        "ai_interval_margin005": {
+          "dev_mean": 2.6304647707540587,
+          "delta": -0.08349278931524884,
+          "worst_physical_ratio": 1.944859682990844,
+          "passes_dev_gate": false
+        }
+      },
+      "test_queries": 0,
+      "auto_promoted": false
+    },
+    "later_local_teacher": {
+      "flows": 32,
+      "states": 192,
+      "continuation_sign_conflicts": 77,
+      "positive_both": 46,
+      "disagreement_kind": "两续接条件收益的正负不同；不是上一轮44/150的排名统计"
+    },
+    "anonymous_hit_pilot": {
+      "flows": 8,
+      "states": 32,
+      "true_logloss_improved_seed_count": 8,
+      "future_logloss_improved_seed_count": 8,
+      "future_logloss": {
+        "uniform": {
+          "rows": 32,
+          "mean": 5.285247251769583
+        },
+        "next_only": {
+          "rows": 32,
+          "mean": 4.775490303319327
+        },
+        "censored_mle": {
+          "rows": 32,
+          "mean": 4.72092826369715
+        }
+      },
+      "retained_true_probability_mass": {
+        "uniform": {
+          "rows": 31,
+          "mean": 0.6770424136967209
+        },
+        "next_only": {
+          "rows": 31,
+          "mean": 0.8141691672013955
+        },
+        "censored_mle": {
+          "rows": 31,
+          "mean": 0.8083907154863252
+        }
+      },
+      "scope": "有限前缀统计模型，未部署闭环；8流各4状态不是32独立环境"
+    },
+    "r12_counterexample": {
+      "case": "train519",
+      "reference": "R80",
+      "candidate": "soft_tail100",
+      "reference_miss": 3766,
+      "candidate_miss": 2933,
+      "actual_penalty_us": 119,
+      "extra_io_us": 7346876.04,
+      "saved_miss_cost_us": 99127,
+      "physical_increase_percent_rounded": 12.63,
+      "scope": "另一项纯算法实验，不能与匿名Hit先导合并为同一实验"
+    }
+  },
+  "important_editorial_correction": "Round8旧四折是整家族留出；后续族内新seed重分析仍未过保守目标，但两个续接各自均值转正，正文不沿用泛化过强的两者均负表述。",
+  "work_performed": {
+    "new_algorithm_code": 0,
+    "compiles": 0,
+    "evaluations": 0,
+    "training": 0,
+    "request_stream_scans": 0,
+    "new_literature_research": 0
+  }
+}

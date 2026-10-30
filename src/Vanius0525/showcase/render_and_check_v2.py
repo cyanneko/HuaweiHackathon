@@ -11,7 +11,7 @@ with sync_playwright() as p:
     browser=p.chromium.launch(headless=True)
     page=browser.new_page(viewport={'width':1440,'height':1000},device_scale_factor=1)
     errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
-    resp=page.goto('http://127.0.0.1:8765/',wait_until='networkidle')
+    resp=page.goto('http://127.0.0.1:8765/technical.html',wait_until='networkidle')
     page.evaluate('document.fonts.ready')
     page.screenshot(path=str(OUT/'desktop.png'))
     missing_anchors=page.evaluate("[...document.querySelectorAll('a[href^=\"#\"]')].map(x=>x.hash).filter(h=>h && !document.getElementById(h.slice(1)))")
@@ -49,7 +49,7 @@ with sync_playwright() as p:
     for key in ['routes','generation','recency','results']:
         page.locator('#'+key).screenshot(path=str(OUT/f'web-{key}.png'))
     page.set_viewport_size({'width':390,'height':844})
-    page.goto('http://127.0.0.1:8765/',wait_until='networkidle');page.evaluate('document.fonts.ready')
+    page.goto('http://127.0.0.1:8765/technical.html',wait_until='networkidle');page.evaluate('document.fonts.ready')
     mobile_overflow=page.evaluate('document.documentElement.scrollWidth > innerWidth')
     page.screenshot(path=str(OUT/'mobile.png'))
     for key in ['generation','probability','results']:

@@ -1,41 +1,42 @@
-# 动态倾斜下的分层热度调度 · R81
+# Team 19 · 面向动态倾斜的分层热度感知优化
 
-HuaweiHackathon 的项目展示网站与阅读报告。原仓库维护入口为 `source/Vanius0525:src/Vanius0525/showcase/`，不需要另建 GitHub 源码仓库。
+当前主页是供演示的精简版，依据用户提供的 `report.pdf`（6页）和 `ppt_team19.pptx`（4页）重组。参考文件身份与口径核对见 `evidence/v3/REFERENCE_NOTES.json`；未上传两份原文件。
 
-- 公网网站：https://hashjoin-algorithm-atlas.michael-rich577.chatgpt.site
-- 阅读PDF：https://hashjoin-algorithm-atlas.michael-rich577.chatgpt.site/HashJoin-R81-Reading-Guide.pdf
-- 研究快照：2026-10-31；最终选定 `R81_op256_cond2048`。同批 R87 归档主测均分 4.084530；R85A 数值均分略高，展示中保留这一区别。
-- 最终源文件：`3064e270fde0473810cd8c0e57b738ee48356254:submission/MySpillScheduler.cpp`；SHA256 `2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617`。
+- 5部分：问题、探索路线、数据设计、最终算法、结果与消融。
+- 主文约2700字；保留关键图解，完整公式与七项消融按需展开。
+- 最终算法仍为R81，不运行新训练或算法评测。
+- 主结果固定为dyna12/final72各50%，平均相对成本下降40.0362%，本地归一分4.084507912；stat单列。结果来自同批R81消融报告，不混入PPT的三套等权均值或旧stat三重复计时。
 
-## 内容
+## 本地直接打开
 
-20节正文、21页A4阅读版。主线依次为问题与成本、四条探索路径、数据生成策略、R81算法与公式、同场结果与机制消融。
+双击 `dist/HashJoin-Team19-Demo.html`。这是一个约6.7MiB的独立HTML，字体、样式、交互数据及21页技术PDF均已内嵌，断网也可阅读、切换数据场景、拖动概率、查看消融并导出PDF；页尾GitHub来源链接需要联网。
 
-网站可交互查看启发式/AI/风险/分层路线、算子与分区概率结构、256与2048半衰期衰减、概率与大小估值、动态/静态成绩。交互数值是示意，未执行新算法实验。旧R85阅读版保留在 `dist/archive/HashJoin-R85-20261031.pdf`；旧PDF通用URL指向最新R81版。
+`dist/index.html`是同内容的多文件版。公网地址：
+https://hashjoin-algorithm-atlas.michael-rich577.chatgpt.site
 
-数据集演进包括final2.0→2.1→3.0、dyna及stat。stat冻结生产划分为24 train/6 dev/10 eval，属于独立补充。当前主榜仍固定dyna1.0全12与final2.1 eval72，两组等权。
-
-## 构建与检查
+## 构建与验证
 
 ```bash
 python build.py
-python -m http.server 8765 --bind 127.0.0.1 --directory dist
+python check_demo.py
 ```
 
-另一终端执行 `python render_and_check_v2.py`（或兼容入口 `python render_and_check.py`）渲染PDF并检查展示。HTML构建仅需Python标准库；渲染需要Python Playwright、Chromium与PyMuPDF。
+构建仅依赖Python标准库：读取`demo.html`模板、`dist/assets/demo-results.json`，生成主页和离线HTML。检查使用Playwright/Chromium，以`file://`和断网模式验证；不启动服务器或执行算法。
 
-`content_v2.py`共用网站/PDF正文，复用`content.py`中仍适用的解释与排版函数；旧版内容与结果证据留档。`dist/assets/results-v2.json`绑定R87同场和独立R81消融，不混批计算。`evidence/v2/`固定新源码、上游报告、元数据及展示验证；`research_v2/`保留研究事实审核。
+- `demo.html`：精简正文与语义结构。
+- `dist/assets/demo.css`、`demo.js`：样式及交互。
+- `build_offline.py`：单文件打包。
+- `check_demo.py`：离线、下载、交互与布局验证。
+- `render_and_check.py`：当前检查的兼容入口。
 
-验证覆盖20节锚点、重复ID、JS异常、1440/390宽度、四类交互、21页PDF中文文本与全部可见内容的页脚边界，并目视检查封面、公式、流程、数据和实验页。所有算法优化、训练、评测及数据生成仍暂停。
+## 完整技术版与历史
 
-## 托管与版本
+原20节内容保留在 `dist/technical.html`，21页PDF仍为 `dist/HashJoin-R81-Reading-Guide.pdf`。`build_v2.py`可重建技术版及其打印源；需要重渲染旧PDF时，按旧流程运行本地8765服务器，再执行`render_and_check_v2.py`。旧R85 PDF保留在`dist/archive/`。
 
-当前沿用既有public Sites站点；发布身份与实际提交见`PUBLICATION.json`。用户源码仍维护在原Hackathon仓库。静态发布目录为`dist/`，可迁移到GitHub Pages等平台，无外部CDN依赖。
+`content.py`、`content_v2.py`及旧证据继续作为历史资料，不用旧数据覆盖当前主指标。`SOURCE_MANIFEST.json`与`SOURCE_MANIFEST_V2.json`分别记录此前发布快照；V3内容与验证见`evidence/v3/`。
 
-`SOURCE_MANIFEST_V2.json`为R81 V2发布时的源文件清单；`SOURCE_MANIFEST.json`保留V1历史身份，不用于校验V2文件。`evidence/v2/SOURCE_IDENTITY.json`独立记录最终算法证据。
+## 托管与源码
 
-字体Droid Sans Fallback（Google，Apache-2.0）自带并嵌入PDF，见`dist/assets/font-LICENSE.txt`。未为原项目算法另设许可证。
+源码仍在原仓库 `source/Vanius0525:src/Vanius0525/showcase/`，静态发布目录`dist/`。Sites身份记录见`PUBLICATION.json`；GitHub Pages的一次性设置及后续更新见`GITHUB_PAGES.md`与`GITHUB_PAGES_STATUS.json`。无需为本地使用开启任何托管。
 
-## GitHub Pages迁移
-
-已新增同仓库`gh-pages`发布脚本与静态入口，网站页脚可直接进入GitHub源码。一次性启用及后续更新见[GITHUB_PAGES.md](GITHUB_PAGES.md)，实际部署状态见[GITHUB_PAGES_STATUS.json](GITHUB_PAGES_STATUS.json)。源代码继续维护在本分支，发布分支只包含网站静态文件。
+字体Droid Sans Fallback（Google，Apache-2.0）内嵌到离线HTML，授权原文见`dist/assets/font-LICENSE.txt`。未为原项目算法另设许可证。

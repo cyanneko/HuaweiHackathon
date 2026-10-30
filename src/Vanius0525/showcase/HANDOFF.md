@@ -70,3 +70,19 @@ GitHub子路径验证通过：在/HuaweiHackathon/下主页200、四类交互正
 GitHub预期网址https://cyanneko.github.io/HuaweiHackathon/再次核验404，不能称为上线。当前无Pages管理API登录，已请用户/仓库管理员在Settings→Pages选择Deploy from a branch、gh-pages、/(root)并Save。下一步：收到设置完成反馈后，检查GitHub页面、PDF、子路径资源和公布的部署身份，再更新GITHUB_PAGES_STATUS.json。不需重跑算法或重建PDF。
 
 本轮可独立完成的源码适配、验证和Git分支发布均完成；原Sites继续可用。没有本轮后台任务，旧优化仍暂停；其他任务文件未纳入提交。
+
+## V3 精简演示与本地单文件
+
+用户提供report.pdf（6页）及ppt_team19.pptx（4页），要求言简意赅且重点完整，继续交付可双击的本地HTML。已阅读PDF全文和PPT文字/内嵌路线图、流程图。主线压缩为问题、双线探索、数据设计、最终算法、结果与消融，复杂公式按需展开。
+
+核查：report主榜dyna/final各50%，S=4.084507912、未截断U=4.003620157（平均相对成本下降40.0362%）；PPT三组均分3.8696是另一口径，不能混用。PPT额外固定reuse=1消融未出现在report七项对照中，暂不并入主表；stat描述改为分区潜在过程分别演化，避免将归一化访问概率称为相互独立。
+
+只编辑展示和打包，不恢复算法实验。原6页PDF/PPT保持不变；参考内容按SHA与页码记录，不上传本机路径。V2长版保留为补充，生成自包含本地HTML并核验file://离线交互，再同步GitHub展示源码。
+
+## V3 本地文件与验证完成
+
+五部分主文约2700字，离线HTML约6.66MiB；保留双线探索、三套数据、四步流程、分层概率/集合示例及完整消融。旧20节内容保留technical.html，21页PDF原字节未变。单文件内嵌字体、交互数据和PDF；已另存用户桌面HashJoin_Team19_演示.html（本机交付路径不写入仓库）。
+
+python build.py及python check_demo.py均通过：file://+offline，0HTTP、0JS异常、5节锚点/所有交互/内嵌PDF下载通过；桌面和手机无横向溢出。断网下载PDF与原件SHA一致。证据与截图位于evidence/v3。两份参考文件仅记录名称/SHA，原件未修改、未上传。
+
+展示源码已同步；正在发布既有public Site，随后提交source/Vanius0525并更新gh-pages部署分支。无算法实验，无运行中的预览服务。

@@ -86,3 +86,9 @@ GitHub预期网址https://cyanneko.github.io/HuaweiHackathon/再次核验404，�
 python build.py及python check_demo.py均通过：file://+offline，0HTTP、0JS异常、5节锚点/所有交互/内嵌PDF下载通过；桌面和手机无横向溢出。断网下载PDF与原件SHA一致。证据与截图位于evidence/v3。两份参考文件仅记录名称/SHA，原件未修改、未上传。
 
 展示源码已同步；正在发布既有public Site，随后提交source/Vanius0525并更新gh-pages部署分支。无算法实验，无运行中的预览服务。
+
+## V3 源码与公网交付完成
+
+展示源码efc03098已推送source/Vanius0525，仅27个本轮展示文件，16项暂存源码/产物SHA一致。Sites version3发布succeeded，托管源码84747b4e0dae7655b4db1a3bd325f4c5b3502349，部署appgdep_6ae506d7ce78819187402346ced2ba8b。匿名主页已核验新内容；离线HTML地址经规范重定向后下载成功，SHA与桌面文件完全一致。首次curl未跟随重定向取得空响应，已用-L完成验证，没有更改产物。
+
+当前仅补记发布状态并更新同仓库gh-pages副本。用户可直接使用桌面单文件，无需GitHub Pages设置。旧优化仍暂停，资料代理已结束，无本轮后台进程。

@@ -1,0 +1,121 @@
+{
+  "case_id": "train_mixed_23",
+  "split": "train",
+  "rows": 16,
+  "branches": {
+    "complete": 81
+  },
+  "alias_conflict_groups": 0,
+  "rollins": {
+    "offline": {
+      "G": 918545810800,
+      "callbacks": 243,
+      "multi_choice": 203,
+      "selected_anchors": 8,
+      "witness_sha256": "6556ff681ce33892cc09519649a5355b4273db360851116c412e16760f55bf89",
+      "method": "provided_complete_witness"
+    },
+    "r65": {
+      "G": 1973624136800,
+      "callbacks": 505,
+      "multi_choice": 495,
+      "selected_anchors": 8,
+      "witness_sha256": "b016f836de1b43373dcdc984e1cc388e8a27c4e7c38877f5b8514a8373cf8db8",
+      "method": "r65_causal"
+    }
+  },
+  "elapsed_seconds": 0.4221066000027349,
+  "timeout": false,
+  "error": null,
+  "labels_sha256": "f83fe285263f9e42be593c1c7acbec641fcb220b6a5356a38f272ea4cc745aef",
+  "teacher_optimality_claim": false,
+  "source_provenance": {
+    "teacher": {
+      "case_id": "train_mixed_23",
+      "split": "train",
+      "input": "${WORKSPACE}\\tmp\\r70_inputs\\data\\train\\train_mixed_23.txt",
+      "input_sha256": "dac9ddc60152b3a98c889a0cc69fb89dd90573f115df80312c0597f540cb31e8",
+      "metadata": "${WORKSPACE}\\tmp\\r70_inputs\\data\\train\\train_mixed_23.verified.json",
+      "metadata_sha256": "8c0f3d95f595af96b1b4ec304809fdbb395eff06836452da6e5f613b30a50236",
+      "N": 7028,
+      "teacher_status": "best_found",
+      "solver_scope": "fixed complete portfolio, spill-only overflow/demand LOAD-last/empty periodic",
+      "teacher_method": "fif_greedy",
+      "teacher_rule": "fif_greedy",
+      "teacher_parameters": "frozen config and teacher_portfolio.Context method definition",
+      "cost": {
+        "G": 918545810800,
+        "ordered_objective": 9185458.107999995,
+        "grouped_objective": 9185458.108,
+        "ordered_io": 9166358.107999995,
+        "grouped_io": 9166358.108,
+        "write_bytes": 1016924468,
+        "read_bytes": 814943364,
+        "total_io_bytes": 1831867832,
+        "hits": 5809,
+        "misses": 191,
+        "D": null
+      },
+      "witness_path": "${WORKSPACE}\\tmp\\r70\\runs\\c10\\winner\\witness.json",
+      "witness_hash": "6556ff681ce33892cc09519649a5355b4273db360851116c412e16760f55bf89",
+      "witness_raw_sha256": "6556ff681ce33892cc09519649a5355b4273db360851116c412e16760f55bf89",
+      "witness_format": "core-json-array-canonical-v1",
+      "replay_verified": true,
+      "legal_complete_witness": true,
+      "all_callbacks_consumed": true,
+      "framework_source_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "binary_sha256": "dd15bd096086faa37c774694621a97056384fae53ca02bb52fdd27d68e87bf77",
+      "verification_scope": "compact aggregate/public/action parity, not per-partition fullstate parity",
+      "full_partition_state_compared": false,
+      "result_path": "${WORKSPACE}\\tmp\\r70\\runs\\c10\\result.json",
+      "trajectory_status": "completed",
+      "no_counterfactual_Q_labels": true,
+      "formal_D": null
+    },
+    "vanbest": {
+      "case_id": "train_mixed_23",
+      "input_sha256": "dac9ddc60152b3a98c889a0cc69fb89dd90573f115df80312c0597f540cb31e8",
+      "source_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+      "build": {
+        "policy_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "translation_sha256": "64d28fe5f502640edd99a8f8b96d6cfaa0a0f935acc63682012cdb6f4afaca35",
+        "binary_sha256": "2f5157044d1951541a908815566c3b00d10b435a9872a1c2d5e032c37e5b20e0",
+        "engine_suffix_identical_except_factory": true,
+        "compile_seconds": 5.707833000000392,
+        "formal_D": null
+      },
+      "cost": {
+        "G": 1497168658100,
+        "ordered_objective": 14971686.581,
+        "grouped_objective": 14971686.581,
+        "ordered_io": 14940086.581,
+        "grouped_io": 14940086.581,
+        "write_bytes": 1542647951,
+        "read_bytes": 1339743863,
+        "total_io_bytes": 2882391814,
+        "hits": 5684,
+        "misses": 316,
+        "D": null
+      },
+      "callback_count": 354,
+      "periodic_callbacks": 7,
+      "nonempty_periodic": 0,
+      "prefetches": 0,
+      "anchor_count": 24,
+      "observer_version": "r65-causal-with-executed-periodic-intents-v1",
+      "reference_replay_verified": true,
+      "all_callbacks_consumed": true,
+      "aggregate_public_action_parity": true,
+      "full_partition_states_logged": false,
+      "formal_D": null,
+      "elapsed_seconds": 0.16751180000574095,
+      "witness_format": "vanbest-full-actions-v1",
+      "witness_path": "${WORKSPACE}\\tmp\\r70_expert_rollin\\runs\\train_mixed_23\\witness.json",
+      "witness_sha256": "5cced07fd32aaec40e4aa2945707020c7dd7ffc78c14695d794823272b9bc415",
+      "anchors_path": "${WORKSPACE}\\tmp\\r70_expert_rollin\\runs\\train_mixed_23\\anchors.json",
+      "anchors_sha256": "9889d7918893d876d6ba186387327b42f0d46e07d4d6216efac9dc673a558871"
+    }
+  },
+  "feature_migration_only_no_suffix_rerun": true
+}

@@ -1,0 +1,97 @@
+{
+  "scope": "R70_online_dev_then_single_holdout",
+  "status": "not_runnable_pending_new_sources",
+  "methods": [
+    {
+      "name": "Naive",
+      "role": "frozen baseline; reuse existing compiled program",
+      "source_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+      "source_path": "src/methods/r49/official_naive.cpp",
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "runtime_binary_verification": "pending scheduled execution; do not recompile unchanged source"
+    },
+    {
+      "name": "R65",
+      "role": "frozen baseline; reuse existing compiled program",
+      "source_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+      "source_path": "src/experiments/r65_turnover_risk/MySpillScheduler.cpp",
+      "source_sha256": "f9eebb4dc44fc2059ed79879334a7bc5c6960d57f0b2453273be64accd617355",
+      "translation_unit_sha256": "290c07f68527695d2e311b0e646b07c54a34d0ac75548f88f8bf48695d55be3d",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "21f4853e70fa3196599b5b244bbab9f840c5297504865a14a7cbeb82bdea14d6",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "runtime_binary_verification": "pending scheduled execution; do not recompile unchanged source"
+    },
+    {
+      "name": "VanBest",
+      "role": "frozen baseline; reuse existing compiled program",
+      "source_commit": "9c755a71b26f5a0937dbbfc7edf68272b3510e72",
+      "source_path": "src/Vanius0525/level1/MySpillSchedulerBest.cpp",
+      "source_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+      "translation_unit_sha256": "d9fb74a75cfe45f7ace8d95b73e629d937ff9b5e9c2658c1ef6a3c23e60ba791",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "710706abeb2b7f7455873b7f53c7faf461fb137e66c0ffbb31e4c5c195c0d601",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "runtime_binary_verification": "pending scheduled execution; do not recompile unchanged source"
+    },
+    {
+      "name": "LiuFinal",
+      "role": "frozen baseline; reuse existing compiled program",
+      "source_commit": "0c6d963a1fcc364ecdf763c638571358928bab42",
+      "source_path": "design/MySpillScheduler_final.cpp",
+      "source_sha256": "af324f65c8f5e294621eab178b700731e959f5f53c98f92af370490566c1e4a5",
+      "translation_unit_sha256": "4555522cc565154be24ef09152441f18134df7871fc732f8d42aabb7c1174890",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "ab309b08dd60075f366f10e4c1796a859a2af5791cec4c78d09d5976756bf092",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "runtime_binary_verification": "pending scheduled execution; do not recompile unchanged source"
+    },
+    {
+      "name": "Heuristic",
+      "role": "same causal candidate/feature pipeline without NN",
+      "source_path": null,
+      "source_sha256": null,
+      "translation_unit_sha256": null,
+      "binary": null,
+      "binary_sha256": null,
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "weights_sha256": null,
+      "feature_schema_sha256": null,
+      "preprocessing_sha256": null,
+      "status": "await Root frozen export"
+    },
+    {
+      "name": "TinyNN",
+      "role": "32->16->1 frozen C++14 scorer",
+      "source_path": null,
+      "source_sha256": null,
+      "translation_unit_sha256": null,
+      "binary": null,
+      "binary_sha256": null,
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "weights_sha256": null,
+      "feature_schema_sha256": null,
+      "preprocessing_sha256": null,
+      "status": "await Root frozen export"
+    }
+  ],
+  "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "compiler_flags": [
+    "-std=c++14",
+    "-O2"
+  ],
+  "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+  "reused_build_identity_sha256": "84704c096bc4a3e7a9f5bc079066af06ba33b0244aeb935c3e9dfc1c6746dade",
+  "architecture": [
+    32,
+    16,
+    1
+  ],
+  "repeats": 1,
+  "feature_contract": "causal official state and own history only; concrete feature schema awaits exporter identity",
+  "no_new_training": true
+}

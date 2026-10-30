@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "purpose": "Bind producer-built R70 Heuristic and TinyNN into dev8 and one holdout8 comparison without recompilation",
+  "expected_framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+  "expected_compile_flags": ["-std=c++14", "-O2"],
+  "expected_architecture": [32, 16, 1],
+  "expected_parameter_count": 545,
+  "expected_mode": "residual",
+  "expected_base_feature_index": 13,
+  "primary_candidate": "TinyNN model_v1 frozen before formal dev8, not chosen using holdout",
+  "control": "Heuristic with identical causal observer/pool/features/tie handling/emission, base13 score and zero residual",
+  "required_top_level_fields": [
+    "schema_version", "status", "framework_sha256", "compiler", "compiler_flags",
+    "model_json_path", "model_json_sha256", "feature_schema_sha256", "preprocessing_sha256",
+    "source_dependencies", "methods", "validation", "compute_release"
+  ],
+  "source_dependency_record_fields": ["path", "sha256"],
+  "required_method_names": ["Heuristic", "TinyNN"],
+  "method_record_fields": [
+    "name", "role", "source_path", "source_sha256", "translation_unit_path",
+    "translation_unit_sha256", "binary_linux_path", "binary_sha256",
+    "framework_sha256", "compile_flags", "compile_record_path", "compile_record_sha256",
+    "instrumented"
+  ],
+  "method_requirements": [
+    "formal binary uses unchanged official engine and timer, no diagnostic/trace mode",
+    "binary path is in actual Linux HOME persistent storage and remains accessible in a later WSL call",
+    "source dependencies include policy.hpp, shared_pool.hpp and the relevant scorer header",
+    "model weights are embedded; inference does not load model.json or external weights",
+    "Heuristic and TinyNN use the same candidate pool and causal feature contract"
+  ],
+  "validation_fields": [
+    "score_vectors_path", "score_vectors_sha256", "score_check_report_path",
+    "score_check_report_sha256", "score_check_tolerances", "score_check_max_errors",
+    "dev_parity_report_path", "dev_parity_report_sha256", "dev_cases_checked",
+    "dev_complete_action_match", "dev_io_hit_miss_match", "tested_source_hashes",
+    "tested_binary_hashes", "holdout_cases_used"
+  ],
+  "validation_requirements": [
+    "dev_cases_checked covers all eight frozen dev input identities",
+    "score/feature/action parity reports bind the actually provided source and formal binary identities or explain diagnostic-to-formal equivalence",
+    "holdout_cases_used equals zero",
+    "validation timings are not reused as formal D measurements"
+  ],
+  "compute_release_fields": ["training_released", "validation_released", "worker_released", "active_child_processes"],
+  "execution": "Producer exports this manifest; tester verifies source/dependency hashes locally, then verifies binaries in Linux only after Root release. No recompilation of the four baseline binaries or these two producer binaries."
+}

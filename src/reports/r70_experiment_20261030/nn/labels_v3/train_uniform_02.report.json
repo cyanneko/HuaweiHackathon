@@ -1,0 +1,121 @@
+{
+  "case_id": "train_uniform_02",
+  "split": "train",
+  "rows": 16,
+  "branches": {
+    "complete": 80
+  },
+  "alias_conflict_groups": 0,
+  "rollins": {
+    "offline": {
+      "G": 1307366256100,
+      "callbacks": 778,
+      "multi_choice": 661,
+      "selected_anchors": 8,
+      "witness_sha256": "475963ea887a111a62b94f29cbf2d974c2a3de1506d94caeeb7e92d33175f5fe",
+      "method": "provided_complete_witness"
+    },
+    "r65": {
+      "G": 3455655565300,
+      "callbacks": 2255,
+      "multi_choice": 2244,
+      "selected_anchors": 8,
+      "witness_sha256": "cf4cc0b01822b3da1f3133b4d37a390250628e5b5c135326bd3e284859a57a0d",
+      "method": "r65_causal"
+    }
+  },
+  "elapsed_seconds": 2.187215300000389,
+  "timeout": false,
+  "error": null,
+  "labels_sha256": "75b7907420ad95ce1aa59193515d15a20d0af6e560ee7201a1450179208baac7",
+  "teacher_optimality_claim": false,
+  "source_provenance": {
+    "teacher": {
+      "case_id": "train_uniform_02",
+      "split": "train",
+      "input": "${WORKSPACE}\\tmp\\r70_inputs\\data\\train\\train_uniform_02.txt",
+      "input_sha256": "0deb9cbe41ef9ec3f011f3223994d446d810cfbdf9bf70a590f31d5522f7b92a",
+      "metadata": "${WORKSPACE}\\tmp\\r70_inputs\\data\\train\\train_uniform_02.verified.json",
+      "metadata_sha256": "95519ce1eea8c67d5fe729bc6bb4880f4f7e1236cbab0ad359d2a5f61f6ab262",
+      "N": 7028,
+      "teacher_status": "best_found",
+      "solver_scope": "fixed complete portfolio, spill-only overflow/demand LOAD-last/empty periodic",
+      "teacher_method": "fif_greedy",
+      "teacher_rule": "fif_greedy",
+      "teacher_parameters": "frozen config and teacher_portfolio.Context method definition",
+      "cost": {
+        "G": 1307366256100,
+        "ordered_objective": 13073662.560999963,
+        "grouped_objective": 13073662.561,
+        "ordered_io": 12998762.560999963,
+        "grouped_io": 12998762.561,
+        "write_bytes": 1212377391,
+        "read_bytes": 1178638517,
+        "total_io_bytes": 2391015908,
+        "hits": 5251,
+        "misses": 749,
+        "D": null
+      },
+      "witness_path": "${WORKSPACE}\\tmp\\r70\\runs\\c19\\winner\\witness.json",
+      "witness_hash": "475963ea887a111a62b94f29cbf2d974c2a3de1506d94caeeb7e92d33175f5fe",
+      "witness_raw_sha256": "475963ea887a111a62b94f29cbf2d974c2a3de1506d94caeeb7e92d33175f5fe",
+      "witness_format": "core-json-array-canonical-v1",
+      "replay_verified": true,
+      "legal_complete_witness": true,
+      "all_callbacks_consumed": true,
+      "framework_source_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "binary_sha256": "dd15bd096086faa37c774694621a97056384fae53ca02bb52fdd27d68e87bf77",
+      "verification_scope": "compact aggregate/public/action parity, not per-partition fullstate parity",
+      "full_partition_state_compared": false,
+      "result_path": "${WORKSPACE}\\tmp\\r70\\runs\\c19\\result.json",
+      "trajectory_status": "completed",
+      "no_counterfactual_Q_labels": true,
+      "formal_D": null
+    },
+    "vanbest": {
+      "case_id": "train_uniform_02",
+      "input_sha256": "0deb9cbe41ef9ec3f011f3223994d446d810cfbdf9bf70a590f31d5522f7b92a",
+      "source_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+      "build": {
+        "policy_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "translation_sha256": "64d28fe5f502640edd99a8f8b96d6cfaa0a0f935acc63682012cdb6f4afaca35",
+        "binary_sha256": "2f5157044d1951541a908815566c3b00d10b435a9872a1c2d5e032c37e5b20e0",
+        "engine_suffix_identical_except_factory": true,
+        "compile_seconds": 5.707833000000392,
+        "formal_D": null
+      },
+      "cost": {
+        "G": 3529839407600,
+        "ordered_objective": 35298394.07600001,
+        "grouped_objective": 35298394.076,
+        "ordered_io": 35093094.07600001,
+        "grouped_io": 35093094.076,
+        "write_bytes": 3221177646,
+        "read_bytes": 3187191643,
+        "total_io_bytes": 6408369289,
+        "hits": 3947,
+        "misses": 2053,
+        "D": null
+      },
+      "callback_count": 2076,
+      "periodic_callbacks": 7,
+      "nonempty_periodic": 0,
+      "prefetches": 0,
+      "anchor_count": 24,
+      "observer_version": "r65-causal-with-executed-periodic-intents-v1",
+      "reference_replay_verified": true,
+      "all_callbacks_consumed": true,
+      "aggregate_public_action_parity": true,
+      "full_partition_states_logged": false,
+      "formal_D": null,
+      "elapsed_seconds": 0.21004109999921639,
+      "witness_format": "vanbest-full-actions-v1",
+      "witness_path": "${WORKSPACE}\\tmp\\r70_expert_rollin\\runs\\train_uniform_02\\witness.json",
+      "witness_sha256": "0b5c6f33a93949e1e60e703043a98e43f72e11a785c61b58633aa9c304aa5c79",
+      "anchors_path": "${WORKSPACE}\\tmp\\r70_expert_rollin\\runs\\train_uniform_02\\anchors.json",
+      "anchors_sha256": "d0b7b2e35c21451eabe5a87bfd79ffc01e3ef3b019e3315b3770d718573e7194"
+    }
+  },
+  "feature_migration_only_no_suffix_rerun": true
+}

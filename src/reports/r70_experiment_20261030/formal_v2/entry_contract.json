@@ -1,0 +1,47 @@
+{
+  "status": "prepared_not_executed",
+  "helper_worker": "hashjoin_lab/reports/collaboration_20261020/all_methods_matrix_20261029/linux_batch_worker.py",
+  "helper_worker_sha256": "f341ddc30e636bc6a2808941dd871005ae9df32ffc3fd1f6f0fde879c0257fe2",
+  "helper_process_runner": "tmp/dataset_score_audit_20261030/benchmark/runner.py",
+  "helper_process_runner_sha256": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+  "helper_parser": "tmp/dataset_score_audit_20261030/benchmark/dependencies/evaluation/evaluate.py",
+  "helper_parser_sha256": "9a1231d5dc6913b694927ab34fb34d8c59889584c1cfb596959d9eaf383e09f3",
+  "framework_source": "tmp/dataset_score_audit_20261030/benchmark/sources/framework.cpp",
+  "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+  "dev_case_manifest_sha256": "cb966e9d541fe74d8c088e0150f53e58d1726652728cb941db43ef52df4e985f",
+  "holdout_seal_sha256": "0b210326b339c59d34d5a2ac9c4ae9205a5af60dea3789cb9aec0e9b3a6ca17e",
+  "required_release": [
+    "Root model/source SHA",
+    "Worker CPU released",
+    "training CPU released",
+    "formal phase and deadline authorized"
+  ],
+  "native_storage": "runtime Path.home()/.local/share/codex_benchmarks/r70_<bound_selection_hash>",
+  "result_locations": [
+    "dev/raw",
+    "dev/report.json",
+    "dev/per_case.csv",
+    "holdout/raw",
+    "holdout/report.json",
+    "holdout/per_case.csv"
+  ],
+  "job_identity_fields": [
+    "input_sha256",
+    "binary_sha256",
+    "framework_sha256",
+    "params_sha256"
+  ],
+  "safety": [
+    "single serial solver during formal D",
+    "60s case timeout with group cleanup",
+    "identity-checked successful cells are never repeated",
+    "keep holdout sealed until dev choice is frozen",
+    "holdout one campaign only",
+    "final50 evidence remains unchanged"
+  ],
+  "score": "original clipped contribution -> uncapped sum within selected8 -> mean over repeats; mean_case separately",
+  "decision_time_units": "per-case cumulative official callback microseconds; never per-step mean",
+  "current_new_compiles": 0,
+  "current_solver_runs": 0,
+  "current_training_runs": 0
+}

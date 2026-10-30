@@ -1,0 +1,120 @@
+{
+  "case_id": "train_hotset_10",
+  "split": "train",
+  "rows": 15,
+  "branches": {
+    "complete": 78
+  },
+  "alias_conflict_groups": 0,
+  "rollins": {
+    "offline": {
+      "G": 863032785600,
+      "callbacks": 304,
+      "multi_choice": 258,
+      "selected_anchors": 8,
+      "witness_sha256": "1a14e1e36522f03bd33e643ff9f303a5218482f545426dbb145fe183db6169eb",
+      "method": "provided_complete_witness"
+    },
+    "r65": {
+      "G": 1946803954700,
+      "callbacks": 666,
+      "multi_choice": 657,
+      "selected_anchors": 8,
+      "witness_sha256": "9feb8e6574f3422546fbefc9d8b35558aad039fee5d8534e8e17643cbf168866",
+      "method": "r65_causal"
+    }
+  },
+  "elapsed_seconds": 0.6314767000003485,
+  "timeout": false,
+  "error": null,
+  "labels_sha256": "39a3f88b20298bacc1a566d543b53d2ca572778d504ed4e56a7c29a74d9410c3",
+  "teacher_optimality_claim": false,
+  "source_provenance": {
+    "teacher": {
+      "case_id": "train_hotset_10",
+      "split": "train",
+      "input": "${WORKSPACE}\\tmp\\r70_inputs\\data\\train\\train_hotset_10.txt",
+      "input_sha256": "f5d1aac7253d150e176fab2186054ae924a425fd45b9d0860372779e16360298",
+      "metadata": "${WORKSPACE}\\tmp\\r70_inputs\\data\\train\\train_hotset_10.verified.json",
+      "metadata_sha256": "5d60fd6efe25c92ab1a030a43e98d318f0475f697cb0a2324e47d0e4205b66cc",
+      "N": 7028,
+      "teacher_status": "best_found",
+      "solver_scope": "fixed complete portfolio, spill-only overflow/demand LOAD-last/empty periodic",
+      "teacher_method": "fif_greedy",
+      "teacher_rule": "fif_greedy",
+      "teacher_parameters": "frozen config and teacher_portfolio.Context method definition",
+      "cost": {
+        "G": 863032785600,
+        "ordered_objective": 8630327.855999995,
+        "grouped_objective": 8630327.856,
+        "ordered_io": 8604927.855999995,
+        "grouped_io": 8604927.856,
+        "write_bytes": 903610116,
+        "read_bytes": 770131774,
+        "total_io_bytes": 1673741890,
+        "hits": 5746,
+        "misses": 254,
+        "D": null
+      },
+      "witness_path": "${WORKSPACE}\\tmp\\r70\\runs\\c03\\winner\\witness.json",
+      "witness_hash": "1a14e1e36522f03bd33e643ff9f303a5218482f545426dbb145fe183db6169eb",
+      "witness_raw_sha256": "1a14e1e36522f03bd33e643ff9f303a5218482f545426dbb145fe183db6169eb",
+      "witness_format": "core-json-array-canonical-v1",
+      "replay_verified": true,
+      "legal_complete_witness": true,
+      "all_callbacks_consumed": true,
+      "framework_source_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "binary_sha256": "dd15bd096086faa37c774694621a97056384fae53ca02bb52fdd27d68e87bf77",
+      "verification_scope": "compact aggregate/public/action parity, not per-partition fullstate parity",
+      "full_partition_state_compared": false,
+      "result_path": "${WORKSPACE}\\tmp\\r70\\runs\\c03\\result.json",
+      "trajectory_status": "completed",
+      "no_counterfactual_Q_labels": true,
+      "formal_D": null
+    },
+    "vanbest": {
+      "case_id": "train_hotset_10",
+      "input_sha256": "f5d1aac7253d150e176fab2186054ae924a425fd45b9d0860372779e16360298",
+      "source_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+      "build": {
+        "policy_sha256": "2cd6440fb6e78a406a9abac1cab642a98ec94bd07f46f2e55f641d04a23ae1db",
+        "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+        "translation_sha256": "64d28fe5f502640edd99a8f8b96d6cfaa0a0f935acc63682012cdb6f4afaca35",
+        "binary_sha256": "2f5157044d1951541a908815566c3b00d10b435a9872a1c2d5e032c37e5b20e0",
+        "engine_suffix_identical_except_factory": true,
+        "compile_seconds": 5.707833000000392,
+        "formal_D": null
+      },
+      "cost": {
+        "G": 1476315188900,
+        "ordered_objective": 14763151.889000015,
+        "grouped_objective": 14763151.889,
+        "ordered_io": 14719651.889000015,
+        "grouped_io": 14719651.888999999,
+        "write_bytes": 1459248269,
+        "read_bytes": 1326040362,
+        "total_io_bytes": 2785288631,
+        "hits": 5565,
+        "misses": 435,
+        "D": null
+      },
+      "callback_count": 479,
+      "periodic_callbacks": 7,
+      "nonempty_periodic": 0,
+      "prefetches": 0,
+      "anchor_count": 24,
+      "observer_version": "r65-causal-with-executed-periodic-intents-v1",
+      "reference_replay_verified": true,
+      "all_callbacks_consumed": true,
+      "aggregate_public_action_parity": true,
+      "full_partition_states_logged": false,
+      "formal_D": null,
+      "elapsed_seconds": 2.1193478999994113,
+      "witness_format": "vanbest-full-actions-v1",
+      "witness_path": "${WORKSPACE}\\tmp\\r70_expert_rollin\\runs\\train_hotset_10\\witness.json",
+      "witness_sha256": "f57b854dd2fe18f03c1d094bc3bf25491fd66010cd2bd3d3f0bce083e395053b",
+      "anchors_path": "${WORKSPACE}\\tmp\\r70_expert_rollin\\runs\\train_hotset_10\\anchors.json",
+      "anchors_sha256": "56cf1ab8ccecb3f28e949d45473a62dd85a6c507b7504682e3cb1bdf9cea42a1"
+    }
+  }
+}

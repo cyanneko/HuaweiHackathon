@@ -1,0 +1,39 @@
+{
+  "scope": "r70_model_v2_dev48_holdout48_once",
+  "primary": "TinyNN",
+  "model_version": "model_v2",
+  "feature_version": "r70-causal32-v2-sequential-sums",
+  "model_json_path": "tmp/r70_nn_pipeline/model_v2/model.json",
+  "model_json_sha256": "0e39bbd44d6086ce584957f3cefc8b0e8c3ff8621c0904247e9f3395a1872a9e",
+  "architecture": [
+    32,
+    16,
+    1
+  ],
+  "parameters": 545,
+  "mode": "residual",
+  "base_feature_index": 13,
+  "heuristic_definition": "same observer/pool/features/tie/emission; base13 zero residual",
+  "config_sha256": "1ee7811bb6847d50cf06c49bffa49cbdefb95efe52d8cf0d59b2f434227b5961",
+  "dev_cases_sha256": "cb966e9d541fe74d8c088e0150f53e58d1726652728cb941db43ef52df4e985f",
+  "holdout_source_manifest_sha256": "eb61a51f46577f188f6e8a30fe6c02e60e45513be9a05392532e0479631d645f",
+  "holdout_input_seal_sha256": "0b210326b339c59d34d5a2ac9c4ae9205a5af60dea3789cb9aec0e9b3a6ca17e",
+  "preauthorized_sequence": [
+    "dev48",
+    "all valid and unchanged identities: automatic holdout48"
+  ],
+  "no_score_based_promotion": true,
+  "no_weight_threshold_retuning_after_dev": true,
+  "holdout_campaigns": 1,
+  "repeats": 1,
+  "methods": [
+    "Naive",
+    "R65",
+    "VanBest",
+    "LiuFinal",
+    "Heuristic",
+    "TinyNN"
+  ],
+  "supersedes": "v1 unexecuted preparation only; no v1 formal results or parity are reused",
+  "failure_policy": "stop and retain invalid/missing cells; no automatic retries or holdout-based selection"
+}

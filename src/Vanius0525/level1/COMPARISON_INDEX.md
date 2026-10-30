@@ -1,6 +1,6 @@
 # 方法与评测结果比较入口
 
-维护分支：`source/Vanius0525`。2026-10-30用户要求后续每轮完整测试将协议、结果、代码版本同步到本分支；本入口随阶段完成更新。最新阶段为Round10，AI更新与测试暂停，后续默认每方法每题单遍。
+维护分支：`source/Vanius0525`。2026-10-30用户要求后续每轮完整测试将协议、结果、代码版本同步到本分支；本入口随阶段完成更新。最新性能阶段为Round10，后续增加只读机制诊断；AI更新与测试暂停，后续默认每方法每题单遍。
 
 ## 当前可对齐的完整结果
 
@@ -33,3 +33,11 @@ Round10为CPU单线程、C++14/O2、g++11.4；每例60秒wall限制。任务锁�
 可审阅并复现[运行脚本](round10/run_v1.py)：在仓库根执行 `python src/Vanius0525/level1/round10/run_v1.py prepare`，随后执行同一路径的 `run` 子命令。**需要先恢复清单绑定的本地输入缓存及原参考二进制/框架**；build目录被Git忽略，脚本严格校验其SHA，不能把缺少依赖时的命令当一键可运行承诺。数据来源为datasets分支固定snapshot `42fbd682f6fadc54e23c4ee7cc0bef6563a4513d` 的final_dataset，原参考来源为Round9执行冻结。新平台二进制SHA会变化，应另建执行版本并记录新环境，不能覆盖旧执行冻结。现有已完成目录不得直接重跑。
 
 上游R80此前的“两数据集”是final24+dyna6，不是本表完整72/12，且Van对照为原paired，未包含joint。[上游冻结说明](https://github.com/cyanneko/HuaweiHackathon/blob/2932ce972289b8744f5355c9692fe9cb2c93b5f4/docs/R80_RESULTS_20261030.md)与本分支结果应先对齐输入范围再比较。
+
+## 后续诊断与数据更新，不是新增成绩
+
+- [全24 Zipf训练描述性诊断](round10/diagnostic/REPORT_V2.md)：固定取Round10全部24条Zipf，顺序解析已有输入一次；0新增solver、编译或计时。R80/paired的逐例物理比均值0.996451，而总物理成本比1.029403；12好/1平/11坏，6条退化例Miss更少但IO更多。[完整统计](round10/diagnostic/RESULTS_V1.json)、[摘要](round10/diagnostic/SUMMARY_V1.json)、[root独立算术复核](round10/ZIPF_DIAGNOSTIC_REVIEW_V1.json)。完整请求计数仅供离线诊断，不能输入在线算法；未观测R80内部share/p，不作估计误差因果归因。V2仅澄清复核范围，统计沿用V1。
+- [大小与成本感知缓存调研](round10/SIZE_COST_RESEARCH_V1.md)：包含近期预印本、NSDI论文和Google数据库实践，分别注明目标与可见性差异；未据文献收益替代本题测量。
+- [inde1.1.0更新审核](round9/dataset_monitor/INDE_V11_REVIEW_d144cdd1c3b7.md)：datasets固定d144cdd新增20条每条200万总操作的eval，原train500/eval50保留；final/dyna/balanced未变。仅小元数据/Git身份核验，没有下载新输入、读取方法成绩或纳入比较。发布者已测过新20，不称未曝光盲测；其中2条均匀对照不自动恢复为主测。
+
+最新工作交接见[后续阶段](round10/POST_R80_HANDOFF_V1.md)。旧性能结果和代码保持原字节，后续诊断没有产生新冠军或替换方法。

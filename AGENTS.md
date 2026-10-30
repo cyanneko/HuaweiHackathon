@@ -12,7 +12,7 @@
 
 ## 最终算法与停止优化（2026-10-31用户决定）
 
-用户最终选定R81_op256_cond2048，并明确不继续优化。当前提交入口为[submission/MySpillScheduler.cpp](https://github.com/cyanneko/HuaweiHackathon/blob/a1ee48aee1af3b561efa2eacc5c68769a9a0dc83/submission/MySpillScheduler.cpp)，仅排版/注释整理，已核token、官方TU及ELF等价；详见[最终提交说明](docs/FINAL_SUBMISSION_20261031.md)。本节覆盖此前保留R75默认的历史状态；不改历史源码、结果或计划，不执行R88等后续提案。没有新的用户明确授权，不启动算法优化、调参、训练或新性能实验；已完成成果的归档和明确授权的独立评测可以继续。
+用户最终选定R81_op256_cond2048，并明确不继续优化。当前提交入口为[submission/MySpillScheduler.cpp](https://github.com/cyanneko/HuaweiHackathon/blob/3064e270fde0473810cd8c0e57b738ee48356254/submission/MySpillScheduler.cpp)，仅排版/注释与宏含义命名整理，已核宏名映射后的token、官方TU及ELF等价；详见[最终提交说明](docs/FINAL_SUBMISSION_20261031.md)。本节覆盖此前保留R75默认的历史状态；不改历史源码、结果或计划，不执行R88等后续提案。没有新的用户明确授权，不启动算法优化、调参、训练或新性能实验；已完成成果的归档和明确授权的独立评测可以继续。
 
 ## 当前主评测版本（2026-10-30用户选择）
 
@@ -36,3 +36,7 @@
 完成后按指南中的短模板交接，明确是否仍有命令运行，不将准备、尝试或本地提交称为已发布。
 
 当前主评测数据版本的完整约定见[评测版本约定](docs/EVALUATION_DATA_VERSIONS_20261030.md)。
+
+## 最终交付后独立材料（2026-10-31）
+
+已授权的BUILD一次对照与创新消融已完成，仅归档既有证据。BUILD未采用；消融原批INCOMPLETE与固定恢复同时保留（837原+9恢复，855总尝试）；不据此调参或继续优化。stat10已曝光、单独报告，不混入旧主评测84例。入口见[统一评测索引](docs/EVALUATION_INDEX.md)。

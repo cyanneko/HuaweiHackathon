@@ -1,6 +1,10 @@
 # 华为 Hackathon · 第20题 Hash Join 调度
 
-**2026-10-31最终选择：R81易读版，停止继续优化。** [提交文件](https://github.com/cyanneko/HuaweiHackathon/blob/a1ee48aee1af3b561efa2eacc5c68769a9a0dc83/submission/MySpillScheduler.cpp) · [提交说明](docs/FINAL_SUBMISSION_20261031.md)。以下带日期内容保留为历史，不构成继续实验指令。
+**最终提交已确定：R81 易读版。** [提交文件](https://github.com/cyanneko/HuaweiHackathon/blob/3064e270fde0473810cd8c0e57b738ee48356254/submission/MySpillScheduler.cpp) · [最终提交说明](docs/FINAL_SUBMISSION_20261031.md)。仅整理排版、注释和宏的含义命名，参数与算法不变；停止继续优化，以下带日期的实验材料保留为历史。
+
+最新独立材料：[BUILD对照](docs/R81_BUILD_COMPARISON_20261031.md) · [创新与消融](docs/R81_ABLATION_20261031.md) · [算法/复杂度](docs/R81_ALGORITHM_COMPLEXITY_20261031.md) · [stat评测](docs/R81_STAT_RESULTS_20261031.md)。BUILD已试未采用，消融保留中断与固定恢复，最终算法不变。
+
+新增 [stat_dataset 1.0.0压缩数据](stat_dataset/PUBLICATION.md)：40例、train30/eval10、168M操作；仅40份gzip及生产证据，eval10已曝光，独立于旧主榜。
 
 评测与版本比较入口：[统一评测索引](docs/EVALUATION_INDEX.md)。包含固定代码/数据身份、协议、逐例结果、原始日志和失败状态。
 

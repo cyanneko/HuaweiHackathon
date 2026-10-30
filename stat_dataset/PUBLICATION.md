@@ -7,3 +7,7 @@
 **当前eval10已观察成绩。** 原README.md的“尚未策略评测”记录生成审核完成时的状态；随后用户单独授权R81/Naive各3轮，共60有效运行，已完成独立审计。因此不得再称eval10盲测或未曝光，也不将eval转为train。分数证据独立归档，不回写生产原件；后续BUILD/消融等实验同样单列身份和批次。
 
 这是独立数据成果，不进入用户指定旧dyna1.0全12＋final2.1全72主榜，不改变最终R81选择或原成员VERSION/suite。publisher_state.json记录发布时曝光状态，原白名单继续只描述生产原件。
+
+报告入口：[独立stat三重复](https://github.com/cyanneko/HuaweiHackathon/blob/230f5d927388979e286a0d8abdc8883876048315/docs/R81_STAT_RESULTS_20261031.md) · [BUILD对照](https://github.com/cyanneko/HuaweiHackathon/blob/230f5d927388979e286a0d8abdc8883876048315/docs/R81_BUILD_COMPARISON_20261031.md) · [创新消融](https://github.com/cyanneko/HuaweiHackathon/blob/230f5d927388979e286a0d8abdc8883876048315/docs/R81_ABLATION_20261031.md)。
+
+冻结生产目录见[e78279e3](https://github.com/cyanneko/HuaweiHackathon/tree/e78279e316d578cd1d15cee29f84295d2602b55d/stat_dataset)，原README等188项生产文件和自清单保字节；本发布说明与publisher_state为另附派生状态，不进入生产白名单。

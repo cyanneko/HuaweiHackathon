@@ -1,0 +1,45 @@
+--- R81_named/MySpillScheduler.cpp
++++ BuildBestFit/MySpillScheduler.cpp
+@@ -808,7 +808,41 @@
+         active_ = true;
+         update(s);
+         std::vector<Action> a;
+-        release(s, op, pid, z, a);
++        // 冷启动全 BUILD：仅在单次即可满足需求时，选最小落盘字节数。
++        const int64_t need = z - (s.memory_limit - s.memory_used);
++        bool all_build = s.hit_count + s.miss_count == 0
++            && s.next_op.type != "PROBE" && need > 0;
++        if (all_build) {
++            for (const auto& o : s.operators) {
++                if (o.phase != Phase::BUILD) {
++                    all_build = false;
++                    break;
++                }
++            }
++        }
++        int best_op = -1, best_pid = -1;
++        int64_t best_bytes = 0;
++        if (all_build) {
++            for (const auto& o : s.operators) {
++                for (const auto& part : o.partitions) {
++                    if (!part.in_memory || part.data_size <= 0
++                        || (o.op_id == op && part.partition_id == pid))
++                        continue;
++                    if (part.data_size >= need
++                        && (best_op < 0 || part.data_size < best_bytes)) {
++                        best_op = o.op_id;
++                        best_pid = part.partition_id;
++                        best_bytes = part.data_size;
++                    }
++                }
++            }
++        }
++        if (best_op >= 0) {
++            probability_cache_valid_ = false;
++            a.emplace_back(Action::SPILL, best_op, best_pid);
++        } else {
++            release(s, op, pid, z, a);
++        }
+         pruneSpills(s, z, a);
+         record(s, a);
+         return a;

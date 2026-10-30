@@ -1,0 +1,11 @@
+--- Full/MySpillScheduler.cpp
++++ FixedShare075/MySpillScheduler.cpp
+@@ -339,7 +339,7 @@
+         const double strength = v * (g.mass - 8.) / (g.mass + p_);
+         if (std::isfinite(strength)) {
+             g.heterogeneity = strength / (1. + strength);
+-            g.share = .75 / (1. + strength);
++            g.share = .75; // Ablation: fixed operator-internal sharing.
+         }
+     }
+ 

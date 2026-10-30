@@ -1,0 +1,655 @@
+{
+  "schema": 1,
+  "manifest_sha256": "d6a3584ab2385e45c7aeeb30a1c2c4d5fdda013dd0606ff994dc264463558149",
+  "dataset_version": "1.0.0",
+  "methods": [
+    {
+      "name": "Naive",
+      "method_id": "src/methods/r49/official_naive.cpp",
+      "source_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+      "source_path": "tmp/r77_dyna_full_eval/sources/Naive.policy.cpp",
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/Naive.cpp",
+      "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "instrumented": false,
+      "build_record": "tmp/dataset_score_audit_20261030/benchmark/build_identity.json",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R81_op256_cond2048",
+      "source_path": "tmp/r81_two_timescale/R81_op256_cond2048/MySpillScheduler.cpp",
+      "source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+      "translation_unit_path": "tmp/r81_two_timescale/R81_op256_cond2048/main.cpp",
+      "translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier_fast100",
+      "parent_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "eval_00_uniform_static_staggered",
+      "input": "eval/eval_00_uniform_static_staggered.txt",
+      "input_sha256": "14fc7fb4423bd53d5c81a03d32516ab2949a733b205cf2d50de719086d8fbb26",
+      "operations": 1000000,
+      "family": "uniform",
+      "temporal": "static",
+      "phase": "staggered",
+      "audit": "audit/cases/eval_00_uniform_static_staggered.json",
+      "audit_sha256": "f7289cfcd6b8c6654a461c527fb16bf0e94f13e049378be66d1c8341d7cb1441",
+      "metadata": "metadata/eval_00_uniform_static_staggered.json",
+      "metadata_sha256": "568c60d3fe34eba5be8c86eb307ae10ede19f18e7711aa24f2de1ba755439b41",
+      "stats": {
+        "probe_count": 747454,
+        "penalty": 100
+      }
+    },
+    {
+      "case_id": "eval_01_uniform_fast_staggered",
+      "input": "eval/eval_01_uniform_fast_staggered.txt",
+      "input_sha256": "fb765f421a5c8dba3d49c420ef54d6f724958e9e1f9b304f48d08bb0c323f8b8",
+      "operations": 5000000,
+      "family": "uniform",
+      "temporal": "fast",
+      "phase": "staggered",
+      "audit": "audit/cases/eval_01_uniform_fast_staggered.json",
+      "audit_sha256": "d005074d59d002b20dd9bc1969c32141dbc591f627922c514d6845833cd70ead",
+      "metadata": "metadata/eval_01_uniform_fast_staggered.json",
+      "metadata_sha256": "47ff84d6d2800b7f06c344f96b94d8308e1413930f59c2e150c47bdba984ba9f",
+      "stats": {
+        "probe_count": 3450384,
+        "penalty": 300
+      }
+    },
+    {
+      "case_id": "eval_02_zipf_slow_shared",
+      "input": "eval/eval_02_zipf_slow_shared.txt",
+      "input_sha256": "8a4cebb247125e3d3dbdd2b6e6ff01c8f5516f646978184c24a29f56034f3606",
+      "operations": 5000000,
+      "family": "zipf",
+      "temporal": "slow",
+      "phase": "shared",
+      "audit": "audit/cases/eval_02_zipf_slow_shared.json",
+      "audit_sha256": "d1db1e7332251dd9ce79626b461054f5a98d2f0e2711c4211d611fe27c91fbcf",
+      "metadata": "metadata/eval_02_zipf_slow_shared.json",
+      "metadata_sha256": "79bd81706ccb339a83fa1d3b3da44c1176083187b5a7a40a7ea2fba6d5de61d0",
+      "stats": {
+        "probe_count": 3749992,
+        "penalty": 30
+      }
+    },
+    {
+      "case_id": "eval_03_zipf_burst_shared",
+      "input": "eval/eval_03_zipf_burst_shared.txt",
+      "input_sha256": "b25779a006a92b5f3b74152a56058510fcb4ad240f284b24f083ff312166b28b",
+      "operations": 5000000,
+      "family": "zipf",
+      "temporal": "burst",
+      "phase": "shared",
+      "audit": "audit/cases/eval_03_zipf_burst_shared.json",
+      "audit_sha256": "50e6c988c1c4c3efca1e7e3d968485c03d9eaefc6af1d199abb1d8bb092485d2",
+      "metadata": "metadata/eval_03_zipf_burst_shared.json",
+      "metadata_sha256": "5d1fb38f25330969c316a5135431b4568554d3df83e0b11ae7abc096dc8e6361",
+      "stats": {
+        "probe_count": 2999998,
+        "penalty": 10
+      }
+    },
+    {
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "input": "eval/eval_04_hotspot_fast_staggered.txt",
+      "input_sha256": "397db8a39433706027bdec736125c6cdcfdec4eb273708902e9dad4b349f36aa",
+      "operations": 1000000,
+      "family": "hotspot",
+      "temporal": "fast",
+      "phase": "staggered",
+      "audit": "audit/cases/eval_04_hotspot_fast_staggered.json",
+      "audit_sha256": "7c6a044cb5ce8a9c369eb7b2e2300cd729add455da4173625be92ac05e945498",
+      "metadata": "metadata/eval_04_hotspot_fast_staggered.json",
+      "metadata_sha256": "0550b8a55821165dc210c52deab240cb58879d06ca5f28d172e9682843fa9748",
+      "stats": {
+        "probe_count": 640914,
+        "penalty": 10
+      }
+    },
+    {
+      "case_id": "eval_05_hotspot_slow_shared",
+      "input": "eval/eval_05_hotspot_slow_shared.txt",
+      "input_sha256": "c40a4d02e38736b0cefc32228e73d71562fc6e3742c88cf2745ab898818bd36d",
+      "operations": 5000000,
+      "family": "hotspot",
+      "temporal": "slow",
+      "phase": "shared",
+      "audit": "audit/cases/eval_05_hotspot_slow_shared.json",
+      "audit_sha256": "6b177c55101a07ea3eae7be4b9607fc1a749bd02c099634b5b285013c2aebdcd",
+      "metadata": "metadata/eval_05_hotspot_slow_shared.json",
+      "metadata_sha256": "8f321a9b1a5c1a9a3a645a266e5c7cce99f17b088bacda070663b1d43c96834c",
+      "stats": {
+        "probe_count": 3249999,
+        "penalty": 30
+      }
+    },
+    {
+      "case_id": "eval_06_lognormal_burst_shared",
+      "input": "eval/eval_06_lognormal_burst_shared.txt",
+      "input_sha256": "566230ce116e57f0591ed90d8c0992919f3a33350bfdaa9e36c5ff56e679b491",
+      "operations": 5000000,
+      "family": "lognormal",
+      "temporal": "burst",
+      "phase": "shared",
+      "audit": "audit/cases/eval_06_lognormal_burst_shared.json",
+      "audit_sha256": "4b736926b7fba29b835b47e7a8f3434f8da63ccb909463bdd64a6b581cb11f4f",
+      "metadata": "metadata/eval_06_lognormal_burst_shared.json",
+      "metadata_sha256": "4773f5f5faa5ee996609658ec5a0115a807acc3a52d5cdb3577c9ae84a5ce58f",
+      "stats": {
+        "probe_count": 2999996,
+        "penalty": 10
+      }
+    },
+    {
+      "case_id": "eval_07_lognormal_static_shared",
+      "input": "eval/eval_07_lognormal_static_shared.txt",
+      "input_sha256": "02e58c0e1322c5e48bbf3ee46c4b19bffc2c7c9338ebd8d531784dd601833aab",
+      "operations": 5000000,
+      "family": "lognormal",
+      "temporal": "static",
+      "phase": "shared",
+      "audit": "audit/cases/eval_07_lognormal_static_shared.json",
+      "audit_sha256": "8627e649d0620f28328e3192ae65ffd2712efbd9a4bc5643748e89f3e1e10186",
+      "metadata": "metadata/eval_07_lognormal_static_shared.json",
+      "metadata_sha256": "1b67784fa7a679c2d630d8cd3cb0d846b95f96c3e0dec221c0a2b05f563eb09b",
+      "stats": {
+        "probe_count": 2749999,
+        "penalty": 10
+      }
+    },
+    {
+      "case_id": "eval_08_mixed_mixed_shared",
+      "input": "eval/eval_08_mixed_mixed_shared.txt",
+      "input_sha256": "afa40122fad208179d2f4a8d7f8b38af87d6f9482ecfc0f824025bced8b54600",
+      "operations": 5000000,
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "shared",
+      "audit": "audit/cases/eval_08_mixed_mixed_shared.json",
+      "audit_sha256": "82839055308b55abbf9e01abc773797b2666dfc5070c646076c3a89cd4f9ecb6",
+      "metadata": "metadata/eval_08_mixed_mixed_shared.json",
+      "metadata_sha256": "28d7bf6c760a9b9385a59c1a41dc988fd167343191995e6c039c46933299088e",
+      "stats": {
+        "probe_count": 2749999,
+        "penalty": 100
+      }
+    },
+    {
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "input": "eval/eval_09_mixed_mixed_staggered.txt",
+      "input_sha256": "e4b13b58ea8878e09239813625914917faa175611bee797228a164a463419b74",
+      "operations": 5000000,
+      "family": "mixed",
+      "temporal": "mixed",
+      "phase": "staggered",
+      "audit": "audit/cases/eval_09_mixed_mixed_staggered.json",
+      "audit_sha256": "7dae8bc404e192478da43d1b516241f3df29d6b680f22762f7247c45fe019527",
+      "metadata": "metadata/eval_09_mixed_mixed_staggered.json",
+      "metadata_sha256": "ebb972b1b23a3c553fdb84be964f67da5119bc2fd13ecbed434b83e42e0fee3d",
+      "stats": {
+        "probe_count": 3198029,
+        "penalty": 30
+      }
+    }
+  ],
+  "order": [
+    {
+      "index": 0,
+      "repeat": 0,
+      "case_id": "eval_00_uniform_static_staggered",
+      "method": "Naive",
+      "cell_id": "r0_eval_00_uniform_static_staggered_Naive"
+    },
+    {
+      "index": 1,
+      "repeat": 0,
+      "case_id": "eval_00_uniform_static_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_00_uniform_static_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 2,
+      "repeat": 0,
+      "case_id": "eval_01_uniform_fast_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_01_uniform_fast_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 3,
+      "repeat": 0,
+      "case_id": "eval_01_uniform_fast_staggered",
+      "method": "Naive",
+      "cell_id": "r0_eval_01_uniform_fast_staggered_Naive"
+    },
+    {
+      "index": 4,
+      "repeat": 0,
+      "case_id": "eval_02_zipf_slow_shared",
+      "method": "Naive",
+      "cell_id": "r0_eval_02_zipf_slow_shared_Naive"
+    },
+    {
+      "index": 5,
+      "repeat": 0,
+      "case_id": "eval_02_zipf_slow_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_02_zipf_slow_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 6,
+      "repeat": 0,
+      "case_id": "eval_03_zipf_burst_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_03_zipf_burst_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 7,
+      "repeat": 0,
+      "case_id": "eval_03_zipf_burst_shared",
+      "method": "Naive",
+      "cell_id": "r0_eval_03_zipf_burst_shared_Naive"
+    },
+    {
+      "index": 8,
+      "repeat": 0,
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "method": "Naive",
+      "cell_id": "r0_eval_04_hotspot_fast_staggered_Naive"
+    },
+    {
+      "index": 9,
+      "repeat": 0,
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_04_hotspot_fast_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 10,
+      "repeat": 0,
+      "case_id": "eval_05_hotspot_slow_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_05_hotspot_slow_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 11,
+      "repeat": 0,
+      "case_id": "eval_05_hotspot_slow_shared",
+      "method": "Naive",
+      "cell_id": "r0_eval_05_hotspot_slow_shared_Naive"
+    },
+    {
+      "index": 12,
+      "repeat": 0,
+      "case_id": "eval_06_lognormal_burst_shared",
+      "method": "Naive",
+      "cell_id": "r0_eval_06_lognormal_burst_shared_Naive"
+    },
+    {
+      "index": 13,
+      "repeat": 0,
+      "case_id": "eval_06_lognormal_burst_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_06_lognormal_burst_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 14,
+      "repeat": 0,
+      "case_id": "eval_07_lognormal_static_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_07_lognormal_static_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 15,
+      "repeat": 0,
+      "case_id": "eval_07_lognormal_static_shared",
+      "method": "Naive",
+      "cell_id": "r0_eval_07_lognormal_static_shared_Naive"
+    },
+    {
+      "index": 16,
+      "repeat": 0,
+      "case_id": "eval_08_mixed_mixed_shared",
+      "method": "Naive",
+      "cell_id": "r0_eval_08_mixed_mixed_shared_Naive"
+    },
+    {
+      "index": 17,
+      "repeat": 0,
+      "case_id": "eval_08_mixed_mixed_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_08_mixed_mixed_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 18,
+      "repeat": 0,
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r0_eval_09_mixed_mixed_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 19,
+      "repeat": 0,
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "method": "Naive",
+      "cell_id": "r0_eval_09_mixed_mixed_staggered_Naive"
+    },
+    {
+      "index": 20,
+      "repeat": 1,
+      "case_id": "eval_00_uniform_static_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_00_uniform_static_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 21,
+      "repeat": 1,
+      "case_id": "eval_00_uniform_static_staggered",
+      "method": "Naive",
+      "cell_id": "r1_eval_00_uniform_static_staggered_Naive"
+    },
+    {
+      "index": 22,
+      "repeat": 1,
+      "case_id": "eval_01_uniform_fast_staggered",
+      "method": "Naive",
+      "cell_id": "r1_eval_01_uniform_fast_staggered_Naive"
+    },
+    {
+      "index": 23,
+      "repeat": 1,
+      "case_id": "eval_01_uniform_fast_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_01_uniform_fast_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 24,
+      "repeat": 1,
+      "case_id": "eval_02_zipf_slow_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_02_zipf_slow_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 25,
+      "repeat": 1,
+      "case_id": "eval_02_zipf_slow_shared",
+      "method": "Naive",
+      "cell_id": "r1_eval_02_zipf_slow_shared_Naive"
+    },
+    {
+      "index": 26,
+      "repeat": 1,
+      "case_id": "eval_03_zipf_burst_shared",
+      "method": "Naive",
+      "cell_id": "r1_eval_03_zipf_burst_shared_Naive"
+    },
+    {
+      "index": 27,
+      "repeat": 1,
+      "case_id": "eval_03_zipf_burst_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_03_zipf_burst_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 28,
+      "repeat": 1,
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_04_hotspot_fast_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 29,
+      "repeat": 1,
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "method": "Naive",
+      "cell_id": "r1_eval_04_hotspot_fast_staggered_Naive"
+    },
+    {
+      "index": 30,
+      "repeat": 1,
+      "case_id": "eval_05_hotspot_slow_shared",
+      "method": "Naive",
+      "cell_id": "r1_eval_05_hotspot_slow_shared_Naive"
+    },
+    {
+      "index": 31,
+      "repeat": 1,
+      "case_id": "eval_05_hotspot_slow_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_05_hotspot_slow_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 32,
+      "repeat": 1,
+      "case_id": "eval_06_lognormal_burst_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_06_lognormal_burst_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 33,
+      "repeat": 1,
+      "case_id": "eval_06_lognormal_burst_shared",
+      "method": "Naive",
+      "cell_id": "r1_eval_06_lognormal_burst_shared_Naive"
+    },
+    {
+      "index": 34,
+      "repeat": 1,
+      "case_id": "eval_07_lognormal_static_shared",
+      "method": "Naive",
+      "cell_id": "r1_eval_07_lognormal_static_shared_Naive"
+    },
+    {
+      "index": 35,
+      "repeat": 1,
+      "case_id": "eval_07_lognormal_static_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_07_lognormal_static_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 36,
+      "repeat": 1,
+      "case_id": "eval_08_mixed_mixed_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_08_mixed_mixed_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 37,
+      "repeat": 1,
+      "case_id": "eval_08_mixed_mixed_shared",
+      "method": "Naive",
+      "cell_id": "r1_eval_08_mixed_mixed_shared_Naive"
+    },
+    {
+      "index": 38,
+      "repeat": 1,
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "method": "Naive",
+      "cell_id": "r1_eval_09_mixed_mixed_staggered_Naive"
+    },
+    {
+      "index": 39,
+      "repeat": 1,
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r1_eval_09_mixed_mixed_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 40,
+      "repeat": 2,
+      "case_id": "eval_00_uniform_static_staggered",
+      "method": "Naive",
+      "cell_id": "r2_eval_00_uniform_static_staggered_Naive"
+    },
+    {
+      "index": 41,
+      "repeat": 2,
+      "case_id": "eval_00_uniform_static_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_00_uniform_static_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 42,
+      "repeat": 2,
+      "case_id": "eval_01_uniform_fast_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_01_uniform_fast_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 43,
+      "repeat": 2,
+      "case_id": "eval_01_uniform_fast_staggered",
+      "method": "Naive",
+      "cell_id": "r2_eval_01_uniform_fast_staggered_Naive"
+    },
+    {
+      "index": 44,
+      "repeat": 2,
+      "case_id": "eval_02_zipf_slow_shared",
+      "method": "Naive",
+      "cell_id": "r2_eval_02_zipf_slow_shared_Naive"
+    },
+    {
+      "index": 45,
+      "repeat": 2,
+      "case_id": "eval_02_zipf_slow_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_02_zipf_slow_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 46,
+      "repeat": 2,
+      "case_id": "eval_03_zipf_burst_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_03_zipf_burst_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 47,
+      "repeat": 2,
+      "case_id": "eval_03_zipf_burst_shared",
+      "method": "Naive",
+      "cell_id": "r2_eval_03_zipf_burst_shared_Naive"
+    },
+    {
+      "index": 48,
+      "repeat": 2,
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "method": "Naive",
+      "cell_id": "r2_eval_04_hotspot_fast_staggered_Naive"
+    },
+    {
+      "index": 49,
+      "repeat": 2,
+      "case_id": "eval_04_hotspot_fast_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_04_hotspot_fast_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 50,
+      "repeat": 2,
+      "case_id": "eval_05_hotspot_slow_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_05_hotspot_slow_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 51,
+      "repeat": 2,
+      "case_id": "eval_05_hotspot_slow_shared",
+      "method": "Naive",
+      "cell_id": "r2_eval_05_hotspot_slow_shared_Naive"
+    },
+    {
+      "index": 52,
+      "repeat": 2,
+      "case_id": "eval_06_lognormal_burst_shared",
+      "method": "Naive",
+      "cell_id": "r2_eval_06_lognormal_burst_shared_Naive"
+    },
+    {
+      "index": 53,
+      "repeat": 2,
+      "case_id": "eval_06_lognormal_burst_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_06_lognormal_burst_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 54,
+      "repeat": 2,
+      "case_id": "eval_07_lognormal_static_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_07_lognormal_static_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 55,
+      "repeat": 2,
+      "case_id": "eval_07_lognormal_static_shared",
+      "method": "Naive",
+      "cell_id": "r2_eval_07_lognormal_static_shared_Naive"
+    },
+    {
+      "index": 56,
+      "repeat": 2,
+      "case_id": "eval_08_mixed_mixed_shared",
+      "method": "Naive",
+      "cell_id": "r2_eval_08_mixed_mixed_shared_Naive"
+    },
+    {
+      "index": 57,
+      "repeat": 2,
+      "case_id": "eval_08_mixed_mixed_shared",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_08_mixed_mixed_shared_R81_op256_cond2048"
+    },
+    {
+      "index": 58,
+      "repeat": 2,
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "method": "R81_op256_cond2048",
+      "cell_id": "r2_eval_09_mixed_mixed_staggered_R81_op256_cond2048"
+    },
+    {
+      "index": 59,
+      "repeat": 2,
+      "case_id": "eval_09_mixed_mixed_staggered",
+      "method": "Naive",
+      "cell_id": "r2_eval_09_mixed_mixed_staggered_Naive"
+    }
+  ],
+  "dependencies": {
+    "tmp/r79_final_eval/process_helper.py": "335de853f9f78bae613ed2fe42417bd502632b85124598279e89cc94afc8d82f",
+    "tmp/r79_final_eval/dependencies/evaluation/evaluate.py": "e506579cb7fdef842601ec6e0ca1d7162da2df7178f8b2fc6d933eb2552b3ef6",
+    "tmp/r87_eval/methods.prepared.json": "5d06d5ea1486fe337bbdcb2afb71ec7e59a52d8dd89e89cf5a80db44ad0b8c35",
+    "tmp/r77_dyna_full_eval/sources/Naive.policy.cpp": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+    "tmp/r77_dyna_full_eval/sources/Naive.cpp": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+    "tmp/r81_two_timescale/R81_op256_cond2048/MySpillScheduler.cpp": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+    "tmp/r81_two_timescale/R81_op256_cond2048/main.cpp": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360"
+  },
+  "repeats": 3,
+  "intended_cells": 60,
+  "serial": 1,
+  "per_cell_wall_seconds": 60,
+  "global_compute_seconds": 900,
+  "budget": "prepare elapsed plus formal wall; review wait excluded; 5 seconds reserved for cleanup",
+  "score": "C or Naive <=0 gives 0; otherwise clip(10*(1-C/Naive),0,10); C=native Total_Score verified as IO+penalty*miss+real_D; per repeat then mean; ten cases equal weight",
+  "physical": "IO+penalty*miss; physical_multiplier=Naive_physical/R81_physical",
+  "failure_policy": "stop, preserve evidence, no retry/resume; no official score if any of 60 cells missing/invalid",
+  "quantiles": "linear interpolation at (n-1)*q; descriptive distribution over ten case means",
+  "runner_sha256": "fd070d4a821200cd1731ae3665e4993863c13717ef8f8ccf1c0ca3d74df3d39a"
+}

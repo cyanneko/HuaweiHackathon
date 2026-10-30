@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-31",
+  "status": "static_audit_complete",
+  "source": {
+    "path": "tmp/r81_named_20261031/MySpillScheduler.cpp",
+    "sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+    "sha256_verified": true,
+    "framework_reference": "tmp/r81_two_timescale/R81_op256_cond2048/main.cpp",
+    "applicable_agents_files_found": [],
+    "line_reference_path": "tmp/r81_readable_20261031/MySpillScheduler.cpp",
+    "line_reference_sha256": "ef1c26e81013dced4dbf100206ead5666368e2e957996cffdf2258297cb8ef65",
+    "macro_mapping": {
+      "R81_FAST_HALF": "HASHJOIN_OPERATOR_HALF_LIFE",
+      "R80_MODE": "HASHJOIN_REUSE_ESTIMATOR",
+      "R79_ADAPTIVE": "HASHJOIN_ADAPTIVE_RISK_SHARING",
+      "R74_MODE": "HASHJOIN_REFAULT_MODEL",
+      "R74_SIZE": "HASHJOIN_SIZE_BIAS"
+    },
+    "naming_validation_reference": "tmp/r81_named_20261031/validation.json",
+    "existing_naming_validation_read": {
+      "status": "PASS",
+      "preprocessed_tokens_equal": true,
+      "ELF_byte_identical": true,
+      "ELF_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "build_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "independently_recompiled_by_this_audit": false
+    },
+    "published_code_commit_from_root": "3064e270fde0473810cd8c0e57b738ee48356254",
+    "published_code_path_from_root": "submission/MySpillScheduler.cpp",
+    "published_commit_independently_network_checked": false
+  },
+  "scope": {
+    "read_only_source_audit": true,
+    "final_algorithm_modified": false,
+    "compiled": false,
+    "scheduler_executed": false,
+    "large_inputs_read": false,
+    "network_used": false,
+    "shared_git_used": false
+  },
+  "active_macros": {
+    "HASHJOIN_OPERATOR_HALF_LIFE": 256,
+    "HASHJOIN_REUSE_ESTIMATOR": 2,
+    "HASHJOIN_ADAPTIVE_RISK_SHARING": 1,
+    "HASHJOIN_REFAULT_MODEL": 3,
+    "HASHJOIN_SIZE_BIAS": 0
+  },
+  "inactive_mechanisms": [
+    "comparePlans",
+    "chooseAlternative",
+    "HASHJOIN_SIZE_BIAS square-root correction",
+    "HASHJOIN_REUSE_ESTIMATOR=3 paired alternative branch"
+  ],
+  "active_features": [
+    "fast operator marginal half-life 256",
+    "slow conditional partition mass half-life 2048",
+    "heterogeneity-dependent share 0.75/(1+strength)",
+    "hierarchical frequency in non-scan non-cycle PROBE candidates",
+    "refault risk fallback with action confirmation",
+    "next PROBE soft priority protection and cycle-path exclusion",
+    "restricted periodic prefetch",
+    "top-4 at most 15 nonempty subset search",
+    "single-victim or greedy heap fallback and prune",
+    "scan and equal-size complete cycle hypotheses"
+  ],
+  "information_boundaries": {
+    "clock": "cumulative PROBE count hit_count+miss_count",
+    "full_hit_keys_visible": false,
+    "next_op_lookahead_depth": 1,
+    "heat_samples": "callback-visible next PROBE only, deduplicated by ordinal",
+    "current_miss_observed_for_history": true,
+    "current_miss_automatically_heat_sampled": false,
+    "true_miss_penalty_visible": false,
+    "miss_penalty_proxy_us": 100,
+    "risk_confirmation": "next callback resident state and unchanged size"
+  },
+  "complexity": {
+    "definitions": {
+      "K": "operators",
+      "P": "partitions per operator",
+      "N": "K*P",
+      "A": "returned actions <= N",
+      "A_prev": "pending intents <= N"
+    },
+    "full_callback_bound_before_simplification": "O(N log(N+1) + P + A_prev + C_init)",
+    "full_callback_bound_fixed_valid_dimensions": "O(N log(N+1) + C_init)",
+    "typical_single_victim_or_top4_hit": "O(N + K), after initialization and absent expensive structural rebuild",
+    "cycle_fast_path_worst": "O(N)",
+    "cycle_fast_path_best_cached_near_head": "O(1)",
+    "general_amortized_claim": "No proof of O(N) amortized for all legal inputs; safe T-callback bound O(T*N log(N+1)+C_table)",
+    "memory_fixed_dimensions": "O(N + C_table)",
+    "memory_if_dimensions_shrink_without_capacity_release": "O(N_max + C_table)",
+    "table_double_entries": 18436,
+    "table_bytes_excluding_guards_alignment": 147488,
+    "components": {
+      "update_initialization": "O(N+K)",
+      "confirm": "O(A_prev)",
+      "refreshSharing": "O(1)",
+      "observe": "O(1) normally, O(P) on step_distance rebuild; at most two per update",
+      "analyzeCycle": "O(N), cached or early return O(1)",
+      "ensureProbabilities": "O(K) once per release, optional O(N) resizing/tag clearing; subsequent calls O(1)",
+      "ensureProbability": "O(1) per id per epoch plus possible fixed table initialization",
+      "candidate_scan": "O(N+K+C_init)",
+      "top4": "O(N) partial_sort plus <=60 subset member checks",
+      "sort_fallback": "O(N log(N+1))",
+      "heap_fallback": "O(N+A log(N+1))",
+      "release_mode2": "one propose plus O(1)",
+      "pruneSpills": "O(A)",
+      "record": "O(A)",
+      "engine_timed_state_copy": "O(N) time and temporary space",
+      "engine_executeActions_outside_D": "O(A)"
+    },
+    "assumptions": [
+      "fixed valid K/P",
+      "legal indices and feasible requests",
+      "positive read/write bandwidth",
+      "RAM floating-point unit-cost model",
+      "standard vector push amortization",
+      "official callback/action execution protocol"
+    ]
+  },
+  "ablation_review": {
+    "fixed_share": "freeze share=0.75 in refreshSharing for both consumers; retain statistics; tests adaptive vs fixed sharing, not no sharing",
+    "unified_timescale": "fast256 to2048 only; retain slow2048 and risk/coverage/history parameters",
+    "no_prefetch": "retain periodic update and observation; suppress periodic returned prefetch actions",
+    "no_next_protection": "remove cycle next skip and +1e12; retain lookahead sampling/current target exclusion",
+    "no_cost_weight": "unit miss density reuse/bytes and top4 sum reuse; remove extra0.25*bytes/W; retains capacity and size as resource",
+    "no_scan_cycle": "retain observations/statistics, force both decision flags false after any cache/early return; cannot claim eliminated maintenance D",
+    "effects_additive": false,
+    "closed_loop_observation_changes_after_prefetch_ablation": true,
+    "HASHJOIN_ADAPTIVE_RISK_SHARING_alone_removes_hierarchical_adaptation": false,
+    "uniform_operator_marginal": "marginal=1/K only; keep slow conditional denominator and share; retaining fast statistics means no maintenance-cost claim",
+    "no_cost_weight_residual": "Preserves (evidence || read_bandwidth>=write_bandwidth) top4 entry gate; cannot claim removal of all bandwidth information"
+  },
+  "claims_not_supported": [
+    "global optimal subset selection",
+    "theoretical optimality",
+    "first originality",
+    "complete hit trace access",
+    "actual hidden penalty adaptation",
+    "O(1) worst-case cycle path",
+    "O(N) amortized all inputs",
+    "native C++14 compilation verified",
+    "innovation points guaranteed",
+    "local synthetic controls replace organizer-case demonstration"
+  ],
+  "report_path": "tmp/r81_ablation_audit_20261031/algorithm_and_complexity.md",
+  "experiment_plan_from_root": {
+    "method_count": 9,
+    "full_plus_naive": 2,
+    "ablation_count": 7,
+    "case_count": 94,
+    "planned_cells": 846,
+    "executed_by_this_audit": false,
+    "experiment_results_claimed": false
+  },
+  "ablation_sources_review": {
+    "manifest_path": "tmp/r81_ablation_20261031/source_manifest.json",
+    "manifest_sha256": "4dbcc83a9df62f36cabe8b31f97d44eb39bf76e25e13cfc4c3f436d92053d268",
+    "method_count": 9,
+    "checks": [
+      {
+        "method": "Naive",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+        "translation_unit_sha256": "037a7a452fdd63ab89a9be445f250c2c7720480f6ad6f8e89fdc2ef62866422c",
+        "static_scope": "manifest hash and exact text delta only"
+      },
+      {
+        "method": "Full",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+        "translation_unit_sha256": "7a8ddc29685b1be25cb03e1c3bec9a511a07fce9c696a2c4cc64c5b04c880c4f",
+        "static_scope": "manifest hash and exact text delta only"
+      },
+      {
+        "method": "FixedShare075",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "e34a0a8c1a45f5ff91cadc709f0c923cfa42d318cea460a18f33fb611fa503f2",
+        "translation_unit_sha256": "d4f79d7cea621b39c32d089a056c59dc590f5234d1857102b18a907bf2409086",
+        "static_scope": "manifest hash and exact text delta only"
+      },
+      {
+        "method": "UnifiedSlow2048",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "3439d3545c08de1a5526dc909391626372ea1e4fccdfcf320aa81970699a6873",
+        "translation_unit_sha256": "02cffdca6e389a28de14ecb14da65b6d916f28f71f1fe1870823ef96c188ddad",
+        "static_scope": "manifest hash and exact text delta only"
+      },
+      {
+        "method": "NoPeriodicPrefetch",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "4648123955de74168b99087bdc682ebfadcb38656b7035838e86eaa4eeb09999",
+        "translation_unit_sha256": "1064571210b3746d2ba6a595111260592c2f05a6201bb301e7e90fa84431d78b",
+        "static_scope": "manifest hash and exact text delta only"
+      },
+      {
+        "method": "NoNextProtection",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "9d947856aed2ef983f40a04c852bf750e5db9e8ed083c97452f19cfad681af30",
+        "translation_unit_sha256": "7038d523774db10d7efb72e360db6728c1e1ea60fe405418c7e19bdf14d8ed52",
+        "static_scope": "manifest hash and exact text delta only"
+      },
+      {
+        "method": "UnitMissCost",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "477a72d39a8c37310ac39f121ae4f1dafa88fddd4205d76a86332ffb0e34bb75",
+        "translation_unit_sha256": "2262cc45e11e18c0d9ca9599d9894495d3630e229b92adcd9abc1cf98761e96c",
+        "static_scope": "manifest hash and exact text delta only"
+      },
+      {
+        "method": "NoStructurePolicy",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "215208ead3affcbf78df108d63d196c94bf1554102c43d153f5e9e53fa02fe1a",
+        "translation_unit_sha256": "cd2582b8512cc539f850d2819b0ef65b6900598b77be254d134fb16d4acc538c",
+        "static_scope": "manifest hash and exact text delta only"
+      },
+      {
+        "method": "UniformOperatorMarginal",
+        "source_and_tu_hashes_match": true,
+        "source_sha256": "8af94df6a1fd8c9898b8be5d410b6d04a3c5b2b54beecde6b66e47c242417d9b",
+        "translation_unit_sha256": "9a5b25984b814390f1745d803dea98d235ea6630f6a8fff2dce01649c0e323f9",
+        "static_scope": "manifest hash and exact text delta only"
+      }
+    ],
+    "findings": [
+      "NoStructurePolicy has no assignment that can make uniform_cycle_ true",
+      "UnitMissCost preserves bandwidth-dependent top4 gate before PROBE evidence",
+      "All variants retain observation maintenance; D is functional ablation cost, not full module removal cost"
+    ],
+    "native_runs_by_auditor": 0,
+    "behavior_tested_by_auditor": false,
+    "full_byte_identical_to_final_parent": true
+  },
+  "runner_review": {
+    "status": "PASS_STATIC_EXECUTION_HOLD_BY_ROOT",
+    "reviewed_release_sha256": "dee2bbf1afcbd66ffd4f3e8ccfdbf0f0373d8efb3af9fe5e9444dbed0fb5e267",
+    "GO_recommended": false,
+    "passed_static_points": [
+      "94 cases, nine methods, 846 planned cells",
+      "fresh stdout Total_Score used as C",
+      "primary dyna/final means weighted equally; stat separate",
+      "rotated nine-method order; one repeat",
+      "global2200 and local1000/500/450 limits in admission",
+      "invalid cells stop without retry/resume",
+      "last-cell controller return failure prevents suite finalization"
+    ],
+    "requested_changes": [
+      "freeze and enforce historical same-input Full/Naive IO/hit/miss check without old D",
+      "freeze complete helper/parser import closure",
+      "make combined/report provisional until final deadline/cleanup gate succeeds",
+      "recheck owned process groups after cleanup; do not unconditionally claim active0; handle lookup race",
+      "reparse small raw stdout, verify stdout/stderr hashes and row.metrics before official publication"
+    ],
+    "native_runs_by_auditor": 0,
+    "input_body_scans_by_auditor": 0,
+    "dependency_count_verified": 492,
+    "dependency_hashes_all_match": true,
+    "input_body_paths_excluded_from_static_hashing": true,
+    "historical_physical_reference_count": 188,
+    "fixed_on_second_review": [
+      "Full/Naive188 same-input reference binding added",
+      "complete parser/helper import closure frozen",
+      "846 raw outputs and188 physical comparisons required",
+      "exports provisional until publication marker",
+      "cleanup rechecks process groups and reports unknown/alive as nonzero"
+    ],
+    "remaining_changes_requested": [],
+    "historical_physical_stdout_independently_reparsed": 188,
+    "protocol_ready_for_root_cpu_window": true,
+    "execution_authorized": false,
+    "execution_hold_reason": "Root prioritized separate BUILD quick experiment; ablation has no GO",
+    "fixed_on_third_review": [
+      "dyna/final historical rows now bound to actual completion/gate hashes",
+      "publication file removed if actual write crosses deadline; final completion rewritten INCOMPLETE"
+    ]
+  },
+  "build_quick_review": {
+    "status": "PASS_STATIC_READY_FOR_ROOT_GO",
+    "release_sha256": "78a17cf1ba3cbf30123375270c62dae475e41f5e349ec9d24ace236fe5d28347",
+    "candidate_sha256": "b157c93d78928c237ba6050da33e0cd60ea9f58cd1991df7343c9a947851ce96",
+    "dependency_count": 193,
+    "dependency_hashes_all_match": true,
+    "source_delta_blocks": 1,
+    "pure_cold_all_BUILD_branch": true,
+    "original_update_fallback_prune_record_retained": true,
+    "success_probability_cache_invalidated": true,
+    "tiny_mechanisms_static_reviewed": 10,
+    "tiny_native_run_by_auditor": false,
+    "planned_cells": 66,
+    "case_counts": {
+      "dyna": 12,
+      "stat": 10
+    },
+    "fresh_methods": [
+      "Naive",
+      "Full",
+      "BuildBestFit"
+    ],
+    "global_wall_seconds": 900,
+    "local_caps": {
+      "dyna": 500,
+      "stat": 200
+    },
+    "historical_physical_controls": 44,
+    "automatic_final_algorithm_replacement": false,
+    "input_body_scans_by_auditor": 0,
+    "native_runs_by_auditor": 0,
+    "scope_notes": [
+      "Independent fast experiment; original ablation remains HOLD",
+      "No final72 or primary84/50-50 claim",
+      "No pooled22 mean; dyna/stat reported separately",
+      "Inherited final publication/hash/cleanup/deadline guards previously audited",
+      "Candidate best-fit only local single-victim byte minimum, not global total-score optimality"
+    ]
+  }
+}

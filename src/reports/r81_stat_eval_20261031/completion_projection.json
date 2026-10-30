@@ -1,0 +1,23 @@
+{
+  "completion_projection": {
+    "controller_status": "PASS",
+    "completed": 60,
+    "valid": 60,
+    "error": null,
+    "active_children_at_completed_handoff": 0,
+    "all_private_ownership_records_cleaned": true,
+    "private_ownership_records_retained_locally_not_for_publication": true
+  },
+  "intentionally_omitted": [
+    "GO.json",
+    "progress.json",
+    "cpu_released.json",
+    "cells/*/ownership.json",
+    "runner.preflight_v1.py",
+    "protocol.preflight_v1.json",
+    "contract_tests.preflight_v1.json",
+    "any native input/cache copy or ELF binary",
+    "any PID/PGID/host/user<LOCAL_HOME> path/start timestamp or chat identifier"
+  ],
+  "omission_explanation": "Original verification.json hashes include private ownership/GO/cache/release records. Publisher must mark those as intentionally omitted, not claim every referenced artifact is included."
+}

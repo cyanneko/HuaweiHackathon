@@ -1,0 +1,179 @@
+{
+  "status": "EIGHT_SOURCE_TU_BOUND_ELF_RECHECK_AT_PREPARE",
+  "methods": [
+    {
+      "name": "Naive",
+      "method_id": "src/methods/r49/official_naive.cpp",
+      "source_commit": "336291b14976b3f0c58c3f3213ef444bc20fb5d8",
+      "source_path": "tmp/r77_dyna_full_eval/sources/Naive.policy.cpp",
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/Naive.cpp",
+      "translation_unit_sha256": "18a090ca767315d5d8a7132c5cce471e1d09d6994cde5d685f4f8a49bfa862d2",
+      "binary": "<LOCAL_HOME>",
+      "binary_sha256": "c9acf29fd9e73b8cbceafbcff03a85f02806cde0469954ac5fe316be73558e17",
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da",
+      "instrumented": false,
+      "build_record": "tmp/dataset_score_audit_20261030/benchmark/build_identity.json",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ]
+    },
+    {
+      "name": "R75_dense_switch",
+      "source_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.policy.cpp",
+      "source_sha256": "cab5cae4931722cdbe61080afcc758503964dcdf71c3a6738fcb0372f6441458",
+      "translation_unit_path": "tmp/r77_dyna_full_eval/sources/R75_dense_switch.cpp",
+      "translation_unit_sha256": "dd9c1f478911fa6dc506bd57dc8d304af8a2324591a2b1e08584d94f549d4400",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1f4d8d892ee9078397dbf595d8d079883902320e84fc6a8bbabdc63ae59eaeb0",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "framework_sha256": "1ed541a0d314c9b866b4a00198df3db5a3201d648e2c5b737b61cc8ab0e0a1da"
+    },
+    {
+      "name": "R80_next_hier_fast100",
+      "source_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/MySpillScheduler.cpp",
+      "source_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "translation_unit_path": "tmp/r80_lazy_transfer/R80_next_hier_fast100/main.cpp",
+      "translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier100",
+      "parent_sha256": "a98513798367c98770a5f22370a191171ed0d29a28fd0e2ee7996ff56f34c1cb"
+    },
+    {
+      "name": "R81_op256_cond2048",
+      "source_path": "tmp/r81_two_timescale/R81_op256_cond2048/MySpillScheduler.cpp",
+      "source_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+      "translation_unit_path": "tmp/r81_two_timescale/R81_op256_cond2048/main.cpp",
+      "translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier_fast100",
+      "parent_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d"
+    },
+    {
+      "name": "Van_latest",
+      "source_path": "tmp/van_latest_reference_20261030/d92ceb0262b5/paired_penalty100.cpp",
+      "source_sha256": "3f8dfaee8b3e2779700d1bb3684c0b3f731839c49699911a669dbab906b08f15",
+      "translation_unit_path": "tmp/r79_adaptive_operator/Van_paired_penalty100/main.cpp",
+      "translation_unit_sha256": "d89c9455e9519be89aca25c30b274c64b6f668e2eeebfb0d3623efc5065edefd",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "c01849371905fa3460ed979ab6deaf0333f585e968397d95de92848096cc9edc",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "binary_linux_path": "${WORKSPACE}<LOCAL_TEMP>",
+      "compiler_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "source_commit": "d92ceb0262b556eb57aae61127d062174ffe6016",
+      "source_branch": "source/Vanius0525",
+      "upstream_source_path": "src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp",
+      "upstream_url": "https://github.com/cyanneko/HuaweiHackathon/blob/d92ceb0262b556eb57aae61127d062174ffe6016/src/Vanius0525/level1/round9/candidates/paired_penalty100.cpp",
+      "build_strategy": "REUSE_VERIFIED_IDENTICAL_SOURCE_TU_ELF",
+      "previous_method_name": "Van_paired_penalty100"
+    },
+    {
+      "name": "R85_fast_prior8",
+      "source_path": "tmp/r85_ablations/R85_fast_prior8/MySpillScheduler.cpp",
+      "source_sha256": "a0ebc08399a8cd8c039dae59a779231df0c35306af3ea3269df3067c321779b5",
+      "translation_unit_path": "tmp/r85_ablations/R85_fast_prior8/main.cpp",
+      "translation_unit_sha256": "733d9b8df4c2a2cc1cfc9e644ae4b115144c3bd54abc36600dc80d5e5f2ce67a",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R81_op256_cond2048",
+      "parent_sha256": "7f65114b43dba6d5e3b5744fbee17a0b0f5b97a0d9b1b02702e3da6c8b0fb764",
+      "parent_translation_unit_sha256": "b410a5696230bd49af81647d31341612a021184306eb859d4955100d4fe60360",
+      "parent_binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "binary_sha256": "eed09a7345b8ff117fcea51eed3b96ebca3449dbf75d3935c11b1f3d05e9499a"
+    },
+    {
+      "name": "R85_hier_anchor",
+      "source_path": "tmp/r85_ablations/R85_hier_anchor/MySpillScheduler.cpp",
+      "source_sha256": "0aefb3c4c488ca8f315ea5fbb33c32eef757309d780927e7b8376ba6c61142f0",
+      "translation_unit_path": "tmp/r85_ablations/R85_hier_anchor/main.cpp",
+      "translation_unit_sha256": "22cac4f9e773ac81965938251cceecc9943391acd1342ea8136d830541070b18",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R80_next_hier_fast100",
+      "parent_sha256": "0e2a87303d2b078feca86e7cf4f1eccfa7d2d6c4b49d9052667658a5bc5abf5d",
+      "parent_translation_unit_sha256": "ecd5170e1c80eca49d0dd99ed3cc7920ee6d8334f9d46cdc8cf87911c631924c",
+      "parent_binary_sha256": "1df8801495786fffa53fbe1d98a1af4bf73fb908b34345dfd3cf2bac13b4eeff",
+      "binary_sha256": "ba1cb184e2b845c313c2f918850d0d8dc58c9886d60c4345256af3d59399cda2"
+    },
+    {
+      "name": "R87_fixedshare_op",
+      "source_path": "tmp/r87_fixedshare/R87_fixedshare_op/MySpillScheduler.cpp",
+      "source_sha256": "c18b92a1ec0df7d36c68c0a424f7414abd000abce650c4f4d20183eb9699ef55",
+      "translation_unit_path": "tmp/r87_fixedshare/R87_fixedshare_op/main.cpp",
+      "translation_unit_sha256": "4c11857cd2520dd7ff8141449fc32e8e3a60c2cf4ea79c90324520bb935d91a8",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_name": "R85_fast_prior8",
+      "parent_sha256": "a0ebc08399a8cd8c039dae59a779231df0c35306af3ea3269df3067c321779b5",
+      "parent_translation_unit_sha256": "733d9b8df4c2a2cc1cfc9e644ae4b115144c3bd54abc36600dc80d5e5f2ce67a",
+      "parent_binary_sha256": "eed09a7345b8ff117fcea51eed3b96ebca3449dbf75d3935c11b1f3d05e9499a",
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "8375d9adedaac097e93b0d53f4d040cfcbf665c6c7f7f482aded7d50854ad48b"
+    }
+  ],
+  "dependencies": {
+    "tmp/r84_van_build/producer.json": "b6603fce041ba7e0ece971f4835a12284bfbd5e7ea5b761639a02a021443f4cc",
+    "tmp/r84_van_build/latest_proof.json": "13e23973c1f3aca1aad7b0398d00563579c52c94fb6ddcc2d4c523a57ed3f17b",
+    "tmp/van_latest_reference_20261030/d92ceb0262b5/contract.json": "ccf87e2c8be32135590e83c1db1c8d713c9f82b403a2e77d9d8ca1adfccc642a",
+    "tmp/r84_van_build/release.json": "3a02ba5c6fadbd86f57a199d8cbbee7268aa12810e679fbc33d4882a37ede495",
+    "tmp/r84_van_build/test_summary.json": "77d48549dbb04ce155cd2a5c3b242e4544b7e3997827b4936a40ac9840a7ed4b",
+    "tmp/r81_regression_eval/final/selection.json": "5e86c6ed7670c7eb987ab90fba6a2adfeba822a104b4ff6a277ccd771db6c797",
+    "tmp/r84_van_build/environment.json": "9710156957cbcefe271343652867fcc4738efb127a1b6ac0f46818aaa5b054ba",
+    "tmp/r80_lazy_eval/final/selection.json": "4c9edc376a4b3fc222b5b7bb3c5395b774c4cd05becbe12b7c264b06921a5455",
+    "tmp/r79_adaptive_operator/test_summary.json": "6f654c88d8367af9863e8ec6112305fe8d81351299683d8953492c162139d1c2",
+    "tmp/r84_full_eval_v2/methods.prepared.json": "c9c9b9c44bf3d77b7dffadf3aa714fa7d06d280fa05801dc498ce123fd844ee3",
+    "tmp/r85_ablations/producer.json": "992a69c8c4c3a54e1136d9e342a4822fb67ce7e214fd5ec4c4cf31004e8cc9be",
+    "tmp/r85_ablations/release.json": "064bec09282ade275eb96c1d750c99622acf05c85c8e9067e0540a3fc821f555",
+    "tmp/r85_ablations/test_summary.json": "8f5a2b01e868826d5c704b946768be236a70c1c2b5d83229b9b8bbef256a65e4",
+    "tmp/r85_ablations/source_manifest.json": "b45ccd73448fddf891e53f3ef9ef5c21bc4a4be54e9682faf6b4297e9504d187",
+    "tmp/r85_full_eval/methods.prepared.json": "120ee46d35d3370c05938115b01bffa37f4e12b42df24a0417bceb42def68c83",
+    "tmp/r87_fixedshare/producer.json": "2545e0d110a1685094a85e93b8525f336c47e60b1db5094326811f3f15a50d4f",
+    "tmp/r87_fixedshare/release.json": "172e065c37891431e6080531c16bfb6349b33e4e3a3b961afc76c35074fd1b45",
+    "tmp/r87_fixedshare/test_summary.json": "56d23dfa632987843eb2ffb50d8bc9895ee18f77235c78581fa2f9906619f8b5",
+    "tmp/r87_fixedshare/source_manifest.json": "e67c08ea00702bcc183fafe39794e80bac0a50aecbbe14a361598aad5edefaec"
+  },
+  "direct_parents": {
+    "R85_fast_prior8": "R81_op256_cond2048",
+    "R85_hier_anchor": "R80_next_hier_fast100",
+    "R87_fixedshare_op": "R85_fast_prior8"
+  },
+  "producer_path": "tmp/r87_fixedshare/producer.json",
+  "producer_sha256": "2545e0d110a1685094a85e93b8525f336c47e60b1db5094326811f3f15a50d4f",
+  "existing_seven_exact_R85": true,
+  "new_measurements_only": true
+}

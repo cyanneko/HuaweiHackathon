@@ -1,0 +1,9 @@
+--- Full/MySpillScheduler.cpp
++++ UnifiedSlow2048/MySpillScheduler.cpp
+@@ -1,5 +1,5 @@
+ // 算子边际的快速衰减半衰期：单位为 hit_count + miss_count 的 PROBE 序号步数。
+-#define HASHJOIN_OPERATOR_HALF_LIFE 256
++#define HASHJOIN_OPERATOR_HALF_LIFE 2048
+ // 复用估计模式：0 为历史/回访，1 为扁平频率，2 为分层频率，3 为原有双方案比较。
+ #define HASHJOIN_REUSE_ESTIMATOR 2
+ // 自适应共享仅控制回访风险路径中的算子池混合；不控制分层频率的共享公式。

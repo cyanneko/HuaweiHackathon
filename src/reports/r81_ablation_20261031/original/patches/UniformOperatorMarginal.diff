@@ -1,0 +1,11 @@
+--- Full/MySpillScheduler.cpp
++++ UniformOperatorMarginal/MySpillScheduler.cpp
+@@ -220,7 +220,7 @@
+         operator_scale_.resize(k);
+         const double op_prior = 64. / k, fast_denom = fast_probability_total_ + 64.;
+         for (int op = 0; op < k; ++op) {
+-            const double marginal = (fast_operator_[op].mass + op_prior) / fast_denom;
++            const double marginal = 1. / k; // Ablation: uniform operator marginal.
+             operator_scale_[op] = std::isfinite(marginal) && marginal >= 0.
+                 ? marginal / (sharing_[op].mass + op_prior) : 1. / probability_denom_;
+         }

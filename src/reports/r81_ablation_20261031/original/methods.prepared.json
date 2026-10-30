@@ -1,0 +1,220 @@
+{
+  "methods": [
+    {
+      "name": "Naive",
+      "source_path": "tmp/r81_ablation_20261031/sources/Naive/MySpillScheduler.cpp",
+      "source_sha256": "f15181df02b7f36624a9d11507e3167ab70617f52e587ed7215bc058e07db6ea",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/Naive/main.cpp",
+      "translation_unit_sha256": "037a7a452fdd63ab89a9be445f250c2c7720480f6ad6f8e89fdc2ef62866422c",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": null,
+      "approved_edits": [],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "0128a3fff29a28afcbfd11b4ab1ac0746d0d85541b8c7489430bdea5871f3122",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    },
+    {
+      "name": "Full",
+      "source_path": "tmp/r81_ablation_20261031/sources/Full/MySpillScheduler.cpp",
+      "source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/Full/main.cpp",
+      "translation_unit_sha256": "7a8ddc29685b1be25cb03e1c3bec9a511a07fce9c696a2c4cc64c5b04c880c4f",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "approved_edits": [],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "bf1377c5d11aa4116cda7795299c25cab28d9e6126ca37f38b741edaabcb2da1",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    },
+    {
+      "name": "FixedShare075",
+      "source_path": "tmp/r81_ablation_20261031/sources/FixedShare075/MySpillScheduler.cpp",
+      "source_sha256": "e34a0a8c1a45f5ff91cadc709f0c923cfa42d318cea460a18f33fb611fa503f2",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/FixedShare075/main.cpp",
+      "translation_unit_sha256": "d4f79d7cea621b39c32d089a056c59dc590f5234d1857102b18a907bf2409086",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "approved_edits": [
+        {
+          "before": "g.share = .75 / (1. + strength);",
+          "after": "g.share = .75; // Ablation: fixed operator-internal sharing."
+        }
+      ],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "f12ec3f35febc77bcf0509c06699e09aaf4ea9ac4d64d8d4433baf4a383c022f",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    },
+    {
+      "name": "UnifiedSlow2048",
+      "source_path": "tmp/r81_ablation_20261031/sources/UnifiedSlow2048/MySpillScheduler.cpp",
+      "source_sha256": "3439d3545c08de1a5526dc909391626372ea1e4fccdfcf320aa81970699a6873",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/UnifiedSlow2048/main.cpp",
+      "translation_unit_sha256": "02cffdca6e389a28de14ecb14da65b6d916f28f71f1fe1870823ef96c188ddad",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "approved_edits": [
+        {
+          "before": "#define HASHJOIN_OPERATOR_HALF_LIFE 256",
+          "after": "#define HASHJOIN_OPERATOR_HALF_LIFE 2048"
+        }
+      ],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "c5984190d631cfcd9718df36000a54632ac31d6b0af792acf70d9d63efe78183",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    },
+    {
+      "name": "NoPeriodicPrefetch",
+      "source_path": "tmp/r81_ablation_20261031/sources/NoPeriodicPrefetch/MySpillScheduler.cpp",
+      "source_sha256": "4648123955de74168b99087bdc682ebfadcb38656b7035838e86eaa4eeb09999",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/NoPeriodicPrefetch/main.cpp",
+      "translation_unit_sha256": "1064571210b3746d2ba6a595111260592c2f05a6201bb301e7e90fa84431d78b",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "approved_edits": [
+        {
+          "before": "        release(s, op, pid, part.data_size, a);\n        pruneSpills(s, s.operators[op].partitions[pid].data_size, a);\n        a.emplace_back(Action::LOAD, op, pid);\n        record(s, a);",
+          "after": "        // Ablation: retain update and analysis, return no periodic actions."
+        }
+      ],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "ffd607509236fc335299fd97ef0d96010a94990a5f16536d1b67680b923199d7",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    },
+    {
+      "name": "NoNextProtection",
+      "source_path": "tmp/r81_ablation_20261031/sources/NoNextProtection/MySpillScheduler.cpp",
+      "source_sha256": "9d947856aed2ef983f40a04c852bf750e5db9e8ed083c97452f19cfad681af30",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/NoNextProtection/main.cpp",
+      "translation_unit_sha256": "7038d523774db10d7efb72e360db6728c1e1ea60fe405418c7e19bdf14d8ed52",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "approved_edits": [
+        {
+          "before": "if ((o == op && pa == pid) || (o == next_op && pa == next_pid))",
+          "after": "if ((o == op && pa == pid))"
+        },
+        {
+          "before": "                if (o.op_id == next_op && part.partition_id == next_pid)\n                    priority += 1e12;",
+          "after": "                // Ablation: no next-request priority protection."
+        }
+      ],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "499aec4d370188ea1aaccbdc9885ac528f481aa7703e13ab7e3dc99342e262aa",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    },
+    {
+      "name": "UnitMissCost",
+      "source_path": "tmp/r81_ablation_20261031/sources/UnitMissCost/MySpillScheduler.cpp",
+      "source_sha256": "477a72d39a8c37310ac39f121ae4f1dafa88fddd4205d76a86332ffb0e34bb75",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/UnitMissCost/main.cpp",
+      "translation_unit_sha256": "2262cc45e11e18c0d9ca9599d9894495d3630e229b92adcd9abc1cf98761e96c",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "approved_edits": [
+        {
+          "before": "double priority = reuse * (1.0 / s.read_bandwidth\n                    + 1.0 / s.write_bandwidth + 100.0 / part.data_size);",
+          "after": "double priority = reuse / part.data_size; // Ablation: unit miss-cost density."
+        },
+        {
+          "before": "loss += v.priority * v.bytes\n                            + 0.25 * static_cast<double>(v.bytes) / s.write_bandwidth;",
+          "after": "loss += v.priority * v.bytes; // Ablation: no extra write-cost term."
+        }
+      ],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "cf7be9a896e48d11e3bb178f835a0d1191924edb12fc8f0d664f700886bd4351",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    },
+    {
+      "name": "NoStructurePolicy",
+      "source_path": "tmp/r81_ablation_20261031/sources/NoStructurePolicy/MySpillScheduler.cpp",
+      "source_sha256": "215208ead3affcbf78df108d63d196c94bf1554102c43d153f5e9e53fa02fe1a",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/NoStructurePolicy/main.cpp",
+      "translation_unit_sha256": "cd2582b8512cc539f850d2819b0ef65b6900598b77be254d134fb16d4acc538c",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "approved_edits": [
+        {
+          "before": "uniform_cycle_ = (j == n);",
+          "after": "uniform_cycle_ = false; // Ablation: disable cycle policy, retain observations."
+        },
+        {
+          "before": "const bool scan = streak_ >= 6 && stride_ > 0 && observed_count_ * 2 > now;",
+          "after": "const bool scan = false; // Ablation: disable scan policy, retain observations."
+        }
+      ],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "09b7804ba7cb11bbebf6425323c03346a6d8cf1ec90af3de452bd1e2158dad4a",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    },
+    {
+      "name": "UniformOperatorMarginal",
+      "source_path": "tmp/r81_ablation_20261031/sources/UniformOperatorMarginal/MySpillScheduler.cpp",
+      "source_sha256": "8af94df6a1fd8c9898b8be5d410b6d04a3c5b2b54beecde6b66e47c242417d9b",
+      "translation_unit_path": "tmp/r81_ablation_20261031/sources/UniformOperatorMarginal/main.cpp",
+      "translation_unit_sha256": "9a5b25984b814390f1745d803dea98d235ea6630f6a8fff2dce01649c0e323f9",
+      "compile_flags": [
+        "-std=c++14",
+        "-O2"
+      ],
+      "instrumented": false,
+      "parent_source_sha256": "2e168451ea28c80250301bc06dffb7497265eb285c490dd57514468259ede617",
+      "approved_edits": [
+        {
+          "before": "const double marginal = (fast_operator_[op].mass + op_prior) / fast_denom;",
+          "after": "const double marginal = 1. / k; // Ablation: uniform operator marginal."
+        }
+      ],
+      "binary": "${WORKSPACE}<LOCAL_TEMP>",
+      "binary_sha256": "5f022765c407fa1bf50e0bafb1d1baf115eca31176e87ba938f9a3177a7364ed",
+      "framework_prefix_sha256": "a5457e0ad81a297424ae46b1fe64014dd55eb9488cee48039f601950b05d9ed1",
+      "framework_suffix_sha256": "03199cfdd536c57ae72af7ab7d1ff62de7c9d8848aec1e6b8dc71474a79f2f2b"
+    }
+  ],
+  "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+  "flags": [
+    "-std=c++14",
+    "-O2"
+  ],
+  "source_commit": "3064e270fde0473810cd8c0e57b738ee48356254",
+  "full_ELF_matches_published": true
+}

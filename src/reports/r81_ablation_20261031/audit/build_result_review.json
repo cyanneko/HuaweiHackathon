@@ -1,0 +1,1738 @@
+{
+  "status": "PASS_INDEPENDENT_RESULT_AUDIT",
+  "input_body_scans": 0,
+  "native_runs": 0,
+  "release_sha256": "78a17cf1ba3cbf30123375270c62dae475e41f5e349ec9d24ace236fe5d28347",
+  "publication_sha256": "36ae6b0ffc6e7b875ea9a5f3cdd9176cae09fd017e8a653234bc41ee0985254e",
+  "attempt_completion_sha256": "c9df08101c11b6329de42f055bf2c64d3156b3be34472a193ca5b7b11265a03d",
+  "verification_sha256": "9d0f45d4313ffea0bb3ea0c24d51992a80481887f152643c302a65743a138b83",
+  "complete_cells": 66,
+  "historical_physical_controls_reparsed": 44,
+  "all_raw_outputs_reparsed_and_hashed": true,
+  "authority_cost": "stdout Total_Score",
+  "output_metrics_reconstructed_for_cost": false,
+  "main_final_unchanged": true,
+  "original_ablation_846_status": "HOLD",
+  "final_algorithm_replaced": false,
+  "single_D_measurement": true,
+  "phase_costs_measured": false,
+  "groups_kept_separate": [
+    "dyna12",
+    "stat10"
+  ],
+  "pooled_22_or_old_84_used": false,
+  "results": {
+    "dyna": {
+      "case_count": 12,
+      "valid_cells": 36,
+      "full_mean_score": 4.455852988527042,
+      "build_mean_score": 4.4549088478195955,
+      "mean_delta_score": -0.0009441407074458619,
+      "full_mean_raw_points": 4.455852988527042,
+      "build_mean_raw_points": 4.4549088478195955,
+      "cost_ratio_to_Full": {
+        "mean": 1.0001435336684281,
+        "p50": 1.000099595643751,
+        "p90": 1.0005258561655797,
+        "worst": 1.0007974089027547,
+        "worst_cases": [
+          "holdout_fast_staggered_11"
+        ],
+        "wins": 3,
+        "ties": 0,
+        "losses": 9
+      },
+      "physical_ratio_to_Full": {
+        "mean": 1.0001326029120583,
+        "p50": 1.0001131812065769,
+        "p90": 1.000524121190828,
+        "worst": 1.00065391808669,
+        "worst_cases": [
+          "holdout_fast_staggered_11"
+        ],
+        "wins": 3,
+        "ties": 0,
+        "losses": 9
+      },
+      "D_Full_total_us": 29790738.94,
+      "D_Build_total_us": 32355095.79,
+      "identical_physical_case_count": 0,
+      "total_delta_cost_us": 475416471.7596674,
+      "total_delta_physical_us": 472852114.85978127,
+      "negative_cases": [
+        {
+          "case_id": "dev_burst_staggered_09",
+          "original_split": "dev",
+          "family": "burst_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 322310567438.87,
+              "Total_Decision_Time": 490978.89,
+              "Hit_Count": 2746387,
+              "Miss_Count": 1188818,
+              "Total_Score": 322429940217.77
+            },
+            "Full": {
+              "Total_IO_Time": 248471520626.97,
+              "Total_Decision_Time": 1026326.63,
+              "Hit_Count": 2512007,
+              "Miss_Count": 1423198,
+              "Total_Score": 248614866753.6
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 248550439803.57,
+              "Total_Decision_Time": 1068773.22,
+              "Hit_Count": 2512275,
+              "Miss_Count": 1422930,
+              "Total_Score": 248693801576.8
+            }
+          },
+          "full_score": 2.2893368219562715,
+          "build_score": 2.286888698709817,
+          "full_raw_points": 2.2893368219562715,
+          "build_raw_points": 2.286888698709817,
+          "cost_ratio": 1.0003174984031755,
+          "physical_ratio": 1.0003173289808183,
+          "delta_cost": 78934823.19998169,
+          "delta_io": 78919176.6000061,
+          "delta_miss": -268,
+          "delta_penalty_miss": -26800,
+          "delta_D": 42446.58999999997,
+          "delta_physical": 78892376.6000061,
+          "physical_identical": false,
+          "delta_score": -0.0024481232464546032
+        },
+        {
+          "case_id": "dev_fast_shared_08",
+          "original_split": "dev",
+          "family": "fast_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 191567027150.29,
+              "Total_Decision_Time": 3409448.59,
+              "Hit_Count": 589776,
+              "Miss_Count": 2660217,
+              "Total_Score": 191836458298.88
+            },
+            "Full": {
+              "Total_IO_Time": 137452233355.64,
+              "Total_Decision_Time": 3958939.86,
+              "Hit_Count": 1307215,
+              "Miss_Count": 1942778,
+              "Total_Score": 137650470095.49
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 137486570520.76,
+              "Total_Decision_Time": 4226845.36,
+              "Hit_Count": 1306806,
+              "Miss_Count": 1943187,
+              "Total_Score": 137685116066.12
+            }
+          },
+          "full_score": 2.824592816396171,
+          "build_score": 2.822786800431467,
+          "full_raw_points": 2.824592816396171,
+          "build_raw_points": 2.822786800431467,
+          "cost_ratio": 1.0002516952583305,
+          "physical_ratio": 1.0002497561676744,
+          "delta_cost": 34645970.63000488,
+          "delta_io": 34337165.11999512,
+          "delta_miss": 409,
+          "delta_penalty_miss": 40900,
+          "delta_D": 267905.50000000047,
+          "delta_physical": 34378065.11999512,
+          "physical_identical": false,
+          "delta_score": -0.0018060159647039775
+        },
+        {
+          "case_id": "dev_slow_staggered_07",
+          "original_split": "dev",
+          "family": "slow_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 20077061673.08,
+              "Total_Decision_Time": 3552809.13,
+              "Hit_Count": 1559644,
+              "Miss_Count": 1950409,
+              "Total_Score": 20275655382.2
+            },
+            "Full": {
+              "Total_IO_Time": 8992742250.77,
+              "Total_Decision_Time": 3103072.58,
+              "Hit_Count": 2501881,
+              "Miss_Count": 1008172,
+              "Total_Score": 9096662523.35
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 8993849680.29,
+              "Total_Decision_Time": 2878731.01,
+              "Hit_Count": 2501652,
+              "Miss_Count": 1008401,
+              "Total_Score": 9097568511.31
+            }
+          },
+          "full_score": 5.513505062166345,
+          "build_score": 5.5130582268148265,
+          "full_raw_points": 5.513505062166345,
+          "build_raw_points": 5.5130582268148265,
+          "cost_ratio": 1.000099595643751,
+          "physical_ratio": 1.0001243000088271,
+          "delta_cost": 905987.9599990845,
+          "delta_io": 1107429.5200004578,
+          "delta_miss": 229,
+          "delta_penalty_miss": 22900,
+          "delta_D": -224341.5700000003,
+          "delta_physical": 1130329.5200004578,
+          "physical_identical": false,
+          "delta_score": -0.00044683535151879283
+        },
+        {
+          "case_id": "holdout_fast_staggered_11",
+          "original_split": "holdout",
+          "family": "fast_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 22761095363.31,
+              "Total_Decision_Time": 814941.09,
+              "Hit_Count": 2794733,
+              "Miss_Count": 1084336,
+              "Total_Score": 22870343904.4
+            },
+            "Full": {
+              "Total_IO_Time": 8124876413.49,
+              "Total_Decision_Time": 736701.46,
+              "Hit_Count": 3410317,
+              "Miss_Count": 468752,
+              "Total_Score": 8172488314.95
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 8130176869.67,
+              "Total_Decision_Time": 1909860.22,
+              "Hit_Count": 3409885,
+              "Miss_Count": 469184,
+              "Total_Score": 8179005129.89
+            }
+          },
+          "full_score": 6.426600164338716,
+          "build_score": 6.423750703496658,
+          "full_raw_points": 6.426600164338716,
+          "build_raw_points": 6.423750703496658,
+          "cost_ratio": 1.0007974089027547,
+          "physical_ratio": 1.00065391808669,
+          "delta_cost": 6516814.940000534,
+          "delta_io": 5300456.180000305,
+          "delta_miss": 432,
+          "delta_penalty_miss": 43200,
+          "delta_D": 1173158.76,
+          "delta_physical": 5343656.180000305,
+          "physical_identical": false,
+          "delta_score": -0.002849460842057283
+        },
+        {
+          "case_id": "holdout_slow_shared_10",
+          "original_split": "holdout",
+          "family": "slow_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 1518204729178.84,
+              "Total_Decision_Time": 2565269.45,
+              "Hit_Count": 374508,
+              "Miss_Count": 2625485,
+              "Total_Score": 1518469842948.29
+            },
+            "Full": {
+              "Total_IO_Time": 1235194446541.48,
+              "Total_Decision_Time": 3320819.52,
+              "Hit_Count": 813954,
+              "Miss_Count": 2186039,
+              "Total_Score": 1235416371261.0
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 1235334243681.15,
+              "Total_Decision_Time": 3527114.28,
+              "Hit_Count": 813670,
+              "Miss_Count": 2186323,
+              "Total_Score": 1235556403095.43
+            }
+          },
+          "full_score": 1.864070419322309,
+          "build_score": 1.8631482289009438,
+          "full_raw_points": 1.864070419322309,
+          "build_raw_points": 1.8631482289009438,
+          "cost_ratio": 1.0001133478863382,
+          "physical_ratio": 1.0001131812065769,
+          "delta_cost": 140031834.42993164,
+          "delta_io": 139797139.66992188,
+          "delta_miss": 284,
+          "delta_penalty_miss": 28400,
+          "delta_D": 206294.75999999978,
+          "delta_physical": 139825539.66992188,
+          "physical_identical": false,
+          "delta_score": -0.0009221904213652099
+        },
+        {
+          "case_id": "train_burst_shared_05",
+          "original_split": "train",
+          "family": "burst_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 651745318020.94,
+              "Total_Decision_Time": 2906780.36,
+              "Hit_Count": 1191122,
+              "Miss_Count": 2058871,
+              "Total_Score": 651954111901.3
+            },
+            "Full": {
+              "Total_IO_Time": 456000680541.09,
+              "Total_Decision_Time": 3196603.23,
+              "Hit_Count": 1686018,
+              "Miss_Count": 1563975,
+              "Total_Score": 456160274644.32
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 456027482710.92,
+              "Total_Decision_Time": 3215142.13,
+              "Hit_Count": 1685723,
+              "Miss_Count": 1564270,
+              "Total_Score": 456187124853.05
+            }
+          },
+          "full_score": 3.0031843297373273,
+          "build_score": 3.002772487734342,
+          "full_raw_points": 3.0031843297373273,
+          "build_raw_points": 3.002772487734342,
+          "cost_ratio": 1.0000588613481323,
+          "physical_ratio": 1.000058821119131,
+          "delta_cost": 26850208.72998047,
+          "delta_io": 26802169.829956055,
+          "delta_miss": 295,
+          "delta_penalty_miss": 29500,
+          "delta_D": 18538.899999999907,
+          "delta_physical": 26831669.829956055,
+          "physical_identical": false,
+          "delta_score": -0.0004118420029852743
+        },
+        {
+          "case_id": "train_burst_staggered_06",
+          "original_split": "train",
+          "family": "burst_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 67365775054.25,
+              "Total_Decision_Time": 2824166.85,
+              "Hit_Count": 1503536,
+              "Miss_Count": 2438453,
+              "Total_Score": 67612444521.09
+            },
+            "Full": {
+              "Total_IO_Time": 30086671473.13,
+              "Total_Decision_Time": 2194156.1,
+              "Hit_Count": 2289434,
+              "Miss_Count": 1652555,
+              "Total_Score": 30254121129.23
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 30102467149.12,
+              "Total_Decision_Time": 2247796.24,
+              "Hit_Count": 2288834,
+              "Miss_Count": 1653155,
+              "Total_Score": 30270030445.36
+            }
+          },
+          "full_score": 5.525362033051033,
+          "build_score": 5.523009017087375,
+          "full_raw_points": 5.525362033051033,
+          "build_raw_points": 5.523009017087375,
+          "cost_ratio": 1.0005258561655797,
+          "physical_ratio": 1.000524121190828,
+          "delta_cost": 15909316.130001068,
+          "delta_io": 15795675.989997864,
+          "delta_miss": 600,
+          "delta_penalty_miss": 60000,
+          "delta_D": 53640.14000000013,
+          "delta_physical": 15855675.989997864,
+          "physical_identical": false,
+          "delta_score": -0.0023530159636582226
+        },
+        {
+          "case_id": "train_fast_staggered_04",
+          "original_split": "train",
+          "family": "fast_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 1487279620267.87,
+              "Total_Decision_Time": 2877117.27,
+              "Hit_Count": 343993,
+              "Miss_Count": 2623461,
+              "Total_Score": 1487544843485.14
+            },
+            "Full": {
+              "Total_IO_Time": 1236948375879.58,
+              "Total_Decision_Time": 3393253.55,
+              "Hit_Count": 753277,
+              "Miss_Count": 2214177,
+              "Total_Score": 1237173186833.12
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 1237172709265.48,
+              "Total_Decision_Time": 3611899.66,
+              "Hit_Count": 752879,
+              "Miss_Count": 2214575,
+              "Total_Score": 1237397778665.14
+            }
+          },
+          "full_score": 1.6831200602022112,
+          "build_score": 1.6816102446628456,
+          "full_raw_points": 1.6831200602022112,
+          "build_raw_points": 1.6816102446628456,
+          "cost_ratio": 1.000181536291289,
+          "physical_ratio": 1.0001813600583076,
+          "delta_cost": 224591832.0197754,
+          "delta_io": 224333385.89990234,
+          "delta_miss": 398,
+          "delta_penalty_miss": 39800,
+          "delta_D": 218646.11000000034,
+          "delta_physical": 224373185.89990234,
+          "physical_identical": false,
+          "delta_score": -0.0015098155393655777
+        },
+        {
+          "case_id": "train_slow_staggered_02",
+          "original_split": "train",
+          "family": "slow_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 192457129468.55,
+              "Total_Decision_Time": 3527428.13,
+              "Hit_Count": 675516,
+              "Miss_Count": 2573383,
+              "Total_Score": 192717995196.68
+            },
+            "Full": {
+              "Total_IO_Time": 116374295997.9,
+              "Total_Decision_Time": 3701713.73,
+              "Hit_Count": 1600292,
+              "Miss_Count": 1648607,
+              "Total_Score": 116542858411.63
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 116376707833.65,
+              "Total_Decision_Time": 4310306.81,
+              "Hit_Count": 1600277,
+              "Miss_Count": 1648622,
+              "Total_Score": 116545880340.46
+            }
+          },
+          "full_score": 3.9526737867581483,
+          "build_score": 3.9525169810158047,
+          "full_raw_points": 3.9526737867581483,
+          "build_raw_points": 3.9525169810158047,
+          "cost_ratio": 1.000025929764133,
+          "physical_ratio": 1.0000207083680575,
+          "delta_cost": 3021928.830001831,
+          "delta_io": 2411835.75,
+          "delta_miss": 15,
+          "delta_penalty_miss": 1500,
+          "delta_D": 608593.0799999996,
+          "delta_physical": 2413335.75,
+          "physical_identical": false,
+          "delta_score": -0.0001568057423435576
+        }
+      ],
+      "per_case": [
+        {
+          "case_id": "dev_burst_staggered_09",
+          "original_split": "dev",
+          "family": "burst_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 322310567438.87,
+              "Total_Decision_Time": 490978.89,
+              "Hit_Count": 2746387,
+              "Miss_Count": 1188818,
+              "Total_Score": 322429940217.77
+            },
+            "Full": {
+              "Total_IO_Time": 248471520626.97,
+              "Total_Decision_Time": 1026326.63,
+              "Hit_Count": 2512007,
+              "Miss_Count": 1423198,
+              "Total_Score": 248614866753.6
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 248550439803.57,
+              "Total_Decision_Time": 1068773.22,
+              "Hit_Count": 2512275,
+              "Miss_Count": 1422930,
+              "Total_Score": 248693801576.8
+            }
+          },
+          "full_score": 2.2893368219562715,
+          "build_score": 2.286888698709817,
+          "full_raw_points": 2.2893368219562715,
+          "build_raw_points": 2.286888698709817,
+          "cost_ratio": 1.0003174984031755,
+          "physical_ratio": 1.0003173289808183,
+          "delta_cost": 78934823.19998169,
+          "delta_io": 78919176.6000061,
+          "delta_miss": -268,
+          "delta_penalty_miss": -26800,
+          "delta_D": 42446.58999999997,
+          "delta_physical": 78892376.6000061,
+          "physical_identical": false,
+          "delta_score": -0.0024481232464546032
+        },
+        {
+          "case_id": "dev_fast_shared_08",
+          "original_split": "dev",
+          "family": "fast_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 191567027150.29,
+              "Total_Decision_Time": 3409448.59,
+              "Hit_Count": 589776,
+              "Miss_Count": 2660217,
+              "Total_Score": 191836458298.88
+            },
+            "Full": {
+              "Total_IO_Time": 137452233355.64,
+              "Total_Decision_Time": 3958939.86,
+              "Hit_Count": 1307215,
+              "Miss_Count": 1942778,
+              "Total_Score": 137650470095.49
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 137486570520.76,
+              "Total_Decision_Time": 4226845.36,
+              "Hit_Count": 1306806,
+              "Miss_Count": 1943187,
+              "Total_Score": 137685116066.12
+            }
+          },
+          "full_score": 2.824592816396171,
+          "build_score": 2.822786800431467,
+          "full_raw_points": 2.824592816396171,
+          "build_raw_points": 2.822786800431467,
+          "cost_ratio": 1.0002516952583305,
+          "physical_ratio": 1.0002497561676744,
+          "delta_cost": 34645970.63000488,
+          "delta_io": 34337165.11999512,
+          "delta_miss": 409,
+          "delta_penalty_miss": 40900,
+          "delta_D": 267905.50000000047,
+          "delta_physical": 34378065.11999512,
+          "physical_identical": false,
+          "delta_score": -0.0018060159647039775
+        },
+        {
+          "case_id": "dev_slow_staggered_07",
+          "original_split": "dev",
+          "family": "slow_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 20077061673.08,
+              "Total_Decision_Time": 3552809.13,
+              "Hit_Count": 1559644,
+              "Miss_Count": 1950409,
+              "Total_Score": 20275655382.2
+            },
+            "Full": {
+              "Total_IO_Time": 8992742250.77,
+              "Total_Decision_Time": 3103072.58,
+              "Hit_Count": 2501881,
+              "Miss_Count": 1008172,
+              "Total_Score": 9096662523.35
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 8993849680.29,
+              "Total_Decision_Time": 2878731.01,
+              "Hit_Count": 2501652,
+              "Miss_Count": 1008401,
+              "Total_Score": 9097568511.31
+            }
+          },
+          "full_score": 5.513505062166345,
+          "build_score": 5.5130582268148265,
+          "full_raw_points": 5.513505062166345,
+          "build_raw_points": 5.5130582268148265,
+          "cost_ratio": 1.000099595643751,
+          "physical_ratio": 1.0001243000088271,
+          "delta_cost": 905987.9599990845,
+          "delta_io": 1107429.5200004578,
+          "delta_miss": 229,
+          "delta_penalty_miss": 22900,
+          "delta_D": -224341.5700000003,
+          "delta_physical": 1130329.5200004578,
+          "physical_identical": false,
+          "delta_score": -0.00044683535151879283
+        },
+        {
+          "case_id": "holdout_burst_shared_12",
+          "original_split": "holdout",
+          "family": "burst_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 1142915672299.22,
+              "Total_Decision_Time": 3100835.45,
+              "Hit_Count": 1459341,
+              "Miss_Count": 2040652,
+              "Total_Score": 1143122838334.67
+            },
+            "Full": {
+              "Total_IO_Time": 133312225149.95,
+              "Total_Decision_Time": 2535680.59,
+              "Hit_Count": 2509410,
+              "Miss_Count": 990583,
+              "Total_Score": 133413819130.54
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 133296777808.75,
+              "Total_Decision_Time": 2614212.4,
+              "Hit_Count": 2509436,
+              "Miss_Count": 990557,
+              "Total_Score": 133398447721.15
+            }
+          },
+          "full_score": 8.83290041405436,
+          "build_score": 8.83303488262479,
+          "full_raw_points": 8.83290041405436,
+          "build_raw_points": 8.83303488262479,
+          "cost_ratio": 0.9998847839789747,
+          "physical_ratio": 0.9998841931446841,
+          "delta_cost": -15371409.38999939,
+          "delta_io": -15447341.199996948,
+          "delta_miss": -26,
+          "delta_penalty_miss": -2600,
+          "delta_D": 78531.81000000006,
+          "delta_physical": -15449941.199996948,
+          "physical_identical": false,
+          "delta_score": 0.00013446857043142302
+        },
+        {
+          "case_id": "holdout_fast_staggered_11",
+          "original_split": "holdout",
+          "family": "fast_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 22761095363.31,
+              "Total_Decision_Time": 814941.09,
+              "Hit_Count": 2794733,
+              "Miss_Count": 1084336,
+              "Total_Score": 22870343904.4
+            },
+            "Full": {
+              "Total_IO_Time": 8124876413.49,
+              "Total_Decision_Time": 736701.46,
+              "Hit_Count": 3410317,
+              "Miss_Count": 468752,
+              "Total_Score": 8172488314.95
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 8130176869.67,
+              "Total_Decision_Time": 1909860.22,
+              "Hit_Count": 3409885,
+              "Miss_Count": 469184,
+              "Total_Score": 8179005129.89
+            }
+          },
+          "full_score": 6.426600164338716,
+          "build_score": 6.423750703496658,
+          "full_raw_points": 6.426600164338716,
+          "build_raw_points": 6.423750703496658,
+          "cost_ratio": 1.0007974089027547,
+          "physical_ratio": 1.00065391808669,
+          "delta_cost": 6516814.940000534,
+          "delta_io": 5300456.180000305,
+          "delta_miss": 432,
+          "delta_penalty_miss": 43200,
+          "delta_D": 1173158.76,
+          "delta_physical": 5343656.180000305,
+          "physical_identical": false,
+          "delta_score": -0.002849460842057283
+        },
+        {
+          "case_id": "holdout_slow_shared_10",
+          "original_split": "holdout",
+          "family": "slow_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 1518204729178.84,
+              "Total_Decision_Time": 2565269.45,
+              "Hit_Count": 374508,
+              "Miss_Count": 2625485,
+              "Total_Score": 1518469842948.29
+            },
+            "Full": {
+              "Total_IO_Time": 1235194446541.48,
+              "Total_Decision_Time": 3320819.52,
+              "Hit_Count": 813954,
+              "Miss_Count": 2186039,
+              "Total_Score": 1235416371261.0
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 1235334243681.15,
+              "Total_Decision_Time": 3527114.28,
+              "Hit_Count": 813670,
+              "Miss_Count": 2186323,
+              "Total_Score": 1235556403095.43
+            }
+          },
+          "full_score": 1.864070419322309,
+          "build_score": 1.8631482289009438,
+          "full_raw_points": 1.864070419322309,
+          "build_raw_points": 1.8631482289009438,
+          "cost_ratio": 1.0001133478863382,
+          "physical_ratio": 1.0001131812065769,
+          "delta_cost": 140031834.42993164,
+          "delta_io": 139797139.66992188,
+          "delta_miss": 284,
+          "delta_penalty_miss": 28400,
+          "delta_D": 206294.75999999978,
+          "delta_physical": 139825539.66992188,
+          "physical_identical": false,
+          "delta_score": -0.0009221904213652099
+        },
+        {
+          "case_id": "train_burst_shared_05",
+          "original_split": "train",
+          "family": "burst_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 651745318020.94,
+              "Total_Decision_Time": 2906780.36,
+              "Hit_Count": 1191122,
+              "Miss_Count": 2058871,
+              "Total_Score": 651954111901.3
+            },
+            "Full": {
+              "Total_IO_Time": 456000680541.09,
+              "Total_Decision_Time": 3196603.23,
+              "Hit_Count": 1686018,
+              "Miss_Count": 1563975,
+              "Total_Score": 456160274644.32
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 456027482710.92,
+              "Total_Decision_Time": 3215142.13,
+              "Hit_Count": 1685723,
+              "Miss_Count": 1564270,
+              "Total_Score": 456187124853.05
+            }
+          },
+          "full_score": 3.0031843297373273,
+          "build_score": 3.002772487734342,
+          "full_raw_points": 3.0031843297373273,
+          "build_raw_points": 3.002772487734342,
+          "cost_ratio": 1.0000588613481323,
+          "physical_ratio": 1.000058821119131,
+          "delta_cost": 26850208.72998047,
+          "delta_io": 26802169.829956055,
+          "delta_miss": 295,
+          "delta_penalty_miss": 29500,
+          "delta_D": 18538.899999999907,
+          "delta_physical": 26831669.829956055,
+          "physical_identical": false,
+          "delta_score": -0.0004118420029852743
+        },
+        {
+          "case_id": "train_burst_staggered_06",
+          "original_split": "train",
+          "family": "burst_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 67365775054.25,
+              "Total_Decision_Time": 2824166.85,
+              "Hit_Count": 1503536,
+              "Miss_Count": 2438453,
+              "Total_Score": 67612444521.09
+            },
+            "Full": {
+              "Total_IO_Time": 30086671473.13,
+              "Total_Decision_Time": 2194156.1,
+              "Hit_Count": 2289434,
+              "Miss_Count": 1652555,
+              "Total_Score": 30254121129.23
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 30102467149.12,
+              "Total_Decision_Time": 2247796.24,
+              "Hit_Count": 2288834,
+              "Miss_Count": 1653155,
+              "Total_Score": 30270030445.36
+            }
+          },
+          "full_score": 5.525362033051033,
+          "build_score": 5.523009017087375,
+          "full_raw_points": 5.525362033051033,
+          "build_raw_points": 5.523009017087375,
+          "cost_ratio": 1.0005258561655797,
+          "physical_ratio": 1.000524121190828,
+          "delta_cost": 15909316.130001068,
+          "delta_io": 15795675.989997864,
+          "delta_miss": 600,
+          "delta_penalty_miss": 60000,
+          "delta_D": 53640.14000000013,
+          "delta_physical": 15855675.989997864,
+          "physical_identical": false,
+          "delta_score": -0.0023530159636582226
+        },
+        {
+          "case_id": "train_fast_shared_03",
+          "original_split": "train",
+          "family": "fast_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 320285813603.77,
+              "Total_Decision_Time": 1135867.02,
+              "Hit_Count": 1286370,
+              "Miss_Count": 2213629,
+              "Total_Score": 320508312370.79
+            },
+            "Full": {
+              "Total_IO_Time": 248319663997.81,
+              "Total_Decision_Time": 1857675.07,
+              "Hit_Count": 1745267,
+              "Miss_Count": 1754732,
+              "Total_Score": 248496994872.88
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 248281912460.87,
+              "Total_Decision_Time": 1964139.74,
+              "Hit_Count": 1745504,
+              "Miss_Count": 1754495,
+              "Total_Score": 248459326100.62
+            }
+          },
+          "full_score": 2.246784707867465,
+          "build_score": 2.247959990092796,
+          "full_raw_points": 2.246784707867465,
+          "build_raw_points": 2.247959990092796,
+          "cost_ratio": 0.9998484135702355,
+          "physical_ratio": 0.999847983999341,
+          "delta_cost": -37668772.260009766,
+          "delta_io": -37751536.94000244,
+          "delta_miss": -237,
+          "delta_penalty_miss": -23700,
+          "delta_D": 106464.66999999993,
+          "delta_physical": -37775236.94000244,
+          "physical_identical": false,
+          "delta_score": 0.0011752822253310313
+        },
+        {
+          "case_id": "train_fast_staggered_04",
+          "original_split": "train",
+          "family": "fast_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 1487279620267.87,
+              "Total_Decision_Time": 2877117.27,
+              "Hit_Count": 343993,
+              "Miss_Count": 2623461,
+              "Total_Score": 1487544843485.14
+            },
+            "Full": {
+              "Total_IO_Time": 1236948375879.58,
+              "Total_Decision_Time": 3393253.55,
+              "Hit_Count": 753277,
+              "Miss_Count": 2214177,
+              "Total_Score": 1237173186833.12
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 1237172709265.48,
+              "Total_Decision_Time": 3611899.66,
+              "Hit_Count": 752879,
+              "Miss_Count": 2214575,
+              "Total_Score": 1237397778665.14
+            }
+          },
+          "full_score": 1.6831200602022112,
+          "build_score": 1.6816102446628456,
+          "full_raw_points": 1.6831200602022112,
+          "build_raw_points": 1.6816102446628456,
+          "cost_ratio": 1.000181536291289,
+          "physical_ratio": 1.0001813600583076,
+          "delta_cost": 224591832.0197754,
+          "delta_io": 224333385.89990234,
+          "delta_miss": 398,
+          "delta_penalty_miss": 39800,
+          "delta_D": 218646.11000000034,
+          "delta_physical": 224373185.89990234,
+          "physical_identical": false,
+          "delta_score": -0.0015098155393655777
+        },
+        {
+          "case_id": "train_slow_shared_01",
+          "original_split": "train",
+          "family": "slow_shared",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 111394624986.09,
+              "Total_Decision_Time": 632910.8,
+              "Hit_Count": 2559662,
+              "Miss_Count": 1440335,
+              "Total_Score": 111539291396.89
+            },
+            "Full": {
+              "Total_IO_Time": 7661561756.33,
+              "Total_Decision_Time": 765796.62,
+              "Hit_Count": 3449822,
+              "Miss_Count": 550175,
+              "Total_Score": 7717345052.95
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 7658608914.77,
+              "Total_Decision_Time": 780274.72,
+              "Hit_Count": 3449959,
+              "Miss_Count": 550038,
+              "Total_Score": 7714392989.49
+            }
+          },
+          "full_score": 9.308105246474144,
+          "build_score": 9.308369912263483,
+          "full_raw_points": 9.308105246474144,
+          "build_raw_points": 9.308369912263483,
+          "cost_ratio": 0.9996174768084432,
+          "physical_ratio": 0.9996155626137623,
+          "delta_cost": -2952063.460000038,
+          "delta_io": -2952841.559999466,
+          "delta_miss": -137,
+          "delta_penalty_miss": -13700,
+          "delta_D": 14478.099999999977,
+          "delta_physical": -2966541.559999466,
+          "physical_identical": false,
+          "delta_score": 0.000264665789339702
+        },
+        {
+          "case_id": "train_slow_staggered_02",
+          "original_split": "train",
+          "family": "slow_staggered",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 192457129468.55,
+              "Total_Decision_Time": 3527428.13,
+              "Hit_Count": 675516,
+              "Miss_Count": 2573383,
+              "Total_Score": 192717995196.68
+            },
+            "Full": {
+              "Total_IO_Time": 116374295997.9,
+              "Total_Decision_Time": 3701713.73,
+              "Hit_Count": 1600292,
+              "Miss_Count": 1648607,
+              "Total_Score": 116542858411.63
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 116376707833.65,
+              "Total_Decision_Time": 4310306.81,
+              "Hit_Count": 1600277,
+              "Miss_Count": 1648622,
+              "Total_Score": 116545880340.46
+            }
+          },
+          "full_score": 3.9526737867581483,
+          "build_score": 3.9525169810158047,
+          "full_raw_points": 3.9526737867581483,
+          "build_raw_points": 3.9525169810158047,
+          "cost_ratio": 1.000025929764133,
+          "physical_ratio": 1.0000207083680575,
+          "delta_cost": 3021928.830001831,
+          "delta_io": 2411835.75,
+          "delta_miss": 15,
+          "delta_penalty_miss": 1500,
+          "delta_D": 608593.0799999996,
+          "delta_physical": 2413335.75,
+          "physical_identical": false,
+          "delta_score": -0.0001568057423435576
+        }
+      ],
+      "controller_seconds": 279.599648077,
+      "max_cell_seconds": 9.584022059999995
+    },
+    "stat": {
+      "case_count": 10,
+      "valid_cells": 30,
+      "full_mean_score": 3.439749404787465,
+      "build_mean_score": 3.445074879979142,
+      "mean_delta_score": 0.005325475191677187,
+      "full_mean_raw_points": 3.439749404787465,
+      "build_mean_raw_points": 3.445074879979142,
+      "cost_ratio_to_Full": {
+        "mean": 0.9991981309022923,
+        "p50": 0.999905496410304,
+        "p90": 1.0001564659910784,
+        "worst": 1.0005616851705617,
+        "worst_cases": [
+          "eval_09_mixed_mixed_staggered"
+        ],
+        "wins": 7,
+        "ties": 0,
+        "losses": 3
+      },
+      "physical_ratio_to_Full": {
+        "mean": 0.9992134646019035,
+        "p50": 0.9999054353357999,
+        "p90": 1.0001483988114577,
+        "worst": 1.000722801605538,
+        "worst_cases": [
+          "eval_09_mixed_mixed_staggered"
+        ],
+        "wins": 6,
+        "ties": 1,
+        "losses": 3
+      },
+      "D_Full_total_us": 11138208.88,
+      "D_Build_total_us": 11209250.459999999,
+      "identical_physical_case_count": 1,
+      "total_delta_cost_us": -160406445.70995975,
+      "total_delta_physical_us": -160477487.27000427,
+      "negative_cases": [
+        {
+          "case_id": "eval_00_uniform_static_staggered",
+          "original_split": "eval",
+          "family": "uniform",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 357339266688.03,
+              "Total_Decision_Time": 600005.2,
+              "Hit_Count": 488705,
+              "Miss_Count": 258749,
+              "Total_Score": 357365741593.23
+            },
+            "Full": {
+              "Total_IO_Time": 347829019039.62,
+              "Total_Decision_Time": 637157.26,
+              "Hit_Count": 224185,
+              "Miss_Count": 523269,
+              "Total_Score": 347881983096.88
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 347879765237.43,
+              "Total_Decision_Time": 675624.2,
+              "Hit_Count": 224565,
+              "Miss_Count": 522889,
+              "Total_Score": 347932729761.63
+            }
+          },
+          "full_score": 0.26537962072326504,
+          "build_score": 0.2639596003115785,
+          "full_raw_points": 0.26537962072326504,
+          "build_raw_points": 0.2639596003115785,
+          "cost_ratio": 1.0001458732191253,
+          "physical_ratio": 1.0001457629114117,
+          "delta_cost": 50746664.75,
+          "delta_io": 50746197.80999756,
+          "delta_miss": -380,
+          "delta_penalty_miss": -38000,
+          "delta_D": 38466.939999999944,
+          "delta_physical": 50708197.80999756,
+          "physical_identical": false,
+          "delta_score": -0.00142002041168654
+        },
+        {
+          "case_id": "eval_01_uniform_fast_staggered",
+          "original_split": "eval",
+          "family": "uniform",
+          "penalty": 300,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 147216130085.23,
+              "Total_Decision_Time": 1878990.77,
+              "Hit_Count": 2814230,
+              "Miss_Count": 636154,
+              "Total_Score": 147408855276.01
+            },
+            "Full": {
+              "Total_IO_Time": 139268782842.45,
+              "Total_Decision_Time": 2799343.85,
+              "Hit_Count": 1587878,
+              "Miss_Count": 1862506,
+              "Total_Score": 139830333986.3
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 139290090182.4,
+              "Total_Decision_Time": 3927795.69,
+              "Hit_Count": 1589735,
+              "Miss_Count": 1860649,
+              "Total_Score": 139852212678.09
+            }
+          },
+          "full_score": 0.5141157412504094,
+          "build_score": 0.5126315229686085,
+          "full_raw_points": 0.5141157412504094,
+          "build_raw_points": 0.5126315229686085,
+          "cost_ratio": 1.0001564659910784,
+          "physical_ratio": 1.0001483988114577,
+          "delta_cost": 21878691.790008545,
+          "delta_io": 21307339.94998169,
+          "delta_miss": -1857,
+          "delta_penalty_miss": -557100,
+          "delta_D": 1128451.8399999999,
+          "delta_physical": 20750239.94998169,
+          "physical_identical": false,
+          "delta_score": -0.0014842182818008975
+        },
+        {
+          "case_id": "eval_09_mixed_mixed_staggered",
+          "original_split": "eval",
+          "family": "mixed",
+          "penalty": 30,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 14967208505.95,
+              "Total_Decision_Time": 4486359.76,
+              "Hit_Count": 2590433,
+              "Miss_Count": 607596,
+              "Total_Score": 14989922745.71
+            },
+            "Full": {
+              "Total_IO_Time": 7543242691.27,
+              "Total_Decision_Time": 3667854.84,
+              "Hit_Count": 2567179,
+              "Miss_Count": 630850,
+              "Total_Score": 7565836046.11
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 7548703868.58,
+              "Total_Decision_Time": 2451525.44,
+              "Hit_Count": 2567020,
+              "Miss_Count": 631009,
+              "Total_Score": 7570085664.02
+            }
+          },
+          "full_score": 4.952718453285368,
+          "build_score": 4.949883470088929,
+          "full_raw_points": 4.952718453285368,
+          "build_raw_points": 4.949883470088929,
+          "cost_ratio": 1.0005616851705617,
+          "physical_ratio": 1.000722801605538,
+          "delta_cost": 4249617.910000801,
+          "delta_io": 5461177.309999466,
+          "delta_miss": 159,
+          "delta_penalty_miss": 4770,
+          "delta_D": -1216329.4,
+          "delta_physical": 5465947.309999466,
+          "physical_identical": false,
+          "delta_score": -0.002834983196438934
+        }
+      ],
+      "per_case": [
+        {
+          "case_id": "eval_00_uniform_static_staggered",
+          "original_split": "eval",
+          "family": "uniform",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 357339266688.03,
+              "Total_Decision_Time": 600005.2,
+              "Hit_Count": 488705,
+              "Miss_Count": 258749,
+              "Total_Score": 357365741593.23
+            },
+            "Full": {
+              "Total_IO_Time": 347829019039.62,
+              "Total_Decision_Time": 637157.26,
+              "Hit_Count": 224185,
+              "Miss_Count": 523269,
+              "Total_Score": 347881983096.88
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 347879765237.43,
+              "Total_Decision_Time": 675624.2,
+              "Hit_Count": 224565,
+              "Miss_Count": 522889,
+              "Total_Score": 347932729761.63
+            }
+          },
+          "full_score": 0.26537962072326504,
+          "build_score": 0.2639596003115785,
+          "full_raw_points": 0.26537962072326504,
+          "build_raw_points": 0.2639596003115785,
+          "cost_ratio": 1.0001458732191253,
+          "physical_ratio": 1.0001457629114117,
+          "delta_cost": 50746664.75,
+          "delta_io": 50746197.80999756,
+          "delta_miss": -380,
+          "delta_penalty_miss": -38000,
+          "delta_D": 38466.939999999944,
+          "delta_physical": 50708197.80999756,
+          "physical_identical": false,
+          "delta_score": -0.00142002041168654
+        },
+        {
+          "case_id": "eval_01_uniform_fast_staggered",
+          "original_split": "eval",
+          "family": "uniform",
+          "penalty": 300,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 147216130085.23,
+              "Total_Decision_Time": 1878990.77,
+              "Hit_Count": 2814230,
+              "Miss_Count": 636154,
+              "Total_Score": 147408855276.01
+            },
+            "Full": {
+              "Total_IO_Time": 139268782842.45,
+              "Total_Decision_Time": 2799343.85,
+              "Hit_Count": 1587878,
+              "Miss_Count": 1862506,
+              "Total_Score": 139830333986.3
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 139290090182.4,
+              "Total_Decision_Time": 3927795.69,
+              "Hit_Count": 1589735,
+              "Miss_Count": 1860649,
+              "Total_Score": 139852212678.09
+            }
+          },
+          "full_score": 0.5141157412504094,
+          "build_score": 0.5126315229686085,
+          "full_raw_points": 0.5141157412504094,
+          "build_raw_points": 0.5126315229686085,
+          "cost_ratio": 1.0001564659910784,
+          "physical_ratio": 1.0001483988114577,
+          "delta_cost": 21878691.790008545,
+          "delta_io": 21307339.94998169,
+          "delta_miss": -1857,
+          "delta_penalty_miss": -557100,
+          "delta_D": 1128451.8399999999,
+          "delta_physical": 20750239.94998169,
+          "physical_identical": false,
+          "delta_score": -0.0014842182818008975
+        },
+        {
+          "case_id": "eval_02_zipf_slow_shared",
+          "original_split": "eval",
+          "family": "zipf",
+          "penalty": 30,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 1664462545.7,
+              "Total_Decision_Time": 435763.6,
+              "Hit_Count": 3603955,
+              "Miss_Count": 146037,
+              "Total_Score": 1669279419.29
+            },
+            "Full": {
+              "Total_IO_Time": 1056860575.79,
+              "Total_Decision_Time": 646323.85,
+              "Hit_Count": 3465792,
+              "Miss_Count": 284200,
+              "Total_Score": 1066032899.64
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 1056840278.71,
+              "Total_Decision_Time": 645026.88,
+              "Hit_Count": 3466512,
+              "Miss_Count": 283480,
+              "Total_Score": 1065989705.59
+            }
+          },
+          "full_score": 3.613813916825146,
+          "build_score": 3.61407267548173,
+          "full_raw_points": 3.613813916825146,
+          "build_raw_points": 3.61407267548173,
+          "cost_ratio": 0.9999594815037937,
+          "physical_ratio": 0.9999606742933016,
+          "delta_cost": -43194.049999952316,
+          "delta_io": -20297.079999923706,
+          "delta_miss": -720,
+          "delta_penalty_miss": -21600,
+          "delta_D": -1296.969999999972,
+          "delta_physical": -41897.079999923706,
+          "physical_identical": false,
+          "delta_score": 0.00025875865658386843
+        },
+        {
+          "case_id": "eval_03_zipf_burst_shared",
+          "original_split": "eval",
+          "family": "zipf",
+          "penalty": 10,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 6790332440.84,
+              "Total_Decision_Time": 33209.68,
+              "Hit_Count": 2932598,
+              "Miss_Count": 67400,
+              "Total_Score": 6791039650.52
+            },
+            "Full": {
+              "Total_IO_Time": 4720452872.36,
+              "Total_Decision_Time": 213297.95,
+              "Hit_Count": 2773566,
+              "Miss_Count": 226432,
+              "Total_Score": 4722930490.31
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 4689378719.29,
+              "Total_Decision_Time": 213092.63,
+              "Hit_Count": 2774543,
+              "Miss_Count": 225455,
+              "Total_Score": 4691846361.92
+            }
+          },
+          "full_score": 3.0453498530989167,
+          "build_score": 3.091122120659775,
+          "full_raw_points": 3.0453498530989167,
+          "build_raw_points": 3.091122120659775,
+          "cost_ratio": 0.9934184658330723,
+          "physical_ratio": 0.993418212058032,
+          "delta_cost": -31084128.390000343,
+          "delta_io": -31074153.069999695,
+          "delta_miss": -977,
+          "delta_penalty_miss": -9770,
+          "delta_D": -205.32000000000698,
+          "delta_physical": -31083923.069999695,
+          "physical_identical": false,
+          "delta_score": 0.04577226756085828
+        },
+        {
+          "case_id": "eval_04_hotspot_fast_staggered",
+          "original_split": "eval",
+          "family": "hotspot",
+          "penalty": 10,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 39722495374.29,
+              "Total_Decision_Time": 36941.25,
+              "Hit_Count": 551931,
+              "Miss_Count": 88983,
+              "Total_Score": 39723422145.54
+            },
+            "Full": {
+              "Total_IO_Time": 25982615074.59,
+              "Total_Decision_Time": 71062.17,
+              "Hit_Count": 535956,
+              "Miss_Count": 104958,
+              "Total_Score": 25983735716.76
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 25950495644.1,
+              "Total_Decision_Time": 68260.24,
+              "Hit_Count": 536737,
+              "Miss_Count": 104177,
+              "Total_Score": 25951605674.34
+            }
+          },
+          "full_score": 3.458837553934825,
+          "build_score": 3.4669259916082664,
+          "full_raw_points": 3.458837553934825,
+          "build_raw_points": 3.4669259916082664,
+          "cost_ratio": 0.9987634556181514,
+          "physical_ratio": 0.9987635600706413,
+          "delta_cost": -32130042.41999817,
+          "delta_io": -32119430.49000168,
+          "delta_miss": -781,
+          "delta_penalty_miss": -7810,
+          "delta_D": -2801.929999999993,
+          "delta_physical": -32127240.49000168,
+          "physical_identical": false,
+          "delta_score": 0.008088437673441362
+        },
+        {
+          "case_id": "eval_05_hotspot_slow_shared",
+          "original_split": "eval",
+          "family": "hotspot",
+          "penalty": 30,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 1603064814612.9,
+              "Total_Decision_Time": 581840.09,
+              "Hit_Count": 1439319,
+              "Miss_Count": 1810680,
+              "Total_Score": 1603119716852.99
+            },
+            "Full": {
+              "Total_IO_Time": 500875142164.48,
+              "Total_Decision_Time": 444556.47,
+              "Hit_Count": 2419747,
+              "Miss_Count": 830252,
+              "Total_Score": 500900494280.95
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 500827777239.48,
+              "Total_Decision_Time": 475106.68,
+              "Hit_Count": 2419831,
+              "Miss_Count": 830168,
+              "Total_Score": 500853157386.16
+            }
+          },
+          "full_score": 6.875464202609618,
+          "build_score": 6.875759482458605,
+          "full_raw_points": 6.875464202609618,
+          "build_raw_points": 6.875759482458605,
+          "cost_ratio": 0.999905496410304,
+          "physical_ratio": 0.9999054353357999,
+          "delta_cost": -47336894.79003906,
+          "delta_io": -47364925.0,
+          "delta_miss": -84,
+          "delta_penalty_miss": -2520,
+          "delta_D": 30550.21000000002,
+          "delta_physical": -47367445.0,
+          "physical_identical": false,
+          "delta_score": 0.00029527984898702897
+        },
+        {
+          "case_id": "eval_06_lognormal_burst_shared",
+          "original_split": "eval",
+          "family": "lognormal",
+          "penalty": 10,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 882738728520.18,
+              "Total_Decision_Time": 2861832.34,
+              "Hit_Count": 1561844,
+              "Miss_Count": 1438152,
+              "Total_Score": 882755971872.52
+            },
+            "Full": {
+              "Total_IO_Time": 446110370434.99,
+              "Total_Decision_Time": 1613456.37,
+              "Hit_Count": 1813399,
+              "Miss_Count": 1186597,
+              "Total_Score": 446123849861.37
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 445994152586.26,
+              "Total_Decision_Time": 1706875.9,
+              "Hit_Count": 1813404,
+              "Miss_Count": 1186592,
+              "Total_Score": 446007725382.15
+            }
+          },
+          "full_score": 4.946238098904695,
+          "build_score": 4.9475535754680955,
+          "full_raw_points": 4.946238098904695,
+          "build_raw_points": 4.9475535754680955,
+          "cost_ratio": 0.9997397034943187,
+          "physical_ratio": 0.9997394931495311,
+          "delta_cost": -116124479.2199707,
+          "delta_io": -116217848.72998047,
+          "delta_miss": -5,
+          "delta_penalty_miss": -50,
+          "delta_D": 93419.5299999998,
+          "delta_physical": -116217898.72998047,
+          "physical_identical": false,
+          "delta_score": 0.001315476563400253
+        },
+        {
+          "case_id": "eval_07_lognormal_static_shared",
+          "original_split": "eval",
+          "family": "lognormal",
+          "penalty": 10,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 32343912382.89,
+              "Total_Decision_Time": 179030.11,
+              "Hit_Count": 2292486,
+              "Miss_Count": 457513,
+              "Total_Score": 32348666542.99
+            },
+            "Full": {
+              "Total_IO_Time": 15769485568.18,
+              "Total_Decision_Time": 332205.22,
+              "Hit_Count": 2336940,
+              "Miss_Count": 413059,
+              "Total_Score": 15773948363.4
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 15758916470.21,
+              "Total_Decision_Time": 337904.86,
+              "Hit_Count": 2336377,
+              "Miss_Count": 413622,
+              "Total_Score": 15763390595.07
+            }
+          },
+          "full_score": 5.123771688568031,
+          "build_score": 5.127035430001072,
+          "full_raw_points": 5.123771688568031,
+          "build_raw_points": 5.127035430001072,
+          "cost_ratio": 0.9993306832197767,
+          "physical_ratio": 0.9993303077833219,
+          "delta_cost": -10557768.329999924,
+          "delta_io": -10569097.97000122,
+          "delta_miss": 563,
+          "delta_penalty_miss": 5630,
+          "delta_D": 5699.640000000014,
+          "delta_physical": -10563467.97000122,
+          "physical_identical": false,
+          "delta_score": 0.0032637414330416448
+        },
+        {
+          "case_id": "eval_08_mixed_mixed_shared",
+          "original_split": "eval",
+          "family": "mixed",
+          "penalty": 100,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 4070122626221.68,
+              "Total_Decision_Time": 329603.63,
+              "Hit_Count": 1386405,
+              "Miss_Count": 1363594,
+              "Total_Score": 4070259315225.32
+            },
+            "Full": {
+              "Total_IO_Time": 3418112616633.61,
+              "Total_Decision_Time": 712950.9,
+              "Hit_Count": 1051534,
+              "Miss_Count": 1698465,
+              "Total_Score": 3418283176084.51
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 3418112616633.61,
+              "Total_Decision_Time": 708037.94,
+              "Hit_Count": 1051534,
+              "Miss_Count": 1698465,
+              "Total_Score": 3418283171171.55
+            }
+          },
+          "full_score": 1.6018049186743721,
+          "build_score": 1.601804930744758,
+          "full_raw_points": 1.6018049186743721,
+          "build_raw_points": 1.601804930744758,
+          "cost_ratio": 0.9999999985627405,
+          "physical_ratio": 1.0,
+          "delta_cost": -4912.9599609375,
+          "delta_io": 0.0,
+          "delta_miss": 0,
+          "delta_penalty_miss": 0,
+          "delta_D": -4912.960000000079,
+          "delta_physical": 0.0,
+          "physical_identical": true,
+          "delta_score": 1.2070385801976613e-08
+        },
+        {
+          "case_id": "eval_09_mixed_mixed_staggered",
+          "original_split": "eval",
+          "family": "mixed",
+          "penalty": 30,
+          "metrics": {
+            "Naive": {
+              "Total_IO_Time": 14967208505.95,
+              "Total_Decision_Time": 4486359.76,
+              "Hit_Count": 2590433,
+              "Miss_Count": 607596,
+              "Total_Score": 14989922745.71
+            },
+            "Full": {
+              "Total_IO_Time": 7543242691.27,
+              "Total_Decision_Time": 3667854.84,
+              "Hit_Count": 2567179,
+              "Miss_Count": 630850,
+              "Total_Score": 7565836046.11
+            },
+            "BuildBestFit": {
+              "Total_IO_Time": 7548703868.58,
+              "Total_Decision_Time": 2451525.44,
+              "Hit_Count": 2567020,
+              "Miss_Count": 631009,
+              "Total_Score": 7570085664.02
+            }
+          },
+          "full_score": 4.952718453285368,
+          "build_score": 4.949883470088929,
+          "full_raw_points": 4.952718453285368,
+          "build_raw_points": 4.949883470088929,
+          "cost_ratio": 1.0005616851705617,
+          "physical_ratio": 1.000722801605538,
+          "delta_cost": 4249617.910000801,
+          "delta_io": 5461177.309999466,
+          "delta_miss": 159,
+          "delta_penalty_miss": 4770,
+          "delta_D": -1216329.4,
+          "delta_physical": 5465947.309999466,
+          "physical_identical": false,
+          "delta_score": -0.002834983196438934
+        }
+      ],
+      "controller_seconds": 164.02611952,
+      "max_cell_seconds": 8.868749073999993
+    }
+  },
+  "phase_artifacts": {
+    "dyna": {
+      "selection.json": "bcb76c6218f9502ce2bb041718ddb033a2011ed4a9aea58ee44c5dd31c959366",
+      "rows.json": "b08f9adcb5a93f53c678e1d6c6f0df025a9f7cf0dd1c2a222e4c396d4743167a",
+      "summary.json": "c4285a3e8230fb0051e2ca0a8b5f65438154fea1d500ec6e6eecb4b7f253bdf5",
+      "completion.json": "c3f77d4aff27893a745feabbec955eb97857a69f633fc2bbc95b63bf5d34d128",
+      "finalized_summary.json": "da2767a25fc4d46059e170018fbf3715da91afc03ec7d1ef5d2e98390936d682",
+      "completion_gate.json": "b939bb0e918875df185538cf189053c230b1663f2ee68edbf506e1e3bde964dd",
+      "cpu_released.json": "4d77a60d77a99dc39595f4de6236a4c9f49f6211d6a959831450c45a6383c4ce"
+    },
+    "stat": {
+      "selection.json": "b89582b12fc3afb9c45a35ed9b41aced00cf7240cc22c5262026e342706d192f",
+      "rows.json": "535fe0b3a79d76071cdf0848ded4e73296862f17c793510636c8673f5a332818",
+      "summary.json": "522ae13f98ecddd9a153068ecad582da8451300c076e949319bcc141a3747352",
+      "completion.json": "2bc853661638d21f127ebc2e10a686152d55ab232317cd229f0eb63abdc109a3",
+      "finalized_summary.json": "f493b3ca347026bae1fb12f1deb87aa20e3191d3e913c964e943fbb7b6067c20",
+      "completion_gate.json": "8d40ce5fd1014823bfebc959656961e84538008d691e21e860368a0d113fe150",
+      "cpu_released.json": "c94f1091537347b2ca8ed562d66cee4bed6ad31b7b652373a5860f9cf623f173"
+    }
+  },
+  "reviewed_report_path": "${WORKSPACE}\\tmp\\r81_build_eval_20261031\\REVIEWED_REPORT.md",
+  "reviewed_report_sha256": "fc99a1e51a41de1993c6c341ef10aa7bdc58fc9a742bdd17b4233dbffc0e6aca",
+  "process_cleanup_source": "frozen helper ownership records and attempt final group rechecks; no native rerun by auditor",
+  "limits": [
+    "local observed synthetic data",
+    "single repeat descriptive D",
+    "cold BUILD intervention total effect only",
+    "no statistical significance claim",
+    "no automatic promotion",
+    "no hidden official case evidence"
+  ],
+  "aggregation_float_check": {
+    "relative_tolerance": 2e-15,
+    "absolute_tolerance": 1e-09,
+    "differing_last_bit_fields": [
+      {
+        "path": "dyna/raw_summary/groups/all/0/D_total_us",
+        "stored": 27838553.029999997,
+        "recomputed": 27838553.03,
+        "absolute_difference": 3.725290298461914e-09
+      },
+      {
+        "path": "dyna/raw_summary/groups/all/1/D_total_us",
+        "stored": 29790738.940000005,
+        "recomputed": 29790738.94,
+        "absolute_difference": 3.725290298461914e-09
+      },
+      {
+        "path": "dyna/raw_summary/groups/all/2/clipped_score_sum",
+        "stored": 53.458906173835146,
+        "recomputed": 53.45890617383515,
+        "absolute_difference": 7.105427357601002e-15
+      },
+      {
+        "path": "dyna/raw_summary/groups/all/2/D_total_us",
+        "stored": 32355095.789999995,
+        "recomputed": 32355095.79,
+        "absolute_difference": 3.725290298461914e-09
+      },
+      {
+        "path": "dyna/raw_summary/groups/original_split:dev/0/IO_total_us",
+        "stored": 533954656262.24005,
+        "recomputed": 533954656262.24,
+        "absolute_difference": 6.103515625e-05
+      },
+      {
+        "path": "dyna/raw_summary/groups/original_split:holdout/2/D_total_us",
+        "stored": 8051186.9,
+        "recomputed": 8051186.899999999,
+        "absolute_difference": 9.313225746154785e-10
+      },
+      {
+        "path": "dyna/raw_summary/groups/original_split:train/0/IO_total_us",
+        "stored": 2830528281401.4697,
+        "recomputed": 2830528281401.47,
+        "absolute_difference": 0.00048828125
+      },
+      {
+        "path": "dyna/raw_summary/groups/original_split:train/1/D_total_us",
+        "stored": 15109198.299999999,
+        "recomputed": 15109198.3,
+        "absolute_difference": 1.862645149230957e-09
+      },
+      {
+        "path": "dyna/raw_summary/groups/original_split:train/2/IO_total_us",
+        "stored": 2095619888334.8098,
+        "recomputed": 2095619888334.81,
+        "absolute_difference": 0.000244140625
+      },
+      {
+        "path": "dyna/raw_summary/aggregate/0/D_total_us",
+        "stored": 27838553.029999997,
+        "recomputed": 27838553.03,
+        "absolute_difference": 3.725290298461914e-09
+      },
+      {
+        "path": "dyna/raw_summary/aggregate/1/D_total_us",
+        "stored": 29790738.940000005,
+        "recomputed": 29790738.94,
+        "absolute_difference": 3.725290298461914e-09
+      },
+      {
+        "path": "dyna/raw_summary/aggregate/2/clipped_score_sum",
+        "stored": 53.458906173835146,
+        "recomputed": 53.45890617383515,
+        "absolute_difference": 7.105427357601002e-15
+      },
+      {
+        "path": "dyna/raw_summary/aggregate/2/D_total_us",
+        "stored": 32355095.789999995,
+        "recomputed": 32355095.79,
+        "absolute_difference": 3.725290298461914e-09
+      },
+      {
+        "path": "stat/raw_summary/groups/all/1/clipped_score_sum",
+        "stored": 34.39749404787465,
+        "recomputed": 34.397494047874645,
+        "absolute_difference": 7.105427357601002e-15
+      },
+      {
+        "path": "stat/raw_summary/groups/all/1/D_total_us",
+        "stored": 11138208.879999999,
+        "recomputed": 11138208.88,
+        "absolute_difference": 1.862645149230957e-09
+      },
+      {
+        "path": "stat/raw_summary/groups/original_split:eval/1/clipped_score_sum",
+        "stored": 34.39749404787465,
+        "recomputed": 34.397494047874645,
+        "absolute_difference": 7.105427357601002e-15
+      },
+      {
+        "path": "stat/raw_summary/groups/original_split:eval/1/D_total_us",
+        "stored": 11138208.879999999,
+        "recomputed": 11138208.88,
+        "absolute_difference": 1.862645149230957e-09
+      },
+      {
+        "path": "stat/raw_summary/aggregate/1/clipped_score_sum",
+        "stored": 34.39749404787465,
+        "recomputed": 34.397494047874645,
+        "absolute_difference": 7.105427357601002e-15
+      },
+      {
+        "path": "stat/raw_summary/aggregate/1/D_total_us",
+        "stored": 11138208.879999999,
+        "recomputed": 11138208.88,
+        "absolute_difference": 1.862645149230957e-09
+      }
+    ],
+    "raw_metrics_strict_equality": true,
+    "output_hashes_strict_equality": true
+  },
+  "csv66_raw_metric_check": "PASS",
+  "tiny_red_exit3_green_exit0_independently_checked": true,
+  "workspace_submission_snapshot": {
+    "path": "${WORKSPACE}\\github-project\\submission\\MySpillScheduler.cpp",
+    "sha256": "ef1c26e81013dced4dbf100206ead5666368e2e957996cffdf2258297cb8ef65",
+    "note": "Local checkout retains readable ef1c source; named final2e168 is behavior-equivalent per existing validation; experiment did not write either source",
+    "remote_git_not_queried": true
+  },
+  "main_final_unchanged_scope": "No experiment promotion or write to final policy; Full ELF equals frozen final bf1377; local submission snapshot recorded separately"
+}

@@ -1,0 +1,21 @@
+--- Full/MySpillScheduler.cpp
++++ NoNextProtection/MySpillScheduler.cpp
+@@ -646,7 +646,7 @@
+                 int slot = (recent_head_ - 1 - j + static_cast<int>(recent_.size()))
+                     % static_cast<int>(recent_.size());
+                 int id = recent_[slot], o = id / p_, pa = id % p_;
+-                if ((o == op && pa == pid) || (o == next_op && pa == next_pid))
++                if ((o == op && pa == pid))
+                     continue;
+                 const auto& part = s.operators[o].partitions[pa];
+                 if (part.in_memory && part.data_size >= need) {
+@@ -693,8 +693,7 @@
+                         std::max(1., static_cast<double>(s.memory_limit) / history_.size());
+                     priority *= std::sqrt(1. + part.data_size / typical);
+                 }
+-                if (o.op_id == next_op && part.partition_id == next_pid)
+-                    priority += 1e12;
++                // Ablation: no next-request priority protection.
+                 victims_.push_back({o.op_id, part.partition_id, part.data_size, priority});
+             }
+ 

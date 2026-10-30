@@ -1,0 +1,22 @@
+--- Full/MySpillScheduler.cpp
++++ UnitMissCost/MySpillScheduler.cpp
+@@ -686,8 +686,7 @@
+                     reuse = refaultReuse(o.op_id * p_ + part.partition_id, now - 1, reuse, observed_weight);
+                 // The true penalty is absent from SystemState. A fixed 100 microsecond
+                 // surrogate is used here; it is not the hidden scoring penalty.
+-                double priority = reuse * (1.0 / s.read_bandwidth
+-                    + 1.0 / s.write_bandwidth + 100.0 / part.data_size);
++                double priority = reuse / part.data_size; // Ablation: unit miss-cost density.
+                 if (HASHJOIN_SIZE_BIAS && evidence) {
+                     const double typical =
+                         std::max(1., static_cast<double>(s.memory_limit) / history_.size());
+@@ -716,8 +715,7 @@
+                     if (mask & (1 << j)) {
+                         const auto& v = victims_[j];
+                         bytes += v.bytes;
+-                        loss += v.priority * v.bytes
+-                            + 0.25 * static_cast<double>(v.bytes) / s.write_bandwidth;
++                        loss += v.priority * v.bytes; // Ablation: no extra write-cost term.
+                     }
+                 if (bytes >= need && loss < best_loss) {
+                     best_mask = mask;

@@ -1,0 +1,20 @@
+--- Full/MySpillScheduler.cpp
++++ NoStructurePolicy/MySpillScheduler.cpp
+@@ -620,7 +620,7 @@
+                 return;
+             at = successor_[at];
+             if (at == start) {
+-                uniform_cycle_ = (j == n);
++                uniform_cycle_ = false; // Ablation: disable cycle policy, retain observations.
+                 return;
+             }
+         }
+@@ -659,7 +659,7 @@
+         const int64_t now = s.hit_count + s.miss_count + 1;
+         std::fill(cached_valid_.begin(), cached_valid_.end(), 0);
+         const bool evidence = s.hit_count + s.miss_count > 0;
+-        const bool scan = streak_ >= 6 && stride_ > 0 && observed_count_ * 2 > now;
++        const bool scan = false; // Ablation: disable scan policy, retain observations.
+         const double observed_weight = demandWeight(now - 1);
+         victims_.clear();
+         for (const auto& o : s.operators)

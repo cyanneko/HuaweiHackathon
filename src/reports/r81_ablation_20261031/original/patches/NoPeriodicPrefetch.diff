@@ -1,0 +1,14 @@
+--- Full/MySpillScheduler.cpp
++++ NoPeriodicPrefetch/MySpillScheduler.cpp
+@@ -845,10 +845,7 @@
+         // is needed or the equal-size cyclic-route hypothesis supplies it.
+         if (part.data_size > s.memory_limit - s.memory_used && !uniform_cycle_)
+             return a;
+-        release(s, op, pid, part.data_size, a);
+-        pruneSpills(s, s.operators[op].partitions[pid].data_size, a);
+-        a.emplace_back(Action::LOAD, op, pid);
+-        record(s, a);
++        // Ablation: retain update and analysis, return no periodic actions.
+         return a;
+     }
+ };

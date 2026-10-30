@@ -96,3 +96,9 @@ python build.py及python check_demo.py均通过：file://+offline，0HTTP、0JS�
 ## 离线下载封装修正完成
 
 Sites version4发布succeeded，托管源码9a13da2b8c2740939fcafecfe329180b99a083f0，部署appgdep_6ae507da67e88191a8f0972687c4d1cc。新ZIP匿名下载200，下载ZIP与本地逐字节相同，解压唯一HTML也与桌面原件完全一致；这次核验实际通过。桌面HTML未变化，无需用户重新复制。网页下载入口指向ZIP，避免HTML响应被托管层注入脚本。
+
+## V3 最终交接
+
+用户要求已完成：精简五部分网站、可展开公式/消融、可双击单文件、本地与公网下载核验、源代码同步。源码e6a03b4a已推送source/Vanius0525；gh-pages副本a248023996aab94c843e0b1837e97883d9a9764d已推送，静态文件Git对象全量一致。PUBLICATION.json为实际Sites version4，GITHUB_PAGES_STATUS.json仅更新分支身份，没有声称Pages设置已启用。
+
+桌面HTML保持SHA f475a97c53815aefc185b6206c10fd93041083dc16b6d6470cff4304ca88320e，原参考PDF/PPT未变。无剩余本轮制作步骤，无后台进程；算法优化、训练与评测仍暂停。

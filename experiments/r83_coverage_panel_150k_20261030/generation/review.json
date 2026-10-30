@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "data_status": "PASS_FULL_INPUT_AUDIT",
+  "source_status": "PASS_STATIC_NO_BLOCKER",
+  "data_manifest_sha256": "3deef933b71b6f3415ad67bc251e119f85c060ca0f7268210486966615434b6b",
+  "generation_audit_summary_sha256": "99c2f17fe9d74a488cdd8925edfbf0b6575b347fbcf03c874a32d7bf514bf71f",
+  "source_review_sha256": "b3817da30e4592e9a33649ec49e1aa6f04710c6be9844612a486ae3927e7d92d",
+  "config_sha256": "20538313993fa3b9e286ea196e5f25422f9aaec8858f81235acb736b4d37180d",
+  "selection_sha256": "7ad7f29f6c5836f91a4b1cbb120549839cad4cab609c6b5d0b8e07c0b53cb082",
+  "script_sha256": "d94c236a08df8c8e23cda60e6a9d30c10e8b88080ed053ed710e8df384a501fa",
+  "review_script_sha256": "92397551e8056dbb4c938a4d82387ccfe734fcec65998ccb1832be203e844eab",
+  "cpu_released_sha256": "2c144c692edb201c25322f3f2f08182e58cf81e1a0b41b2a30bf5a52c98894c2",
+  "cases": 18,
+  "train_cases": 12,
+  "dev_cases": 6,
+  "train_independent_seed_lineages": 6,
+  "dev_independent_seed_lineages": 6,
+  "full_audit_fields": [
+    "full input SHA256",
+    "body SHA excluding first header line",
+    "operation/partition stream SHA",
+    "N/count/phase and K SWITCH",
+    "key and tuple legality",
+    "header vs config and metadata",
+    "per-operator build/probe counts",
+    "per-partition bytes and probe counts",
+    "max partition <= M",
+    "realized pressure",
+    "seed/profile/phase/rare or exact IID spec",
+    "source and metadata SHA",
+    "bandwidth-only pair equality",
+    "prior manifest SHA/seed separation"
+  ],
+  "failures": 0,
+  "replacement_seeds": 0,
+  "scheduler_runs": 0,
+  "policy_results_read": false,
+  "cpu_status": "RELEASED",
+  "active_child_processes": 0,
+  "old38_reference_path": "tmp/r81_eval/train/selection.json",
+  "old38_reference_sha256": "ffc6c8620ae569563582e7aa23194db5c28aaff78978d1d75224e3bd2dc2e1aa",
+  "model_boundary": "Original R72 dynamic model unchanged. IID track independently preallocates build bytes/counts before shuffled INSERT, SWITCH barrier and IID PROBE; not the same count-sampling model.",
+  "dynamic_rare_hot_pressure": [
+    {
+      "case_id": "r83_train_b02_fast_staggered_bw1",
+      "requested_pressure": 1.1,
+      "actual_pressure": 1.115395199507475,
+      "relative_deviation": 0.013995635915886151
+    },
+    {
+      "case_id": "r83_train_b02_fast_staggered_bw64",
+      "requested_pressure": 1.1,
+      "actual_pressure": 1.115395199507475,
+      "relative_deviation": 0.013995635915886151
+    },
+    {
+      "case_id": "r83_dev_b02_fast_staggered_bw8",
+      "requested_pressure": 1.1,
+      "actual_pressure": 1.1884188875555992,
+      "relative_deviation": 0.0803808068687264
+    }
+  ],
+  "disjoint_checks": {
+    "train_dev_seed_disjoint": true,
+    "train_dev_lineage_disjoint": true,
+    "all18_input_sha_unique": true,
+    "prior_recorded_input_sha_disjoint": true,
+    "prior_recorded_seed_disjoint": true,
+    "prior_scope": "Manifest-declared identities only; not all possible historic seeds or input bodies re-audited."
+  },
+  "dev_boundary": "DEV uses independent seeds under the same predeclared mechanism/shape parameters. In particular IID Zipf structure is determined by the same family parameters; seed independence does not imply independent distributions or OOD. This panel is reserved development validation, not a blind official test set.",
+  "finalize_script_sha256": "28fcc41928210f364235f748d45e6174a5aa78182bd0add4f6e51dbc5e6afc4f"
+}

@@ -1,0 +1,21 @@
+{
+  "status": "PASS_STATIC_NO_BLOCKER",
+  "source_bindings": {
+    "dynamic": {
+      "source": "tmp/r72_hierarchical/generator.cpp",
+      "sha256": "0611bdecc3640cffe06efbb9956fa2d3271d8d579c2318e1c1f938121709a175",
+      "semantics": "Two dynamic probability clocks; operator/partition counts sampled, ordinary partitions nearuniform; rare_hot affects both INSERT/PROBE and bytes.",
+      "binary": "tmp/r72_hierarchical/build/generator",
+      "binary_sha256": "774f700a909e6252443bcfe14cc8d2ebe59677b20db44684622298e840c30705"
+    },
+    "IID": {
+      "source": "tmp/d70/final_dataset/tools/random_workloads.py",
+      "sha256": "1d38c7fa79d02f0d5c0a223fb427b40f5a50cf0c8e6783a429a2074b19d64da4",
+      "semantics": "Fixed bounded total partition-byte layout and allocated build tuple counts; shuffled INSERTs, then SWITCH barrier, then IID probe draws. This differs from R72 no-per-partition-count-quota contract."
+    }
+  },
+  "model_boundary": "Original R72 dynamic model unchanged. IID track independently preallocates build bytes/counts before shuffled INSERT, SWITCH barrier and IID PROBE; not the same count-sampling model.",
+  "scope": "Frozen generator source/binary identity and documented interface only. No scheduler source or native strategy execution involved.",
+  "iid_preallocation_explicit": true,
+  "original_dynamic_generator_unchanged": true
+}
